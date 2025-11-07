@@ -81,7 +81,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden bg-background border-t border-border animate-slide-in-right">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <Link

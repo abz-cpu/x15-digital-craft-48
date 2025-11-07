@@ -20,6 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -49,6 +50,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgressBar />
       <Navigation />
 
       {/* Hero Section */}
@@ -328,8 +330,9 @@ const Index = () => {
             </table>
           </div>
 
-          <p className="text-center text-muted-foreground mt-8">
-            💡 We keep costs low by using modern tools and working smart. You get
+          <p className="text-center text-muted-foreground mt-8 flex items-center justify-center gap-2">
+            <Zap className="h-5 w-5 text-primary" />
+            We keep costs low by using modern tools and working smart. You get
             professional results without agency overhead.
           </p>
         </div>
@@ -679,8 +682,9 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-6">
-              💡 Most websites delivered in 1-7 days. AI setups take 2-5 days.
+            <p className="text-muted-foreground mb-6 flex items-center justify-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Most websites delivered in 1-7 days. AI setups take 2-5 days.
             </p>
             <Button asChild size="lg">
               <Link to="/contact">
@@ -799,8 +803,9 @@ const Index = () => {
             </Card>
           </div>
 
-          <p className="text-center text-muted-foreground mt-12 max-w-3xl mx-auto">
-            💡 We're new, and we're honest about it. That means better prices for
+          <p className="text-center text-muted-foreground mt-12 max-w-3xl mx-auto flex items-center justify-center gap-2">
+            <Zap className="h-5 w-5 text-primary" />
+            We're new, and we're honest about it. That means better prices for
             early clients and full attention to every project.
           </p>
         </div>
@@ -893,26 +898,35 @@ const Index = () => {
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <div>
-                    <p className="text-muted-foreground mb-2">
-                      💬 "Got a quote in 2 hours - way faster than other devs"
-                    </p>
-                    <p className="text-sm text-muted-foreground">
+                    <div className="flex items-start gap-2 mb-2">
+                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-muted-foreground">
+                        "Got a quote in 2 hours - way faster than other devs"
+                      </p>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-7">
                       — Sarah, Salon Owner (SE15, London)
                     </p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground mb-2">
-                      💬 "Love how transparent the pricing is. No BS."
-                    </p>
-                    <p className="text-sm text-muted-foreground">
+                    <div className="flex items-start gap-2 mb-2">
+                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-muted-foreground">
+                        "Love how transparent the pricing is. No BS."
+                      </p>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-7">
                       — James, Plumber (Birmingham)
                     </p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground mb-2">
-                      💬 "The AI chatbot handles 80% of basic questions now"
-                    </p>
-                    <p className="text-sm text-muted-foreground">
+                    <div className="flex items-start gap-2 mb-2">
+                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-muted-foreground">
+                        "The AI chatbot handles 80% of basic questions now"
+                      </p>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-7">
                       — Rachel, Consultant (Manchester)
                     </p>
                   </div>
@@ -1002,8 +1016,9 @@ const Index = () => {
               +44 7424 062513
             </a>
           </p>
-          <p className="text-sm text-white/80">
-            💡 No sales calls. No pressure. Just clear answers.
+          <p className="text-sm text-white/80 flex items-center justify-center gap-2">
+            <Zap className="h-4 w-4" />
+            No sales calls. No pressure. Just clear answers.
           </p>
         </div>
       </section>

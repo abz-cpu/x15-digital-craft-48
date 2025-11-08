@@ -21,9 +21,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import { useParallax } from "@/hooks/useParallax";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const parallaxOffset = useParallax({ speed: 0.5, maxOffset: 50 });
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -43,6 +49,24 @@ const Index = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  const testimonials = [
+    {
+      quote: "Got a quote in 2 hours - way faster than other devs",
+      author: "Sarah, Salon Owner",
+      location: "SE15, London",
+    },
+    {
+      quote: "Love how transparent the pricing is. No BS.",
+      author: "James, Plumber",
+      location: "Birmingham",
+    },
+    {
+      quote: "The AI chatbot handles 80% of basic questions now",
+      author: "Rachel, Consultant",
+      location: "Manchester",
+    },
+  ];
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -54,8 +78,14 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30">
-        <div className="max-w-7xl mx-auto text-center fade-in-section">
+      <section 
+        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
+        style={{
+          transform: `translateY(${parallaxOffset}px)`,
+          transition: 'transform 0.1s linear',
+        }}
+      >
+        <div className="max-w-7xl mx-auto text-center fade-in-section relative z-10">
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
             Affordable Web Development & AI Automation for UK Businesses
           </h1>
@@ -141,11 +171,12 @@ const Index = () => {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover-lift">
-              <CardHeader>
-                <DollarSign className="h-12 w-12 text-primary mb-4" />
-                <CardTitle>Transparent Pricing</CardTitle>
-              </CardHeader>
+            <AnimatedSection staggerIndex={0}>
+              <Card className="hover-lift">
+                <CardHeader>
+                  <DollarSign className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle>Transparent Pricing</CardTitle>
+                </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
                   You see the cost before we talk. No "it depends." No surprise
@@ -153,12 +184,14 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift">
-              <CardHeader>
-                <Zap className="h-12 w-12 text-primary mb-4" />
-                <CardTitle>Dual Expertise</CardTitle>
-              </CardHeader>
+            <AnimatedSection staggerIndex={1}>
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Zap className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle>Dual Expertise</CardTitle>
+                </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
                   Web development (1-14 days) & AI automation that works 24/7.
@@ -166,19 +199,22 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift">
-              <CardHeader>
-                <MessageCircle className="h-12 w-12 text-primary mb-4" />
-                <CardTitle>Direct Access</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Work directly with our team. No account managers, no runaround.
-                  You get responses, not excuses.
-                </p>
-              </CardContent>
-            </Card>
+            <AnimatedSection staggerIndex={2}>
+              <Card className="hover-lift">
+                <CardHeader>
+                  <MessageCircle className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle>Direct Access</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Work directly with our team. No account managers, no runaround.
+                    You get responses, not excuses.
+                  </p>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -194,11 +230,12 @@ const Index = () => {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover-lift">
-              <CardHeader className="text-center">
-                <Globe className="h-16 w-16 text-primary mx-auto mb-4" />
-                <CardTitle className="text-2xl">Need a Website?</CardTitle>
-              </CardHeader>
+            <AnimatedSection staggerIndex={0} animation="slide">
+              <Card className="hover-lift">
+                <CardHeader className="text-center">
+                  <Globe className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <CardTitle className="text-2xl">Need a Website?</CardTitle>
+                </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
                   From simple business sites to complex web applications.
@@ -220,12 +257,14 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift">
-              <CardHeader className="text-center">
-                <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
-                <CardTitle className="text-2xl">Need AI Automation?</CardTitle>
-              </CardHeader>
+            <AnimatedSection staggerIndex={1} animation="slide">
+              <Card className="hover-lift">
+                <CardHeader className="text-center">
+                  <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <CardTitle className="text-2xl">Need AI Automation?</CardTitle>
+                </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
                   From customer support to sales automation, email outreach to
@@ -253,39 +292,42 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift border-2 border-primary">
-              <CardHeader className="text-center">
-                <div className="flex justify-center items-center gap-2 mb-4">
-                  <Globe className="h-12 w-12 text-primary" />
-                  <span className="text-2xl font-bold text-primary">+</span>
-                  <Bot className="h-12 w-12 text-primary" />
-                </div>
-                <CardTitle className="text-2xl">Need Both?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Website + AI automation working together seamlessly.
-                </p>
-                <p className="font-semibold text-lg mb-2">
-                  Combined packages available
-                </p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Save 10-15% vs separate
-                </p>
-                <p className="text-sm font-semibold mb-2">Perfect for:</p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                  <li>• New launches</li>
-                  <li>• Complete rebrand</li>
-                  <li>• Digital upgrade</li>
-                </ul>
-                <Button asChild className="w-full">
-                  <Link to="/services#combined-packages">
-                    See Combined Packages <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+            <AnimatedSection staggerIndex={2} animation="slide">
+              <Card className="hover-lift border-2 border-primary">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center items-center gap-2 mb-4">
+                    <Globe className="h-12 w-12 text-primary" />
+                    <span className="text-2xl font-bold text-primary">+</span>
+                    <Bot className="h-12 w-12 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Need Both?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Website + AI automation working together seamlessly.
+                  </p>
+                  <p className="font-semibold text-lg mb-2">
+                    Combined packages available
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Save 10-15% vs separate
+                  </p>
+                  <p className="text-sm font-semibold mb-2">Perfect for:</p>
+                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                    <li>• New launches</li>
+                    <li>• Complete rebrand</li>
+                    <li>• Digital upgrade</li>
+                  </ul>
+                  <Button asChild className="w-full">
+                    <Link to="/services#combined-packages">
+                      See Combined Packages <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -349,11 +391,12 @@ const Index = () => {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover-lift">
-              <CardHeader>
-                <CardTitle className="text-2xl">STARTER</CardTitle>
-                <p className="text-3xl font-bold text-primary">£100 - £250</p>
-              </CardHeader>
+            <AnimatedSection staggerIndex={0} animation="scale">
+              <Card className="hover-lift">
+                <CardHeader>
+                  <CardTitle className="text-2xl">STARTER</CardTitle>
+                  <p className="text-3xl font-bold text-primary">£100 - £250</p>
+                </CardHeader>
               <CardContent>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
@@ -387,11 +430,13 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
-                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-              </Badge>
+            <AnimatedSection staggerIndex={1} animation="scale">
+              <Card className="hover-lift border-2 border-primary relative">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
+                  <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+                </Badge>
               <CardHeader>
                 <CardTitle className="text-2xl">BUSINESS</CardTitle>
                 <p className="text-3xl font-bold text-primary">£300 - £600</p>
@@ -429,12 +474,14 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
-            <Card className="hover-lift">
-              <CardHeader>
-                <CardTitle className="text-2xl">PREMIUM</CardTitle>
-                <p className="text-3xl font-bold text-primary">£700 - £1,200</p>
-              </CardHeader>
+            <AnimatedSection staggerIndex={2} animation="scale">
+              <Card className="hover-lift">
+                <CardHeader>
+                  <CardTitle className="text-2xl">PREMIUM</CardTitle>
+                  <p className="text-3xl font-bold text-primary">£700 - £1,200</p>
+                </CardHeader>
               <CardContent>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
@@ -469,6 +516,7 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
           </div>
 
           <div className="text-center mt-12 space-y-4">
@@ -793,7 +841,9 @@ const Index = () => {
 
             <Card className="text-center">
               <CardHeader>
-                <CardTitle className="text-4xl font-bold text-primary">&lt; 7</CardTitle>
+                <CardTitle className="text-4xl font-bold text-primary">
+                  &lt; <AnimatedCounter end={7} />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-2xl font-semibold mb-2">Days</p>
@@ -854,7 +904,8 @@ const Index = () => {
                 tech: "OpenAI, Custom API",
               },
             ].map((project, index) => (
-              <Card key={index} className="hover-lift">
+              <AnimatedSection key={index} staggerIndex={index} animation="fade">
+                <Card className="hover-lift">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <Badge variant="secondary">Capability Example</Badge>
@@ -881,6 +932,7 @@ const Index = () => {
                   </Button>
                 </CardContent>
               </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -894,45 +946,7 @@ const Index = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  <div>
-                    <div className="flex items-start gap-2 mb-2">
-                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <p className="text-muted-foreground">
-                        "Got a quote in 2 hours - way faster than other devs"
-                      </p>
-                    </div>
-                    <p className="text-sm text-muted-foreground ml-7">
-                      — Sarah, Salon Owner (SE15, London)
-                    </p>
-                  </div>
-                  <div>
-                    <div className="flex items-start gap-2 mb-2">
-                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <p className="text-muted-foreground">
-                        "Love how transparent the pricing is. No BS."
-                      </p>
-                    </div>
-                    <p className="text-sm text-muted-foreground ml-7">
-                      — James, Plumber (Birmingham)
-                    </p>
-                  </div>
-                  <div>
-                    <div className="flex items-start gap-2 mb-2">
-                      <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <p className="text-muted-foreground">
-                        "The AI chatbot handles 80% of basic questions now"
-                      </p>
-                    </div>
-                    <p className="text-sm text-muted-foreground ml-7">
-                      — Rachel, Consultant (Manchester)
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <TestimonialsCarousel testimonials={testimonials} />
 
             <Card>
               <CardContent className="pt-6">
@@ -1056,6 +1070,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <FloatingActionMenu />
       <WhatsAppWidget />
     </div>
   );

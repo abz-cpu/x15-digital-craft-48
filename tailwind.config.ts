@@ -92,11 +92,20 @@ export default {
             transform: "translateX(0)",
           },
         },
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "-1000px 0",
+          },
+          "100%": {
+            backgroundPosition: "1000px 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "slide-in-right": "slide-in-right 0.3s ease-out",
+        "shimmer": "shimmer 2s infinite linear",
       },
     },
   },

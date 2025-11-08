@@ -21,6 +21,20 @@ import {
   Inbox,
   X,
   ChevronDown,
+  Rocket,
+  Gauge,
+  Eye,
+  FolderSync,
+  Palette,
+  Image,
+  TrendingUp,
+  Calendar,
+  FileText,
+  Video,
+  Cloud,
+  HardDrive,
+  Activity,
+  ShoppingBag,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,6 +45,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
@@ -64,11 +79,292 @@ const Services = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const addOnCategories = [
+    {
+      id: "speed",
+      label: "Speed & Priority",
+      icon: Zap,
+      addons: [
+        {
+          name: "Rush Delivery",
+          icon: Zap,
+          price: "£150 - £500",
+          description: "Jump the queue. Launch in 24-48 hours instead of standard timeline.",
+          perfectFor: ["Urgent launches", "Time-sensitive campaigns", '"We needed it yesterday" situations'],
+          details: "Pricing: DIY/Starter £150, Business £250, Premium £400, Web App £500",
+        },
+        {
+          name: "Priority Setup",
+          icon: Rocket,
+          price: "£100 - £200",
+          description: "Start your project within 24 hours (instead of 2-3 day wait).",
+          perfectFor: ["Fast-moving businesses", "Seasonal launches", "Beating competitors to market"],
+          details: "Doesn't speed up delivery, just starts faster",
+        },
+      ],
+    },
+    {
+      id: "technical",
+      label: "Technical & Performance",
+      icon: Gauge,
+      addons: [
+        {
+          name: "Performance Optimization",
+          icon: Gauge,
+          price: "£150 - £400",
+          description: "Speed tuning, Core Web Vitals optimization, Google PageSpeed 90+ score.",
+          perfectFor: ["E-commerce (speed = sales)", "SEO improvement", "Mobile-first businesses"],
+          details: "Image optimization, code minification, Core Web Vitals fixes, before/after report",
+        },
+        {
+          name: "Accessibility Compliance",
+          icon: Eye,
+          price: "£100 - £350",
+          description: "WCAG 2.1 AA compliance, screen reader optimization, keyboard navigation.",
+          perfectFor: ["Public sector/government", "Healthcare, education, finance", "Legal compliance (ADA, Equality Act)"],
+          details: "Pricing: Starter £100, Business £200, Premium/complex £350",
+        },
+        {
+          name: "Multi-language Setup",
+          icon: Globe,
+          price: "£200 - £500",
+          description: "Reach international customers with multi-language support.",
+          perfectFor: ["UK businesses targeting EU", "International services", "Tourism, hospitality, e-commerce"],
+          details: "2 languages £200, 3 languages £350, 4+ languages £500",
+        },
+        {
+          name: "Content Migration",
+          icon: FolderSync,
+          price: "£150 - £500",
+          description: "Hassle-free move from your old site. We handle everything.",
+          perfectFor: ["Redesigns", "Platform switches (Wix → custom, etc.)", "Modernizing legacy sites"],
+          details: "<20 pages £150, 20-50 pages £300, 50+ pages £500",
+        },
+      ],
+    },
+    {
+      id: "security",
+      label: "Security & Compliance",
+      icon: Shield,
+      addons: [
+        {
+          name: "SSL Certificate & Security",
+          icon: Lock,
+          price: "Included Free ✅",
+          description: "HTTPS encryption, secure connection (padlock icon), basic security hardening.",
+          perfectFor: ["All websites"],
+          details: "This is standard in ALL our packages.",
+        },
+        {
+          name: "Advanced Security & Monitoring",
+          icon: Shield,
+          price: "£100 - £300",
+          description: "Enhanced protection: DDoS protection, malware scanning, security monitoring.",
+          perfectFor: ["E-commerce sites", "Sites handling sensitive data", "High-traffic sites"],
+          details: "WAF, DDoS protection, malware scanning, security dashboard, automated alerts",
+        },
+        {
+          name: "GDPR Compliance Setup",
+          icon: ClipboardCheck,
+          price: "£80 - £200",
+          description: "Cookie consent, privacy policy, data handling compliant with UK/EU law.",
+          perfectFor: ["UK/EU businesses", "Sites with forms/email capture", "E-commerce sites"],
+          details: "Basic (banner + privacy) £80, Standard (+ forms) £150, Advanced (e-commerce) £200",
+        },
+      ],
+    },
+    {
+      id: "branding",
+      label: "Branding & Design",
+      icon: Palette,
+      addons: [
+        {
+          name: "Logo Design",
+          icon: Palette,
+          price: "£80 - £250",
+          description: "Professional logo design with 2-3 concepts and unlimited revisions.",
+          perfectFor: ["New businesses", "Rebrands", "Startups without existing branding"],
+          details: "Basic logo £80, Logo + variations £150, Full brand identity £250",
+        },
+        {
+          name: "Custom Illustrations",
+          icon: Image,
+          price: "£100 - £400",
+          description: "Bespoke illustrations, icons, or graphics for your website.",
+          perfectFor: ["Unique brand personality", "Storytelling sections", "Service/product explanations"],
+          details: "3 icons £100, 5-7 illustrations £250, 10+ illustrations £400",
+        },
+      ],
+    },
+    {
+      id: "marketing",
+      label: "Marketing & SEO",
+      icon: TrendingUp,
+      addons: [
+        {
+          name: "Advanced SEO Package",
+          icon: TrendingUp,
+          price: "£250 - £600",
+          description: "Comprehensive SEO: keyword research, competitor analysis, technical optimization.",
+          perfectFor: ["Local businesses", "High-competition industries", "Long-term organic growth"],
+          details: "Local SEO £250, Regional SEO £400, National/competitive £600",
+        },
+        {
+          name: "Google Ads Setup",
+          icon: Target,
+          price: "£200 - £400",
+          description: "Professional Google Ads campaign setup for immediate traffic.",
+          perfectFor: ["Immediate lead generation", "Seasonal campaigns", "Testing market demand"],
+          details: "Campaign setup, keyword research, conversion tracking (ad spend not included)",
+        },
+        {
+          name: "Email Marketing Setup",
+          icon: Mail,
+          price: "£150 - £350",
+          description: "Professional email setup: Mailchimp/ConvertKit integration, templates, automation.",
+          perfectFor: ["Building email lists", "Customer nurture sequences", "Newsletter launches"],
+          details: "Basic (signup + 1 template) £150, Standard (+ sequences) £250, Advanced £350",
+        },
+      ],
+    },
+    {
+      id: "ecommerce",
+      label: "E-commerce & Conversions",
+      icon: DollarSign,
+      addons: [
+        {
+          name: "E-commerce Setup",
+          icon: DollarSign,
+          price: "£400 - £900",
+          description: "Full online shop: products, cart, checkout, payment processing.",
+          perfectFor: ["Retail businesses", "Service packages for sale", "Digital products"],
+          details: "Up to 10 products £400, 11-30 products £650, 31-50 products £900, 50+ custom quote",
+        },
+        {
+          name: "Membership Portal",
+          icon: Users,
+          price: "£300 - £800",
+          description: "Members-only area with user accounts, gated content, subscriptions.",
+          perfectFor: ["Online courses", "Subscription services", "Community platforms", "Premium content"],
+          details: "Basic (login + content) £300, Standard (+ payments) £500, Advanced (full portal) £800",
+        },
+        {
+          name: "Booking System",
+          icon: Calendar,
+          price: "£200 - £500",
+          description: "Appointment booking, calendar sync, automated reminders.",
+          perfectFor: ["Salons, clinics, consultants", "Service-based businesses", "1-on-1 appointments"],
+          details: "Basic (Calendly embed) £200, Standard (custom) £350, Advanced (payments) £500",
+        },
+      ],
+    },
+    {
+      id: "content",
+      label: "Content & Training",
+      icon: FileText,
+      addons: [
+        {
+          name: "Professional Content Writing",
+          icon: FileText,
+          price: "£40 - £120 per page",
+          description: "Professional, SEO-optimized copywriting for your website.",
+          perfectFor: ["Businesses without time to write", "SEO-optimized content", "Professional tone & polish"],
+          details: "Basic page (300 words) £40, Standard (500 words) £70, Long-form (1,000+ words) £120",
+        },
+        {
+          name: "Website Training (1 hour)",
+          icon: Video,
+          price: "£80 - £150",
+          description: "1-hour Zoom session: learn to update your site, add content, manage forms.",
+          perfectFor: ["DIY content updates", "Empowering your team", "Reducing reliance on developers"],
+          details: "1 person £80, 2-5 people (team training) £150",
+        },
+      ],
+    },
+    {
+      id: "hosting",
+      label: "Hosting & Infrastructure",
+      icon: Cloud,
+      addons: [
+        {
+          name: "Cloud Hosting Setup",
+          icon: Cloud,
+          price: "£80 - £200",
+          description: "Professional hosting setup on AWS, Google Cloud, or premium providers.",
+          perfectFor: ["High-traffic sites", "E-commerce", "Custom requirements"],
+          details: "Basic (shared) £80, Standard (VPS/cloud) £150, Enterprise (dedicated) £200",
+        },
+        {
+          name: "Automated Backups",
+          icon: HardDrive,
+          price: "£50 - £150",
+          description: "Daily automated backups, uptime monitoring, instant alerts.",
+          perfectFor: ["E-commerce sites", "Business-critical sites", "Peace of mind"],
+          details: "Daily backups, 30-day retention, uptime monitoring, 1-click restore",
+        },
+      ],
+    },
+    {
+      id: "analytics",
+      label: "Analytics & Tracking",
+      icon: BarChart,
+      addons: [
+        {
+          name: "Analytics Dashboard",
+          icon: Activity,
+          price: "£150 - £350",
+          description: "Custom analytics setup: Google Analytics, goals, conversion tracking, reports.",
+          perfectFor: ["Data-driven businesses", "Tracking ROI", "Understanding customer behavior"],
+          details: "Basic (GA4 + goals) £150, Standard (+ e-commerce) £250, Advanced (custom tracking) £350",
+        },
+        {
+          name: "Heatmap & User Recording",
+          icon: Eye,
+          price: "£100 - £250",
+          description: "See how users interact with your site: clicks, scrolls, recordings.",
+          perfectFor: ["Conversion rate optimization", "UX improvement", "Understanding user behavior"],
+          details: "Basic (1,000 sessions) £100, Standard (5,000 sessions) £180, Advanced (10,000+) £250",
+        },
+      ],
+    },
+    {
+      id: "bundles",
+      label: "Bundles (Save 10-20%)",
+      icon: ShoppingBag,
+      addons: [
+        {
+          name: "Launch Bundle",
+          icon: Rocket,
+          price: "£250 (Save £80)",
+          description: "Logo + SEO + Email Setup + Training",
+          perfectFor: ["New businesses launching for the first time"],
+          details: "Regular price: £330 → Bundle: £250",
+        },
+        {
+          name: "Growth Bundle",
+          icon: TrendingUp,
+          price: "£700 (Save £200)",
+          description: "Advanced SEO + Email Marketing + Analytics + Content (5 pages)",
+          perfectFor: ["Established businesses ready to scale"],
+          details: "Regular price: £900 → Bundle: £700",
+        },
+        {
+          name: "E-commerce Bundle",
+          icon: ShoppingBag,
+          price: "£1,200 (Save £300)",
+          description: "E-commerce (50 products) + Performance Optimization + Analytics + Security",
+          perfectFor: ["Online shops ready to launch"],
+          details: "Regular price: £1,500 → Bundle: £1,200",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
         title="Services & Pricing - Web Development & AI Automation | X15 Digital"
-        description="Web development packages from £100-£1,500 & AI automation from £50-£400/month. Transparent pricing, 1-14 day delivery. View our full service menu for UK businesses."
+        description="Web development packages from £100-£3,500 + AI automation from £50-£400/month. 5 transparent pricing tiers + 26 add-ons across 10 categories. 1 day to 4 week delivery. View our full service menu for UK businesses."
         keywords="web development pricing UK, AI automation cost, website packages, AI chatbot pricing, business automation"
       />
       <ScrollProgressBar />
@@ -119,16 +415,68 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Web Development Packages
           </h2>
-          <p className="text-center text-muted-foreground mb-12">
+          <p className="text-center text-muted-foreground mb-4">
             One-time payment. You own everything. No monthly fees.
           </p>
+          <p className="text-center text-sm text-muted-foreground mb-12">
+            (Optional: Add support/maintenance for peace of mind — from £30/month)
+            <br />
+            Choose your perfect starting point — upgrade anytime as you grow.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* DIY/Template - NEW ENTRY TIER */}
+            <Card className="hover-lift relative">
+              <Badge className="absolute -top-3 right-4 bg-secondary text-white flex items-center gap-1 text-xs">
+                <Zap className="h-3 w-3" /> FASTEST START
+              </Badge>
+              <CardHeader>
+                <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£100 - £300</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">
+                  Perfect for: Individuals, startups, micro-businesses
+                </p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "1-page site OR custom landing page",
+                    "Professional template selection",
+                    "Simple content editor instructions",
+                    "Mobile responsive design",
+                    "1 business day delivery",
+                    "Upgrade path to Starter/Business",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• New freelancer portfolio</li>
+                  <li>• Event RSVP / campaign landing page</li>
+                  <li>• "Coming soon" placeholder</li>
+                  <li>• Quick promotional page</li>
+                </ul>
+                <p className="text-xs text-primary font-semibold mb-4">
+                  💡 Upgrade to Starter anytime for full custom design
+                </p>
+                <Button asChild className="w-full">
+                  <Link to="/quick-start">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
             {/* Starter */}
             <Card className="hover-lift">
               <CardHeader>
-                <CardTitle className="text-2xl">STARTER</CardTitle>
-                <p className="text-3xl font-bold text-primary">£100 - £250</p>
+                <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£250 - £500</p>
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">
@@ -137,8 +485,9 @@ const Services = () => {
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
-                    "1-3 pages (Home, About, Contact)",
-                    "Mobile responsive design",
+                    "1-3 custom pages (Home, About, Contact)",
+                    "Fully custom or semi-custom design",
+                    "Mobile responsive",
                     "Contact form integration",
                     "Basic SEO setup",
                     "Social media links",
@@ -170,23 +519,23 @@ const Services = () => {
                 <Star className="h-3 w-3 mr-1" /> MOST POPULAR
               </Badge>
               <CardHeader>
-                <CardTitle className="text-2xl">BUSINESS</CardTitle>
-                <p className="text-3xl font-bold text-primary">£300 - £600</p>
+                <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">
-                  Perfect for: Salons, consultants, small businesses
+                  Perfect for: Salons, consultants, local shops, small businesses
                 </p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
                     "4-10 pages",
-                    "Custom design & branding",
-                    "Contact + booking forms",
+                    "Full custom layout & branding",
+                    "Contact + advanced forms/booking",
                     "Google Maps integration",
+                    "Portfolio/gallery options",
                     "Full SEO package",
-                    "Gallery/portfolio section",
-                    "5-7 day delivery",
+                    "5-10 day delivery",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -211,23 +560,22 @@ const Services = () => {
             {/* Premium */}
             <Card className="hover-lift">
               <CardHeader>
-                <CardTitle className="text-2xl">PREMIUM</CardTitle>
-                <p className="text-3xl font-bold text-primary">£700 - £1,200</p>
+                <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">
-                  Perfect for: Shops, multi-service businesses, agencies
+                  Perfect for: E-commerce, agencies, larger service sites
                 </p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
-                    "10+ pages",
-                    "Advanced custom features",
-                    "E-commerce ready",
-                    "Payment integration (Stripe)",
-                    "Blog/news section",
-                    "Advanced SEO + analytics",
-                    "7-14 day delivery",
+                    "10+ fully custom pages",
+                    "Advanced features (e-commerce, blog, payment, analytics)",
+                    "Payment integration (Stripe, PayPal, Apple Pay)",
+                    "Newsletter/blog",
+                    "Advanced SEO + speed optimization",
+                    "1-4 week timeline",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -253,22 +601,21 @@ const Services = () => {
             <Card className="hover-lift">
               <CardHeader>
                 <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
-                <p className="text-3xl font-bold text-primary">£1,500+</p>
+                <p className="text-3xl font-bold text-primary">£3,500+ (custom quote)</p>
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">
-                  Perfect for: SaaS, platforms, complex systems
+                  Perfect for: SaaS, CRMs, advanced platforms
                 </p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
-                    "Custom web application",
+                    "Custom web application build",
                     "User authentication",
-                    "Database integration",
-                    "API development",
+                    "Scalable database integration",
+                    "API integrations",
                     "Admin dashboard",
-                    "Ongoing support options",
-                    "Timeline: 2-6 weeks",
+                    "Ongoing support/maintenance options",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -290,41 +637,244 @@ const Services = () => {
               </CardContent>
             </Card>
           </div>
+
+          {/* Not Sure CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-lg text-muted-foreground mb-4">
+              💡 Not sure which package fits your needs?
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="outline">
+                <Link to="/quick-start">Take our 30-second quiz</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a 
+                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Add-ons & Extras */}
+      {/* Support & Maintenance Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <div className="max-w-5xl mx-auto">
+          <Card className="border-2 border-primary/20 bg-background">
+            <CardContent className="p-8">
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+                <div className="flex-shrink-0">
+                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Shield className="h-8 w-8 text-primary" />
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Recommended for All Packages
+                  </p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
+                    Support & Maintenance
+                  </h3>
+                  <p className="text-3xl font-bold text-primary mb-4">
+                    From £30/month
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    Keep your website secure, fast, and up-to-date.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-2 mb-6">
+                    {[
+                      "Regular updates & security patches",
+                      "Weekly backups",
+                      "Priority support (4-hour response)",
+                      "Performance monitoring",
+                      "Fast bug fixes",
+                      "Content updates (up to 1 hour/month)",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-2 text-sm">
+                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Any business that wants peace of mind
+                  </p>
+                  
+                  <Button asChild>
+                    <Link to="/contact">
+                      Add to Any Package <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  
+                  <p className="text-xs text-muted-foreground mt-4">
+                    💡 Optional but highly recommended — protect your investment
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Add-Ons & Extras - Categorized Tabs */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">
             Add-Ons & Extras
           </h3>
-          <p className="text-center text-muted-foreground mb-12">
+          <p className="text-center text-muted-foreground mb-2">
             Enhance any package with these optional features.
           </p>
+          <p className="text-center text-sm text-muted-foreground mb-12">
+            💡 Bundle 2-3 add-ons and save 10-20% — ask us about package deals!
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: Globe, name: "Logo Design", price: "£50-£150" },
-              { icon: BarChart, name: "Advanced SEO Package", price: "£200-£400" },
-              { icon: Mail, name: "Email Setup (Professional)", price: "£50-£100" },
-              { icon: DollarSign, name: "E-commerce (up to 50 products)", price: "£300-£600" },
-              { icon: MessageCircle, name: "Social Media Integration", price: "£50-£150" },
-              { icon: BarChart, name: "Analytics Dashboard", price: "£100-£250" },
-              { icon: Lock, name: "SSL Certificate & Security", price: "Included Free" },
-              { icon: Globe, name: "Cloud Hosting Setup", price: "£50-£150" },
-              { icon: MessageCircle, name: "Content Writing (per page)", price: "£30-£80" },
-            ].map((addon, i) => (
-              <Card key={i} className="hover-lift">
-                <CardHeader>
-                  <addon.icon className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="text-lg">{addon.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-primary">{addon.price}</p>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Desktop: Tabs */}
+          <div className="hidden md:block">
+            <Tabs defaultValue="speed" className="w-full">
+              <TabsList className="grid grid-cols-5 lg:grid-cols-10 w-full mb-8">
+                {addOnCategories.map((cat) => (
+                  <TabsTrigger 
+                    key={cat.id} 
+                    value={cat.id}
+                    className="text-xs lg:text-sm"
+                  >
+                    <cat.icon className="h-4 w-4 mr-1" />
+                    <span className="hidden lg:inline">{cat.label}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {addOnCategories.map((category) => (
+                <TabsContent key={category.id} value={category.id}>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {category.addons.map((addon, i) => (
+                      <Card key={i} className="hover-lift p-4">
+                        <div className="flex items-start gap-3 mb-3">
+                          <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-base text-secondary mb-1 leading-tight">
+                              {addon.name}
+                            </h4>
+                            <p className="text-lg font-bold text-primary">
+                              {addon.price}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          {addon.description}
+                        </p>
+                        {addon.perfectFor && (
+                          <div className="mb-3">
+                            <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                            <ul className="text-xs text-muted-foreground space-y-0.5">
+                              {addon.perfectFor.map((item, j) => (
+                                <li key={j}>• {item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        <p className="text-xs text-muted-foreground mb-3">
+                          {addon.details}
+                        </p>
+                        <Button size="sm" className="w-full" asChild>
+                          <Link to="/contact">Add to Package</Link>
+                        </Button>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+
+          {/* Mobile: Accordion */}
+          <div className="md:hidden">
+            <Accordion type="single" collapsible className="w-full">
+              {addOnCategories.map((category) => (
+                <AccordionItem key={category.id} value={category.id}>
+                  <AccordionTrigger className="text-left">
+                    <div className="flex items-center gap-2">
+                      <category.icon className="h-5 w-5 text-primary" />
+                      <span className="font-semibold">{category.label}</span>
+                      <span className="text-xs text-muted-foreground">
+                        ({category.addons.length})
+                      </span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="space-y-4 pt-4">
+                      {category.addons.map((addon, i) => (
+                        <Card key={i} className="p-4">
+                          <div className="flex items-start gap-3 mb-3">
+                            <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">
+                                {addon.name}
+                              </h4>
+                              <p className="text-lg font-bold text-primary">
+                                {addon.price}
+                              </p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            {addon.description}
+                          </p>
+                          {addon.perfectFor && (
+                            <div className="mb-3">
+                              <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                              <ul className="text-xs text-muted-foreground space-y-0.5">
+                                {addon.perfectFor.map((item, j) => (
+                                  <li key={j}>• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          <p className="text-xs text-muted-foreground mb-3">
+                            {addon.details}
+                          </p>
+                          <Button size="sm" className="w-full" asChild>
+                            <Link to="/contact">Add to Package</Link>
+                          </Button>
+                        </Card>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          {/* Footer CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-lg text-muted-foreground mb-4">
+              Don't see what you need?
+            </p>
+            <p className="text-muted-foreground mb-6">
+              We can customize any add-on or create bespoke solutions for your specific requirements.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="outline">
+                <Link to="/contact">Request Custom Solution</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a 
+                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20a%20custom%20add-on" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -811,43 +1361,43 @@ const Services = () => {
             {[
               {
                 title: "STARTER BUNDLE",
-                desc: "Website (£100-250) + Chatbot",
-                price: "£350 total setup + £50/month",
-                save: "Save £50 on setup",
+                desc: "Website (£250-500) + Chatbot",
+                price: "£550 total setup + £50/month",
+                save: "Save £100 on setup",
                 link: "/quick-start",
               },
               {
                 title: "BUSINESS BUNDLE",
-                desc: "Website (£300-600) + Chatbot",
-                price: "£650 total setup + £75/month",
-                save: "Save £100 on setup",
+                desc: "Website (£750-1,800) + Chatbot",
+                price: "£1,000 total setup + £75/month",
+                save: "Save £150 on setup",
                 popular: true,
                 link: "/quick-start",
               },
               {
                 title: "PREMIUM BUNDLE",
-                desc: "Website (£700-1.2k) + Voice Agent",
-                price: "£1,400 total setup + £100/month",
-                save: "Save £150 on setup",
+                desc: "Website (£2,000-3,500) + Voice Agent",
+                price: "£2,800 total setup + £100/month",
+                save: "Save £300 on setup",
                 link: "/quick-start",
               },
               {
                 title: "SALES ACCELERATOR",
-                desc: "Website (£300-600) + Sales Agent",
-                price: "£950 total setup + £250/month",
-                save: "Save £150 on setup",
+                desc: "Website (£750-1,800) + Sales Agent",
+                price: "£1,800 total setup + £250/month",
+                save: "Save £250 on setup",
                 link: "/quick-start",
               },
               {
                 title: "MARKETING PRO",
-                desc: "Website (£300-600) + Email + Social",
-                price: "£1,000 total setup + £200/month",
-                save: "Save £200 on setup",
+                desc: "Website (£750-1,800) + Email + Social",
+                price: "£1,400 total setup + £200/month",
+                save: "Save £250 on setup",
                 link: "/quick-start",
               },
               {
                 title: "COMPLETE AUTOMATION",
-                desc: "Website (£700-1.2k) + Multi-AI Stack",
+                desc: "Website (£2,000-3,500) + Multi-AI Stack",
                 price: "Custom quote",
                 save: "Maximum savings",
                 link: "/contact",

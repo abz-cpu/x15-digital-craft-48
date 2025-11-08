@@ -9,6 +9,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -303,6 +304,12 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={`${currentPost.title} | X15 Digital Blog`}
+        description={currentPost.content.substring(0, 160).replace(/[#*\n]/g, ' ').trim()}
+        keywords={`${currentPost.category}, web development, AI automation, UK business`}
+        ogType="article"
+      />
       <ScrollProgressBar />
       <Navigation />
 

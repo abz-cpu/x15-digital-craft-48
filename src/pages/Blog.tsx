@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -75,6 +76,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Blog - Web Development & AI Automation Insights | X15 Digital"
+        description="Read expert insights on web development, AI automation, and business growth. Tips, case studies, and guides for UK small businesses."
+        keywords="web development blog UK, AI automation guides, website tips, business automation advice"
+      />
       <ScrollProgressBar />
       <Navigation />
 

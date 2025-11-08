@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
 
@@ -204,6 +205,11 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Portfolio - Our Recent Work | X15 Digital"
+        description="View our portfolio of web development projects, e-commerce sites, web apps, and AI automation implementations. Real examples of websites and AI solutions for UK businesses."
+        keywords="web development portfolio, AI automation examples, website showcase, web design examples UK"
+      />
       <ScrollProgressBar />
       <Navigation />
 

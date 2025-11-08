@@ -9,6 +9,8 @@ import { LoadingFallback } from "@/components/LoadingFallback";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { performanceMonitor } from "@/utils/performance";
 import { registerPreload } from "@/components/PreloadLink";
+import { CookieConsent } from "@/components/CookieConsent";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 // Lazy load route components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -23,6 +25,8 @@ const Start = lazy(() => import("./pages/Start"));
 const QuickStart = lazy(() => import("./pages/QuickStart"));
 const Install = lazy(() => import("./pages/Install"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 // Register preload functions for route prefetching
 registerPreload("/", () => import("./pages/Index"));
@@ -60,14 +64,16 @@ const RouteTracker = () => {
 
 const App = () => (
   <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <RouteTracker />
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <RouteTracker />
+            <BreadcrumbSchema />
+            <CookieConsent />
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
               <Route path="/portfolio" element={<Portfolio />} />
@@ -79,8 +85,8 @@ const App = () => (
               <Route path="/start" element={<Start />} />
               <Route path="/quick-start" element={<QuickStart />} />
               <Route path="/install" element={<Install />} />
-              <Route path="/privacy" element={<NotFound />} />
-              <Route path="/terms" element={<NotFound />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

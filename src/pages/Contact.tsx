@@ -18,6 +18,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -59,6 +60,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Contact Us - Get Your Free Quote | X15 Digital"
+        description="Contact X15 Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."
+        keywords="contact web developer UK, get free quote website, AI automation consultation, web development London"
+      />
       <ScrollProgressBar />
       <Navigation />
 

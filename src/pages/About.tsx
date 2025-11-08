@@ -19,6 +19,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 const About = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -43,6 +44,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="About Us - Fast, Transparent Web Development & AI | X15 Digital"
+        description="Learn about X15 Digital's mission: affordable, transparent web development & AI automation for UK businesses. No hidden fees, fast turnaround, you own everything."
+        keywords="about X15 Digital, web development agency UK, AI automation company London, transparent pricing"
+      />
       <ScrollProgressBar />
       <Navigation />
 

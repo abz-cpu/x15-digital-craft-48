@@ -187,6 +187,13 @@ const Footer = () => {
             <Link to="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
+            <span>|</span>
+            <button 
+              onClick={() => (window as any).openCookieSettings?.()}
+              className="hover:text-primary transition-colors"
+            >
+              Cookie Settings
+            </button>
           </div>
         </div>
       </div>

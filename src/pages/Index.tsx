@@ -26,6 +26,8 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { useParallax } from "@/hooks/useParallax";
+import { SEO } from "@/components/SEO";
+import { ReviewSchema } from "@/components/ReviewSchema";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -74,6 +76,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="X15 Digital - Affordable Web Development & AI Automation for UK Businesses"
+        description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, you own everything. Based in London."
+        keywords="web development UK, AI automation, website design London, affordable websites, small business web design, cheap web development, AI chatbots"
+      />
+      <ReviewSchema ratingValue="4.9" reviewCount="12" />
       <ScrollProgressBar />
       <Navigation />
 

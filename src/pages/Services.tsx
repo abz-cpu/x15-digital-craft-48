@@ -35,6 +35,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -65,6 +66,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Services & Pricing - Web Development & AI Automation | X15 Digital"
+        description="Web development packages from £100-£1,500 & AI automation from £50-£400/month. Transparent pricing, 1-14 day delivery. View our full service menu for UK businesses."
+        keywords="web development pricing UK, AI automation cost, website packages, AI chatbot pricing, business automation"
+      />
       <ScrollProgressBar />
       <Navigation />
 

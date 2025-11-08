@@ -14,6 +14,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 
 const Enterprise = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -38,6 +39,11 @@ const Enterprise = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Enterprise Solutions - Complex Projects & Custom Development | X15 Digital"
+        description="Custom enterprise web applications, complex AI automation, and large-scale projects for UK businesses. Flexible pricing for unique requirements."
+        keywords="enterprise web development UK, custom web applications, complex AI automation, enterprise software development"
+      />
       <ScrollProgressBar />
       <Navigation />
 

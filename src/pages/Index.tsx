@@ -317,12 +317,12 @@ const Index = () => {
               </thead>
               <tbody>
                 {[
-                  ["Price for basic site", "£3,000-£10,000", "£100-£1,200"],
-                  ["Timeline", "4-12 weeks", "1-14 days"],
-                  ["Who you work with", "Account manager", "Lead developer directly"],
+                  ["Price for basic site", "£3,000-£10,000", "£100–£500 (Entry/Starter)"],
+                  ["Timeline", "4-12 weeks", "1–3 days (Entry/Starter), 1–2 weeks (Business)"],
+                  ["Who you work with", "Account manager", "Lead developer, direct support"],
                   ["Pricing transparency", '"Let\'s discuss your budget"', "All prices on website"],
-                  ["AI automation", "Extra £5k+", "From £50/month"],
-                  ["Monthly fees", "£50-200/month hosting", "£0 (you own it)"],
+                  ["AI automation", "Extra £5k+", "From £50–£200 as add-on, fully integrated"],
+                  ["Monthly fees", "£50-200/month hosting", "£0–£30 (you own it, affordable maintenance)"],
                   ["Revisions", "2-3 rounds max", "Unlimited until happy"],
                 ].map(([feature, agency, x15], index) => (
                   <tr key={index} className="border-b border-border last:border-b-0">

@@ -29,7 +29,7 @@ const FloatingActionMenu = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 left-6 z-40">
+    <div className="fixed bottom-6 right-6 z-40">
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${
@@ -76,11 +76,7 @@ const FloatingActionMenu = () => {
         aria-label={isOpen ? "Close menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
       >
-        {isOpen ? (
-          <X className="h-6 w-6 md:h-7 md:w-7" />
-        ) : (
-          <Package className="h-6 w-6 md:h-7 md:w-7" />
-        )}
+        {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Package className="h-6 w-6 md:h-7 md:w-7" />}
       </button>
     </div>
   );

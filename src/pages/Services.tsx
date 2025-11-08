@@ -1028,7 +1028,7 @@ const Services = () => {
             <Card className="hover-lift">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Sales Agent / SDR</CardTitle>
+                <CardTitle className="text-2xl">AI Sales Assistant</CardTitle>
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Setup: £800-2,000</p>
                   <p className="text-sm text-muted-foreground">Monthly: £200-800</p>
@@ -1142,7 +1142,7 @@ const Services = () => {
             <Card className="hover-lift">
               <CardHeader>
                 <Workflow className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Workflow Automation</CardTitle>
+                <CardTitle className="text-2xl">AI Admin Assistant</CardTitle>
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Setup: £500-1,500</p>
                   <p className="text-sm text-muted-foreground">Monthly: £150-600</p>
@@ -1181,7 +1181,7 @@ const Services = () => {
             <Card className="hover-lift">
               <CardHeader>
                 <Inbox className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Inbox Manager</CardTitle>
+                <CardTitle className="text-2xl">AI Email Assistant</CardTitle>
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Setup: £500-1,000</p>
                   <p className="text-sm text-muted-foreground">Monthly: £150-300</p>
@@ -1290,10 +1290,10 @@ const Services = () => {
                 {[
                   ["Chatbot", "£200-400", "£50-100", "Customer support, FAQs"],
                   ["AI Receptionist", "£400-800", "£100-200", "Phone answering, bookings"],
-                  ["Sales Agent/SDR", "£800-2,000", "£200-800", "Lead generation, B2B"],
+                  ["AI Email Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"],
                   ["Email Outreach", "£400-1,000", "£100-400", "Marketing campaigns"],
                   ["Social Media", "£200-600", "£50-150", "Content automation"],
-                  ["Workflow Automation", "£500-1,500", "£150-600", "Process optimisation"],
+                  ["AI Admin Assistant", "£500-1,500", "£150-600", "Process optimisation"],
                   ["Inbox Manager", "£500-1,000", "£150-300", "Email management"],
                   ["Custom Solution", "£800+", "£200+", "Bespoke requirements"],
                 ].map(([service, setup, monthly, bestFor], i) => (

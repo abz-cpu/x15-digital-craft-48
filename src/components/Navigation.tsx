@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PreloadLink } from "@/components/PreloadLink";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,16 +38,16 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <PreloadLink to="/" className="flex items-center">
             <span className="text-2xl font-bold text-secondary">
               X15 DIGITAL
             </span>
-          </Link>
+          </PreloadLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <PreloadLink
                 key={link.path}
                 to={link.path}
                 className={`text-foreground hover:text-primary transition-colors ${
@@ -54,13 +55,13 @@ const Navigation = () => {
                 }`}
               >
                 {link.name}
-              </Link>
+              </PreloadLink>
             ))}
             <Button
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <Link to="/contact">Get Free Quote</Link>
+              <PreloadLink to="/contact">Get Free Quote</PreloadLink>
             </Button>
           </div>
 
@@ -84,7 +85,7 @@ const Navigation = () => {
         <div className="md:hidden bg-background border-t border-border animate-slide-in-right">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <Link
+              <PreloadLink
                 key={link.path}
                 to={link.path}
                 className={`block py-2 text-foreground hover:text-primary transition-colors ${
@@ -92,13 +93,13 @@ const Navigation = () => {
                 }`}
               >
                 {link.name}
-              </Link>
+              </PreloadLink>
             ))}
             <Button
               asChild
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <Link to="/contact">Get Free Quote</Link>
+              <PreloadLink to="/contact">Get Free Quote</PreloadLink>
             </Button>
           </div>
         </div>

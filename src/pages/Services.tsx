@@ -1289,7 +1289,7 @@ const Services = () => {
               <tbody>
                 {[
                   ["Chatbot", "£200-400", "£50-100", "Customer support, FAQs"],
-                  ["Voice Agent", "£400-800", "£100-200", "Phone answering, bookings"],
+                  ["AI Receptionist", "£400-800", "£100-200", "Phone answering, bookings"],
                   ["Sales Agent/SDR", "£800-2,000", "£200-800", "Lead generation, B2B"],
                   ["Email Outreach", "£400-1,000", "£100-400", "Marketing campaigns"],
                   ["Social Media", "£200-600", "£50-150", "Content automation"],

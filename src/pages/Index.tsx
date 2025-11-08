@@ -364,7 +364,7 @@ const Index = () => {
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                      <span>Fully optimised 1-page site OR landing page</span>
+                      <span>Optimised 1-page site OR landing page</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />

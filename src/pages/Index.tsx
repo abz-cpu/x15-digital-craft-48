@@ -19,7 +19,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import FloatingActionMenu from "@/components/FloatingActionMenu";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
@@ -960,7 +959,6 @@ const Index = () => {
 
       <Footer />
       <FloatingActionMenu />
-      <WhatsAppWidget />
     </div>
   );
 };

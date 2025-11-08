@@ -636,6 +636,54 @@ const Services = () => {
                 </Button>
               </CardContent>
             </Card>
+
+            {/* Suggested Add-Ons Card */}
+            <Card className="hover-lift border-2 border-primary/30 bg-gradient-to-br from-background to-primary/5">
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <Zap className="h-6 w-6 text-primary" />
+                  <CardTitle className="text-2xl">POPULAR ADD-ONS</CardTitle>
+                </div>
+                <p className="text-lg text-muted-foreground">
+                  Enhance any package with these
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Most requested upgrades to maximize your website's potential:
+                </p>
+                
+                <div className="space-y-3">
+                  {[
+                    { name: "Support & Maintenance", price: "From £30/mo", icon: Shield },
+                    { name: "Performance Optimization", price: "£150-£400", icon: Gauge },
+                    { name: "Advanced SEO Package", price: "£250-£600", icon: TrendingUp },
+                    { name: "Google Ads Setup", price: "£200-£400", icon: Target },
+                    { name: "Content Writing", price: "£40-£120/page", icon: FileText },
+                    { name: "GDPR Compliance", price: "£80-£200", icon: ClipboardCheck },
+                    { name: "Content Migration", price: "£150-£500", icon: FolderSync },
+                    { name: "Multi-language Setup", price: "£200-£500", icon: Globe },
+                  ].map((addon, i) => {
+                    const Icon = addon.icon;
+                    return (
+                      <div key={i} className="flex items-start gap-3 p-2 rounded-md hover:bg-primary/5 transition-colors">
+                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div className="flex-1">
+                          <p className="text-sm font-semibold">{addon.name}</p>
+                          <p className="text-xs text-primary font-semibold">{addon.price}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="pt-4 border-t mt-4">
+                  <Button asChild className="w-full" size="sm">
+                    <a href="#add-ons">View All Add-Ons</a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Not Sure CTA */}
@@ -724,7 +772,7 @@ const Services = () => {
       </section>
 
       {/* Add-Ons & Extras - Categorized Tabs */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="add-ons" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">
             Add-Ons & Extras
@@ -739,17 +787,32 @@ const Services = () => {
           {/* Desktop: Tabs */}
           <div className="hidden md:block">
             <Tabs defaultValue="speed" className="w-full">
-              <TabsList className="grid grid-cols-5 lg:grid-cols-10 w-full mb-8">
-                {addOnCategories.map((cat) => (
-                  <TabsTrigger 
-                    key={cat.id} 
-                    value={cat.id}
-                    className="text-xs lg:text-sm"
-                  >
-                    <cat.icon className="h-4 w-4 mr-1" />
-                    <span className="hidden lg:inline">{cat.label}</span>
-                  </TabsTrigger>
-                ))}
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 bg-muted p-2 rounded-lg mb-8 h-auto">
+                {addOnCategories.map((cat) => {
+                  const shortLabels: Record<string, string> = {
+                    "Speed & Priority": "Speed & Priority",
+                    "Technical & Performance": "Performance",
+                    "Security & Compliance": "Security",
+                    "Branding & Design": "Branding",
+                    "Marketing & SEO": "Marketing",
+                    "E-commerce & Conversions": "E-commerce",
+                    "Content & Training": "Content",
+                    "Hosting & Infrastructure": "Hosting",
+                    "Analytics & Tracking": "Analytics",
+                    "Bundles (Save 10-20%)": "Bundles"
+                  };
+                  
+                  return (
+                    <TabsTrigger 
+                      key={cat.id} 
+                      value={cat.id}
+                      className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm py-3 px-3 rounded-md hover:bg-accent transition-colors whitespace-normal text-center leading-tight"
+                    >
+                      <cat.icon className="h-4 w-4 mr-1 flex-shrink-0" />
+                      <span>{shortLabels[cat.label] || cat.label}</span>
+                    </TabsTrigger>
+                  );
+                })}
               </TabsList>
 
               {addOnCategories.map((category) => (

@@ -40,12 +40,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -67,7 +62,7 @@ const Services = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -136,7 +131,11 @@ const Services = () => {
           icon: Eye,
           price: "£100 - £350",
           description: "WCAG 2.1 AA compliance, screen reader optimization, keyboard navigation.",
-          perfectFor: ["Public sector/government", "Healthcare, education, finance", "Legal compliance (ADA, Equality Act)"],
+          perfectFor: [
+            "Public sector/government",
+            "Healthcare, education, finance",
+            "Legal compliance (ADA, Equality Act)",
+          ],
           details: "Pricing: Starter £100, Business £200, Premium/complex £350",
         },
         {
@@ -377,7 +376,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="Services & Pricing - Web Development & AI Automation | X15 Digital"
         description="Web development packages from £100-£3,500 + AI automation from £50-£400/month. 5 transparent pricing tiers + 26 add-ons across 10 categories. 1 day to 4 week delivery. View our full service menu for UK businesses."
         keywords="web development pricing UK, AI automation cost, website packages, AI chatbot pricing, business automation"
@@ -388,9 +387,7 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Services & Pricing
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Services & Pricing</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
             Choose what you need. See exactly what you'll pay. No surprises.
           </p>
@@ -422,14 +419,9 @@ const Services = () => {
       </section>
 
       {/* Web Development Packages */}
-      <section
-        id="web-packages"
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted"
-      >
+      <section id="web-packages" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Web Development Packages
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
           <p className="text-center text-muted-foreground mb-4">
             One-time payment. You own everything. No monthly fees.
           </p>
@@ -450,9 +442,7 @@ const Services = () => {
                 <p className="text-3xl font-bold text-primary">£100 - £300</p>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-semibold mb-4">
-                  Perfect for: Individuals, startups, micro-businesses
-                </p>
+                <p className="text-sm font-semibold mb-4">Perfect for: Individuals, startups, micro-businesses</p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
@@ -494,9 +484,7 @@ const Services = () => {
                 <p className="text-3xl font-bold text-primary">£250 - £500</p>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-semibold mb-4">
-                  Perfect for: Trades, freelancers, solo businesses
-                </p>
+                <p className="text-sm font-semibold mb-4">Perfect for: Trades, freelancers, solo businesses</p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
@@ -579,9 +567,7 @@ const Services = () => {
                 <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-semibold mb-4">
-                  Perfect for: E-commerce, agencies, larger service sites
-                </p>
+                <p className="text-sm font-semibold mb-4">Perfect for: E-commerce, agencies, larger service sites</p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
@@ -619,9 +605,7 @@ const Services = () => {
                 <p className="text-3xl font-bold text-primary">£3,500+ (custom quote)</p>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-semibold mb-4">
-                  Perfect for: SaaS, CRMs, advanced platforms
-                </p>
+                <p className="text-sm font-semibold mb-4">Perfect for: SaaS, CRMs, advanced platforms</p>
                 <p className="font-semibold mb-2">What's Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
@@ -659,15 +643,13 @@ const Services = () => {
                   <Zap className="h-6 w-6 text-primary" />
                   <CardTitle className="text-2xl">POPULAR ADD-ONS</CardTitle>
                 </div>
-                <p className="text-lg text-muted-foreground">
-                  Enhance any package with these
-                </p>
+                <p className="text-lg text-muted-foreground">Enhance any package with these</p>
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-sm text-muted-foreground mb-4">
                   Most requested upgrades to maximize your website's potential:
                 </p>
-                
+
                 <div className="space-y-3">
                   {[
                     { name: "Support & Maintenance", price: "From £30/mo", icon: Shield },
@@ -681,7 +663,10 @@ const Services = () => {
                   ].map((addon, i) => {
                     const Icon = addon.icon;
                     return (
-                      <div key={i} className="flex items-start gap-3 p-2 rounded-md hover:bg-primary/5 transition-colors">
+                      <div
+                        key={i}
+                        className="flex items-start gap-3 p-2 rounded-md hover:bg-primary/5 transition-colors"
+                      >
                         <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div className="flex-1">
                           <p className="text-sm font-semibold">{addon.name}</p>
@@ -703,17 +688,15 @@ const Services = () => {
 
           {/* Not Sure CTA */}
           <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground mb-4">
-              💡 Not sure which package fits your needs?
-            </p>
+            <p className="text-lg text-muted-foreground mb-4">💡 Not sure which package fits your needs?</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild variant="outline">
                 <Link to="/quick-start">Take our 30-second quiz</Link>
               </Button>
               <Button asChild variant="outline">
-                <a 
-                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
@@ -737,19 +720,11 @@ const Services = () => {
                   </div>
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Recommended for All Packages
-                  </p>
-                  <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
-                    Support & Maintenance
-                  </h3>
-                  <p className="text-3xl font-bold text-primary mb-4">
-                    From £30/month
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    Keep your website secure, fast, and up-to-date.
-                  </p>
-                  
+                  <p className="text-sm text-muted-foreground mb-2">Recommended for All Packages</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Support & Maintenance</h3>
+                  <p className="text-3xl font-bold text-primary mb-4">From £30/month</p>
+                  <p className="text-muted-foreground mb-4">Keep your website secure, fast, and up-to-date.</p>
+
                   <div className="grid md:grid-cols-2 gap-2 mb-6">
                     {[
                       "Regular updates & security patches",
@@ -765,17 +740,17 @@ const Services = () => {
                       </div>
                     ))}
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground mb-4">
                     <strong>Perfect for:</strong> Any business that wants peace of mind
                   </p>
-                  
+
                   <Button asChild>
                     <Link to="/contact">
                       Add to Any Package <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  
+
                   <p className="text-xs text-muted-foreground mt-4">
                     💡 Optional but highly recommended — protect your investment
                   </p>
@@ -789,12 +764,8 @@ const Services = () => {
       {/* Add-Ons & Extras - Categorized Tabs */}
       <section id="add-ons" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">
-            Add-Ons & Extras
-          </h3>
-          <p className="text-center text-muted-foreground mb-2">
-            Enhance any package with these optional features.
-          </p>
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons & Extras</h3>
+          <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
           <p className="text-center text-sm text-muted-foreground mb-12">
             💡 Bundle 2-3 add-ons and save 10-20% — ask us about package deals!
           </p>
@@ -814,12 +785,12 @@ const Services = () => {
                     "Content & Training": "Content",
                     "Hosting & Infrastructure": "Hosting",
                     "Analytics & Tracking": "Analytics",
-                    "Bundles (Save 10-20%)": "Bundles"
+                    "Bundles (Save 10-20%)": "Bundles",
                   };
-                  
+
                   return (
-                    <TabsTrigger 
-                      key={cat.id} 
+                    <TabsTrigger
+                      key={cat.id}
                       value={cat.id}
                       className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm py-3 px-3 rounded-md hover:bg-accent transition-colors whitespace-normal text-center leading-tight"
                     >
@@ -838,17 +809,11 @@ const Services = () => {
                         <div className="flex items-start gap-3 mb-3">
                           <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-base text-secondary mb-1 leading-tight">
-                              {addon.name}
-                            </h4>
-                            <p className="text-lg font-bold text-primary">
-                              {addon.price}
-                            </p>
+                            <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                            <p className="text-lg font-bold text-primary">{addon.price}</p>
                           </div>
                         </div>
-                        <p className="text-sm text-muted-foreground mb-3">
-                          {addon.description}
-                        </p>
+                        <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
                         {addon.perfectFor && (
                           <div className="mb-3">
                             <p className="text-xs font-semibold mb-1">Perfect for:</p>
@@ -859,9 +824,7 @@ const Services = () => {
                             </ul>
                           </div>
                         )}
-                        <p className="text-xs text-muted-foreground mb-3">
-                          {addon.details}
-                        </p>
+                        <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
                         <Button size="sm" className="w-full" asChild>
                           <Link to="/contact">Add to Package</Link>
                         </Button>
@@ -882,9 +845,7 @@ const Services = () => {
                     <div className="flex items-center gap-2">
                       <category.icon className="h-5 w-5 text-primary" />
                       <span className="font-semibold">{category.label}</span>
-                      <span className="text-xs text-muted-foreground">
-                        ({category.addons.length})
-                      </span>
+                      <span className="text-xs text-muted-foreground">({category.addons.length})</span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -894,17 +855,11 @@ const Services = () => {
                           <div className="flex items-start gap-3 mb-3">
                             <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                             <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">
-                                {addon.name}
-                              </h4>
-                              <p className="text-lg font-bold text-primary">
-                                {addon.price}
-                              </p>
+                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                              <p className="text-lg font-bold text-primary">{addon.price}</p>
                             </div>
                           </div>
-                          <p className="text-sm text-muted-foreground mb-3">
-                            {addon.description}
-                          </p>
+                          <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
                           {addon.perfectFor && (
                             <div className="mb-3">
                               <p className="text-xs font-semibold mb-1">Perfect for:</p>
@@ -915,9 +870,7 @@ const Services = () => {
                               </ul>
                             </div>
                           )}
-                          <p className="text-xs text-muted-foreground mb-3">
-                            {addon.details}
-                          </p>
+                          <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
                           <Button size="sm" className="w-full" asChild>
                             <Link to="/contact">Add to Package</Link>
                           </Button>
@@ -932,9 +885,7 @@ const Services = () => {
 
           {/* Footer CTA */}
           <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground mb-4">
-              Don't see what you need?
-            </p>
+            <p className="text-lg text-muted-foreground mb-4">Don't see what you need?</p>
             <p className="text-muted-foreground mb-6">
               We can customize any add-on or create bespoke solutions for your specific requirements.
             </p>
@@ -943,9 +894,9 @@ const Services = () => {
                 <Link to="/contact">Request Custom Solution</Link>
               </Button>
               <Button asChild variant="outline">
-                <a 
-                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20a%20custom%20add-on" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20a%20custom%20add-on"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
@@ -958,14 +909,9 @@ const Services = () => {
       </section>
 
       {/* AI Automation Section */}
-      <section
-        id="ai-automation"
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted"
-      >
+      <section id="ai-automation" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            AI Automation Solutions
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
             Stand-alone or integrated with your website.
             <br />
@@ -1022,12 +968,11 @@ const Services = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Service businesses, e-commerce,
-                  consultants
+                  <strong>Perfect For:</strong> Service businesses, e-commerce, consultants
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Custom trained on your business,
-                  integrates with your website, multi-platform support
+                  <strong>Technical Details:</strong> Custom trained on your business, integrates with your website,
+                  multi-platform support
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1044,7 +989,7 @@ const Services = () => {
               </Badge>
               <CardHeader>
                 <Phone className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Voice Agent</CardTitle>
+                <CardTitle className="text-2xl">AI Receptionist</CardTitle>
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Setup: £400-800</p>
                   <p className="text-sm text-muted-foreground">Monthly: £100-200</p>
@@ -1066,12 +1011,10 @@ const Services = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Salons, clinics, offices with high call
-                  volume
+                  <strong>Perfect For:</strong> Salons, clinics, offices with high call volume
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Natural conversational AI, calendar
-                  sync, call transcripts
+                  <strong>Technical Details:</strong> Natural conversational AI, calendar sync, call transcripts
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1094,24 +1037,20 @@ const Services = () => {
               <CardContent>
                 <p className="font-semibold mb-4">What It Does:</p>
                 <ul className="space-y-2 mb-4">
-                  {[
-                    "Automated lead generation",
-                    "Qualifies prospects",
-                    "Books sales calls",
-                    "Follow-up sequences",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
+                  {["Automated lead generation", "Qualifies prospects", "Books sales calls", "Follow-up sequences"].map(
+                    (item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ),
+                  )}
                 </ul>
                 <p className="text-sm text-muted-foreground mb-4">
                   <strong>Perfect For:</strong> B2B services, consultants, agencies, SaaS
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Multi-channel outreach, CRM
-                  integration, lead scoring
+                  <strong>Technical Details:</strong> Multi-channel outreach, CRM integration, lead scoring
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1150,8 +1089,7 @@ const Services = () => {
                   <strong>Perfect For:</strong> Sales teams, marketing, lead generation
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Custom templates, A/B testing,
-                  analytics & tracking
+                  <strong>Technical Details:</strong> Custom templates, A/B testing, analytics & tracking
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1190,8 +1128,7 @@ const Services = () => {
                   <strong>Perfect For:</strong> Retail, online brands, content creators
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Multi-platform support, engagement
-                  monitoring, performance reports
+                  <strong>Technical Details:</strong> Multi-platform support, engagement monitoring, performance reports
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1230,8 +1167,7 @@ const Services = () => {
                   <strong>Perfect For:</strong> E-commerce, logistics, operations teams
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Zapier/Make integration, 1,000+ app
-                  connections, error handling
+                  <strong>Technical Details:</strong> Zapier/Make integration, 1,000+ app connections, error handling
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1270,8 +1206,7 @@ const Services = () => {
                   <strong>Perfect For:</strong> Busy professionals, customer support teams
                 </p>
                 <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Smart categorisation, CRM
-                  integration, daily summaries
+                  <strong>Technical Details:</strong> Smart categorisation, CRM integration, daily summaries
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/contact">
@@ -1284,9 +1219,7 @@ const Services = () => {
 
           {/* Additional AI Services */}
           <div className="bg-white rounded-lg p-8 mb-12">
-            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">
-              Additional AI Automation Services
-            </h3>
+            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">Additional AI Automation Services</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               {[
                 {
@@ -1343,9 +1276,7 @@ const Services = () => {
 
           {/* AI Pricing Table */}
           <div className="bg-white rounded-lg p-8 overflow-x-auto mb-12">
-            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">
-              AI Automation Pricing Overview
-            </h3>
+            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">AI Automation Pricing Overview</h3>
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
@@ -1379,12 +1310,9 @@ const Services = () => {
 
           {/* Custom AI Solution CTA */}
           <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-lg p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Custom AI Solution
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Custom AI Solution</h2>
             <p className="text-lg mb-6 max-w-3xl mx-auto">
-              Need something specific? We build bespoke AI automation tailored to your
-              exact business needs.
+              Need something specific? We build bespoke AI automation tailored to your exact business needs.
             </p>
             <div className="mb-6 text-left max-w-2xl mx-auto">
               <p className="font-semibold mb-2">Recent Custom Solutions:</p>
@@ -1406,8 +1334,8 @@ const Services = () => {
             <div className="mb-6">
               <p className="text-xl font-semibold">Setup: £800+ | Monthly: £200+</p>
               <p className="text-sm mt-2">
-                Every project is unique. Let's discuss your requirements and build the
-                perfect AI solution for your business.
+                Every project is unique. Let's discuss your requirements and build the perfect AI solution for your
+                business.
               </p>
             </div>
             <Button
@@ -1422,17 +1350,13 @@ const Services = () => {
       </section>
 
       {/* Combined Packages */}
-      <section
-        id="combined-packages"
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background"
-      >
+      <section id="combined-packages" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Website + AI Bundles (Save 10-15%)
           </h2>
           <p className="text-center text-muted-foreground mb-12">
-            Get more value by combining services. All bundles include setup, training,
-            and ongoing support.
+            Get more value by combining services. All bundles include setup, training, and ongoing support.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -1481,10 +1405,7 @@ const Services = () => {
                 link: "/contact",
               },
             ].map((bundle, i) => (
-              <Card
-                key={i}
-                className={`hover-lift ${bundle.popular ? "border-2 border-primary relative" : ""}`}
-              >
+              <Card key={i} className={`hover-lift ${bundle.popular ? "border-2 border-primary relative" : ""}`}>
                 {bundle.popular && (
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
                     <Star className="h-3 w-3 mr-1" /> MOST POPULAR
@@ -1516,8 +1437,7 @@ const Services = () => {
             Built With Security in Mind
           </h2>
           <p className="text-center text-muted-foreground mb-12">
-            Every website and AI system we build follows industry best practices for data
-            protection and security.
+            Every website and AI system we build follows industry best practices for data protection and security.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -1528,8 +1448,7 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  All sites include HTTPS for secure connections and encrypted data
-                  transfer.
+                  All sites include HTTPS for secure connections and encrypted data transfer.
                 </p>
               </CardContent>
             </Card>
@@ -1541,8 +1460,7 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Forms, cookies, and privacy policies setup included to keep you
-                  compliant.
+                  Forms, cookies, and privacy policies setup included to keep you compliant.
                 </p>
               </CardContent>
             </Card>
@@ -1554,8 +1472,7 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Hosted on enterprise-grade infrastructure with automatic backups and
-                  monitoring.
+                  Hosted on enterprise-grade infrastructure with automatic backups and monitoring.
                 </p>
               </CardContent>
             </Card>
@@ -1570,12 +1487,8 @@ const Services = () => {
       {/* Who This ISN'T For */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Who This ISN'T For
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            We're honest about what we can't do.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Who This ISN'T For</h2>
+          <p className="text-center text-muted-foreground mb-12">We're honest about what we can't do.</p>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-destructive/50">
@@ -1585,8 +1498,8 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  We're fast (1-14 days), but we're not same-day. If you need a site live
-                  tomorrow, we're not the right fit.
+                  We're fast (1-14 days), but we're not same-day. If you need a site live tomorrow, we're not the right
+                  fit.
                 </p>
               </CardContent>
             </Card>
@@ -1598,8 +1511,8 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  We work efficiently. One kickoff call, async updates, done. If you need
-                  weekly check-ins and presentations, hire an agency.
+                  We work efficiently. One kickoff call, async updates, done. If you need weekly check-ins and
+                  presentations, hire an agency.
                 </p>
               </CardContent>
             </Card>
@@ -1611,8 +1524,8 @@ const Services = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Our pricing is fair, but we can't compete with £50 Fiverr sites. Quality
-                  costs more than that (but way less than agencies).
+                  Our pricing is fair, but we can't compete with £50 Fiverr sites. Quality costs more than that (but way
+                  less than agencies).
                 </p>
               </CardContent>
             </Card>
@@ -1658,8 +1571,8 @@ const Services = () => {
 
           <p className="text-center text-muted-foreground mt-8 flex items-center justify-center gap-2">
             <Zap className="h-5 w-5 text-primary" />
-            We keep costs low by using modern tools and working smart. You get
-            professional results without agency overhead.
+            We keep costs low by using modern tools and working smart. You get professional results without agency
+            overhead.
           </p>
         </div>
       </section>
@@ -1667,9 +1580,7 @@ const Services = () => {
       {/* FAQ Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Frequently Asked Questions</h2>
           <p className="text-center text-muted-foreground mb-12">
             Let's address the deal-breakers first, then the details.
           </p>
@@ -1678,20 +1589,15 @@ const Services = () => {
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-6">
               <X className="h-6 w-6 text-destructive" />
-              <h3 className="text-2xl font-bold text-destructive">
-                Deal-Breakers (Read These First)
-              </h3>
+              <h3 className="text-2xl font-bold text-destructive">Deal-Breakers (Read These First)</h3>
             </div>
-            
+
             <Accordion type="multiple" className="space-y-4">
               <AccordionItem value="q1" className="border border-destructive/30 rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">
-                  Can you build my site for £50?
-                </AccordionTrigger>
+                <AccordionTrigger className="text-left font-semibold">Can you build my site for £50?</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
                   <p className="mb-4">
-                    No. Our minimum is £100 for a basic 1-page site, and that's already
-                    below what quality work costs.
+                    No. Our minimum is £100 for a basic 1-page site, and that's already below what quality work costs.
                   </p>
                   <p className="mb-2">If your budget is under £100, we recommend:</p>
                   <ul className="list-disc pl-6 space-y-1">
@@ -1707,9 +1613,7 @@ const Services = () => {
                   Can you build my site in 24 hours?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  <p className="mb-4">
-                    Not unless it's extremely simple (1 page, no custom features).
-                  </p>
+                  <p className="mb-4">Not unless it's extremely simple (1 page, no custom features).</p>
                   <p className="mb-2">Realistic timelines:</p>
                   <ul className="list-disc pl-6 space-y-1">
                     <li>Starter site (1-3 pages): 1-3 days</li>
@@ -1717,9 +1621,7 @@ const Services = () => {
                     <li>Premium/e-commerce: 7-14 days</li>
                     <li>Web application: 2-6 weeks</li>
                   </ul>
-                  <p className="mt-4">
-                    We're fast, but we don't sacrifice quality for speed.
-                  </p>
+                  <p className="mt-4">We're fast, but we don't sacrifice quality for speed.</p>
                 </AccordionContent>
               </AccordionItem>
 
@@ -1728,9 +1630,7 @@ const Services = () => {
                   Do you offer monthly payment plans?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  <p className="mb-4">
-                    Not for web development (you pay once, own it forever).
-                  </p>
+                  <p className="mb-4">Not for web development (you pay once, own it forever).</p>
                   <p className="mb-2">We DO offer monthly subscriptions for:</p>
                   <ul className="list-disc pl-6 space-y-1">
                     <li>AI automation services (£50-800/month)</li>
@@ -1771,12 +1671,8 @@ const Services = () => {
               },
             ].map((faq, i) => (
               <AccordionItem key={i} value={`ai-${i}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground whitespace-pre-line">
-                  {faq.a}
-                </AccordionContent>
+                <AccordionTrigger className="text-left font-semibold">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground whitespace-pre-line">{faq.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -1814,12 +1710,8 @@ const Services = () => {
               },
             ].map((faq, i) => (
               <AccordionItem key={i} value={`std-${i}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground whitespace-pre-line">
-                  {faq.a}
-                </AccordionContent>
+                <AccordionTrigger className="text-left font-semibold">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground whitespace-pre-line">{faq.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -1830,9 +1722,7 @@ const Services = () => {
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary/80 text-white">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start?</h2>
-          <p className="text-xl mb-8 text-white/90">
-            Get a free, transparent quote in under 4 hours.
-          </p>
+          <p className="text-xl mb-8 text-white/90">Get a free, transparent quote in under 4 hours.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Button
@@ -1842,22 +1732,14 @@ const Services = () => {
             >
               <Link to="/contact">Get Free Quote</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-            >
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Link to="/services">See All Services</Link>
             </Button>
           </div>
 
           <p className="text-white/90 mb-2">
             Or WhatsApp us now:{" "}
-            <a
-              href="https://wa.me/447424062513"
-              className="font-semibold hover:underline"
-            >
+            <a href="https://wa.me/447424062513" className="font-semibold hover:underline">
               +44 7424 062513
             </a>
           </p>
@@ -1870,7 +1752,7 @@ const Services = () => {
 
       <Footer />
       <WhatsAppWidget />
-      
+
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button

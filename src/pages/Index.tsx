@@ -575,7 +575,7 @@ const Index = () => {
                 <Target className="h-3 w-3 mr-1" /> BEST FOR LOCAL BUSINESSES
               </Badge>
               <CardHeader>
-                <CardTitle className="text-2xl">Voice Agent</CardTitle>
+                <CardTitle className="text-2xl">AI Receptionist</CardTitle>
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Setup: £400-800</p>
                   <p className="text-sm text-muted-foreground">Monthly: £100-200</p>

@@ -21,6 +21,7 @@ import {
   Inbox,
   X,
   ChevronDown,
+  ChevronUp,
   Rocket,
   Gauge,
   Eye,
@@ -55,6 +56,7 @@ import { SEO } from "@/components/SEO";
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [expandedFaq, setExpandedFaq] = useState<string[]>([]);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -73,6 +75,19 @@ const Services = () => {
 
     return () => observerRef.current?.disconnect();
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -1855,6 +1870,17 @@ const Services = () => {
 
       <Footer />
       <WhatsAppWidget />
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };

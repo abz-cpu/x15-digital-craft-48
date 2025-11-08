@@ -11,6 +11,7 @@ import { performanceMonitor } from "@/utils/performance";
 import { registerPreload } from "@/components/PreloadLink";
 import { CookieConsent } from "@/components/CookieConsent";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Lazy load route components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -69,6 +70,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <RouteTracker />
             <BreadcrumbSchema />
             <CookieConsent />

@@ -29,7 +29,7 @@ const FloatingActionMenu = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed z-[60] right-4 md:right-6 lg:right-8 bottom-[max(1.25rem,env(safe-area-inset-bottom))]">
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${
@@ -73,6 +73,7 @@ const FloatingActionMenu = () => {
       <button
         onClick={toggleMenu}
         className="bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        style={{ zIndex: 61 }}
         aria-label={isOpen ? "Close menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
       >

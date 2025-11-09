@@ -78,19 +78,10 @@ const Services = () => {
     const scrollTarget = new URLSearchParams(search).get("scroll");
 
     if (scrollTarget === "ai-automation" && aiRef.current) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            aiRef.current?.scrollIntoView({ behavior: "smooth" });
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.1 },
-      );
-
-      observer.observe(aiRef.current);
-
-      return () => observer.disconnect();
+      // Delay to let layout/render finish
+      setTimeout(() => {
+        aiRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 200);
     }
   }, [search]);
 

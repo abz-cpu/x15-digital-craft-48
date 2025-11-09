@@ -10,24 +10,26 @@
     --muted: 210 20% 98%;
     --muted-foreground: 215 16% 47%;
 
-    /* Brand Colors */
-    --primary: 190 95% 50%; /* Electric Cyan - CTAs, links */
+    /* Brand Colors (CTAs only) */
+    --primary: 221 83% 53%; /* Sapphire Blue ≈ #2563EB */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 47% 11%; /* Midnight Navy - headings */
+    /* UI Anchor (headings, prices, nav) */
+    --secondary: 222 47% 11%; /* Midnight Navy */
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 95 85% 45%; /* Neon Lime - automation highlights */
+    /* Optional accent for tiny AI highlights (use sparingly) */
+    --accent: 95 70% 42%; /* Softer lime */
     --accent-foreground: 0 0% 10%;
 
     /* State Colors */
-    --info: 220 90% 60%; /* Royal Blue - labels, "New" */
+    --info: 217 85% 56%; /* Clear info blue */
     --info-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%; /* Amber - "Most Popular" */
+    --warning: 38 92% 50%; /* Amber */
     --warning-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%; /* Emerald - checkmarks */
+    --success: 142 60% 34%; /* Deeper emerald */
     --success-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -40,14 +42,14 @@
     --popover-foreground: 222 47% 11%;
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 190 95% 50%;
+    --ring: 221 83% 53%;
     --radius: 0.75rem;
 
-    /* Chart colors */
-    --chart-1: 190 95% 50%; /* Electric Cyan */
-    --chart-2: 142 76% 36%; /* Emerald */
-    --chart-3: 95 85% 45%; /* Neon Lime */
-    --chart-4: 220 90% 60%; /* Royal Blue */
+    /* Charts (match new palette) */
+    --chart-1: 221 83% 53%; /* Sapphire */
+    --chart-2: 142 60% 34%; /* Emerald */
+    --chart-3: 95 70% 42%; /* Lime (soft) */
+    --chart-4: 217 85% 56%; /* Info blue */
     --chart-5: 38 92% 50%; /* Amber */
   }
 
@@ -57,18 +59,18 @@
     --muted: 217 33% 17%;
     --muted-foreground: 215 16% 47%;
 
-    --primary: 190 95% 50%;
+    --primary: 221 83% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 222 47% 11%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 95 85% 45%;
+    --accent: 95 70% 42%;
     --accent-foreground: 0 0% 10%;
 
-    --info: 220 90% 60%;
+    --info: 217 85% 60%;
     --info-foreground: 0 0% 100%;
-    --warning: 38 92% 40%;
+    --warning: 38 92% 46%;
     --warning-foreground: 0 0% 100%;
-    --success: 142 76% 36%;
+    --success: 142 60% 38%;
     --success-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -79,7 +81,7 @@
     --popover-foreground: 0 0% 100%;
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 190 95% 50%;
+    --ring: 221 83% 60%;
   }
 }
 
@@ -98,7 +100,7 @@
       sans-serif;
   }
 
-  /* DON'T force all headings to navy - let components control it */
+  /* Don’t force heading color globally */
   h1,
   h2,
   h3,
@@ -114,7 +116,7 @@
 }
 
 @layer utilities {
-  /* Use this class for headings on light backgrounds */
+  /* Use on headings in light sections */
   .heading {
     @apply font-bold text-secondary;
   }
@@ -122,7 +124,6 @@
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -138,13 +139,12 @@
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 
-  /* Glow effects */
-  .glow-cyan {
-    box-shadow: 0 0 80px hsl(190 95% 60% / 0.35);
+  /* Updated glows to match sapphire + soft lime */
+  .glow-primary {
+    box-shadow: 0 0 80px hsl(221 83% 63% / 0.35);
   }
-
-  .glow-lime {
-    box-shadow: 0 0 60px hsl(95 85% 55% / 0.35);
+  .glow-accent {
+    box-shadow: 0 0 60px hsl(95 70% 52% / 0.35);
   }
 
   @media (prefers-reduced-motion: reduce) {

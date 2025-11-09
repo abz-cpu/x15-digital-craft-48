@@ -920,7 +920,7 @@ const Services = () => {
       </section>
 
       {/* AI Automation Section */}
-      <section id="add-ons" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="ai-automation" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
@@ -1301,7 +1301,7 @@ const Services = () => {
                 {[
                   ["Chatbot", "£200-400", "£50-100", "Customer support, FAQs"],
                   ["AI Receptionist", "£400-800", "£100-200", "Phone answering, bookings"],
-                  ["AI Sales Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"]
+                  ["AI Sales Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"],
                   ["Email Outreach", "£400-1,000", "£100-400", "Marketing campaigns"],
                   ["Social Media", "£200-600", "£50-150", "Content automation"],
                   ["AI Admin Assistant", "£500-1,500", "£150-600", "Process optimisation"],
@@ -1361,7 +1361,7 @@ const Services = () => {
       </section>
 
       {/* Combined Packages */}
-       <section id="combined-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="combined-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Website + AI Bundles (Save 10-15%)
@@ -1566,7 +1566,7 @@ const Services = () => {
                   ["Timeline", "4-12 weeks", "1-3 days (Entry/Starter), 1-2 weeks (Business)"],
                   ["Who you work with", "Account manager", "Lead developer, direct support"],
                   ["Pricing transparency", '"Let\'s discuss your budget"', "All prices on website"],
-                  [["AI automation", "Extra £5k+", "From £50-£200 as add-on, fully integrated"],
+                  ["AI automation", "Extra £5k+", "From £50-£200 as add-on, fully integrated"],
                   ["Monthly fees", "£50-£200/month hosting", "£0-£30 (you own it, affordable maintenance)"],
                   ["Revisions", "2-3 rounds max", "Unlimited until happy"],
                 ].map(([feature, agency, x15], i) => (

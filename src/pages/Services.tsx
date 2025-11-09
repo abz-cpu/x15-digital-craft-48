@@ -430,7 +430,7 @@ const Services = () => {
       </section>
 
       {/* Web Development Packages */}
-      <section id="web-packages" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="web-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
           <p className="text-center text-muted-foreground mb-4">
@@ -706,7 +706,7 @@ const Services = () => {
               </Button>
               <Button asChild variant="outline">
                 <a
-                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package"
+                  href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -773,7 +773,7 @@ const Services = () => {
       </section>
 
       {/* Add-Ons & Extras - Categorized Tabs */}
-      <section id="add-ons" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="add-ons" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons & Extras</h3>
           <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
@@ -906,7 +906,7 @@ const Services = () => {
               </Button>
               <Button asChild variant="outline">
                 <a
-                  href="https://wa.me/447123456789?text=Hi%2C%20I%20need%20a%20custom%20add-on"
+                  href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20a%20custom%20add-on"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -920,7 +920,7 @@ const Services = () => {
       </section>
 
       {/* AI Automation Section */}
-      <section id="ai-automation" ref={aiRef} className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="add-ons" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
@@ -1301,7 +1301,7 @@ const Services = () => {
                 {[
                   ["Chatbot", "£200-400", "£50-100", "Customer support, FAQs"],
                   ["AI Receptionist", "£400-800", "£100-200", "Phone answering, bookings"],
-                  ["AI Email Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"],
+                  ["AI Sales Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"]
                   ["Email Outreach", "£400-1,000", "£100-400", "Marketing campaigns"],
                   ["Social Media", "£200-600", "£50-150", "Content automation"],
                   ["AI Admin Assistant", "£500-1,500", "£150-600", "Process optimisation"],
@@ -1361,7 +1361,7 @@ const Services = () => {
       </section>
 
       {/* Combined Packages */}
-      <section id="combined-packages" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+       <section id="combined-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Website + AI Bundles (Save 10-15%)
@@ -1562,12 +1562,12 @@ const Services = () => {
               </thead>
               <tbody>
                 {[
-                  ["Price for basic site", "£3,000-£10,000", "£100-£500 (Entery/Starter)"],
-                  ["Timeline", "4-12 weeks", "1-3 days (Entery/Starter), 1-2 weeks (Bussiness)"],
-                  ["Who you work with", "Account manager", "Lead developer, Direct support"],
+                  ["Price for basic site", "£3,000-£10,000", "£100-£500 (Entry/Starter)"],
+                  ["Timeline", "4-12 weeks", "1-3 days (Entry/Starter), 1-2 weeks (Business)"],
+                  ["Who you work with", "Account manager", "Lead developer, direct support"],
                   ["Pricing transparency", '"Let\'s discuss your budget"', "All prices on website"],
-                  ["AI automation", "Extra £5k+", "From £50-£200 as add-on, Fully intergrated"],
-                  ["Monthly fees", "£50-200/month hosting", "£0-£30 (you own it, affordable maintanance)"],
+                  [["AI automation", "Extra £5k+", "From £50-£200 as add-on, fully integrated"],
+                  ["Monthly fees", "£50-£200/month hosting", "£0-£30 (you own it, affordable maintenance)"],
                   ["Revisions", "2-3 rounds max", "Unlimited until happy"],
                 ].map(([feature, agency, x15], i) => (
                   <tr key={i} className="border-b border-border last:border-b-0">

@@ -73,16 +73,24 @@ const Services = () => {
   }, []);
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const scrollTarget = searchParams.get("scroll");
+    const scrollTarget = new URLSearchParams(search).get("scroll");
 
-    if (scrollTarget) {
-      setTimeout(() => {
-        const el = document.getElementById(scrollTarget);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 300); // wait for content to mount
+    if (scrollTarget === "ai-automation" && aiRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            aiRef.current?.scrollIntoView({ behavior: "smooth" });
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+
+      observer.observe(aiRef.current);
+
+      return () => observer.disconnect();
     }
-  }, []);
+  }, [search]);
 
   useEffect(() => {
     const handleScroll = () => {

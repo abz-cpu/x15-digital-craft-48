@@ -133,7 +133,7 @@ const Index = () => {
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-transform"
             >
-              <Link to="/services#ai-automation">
+              <Link to="/services?scroll=ai-automation">
                 AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

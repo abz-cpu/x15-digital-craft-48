@@ -465,7 +465,7 @@ const Services = () => {
                     "Upgrade path to Starter/Business",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -508,7 +508,7 @@ const Services = () => {
                     "1-3 day delivery",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -529,7 +529,7 @@ const Services = () => {
 
             {/* Business */}
             <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                 <Star className="h-3 w-3 mr-1" /> MOST POPULAR
               </Badge>
               <CardHeader>
@@ -552,7 +552,7 @@ const Services = () => {
                     "5-10 day delivery",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -590,7 +590,7 @@ const Services = () => {
                     "1-4 week timeline",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -628,7 +628,7 @@ const Services = () => {
                     "Ongoing support/maintenance options",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -678,7 +678,7 @@ const Services = () => {
                         key={i}
                         className="flex items-start gap-3 p-2 rounded-md hover:bg-primary/5 transition-colors"
                       >
-                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <Icon className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                         <div className="flex-1">
                           <p className="text-sm font-semibold">{addon.name}</p>
                           <p className="text-xs text-primary font-semibold">{addon.price}</p>
@@ -854,7 +854,7 @@ const Services = () => {
                 <AccordionItem key={category.id} value={category.id}>
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-2">
-                      <category.icon className="h-5 w-5 text-primary" />
+                      <category.icon className="h-5 w-5 text-success" />
                       <span className="font-semibold">{category.label}</span>
                       <span className="text-xs text-muted-foreground">({category.addons.length})</span>
                     </div>
@@ -952,7 +952,7 @@ const Services = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* AI Chatbot */}
             <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                 <Star className="h-3 w-3 mr-1" /> MOST POPULAR
               </Badge>
               <CardHeader>
@@ -973,7 +973,7 @@ const Services = () => {
                     "Works 24/7, never sleeps",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1016,7 +1016,7 @@ const Services = () => {
                     "Handles after-hours inquiries",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1051,7 +1051,7 @@ const Services = () => {
                   {["Automated lead generation", "Qualifies prospects", "Books sales calls", "Follow-up sequences"].map(
                     (item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{item}</span>
                       </li>
                     ),
@@ -1091,7 +1091,7 @@ const Services = () => {
                     "Personalised at scale",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1130,7 +1130,7 @@ const Services = () => {
                     "Content scheduling",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1169,7 +1169,7 @@ const Services = () => {
                     "Custom workflows",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1208,7 +1208,7 @@ const Services = () => {
                     "Automates workflows",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
@@ -1418,7 +1418,7 @@ const Services = () => {
             ].map((bundle, i) => (
               <Card key={i} className={`hover-lift ${bundle.popular ? "border-2 border-primary relative" : ""}`}>
                 {bundle.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                     <Star className="h-3 w-3 mr-1" /> MOST POPULAR
                   </Badge>
                 )}
@@ -1581,7 +1581,7 @@ const Services = () => {
           </div>
 
           <p className="text-center text-muted-foreground mt-8 flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
+            <Zap className="h-5 w-5 text-success" />
             We keep costs low by using modern tools and working smart. You get professional results without agency
             overhead.
           </p>

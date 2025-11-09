@@ -275,11 +275,11 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-7 w-7 text-primary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
-                    <p className="text-sm font-semibold text-primary mt-1">{service.tagline}</p>
+                    <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
 
                   <CardContent>
@@ -289,10 +289,10 @@ const Index = () => {
                       <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                         {/* CHANGED THIS ↓ */}
-                        <div className="flex items-center justify-center gap-2 mt-2 text-primary font-semibold text-sm">
-                          <span>Hover for details</span>
-                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+  <span>Hover for details</span>
+  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+</div>
                       </div>
 
                       {/* Expanded state - full details (shows on hover) */}
@@ -324,9 +324,9 @@ const Index = () => {
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                           {/* CHANGED THIS ↓ */}
-                          <div className="flex items-center justify-center gap-2 mt-2 text-primary font-semibold text-sm">
+                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
-                            <ArrowRight className="h-4 w-4" />
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />>
                           </div>
                         </div>
                       )}
@@ -539,31 +539,31 @@ const Index = () => {
                   <p className="font-semibold mb-3">What's Included:</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">1-3 custom pages (Home, About, Contact)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Fully custom or semi-custom design</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Mobile responsive</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Contact form integration</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Basic SEO setup</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Social media links</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">1-3 day delivery</span>
                     </li>
                   </ul>
@@ -587,9 +587,9 @@ const Index = () => {
             {/* Business Package - Most Popular */}
             <AnimatedSection staggerIndex={1} animation="scale">
               <Card className="hover-lift border-2 border-primary relative">
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
-                  <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-                </Badge>
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
+            <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+          </Badge>
                 <CardHeader>
                   <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
@@ -602,31 +602,31 @@ const Index = () => {
                   <p className="font-semibold mb-3">What's Included:</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">4-10 pages</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Full custom layout & branding</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Contact + advanced forms/booking</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Google Maps integration</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Portfolio/gallery options</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Full SEO package</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                       <span className="text-sm">5-10 day delivery</span>
                     </li>
                   </ul>
@@ -718,9 +718,9 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
-                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-              </Badge>
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
+            <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+          </Badge>
               <CardHeader>
                 <CardTitle className="text-2xl">AI Chatbot</CardTitle>
                 <div className="space-y-1">
@@ -760,7 +760,7 @@ const Index = () => {
             </Card>
 
             <Card className="hover-lift relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white">
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-info text-info-foreground">
                 <Target className="h-3 w-3 mr-1" /> BEST FOR LOCAL BUSINESSES
               </Badge>
               <CardHeader>
@@ -852,7 +852,7 @@ const Index = () => {
                     <ul className="space-y-2 mb-4">
                       {project.features.map((feature, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
                         </li>
                       ))}
@@ -891,23 +891,23 @@ const Index = () => {
                 <h3 className="font-semibold mb-4">Recent Project Inquiries:</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-sm">Salon website + booking system (£450)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-sm">Trade business site with quote forms (£300)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-sm">E-commerce site for local retail (£1,100)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-sm">AI chatbot for property management (£350 setup)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-sm">Voice agent for clinic (£600 setup)</span>
                   </li>
                 </ul>

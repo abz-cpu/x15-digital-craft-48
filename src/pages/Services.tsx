@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import {
@@ -74,14 +74,11 @@ const Services = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const scrollTarget = new URLSearchParams(search).get("scroll");
 
     if (scrollTarget === "ai-automation" && aiRef.current) {
-      // Delay to let layout/render finish
-      setTimeout(() => {
-        aiRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 200);
+      aiRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [search]);
 

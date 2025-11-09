@@ -53,6 +53,8 @@ const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [expandedFaq, setExpandedFaq] = useState<string[]>([]);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { search } = useLocation();
+  const aiRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -930,7 +932,7 @@ const Services = () => {
       </section>
 
       {/* AI Automation Section */}
-      <section id="ai-automation" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="ai-automation" ref={aiRef} className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">

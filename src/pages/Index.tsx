@@ -105,10 +105,10 @@ const Index = () => {
             Affordable Web Development & AI Automation for UK Businesses
           </h1>
           <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-6 leading-tight">
-  <span className="text-primary">£300 Website</span>. 5 Days. You Own Everything.
-  <br />
-  AI Automation from <span className="text-primary">£50/Month</span>
-</h2>
+            <span className="text-primary">£300 Website</span>. 5 Days. You Own Everything.
+            <br />
+            AI Automation from <span className="text-primary">£50/Month</span>
+          </h2>
 
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
             We offer professional web development & AI automation for UK and global businesses. Choose one service or
@@ -443,9 +443,9 @@ const Index = () => {
               <Card className="hover-lift border border-primary/30">
                 <CardHeader className="text-center">
                   <div className="flex justify-center items-center gap-2 mb-4">
-                    <Globe className="h-12 w-12 text-primary" />
-                    <span className="text-2xl font-bold text-primary">+</span>
-                    <Bot className="h-12 w-12 text-primary" />
+                    <Globe className="h-12 w-12 text-secondary" />
+                    <span className="text-2xl font-bold text-secondary">+</span>
+                    <Bot className="h-12 w-12 text-secondary" />
                   </div>
                   <CardTitle className="text-2xl">Need Both?</CardTitle>
                 </CardHeader>
@@ -587,7 +587,7 @@ const Index = () => {
 
             {/* Business Package - Most Popular */}
             <AnimatedSection staggerIndex={1} animation="scale">
-              <Card className="hover-lift border border-primary/30 relative" />
+              <Card className="hover-lift border border-primary/30 relative">
                 <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                   <Star className="h-3 w-3 mr-1" /> MOST POPULAR
                 </Badge>
@@ -651,11 +651,11 @@ const Index = () => {
 
           {/* Web Applications CTA Card */}
           <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
-  <CardContent className="p-8 text-center">
-    <div className="flex items-center justify-center gap-2 mb-3">
-      <Zap className="h-6 w-6 text-secondary" />
-      <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
-    </div>
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Zap className="h-6 w-6 text-secondary" />
+                <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
+              </div>
               <p className="text-muted-foreground mb-6">
                 Professional web applications, e-commerce platforms, and custom software solutions starting from £2,000
               </p>
@@ -718,7 +718,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="hover-lift border-2 border-primary relative">
+            <Card className="hover-lift border border-primary/30 relative">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                 <Star className="h-3 w-3 mr-1" /> MOST POPULAR
               </Badge>
@@ -733,7 +733,7 @@ const Index = () => {
                 <p className="font-semibold mb-4">What It Does:</p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                   <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Answers FAQs instantly</span>
                   </li>
                   <li className="flex items-start gap-2">

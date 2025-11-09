@@ -3,16 +3,13 @@ import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
   const { pathname, search } = useLocation();
+  const hasScrollParam = new URLSearchParams(search).has("scroll");
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(search);
-    const scrollTarget = urlParams.get("scroll");
-
-    // Only scroll to top if no scroll target exists in the URL
-    if (!scrollTarget) {
+    if (!hasScrollParam) {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
-  }, [pathname, search]);
+  }, [pathname, hasScrollParam]);
 
   return null;
 }

@@ -157,18 +157,50 @@ const Index = () => {
         </div>
       </section>
 
-      
+      {/* What We Offer */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Comprehensive digital services designed to transform your business. Each service is tailored to solve your
+            specific challenges and drive growth.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                id: "design",
+                icon: Palette,
+                title: "Web/App Design",
+                tagline: "Sites that convert visitors into customers",
+                shortDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
+                fullDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                process: [
+                  "Discovery & Brand Research",
+                  "Design Concepts & Mockups",
+                  "User Experience Testing",
+                  "Final Design & Handoff",
+                ],
+                link: "/services#design",
+              },
+              {
+                id: "web-dev",
+                icon: Globe,
                 title: "Web Development",
                 tagline: "Lightning-fast sites delivered in days",
-                shortDescription: "Modern, responsive websites built with the latest technology and optimized for speed...",
-                fullDescription: "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
+                shortDescription:
+                  "Modern, responsive websites built with the latest technology and optimized for speed...",
+                fullDescription:
+                  "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
                 process: [
                   "Technical Planning & Architecture",
                   "Development & Integration",
                   "Quality Testing & Optimization",
-                  "Launch & Ongoing Support"
+                  "Launch & Ongoing Support",
                 ],
-                link: "#web-preview"
+                link: "#web-preview",
               },
               {
                 id: "app-dev",
@@ -176,29 +208,32 @@ const Index = () => {
                 title: "App Development",
                 tagline: "Apps your customers will love",
                 shortDescription: "Native iOS and Android applications designed for an exceptional user experience...",
-                fullDescription: "Native iOS and Android applications designed for an exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+                fullDescription:
+                  "Native iOS and Android applications designed for an exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
                 process: [
                   "Strategy & Feature Planning",
                   "Design & Development",
                   "Testing & Refinement",
-                  "App Store Launch & Updates"
+                  "App Store Launch & Updates",
                 ],
-                link: "/services#app-development"
+                link: "/services#app-development",
               },
               {
                 id: "marketing",
                 icon: TrendingUp,
                 title: "Digital Marketing",
                 tagline: "Rank higher, get more customers",
-                shortDescription: "Strategic digital marketing that puts your business in front of customers actively searching...",
-                fullDescription: "Strategic digital marketing that puts your business in front of customers actively searching for your services. Combining SEO, paid advertising, and social media to drive qualified traffic and measurable growth for your business.",
+                shortDescription:
+                  "Strategic digital marketing that puts your business in front of customers actively searching...",
+                fullDescription:
+                  "Strategic digital marketing that puts your business in front of customers actively searching for your services. Combining SEO, paid advertising, and social media to drive qualified traffic and measurable growth for your business.",
                 process: [
                   "Market & Competitor Analysis",
                   "Strategy Development",
                   "Campaign Launch & Management",
-                  "Performance Tracking & Optimization"
+                  "Performance Tracking & Optimization",
                 ],
-                link: "/services#marketing"
+                link: "/services#marketing",
               },
               {
                 id: "branding",
@@ -206,14 +241,15 @@ const Index = () => {
                 title: "Graphic Design",
                 tagline: "Branding that makes you memorable",
                 shortDescription: "Professional branding and visual design that communicates your unique value...",
-                fullDescription: "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build recognition.",
+                fullDescription:
+                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build recognition.",
                 process: [
                   "Brand Discovery & Research",
                   "Concept Creation & Exploration",
                   "Design Development & Refinement",
-                  "Brand Guidelines & Assets"
+                  "Brand Guidelines & Assets",
                 ],
-                link: "/services#branding"
+                link: "/services#branding",
               },
               {
                 id: "ai-automation",
@@ -221,21 +257,22 @@ const Index = () => {
                 title: "AI Automation",
                 tagline: "24/7 customer service on autopilot",
                 shortDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments...",
-                fullDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                fullDescription:
+                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
                 process: [
                   "Workflow Analysis & Planning",
                   "AI Training & Configuration",
                   "Integration & Testing",
-                  "Launch & Performance Monitoring"
+                  "Launch & Performance Monitoring",
                 ],
-                link: "#ai-automation"
-              }
+                link: "#ai-automation",
+              },
             ].map((service) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
-              
+
               return (
-                <Card 
+                <Card
                   key={service.id}
                   className="hover-lift group cursor-pointer transition-all"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
@@ -245,23 +282,21 @@ const Index = () => {
                       <Icon className="h-7 w-7 text-primary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
-                    <p className="text-sm font-semibold text-primary mt-1">
-                      {service.tagline}
-                    </p>
+                    <p className="text-sm font-semibold text-primary mt-1">{service.tagline}</p>
                   </CardHeader>
-                  
+
                   <CardContent className="relative overflow-hidden">
                     {/* Default: Short description */}
-                    <p className={`text-sm text-muted-foreground mb-4 ${isExpanded ? 'hidden md:block' : 'line-clamp-2'}`}>
+                    <p
+                      className={`text-sm text-muted-foreground mb-4 ${isExpanded ? "hidden md:block" : "line-clamp-2"}`}
+                    >
                       {service.shortDescription}
                     </p>
-                    
+
                     {/* Hover overlay (desktop only) - shows on hover without clicking */}
                     <div className="hidden md:block absolute inset-0 bg-card/98 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 p-6 rounded-b-lg z-10 pointer-events-none">
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {service.fullDescription}
-                      </p>
-                      
+                      <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+
                       <div>
                         <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                         <ol className="space-y-1">
@@ -274,13 +309,11 @@ const Index = () => {
                         </ol>
                       </div>
                     </div>
-                    
+
                     {/* Mobile/Tablet: Click-to-expand details */}
-                    <div className={`${isExpanded ? 'block' : 'hidden'} md:hidden space-y-4`}>
-                      <p className="text-sm text-muted-foreground">
-                        {service.fullDescription}
-                      </p>
-                      
+                    <div className={`${isExpanded ? "block" : "hidden"} md:hidden space-y-4`}>
+                      <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+
                       <div>
                         <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                         <ol className="space-y-1">
@@ -292,11 +325,11 @@ const Index = () => {
                           ))}
                         </ol>
                       </div>
-                      
-                      <Button 
-                        asChild 
-                        variant="outline" 
-                        size="sm" 
+
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
                         className="w-full"
                         onClick={(e: React.MouseEvent) => e.stopPropagation()}
                       >
@@ -305,7 +338,7 @@ const Index = () => {
                         </Link>
                       </Button>
                     </div>
-                    
+
                     {/* Interaction hint */}
                     {!isExpanded && (
                       <p className="text-xs text-muted-foreground text-center mt-2">

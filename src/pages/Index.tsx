@@ -144,7 +144,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
             {["UK-Wide Service", "1-14 Day Delivery", "24/7 AI Automation", "You Own Everything"].map((pill) => (
               <div key={pill} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
+                <CheckCircle2 className="h-5 w-5 text-success" />
                 {pill}
               </div>
             ))}
@@ -276,7 +276,7 @@ const Index = () => {
                 >
                   <CardHeader>
                     <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-7 w-7 text-primary" />
+                      <Icon className="h-7 w-7 text-secondary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
@@ -303,7 +303,7 @@ const Index = () => {
                           <ol className="space-y-1">
                             {service.process.map((step: string, i: number) => (
                               <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                <span className="font-semibold text-primary">{i + 1}.</span>
+                                <span className="font-semibold text-secondary">{i + 1}.</span>
                                 <span>{step}</span>
                               </li>
                             ))}
@@ -340,7 +340,7 @@ const Index = () => {
                             <ol className="space-y-1">
                               {service.process.map((step: string, i: number) => (
                                 <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                  <span className="font-semibold text-primary">{i + 1}.</span>
+                                  <span className="font-semibold text-secondary">{i + 1}.</span>
                                   <span>{step}</span>
                                 </li>
                               ))}

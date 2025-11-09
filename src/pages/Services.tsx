@@ -746,7 +746,7 @@ const Services = () => {
                       "Content updates (up to 1 hour/month)",
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}

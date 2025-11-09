@@ -130,12 +130,10 @@ const Index = () => {
             </Button>
             <Button
               size="lg"
-              asChild
+              onClick={() => scrollToSection("ai-preview")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-transform"
             >
-              <Link to="/services?scroll=ai-automation">
-                AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" asChild className="border-primary text-primary hover:bg-primary/10">
               <Link to="/contact">Get Free Quote</Link>

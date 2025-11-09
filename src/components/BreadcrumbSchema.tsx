@@ -25,18 +25,19 @@ export const BreadcrumbSchema = () => {
   useEffect(() => {
     // Generate breadcrumb items based on current path
     const pathSegments = location.pathname.split("/").filter(Boolean);
-    const breadcrumbItems: BreadcrumbItem[] = [
-      { name: "Home", path: "/" }
-    ];
+    const breadcrumbItems: BreadcrumbItem[] = [{ name: "Home", path: "/" }];
 
     // Build breadcrumb path
     let currentPath = "";
     pathSegments.forEach((segment) => {
       currentPath += `/${segment}`;
-      const name = routeNames[currentPath] || segment.split("-").map(word => 
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(" ");
-      
+      const name =
+        routeNames[currentPath] ||
+        segment
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+
       breadcrumbItems.push({ name, path: currentPath });
     });
 
@@ -45,16 +46,16 @@ export const BreadcrumbSchema = () => {
       const schema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": breadcrumbItems.map((item, index) => ({
+        itemListElement: breadcrumbItems.map((item, index) => ({
           "@type": "ListItem",
-          "position": index + 1,
-          "name": item.name,
-          "item": `https://x15digital.co.uk${item.path}`
-        }))
+          position: index + 1,
+          name: item.name,
+          item: `${window.location.origin}${item.path}`,
+        })),
       };
 
       // Remove existing breadcrumb schema if any
-      const existingScript = document.querySelector('script[data-breadcrumb-schema]');
+      const existingScript = document.querySelector("script[data-breadcrumb-schema]");
       if (existingScript) {
         existingScript.remove();
       }

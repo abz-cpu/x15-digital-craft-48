@@ -293,13 +293,16 @@ const Index = () => {
                       {/* Default state - short description */}
                       <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                        <p className="text-xs text-muted-foreground text-center">Hover to see details</p>
+                        {/* CHANGED THIS ↓ */}
+                        <div className="flex items-center justify-center gap-2 mt-2 text-primary font-semibold text-sm">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
 
                       {/* Expanded state - full details (shows on hover) */}
                       <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
                         <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-
                         <div className="mb-4">
                           <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                           <ol className="space-y-1">
@@ -311,7 +314,6 @@ const Index = () => {
                             ))}
                           </ol>
                         </div>
-
                         <Button asChild variant="outline" size="sm" className="w-full">
                           <Link to={service.link}>
                             Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -326,7 +328,11 @@ const Index = () => {
                       {!isExpanded && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                          <p className="text-xs text-muted-foreground text-center">Tap to see details</p>
+                          {/* CHANGED THIS ↓ */}
+                          <div className="flex items-center justify-center gap-2 mt-2 text-primary font-semibold text-sm">
+                            <span>Tap for details</span>
+                            <ArrowRight className="h-4 w-4" />
+                          </div>
                         </div>
                       )}
 
@@ -334,7 +340,6 @@ const Index = () => {
                       {isExpanded && (
                         <div className="space-y-4">
                           <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
-
                           <div>
                             <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                             <ol className="space-y-1">
@@ -346,7 +351,6 @@ const Index = () => {
                               ))}
                             </ol>
                           </div>
-
                           <Button
                             asChild
                             variant="outline"

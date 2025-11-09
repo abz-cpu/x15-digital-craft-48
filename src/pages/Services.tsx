@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   CheckCircle2,
   ArrowRight,
@@ -69,6 +70,18 @@ const Services = () => {
     sections.forEach((section) => observerRef.current?.observe(section));
 
     return () => observerRef.current?.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const scrollTarget = searchParams.get("scroll");
+
+    if (scrollTarget) {
+      setTimeout(() => {
+        const el = document.getElementById(scrollTarget);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300); // wait for content to mount
+    }
   }, []);
 
   useEffect(() => {

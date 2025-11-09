@@ -104,11 +104,12 @@ const Index = () => {
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
             Affordable Web Development & AI Automation for UK Businesses
           </h1>
-          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6 leading-tight">
-            £300 Website. 5 Days. You Own Everything.
-            <br />
-            AI Automation from £50/Month
-          </h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-6 leading-tight">
+  <span className="text-primary">£300 Website</span>. 5 Days. You Own Everything.
+  <br />
+  AI Automation from <span className="text-primary">£50/Month</span>
+</h2>
+
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
             We offer professional web development & AI automation for UK and global businesses. Choose one service or
             both — transparent pricing, no surprises.
@@ -388,7 +389,7 @@ const Index = () => {
             <AnimatedSection staggerIndex={0} animation="slide">
               <Card className="hover-lift">
                 <CardHeader className="text-center">
-                  <Globe className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <Globe className="h-16 w-16 text-secondary mx-auto mb-4" />
                   <CardTitle className="text-2xl">Need a Website?</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -413,7 +414,7 @@ const Index = () => {
             <AnimatedSection staggerIndex={1} animation="slide">
               <Card className="hover-lift">
                 <CardHeader className="text-center">
-                  <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <Bot className="h-16 w-16 text-secondary mx-auto mb-4" />
                   <CardTitle className="text-2xl">Need AI Automation?</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -439,7 +440,7 @@ const Index = () => {
             </AnimatedSection>
 
             <AnimatedSection staggerIndex={2} animation="slide">
-              <Card className="hover-lift border-2 border-primary">
+              <Card className="hover-lift border border-primary/30">
                 <CardHeader className="text-center">
                   <div className="flex justify-center items-center gap-2 mb-4">
                     <Globe className="h-12 w-12 text-primary" />
@@ -483,7 +484,7 @@ const Index = () => {
                 <tr className="border-b border-border">
                   <th className="p-4 text-left font-semibold">Feature</th>
                   <th className="p-4 text-left font-semibold">Typical Agency</th>
-                  <th className="p-4 text-left font-semibold bg-primary/10">X15 Digital</th>
+                  <th className="p-4 text-left font-semibold">X15 Digital</th>
                 </tr>
               </thead>
               <tbody>
@@ -499,7 +500,7 @@ const Index = () => {
                   <tr key={index} className="border-b border-border last:border-b-0">
                     <td className="p-4 font-medium">{feature}</td>
                     <td className="p-4 text-muted-foreground">{agency}</td>
-                    <td className="p-4 bg-primary/5 font-semibold text-primary">{x15}</td>
+                    <td className="p-4 bg-muted font-semibold text-secondary">{x15}</td>
                   </tr>
                 ))}
               </tbody>
@@ -507,7 +508,7 @@ const Index = () => {
           </div>
 
           <p className="text-center text-muted-foreground mt-8 flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
+            <Zap className="h-5 w-5 text-secondary" />
             We keep costs low by using modern tools and working smart. You get professional results without agency
             overhead.
           </p>
@@ -529,7 +530,7 @@ const Index = () => {
               <Card className="hover-lift">
                 <CardHeader>
                   <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-primary">£250 - £500</p>
+                  <p className="text-3xl font-bold text-secondary">£250 - £500</p>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-4">
@@ -586,13 +587,13 @@ const Index = () => {
 
             {/* Business Package - Most Popular */}
             <AnimatedSection staggerIndex={1} animation="scale">
-              <Card className="hover-lift border-2 border-primary relative">
+              <Card className="hover-lift border border-primary/30 relative" />
                 <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                   <Star className="h-3 w-3 mr-1" /> MOST POPULAR
                 </Badge>
                 <CardHeader>
                   <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
+                  <p className="text-3xl font-bold text-secondary">£750 - £1,800</p>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-4">
@@ -649,12 +650,12 @@ const Index = () => {
           </div>
 
           {/* Web Applications CTA Card */}
-          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/30 max-w-4xl mx-auto mb-8">
-            <CardContent className="p-8 text-center">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <Zap className="h-6 w-6 text-primary" />
-                <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
-              </div>
+          <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
+  <CardContent className="p-8 text-center">
+    <div className="flex items-center justify-center gap-2 mb-3">
+      <Zap className="h-6 w-6 text-secondary" />
+      <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
+    </div>
               <p className="text-muted-foreground mb-6">
                 Professional web applications, e-commerce platforms, and custom software solutions starting from £2,000
               </p>
@@ -732,19 +733,19 @@ const Index = () => {
                 <p className="font-semibold mb-4">What It Does:</p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                   <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Answers FAQs instantly</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Captures lead information</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Qualifies customer needs</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Works 24/7, never sleeps</span>
                   </li>
                 </ul>
@@ -774,19 +775,19 @@ const Index = () => {
                 <p className="font-semibold mb-4">What It Does:</p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Answers phone calls naturally</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Books appointments</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Takes messages</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5" />
                     <span>Handles after-hours inquiries</span>
                   </li>
                 </ul>
@@ -816,7 +817,7 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="portfolio-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Recent Work & Capabilities</h2>
           <p className="text-center text-muted-foreground mb-12">See what we can build for your business.</p>
@@ -1008,7 +1009,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary/80 text-white">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary to-secondary/90 text-white">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start?</h2>
           <p className="text-xl mb-8 text-white/90">Get a free, transparent quote in under 4 hours.</p>

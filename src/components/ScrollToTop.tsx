@@ -5,12 +5,12 @@ export default function ScrollToTop() {
   const { pathname, search } = useLocation();
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(search);
-    const scrollTarget = searchParams.get("scroll");
+    const urlParams = new URLSearchParams(search);
+    const scrollTarget = urlParams.get("scroll");
 
-    // Only scroll to top if no specific section is being targeted
+    // Only scroll to top if no scroll target exists in the URL
     if (!scrollTarget) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [pathname, search]);
 

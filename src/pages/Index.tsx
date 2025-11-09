@@ -310,10 +310,17 @@ const Index = () => {
                             ))}
                           </ol>
                         </div>
-                        <Button asChild variant="outline" size="sm" className="w-full">
-                          <Link to={service.link}>
-                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          onClick={(e) => {
+                            e.stopPropagation(); // don't collapse the card
+                            e.preventDefault();
+                            scrollToSection("ai-preview");
+                          }}
+                        >
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
                     </div>

@@ -290,9 +290,9 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                         {/* CHANGED THIS ↓ */}
                         <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
-  <span>Hover for details</span>
-  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-</div>
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
 
                       {/* Expanded state - full details (shows on hover) */}
@@ -326,7 +326,7 @@ const Index = () => {
                           {/* CHANGED THIS ↓ */}
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
-                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />>
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
                       )}
@@ -588,8 +588,8 @@ const Index = () => {
             <AnimatedSection staggerIndex={1} animation="scale">
               <Card className="hover-lift border-2 border-primary relative">
                 <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-            <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-          </Badge>
+                  <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+                </Badge>
                 <CardHeader>
                   <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
@@ -719,8 +719,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="hover-lift border-2 border-primary relative">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-            <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-          </Badge>
+                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+              </Badge>
               <CardHeader>
                 <CardTitle className="text-2xl">AI Chatbot</CardTitle>
                 <div className="space-y-1">

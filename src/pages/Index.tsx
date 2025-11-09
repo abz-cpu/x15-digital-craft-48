@@ -270,7 +270,7 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/50"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
@@ -760,7 +760,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover-lift relative">
+            <Card className="hover-lift border border-primary/10 relative">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-info text-info-foreground">
                 <Target className="h-3 w-3 mr-1" /> BEST FOR LOCAL BUSINESSES
               </Badge>

@@ -135,9 +135,6 @@ const Index = () => {
             >
               AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-primary text-primary hover:bg-primary/10">
-              <Link to="/contact">Get Free Quote</Link>
-            </Button>
           </div>
 
           <Link to="/enterprise" className="text-primary hover:underline inline-flex items-center gap-1">
@@ -675,7 +672,7 @@ const Index = () => {
       </section>
 
       {/* AI Automation Preview */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
@@ -793,7 +790,7 @@ const Index = () => {
               7+ AI Services Available: Sales Agents, Email Outreach, Social Media, Workflow Automation & More
             </p>
             <Button asChild size="lg">
-              <Link to="/services#ai-automation">
+              <Link to="/services?scroll=ai-automation">
                 See All AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -802,7 +799,7 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Recent Work & Capabilities</h2>
           <p className="text-center text-muted-foreground mb-12">See what we can build for your business.</p>

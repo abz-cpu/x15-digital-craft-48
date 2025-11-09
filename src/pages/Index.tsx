@@ -284,14 +284,33 @@ const Index = () => {
                     </p>
                   </CardHeader>
                   
-                  <CardContent>
+                  <CardContent className="relative overflow-hidden">
                     {/* Default: Short description */}
-                    <p className={`text-sm text-muted-foreground mb-4 ${isExpanded ? 'hidden' : 'line-clamp-2'}`}>
+                    <p className={`text-sm text-muted-foreground mb-4 ${isExpanded ? 'hidden md:block' : 'line-clamp-2'}`}>
                       {service.shortDescription}
                     </p>
                     
-                    {/* Expanded: Full details */}
-                    <div className={`${isExpanded ? 'block' : 'hidden'} space-y-4`}>
+                    {/* Hover overlay (desktop only) - shows on hover without clicking */}
+                    <div className="hidden md:block absolute inset-0 bg-card/98 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 p-6 rounded-b-lg z-10 pointer-events-none">
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {service.fullDescription}
+                      </p>
+                      
+                      <div>
+                        <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                        <ol className="space-y-1">
+                          {service.process.map((step: string, i: number) => (
+                            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <span className="font-semibold text-primary">{i + 1}.</span>
+                              <span>{step}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    </div>
+                    
+                    {/* Mobile/Tablet: Click-to-expand details */}
+                    <div className={`${isExpanded ? 'block' : 'hidden'} md:hidden space-y-4`}>
                       <p className="text-sm text-muted-foreground">
                         {service.fullDescription}
                       </p>
@@ -321,10 +340,11 @@ const Index = () => {
                       </Button>
                     </div>
                     
-                    {/* Click hint */}
+                    {/* Interaction hint */}
                     {!isExpanded && (
                       <p className="text-xs text-muted-foreground text-center mt-2">
-                        Click to see details
+                        <span className="hidden md:inline">Hover to see details</span>
+                        <span className="md:hidden">Tap to see details</span>
                       </p>
                     )}
                   </CardContent>
@@ -343,8 +363,124 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Agency Comparison */}
+      {/* What Do You Need? - Service Selector */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+        <div className="max-w-7xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
+            What Do You Need?
+          </h2>
+          <p className="text-center text-muted-foreground mb-12">
+            Choose the service that fits your business right now.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Globe className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">Website / Web App</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Get a professional website that attracts customers and grows your business online.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <a href="#web-preview">View Packages <ArrowRight className="ml-1 h-4 w-4" /></a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Bot className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">AI Automation</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Automate customer service with AI chatbots and virtual receptionists that work 24/7.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <a href="#ai-preview">View AI Solutions <ArrowRight className="ml-1 h-4 w-4" /></a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <TrendingUp className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">Digital Marketing</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Grow your online presence with SEO, paid ads, and social media marketing.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <Link to="/services">Explore Services <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Palette className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">Graphic Design</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Professional logos, branding, and graphics that make your business stand out.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <Link to="/services">View Design Services <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <ShoppingBag className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">E-commerce</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Sell online with a fully-featured online shop including payments and inventory.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <Link to="/services">Get Started <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift hover:border-primary/50 transition-all group">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <MessageCircle className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl text-secondary">Not Sure?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Let's chat about your project. We'll help you find the perfect solution for your needs.
+                </p>
+                <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group-hover:underline">
+                  <Link to="/contact">Get Free Consultation <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Agency Comparison */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
             How We're Different from Typical Agencies

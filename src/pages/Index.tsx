@@ -274,7 +274,7 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/50"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}

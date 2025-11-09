@@ -276,6 +276,8 @@ const Index = () => {
                   key={service.id}
                   className="hover-lift group cursor-pointer transition-all"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                  role="button"
+                  tabIndex={0}
                 >
                   <CardHeader>
                     <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -285,67 +287,80 @@ const Index = () => {
                     <p className="text-sm font-semibold text-primary mt-1">{service.tagline}</p>
                   </CardHeader>
 
-                  <CardContent className="relative overflow-hidden">
-                    {/* Default: Short description */}
-                    <p
-                      className={`text-sm text-muted-foreground mb-4 ${isExpanded ? "hidden md:block" : "line-clamp-2"}`}
-                    >
-                      {service.shortDescription}
-                    </p>
+                  <CardContent>
+                    {/* DESKTOP: Hover to expand */}
+                    <div className="hidden md:block">
+                      {/* Default state - short description */}
+                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        <p className="text-xs text-muted-foreground text-center">Hover to see details</p>
+                      </div>
 
-                    {/* Hover overlay (desktop only) - shows on hover without clicking */}
-                    <div className="hidden md:block absolute inset-0 bg-card/98 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 p-6 rounded-b-lg z-10 pointer-events-none">
-                      <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+                      {/* Expanded state - full details (shows on hover) */}
+                      <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
 
-                      <div>
-                        <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                        <ol className="space-y-1">
-                          {service.process.map((step: string, i: number) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                              <span className="font-semibold text-primary">{i + 1}.</span>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ol>
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                          <ol className="space-y-1">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                <span className="font-semibold text-primary">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+
+                        <Button asChild variant="outline" size="sm" className="w-full">
+                          <Link to={service.link}>
+                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
                       </div>
                     </div>
 
-                    {/* Mobile/Tablet: Click-to-expand details */}
-                    <div className={`${isExpanded ? "block" : "hidden"} md:hidden space-y-4`}>
-                      <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+                    {/* MOBILE/TABLET: Click to expand */}
+                    <div className="md:hidden">
+                      {/* Default state */}
+                      {!isExpanded && (
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                          <p className="text-xs text-muted-foreground text-center">Tap to see details</p>
+                        </div>
+                      )}
 
-                      <div>
-                        <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                        <ol className="space-y-1">
-                          {service.process.map((step: string, i: number) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                              <span className="font-semibold text-primary">{i + 1}.</span>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ol>
-                      </div>
+                      {/* Expanded state */}
+                      {isExpanded && (
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
 
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="w-full"
-                        onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                      >
-                        <Link to={service.link}>
-                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
+                          <div>
+                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                            <ol className="space-y-1">
+                              {service.process.map((step: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                  <span className="font-semibold text-primary">{i + 1}.</span>
+                                  <span>{step}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+
+                          <Button
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          >
+                            <Link to={service.link}>
+                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
                     </div>
-
-                    {/* Interaction hint */}
-                    {!isExpanded && (
-                      <p className="text-xs text-muted-foreground text-center mt-2">
-                        <span className="hidden md:inline">Hover to see details</span>
-                        <span className="md:hidden">Tap to see details</span>
-                      </p>
-                    )}
                   </CardContent>
                 </Card>
               );

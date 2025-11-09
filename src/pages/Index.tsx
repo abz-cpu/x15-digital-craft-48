@@ -261,7 +261,7 @@ const Index = () => {
                   "Integration & Testing",
                   "Launch & Performance Monitoring",
                 ],
-                link: "#ai-automation",
+                link: "#ai-preview",
               },
             ].map((service) => {
               const Icon = service.icon;

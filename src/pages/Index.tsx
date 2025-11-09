@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   DollarSign,
@@ -13,10 +13,22 @@ import {
   Target,
   CheckCircle2,
   ArrowRight,
+  Smartphone,
+  Palette,
+  TrendingUp,
+  Search,
+  ShoppingBag,
+  Image,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
@@ -31,6 +43,7 @@ import { ReviewSchema } from "@/components/ReviewSchema";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const parallaxOffset = useParallax({ speed: 0.5, maxOffset: 50 });
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -149,151 +162,183 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose X15 */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Why Choose X15 Digital?</h2>
-          <p className="text-center text-muted-foreground mb-12">
-            We're not the cheapest. We're not the biggest. But here's what we are:
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <AnimatedSection staggerIndex={0}>
-              <Card className="hover-lift">
-                <CardHeader>
-                  <DollarSign className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Transparent Pricing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    You see the cost before we talk. No "it depends." No surprise invoices. What you see is what you
-                    pay.
-                  </p>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            <AnimatedSection staggerIndex={1}>
-              <Card className="hover-lift">
-                <CardHeader>
-                  <Zap className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Dual Expertise</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Web development (1-14 days) & AI automation that works 24/7. Complete digital solutions.
-                  </p>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            <AnimatedSection staggerIndex={2}>
-              <Card className="hover-lift">
-                <CardHeader>
-                  <MessageCircle className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Direct Access</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Work directly with our team. No account managers, no runaround. You get responses, not excuses.
-                  </p>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Selector Section */}
+      {/* What We Offer */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What Do You Need?</h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Choose the service that fits your business right now.
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
+            What We Offer
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Comprehensive digital services designed to transform your business. Each service is tailored to solve your specific challenges and drive growth.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <AnimatedSection staggerIndex={0} animation="slide">
-              <Card className="hover-lift">
-                <CardHeader className="text-center">
-                  <Globe className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-2xl">Need a Website?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">From simple business sites to complex web applications.</p>
-                  <p className="font-semibold text-lg mb-2">Packages from £100</p>
-                  <p className="text-sm text-muted-foreground mb-4">Delivery: 1-14 days</p>
-                  <p className="text-sm font-semibold mb-2">Perfect for:</p>
-                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>• New businesses</li>
-                    <li>• Website redesigns</li>
-                    <li>• Custom web apps</li>
-                  </ul>
-                  <Button asChild className="w-full">
-                    <Link to="/services">
-                      See Web Packages <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                id: "design",
+                icon: Palette,
+                title: "Web/App Design",
+                tagline: "Sites that convert visitors into customers",
+                shortDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
+                fullDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                process: [
+                  "Discovery & Brand Research",
+                  "Design Concepts & Mockups",
+                  "User Experience Testing",
+                  "Final Design & Handoff"
+                ],
+                link: "/services#design"
+              },
+              {
+                id: "web-dev",
+                icon: Globe,
+                title: "Web Development",
+                tagline: "Lightning-fast sites delivered in days",
+                shortDescription: "Modern, responsive websites built with the latest technology and optimized for speed...",
+                fullDescription: "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
+                process: [
+                  "Technical Planning & Architecture",
+                  "Development & Integration",
+                  "Quality Testing & Optimization",
+                  "Launch & Ongoing Support"
+                ],
+                link: "#web-preview"
+              },
+              {
+                id: "app-dev",
+                icon: Smartphone,
+                title: "App Development",
+                tagline: "Apps your customers will love",
+                shortDescription: "Native iOS and Android applications designed for an exceptional user experience...",
+                fullDescription: "Native iOS and Android applications designed for an exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+                process: [
+                  "Strategy & Feature Planning",
+                  "Design & Development",
+                  "Testing & Refinement",
+                  "App Store Launch & Updates"
+                ],
+                link: "/services#app-development"
+              },
+              {
+                id: "marketing",
+                icon: TrendingUp,
+                title: "Digital Marketing",
+                tagline: "Rank higher, get more customers",
+                shortDescription: "Strategic digital marketing that puts your business in front of customers actively searching...",
+                fullDescription: "Strategic digital marketing that puts your business in front of customers actively searching for your services. Combining SEO, paid advertising, and social media to drive qualified traffic and measurable growth for your business.",
+                process: [
+                  "Market & Competitor Analysis",
+                  "Strategy Development",
+                  "Campaign Launch & Management",
+                  "Performance Tracking & Optimization"
+                ],
+                link: "/services#marketing"
+              },
+              {
+                id: "branding",
+                icon: Image,
+                title: "Graphic Design",
+                tagline: "Branding that makes you memorable",
+                shortDescription: "Professional branding and visual design that communicates your unique value...",
+                fullDescription: "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build recognition.",
+                process: [
+                  "Brand Discovery & Research",
+                  "Concept Creation & Exploration",
+                  "Design Development & Refinement",
+                  "Brand Guidelines & Assets"
+                ],
+                link: "/services#branding"
+              },
+              {
+                id: "ai-automation",
+                icon: Bot,
+                title: "AI Automation",
+                tagline: "24/7 customer service on autopilot",
+                shortDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments...",
+                fullDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                process: [
+                  "Workflow Analysis & Planning",
+                  "AI Training & Configuration",
+                  "Integration & Testing",
+                  "Launch & Performance Monitoring"
+                ],
+                link: "#ai-automation"
+              }
+            ].map((service) => {
+              const Icon = service.icon;
+              const isExpanded = expandedService === service.id;
+              
+              return (
+                <Card 
+                  key={service.id}
+                  className="hover-lift group cursor-pointer transition-all"
+                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                >
+                  <CardHeader>
+                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
+                    <p className="text-sm font-semibold text-primary mt-1">
+                      {service.tagline}
+                    </p>
+                  </CardHeader>
+                  
+                  <CardContent>
+                    {/* Default: Short description */}
+                    <p className={`text-sm text-muted-foreground mb-4 ${isExpanded ? 'hidden' : 'line-clamp-2'}`}>
+                      {service.shortDescription}
+                    </p>
+                    
+                    {/* Expanded: Full details */}
+                    <div className={`${isExpanded ? 'block' : 'hidden'} space-y-4`}>
+                      <p className="text-sm text-muted-foreground">
+                        {service.fullDescription}
+                      </p>
+                      
+                      <div>
+                        <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                        <ol className="space-y-1">
+                          {service.process.map((step: string, i: number) => (
+                            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <span className="font-semibold text-primary">{i + 1}.</span>
+                              <span>{step}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                      
+                      <Button 
+                        asChild 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                      >
+                        <Link to={service.link}>
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                    
+                    {/* Click hint */}
+                    {!isExpanded && (
+                      <p className="text-xs text-muted-foreground text-center mt-2">
+                        Click to see details
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
 
-            <AnimatedSection staggerIndex={1} animation="slide">
-              <Card className="hover-lift">
-                <CardHeader className="text-center">
-                  <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-2xl">Need AI Automation?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    From customer support to sales automation, email outreach to workflow optimisation.
-                  </p>
-                  <p className="font-semibold text-lg mb-2">7+ AI Solutions Available</p>
-                  <p className="text-sm text-muted-foreground mb-1">From £50/month</p>
-                  <p className="text-sm text-muted-foreground mb-4">Setup: £200-£2,000</p>
-                  <p className="text-sm font-semibold mb-2">Perfect for:</p>
-                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>• Existing websites</li>
-                    <li>• Customer support</li>
-                    <li>• 24/7 availability</li>
-                  </ul>
-                  <Button asChild className="w-full">
-                    <Link to="/services#ai-automation">
-                      See AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            <AnimatedSection staggerIndex={2} animation="slide">
-              <Card className="hover-lift border-2 border-primary">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center items-center gap-2 mb-4">
-                    <Globe className="h-12 w-12 text-primary" />
-                    <span className="text-2xl font-bold text-primary">+</span>
-                    <Bot className="h-12 w-12 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">Need Both?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">Website + AI automation working together seamlessly.</p>
-                  <p className="font-semibold text-lg mb-2">Combined packages available</p>
-                  <p className="text-sm text-muted-foreground mb-4">Save 10-15% vs separate</p>
-                  <p className="text-sm font-semibold mb-2">Perfect for:</p>
-                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>• New launches</li>
-                    <li>• Complete rebrand</li>
-                    <li>• Digital upgrade</li>
-                  </ul>
-                  <Button asChild className="w-full">
-                    <Link to="/services#combined-packages">
-                      See Combined Packages <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+          <div className="text-center">
+            <Button asChild size="lg">
+              <Link to="/services">
+                Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -626,165 +671,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">How It Really Works</h2>
-          <p className="text-center text-muted-foreground mb-12">
-            From first contact to final delivery - no mystery, no runaround.
-          </p>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "You Tell Us What You Need",
-                description: "Fill out a 2-minute form or WhatsApp us. We reply within 4 hours (usually faster).",
-              },
-              {
-                step: "2",
-                title: "We Send You a Clear Quote",
-                description: 'Exact price, timeline, what\'s included. No "it depends" or sales calls.',
-              },
-              {
-                step: "3",
-                title: "We Build It",
-                description: "You get progress updates. Unlimited revisions until you're happy.",
-              },
-              {
-                step: "4",
-                title: "You Own Everything",
-                description: "All code, all files, all access. No monthly fees (unless you want AI automation).",
-              },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-6 flex items-center justify-center gap-2">
-              <Zap className="h-5 w-5 text-primary" />
-              Most websites delivered in 1-7 days. AI setups take 2-5 days.
-            </p>
-            <Button asChild size="lg">
-              <Link to="/contact">
-                Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Security & Compliance */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Built With Security in Mind
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Every website and AI system we build follows industry best practices for data protection and security.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader className="text-center">
-                <Lock className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>SSL Encryption</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  All sites include HTTPS for secure connections and encrypted data transfer.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="text-center">
-                <ClipboardCheck className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>GDPR Ready</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  Forms, cookies, and privacy policies setup included to keep you compliant.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="text-center">
-                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>Secure Hosting</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  Hosted on enterprise-grade infrastructure with automatic backups and monitoring.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <p className="text-center text-muted-foreground mt-12">
-            Your customers' data stays safe. Your business stays compliant.
-          </p>
-        </div>
-      </section>
-
-      {/* Honest Stats */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">By The Numbers</h2>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-primary">BUILDING</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-semibold mb-2">Our First 10</p>
-                <p className="text-2xl font-semibold mb-2">Projects</p>
-                <p className="text-sm text-muted-foreground mt-4">(Yours Could Be Next!)</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-primary">PROMISE</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-semibold mb-2">100% Money-Back</p>
-                <p className="text-2xl font-semibold mb-2">Guarantee</p>
-                <p className="text-sm text-muted-foreground mt-4">(No Risk, Just Results!)</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-primary">
-                  &lt; <AnimatedCounter end={7} />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-semibold mb-2">Days</p>
-                <p className="text-2xl font-semibold mb-2">Avg Build</p>
-                <p className="text-sm text-muted-foreground mt-4">(Typically)</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <p className="text-center text-muted-foreground mt-12 max-w-3xl mx-auto flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
-            We're new, and we're honest about it. That means better prices for early clients and full attention to every
-            project.
-          </p>
-        </div>
-      </section>
-
       {/* Portfolio Preview */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
@@ -892,6 +778,92 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+        <div className="max-w-4xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-center text-muted-foreground mb-12">
+            Everything you need to know before getting started
+          </p>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left font-semibold">
+                How long does a typical project take?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Entry/Starter websites: 1-3 days. Business packages: 5-10 days. AI automation setup: 2-5 days. Most projects delivered faster than agencies that take 4-12 weeks.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left font-semibold">
+                Why is your pricing so much lower than typical agencies?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We use modern tools and work lean—no expensive offices or account managers. You get agency-quality websites without the overhead. Same results, better price.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left font-semibold">
+                Do I own everything after launch?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Yes, 100%. Full ownership of all code, designs, and files. No platform fees, no ongoing licensing. It's completely yours.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left font-semibold">
+                What if I need changes after launch?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Unlimited revisions until you're happy. After launch, minor tweaks are free for 30 days. We also offer £30/month maintenance if you prefer we handle updates.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left font-semibold">
+                How do I get started?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Fill out our contact form or WhatsApp us at +44 7424 062513. We'll reply within 4 hours with a clear quote and timeline. No sales calls, just straight answers.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Can I see examples of your work?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Absolutely! Check our Portfolio page for recent projects and capability examples. We're building our first 10 client projects and documenting everything transparently.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7">
+              <AccordionTrigger className="text-left font-semibold">
+                Do you offer payment plans?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Yes! We offer 50% upfront, 50% on delivery for projects over £500. AI automation is billed monthly, so there's no large upfront investment.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8">
+              <AccordionTrigger className="text-left font-semibold">
+                What happens if I'm not happy with the result?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We offer unlimited revisions until you're satisfied. If we can't deliver what you need, we provide a full refund. Your success is our reputation.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 

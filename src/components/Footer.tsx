@@ -47,7 +47,7 @@ const Footer = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </form>
-          {status === "success" && <p className="mt-3 text-sm text-emerald-400">✓ Subscribed. Check your inbox.</p>}
+          {status === "success" && <p className="mt-3 text-sm text-success">✓ Subscribed. Check your inbox.</p>}
         </div>
       </div>
 
@@ -194,7 +194,9 @@ const Footer = () => {
             </div>
 
             <Button asChild className="mt-4 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link to="/contact">Get Free Quote</Link>
+              <Link to="/contact">
+                Get Free Quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

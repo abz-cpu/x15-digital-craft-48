@@ -1016,8 +1016,6 @@ const Index = () => {
         </div>
       </section>
 
-      <PremiumCTA />
-
       {/* Trust Badges */}
       <PremiumCTA showNewsletter />
 

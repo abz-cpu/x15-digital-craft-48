@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { ArrowRight, Phone, Zap } from "lucide-react";
 
 type Props = {
@@ -10,6 +12,7 @@ type Props = {
   secondaryLabel?: string;
   secondaryTo?: string;
   showWhatsApp?: boolean;
+  showNewsletter?: boolean;
 };
 
 export default function PremiumCTA({
@@ -20,10 +23,23 @@ export default function PremiumCTA({
   secondaryLabel = "Get Free Quote",
   secondaryTo = "/contact",
   showWhatsApp = true,
+  showNewsletter = true,
 }: Props) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setTimeout(() => {
+      setStatus("success");
+      setEmail("");
+    }, 700);
+  };
+
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
-      {/* Sapphire gradient background with subtle pattern */}
+      {/* Sapphire gradient + subtle pattern */}
       <div
         className="absolute inset-0"
         style={{
@@ -39,7 +55,8 @@ export default function PremiumCTA({
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        {/* CTA */}
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
         <p className="mt-4 text-white/90 max-w-3xl mx-auto">{subtitle}</p>
 
@@ -59,6 +76,7 @@ export default function PremiumCTA({
           </Button>
         </div>
 
+        {/* WhatsApp */}
         {showWhatsApp && (
           <div className="mt-8 space-y-2">
             <div className="flex items-center justify-center gap-3 text-white/85">
@@ -82,6 +100,56 @@ export default function PremiumCTA({
             </p>
           </div>
         )}
+
+        {/* Newsletter */}
+        {showNewsletter && (
+          <div className="mt-12 border-t border-white/10 pt-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3">Stay Updated with Digital Trends</h3>
+            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+              Monthly insights on web design, AI automation, and growth tactics. No spam—just useful stuff.
+            </p>
+
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+              aria-label="Newsletter subscribe"
+            >
+              <Input
+                type="email"
+                required
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white/95 text-secondary border-0 h-12 text-base"
+              />
+              <Button
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-white text-primary hover:bg-white/90 h-12 px-8 font-semibold whitespace-nowrap"
+              >
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
+
+            {status === "success" && <p className="mt-3 text-sm text-white">✓ Subscribed. Check your inbox.</p>}
+          </div>
+        )}
+
+        {/* Trust badges */}
+        <div className="mt-12 border-t border-white/10 pt-10">
+          <p className="text-sm text-white/80 mb-6 uppercase tracking-wider font-medium">
+            Built With Modern, Secure Technology
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 text-white/80">
+            {["React", "OpenAI", "Stripe", "Zapier", "GDPR", "SSL"].map((tech) => (
+              <div key={tech} className="text-center">
+                <p className="text-lg md:text-xl font-bold">{tech}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-white/70 mt-6">Industry-standard tools • Security best practices</p>
+        </div>
       </div>
     </section>
   );

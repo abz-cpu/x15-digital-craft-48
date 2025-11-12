@@ -1019,34 +1019,7 @@ const Index = () => {
       <PremiumCTA />
 
       {/* Trust Badges */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-sm text-muted-foreground mb-6">Built With Modern, Secure Technology</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="text-center">
-              <p className="text-2xl font-bold">React</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold">OpenAI</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold">Stripe</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold">Zapier</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold">GDPR</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold">SSL</p>
-            </div>
-          </div>
-          <p className="text-center text-xs text-muted-foreground mt-6">
-            We use industry-standard tools and follow security best practices
-          </p>
-        </div>
-      </section>
+      <PremiumCTA showNewsletter />
 
       <Footer />
       <FloatingActionMenu />

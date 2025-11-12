@@ -2,25 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Zap } from "lucide-react";
 
-export default function PremiumCTA() {
-  // IMPORTANT: match this to your Footer bg
+export default function PreFooter() {
+  // Match this to your footer bg hex:
   const FOOTER_BG = "#0b1728";
 
   return (
     <section className="relative overflow-hidden isolate">
-      {/* Multi-layer background: spotlight + tri-gradient + bottom fade to footer */}
+      {/* Depth: tri-gradient + spotlight + soft noise */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           background: `
-            radial-gradient(900px 420px at 50% 10%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 45%),
-            linear-gradient(135deg, #228be6 0%, #1b58c4 55%, #15356b 85%),
+            radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 52%),
+            linear-gradient(125deg, #2a8df0 0%, #1c59c6 55%, #173b74 86%),
             linear-gradient(180deg, transparent 0%, ${FOOTER_BG} 100%)
           `,
           backgroundBlendMode: "screen, normal, normal",
         }}
       />
-      {/* ultra-subtle noise for richness */}
       <div
         className="absolute inset-0 -z-10 opacity-[0.08] mix-blend-overlay pointer-events-none"
         style={{
@@ -29,7 +28,6 @@ export default function PremiumCTA() {
         }}
       />
 
-      {/* content */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center text-white">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Ready to Start?</h2>
         <p className="text-white/90 mt-3 md:mt-4 text-lg md:text-xl max-w-3xl mx-auto">
@@ -64,14 +62,14 @@ export default function PremiumCTA() {
         </p>
       </div>
 
-      {/* bottom gradient safety net to ensure perfect blend into footer */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 -z-10"
-        style={{
-          background: `linear-gradient(180deg, rgba(11,23,40,0) 0%, ${FOOTER_BG} 85%)`,
-        }}
-      />
+      {/* Smooth wave into footer – no harsh band */}
+      <svg
+        className="absolute bottom-[-1px] left-0 right-0 w-full -z-10"
+        viewBox="0 0 1440 110"
+        preserveAspectRatio="none"
+      >
+        <path d="M0,70 C500,120 900,0 1440,60 L1440,110 L0,110 Z" fill={FOOTER_BG} />
+      </svg>
     </section>
   );
 }

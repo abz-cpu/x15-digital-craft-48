@@ -35,6 +35,7 @@ import PremiumCTA from "@/components/PremiumCTA";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
+import TrustBadgesBar from "@/components/TrustBadgesBar";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -1017,8 +1018,8 @@ const Index = () => {
       </section>
 
       {/* Trust Badges */}
-      <PremiumCTA showNewsletter />
-
+      <TrustBadgesBar />
+      <PremiumCTA />
       <Footer />
       <FloatingActionMenu />
     </div>

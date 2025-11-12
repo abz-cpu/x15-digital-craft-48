@@ -13,10 +13,18 @@
     /* Brand Colors (CTAs only) */
     --primary: 221 83% 53%; /* Sapphire Blue ≈ #2563EB */
     --primary-foreground: 0 0% 100%;
+    --primary-700: 221 83% 45%; /* Darker sapphire */
+    --primary-800: 221 83% 38%; /* Darkest sapphire */
 
     /* UI Anchor (headings, prices, nav) */
     --secondary: 222 47% 11%; /* Midnight Navy */
     --secondary-foreground: 0 0% 100%;
+    
+    /* Additional colors */
+    --ink: 222 47% 11%; /* Midnight Navy (alias) */
+    --ink-2: 215 16% 27%; /* Lighter ink */
+    --paper: 210 20% 98%; /* Light footer base */
+    --success: 142 72% 29%; /* WhatsApp green */
 
     /* Optional accent for tiny AI highlights (use sparingly) */
     --accent: 95 70% 42%; /* Softer lime */

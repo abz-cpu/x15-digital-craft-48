@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import PremiumCTA from "@/components/PremiumCTA";
 import { SEO } from "@/components/SEO";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
@@ -318,35 +319,12 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-primary/80 text-white">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Build Your Project?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Let's discuss your requirements and create something great.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-transform"
-            >
-              <Link to="/contact">Get Free Quote</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-            >
-              <Link to="/services">See All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PremiumCTA 
+        title="Ready to Build Your Project?"
+        subtitle="Let's discuss your requirements and create something great."
+        primaryLabel="See All Services"
+        secondaryLabel="Get Free Quote"
+      />
 
       <Footer />
       <WhatsAppWidget />

@@ -31,6 +31,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import PremiumCTA from "@/components/PremiumCTA";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
@@ -1015,37 +1016,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary to-secondary/90 text-white">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start?</h2>
-          <p className="text-xl mb-8 text-white/90">Get a free, transparent quote in under 4 hours.</p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-transform"
-            >
-              <Link to="/contact">Get Free Quote</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Link to="/services">See All Services</Link>
-            </Button>
-          </div>
-
-          <p className="text-white/90 mb-2">
-            Or WhatsApp us now:{" "}
-            <a href="https://wa.me/447424062513" className="font-semibold hover:underline">
-              +44 7424 062513
-            </a>
-          </p>
-          <p className="text-sm text-white/80 flex items-center justify-center gap-2">
-            <Zap className="h-4 w-4" />
-            No sales calls. No pressure. Just clear answers.
-          </p>
-        </div>
-      </section>
+      <PremiumCTA />
 
       {/* Trust Badges */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-muted">

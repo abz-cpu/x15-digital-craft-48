@@ -627,176 +627,104 @@ const Index = () => {
       </section>
 
       {/* Web Packages Preview */}
-      <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
-          <p className="text-center text-muted-foreground mb-12">
-            One-time payment. You own everything. No monthly fees.
-          </p>
+      {/* === WEB PACKAGES SECTION === */}
+      <section id="web-preview" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Web Development Packages</h2>
+          <p className="text-gray-600 mt-2">One-time payment. You own everything. No monthly fees.</p>
+        </div>
 
-          {/* 2 Main Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            {/* Starter Package */}
-            <AnimatedSection staggerIndex={0} animation="scale">
-              <Card className="hover-lift">
-                <CardHeader>
-                  <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-secondary">£250 - £500</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    <strong>Perfect for:</strong> Trades, freelancers, solo businesses
-                  </p>
+        {/* PACKAGE CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* STARTER WEBSITE CARD */}
+          <div className="rounded-2xl border border-gray-200 shadow-sm p-6">
+            <div className="flex items-center gap-2 text-sm font-medium text-blue-600 mb-3">
+              ⚡ <span>FASTEST START</span>
+            </div>
 
-                  <p className="font-semibold mb-3">What's Included:</p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1-3 custom pages (Home, About, Contact)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Fully custom or semi-custom design</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Mobile responsive</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Contact form integration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Basic SEO setup</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Social media links</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1-3 day delivery</span>
-                    </li>
-                  </ul>
+            <h3 className="text-xl font-bold text-gray-900">Starter Website</h3>
+            <p className="text-2xl font-semibold text-gray-900 mt-1">£250 - £500</p>
 
-                  <p className="text-xs font-semibold mb-2">Examples:</p>
-                  <ul className="text-xs text-muted-foreground mb-6 space-y-1">
-                    <li>• Electrician landing page</li>
-                    <li>• Plumber portfolio site</li>
-                    <li>• Freelance consultant page</li>
-                  </ul>
+            <p className="mt-3 text-sm text-gray-600">Perfect for: Trades, freelancers, solo businesses</p>
 
-                  <Button asChild className="w-full">
-                    <Link to="/quick-start">
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+            <ul className="mt-4 space-y-2 text-sm text-gray-700">
+              <li>• 1–3 custom pages</li>
+              <li>• Mobile responsive</li>
+              <li>• Contact form integration</li>
+              <li>• Basic SEO setup</li>
+              <li>• 1–3 day delivery</li>
+            </ul>
 
-            {/* Business Package - Most Popular */}
-            <AnimatedSection staggerIndex={1} animation="scale">
-              <Card className="hover-lift border border-primary/30 relative">
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-                  <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-                </Badge>
-                <CardHeader>
-                  <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-secondary">£750 - £1,800</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    <strong>Perfect for:</strong> Salons, consultants, local shops, small businesses
-                  </p>
-
-                  <p className="font-semibold mb-3">What's Included:</p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">4-10 pages</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Full custom layout & branding</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Contact + advanced forms/booking</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Google Maps integration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Portfolio/gallery options</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Full SEO package</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">5-10 day delivery</span>
-                    </li>
-                  </ul>
-
-                  <p className="text-xs font-semibold mb-2">Examples:</p>
-                  <ul className="text-xs text-muted-foreground mb-6 space-y-1">
-                    <li>• Salon with booking system</li>
-                    <li>• Consultancy service site</li>
-                    <li>• Local shop with products</li>
-                  </ul>
-
-                  <Button asChild className="w-full">
-                    <Link to="/quick-start">
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="mt-6 w-full inline-flex items-center justify-center rounded-xl bg-blue-600 text-white font-semibold py-3 hover:bg-blue-700 transition"
+            >
+              Get Started →
+            </button>
           </div>
 
-          {/* Web Applications CTA Card */}
-          <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
-            <CardContent className="p-8 text-center">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <Zap className="h-6 w-6 text-secondary" />
-                <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
-              </div>
-              <p className="text-muted-foreground mb-6">
-                Professional web applications, e-commerce platforms, and custom software solutions starting from £2,000
-              </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/services#web-apps">
-                  See Web Application Packages <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
+          {/* BUSINESS WEBSITE CARD */}
+          <div className="rounded-2xl border border-gray-200 shadow-sm p-6 relative">
+            <div className="flex items-center gap-2 text-sm font-medium text-orange-600 mb-3">
+              ⭐ <span>MOST POPULAR</span>
+            </div>
 
-          {/* Bottom Links */}
-          <div className="text-center space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Not sure which package?{" "}
-              <Link
-                to="/services"
-                className="text-primary hover:underline font-semibold inline-flex items-center gap-1"
-              >
-                View all packages & add-ons <ArrowRight className="h-4 w-4" />
-              </Link>
+            <h3 className="text-xl font-bold text-gray-900">Business Website</h3>
+            <p className="text-2xl font-semibold text-gray-900 mt-1">£750 - £1,800</p>
+
+            <p className="mt-3 text-sm text-gray-600">
+              Perfect for: Salons, consultants, local shops, small businesses
             </p>
-            <p className="text-xs text-muted-foreground">
-              Or{" "}
-              <Link to="/contact" className="text-primary hover:underline font-semibold">
-                get a free quote
-              </Link>{" "}
-              in under 4 hours
-            </p>
+
+            <ul className="mt-4 space-y-2 text-sm text-gray-700">
+              <li>• 4–10 custom pages</li>
+              <li>• Full custom layout & branding</li>
+              <li>• Booking system or advanced forms</li>
+              <li>• Google Maps integration</li>
+              <li>• Full SEO package</li>
+              <li>• 5–10 day delivery</li>
+            </ul>
+
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="mt-6 w-full inline-flex items-center justify-center rounded-xl bg-blue-600 text-white font-semibold py-3 hover:bg-blue-700 transition"
+            >
+              Get Started →
+            </button>
           </div>
+        </div>
+
+        {/* === BUDGET OPTION CARD === */}
+        <div className="max-w-4xl mx-auto mt-16 rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center">
+          <div className="text-lg font-semibold text-gray-900">💰 Need something simpler?</div>
+          <p className="text-gray-600 mt-2">DIY or template-based websites starting from just £100.</p>
+
+          <button
+            onClick={() => scrollToSection("budget-options")}
+            className="mt-6 inline-flex items-center justify-center rounded-xl bg-blue-600 text-white font-semibold px-8 py-3 hover:bg-blue-700 transition"
+          >
+            See Budget Options →
+          </button>
+        </div>
+
+        {/* === ADVANCED OPTION CARD === */}
+        <div className="max-w-4xl mx-auto mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center">
+          <div className="text-lg font-semibold text-gray-900">🚀 Need something bigger?</div>
+          <p className="text-gray-600 mt-2">Premium websites, e-commerce stores, and full web apps from £2,000.</p>
+
+          <button
+            onClick={() => scrollToSection("advanced-options")}
+            className="mt-6 inline-flex items-center justify-center rounded-xl bg-blue-600 text-white font-semibold px-8 py-3 hover:bg-blue-700 transition"
+          >
+            See Advanced Options →
+          </button>
+        </div>
+
+        {/* === VIEW ALL PACKAGES === */}
+        <div className="text-center mt-10">
+          <button onClick={() => scrollToSection("all-packages")} className="text-blue-600 font-medium hover:underline">
+            View all 5 packages →
+          </button>
         </div>
       </section>
 

@@ -131,7 +131,7 @@ const Index = () => {
             </div>
 
             <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto lg:mx-0">
-              Websites from <span className="font-semibold text-cyan-300">£300</span> and AI automation from{" "}
+              Websites from <span className="font-semibold text-cyan-300">£100</span> and AI automation from{" "}
               <span className="font-semibold text-cyan-300">£50/month</span>.
               <br />
               Transparent pricing. Full ownership. 1-14 day delivery.
@@ -209,7 +209,7 @@ const Index = () => {
                   <ul className="space-y-1.5 text-white/85">
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £300</span>
+                      <span>Clear packages from £100</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />

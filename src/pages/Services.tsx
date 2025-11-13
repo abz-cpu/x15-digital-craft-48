@@ -443,6 +443,258 @@ const Services = () => {
             Choose your perfect starting point — upgrade anytime as you grow.
           </p>
 
+          {/* Row 1 – Main packages (what most people choose) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* DIY / Template */}
+            <Card className="hover-lift relative">
+              <Badge className="absolute -top-3 right-4 bg-secondary text-white flex items-center gap-1 text-xs">
+                <Zap className="h-3 w-3" /> FASTEST START
+              </Badge>
+              <CardHeader>
+                <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£100 - £300</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">Perfect for: Individuals, startups, micro-businesses</p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "1-page site OR custom landing page",
+                    "Professional template selection",
+                    "Simple content editor instructions",
+                    "Mobile responsive design",
+                    "1 business day delivery",
+                    "Upgrade path to Starter/Business",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• New freelancer portfolio</li>
+                  <li>• Event RSVP / campaign landing page</li>
+                  <li>• "Coming soon" placeholder</li>
+                  <li>• Quick promotional page</li>
+                </ul>
+                <p className="text-xs text-primary font-semibold mb-4">
+                  💡 Upgrade to Starter anytime for full custom design
+                </p>
+                <Button asChild className="w-full">
+                  <Link to="/quick-start">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Starter */}
+            <Card className="hover-lift">
+              <CardHeader>
+                <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£250 - £500</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">Perfect for: Trades, freelancers, solo businesses</p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "1-3 custom pages (Home, About, Contact)",
+                    "Fully custom or semi-custom design",
+                    "Mobile responsive",
+                    "Contact form integration",
+                    "Basic SEO setup",
+                    "Social media links",
+                    "1-3 day delivery",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• Electrician landing page</li>
+                  <li>• Plumber portfolio site</li>
+                  <li>• Freelance consultant page</li>
+                </ul>
+                <Button asChild className="w-full">
+                  <Link to="/quick-start">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Business */}
+            <Card className="hover-lift border-2 border-primary relative">
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
+                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+              </Badge>
+              <CardHeader>
+                <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">
+                  Perfect for: Salons, consultants, local shops, small businesses
+                </p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "4-10 pages",
+                    "Full custom layout & branding",
+                    "Contact + advanced forms/booking",
+                    "Google Maps integration",
+                    "Portfolio/gallery options",
+                    "Full SEO package",
+                    "5-10 day delivery",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• Salon with booking system</li>
+                  <li>• Consultancy service site</li>
+                  <li>• Local shop with products</li>
+                </ul>
+                <Button asChild className="w-full">
+                  <Link to="/quick-start">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Row 2 – Bigger builds */}
+          <div className="max-w-4xl mx-auto text-center mb-6">
+            <h3 className="text-xl font-semibold text-secondary mb-2">Need something bigger?</h3>
+            <p className="text-sm text-muted-foreground">
+              For e-commerce, larger sites, or custom platforms, start here.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Premium */}
+            <Card className="hover-lift">
+              <CardHeader>
+                <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
+                <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">Perfect for: E-commerce, agencies, larger service sites</p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "10+ fully custom pages",
+                    "Advanced features (e-commerce, blog, payment, analytics)",
+                    "Payment integration (Stripe, PayPal, Apple Pay)",
+                    "Newsletter/blog",
+                    "Advanced SEO + speed optimization",
+                    "1-4 week timeline",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• Online shop with products</li>
+                  <li>• Multi-location business</li>
+                  <li>• Service agency site</li>
+                </ul>
+                <Button asChild className="w-full">
+                  <Link to="/contact">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Web Application */}
+            <Card className="hover-lift">
+              <CardHeader>
+                <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
+                <p className="text-3xl font-bold text-primary">£3,500+ (custom quote)</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm font-semibold mb-4">Perfect for: SaaS, CRMs, advanced platforms</p>
+                <p className="font-semibold mb-2">What's Included:</p>
+                <ul className="space-y-2 mb-4">
+                  {[
+                    "Custom web application build",
+                    "User authentication",
+                    "Scalable database integration",
+                    "API integrations",
+                    "Admin dashboard",
+                    "Ongoing support/maintenance options",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mb-2">Examples:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                  <li>• Booking platform</li>
+                  <li>• Member portal</li>
+                  <li>• Custom CRM system</li>
+                </ul>
+                <Button asChild className="w-full">
+                  <Link to="/contact">
+                    Request Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Not Sure CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-lg text-muted-foreground mb-4">💡 Not sure which package fits your needs?</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="outline">
+                <Link to="/quick-start">Take our 30-second quiz</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a
+                  href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Web Development Packages */}
+      <section id="web-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+        <div className="max-w-7xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
+          <p className="text-center text-muted-foreground mb-4">
+            One-time payment. You own everything. No monthly fees.
+          </p>
+          <p className="text-center text-sm text-muted-foreground mb-12">
+            (Optional: Add support/maintenance for peace of mind — from £30/month)
+            <br />
+            Choose your perfect starting point — upgrade anytime as you grow.
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* DIY/Template - NEW ENTRY TIER */}
             <Card className="hover-lift relative">

@@ -77,6 +77,19 @@ export default function Footer() {
                 <Instagram className="h-4 w-4" />
               </a>
             </div>
+
+            {/* Sister Company */}
+            <div className="mt-6 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/8 hover:border-white/15 transition-all duration-300">
+              <p className="text-xs text-white/50 mb-1.5 uppercase tracking-wider">Sister company</p>
+              <a
+                href="https://x15pcbuilders.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-300 hover:text-white inline-flex items-center gap-2 font-semibold text-sm transition-all hover:gap-3"
+              >
+                X15 PC Builders <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
 
           {/* Services */}
@@ -113,6 +126,11 @@ export default function Footer() {
               <li>
                 <Link to="/portfolio" className="hover:text-cyan-300 transition-colors">
                   Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-cyan-300 transition-colors">
+                  Blog
                 </Link>
               </li>
               <li>

@@ -430,6 +430,93 @@ const Services = () => {
         </div>
       </section>
 
+      <section id="web-packages" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary">Web Development Packages</h2>
+            <p className="text-muted-foreground mt-2">One-time payment. You own everything. No monthly fees.</p>
+            <p className="text-xs md:text-sm text-muted-foreground mt-1">
+              (Optional: Add support/maintenance for peace of mind from £30/month.)
+            </p>
+          </div>
+
+          {/* MAIN WEBSITE PACKAGES – 3 cards */}
+          <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto mb-12">
+            {/* BASIC WEBSITE (was DIY/Template) */}
+            <AnimatedSection staggerIndex={0} animation="up">
+              <Card className="hover-lift relative">
+                <Badge className="absolute -top-3 left-4 bg-primary/10 text-primary border border-primary/30">
+                  💡 BUDGET FRIENDLY
+                </Badge>
+
+                {/* reuse your updated Basic Website content here */}
+                {/* HEAD + BODY same as we just refined */}
+                {/* ... */}
+              </Card>
+            </AnimatedSection>
+
+            {/* STARTER WEBSITE – MOST POPULAR */}
+            <AnimatedSection staggerIndex={1} animation="up">
+              <Card className="hover-lift border border-primary/40 shadow-sm relative">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
+                  ⚡ MOST POPULAR
+                </Badge>
+
+                {/* your existing Starter Website content */}
+                {/* ... */}
+              </Card>
+            </AnimatedSection>
+
+            {/* BUSINESS WEBSITE – PROFESSIONAL */}
+            <AnimatedSection staggerIndex={2} animation="up">
+              <Card className="hover-lift border border-primary/30 shadow-md shadow-primary/10 relative">
+                <Badge className="absolute -top-3 right-4 bg-primary text-primary-foreground">🏆 PROFESSIONAL</Badge>
+
+                {/* your existing Business Website content */}
+                {/* ... */}
+              </Card>
+            </AnimatedSection>
+          </div>
+
+          {/* ADVANCED OPTIONS LABEL */}
+          <div className="max-w-6xl mx-auto mb-4">
+            <p className="text-xs md:text-sm uppercase tracking-wide text-muted-foreground">Advanced website options</p>
+          </div>
+
+          {/* ADVANCED PACKAGES – 2 wider cards */}
+          <div className="grid gap-6 md:grid-cols-2 max-w-6xl mx-auto mb-10">
+            {/* PREMIUM WEBSITE */}
+            <AnimatedSection staggerIndex={3} animation="up">
+              <Card className="hover-lift">
+                {/* keep your existing Premium Website content, but you can trim bullets slightly if needed */}
+                {/* ... */}
+              </Card>
+            </AnimatedSection>
+
+            {/* WEB APPLICATION */}
+            <AnimatedSection staggerIndex={4} animation="up">
+              <Card className="hover-lift border border-primary/20 bg-muted/40">
+                {/* your existing Web Application content */}
+                {/* ... */}
+              </Card>
+            </AnimatedSection>
+          </div>
+
+          {/* NOT SURE ROW */}
+          <div className="text-center space-y-3 max-w-xl mx-auto">
+            <p className="text-sm text-muted-foreground">Not sure which package fits your needs?</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/quiz">Take our 30-second quiz</Link>
+              </Button>
+              <Button asChild variant="ghost" size="sm" className="inline-flex items-center gap-2">
+                <Link to="/contact#whatsapp">Chat on WhatsApp</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Web Development Packages */}
       <section id="web-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">

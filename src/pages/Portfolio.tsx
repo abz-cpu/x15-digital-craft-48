@@ -8,7 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import PremiumCTA from "@/components/PremiumCTA";
+import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
@@ -26,7 +26,7 @@ const Portfolio = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -192,9 +192,7 @@ const Portfolio = () => {
   ];
 
   const filteredItems =
-    activeFilter === "all"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === activeFilter);
+    activeFilter === "all" ? portfolioItems : portfolioItems.filter((item) => item.category === activeFilter);
 
   const filters = [
     { id: "all" as FilterType, label: "All", icon: Globe },
@@ -206,7 +204,7 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="Portfolio - Our Recent Work | X15 Digital"
         description="View our portfolio of web development projects, e-commerce sites, web apps, and AI automation implementations. Real examples of websites and AI solutions for UK businesses."
         keywords="web development portfolio, AI automation examples, website showcase, web design examples UK"
@@ -217,12 +215,10 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Recent Work & Capabilities
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Recent Work & Capabilities</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See what we can build for your business. Most projects are capability
-            examples showing our work - real client projects coming soon.
+            See what we can build for your business. Most projects are capability examples showing our work - real
+            client projects coming soon.
           </p>
         </div>
       </section>
@@ -294,14 +290,12 @@ const Portfolio = () => {
                   <div className="bg-muted p-3 rounded-lg mb-4">
                     <p className="text-xs text-muted-foreground flex items-start gap-2">
                       <Globe className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      This is a capability demonstration showing what we can build for
-                      your business.
+                      This is a capability demonstration showing what we can build for your business.
                     </p>
                   </div>
                   <Button asChild variant="outline" className="w-full">
                     <Link to="/contact">
-                      Interested in something similar? Get a quote{" "}
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      Interested in something similar? Get a quote <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -311,9 +305,7 @@ const Portfolio = () => {
 
           {filteredItems.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">
-                No projects found for this category.
-              </p>
+              <p className="text-muted-foreground">No projects found for this category.</p>
             </div>
           )}
         </div>

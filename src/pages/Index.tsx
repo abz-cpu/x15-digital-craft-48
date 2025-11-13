@@ -324,14 +324,14 @@ const Index = () => {
                 title: "Digital Marketing",
                 tagline: "Rank higher, get more customers",
                 shortDescription:
-                  "Strategic digital marketing that puts your business in front of customers actively searching...",
+                  "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
                 fullDescription:
-                  "Strategic digital marketing that puts your business in front of customers actively searching for your services. Combining SEO, paid advertising, and social media to drive qualified traffic and measurable growth for your business.",
+                  "Smart digital marketing that puts your business in front of people who are ready to buy. Using SEO (search engine optimisation), PPC campaigns, targeted content, and social media, we drive qualified traffic and measurable growth for your business—with clear, transparent reporting every month.",
                 process: [
-                  "Market & Competitor Analysis",
-                  "Strategy Development",
-                  "Campaign Launch & Management",
-                  "Performance Tracking & Optimization",
+                  "Market & competitor analysis",
+                  "Strategy & budget planning",
+                  "SEO, PPC & content / social campaign launch",
+                  "Reporting, tracking & continuous improvement",
                 ],
                 link: "/services#marketing",
               },

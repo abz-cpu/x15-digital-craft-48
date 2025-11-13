@@ -49,6 +49,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);

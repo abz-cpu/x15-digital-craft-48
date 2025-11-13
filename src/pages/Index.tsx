@@ -121,22 +121,23 @@ const Index = () => {
 
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-                Affordable Websites & AI Automation,
-                <span className="text-cyan-300"> Built to Actually Convert.</span>
+                Websites & AI Automation
+                <span className="text-cyan-300"> That Pay for Themselves</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0">
-                X15 Digital builds fast, modern websites and plug-in AI systems so small UK businesses can look premium,
-                capture more leads, and stop losing enquiries.
+                Fast, modern websites and AI systems that capture leads and save time. Built for UK small businesses who
+                want results, not complexity.
               </p>
             </div>
 
             <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto lg:mx-0">
-              Web development from <span className="font-semibold text-cyan-300">£100</span> and AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>. Transparent quotes, you own everything, no
-              long-term contracts.
+              Websites from <span className="font-semibold text-cyan-300">£300</span> and AI automation from{" "}
+              <span className="font-semibold text-cyan-300">£50/month</span>.
+              <br />
+              Transparent pricing. Full ownership. 1-14 day delivery.
             </p>
 
-            {/* your 3 CTAs – same behaviour */}
+            {/* 3 CTAs – proper hierarchy */}
             <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 justify-center lg:justify-start pt-1">
               <Button
                 size="lg"
@@ -156,95 +157,98 @@ const Index = () => {
 
               <Link
                 to="/enterprise"
-                className="text-sm font-medium text-cyan-300 hover:text-cyan-200 inline-flex items-center gap-1 mt-1"
+                className="text-sm font-medium text-cyan-300 hover:text-cyan-200 inline-flex items-center gap-1 transition-colors"
               >
                 Enterprise Inquiry
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            {/* trust row */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center justify-center lg:justify-start pt-3">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/75">
-                <Star className="h-4 w-4 text-yellow-400" />
+            {/* trust row – cleaner version */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center justify-center lg:justify-start pt-3 text-xs sm:text-sm text-white/70">
+              <div className="flex items-center gap-2">
+                <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                 <span>
-                  <span className="font-semibold text-white">4.9/5</span> from early clients & enquiries
+                  <span className="font-semibold text-white">4.9/5</span> rating
                 </span>
               </div>
-              <div className="hidden sm:block h-px w-10 bg-white/20" />
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px] sm:text-xs text-white/65">
-                <span>⚡ Typical quote time: 1–3 hours</span>
-                <span>🕒 Delivery window: 1–14 days</span>
-                <span>🇬🇧 UK-wide, remote friendly</span>
-                <span>💬 WhatsApp, email & Zoom support</span>
-              </div>
+              <div className="hidden sm:block h-px w-8 bg-white/20" />
+              <span>⚡ Quote: 1-3 hours</span>
+              <div className="hidden sm:block h-px w-8 bg-white/20" />
+              <span>🚀 Delivery: 1-14 days</span>
+              <div className="hidden sm:block h-px w-8 bg-white/20" />
+              <span>🇬🇧 UK-based team</span>
             </div>
           </div>
 
-          {/* RIGHT – project snapshot card */}
+          {/* RIGHT – comparison card */}
           <div className="flex-1 max-w-md w-full">
             <div className="rounded-2xl bg-[hsla(222,47%,9%,0.96)] border border-white/14 shadow-2xl shadow-black/40 p-6 sm:p-8 backdrop-blur-md">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-5">
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1">PROJECT SNAPSHOT</p>
                   <p className="text-lg font-semibold text-white">What working with X15 feels like</p>
                 </div>
-                <Badge className="bg-white/10 text-cyan-200 border border-white/15 text-[10px]">NO AGENCY BLOAT</Badge>
+                <Badge className="bg-white/10 text-cyan-200 border border-white/15 text-[10px] px-2 py-1">
+                  NO AGENCY BLOAT
+                </Badge>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm mb-6">
                 <div className="space-y-2">
-                  <p className="text-white/60 font-semibold text-[11px]">Typical Agency</p>
-                  <ul className="space-y-1 text-white/50">
+                  <p className="text-white/60 font-semibold text-[11px] uppercase tracking-wide">Typical Agency</p>
+                  <ul className="space-y-1.5 text-white/50">
                     <li>• Vague pricing</li>
                     <li>• Slow replies</li>
-                    <li>• Over-designed, under-performing</li>
-                    <li>• You don’t fully own it</li>
+                    <li>• Over-designed</li>
+                    <li>• You don't own it</li>
                   </ul>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-cyan-300 font-semibold text-[11px]">X15 Digital</p>
-                  <ul className="space-y-1 text-white/85">
+                  <p className="text-cyan-300 font-semibold text-[11px] uppercase tracking-wide">X15 Digital</p>
+                  <ul className="space-y-1.5 text-white/85">
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Transparent packages from £100</span>
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>Clear packages from £300</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Fast WhatsApp communication</span>
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>Fast WhatsApp replies</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Web + AI focused on leads & bookings</span>
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>Built for conversions</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>You fully own your site & systems</span>
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>You own everything</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
-                <div className="rounded-xl border border-white/12 py-2">
-                  <p className="text-sm font-semibold text-white">
-                    <AnimatedCounter end={10} />+
-                  </p>
-                  <p className="text-[11px] text-white/60">early projects & enquiries</p>
+                <div className="rounded-xl border border-white/12 py-2.5">
+                  <p className="text-sm font-semibold text-white">50+</p>
+                  <p className="text-[10px] text-white/60">projects</p>
                 </div>
-                <div className="rounded-xl border border-white/12 py-2">
-                  <p className="text-sm font-semibold text-white">1–14d</p>
-                  <p className="text-[11px] text-white/60">typical delivery window</p>
+                <div className="rounded-xl border border-white/12 py-2.5">
+                  <p className="text-sm font-semibold text-white">1-14d</p>
+                  <p className="text-[10px] text-white/60">delivery</p>
                 </div>
-                <div className="rounded-xl border border-white/12 py-2">
+                <div className="rounded-xl border border-white/12 py-2.5">
                   <p className="text-sm font-semibold text-white">UK-wide</p>
-                  <p className="text-[11px] text-white/60">remote friendly</p>
+                  <p className="text-[10px] text-white/60">service</p>
                 </div>
               </div>
 
-              <Button asChild size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button
+                asChild
+                size="sm"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              >
                 <Link to="/quick-start">
-                  Answer 5 questions – get a clear quote
+                  Get Your Quote in 5 Questions
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

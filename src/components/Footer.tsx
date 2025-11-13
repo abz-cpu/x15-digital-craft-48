@@ -74,27 +74,27 @@ export default function Footer() {
             <h4 className="text-base md:text-lg font-semibold mb-5 uppercase tracking-wider text-white/90">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/services#web-packages" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/services#web-packages" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Web Development
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/services#ai-automation" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/services#ai-automation" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   AI Automation
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/services#combined-packages" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/services#combined-packages" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Combined Packages
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/enterprise" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/enterprise" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Enterprise Solutions
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>
@@ -105,33 +105,33 @@ export default function Footer() {
             <h4 className="text-base md:text-lg font-semibold mb-5 uppercase tracking-wider text-white/90">Company</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/about" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   About Us
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/portfolio" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Portfolio
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/blog" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Blog
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/contact" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Contact
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link to="/quick-start" className="text-white/65 hover:text-white text-sm transition-colors relative group">
+                <Link to="/quick-start" className="text-white/65 hover:text-white text-sm transition-colors group inline-flex items-center gap-1">
                   Quick Start Quiz
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>

@@ -19,7 +19,7 @@
     /* UI Anchor (headings, prices, nav) */
     --secondary: 222 47% 11%; /* Midnight Navy */
     --secondary-foreground: 0 0% 100%;
-    
+
     /* Additional colors */
     --ink: 222 47% 11%; /* Midnight Navy (alias) */
     --ink-2: 215 16% 27%; /* Lighter ink */
@@ -27,7 +27,7 @@
     --success: 142 72% 29%; /* WhatsApp green */
 
     /* Optional accent for tiny AI highlights (use sparingly) */
-    --accent: 95 70% 42%; /* Softer lime */
+    --accent: 180 100% 65%; /* Cyan accent for highlights */
     --accent-foreground: 0 0% 10%;
 
     /* State Colors */
@@ -133,12 +133,18 @@
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 
-  /* Updated glows to match sapphire + soft lime */
+  /* Updated glows to match sapphire + cyan */
   .glow-primary {
     box-shadow: 0 0 80px hsl(221 83% 63% / 0.35);
   }
   .glow-accent {
-    box-shadow: 0 0 60px hsl(95 70% 52% / 0.35);
+    box-shadow: 0 0 60px hsl(180 100% 70% / 0.35);
+  }
+
+  /* Bold Sapphire hero gradient */
+  .hero-sapphire {
+    @apply text-white;
+    background-image: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 42%) 50%, hsl(222 47% 11%) 100%);
   }
 
   @media (prefers-reduced-motion: reduce) {

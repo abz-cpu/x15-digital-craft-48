@@ -96,23 +96,23 @@ const Index = () => {
 
       {/* Hero Section */}
       <section
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
+        className="hero-sapphire py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s linear",
         }}
       >
         <div className="max-w-7xl mx-auto text-center fade-in-section relative z-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
             Affordable Web Development & AI Automation for UK Businesses
           </h1>
-          <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-6 leading-tight">
-            <span className="text-primary">£300 Website</span>. 5 Days. You Own Everything.
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight">
+            <span className="text-[hsl(180,100%,65%)]">£300 Website</span>. 5 Days. You Own Everything.
             <br />
-            AI Automation from <span className="text-primary">£50/Month</span>
+            AI Automation from <span className="text-[hsl(180,100%,65%)]">£50/Month</span>
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-white/80 max-w-3xl mx-auto mb-8">
             We offer professional web development & AI automation for UK and global businesses. Choose one service or
             both — transparent pricing, no surprises.
             <br />
@@ -140,13 +140,13 @@ const Index = () => {
             </Button>
           </div>
 
-          <Link to="/enterprise" className="text-primary hover:underline inline-flex items-center gap-1">
+          <Link to="/enterprise" className="text-[hsl(180,100%,75%)] hover:underline inline-flex items-center gap-1">
             Enterprise Inquiry <ArrowRight className="h-4 w-4" />
           </Link>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
             {["UK-Wide Service", "1-14 Day Delivery", "24/7 AI Automation", "You Own Everything"].map((pill) => (
-              <div key={pill} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <div key={pill} className="flex items-center justify-center gap-2 text-sm text-white/80">
                 <CheckCircle2 className="h-5 w-5 text-success" />
                 {pill}
               </div>
@@ -387,7 +387,7 @@ const Index = () => {
       </section>
 
       {/* Service Selector Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[hsl(221,40%,98%)]">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What Do You Need?</h2>
           <p className="text-center text-muted-foreground mb-12">
@@ -525,7 +525,7 @@ const Index = () => {
       </section>
 
       {/* Web Packages Preview */}
-      <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[hsl(221,40%,98%)]">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
           <p className="text-center text-muted-foreground mb-12">
@@ -699,7 +699,7 @@ const Index = () => {
       </section>
 
       {/* AI Automation Preview */}
-      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
@@ -818,7 +818,7 @@ const Index = () => {
             </p>
             <Button asChild size="lg">
               <Link to="/services?scroll=ai-automation">
-                See All AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                See All AI Solutions <ArrowRight className="ml-2 h-2 w-5" />
               </Link>
             </Button>
           </div>
@@ -826,7 +826,7 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section id="portfolio-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="portfolio-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[hsl(221,40%,98%)]">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Recent Work & Capabilities</h2>
           <p className="text-center text-muted-foreground mb-12">See what we can build for your business.</p>
@@ -1019,10 +1019,10 @@ const Index = () => {
 
       {/* Trust Badges */}
       <TrustBadgesBar />
-      
+
       {/* Floating CTA Card */}
       <CtaCard />
-      
+
       <Footer />
       <FloatingActionMenu />
     </div>

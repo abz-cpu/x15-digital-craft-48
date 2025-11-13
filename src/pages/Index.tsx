@@ -96,93 +96,70 @@ const Index = () => {
 
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden"
+        className="relative overflow-hidden py-16 md:py-24 px-4 sm:px-6 lg:px-8"
         style={{
+          background: "linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(221,83%,42%) 50%, hsl(222,47%,11%) 100%)",
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s linear",
         }}
       >
-        {/* Gradient background */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(221,83%,42%) 50%, hsl(222,47%,11%) 100%)",
-          }}
-        />
+        <div className="max-w-5xl mx-auto text-center fade-in-section relative z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-md">
+            ⚡ Professional Web &amp; AI for UK Businesses
+          </div>
 
-        {/* Pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E\")",
-            backgroundSize: "60px 60px",
-          }}
-        />
+          {/* Headline */}
+          <h1 className="mt-6 text-4xl md:text-5xl font-bold text-white leading-tight">
+            Websites &amp; AI Automation That Pay for Themselves
+          </h1>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="fade-in-section max-w-3xl mx-auto text-left md:text-center">
-            {/* Top badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-md">
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">
-                {/* or keep just the emoji if you prefer */}⚡
-              </span>
-              <span>Professional Web &amp; AI for UK Businesses</span>
-            </div>
+          {/* Sub-headline */}
+          <p className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+            From £300 websites and £50/month AI — delivered in 1–14 days. Transparent pricing. Full ownership. No hidden
+            fees.
+          </p>
 
-            {/* Main headline */}
-            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-              Websites &amp; AI Automation That Pay for Themselves
-            </h1>
+          {/* Primary buttons */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("web-preview")}
+              className="inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-md shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              See Web Packages
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
 
-            {/* Sub-headline */}
-            <p className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl md:max-w-3xl">
-              From £300 websites and £50/month AI — delivered in 1–14 days. Transparent pricing. Full ownership. No
-              hidden fees.
-            </p>
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("ai-preview")}
+              className="inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-md shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              AI Automation Solutions
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
 
-            {/* Primary CTAs */}
-            <div className="mt-8 flex flex-col md:flex-row gap-3 md:gap-4 md:items-center md:justify-center">
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("web-preview")}
-                className="group inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-lg shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              >
-                See Web Packages
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform duration-300" />
-              </Button>
+          {/* Secondary / enterprise button */}
+          <div className="mt-5">
+            <Link
+              to="/enterprise"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white/30 bg-transparent px-6 py-2.5 text-base font-medium text-white hover:border-white/60 hover:bg-white/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              Need custom solutions? Enterprise Inquiry
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
 
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("ai-preview")}
-                className="group inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-lg shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              >
-                AI Automation Solutions
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform duration-300" />
-              </Button>
-            </div>
-
-            {/* Secondary / enterprise CTA */}
-            <div className="mt-5">
-              <Link
-                to="/enterprise"
-                className="inline-flex items-center justify-center rounded-xl border-2 border-white/30 bg-transparent px-6 py-2.5 text-base font-medium text-white hover:border-white/50 hover:bg-white/10 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              >
-                <span>Need custom solutions? Enterprise Inquiry</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-
-            {/* Trust pills */}
-            <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl md:max-w-4xl">
-              {["50+ UK Businesses Served", "4.9★ Rating", "1–14 Day Delivery", "You Own Everything"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm font-medium text-white/80">
-                  <CheckCircle2 className="h-5 w-5 text-[#059669] flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+          {/* Trust pills */}
+          <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {["50+ UK Businesses Served", "4.9★ Rating", "1–14 Day Delivery", "You Own Everything"].map((pill) => (
+              <div key={pill} className="flex items-center justify-center gap-2 text-sm font-medium text-white/80">
+                <CheckCircle2 className="h-5 w-5 text-[#059669]" />
+                <span>{pill}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

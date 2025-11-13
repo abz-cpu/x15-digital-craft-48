@@ -627,6 +627,7 @@ const Index = () => {
       </section>
 
       {/* Web Packages Preview */}
+      {/* Web Packages Preview */}
       <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
@@ -638,8 +639,13 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
             {/* Starter Package */}
             <AnimatedSection staggerIndex={0} animation="scale">
-              <Card className="hover-lift">
-                <CardHeader>
+              <Card className="hover-lift relative">
+                {/* FASTEST START badge */}
+                <Badge className="absolute -top-3 left-4 bg-primary/10 text-primary border border-primary/30">
+                  ⚡ FASTEST START
+                </Badge>
+
+                <CardHeader className="pt-6">
                   <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-secondary">£250 - £500</p>
                 </CardHeader>
@@ -702,7 +708,7 @@ const Index = () => {
                 <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
                   <Star className="h-3 w-3 mr-1" /> MOST POPULAR
                 </Badge>
-                <CardHeader>
+                <CardHeader className="pt-6">
                   <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-secondary">£750 - £1,800</p>
                 </CardHeader>
@@ -760,42 +766,45 @@ const Index = () => {
             </AnimatedSection>
           </div>
 
-          {/* Web Applications CTA Card */}
-          <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
+          {/* Budget / Simpler Option */}
+          <Card className="bg-muted/70 border border-border max-w-4xl mx-auto mb-6">
             <CardContent className="p-8 text-center">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <Zap className="h-6 w-6 text-secondary" />
-                <h3 className="text-2xl font-bold text-secondary">Need Something Bigger?</h3>
-              </div>
-              <p className="text-muted-foreground mb-6">
-                Professional web applications, e-commerce platforms, and custom software solutions starting from £2,000
+              <div className="text-lg font-semibold text-secondary mb-2">💰 Need something simpler?</div>
+              <p className="text-sm md:text-base text-muted-foreground mb-6">
+                DIY or template-based websites starting from just £100. Ideal if you want a clean online presence on a
+                tight budget.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/services#web-apps">
-                  See Web Application Packages <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/services#budget-sites">
+                  See Budget Options <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </CardContent>
           </Card>
 
-          {/* Bottom Links */}
-          <div className="text-center space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Not sure which package?{" "}
-              <Link
-                to="/services"
-                className="text-primary hover:underline font-semibold inline-flex items-center gap-1"
-              >
-                View all packages & add-ons <ArrowRight className="h-4 w-4" />
+          {/* Bigger / Advanced Option */}
+          <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
+            <CardContent className="p-8 text-center">
+              <div className="text-lg font-semibold text-secondary mb-2">🚀 Need something bigger?</div>
+              <p className="text-sm md:text-base text-muted-foreground mb-6">
+                Premium websites, e-commerce platforms, and custom web applications starting from £2,000. Best for
+                serious growth and complex requirements.
+              </p>
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Link to="/services#web-apps">
+                  See Advanced Options <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Bottom link */}
+          <div className="text-center">
+            <Button asChild variant="ghost" className="text-primary hover:underline font-semibold">
+              <Link to="/services">
+                View all 5 packages <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Or{" "}
-              <Link to="/contact" className="text-primary hover:underline font-semibold">
-                get a free quote
-              </Link>{" "}
-              in under 4 hours
-            </p>
+            </Button>
           </div>
         </div>
       </section>

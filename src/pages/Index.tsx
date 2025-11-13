@@ -229,8 +229,8 @@ const Index = () => {
 
               <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
                 <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">1-3 days</p>
-                  <p className="text-[10px] text-white/60">avg start</p>
+                  <p className="text-sm font-semibold text-white">&lt;4 hrs</p>
+                  <p className="text-[10px] text-white/60">quote time</p>
                 </div>
                 <div className="rounded-xl border border-white/12 py-2.5">
                   <p className="text-sm font-semibold text-white">1-14d</p>

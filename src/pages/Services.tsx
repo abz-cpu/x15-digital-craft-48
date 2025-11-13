@@ -682,7 +682,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Web Development Packages */}
       <section id="web-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
@@ -695,11 +694,12 @@ const Services = () => {
             Choose your perfect starting point — upgrade anytime as you grow.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* DIY/Template - NEW ENTRY TIER */}
-            <Card className="hover-lift relative">
+          {/* Row 1 – Main packages */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* DIY / Template – Budget Friendly (slightly smaller) */}
+            <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
               <Badge className="absolute -top-3 right-4 bg-secondary text-white flex items-center gap-1 text-xs">
-                <Zap className="h-3 w-3" /> FASTEST START
+                💡 BUDGET FRIENDLY
               </Badge>
               <CardHeader>
                 <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
@@ -707,7 +707,8 @@ const Services = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">Perfect for: Individuals, startups, micro-businesses</p>
-                <p className="font-semibold mb-2">What's Included:</p>
+
+                <p className="font-semibold mb-2">What&apos;s Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
                     "1-page site OR custom landing page",
@@ -723,16 +724,19 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+
                 <p className="text-sm font-semibold mb-2">Examples:</p>
                 <ul className="text-sm text-muted-foreground space-y-1 mb-6">
                   <li>• New freelancer portfolio</li>
                   <li>• Event RSVP / campaign landing page</li>
-                  <li>• "Coming soon" placeholder</li>
+                  <li>• &quot;Coming soon&quot; placeholder</li>
                   <li>• Quick promotional page</li>
                 </ul>
+
                 <p className="text-xs text-primary font-semibold mb-4">
                   💡 Upgrade to Starter anytime for full custom design
                 </p>
+
                 <Button asChild className="w-full">
                   <Link to="/quick-start">
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -741,15 +745,28 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            {/* Starter */}
-            <Card className="hover-lift">
+            {/* STARTER – HERO TIER (Most Popular) */}
+            <Card className="hover-lift relative transition-transform md:scale-105 md:border-2 md:border-primary md:shadow-2xl md:ring-4 md:ring-primary/10 z-10">
+              {/* Soft glow behind card (desktop only) */}
+              <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
+
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white flex items-center gap-1 text-xs">
+                <Star className="h-3 w-3" /> MOST POPULAR
+              </Badge>
+
               <CardHeader>
                 <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
                 <p className="text-3xl font-bold text-primary">£250 - £500</p>
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-semibold mb-4">Perfect for: Trades, freelancers, solo businesses</p>
-                <p className="font-semibold mb-2">What's Included:</p>
+
+                {/* Social proof strip */}
+                <div className="mb-4 p-2 bg-orange-50 border border-orange-100 rounded-lg">
+                  <p className="text-xs font-semibold text-orange-900">9 out of 10 clients choose this package</p>
+                </div>
+
+                <p className="font-semibold mb-2">What&apos;s Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
                     "1-3 custom pages (Home, About, Contact)",
@@ -766,12 +783,14 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+
                 <p className="text-sm font-semibold mb-2">Examples:</p>
                 <ul className="text-sm text-muted-foreground space-y-1 mb-6">
                   <li>• Electrician landing page</li>
                   <li>• Plumber portfolio site</li>
                   <li>• Freelance consultant page</li>
                 </ul>
+
                 <Button asChild className="w-full">
                   <Link to="/quick-start">
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -780,10 +799,10 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            {/* Business */}
-            <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+            {/* BUSINESS – Professional tier */}
+            <Card className="hover-lift relative transition-transform md:border-2 md:border-secondary/30 md:shadow-lg">
+              <Badge className="absolute -top-3 right-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white flex items-center gap-1 text-xs">
+                🏆 PROFESSIONAL
               </Badge>
               <CardHeader>
                 <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
@@ -793,7 +812,8 @@ const Services = () => {
                 <p className="text-sm font-semibold mb-4">
                   Perfect for: Salons, consultants, local shops, small businesses
                 </p>
-                <p className="font-semibold mb-2">What's Included:</p>
+
+                <p className="font-semibold mb-2">What&apos;s Included:</p>
                 <ul className="space-y-2 mb-4">
                   {[
                     "4-10 pages",
@@ -810,12 +830,14 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+
                 <p className="text-sm font-semibold mb-2">Examples:</p>
                 <ul className="text-sm text-muted-foreground space-y-1 mb-6">
                   <li>• Salon with booking system</li>
                   <li>• Consultancy service site</li>
                   <li>• Local shop with products</li>
                 </ul>
+
                 <Button asChild className="w-full">
                   <Link to="/quick-start">
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -823,134 +845,116 @@ const Services = () => {
                 </Button>
               </CardContent>
             </Card>
+          </div>
 
-            {/* Premium */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
-                <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm font-semibold mb-4">Perfect for: E-commerce, agencies, larger service sites</p>
-                <p className="font-semibold mb-2">What's Included:</p>
-                <ul className="space-y-2 mb-4">
-                  {[
-                    "10+ fully custom pages",
-                    "Advanced features (e-commerce, blog, payment, analytics)",
-                    "Payment integration (Stripe, PayPal, Apple Pay)",
-                    "Newsletter/blog",
-                    "Advanced SEO + speed optimization",
-                    "1-4 week timeline",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm font-semibold mb-2">Examples:</p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                  <li>• Online shop with products</li>
-                  <li>• Multi-location business</li>
-                  <li>• Service agency site</li>
-                </ul>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Web Application */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
-                <p className="text-3xl font-bold text-primary">£3,500+ (custom quote)</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm font-semibold mb-4">Perfect for: SaaS, CRMs, advanced platforms</p>
-                <p className="font-semibold mb-2">What's Included:</p>
-                <ul className="space-y-2 mb-4">
-                  {[
-                    "Custom web application build",
-                    "User authentication",
-                    "Scalable database integration",
-                    "API integrations",
-                    "Admin dashboard",
-                    "Ongoing support/maintenance options",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm font-semibold mb-2">Examples:</p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                  <li>• Booking platform</li>
-                  <li>• Member portal</li>
-                  <li>• Custom CRM system</li>
-                </ul>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Suggested Add-Ons Card */}
-            <Card className="hover-lift border-2 border-primary/30 bg-gradient-to-br from-background to-primary/5">
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Zap className="h-6 w-6 text-primary" />
-                  <CardTitle className="text-2xl">POPULAR ADD-ONS</CardTitle>
-                </div>
-                <p className="text-lg text-muted-foreground">Enhance any package with these</p>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground mb-4">
-                  Most requested upgrades to maximize your website's potential:
-                </p>
-
-                <div className="space-y-3">
-                  {[
-                    { name: "Support & Maintenance", price: "From £30/mo", icon: Shield },
-                    { name: "Performance Optimization", price: "£150-£400", icon: Gauge },
-                    { name: "Advanced SEO Package", price: "£250-£600", icon: TrendingUp },
-                    { name: "Google Ads Setup", price: "£200-£400", icon: Target },
-                    { name: "Content Writing", price: "£40-£120/page", icon: FileText },
-                    { name: "GDPR Compliance", price: "£80-£200", icon: ClipboardCheck },
-                    { name: "Content Migration", price: "£150-£500", icon: FolderSync },
-                    { name: "Multi-language Setup", price: "£200-£500", icon: Globe },
-                  ].map((addon, i) => {
-                    const Icon = addon.icon;
-                    return (
-                      <div
-                        key={i}
-                        className="flex items-start gap-3 p-2 rounded-md hover:bg-primary/5 transition-colors"
-                      >
-                        <Icon className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="text-sm font-semibold">{addon.name}</p>
-                          <p className="text-xs text-primary font-semibold">{addon.price}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
+          {/* Premium / Web App – progressive disclosure */}
+          <div className="mt-12">
+            <Card className="max-w-3xl mx-auto border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                  <div>
+                    <p className="text-lg font-semibold text-secondary">💼 Need e-commerce or custom features?</p>
+                    <p className="text-sm text-muted-foreground">
+                      Premium websites & web applications from <span className="font-semibold">£2,000</span>.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t mt-4">
-                  <Button asChild className="w-full" size="sm">
-                    <a href="#add-ons">View All Add-Ons</a>
-                  </Button>
-                </div>
+                <Collapsible defaultOpen={false} className="space-y-4">
+                  <CollapsibleTrigger asChild>
+                    <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+                      View premium options
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </CollapsibleTrigger>
+
+                  <CollapsibleContent className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* PREMIUM WEBSITE */}
+                    <Card className="hover-lift">
+                      <CardHeader>
+                        <CardTitle className="text-xl">PREMIUM WEBSITE</CardTitle>
+                        <p className="text-2xl font-bold text-primary">£2,000 - £3,500</p>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm font-semibold mb-4">
+                          Perfect for: E-commerce, agencies, larger service sites
+                        </p>
+                        <p className="font-semibold mb-2">What&apos;s Included:</p>
+                        <ul className="space-y-2 mb-4">
+                          {[
+                            "10+ fully custom pages",
+                            "Advanced features (e-commerce, blog, payment, analytics)",
+                            "Payment integration (Stripe, PayPal, Apple Pay)",
+                            "Newsletter/blog",
+                            "Advanced SEO & speed optimization",
+                            "1-4 week timeline",
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                              <span className="text-sm">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-sm font-semibold mb-2">Examples:</p>
+                        <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                          <li>• Online shop with products</li>
+                          <li>• Multi-location business</li>
+                          <li>• Service agency site</li>
+                        </ul>
+                        <Button asChild className="w-full">
+                          <Link to="/contact">
+                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+
+                    {/* WEB APPLICATION */}
+                    <Card className="hover-lift">
+                      <CardHeader>
+                        <CardTitle className="text-xl">WEB APPLICATION</CardTitle>
+                        <p className="text-2xl font-bold text-primary">
+                          £3,500+ <span className="text-sm font-normal">(custom quote)</span>
+                        </p>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm font-semibold mb-4">Perfect for: SaaS, CRMs, advanced platforms</p>
+                        <p className="font-semibold mb-2">What&apos;s Included:</p>
+                        <ul className="space-y-2 mb-4">
+                          {[
+                            "Custom web application build",
+                            "User authentication",
+                            "Scalable database integration",
+                            "API integrations",
+                            "Admin dashboard",
+                            "Ongoing support/maintenance options",
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                              <span className="text-sm">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-sm font-semibold mb-2">Examples:</p>
+                        <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                          <li>• Booking platform</li>
+                          <li>• Member portal</li>
+                          <li>• Custom CRM system</li>
+                        </ul>
+                        <Button asChild className="w-full">
+                          <Link to="/contact">
+                            Request Quote <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </CollapsibleContent>
+                </Collapsible>
               </CardContent>
             </Card>
           </div>
 
-          {/* Not Sure CTA */}
+          {/* Not sure which package? */}
           <div className="mt-12 text-center">
             <p className="text-lg text-muted-foreground mb-4">💡 Not sure which package fits your needs?</p>
             <div className="flex flex-wrap justify-center gap-4">

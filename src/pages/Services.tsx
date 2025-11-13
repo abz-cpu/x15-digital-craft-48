@@ -1734,7 +1734,7 @@ const Services = () => {
         </div>
       </section>
 
-      <PremiumCTA />
+      <CtaCard />
 
       <Footer />
       <WhatsAppWidget />

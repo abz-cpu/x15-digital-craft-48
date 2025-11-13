@@ -34,7 +34,7 @@ const About = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -45,7 +45,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="About Us - Fast, Transparent Web Development & AI | X15 Digital"
         description="Learn about X15 Digital's mission: affordable, transparent web development & AI automation for UK businesses. No hidden fees, fast turnaround, you own everything."
         keywords="about X15 Digital, web development agency UK, AI automation company London, transparent pricing"
@@ -59,21 +59,15 @@ const About = () => {
           <div className="grid md:grid-cols-5 gap-12 items-start">
             {/* Left Column - 60% */}
             <div className="md:col-span-3">
-              <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-                About X15 Digital
-              </h1>
+              <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">About X15 Digital</h1>
               <div className="prose prose-lg max-w-none">
+                <p className="text-lg text-muted-foreground mb-4">Hi, I'm Abdul M Taher, the founder of X15 Digital.</p>
                 <p className="text-lg text-muted-foreground mb-4">
-                  Hi, I'm Abdul M Taher, the founder of X15 Digital.
+                  We are a London-based web development and AI automation specialist helping UK and English-speaking
+                  businesses worldwide get online fast and affordably.
                 </p>
                 <p className="text-lg text-muted-foreground mb-4">
-                  We are a London-based web development and AI automation specialist
-                  helping UK and English-speaking businesses worldwide get online fast
-                  and affordably.
-                </p>
-                <p className="text-lg text-muted-foreground mb-4">
-                  I started X15 Digital because I was sick of seeing agencies charge
-                  £5,000 for £500 websites.
+                  I started X15 Digital because I was sick of seeing agencies charge £5,000 for £500 websites.
                 </p>
                 <div className="my-6">
                   <p className="text-lg font-semibold mb-3">Our mission is simple:</p>
@@ -106,16 +100,14 @@ const About = () => {
                   </ul>
                 </div>
                 <p className="text-lg text-muted-foreground mb-4">
-                  I've been coding for years, but we're building X15 Digital from
-                  scratch. That means better prices for early clients and full attention
-                  to every project.
+                  I've been coding for years, but we're building X15 Digital from scratch. That means better prices for
+                  early clients and full attention to every project.
                 </p>
                 <p className="text-lg font-semibold text-secondary">
                   No BS. No hidden fees. Just good work at fair prices.
                 </p>
                 <p className="text-lg text-muted-foreground mt-4 flex items-center gap-2">
-                  Let's build something great together.{" "}
-                  <Zap className="h-5 w-5 text-primary" />
+                  Let's build something great together. <Zap className="h-5 w-5 text-primary" />
                 </p>
               </div>
             </div>
@@ -141,18 +133,13 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">
-                        Serving English-speaking clients worldwide
-                      </p>
+                      <p className="font-semibold">Serving English-speaking clients worldwide</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <a
-                        href="mailto:info@x15digital.co.uk"
-                        className="hover:text-primary transition-colors"
-                      >
+                      <a href="mailto:info@x15digital.co.uk" className="hover:text-primary transition-colors">
                         info@x15digital.co.uk
                       </a>
                     </div>
@@ -160,10 +147,7 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <a
-                        href="tel:+447424062513"
-                        className="hover:text-primary transition-colors"
-                      >
+                      <a href="tel:+447424062513" className="hover:text-primary transition-colors">
                         +44 7424 062513
                       </a>
                     </div>
@@ -198,20 +182,14 @@ const About = () => {
       {/* Our Story Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-4xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-8">
-            Why X15 Digital Exists
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-8">Why X15 Digital Exists</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-muted-foreground mb-4">
-              Most small businesses get quoted £3,000–£10,000 for websites that should
-              cost £500. They wait 8–12 weeks for projects that could be done in 5 days.
+              Most small businesses get quoted £3,000–£10,000 for websites that should cost £500. They wait 8–12 weeks
+              for projects that could be done in 5 days.
             </p>
-            <p className="text-lg font-semibold text-secondary mb-4">
-              We're changing that.
-            </p>
-            <p className="text-lg text-muted-foreground mb-4">
-              X15 Digital was built to offer:
-            </p>
+            <p className="text-lg font-semibold text-secondary mb-4">We're changing that.</p>
+            <p className="text-lg text-muted-foreground mb-4">X15 Digital was built to offer:</p>
             <ul className="space-y-2 mb-6">
               {[
                 "Honest, transparent pricing (no surprise invoices)",
@@ -223,12 +201,10 @@ const About = () => {
               ))}
             </ul>
             <p className="text-lg text-muted-foreground mb-4">
-              We use the same tools as expensive agencies, but without the overhead, the
-              sales teams, or the markup.
+              We use the same tools as expensive agencies, but without the overhead, the sales teams, or the markup.
             </p>
             <p className="text-lg font-semibold text-secondary">
-              The result? Professional websites and AI automation at prices that make
-              sense for small businesses.
+              The result? Professional websites and AI automation at prices that make sense for small businesses.
             </p>
           </div>
         </div>
@@ -237,9 +213,7 @@ const About = () => {
       {/* What We Believe Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
-            What We Stand For
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">What We Stand For</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="hover-lift">
@@ -249,8 +223,8 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  You see the price before we talk. No "it depends" quotes or hourly
-                  rate games. What you see is what you pay.
+                  You see the price before we talk. No "it depends" quotes or hourly rate games. What you see is what
+                  you pay.
                 </p>
               </CardContent>
             </Card>
@@ -262,8 +236,8 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Fast doesn't mean sloppy. We use modern tools and proven processes to
-                  deliver quality work in days, not months.
+                  Fast doesn't mean sloppy. We use modern tools and proven processes to deliver quality work in days,
+                  not months.
                 </p>
               </CardContent>
             </Card>
@@ -275,8 +249,8 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  You work with the developer, not a project manager who emails the
-                  developer. Faster decisions, better results.
+                  You work with the developer, not a project manager who emails the developer. Faster decisions, better
+                  results.
                 </p>
               </CardContent>
             </Card>
@@ -287,29 +261,23 @@ const About = () => {
       {/* Sister Company Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4">
-            Part of the X15 Family
-          </h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4">Part of the X15 Family</h3>
           <p className="text-lg text-muted-foreground mb-6">
-            X15 Digital is the sister company of X15 PC Builders, a custom gaming PC
-            business serving UK customers since 2020.
+            X15 Digital is the sister company of X15 PC Builders, a custom gaming PC business serving UK customers since
+            2020.
           </p>
           <p className="text-lg font-semibold text-secondary mb-6">
             Same values. Same transparency. Different expertise.
           </p>
           <Button asChild variant="outline">
-            <a
-              href="https://x15pcbuilders.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
               Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>
       </section>
 
-      <PremiumCTA />
+      <CtaCard />
 
       <Footer />
       <WhatsAppWidget />

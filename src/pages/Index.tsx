@@ -95,160 +95,93 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      {/* Hero Section */}
       <section
-        className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(circle_at_top,_hsl(221,83%,30%)_0,_hsl(222,47%,10%)_45%,_hsl(222,47%,5%)_100%)]"
+        className="relative overflow-hidden"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
-          transition: "transform 0.1s ease-out",
+          transition: "transform 0.1s linear",
         }}
       >
-        {/* soft glows */}
+        {/* Gradient background */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-60"
+          className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%)",
+            backgroundImage:
+              "linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(221,83%,42%) 50%, hsl(222,47%,11%) 100%)",
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-          {/* LEFT – copy + CTAs */}
-          <div className="flex-1 text-center lg:text-left space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs sm:text-sm text-white/75">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Websites & AI automation for UK businesses and creators</span>
+        {/* Pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E\")",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="fade-in-section max-w-3xl mx-auto text-left md:text-center">
+            {/* Top badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-md">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">
+                {/* or keep just the emoji if you prefer */}⚡
+              </span>
+              <span>Professional Web &amp; AI for UK Businesses</span>
             </div>
 
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-                Affordable Websites & AI Automation,
-                <span className="text-cyan-300"> Built to Actually Convert.</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0">
-                X15 Digital builds fast, modern websites and plug-in AI systems so small UK businesses can look premium,
-                capture more leads, and stop losing enquiries.
-              </p>
-            </div>
+            {/* Main headline */}
+            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+              Websites &amp; AI Automation That Pay for Themselves
+            </h1>
 
-            <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto lg:mx-0">
-              Web development from <span className="font-semibold text-cyan-300">£100</span> and AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>. Transparent quotes, you own everything, no
-              long-term contracts.
+            {/* Sub-headline */}
+            <p className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl md:max-w-3xl">
+              From £300 websites and £50/month AI — delivered in 1–14 days. Transparent pricing. Full ownership. No
+              hidden fees.
             </p>
 
-            {/* your 3 CTAs – same behaviour */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 justify-center lg:justify-start pt-1">
+            {/* Primary CTAs */}
+            <div className="mt-8 flex flex-col md:flex-row gap-3 md:gap-4 md:items-center md:justify-center">
               <Button
                 size="lg"
                 onClick={() => scrollToSection("web-preview")}
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-transform shadow-lg shadow-primary/40"
+                className="group inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-lg shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               >
-                See Web Packages <ArrowRight className="ml-2 h-5 w-5" />
+                See Web Packages
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform duration-300" />
               </Button>
 
               <Button
                 size="lg"
                 onClick={() => scrollToSection("ai-preview")}
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-transform shadow-lg shadow-primary/40"
+                className="group inline-flex items-center justify-center rounded-xl bg-white text-[#2563EB] text-lg font-semibold px-8 py-4 shadow-lg shadow-black/25 hover:shadow-xl hover:bg-white/95 hover:scale-[1.05] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               >
-                AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                AI Automation Solutions
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform duration-300" />
               </Button>
+            </div>
 
+            {/* Secondary / enterprise CTA */}
+            <div className="mt-5">
               <Link
                 to="/enterprise"
-                className="text-sm font-medium text-cyan-300 hover:text-cyan-200 inline-flex items-center gap-1 mt-1"
+                className="inline-flex items-center justify-center rounded-xl border-2 border-white/30 bg-transparent px-6 py-2.5 text-base font-medium text-white hover:border-white/50 hover:bg-white/10 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               >
-                Enterprise Inquiry
-                <ArrowRight className="h-4 w-4" />
+                <span>Need custom solutions? Enterprise Inquiry</span>
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
 
-            {/* trust row */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center justify-center lg:justify-start pt-3">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/75">
-                <Star className="h-4 w-4 text-yellow-400" />
-                <span>
-                  <span className="font-semibold text-white">4.9/5</span> from early clients & enquiries
-                </span>
-              </div>
-              <div className="hidden sm:block h-px w-10 bg-white/20" />
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px] sm:text-xs text-white/65">
-                <span>⚡ Typical quote time: 1–3 hours</span>
-                <span>🕒 Delivery window: 1–14 days</span>
-                <span>🇬🇧 UK-wide, remote friendly</span>
-                <span>💬 WhatsApp, email & Zoom support</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT – project snapshot card */}
-          <div className="flex-1 max-w-md w-full">
-            <div className="rounded-2xl bg-[hsla(222,47%,9%,0.96)] border border-white/14 shadow-2xl shadow-black/40 p-6 sm:p-8 backdrop-blur-md">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1">PROJECT SNAPSHOT</p>
-                  <p className="text-lg font-semibold text-white">What working with X15 feels like</p>
+            {/* Trust pills */}
+            <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl md:max-w-4xl">
+              {["50+ UK Businesses Served", "4.9★ Rating", "1–14 Day Delivery", "You Own Everything"].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-sm font-medium text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-[#059669] flex-shrink-0" />
+                  <span>{item}</span>
                 </div>
-                <Badge className="bg-white/10 text-cyan-200 border border-white/15 text-[10px]">NO AGENCY BLOAT</Badge>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm mb-6">
-                <div className="space-y-2">
-                  <p className="text-white/60 font-semibold text-[11px]">Typical Agency</p>
-                  <ul className="space-y-1 text-white/50">
-                    <li>• Vague pricing</li>
-                    <li>• Slow replies</li>
-                    <li>• Over-designed, under-performing</li>
-                    <li>• You don’t fully own it</li>
-                  </ul>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-cyan-300 font-semibold text-[11px]">X15 Digital</p>
-                  <ul className="space-y-1 text-white/85">
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Transparent packages from £100</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Fast WhatsApp communication</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>Web + AI focused on leads & bookings</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
-                      <span>You fully own your site & systems</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
-                <div className="rounded-xl border border-white/12 py-2">
-                  <p className="text-sm font-semibold text-white">
-                    <AnimatedCounter end={10} />+
-                  </p>
-                  <p className="text-[11px] text-white/60">early projects & enquiries</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2">
-                  <p className="text-sm font-semibold text-white">1–14d</p>
-                  <p className="text-[11px] text-white/60">typical delivery window</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2">
-                  <p className="text-sm font-semibold text-white">UK-wide</p>
-                  <p className="text-[11px] text-white/60">remote friendly</p>
-                </div>
-              </div>
-
-              <Button asChild size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link to="/quick-start">
-                  Answer 5 questions – get a clear quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              ))}
             </div>
           </div>
         </div>

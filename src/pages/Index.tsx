@@ -627,7 +627,6 @@ const Index = () => {
       </section>
 
       {/* Web Packages Preview */}
-      {/* Web Packages Preview */}
       <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
@@ -635,14 +634,69 @@ const Index = () => {
             One-time payment. You own everything. No monthly fees.
           </p>
 
-          {/* 2 Main Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            {/* Starter Package */}
+          {/* 3 Main Cards – Budget → Starter → Business */}
+          <div className="grid gap-8 max-w-6xl mx-auto md:grid-cols-3 mb-12">
+            {/* DIY / Template – Budget Friendly */}
             <AnimatedSection staggerIndex={0} animation="scale">
               <Card className="hover-lift relative">
-                {/* FASTEST START badge */}
                 <Badge className="absolute -top-3 left-4 bg-primary/10 text-primary border border-primary/30">
-                  ⚡ FASTEST START
+                  💡 BUDGET FRIENDLY
+                </Badge>
+
+                <CardHeader className="pt-6">
+                  <CardTitle className="text-2xl">DIY / Template Site</CardTitle>
+                  <p className="text-3xl font-bold text-secondary">£100 - £300</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Absolute basics, simple one-page sites, early-stage ideas
+                  </p>
+
+                  <p className="font-semibold mb-3">What's Included:</p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">1-page website (or very simple micro-site)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">Template-based design with your branding</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">Mobile responsive layout</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">Basic contact or enquiry link</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">1 day delivery (once content is ready)</span>
+                    </li>
+                  </ul>
+
+                  <p className="text-xs font-semibold mb-2">Examples:</p>
+                  <ul className="text-xs text-muted-foreground mb-6 space-y-1">
+                    <li>• Simple “link in bio” page</li>
+                    <li>• One-page flyer site</li>
+                    <li>• Early MVP / idea validation page</li>
+                  </ul>
+
+                  <Button asChild className="w-full">
+                    <Link to="/quick-start">
+                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
+
+            {/* Starter Website – Most Popular */}
+            <AnimatedSection staggerIndex={1} animation="scale">
+              <Card className="hover-lift border border-primary/30 relative">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
+                  ⚡ MOST POPULAR
                 </Badge>
 
                 <CardHeader className="pt-6">
@@ -658,7 +712,7 @@ const Index = () => {
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1-3 custom pages (Home, About, Contact)</span>
+                      <span className="text-sm">1–3 custom pages (Home, About, Contact)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -682,7 +736,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1-3 day delivery</span>
+                      <span className="text-sm">1–3 day delivery</span>
                     </li>
                   </ul>
 
@@ -702,12 +756,11 @@ const Index = () => {
               </Card>
             </AnimatedSection>
 
-            {/* Business Package - Most Popular */}
-            <AnimatedSection staggerIndex={1} animation="scale">
-              <Card className="hover-lift border border-primary/30 relative">
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-                  <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-                </Badge>
+            {/* Business Website – Professional */}
+            <AnimatedSection staggerIndex={2} animation="scale">
+              <Card className="hover-lift border border-primary/40 shadow-md shadow-primary/20 relative">
+                <Badge className="absolute -top-3 right-4 bg-primary text-primary-foreground">🏆 PROFESSIONAL</Badge>
+
                 <CardHeader className="pt-6">
                   <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-secondary">£750 - £1,800</p>
@@ -721,7 +774,7 @@ const Index = () => {
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">4-10 pages</span>
+                      <span className="text-sm">4–10 pages</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -737,7 +790,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Portfolio/gallery options</span>
+                      <span className="text-sm">Portfolio / gallery options</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -745,7 +798,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">5-10 day delivery</span>
+                      <span className="text-sm">5–10 day delivery</span>
                     </li>
                   </ul>
 
@@ -766,43 +819,15 @@ const Index = () => {
             </AnimatedSection>
           </div>
 
-          {/* Budget / Simpler Option */}
-          <Card className="bg-muted/70 border border-border max-w-4xl mx-auto mb-6">
-            <CardContent className="p-8 text-center">
-              <div className="text-lg font-semibold text-secondary mb-2">💰 Need something simpler?</div>
-              <p className="text-sm md:text-base text-muted-foreground mb-6">
-                DIY or template-based websites starting from just £100. Ideal if you want a clean online presence on a
-                tight budget.
-              </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/services#budget-sites">
-                  See Budget Options <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Bigger / Advanced Option */}
-          <Card className="bg-muted border border-primary/20 max-w-4xl mx-auto mb-8">
-            <CardContent className="p-8 text-center">
-              <div className="text-lg font-semibold text-secondary mb-2">🚀 Need something bigger?</div>
-              <p className="text-sm md:text-base text-muted-foreground mb-6">
-                Premium websites, e-commerce platforms, and custom web applications starting from £2,000. Best for
-                serious growth and complex requirements.
-              </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/services#web-apps">
-                  See Advanced Options <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Bottom link */}
-          <div className="text-center">
-            <Button asChild variant="ghost" className="text-primary hover:underline font-semibold">
-              <Link to="/services">
-                View all 5 packages <ArrowRight className="ml-2 h-4 w-4" />
+          {/* Bigger / Advanced Options – simple line */}
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground mb-3">
+              <span className="font-semibold text-secondary">Need something bigger?</span> Premium &amp; custom
+              websites, e-commerce and web applications from <span className="font-semibold">£2,000</span>.
+            </p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+              <Link to="/services#web-apps">
+                See Advanced Options <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

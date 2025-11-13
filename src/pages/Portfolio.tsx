@@ -319,12 +319,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <PremiumCTA 
-        title="Ready to Build Your Project?"
-        subtitle="Let's discuss your requirements and create something great."
-        primaryLabel="See All Services"
-        secondaryLabel="Get Free Quote"
-      />
+      <PremiumCTA />
 
       <Footer />
       <WhatsAppWidget />

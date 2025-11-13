@@ -31,7 +31,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import PremiumCTA from "@/components/PremiumCTA";
+import CtaCard from "@/components/CtaCard";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
@@ -1019,7 +1019,10 @@ const Index = () => {
 
       {/* Trust Badges */}
       <TrustBadgesBar />
-      <PremiumCTA />
+      
+      {/* Floating CTA Card */}
+      <CtaCard />
+      
       <Footer />
       <FloatingActionMenu />
     </div>

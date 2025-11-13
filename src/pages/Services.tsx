@@ -1734,12 +1734,7 @@ const Services = () => {
         </div>
       </section>
 
-      <PremiumCTA 
-        title="Ready to Start?"
-        subtitle="Get a free, transparent quote in under 4 hours."
-        primaryLabel="See All Services"
-        secondaryLabel="Get Free Quote"
-      />
+      <PremiumCTA />
 
       <Footer />
       <WhatsAppWidget />

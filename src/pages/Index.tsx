@@ -644,27 +644,28 @@ const Index = () => {
                 </Badge>
 
                 <CardHeader className="pt-6">
-                  <CardTitle className="text-2xl">DIY / Template Site</CardTitle>
+                  <CardTitle className="text-2xl">Basic Website</CardTitle>
                   <p className="text-3xl font-bold text-secondary">£100 - £300</p>
                 </CardHeader>
+
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-4">
-                    <strong>Perfect for:</strong> Absolute basics, simple one-page sites, early-stage ideas
+                    <strong>Perfect for:</strong> Simple one-page sites, early-stage ideas, basic online presence
                   </p>
 
                   <p className="font-semibold mb-3">What's Included:</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1-page website (or very simple micro-site)</span>
+                      <span className="text-sm">1-page website (or simple landing page)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Template-based design with your branding</span>
+                      <span className="text-sm">Template-based layout styled with your branding</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Mobile responsive layout</span>
+                      <span className="text-sm">Mobile responsive design</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -672,15 +673,15 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1 day delivery (once content is ready)</span>
+                      <span className="text-sm">1–2 day delivery</span>
                     </li>
                   </ul>
 
                   <p className="text-xs font-semibold mb-2">Examples:</p>
                   <ul className="text-xs text-muted-foreground mb-6 space-y-1">
                     <li>• Simple “link in bio” page</li>
-                    <li>• One-page flyer site</li>
-                    <li>• Early MVP / idea validation page</li>
+                    <li>• One-page promo site</li>
+                    <li>• Basic idea validation page</li>
                   </ul>
 
                   <Button asChild className="w-full">

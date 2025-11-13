@@ -97,26 +97,26 @@ const Index = () => {
       {/* Hero Section */}
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(circle_at_top,_hsl(221,83%,26%)_0,_hsl(222,47%,10%)_45%,_hsl(222,47%,5%)_100%)]"
+        className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(circle_at_top,_hsl(221,83%,30%)_0,_hsl(222,47%,10%)_45%,_hsl(222,47%,5%)_100%)]"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Soft glow */}
+        {/* soft glows */}
         <div
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             background:
-              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.12) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(41,98,255,0.18) 0, transparent 60%)",
+              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%)",
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
-          {/* Left – main copy + CTA */}
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs sm:text-sm text-white/70">
-              <span className="inline-flex h-2 w-2 rounded-full bg-success" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs sm:text-sm text-white/75">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
               <span>Websites & AI automation for UK businesses and creators</span>
             </div>
 
@@ -137,63 +137,60 @@ const Index = () => {
               long-term contracts.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center lg:justify-start">
+            {/* your 3 CTAs – same behaviour */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 justify-center lg:justify-start pt-1">
               <Button
-                asChild
                 size="lg"
-                className="w-full sm:w-auto bg-success text-success-foreground hover:bg-success/90 shadow-lg shadow-success/30"
+                onClick={() => scrollToSection("web-preview")}
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-transform shadow-lg shadow-primary/40"
               >
-                <a
-                  href="https://wa.me/447424062513?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20or%20AI%20automation%20project"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Get a WhatsApp Quote
-                </a>
+                See Web Packages <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
               <Button
-                asChild
-                variant="outline"
                 size="lg"
-                className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10"
+                onClick={() => scrollToSection("ai-preview")}
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-transform shadow-lg shadow-primary/40"
               >
-                <button type="button" onClick={() => scrollToSection("service-selector")}>
-                  View Web & AI Packages
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
+                AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+
+              <Link
+                to="/enterprise"
+                className="text-sm font-medium text-cyan-300 hover:text-cyan-200 inline-flex items-center gap-1 mt-1"
+              >
+                Enterprise Inquiry
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
 
-            {/* Quick trust row */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center justify-center lg:justify-start pt-2">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/70">
+            {/* trust row */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center justify-center lg:justify-start pt-3">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/75">
                 <Star className="h-4 w-4 text-yellow-400" />
                 <span>
-                  <span className="font-semibold text-white">4.9/5</span> from early clients & inquiries
+                  <span className="font-semibold text-white">4.9/5</span> from early clients & enquiries
                 </span>
               </div>
-              <div className="h-px w-10 bg-white/15 hidden sm:block" />
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px] sm:text-xs text-white/60">
+              <div className="hidden sm:block h-px w-10 bg-white/20" />
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px] sm:text-xs text-white/65">
                 <span>⚡ Typical quote time: 1–3 hours</span>
-                <span>🕒 Delivery: 1–14 days</span>
-                <span>🇬🇧 UK-based, remote friendly</span>
+                <span>🕒 Delivery window: 1–14 days</span>
+                <span>🇬🇧 UK-wide, remote friendly</span>
                 <span>💬 WhatsApp, email & Zoom support</span>
               </div>
             </div>
           </div>
 
-          {/* Right – “mini agency vs X15” card */}
+          {/* RIGHT – project snapshot card */}
           <div className="flex-1 max-w-md w-full">
-            <div className="rounded-2xl bg-[hsla(222,47%,9%,0.96)] border border-white/12 shadow-2xl shadow-black/40 p-6 sm:p-8 backdrop-blur">
+            <div className="rounded-2xl bg-[hsla(222,47%,9%,0.96)] border border-white/14 shadow-2xl shadow-black/40 p-6 sm:p-8 backdrop-blur-md">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-1">Project Snapshot</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-1">PROJECT SNAPSHOT</p>
                   <p className="text-lg font-semibold text-white">What working with X15 feels like</p>
                 </div>
-                <Badge className="bg-white/10 text-cyan-200 border border-white/10 text-[10px]">NO AGENCY BLOAT</Badge>
+                <Badge className="bg-white/10 text-cyan-200 border border-white/15 text-[10px]">NO AGENCY BLOAT</Badge>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm mb-6">
@@ -208,39 +205,39 @@ const Index = () => {
                 </div>
                 <div className="space-y-2">
                   <p className="text-cyan-300 font-semibold text-[11px]">X15 Digital</p>
-                  <ul className="space-y-1 text-white/80">
+                  <ul className="space-y-1 text-white/85">
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
                       <span>Transparent packages from £100</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
                       <span>Fast WhatsApp communication</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
-                      <span>Web + AI built to capture leads</span>
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
+                      <span>Web + AI focused on leads & bookings</span>
                     </li>
                     <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5" />
                       <span>You fully own your site & systems</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/70 mb-5">
-                <div className="rounded-xl border border-white/10 py-2">
+              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
+                <div className="rounded-xl border border-white/12 py-2">
                   <p className="text-sm font-semibold text-white">
                     <AnimatedCounter end={10} />+
                   </p>
-                  <p className="text-[11px] text-white/60">early projects & inquiries</p>
+                  <p className="text-[11px] text-white/60">early projects & enquiries</p>
                 </div>
-                <div className="rounded-xl border border-white/10 py-2">
+                <div className="rounded-xl border border-white/12 py-2">
                   <p className="text-sm font-semibold text-white">1–14d</p>
                   <p className="text-[11px] text-white/60">typical delivery window</p>
                 </div>
-                <div className="rounded-xl border border-white/10 py-2">
+                <div className="rounded-xl border border-white/12 py-2">
                   <p className="text-sm font-semibold text-white">UK-wide</p>
                   <p className="text-[11px] text-white/60">remote friendly</p>
                 </div>

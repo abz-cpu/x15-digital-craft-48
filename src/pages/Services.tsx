@@ -47,7 +47,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import PremiumCTA from "@/components/PremiumCTA";
+import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
 
 const Services = () => {

@@ -311,7 +311,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <PremiumCTA />
+      <CtaCard />
 
       <Footer />
       <WhatsAppWidget />

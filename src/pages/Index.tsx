@@ -95,62 +95,164 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
+        className="relative overflow-hidden py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(circle_at_top,_hsl(221,83%,26%)_0,_hsl(222,47%,10%)_45%,_hsl(222,47%,5%)_100%)]"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
-          transition: "transform 0.1s linear",
+          transition: "transform 0.1s ease-out",
         }}
       >
-        <div className="max-w-7xl mx-auto text-center fade-in-section relative z-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Affordable Web Development & AI Automation for UK Businesses
-          </h1>
-          <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-6 leading-tight">
-            <span className="text-primary">£300 Website</span>. 5 Days. You Own Everything.
-            <br />
-            AI Automation from <span className="text-primary">£50/Month</span>
-          </h2>
+        {/* Soft glow */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.12) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(41,98,255,0.18) 0, transparent 60%)",
+          }}
+        />
 
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            We offer professional web development & AI automation for UK and global businesses. Choose one service or
-            both — transparent pricing, no surprises.
-            <br />
-            <br />
-            Websites from £100. AI Automation from £50/month. Enterprise solutions for scaling businesses.
-            <br />
-            <br />
-            No hidden fees. No sales games.
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+          {/* Left – main copy + CTA */}
+          <div className="flex-1 text-center lg:text-left space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs sm:text-sm text-white/70">
+              <span className="inline-flex h-2 w-2 rounded-full bg-success" />
+              <span>Websites & AI automation for UK businesses and creators</span>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("web-preview")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-transform"
-            >
-              See Web Packages <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("ai-preview")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-transform"
-            >
-              AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+                Affordable Websites & AI Automation,
+                <span className="text-cyan-300"> Built to Actually Convert.</span>
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0">
+                X15 Digital builds fast, modern websites and plug-in AI systems so small UK businesses can look premium,
+                capture more leads, and stop losing enquiries.
+              </p>
+            </div>
+
+            <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto lg:mx-0">
+              Web development from <span className="font-semibold text-cyan-300">£100</span> and AI automation from{" "}
+              <span className="font-semibold text-cyan-300">£50/month</span>. Transparent quotes, you own everything, no
+              long-term contracts.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center lg:justify-start">
+              <Button
+                asChild
+                size="lg"
+                className="w-full sm:w-auto bg-success text-success-foreground hover:bg-success/90 shadow-lg shadow-success/30"
+              >
+                <a
+                  href="https://wa.me/447424062513?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20or%20AI%20automation%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Get a WhatsApp Quote
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10"
+              >
+                <button type="button" onClick={() => scrollToSection("service-selector")}>
+                  View Web & AI Packages
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
+              </Button>
+            </div>
+
+            {/* Quick trust row */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-center justify-center lg:justify-start pt-2">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-white/70">
+                <Star className="h-4 w-4 text-yellow-400" />
+                <span>
+                  <span className="font-semibold text-white">4.9/5</span> from early clients & inquiries
+                </span>
+              </div>
+              <div className="h-px w-10 bg-white/15 hidden sm:block" />
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px] sm:text-xs text-white/60">
+                <span>⚡ Typical quote time: 1–3 hours</span>
+                <span>🕒 Delivery: 1–14 days</span>
+                <span>🇬🇧 UK-based, remote friendly</span>
+                <span>💬 WhatsApp, email & Zoom support</span>
+              </div>
+            </div>
           </div>
 
-          <Link to="/enterprise" className="text-primary hover:underline inline-flex items-center gap-1">
-            Enterprise Inquiry <ArrowRight className="h-4 w-4" />
-          </Link>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
-            {["UK-Wide Service", "1-14 Day Delivery", "24/7 AI Automation", "You Own Everything"].map((pill) => (
-              <div key={pill} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-5 w-5 text-success" />
-                {pill}
+          {/* Right – “mini agency vs X15” card */}
+          <div className="flex-1 max-w-md w-full">
+            <div className="rounded-2xl bg-[hsla(222,47%,9%,0.96)] border border-white/12 shadow-2xl shadow-black/40 p-6 sm:p-8 backdrop-blur">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-1">Project Snapshot</p>
+                  <p className="text-lg font-semibold text-white">What working with X15 feels like</p>
+                </div>
+                <Badge className="bg-white/10 text-cyan-200 border border-white/10 text-[10px]">NO AGENCY BLOAT</Badge>
               </div>
-            ))}
+
+              <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm mb-6">
+                <div className="space-y-2">
+                  <p className="text-white/60 font-semibold text-[11px]">Typical Agency</p>
+                  <ul className="space-y-1 text-white/50">
+                    <li>• Vague pricing</li>
+                    <li>• Slow replies</li>
+                    <li>• Over-designed, under-performing</li>
+                    <li>• You don’t fully own it</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-cyan-300 font-semibold text-[11px]">X15 Digital</p>
+                  <ul className="space-y-1 text-white/80">
+                    <li className="flex items-start gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <span>Transparent packages from £100</span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <span>Fast WhatsApp communication</span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <span>Web + AI built to capture leads</span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5" />
+                      <span>You fully own your site & systems</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/70 mb-5">
+                <div className="rounded-xl border border-white/10 py-2">
+                  <p className="text-sm font-semibold text-white">
+                    <AnimatedCounter end={10} />+
+                  </p>
+                  <p className="text-[11px] text-white/60">early projects & inquiries</p>
+                </div>
+                <div className="rounded-xl border border-white/10 py-2">
+                  <p className="text-sm font-semibold text-white">1–14d</p>
+                  <p className="text-[11px] text-white/60">typical delivery window</p>
+                </div>
+                <div className="rounded-xl border border-white/10 py-2">
+                  <p className="text-sm font-semibold text-white">UK-wide</p>
+                  <p className="text-[11px] text-white/60">remote friendly</p>
+                </div>
+              </div>
+
+              <Button asChild size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link to="/quick-start">
+                  Answer 5 questions – get a clear quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

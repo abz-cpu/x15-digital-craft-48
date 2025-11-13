@@ -326,7 +326,7 @@ const Index = () => {
                 shortDescription:
                   "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
                 fullDescription:
-                  "Grow your business with digital marketing that delivers results. Using SEO (search engine optimisation), PPC (pay-per-click ads), targeted content, and social media, we put your brand in front of buyers—delivering measurable ROI with transparent, ongoing reporting.",
+                  "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO (search ranking), PPC ads, engaging content, and social media—so your business attracts the right buyers and you see measurable ROI, with reporting you can trust.",
                 process: [
                   "Market & competitor analysis",
                   "Strategy & budget planning",

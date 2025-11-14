@@ -2,46 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== THEME TOKENS ===== */
 @layer base {
   :root {
-    /* Neutrals (main background & text) */
+    /* Neutrals (60% of design) */
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
     --muted: 210 20% 98%;
     --muted-foreground: 215 16% 47%;
 
-    /* Brand (use mostly for CTAs, important highlights) */
-    --primary: 221 83% 53%; /* Sapphire ≈ #2563EB */
+    /* Brand Colors (CTAs only) */
+    --primary: 221 83% 53%; /* Sapphire Blue ≈ #2563EB */
     --primary-foreground: 0 0% 100%;
-    --primary-700: 221 83% 45%;
-    --primary-800: 221 83% 38%;
+    --primary-700: 221 83% 45%; /* Darker sapphire */
+    --primary-800: 221 83% 38%; /* Darkest sapphire */
 
-    /* Heading / price / nav anchor */
-    --secondary: 222 47% 11%; /* Midnight navy */
+    /* UI Anchor (headings, prices, nav) */
+    --secondary: 222 47% 11%; /* Midnight Navy */
     --secondary-foreground: 0 0% 100%;
 
-    /* Extra tokens */
-    --ink: 222 47% 11%;
-    --ink-2: 215 16% 27%;
-    --paper: 210 20% 98%;
-    --success: 142 60% 34%; /* Deep emerald */
+    /* Additional colors */
+    --ink: 222 47% 11%; /* Midnight Navy (alias) */
+    --ink-2: 215 16% 27%; /* Lighter ink */
+    --paper: 210 20% 98%; /* Light footer base */
+    --success: 142 72% 29%; /* WhatsApp green */
 
-    /* Accent – use very sparingly (AI highlights etc.) */
-    --accent: 95 70% 42%; /* Soft lime */
+    /* Optional accent for tiny AI highlights (use sparingly) */
+    --accent: 95 70% 42%; /* Softer lime */
     --accent-foreground: 0 0% 10%;
 
     /* State Colors */
-    --info: 217 85% 56%;
+    --info: 217 85% 56%; /* Clear info blue */
     --info-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
+    --warning: 38 92% 50%; /* Amber */
     --warning-foreground: 0 0% 100%;
+
+    --success: 142 60% 34%; /* Deeper emerald */
+    --success-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* UI elements */
+    /* UI Elements */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
@@ -51,25 +53,25 @@
     --ring: 221 83% 53%;
     --radius: 0.75rem;
 
-    /* Charts */
-    --chart-1: 221 83% 53%;
-    --chart-2: 142 60% 34%;
-    --chart-3: 95 70% 42%;
-    --chart-4: 217 85% 56%;
-    --chart-5: 38 92% 50%;
+    /* Charts (match new palette) */
+    --chart-1: 221 83% 53%; /* Sapphire */
+    --chart-2: 142 60% 34%; /* Emerald */
+    --chart-3: 95 70% 42%; /* Lime (soft) */
+    --chart-4: 217 85% 56%; /* Info blue */
+    --chart-5: 38 92% 50%; /* Amber */
   }
 
   .dark {
     --background: 222 47% 7%;
     --foreground: 0 0% 100%;
     --muted: 217 33% 17%;
-    --muted-foreground: 215 16% 60%;
+    --muted-foreground: 215 16% 47%;
 
     --primary: 221 83% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 222 47% 11%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 95 70% 50%;
+    --accent: 95 70% 42%;
     --accent-foreground: 0 0% 10%;
 
     --info: 217 85% 60%;
@@ -89,31 +91,31 @@
     --input: 217 33% 17%;
     --ring: 221 83% 60%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
     font-family:
       "Inter",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
-      system-ui,
       sans-serif;
-    text-rendering: optimizeLegibility;
   }
 
+  /* Don’t force heading color globally */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
-    color: hsl(var(--secondary));
+    @apply font-bold;
   }
 
   html {
@@ -121,127 +123,47 @@
   }
 }
 
-/* ===== COMPONENT-LEVEL UTILS ===== */
-@layer components {
-  /* Premium hero background */
-  .hero-gradient {
-    background:
-      radial-gradient(circle at top left, hsla(221, 83%, 65%, 0.85) 0, transparent 52%),
-      radial-gradient(circle at top right, hsla(199, 100%, 72%, 0.7) 0, transparent 55%),
-      radial-gradient(circle at bottom, hsla(222, 47%, 10%, 1) 0, hsla(222, 47%, 5%, 1) 65%);
-    color: #f9fafb;
-  }
-
-  /* Comparison / snapshot card */
-  .hero-card {
-    border-radius: 1.5rem;
-    background:
-      linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94)) padding-box,
-      linear-gradient(145deg, rgba(148, 163, 184, 0.4), rgba(59, 130, 246, 0.8)) border-box;
-    border: 1px solid transparent;
-    box-shadow:
-      0 24px 60px rgba(15, 23, 42, 0.75),
-      0 0 0 1px rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(22px);
-  }
-
-  /* Lifted card utility – add to any Card */
-  .hover-lift {
-    transition:
-      transform 200ms ease-out,
-      box-shadow 200ms ease-out,
-      border-color 200ms ease-out,
-      background-color 200ms ease-out;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 26px 70px rgba(15, 23, 42, 0.24),
-      0 0 0 1px rgba(37, 99, 235, 0.25);
-  }
-
-  .hover-lift:active {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.28);
-  }
-
-  /* Subtle gradient headings if you want them */
-  .heading-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #e5f0ff 40%, #7dd3fc 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  /* Tiny animated badge (used on “Most popular”, etc.) */
-  .badge-animated {
-    animation: float-subtle 4s ease-in-out infinite;
-  }
-}
-
-/* ===== ANIMATIONS / UTILITIES ===== */
 @layer utilities {
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(18px) scale(0.99);
+  /* Use on headings in light sections */
+  .heading {
+    @apply font-bold text-secondary;
   }
 
-  .animate-fade-in {
-    animation: fade-in-up 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 
-  .section-shell {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  /* Updated glows to match sapphire + soft lime */
+  .glow-primary {
+    box-shadow: 0 0 80px hsl(221 83% 63% / 0.35);
+  }
+  .glow-accent {
+    box-shadow: 0 0 60px hsl(95 70% 52% / 0.35);
   }
 
-  .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur;
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .hover-lift,
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* Keyframes */
-@keyframes fade-in-up {
+@keyframes floatPulse {
   0% {
-    opacity: 0;
-    transform: translateY(22px) scale(0.98);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.03);
   }
   100% {
-    opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
-@keyframes float-subtle {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-/* Green hover for CTA buttons */
-.green-hover {
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease;
-}
-
-.green-hover:hover {
-  background: linear-gradient(90deg, #22c55e, #16a34a) !important;
-  color: #ffffff !important;
-  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
-  transform: translateY(-1px);
-}
-
-/* For "Hover for details" text */
-.green-text-hover {
-  transition: color 0.2s ease;
-}
-.green-text-hover:hover {
-  color: #16a34a;
+.badge-animated {
+  animation: floatPulse 3s ease-in-out infinite;
 }

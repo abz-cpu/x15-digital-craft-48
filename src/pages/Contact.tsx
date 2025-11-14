@@ -87,7 +87,9 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-4">
                   Most detailed option. We'll reply with a comprehensive quote within 4 hours.
                 </p>
-                <Button className="green-hover flex items-center gap-2">Use Contact Form →</Button>
+                <Button className="w-full green-hover flex items-center justify-center gap-2">
+                  Use Contact Form <ArrowRight className="h-4 w-4" />
+                </Button>
               </CardContent>
             </Card>
 
@@ -107,8 +109,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Chat on WhatsApp
-                    <ArrowRight className="h-4 w-4" />
+                    Chat on WhatsApp <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
               </CardContent>
@@ -232,10 +233,9 @@ const Contact = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button asChild size="lg" className="green-hover flex items-center gap-2">
+            <Button asChild size="lg" className="green-hover flex items-center justify-center gap-2">
               <Link to="/services#faq">
-                View All FAQs
-                <ArrowRight className="h-4 w-4" />
+                View All FAQs <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
           </div>

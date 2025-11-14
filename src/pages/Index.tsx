@@ -369,10 +369,9 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300"
-                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
-                  role="button"
-                  tabIndex={0}
+                  className="transition-all duration-300 hover:shadow-lg cursor-pointer group"
+                  onMouseEnter={() => setExpandedService(service.id)}
+                  onMouseLeave={() => setExpandedService(null)}
                 >
                   <CardHeader>
                     <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
@@ -397,11 +396,10 @@ const Index = () => {
                     )}
                     <Button
                       asChild
-                      variant="outline"
                       size="sm"
-                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
+                      className="mt-2 w-full green-hover flex items-center justify-center gap-2"
                     >
-                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
+                      <Link to={service.link}>Learn More →</Link>
                     </Button>
                   </CardContent>
                 </Card>

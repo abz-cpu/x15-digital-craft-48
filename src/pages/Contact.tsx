@@ -1,16 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Mail,
-  MessageCircle,
-  FileText,
-  ArrowRight,
-  MapPin,
-  Clock,
-  Copy,
-  Check,
-  Zap,
-} from "lucide-react";
+import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -34,7 +24,7 @@ const Contact = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -60,7 +50,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="Contact Us - Get Your Free Quote | X15 Digital"
         description="Contact X15 Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."
         keywords="contact web developer UK, get free quote website, AI automation consultation, web development London"
@@ -71,20 +61,15 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Get in Touch
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Get in Touch</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            Have a project in mind? Questions about our services? Want a straightforward
-            quote with no sales pitch?
+            Have a project in mind? Questions about our services? Want a straightforward quote with no sales pitch?
           </p>
           <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-5 w-5 text-primary" />
             We typically respond within 4 hours (usually faster).
           </p>
-          <p className="text-lg font-semibold text-secondary mt-6 mb-8">
-            Choose your preferred way to reach us:
-          </p>
+          <p className="text-lg font-semibold text-secondary mt-6 mb-8">Choose your preferred way to reach us:</p>
         </div>
       </section>
 
@@ -100,12 +85,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-4">
-                  Most detailed option. We'll reply with a comprehensive quote within 4
-                  hours.
+                  Most detailed option. We'll reply with a comprehensive quote within 4 hours.
                 </p>
-                <Button variant="outline" className="w-full">
-                  Use Contact Form <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Button className="green-hover flex items-center gap-2">Use Contact Form →</Button>
               </CardContent>
             </Card>
 
@@ -119,13 +101,14 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-4">
                   Fastest option. Get instant replies during UK business hours (9am–6pm).
                 </p>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full green-hover flex items-center justify-center gap-2">
                   <a
                     href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Chat on WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+                    Chat on WhatsApp
+                    <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
               </CardContent>
@@ -139,28 +122,23 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-4">
-                  Prefer email? Send us your requirements and we'll respond within 4
-                  hours.
+                  Prefer email? Send us your requirements and we'll respond within 4 hours.
                 </p>
                 <div className="space-y-2">
-                  <a
-                    href="mailto:info@x15digital.co.uk"
-                    className="block text-primary hover:underline font-medium"
-                  >
+                  <a href="mailto:info@x15digital.co.uk" className="block text-primary hover:underline font-medium">
                     info@x15digital.co.uk
                   </a>
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={copyEmail}
-                  >
+                  <Button onClick={copyEmail} className="w-full green-hover flex items-center justify-center gap-2">
                     {copied ? (
                       <>
-                        <Check className="mr-2 h-4 w-4" /> Copied!
+                        <Check className="h-4 w-4" />
+                        Copied!
                       </>
                     ) : (
                       <>
-                        <Copy className="mr-2 h-4 w-4" /> Copy Email Address
+                        <Copy className="h-4 w-4" />
+                        Copy Email Address
+                        <ArrowRight className="h-4 w-4" />
                       </>
                     )}
                   </Button>
@@ -172,18 +150,12 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section
-        id="contact-form"
-        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted"
-      >
+      <section id="contact-form" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-3xl mx-auto fade-in-section">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              Project Inquiry Form
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Project Inquiry Form</h2>
             <p className="text-lg text-muted-foreground mb-2">
-              Tell us about your project and we'll send you a detailed quote with
-              timeline and next steps.
+              Tell us about your project and we'll send you a detailed quote with timeline and next steps.
             </p>
             <p className="text-muted-foreground flex items-center justify-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
@@ -224,9 +196,7 @@ const Contact = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-8">
             Common Questions Before You Contact Us
           </h3>
-          <p className="text-center text-muted-foreground mb-12">
-            Quick answers to save you time:
-          </p>
+          <p className="text-center text-muted-foreground mb-12">Quick answers to save you time:</p>
 
           <div className="space-y-6">
             {[
@@ -253,10 +223,7 @@ const Contact = () => {
                 <CardContent className="pt-6">
                   <p className="font-semibold text-lg mb-2">Q: {faq.q}</p>
                   <p className="text-muted-foreground mb-2">A: {faq.a}</p>
-                  <Link
-                    to={faq.link}
-                    className="text-primary hover:underline inline-flex items-center gap-1 text-sm"
-                  >
+                  <Link to={faq.link} className="text-primary hover:underline inline-flex items-center gap-1 text-sm">
                     {faq.linkText} <ArrowRight className="h-3 w-3" />
                   </Link>
                 </CardContent>
@@ -265,9 +232,10 @@ const Contact = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild size="lg" className="green-hover flex items-center gap-2">
               <Link to="/services#faq">
-                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
+                View All FAQs
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
           </div>

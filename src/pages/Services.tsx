@@ -50,6 +50,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -498,10 +499,14 @@ const Services = () => {
             <Card className="hover-lift relative transition-transform md:scale-105 md:border-2 md:border-primary md:shadow-2xl md:ring-4 md:ring-primary/10 z-10">
               {/* subtle glow behind card (desktop only) */}
               <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg"></div>
 
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white flex items-center gap-1 text-xs">
-                <Star className="h-3 w-3" /> MOST POPULAR
-              </Badge>
+              {/* Animated Badge */}
+              <AnimatedSection staggerIndex={1} animation="scale">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg badge-animated">
+                  ⚡ MOST POPULAR
+                </Badge>
+              </AnimatedSection>
 
               <CardHeader>
                 <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>

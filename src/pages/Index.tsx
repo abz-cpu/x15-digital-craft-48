@@ -353,12 +353,12 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      {/* What We Offer */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Hover over a card to see the exact process and details for each service.
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive digital services designed to transform your business. Each service is tailored to solve your
+            specific challenges and drive growth.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -369,51 +369,40 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift cursor-pointer transition-all duration-300"
-                  onMouseEnter={() => setExpandedService(service.id)}
-                  onMouseLeave={() => setExpandedService(null)}
+                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                  role="button"
+                  tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                      <Icon className="h-7 w-7 text-secondary" />
                     </div>
-                    <CardTitle className="text-xl mb-1">{service.title}</CardTitle>
-                    <p className="text-sm font-medium text-secondary">{service.subtitle}</p>
+                    <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
+                    <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
-
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
                       {isExpanded ? service.fullDescription : service.shortDescription}
                     </p>
-
-                    {isExpanded ? (
+                    {isExpanded && (
                       <>
-                        <div>
-                          <p className="text-xs font-semibold text-secondary mb-1">Our Process:</p>
-                          <ul className="space-y-1 text-xs text-muted-foreground">
-                            {service.process.map((step, i) => (
-                              <li key={i}>• {step}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <Button
-                          asChild
-                          size="sm"
-                          className="mt-4 w-full green-hover flex items-center justify-center gap-2"
-                        >
-                          <Link to={service.link}>
-                            Learn More
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </Button>
+                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
+                        <ul className="space-y-1 text-xs text-muted-foreground">
+                          {service.process.map((step, i) => (
+                            <li key={i}>• {step}</li>
+                          ))}
+                        </ul>
                       </>
-                    ) : (
-                      <p className="text-xs text-muted-foreground mt-4 inline-flex items-center gap-1 green-text-hover">
-                        Hover for details
-                        <ArrowRight className="h-3 w-3" />
-                      </p>
                     )}
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
+                    >
+                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
+                    </Button>
                   </CardContent>
                 </Card>
               );

@@ -448,9 +448,12 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* DIY / TEMPLATE – Budget option (slightly smaller) */}
             <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
-              <Badge className="absolute -top-3 right-4 bg-secondary text-white flex items-center gap-1 text-xs">
-                💡 BUDGET FRIENDLY
-              </Badge>
+              <AnimatedSection staggerIndex={0} animation="scale">
+                <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-secondary text-white shadow-md badge-animated">
+                  💡 BUDGET FRIENDLY
+                </Badge>
+              </AnimatedSection>
+
               <CardHeader>
                 <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
                 <p className="text-3xl font-bold text-primary">£100 - £300</p>
@@ -559,9 +562,12 @@ const Services = () => {
 
             {/* BUSINESS – Professional tier */}
             <Card className="hover-lift relative transition-transform md:border-2 md:border-secondary/30 md:shadow-lg">
-              <Badge className="absolute -top-3 right-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white flex items-center gap-1 text-xs">
-                🏆 PROFESSIONAL
-              </Badge>
+              <AnimatedSection staggerIndex={2} animation="scale">
+                <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
+                  🏆 PROFESSIONAL
+                </Badge>
+              </AnimatedSection>
+
               <CardHeader>
                 <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                 <p className="text-3xl font-bold text-primary">£750 - £1,800</p>

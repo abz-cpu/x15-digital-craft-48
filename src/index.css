@@ -151,3 +151,19 @@
     }
   }
 }
+
+@keyframes floatPulse {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.badge-animated {
+  animation: floatPulse 3s ease-in-out infinite;
+}

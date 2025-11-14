@@ -499,9 +499,13 @@ const Services = () => {
               {/* subtle glow behind card (desktop only) */}
               <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
 
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white flex items-center gap-1 text-xs">
-                <Star className="h-3 w-3" /> MOST POPULAR
-              </Badge>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 -z-10 w-28 h-6 rounded-full bg-warning/30 blur-md"></div>
+
+              <AnimatedSection staggerIndex={1} animation="scale">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground badge-animated">
+                  ⚡ MOST POPULAR
+                </Badge>
+              </AnimatedSection>
 
               <CardHeader>
                 <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ButtonLegacy } from "@/components/ui/button-legacy";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -353,7 +354,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="legacy-section py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -509,7 +510,7 @@ const Index = () => {
                             ))}
                           </ol>
                         </div>
-                        <Button
+                        <ButtonLegacy
                           variant="outline"
                           size="sm"
                           className="w-full justify-center group-hover:border-primary group-hover:text-primary"
@@ -520,7 +521,7 @@ const Index = () => {
                           }}
                         >
                           Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        </ButtonLegacy>
                       </div>
                     </div>
 
@@ -552,7 +553,7 @@ const Index = () => {
                               ))}
                             </ol>
                           </div>
-                          <Button
+                          <ButtonLegacy
                             asChild
                             variant="outline"
                             size="sm"
@@ -562,7 +563,7 @@ const Index = () => {
                             <Link to={service.link}>
                               Learn More <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
-                          </Button>
+                          </ButtonLegacy>
                         </div>
                       )}
                     </div>
@@ -573,11 +574,11 @@ const Index = () => {
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg">
+            <ButtonLegacy asChild size="lg">
               <Link to="/services">
                 Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </Button>
+            </ButtonLegacy>
           </div>
         </div>
       </section>

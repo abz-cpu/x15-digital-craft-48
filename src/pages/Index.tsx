@@ -381,85 +381,28 @@ const Index = () => {
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
-
                   <CardContent className="space-y-4">
-                    {/* DESKTOP: Hover to expand */}
-                    <div className="hidden md:block">
-                      {/* Default state - short description + "Hover for details" */}
-                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
-                          <span>Hover for details</span>
-                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-
-                      {/* Hovered state - full description + process + green Learn More */}
-                      <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
-                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-                        <div className="mb-4">
-                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                          <ol className="space-y-1">
-                            {service.process.map((step: string, i: number) => (
-                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                <span className="font-semibold text-secondary">{i + 1}.</span>
-                                <span>{step}</span>
-                              </li>
-                            ))}
-                          </ol>
-                        </div>
-                        <Button
-                          asChild
-                          size="sm"
-                          className="w-full justify-center bg-success text-success-foreground font-semibold shadow-sm hover:bg-success/90 transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Link to={service.link}>
-                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* MOBILE/TABLET: Tap to expand */}
-                    <div className="md:hidden">
-                      {!isExpanded && (
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
-                            <span>Tap for details</span>
-                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        </div>
-                      )}
-
-                      {isExpanded && (
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-                          <div className="mb-4">
-                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                            <ol className="space-y-1">
-                              {service.process.map((step: string, i: number) => (
-                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                  <span className="font-semibold text-secondary">{i + 1}.</span>
-                                  <span>{step}</span>
-                                </li>
-                              ))}
-                            </ol>
-                          </div>
-                          <Button
-                            asChild
-                            size="sm"
-                            className="w-full justify-center bg-success text-success-foreground font-semibold shadow-sm hover:bg-success/90 transition-colors mt-4"
-                            onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                          >
-                            <Link to={service.link}>
-                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </div>
-                      )}
-                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {isExpanded ? service.fullDescription : service.shortDescription}
+                    </p>
+                    {isExpanded && (
+                      <>
+                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
+                        <ul className="space-y-1 text-xs text-muted-foreground">
+                          {service.process.map((step, i) => (
+                            <li key={i}>• {step}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
+                    >
+                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
+                    </Button>
                   </CardContent>
                 </Card>
               );

@@ -487,7 +487,7 @@ const Index = () => {
                     {/* DESKTOP: Hover to expand */}
                     <div className="hidden md:block">
                       {/* Default state - short description */}
-                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
+                      <div className="group-hover:hidden">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                         <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                           <span>Hover for details</span>
@@ -496,7 +496,7 @@ const Index = () => {
                       </div>
 
                       {/* Expanded state - full details (shows on hover) */}
-                      <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
+                      <div className="hidden group-hover:block">
                         <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
                         <div className="mb-4">
                           <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>

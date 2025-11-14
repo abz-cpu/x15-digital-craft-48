@@ -201,12 +201,7 @@
 
   /* Legacy styling for "What We Offer" section only */
   .legacy-section .hover-lift {
-    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-  }
-
-  .legacy-section .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 
   .legacy-section .glow-primary {
@@ -219,11 +214,6 @@
 
   .legacy-section .heading {
     @apply font-bold text-secondary;
-  }
-  
-  /* Remove all transform animations from cards in legacy section */
-  .legacy-section .Card {
-    transition: box-shadow 200ms ease-out;
   }
 }
 

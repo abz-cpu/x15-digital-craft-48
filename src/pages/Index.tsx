@@ -357,7 +357,7 @@ const Index = () => {
       <section className="legacy-section py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
             Comprehensive digital services designed to transform your business. Each service is tailored to solve your
             specific challenges and drive growth.
           </p>
@@ -470,15 +470,14 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    {/* ICON – same grow-on-hover effect */}
-                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-secondary/20 group-hover:scale-110">
-                      <Icon className="h-7 w-7 text-secondary transition-transform duration-300 group-hover:scale-110" />
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                      <Icon className="h-7 w-7 text-secondary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
@@ -513,9 +512,9 @@ const Index = () => {
                         <ButtonLegacy
                           variant="outline"
                           size="sm"
-                          className="w-full justify-center group-hover:border-primary group-hover:text-primary"
+                          className="w-full"
                           onClick={(e) => {
-                            e.stopPropagation(); // don't collapse the card
+                            e.stopPropagation();
                             e.preventDefault();
                             scrollToSection("ai-preview");
                           }}
@@ -557,7 +556,7 @@ const Index = () => {
                             asChild
                             variant="outline"
                             size="sm"
-                            className="w-full justify-center group-hover:border-primary group-hover:text-primary"
+                            className="w-full"
                             onClick={(e: React.MouseEvent) => e.stopPropagation()}
                           >
                             <Link to={service.link}>

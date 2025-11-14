@@ -293,8 +293,10 @@ const Portfolio = () => {
                       This is a capability demonstration showing what we can build for your business.
                     </p>
                   </div>
-                  <Button asChild className="w-full green-hover flex items-center justify-center gap-2">
-                    <Link to="/contact">Interested in something similar? Get a quote →</Link>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to="/contact">
+                      Interested in something similar? Get a quote <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

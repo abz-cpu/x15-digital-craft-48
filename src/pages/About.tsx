@@ -269,9 +269,9 @@ const About = () => {
           <p className="text-lg font-semibold text-secondary mb-6">
             Same values. Same transparency. Different expertise.
           </p>
-          <Button asChild className="green-hover flex items-center justify-center gap-2">
+          <Button asChild variant="outline">
             <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-              Visit X15 PC Builders <ArrowRight className="h-4 w-4" />
+              Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>

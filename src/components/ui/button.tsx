@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -7,14 +8,17 @@ const buttonVariants = cva(
   [
     "inline-flex items-center justify-center whitespace-nowrap",
     "rounded-full text-sm font-medium",
-    "transition-all duration-200",
+    "transition-all duration-200 active:scale-[0.98]",
+    "ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-60",
+    // make icons align nicely and stay on one line with text
+    "[&_svg]:pointer-events-none [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0",
   ].join(" "),
   {
     variants: {
       variant: {
-        /* Main CTA – sapphire gradient, “expensive” hover */
+        /* Main CTA – sapphire gradient, same as now */
         default: [
           "relative overflow-hidden",
           "bg-[linear-gradient(135deg,_hsl(221,83%,65%)_0%,_hsl(221,83%,53%)_40%,_hsl(221,83%,45%)_100%)]",
@@ -24,11 +28,11 @@ const buttonVariants = cva(
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        /* Clean outline for secondary CTAs */
+        /* Secondary / outline CTAs – this is the GREEN hover one */
         outline: [
-          "border border-border/80 bg-transparent",
-          "text-secondary hover:border-primary hover:text-primary",
-          "hover:bg-primary/5",
+          "border border-border/80 bg-transparent text-secondary",
+          "hover:bg-[#22c55e] hover:text-white hover:border-[#16a34a]",
+          "hover:shadow-[0_18px_40px_rgba(34,197,94,0.35)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",
@@ -53,11 +57,16 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, ...props }, ref) => {
-  return <button ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props} />;
-});
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return <Comp ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props} />;
+  },
+);
 
 Button.displayName = "Button";
 

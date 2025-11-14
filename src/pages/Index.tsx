@@ -18,7 +18,7 @@ import {
   TrendingUp,
   Search,
   ShoppingBag,
-  Image,
+  Image as ImageIcon,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

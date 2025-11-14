@@ -356,6 +356,7 @@ const Index = () => {
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
+
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Comprehensive digital services designed to transform your business. Each service is tailored to solve your
             specific challenges and drive growth.
@@ -369,40 +370,81 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-7 w-7 text-secondary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground">
-                      {isExpanded ? service.fullDescription : service.shortDescription}
-                    </p>
-                    {isExpanded && (
-                      <>
-                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
-                        <ul className="space-y-1 text-xs text-muted-foreground">
+
+                  <CardContent>
+                    {/* DESKTOP: hover to expand */}
+                    <div className="hidden md:block">
+                      {/* default collapsed */}
+                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+
+                      {/* expanded content */}
+                      <div className="max-h-0 opacity-0 group-hover:max-h-[420px] group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+
+                        <p className="text-xs font-semibold text-secondary mb-1">Our Process:</p>
+                        <ul className="space-y-1 text-xs text-muted-foreground mb-4">
                           {service.process.map((step, i) => (
                             <li key={i}>• {step}</li>
                           ))}
                         </ul>
-                      </>
-                    )}
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
-                    >
-                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
-                    </Button>
+
+                        <Button
+                          asChild
+                          size="sm"
+                          className="w-full justify-center bg-emerald-500 hover:bg-emerald-600 text-white font-semibold border-none"
+                        >
+                          <Link to={service.link}>Learn More</Link>
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* MOBILE: click to expand */}
+                    <div className="md:hidden space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        {isExpanded ? service.fullDescription : service.shortDescription}
+                      </p>
+
+                      {isExpanded && (
+                        <>
+                          <p className="text-xs font-semibold text-secondary">Our Process:</p>
+                          <ul className="space-y-1 text-xs text-muted-foreground">
+                            {service.process.map((step, i) => (
+                              <li key={i}>• {step}</li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+
+                      <Button
+                        asChild
+                        size="sm"
+                        className={`mt-2 w-full justify-center ${
+                          isExpanded
+                            ? "bg-emerald-500 hover:bg-emerald-600 text-white border-none"
+                            : "border border-input text-muted-foreground"
+                        }`}
+                      >
+                        <Link to={service.link}>{isExpanded ? "Learn More" : "Tap for details"}</Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               );

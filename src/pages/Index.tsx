@@ -353,63 +353,226 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
+       {/* What We Offer */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
             Comprehensive digital services designed to transform your business. Each service is tailored to solve your
             specific challenges and drive growth.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {services.map((service) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                id: "design",
+                icon: Palette,
+                title: "Web/App Design",
+                tagline: "Sites that convert visitors into customers",
+                shortDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
+                fullDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                process: [
+                  "Discovery & Brand Research",
+                  "Design Concepts & Mockups",
+                  "User Experience Testing",
+                  "Final Design & Handoff",
+                ],
+                link: "/services#design",
+              },
+              {
+                id: "web-dev",
+                icon: Globe,
+                title: "Web Development",
+                tagline: "Lightning-fast sites delivered in days",
+                shortDescription:
+                  "Modern, responsive websites built with the latest technology and optimized for speed...",
+                fullDescription:
+                  "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
+                process: [
+                  "Technical Planning & Architecture",
+                  "Development & Integration",
+                  "Quality Testing & Optimization",
+                  "Launch & Ongoing Support",
+                ],
+                link: "#web-preview",
+              },
+              {
+                id: "app-dev",
+                icon: Smartphone,
+                title: "App Development",
+                tagline: "Apps your customers will love",
+                shortDescription: "Native iOS and Android applications designed for an exceptional user experience...",
+                fullDescription:
+                  "Native iOS and Android applications designed for an exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+                process: [
+                  "Strategy & Feature Planning",
+                  "Design & Development",
+                  "Testing & Refinement",
+                  "App Store Launch & Updates",
+                ],
+                link: "/services#app-development",
+              },
+              {
+                id: "marketing",
+                icon: TrendingUp,
+                title: "Digital Marketing",
+                tagline: "Rank higher, get more customers",
+                shortDescription:
+                  "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
+                fullDescription:
+                  "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO (search ranking), PPC ads, engaging content, and social media—so your business attracts the right buyers and you see measurable ROI, with reporting you can trust.",
+                process: [
+                  "Market & competitor analysis",
+                  "Strategy & budget planning",
+                  "SEO, PPC & content / social campaign launch",
+                  "Reporting, tracking & continuous improvement",
+                ],
+                link: "/services#marketing",
+              },
+              {
+                id: "branding",
+                icon: Image,
+                title: "Graphic Design",
+                tagline: "Branding that makes you memorable",
+                shortDescription: "Professional branding and visual design that communicates your unique value...",
+                fullDescription:
+                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build recognition.",
+                process: [
+                  "Brand Discovery & Research",
+                  "Concept Creation & Exploration",
+                  "Design Development & Refinement",
+                  "Brand Guidelines & Assets",
+                ],
+                link: "/services#branding",
+              },
+              {
+                id: "ai-automation",
+                icon: Bot,
+                title: "AI Automation",
+                tagline: "24/7 customer service on autopilot",
+                shortDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments...",
+                fullDescription:
+                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                process: [
+                  "Workflow Analysis & Planning",
+                  "AI Training & Configuration",
+                  "Integration & Testing",
+                  "Launch & Performance Monitoring",
+                ],
+                link: "#ai-preview",
+              },
+            ].map((service) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
 
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-7 w-7 text-secondary" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground">
-                      {isExpanded ? service.fullDescription : service.shortDescription}
-                    </p>
-                    {isExpanded && (
-                      <>
-                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
-                        <ul className="space-y-1 text-xs text-muted-foreground">
-                          {service.process.map((step, i) => (
-                            <li key={i}>• {step}</li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
-                    >
-                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
-                    </Button>
+
+                  <CardContent>
+                    {/* DESKTOP: Hover to expand */}
+                    <div className="hidden md:block">
+                      {/* Default state - short description */}
+                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        {/* CHANGED THIS ↓ */}
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+
+                      {/* Expanded state - full details (shows on hover) */}
+                      <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                          <ol className="space-y-1">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                <span className="font-semibold text-secondary">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          onClick={(e) => {
+                            e.stopPropagation(); // don't collapse the card
+                            e.preventDefault();
+                            scrollToSection("ai-preview");
+                          }}
+                        >
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* MOBILE/TABLET: Click to expand */}
+                    <div className="md:hidden">
+                      {/* Default state */}
+                      {!isExpanded && (
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                          {/* CHANGED THIS ↓ */}
+                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                            <span>Tap for details</span>
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Expanded state */}
+                      {isExpanded && (
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+                          <div>
+                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                            <ol className="space-y-1">
+                              {service.process.map((step: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                  <span className="font-semibold text-secondary">{i + 1}.</span>
+                                  <span>{step}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+                          <Button
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          >
+                            <Link to={service.link}>
+                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
-        </div>
-      </section>
 
       {/* What Do You Need? */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">

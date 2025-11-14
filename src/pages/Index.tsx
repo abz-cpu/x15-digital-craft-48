@@ -379,7 +379,7 @@ const Index = () => {
                   "User Experience Testing",
                   "Final Design & Handoff",
                 ],
-                link: "/services#web-app-design",
+                link: "/services#design",
               },
               {
                 id: "web-dev",
@@ -433,7 +433,7 @@ const Index = () => {
               },
               {
                 id: "branding",
-                icon: ImageIcon,
+                icon: Image,
                 title: "Graphic Design",
                 tagline: "Branding that makes you memorable",
                 shortDescription: "Professional branding and visual design that communicates your unique value...",
@@ -489,13 +489,14 @@ const Index = () => {
                       {/* Default state - short description */}
                       <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        {/* CHANGED THIS ↓ */}
                         <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                           <span>Hover for details</span>
                           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
 
-                      {/* Expanded state - full details */}
+                      {/* Expanded state - full details (shows on hover) */}
                       <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
                         <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
                         <div className="mb-4">
@@ -514,11 +515,9 @@ const Index = () => {
                           size="sm"
                           className="w-full"
                           onClick={(e) => {
-                            e.stopPropagation();
-                            if (service.link.startsWith("#")) {
-                              e.preventDefault();
-                              scrollToSection(service.link.replace("#", ""));
-                            }
+                            e.stopPropagation(); // don't collapse the card
+                            e.preventDefault();
+                            scrollToSection("ai-preview");
                           }}
                         >
                           Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -526,11 +525,13 @@ const Index = () => {
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: Tap to expand */}
+                    {/* MOBILE/TABLET: Click to expand */}
                     <div className="md:hidden">
+                      {/* Default state */}
                       {!isExpanded && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                          {/* CHANGED THIS ↓ */}
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -538,10 +539,11 @@ const Index = () => {
                         </div>
                       )}
 
+                      {/* Expanded state */}
                       {isExpanded && (
-                        <div className="mt-2">
-                          <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-                          <div className="mb-4">
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+                          <div>
                             <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                             <ol className="space-y-1">
                               {service.process.map((step: string, i: number) => (
@@ -559,21 +561,9 @@ const Index = () => {
                             className="w-full"
                             onClick={(e: React.MouseEvent) => e.stopPropagation()}
                           >
-                            {service.link.startsWith("#") ? (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  scrollToSection(service.link.replace("#", ""));
-                                }}
-                              >
-                                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                              </button>
-                            ) : (
-                              <Link to={service.link}>
-                                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                              </Link>
-                            )}
+                            <Link to={service.link}>
+                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
                           </Button>
                         </div>
                       )}
@@ -585,12 +575,10 @@ const Index = () => {
           </div>
 
           <div className="text-center">
-            <Button
-              size="lg"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-8"
-              onClick={() => scrollToSection("packages")}
-            >
-              Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild size="lg">
+              <Link to="/services">
+                Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>

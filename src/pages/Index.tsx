@@ -356,12 +356,12 @@ const Index = () => {
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
             Comprehensive digital services designed to transform your business. Each service is tailored to solve your
             specific challenges and drive growth.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
@@ -369,44 +369,132 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  className="
+                    group cursor-pointer hover-lift
+                    border border-border
+                    transition-all duration-300
+                    hover:scale-[1.03]
+                    hover:border-emerald-400
+                    hover:shadow-[0_0_35px_rgba(52,211,153,0.55)]
+                    bg-background/80 backdrop-blur-sm
+                  "
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-7 w-7 text-secondary" />
+                    <div
+                      className="
+                        h-12 w-12 rounded-xl
+                        bg-emerald-500/10
+                        flex items-center justify-center mb-4
+                        group-hover:bg-emerald-500/20
+                        group-hover:scale-110
+                        transition-all duration-300
+                      "
+                    >
+                      <Icon className="h-7 w-7 text-emerald-400" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground">
-                      {isExpanded ? service.fullDescription : service.shortDescription}
-                    </p>
-                    {isExpanded && (
-                      <>
-                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
-                        <ul className="space-y-1 text-xs text-muted-foreground">
-                          {service.process.map((step, i) => (
-                            <li key={i}>• {step}</li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
-                    >
-                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
-                    </Button>
+
+                  <CardContent>
+                    {/* DESKTOP: Hover to expand */}
+                    <div className="hidden md:block">
+                      {/* Default state - short description */}
+                      <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        {/* green hover text */}
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm green-text-hover">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+
+                      {/* Expanded state - full details (shows on hover) */}
+                      <div className="transition-all duration-500 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                          <ol className="space-y-1">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                <span className="font-semibold text-secondary">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Link to={service.link}>
+                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* MOBILE/TABLET: Click to expand */}
+                    <div className="md:hidden">
+                      {/* Default state */}
+                      {!isExpanded && (
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                          {/* green hover text */}
+                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm green-text-hover">
+                            <span>Tap for details</span>
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Expanded state */}
+                      {isExpanded && (
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+                          <div>
+                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                            <ol className="space-y-1">
+                              {service.process.map((step: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                  <span className="font-semibold text-secondary">{i + 1}.</span>
+                                  <span>{step}</span>
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+                          <Button
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          >
+                            <Link to={service.link}>
+                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               );
             })}
+          </div>
+
+          <div className="text-center">
+            <Button asChild size="lg" className="green-hover">
+              <Link to="/services">
+                Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

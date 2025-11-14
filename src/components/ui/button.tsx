@@ -12,13 +12,13 @@ const buttonVariants = cva(
     "ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-60",
-    // make icons align nicely and stay on one line with text
+    // keep icons same line, same size
     "[&_svg]:pointer-events-none [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0",
   ].join(" "),
   {
     variants: {
       variant: {
-        /* Main CTA – sapphire gradient, same as now */
+        // MAIN BLUE CTA (unchanged)
         default: [
           "relative overflow-hidden",
           "bg-[linear-gradient(135deg,_hsl(221,83%,65%)_0%,_hsl(221,83%,53%)_40%,_hsl(221,83%,45%)_100%)]",
@@ -28,11 +28,11 @@ const buttonVariants = cva(
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        /* Secondary / outline CTAs – this is the GREEN hover one */
+        // OUTLINE BUTTONS → old green hover using your `success` color
         outline: [
           "border border-border/80 bg-transparent text-secondary",
-          "hover:bg-[#22c55e] hover:text-white hover:border-[#16a34a]",
-          "hover:shadow-[0_18px_40px_rgba(34,197,94,0.35)]",
+          "hover:bg-success hover:text-success-foreground hover:border-success",
+          "hover:shadow-[0_18px_40px_rgba(22,163,74,0.45)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

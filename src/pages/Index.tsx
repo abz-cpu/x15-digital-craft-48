@@ -397,13 +397,11 @@ const Index = () => {
                     )}
                     <Button
                       asChild
+                      variant="outline"
                       size="sm"
-                      className="w-full justify-center bg-success text-success-foreground font-semibold shadow-sm hover:bg-success/90 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
+                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
                     >
-                      <Link to={service.link}>
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
+                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
                     </Button>
                   </CardContent>
                 </Card>

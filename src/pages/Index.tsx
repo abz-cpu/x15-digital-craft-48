@@ -352,37 +352,65 @@ const Index = () => {
         </div>
       </section>
 
-      [plugin:vite:react-swc] x Expected '</', got 'className'
-     ,-[/dev-server/src/pages/Index.tsx:356:1]
- 353 |       </section>
- 354 | 
- 355 |       {      {/* What We Offer */}
- 356 |       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-     :                ^^^^^^^^^
- 357 |         <div className="max-w-7xl mx-auto fade-in-section">
- 358 |           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
- 359 |           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-     `----
+      {/* What We Offer */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive digital services designed to transform your business. Each service is tailored to solve your
+            specific challenges and drive growth.
+          </p>
 
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {services.map((service) => {
+              const Icon = service.icon;
+              const isExpanded = expandedService === service.id;
 
-Caused by:
-    Syntax Error
+              return (
+                <Card
+                  key={service.id}
+                  className="hover-lift group cursor-pointer transition-all duration-300"
+                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <CardHeader>
+                    <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
+                      <Icon className="h-7 w-7 text-secondary" />
+                    </div>
+                    <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
+                    <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      {isExpanded ? service.fullDescription : service.shortDescription}
+                    </p>
+                    {isExpanded && (
+                      <>
+                        <p className="text-xs font-semibold text-secondary">Process Overview:</p>
+                        <ul className="space-y-1 text-xs text-muted-foreground">
+                          {service.process.map((step, i) => (
+                            <li key={i}>• {step}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="mt-2 w-full justify-center group-hover:border-primary group-hover:text-primary"
+                    >
+                      <Link to={service.link}>{isExpanded ? "Hide details" : "View details"}</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-Stack backtrace:
-   0: <unknown>
-   1: <unknown>
-   2: <unknown>
-   3: <unknown>
-   4: <unknown>
-   5: <unknown>
-   6: <unknown>
-   7: <unknown>
-   8: <unknown>
-   9: _ZZN4node14ThreadPoolWork12ScheduleWorkEvENUlP9uv_work_sE_4_FUNES2_
-  10: worker
-             at /home/iojs/build/ws/out/../deps/uv/src/threadpool.c:123:5
-  11: <unknown>
-  12: <unknown>
       {/* What Do You Need? */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">

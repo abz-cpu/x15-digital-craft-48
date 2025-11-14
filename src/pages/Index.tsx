@@ -353,6 +353,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
+      {/* What We Offer */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
@@ -469,14 +470,31 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
+                  className="
+              group cursor-pointer hover-lift
+              border border-border
+              transition-all duration-300
+              hover:scale-[1.03]
+              hover:border-emerald-400
+              hover:shadow-[0_0_35px_rgba(52,211,153,0.55)]
+              bg-background/80 backdrop-blur-sm
+            "
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-7 w-7 text-secondary" />
+                    <div
+                      className="
+                  h-12 w-12 rounded-xl
+                  bg-emerald-500/10
+                  flex items-center justify-center mb-4
+                  group-hover:bg-emerald-500/20
+                  group-hover:scale-110
+                  transition-all duration-300
+                "
+                    >
+                      <Icon className="h-7 w-7 text-emerald-400" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
@@ -488,7 +506,6 @@ const Index = () => {
                       {/* Default state - short description */}
                       <div className="transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:overflow-hidden max-h-96 opacity-100">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                        {/* CHANGED THIS ↓ */}
                         <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                           <span>Hover for details</span>
                           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -510,16 +527,15 @@ const Index = () => {
                           </ol>
                         </div>
                         <Button
+                          asChild
                           variant="outline"
                           size="sm"
                           className="w-full"
-                          onClick={(e) => {
-                            e.stopPropagation(); // don't collapse the card
-                            e.preventDefault();
-                            scrollToSection("ai-preview");
-                          }}
+                          onClick={(e) => e.stopPropagation()}
                         >
-                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                          <Link to={service.link}>
+                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
                         </Button>
                       </div>
                     </div>
@@ -530,7 +546,6 @@ const Index = () => {
                       {!isExpanded && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                          {/* CHANGED THIS ↓ */}
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

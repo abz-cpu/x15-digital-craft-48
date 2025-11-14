@@ -222,16 +222,26 @@
   }
 }
 
+/* Green hover for CTA buttons */
 .green-hover {
-  @apply transition-all duration-200;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
 .green-hover:hover {
-  background-color: #22c55e !important; /* green-500 */
-  color: white !important;
-  border-color: #22c55e !important;
+  background: linear-gradient(90deg, #22c55e, #16a34a) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+  transform: translateY(-1px);
 }
 
+/* For "Hover for details" text */
+.green-text-hover {
+  transition: color 0.2s ease;
+}
 .green-text-hover:hover {
-  color: #22c55e !important;
+  color: #16a34a;
 }

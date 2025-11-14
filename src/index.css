@@ -198,6 +198,23 @@
   .pill {
     @apply inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur;
   }
+
+  /* Legacy styling for "What We Offer" section only */
+  .legacy-section .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .legacy-section .glow-primary {
+    box-shadow: 0 0 80px hsl(221 83% 63% / 0.35);
+  }
+
+  .legacy-section .glow-accent {
+    box-shadow: 0 0 60px hsl(95 70% 52% / 0.35);
+  }
+
+  .legacy-section .heading {
+    @apply font-bold text-secondary;
+  }
 }
 
 /* Keyframes */

@@ -87,8 +87,8 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-4">
                   Most detailed option. We'll reply with a comprehensive quote within 4 hours.
                 </p>
-                <Button className="w-full green-hover flex items-center justify-center gap-2">
-                  Use Contact Form <ArrowRight className="h-4 w-4" />
+                <Button variant="outline" className="w-full">
+                  Use Contact Form <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
@@ -103,13 +103,13 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-4">
                   Fastest option. Get instant replies during UK business hours (9am–6pm).
                 </p>
-                <Button asChild className="w-full green-hover flex items-center justify-center gap-2">
+                <Button asChild className="w-full">
                   <a
                     href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Chat on WhatsApp <ArrowRight className="h-4 w-4" />
+                    Chat on WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </CardContent>
@@ -129,17 +129,14 @@ const Contact = () => {
                   <a href="mailto:info@x15digital.co.uk" className="block text-primary hover:underline font-medium">
                     info@x15digital.co.uk
                   </a>
-                  <Button onClick={copyEmail} className="w-full green-hover flex items-center justify-center gap-2">
+                  <Button variant="outline" className="w-full" onClick={copyEmail}>
                     {copied ? (
                       <>
-                        <Check className="h-4 w-4" />
-                        Copied!
+                        <Check className="mr-2 h-4 w-4" /> Copied!
                       </>
                     ) : (
                       <>
-                        <Copy className="h-4 w-4" />
-                        Copy Email Address
-                        <ArrowRight className="h-4 w-4" />
+                        <Copy className="mr-2 h-4 w-4" /> Copy Email Address
                       </>
                     )}
                   </Button>
@@ -233,9 +230,9 @@ const Contact = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button asChild size="lg" className="green-hover flex items-center justify-center gap-2">
+            <Button asChild variant="outline" size="lg">
               <Link to="/services#faq">
-                View All FAQs <ArrowRight className="h-4 w-4" />
+                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>

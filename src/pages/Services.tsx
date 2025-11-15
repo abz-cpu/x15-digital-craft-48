@@ -68,7 +68,7 @@ const Services = () => {
           }
         });
       },
-      { threshold: 0.01, rootMargin: "500px" },
+      { threshold: 0.01, rootMargin: "300px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");

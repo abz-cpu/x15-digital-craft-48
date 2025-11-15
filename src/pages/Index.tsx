@@ -248,16 +248,24 @@ const Index = () => {
               </div>
 
               {/* small links under cards */}
-              <p className="text-[11px] text-white/60 pt-3 text-center lg:text-left">
-                <Link to="/services" className="hover:underline underline-offset-2">
-                  Need both? See packages
-                </Link>
-                <span className="mx-2">|</span>
-                <Link to="/enterprise" className="hover:underline underline-offset-2">
-                  Enterprise inquiry
-                </Link>
-              </p>
-            </div>
+<p className="text-[11px] text-white/60 pt-3 text-center lg:text-left">
+  <Link
+    to="/services"
+    className="hover:underline underline-offset-2 hover:text-cyan-300"
+  >
+    Need both? See complete packages →
+  </Link>
+
+  <span className="mx-2 text-white/30">|</span>
+
+  <Link
+    to="/enterprise"
+    className="hover:underline underline-offset-2 hover:text-cyan-300 inline-flex items-center gap-1"
+  >
+    <span role="img" aria-label="enterprise">🏢</span>
+    Enterprise solutions
+  </Link>
+</p>
 
             {/* quick stats */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">

@@ -168,6 +168,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero */}
+      {/* Hero */}
       <section
         className="relative overflow-hidden hero-gradient pt-24 pb-24 px-4 sm:px-6 lg:px-8"
         style={{
@@ -206,39 +207,57 @@ const Index = () => {
               </p>
             </div>
 
+            {/* trust line + pricing */}
             <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
-              Websites from <span className="font-semibold text-cyan-300">£100</span> and AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>.
-              <br />
               Transparent pricing. Full ownership. 1–14 day delivery.
+              <br />
+              Websites from <span className="font-semibold text-cyan-300">£100</span>{" "}
+              <span className="text-white/60">•</span> AI automation from{" "}
+              <span className="font-semibold text-cyan-300">£50/month</span>
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 justify-center lg:justify-start pt-2">
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("web-preview")}
-                className="w-full sm:w-auto shadow-[0_18px_40px_rgba(37,99,235,0.45)] hover:scale-[1.02]"
-              >
-                See Web Packages <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+            {/* CHOICE CARDS */}
+            <div className="pt-3">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-3 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
+                {/* Website Packages card */}
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("web-preview")}
+                  className="flex-1 h-14 cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02] transition-all duration-200"
+                >
+                  <Globe className="h-4 w-4 text-white/80" />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold text-white">Website Packages</span>
+                    <span className="text-xs text-cyan-300">From £100 →</span>
+                  </div>
+                </button>
 
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("ai-preview")}
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] shadow-[0_18px_40px_rgba(37,99,235,0.45)]"
-              >
-                AI Automation Solutions <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+                {/* AI Automation card */}
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("ai-preview")}
+                  className="flex-1 h-14 cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02] transition-all duration-200"
+                >
+                  <Bot className="h-4 w-4 text-white/80" />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold text-white">AI Automation</span>
+                    <span className="text-xs text-cyan-300">From £50/mo →</span>
+                  </div>
+                </button>
+              </div>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-white/35 text-white/85 hover:border-white hover:bg-white/10"
-                asChild
-              >
-                <Link to="/enterprise">Enterprise Inquiry →</Link>
-              </Button>
+              {/* small links under cards */}
+              <p className="text-[11px] text-white/60 pt-3 text-center lg:text-left">
+                <Link to="/services" className="hover:underline underline-offset-2">
+                  Need both? See packages
+                </Link>
+                <span className="mx-2">|</span>
+                <Link to="/enterprise" className="hover:underline underline-offset-2">
+                  Enterprise inquiry
+                </Link>
+              </p>
             </div>
 
             {/* quick stats */}
@@ -260,6 +279,10 @@ const Index = () => {
               <div className="flex items-center gap-1.5">
                 <Globe className="h-3.5 w-3.5 text-white/80" />
                 <span>UK-based team</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5 text-emerald-300" />
+                <span>7-day guarantee</span>
               </div>
             </div>
           </div>
@@ -347,7 +370,7 @@ const Index = () => {
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
               >
                 <Link to="/quick-start">
-                  Get Your Quote in 5 Questions
+                  Get Quote (Takes 2 Minutes)
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

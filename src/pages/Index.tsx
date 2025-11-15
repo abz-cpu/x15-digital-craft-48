@@ -514,14 +514,14 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-primary/40 shadow-lg hover:shadow-[0_0_60px_rgba(59,130,246,0.3)]"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-7 w-7 text-secondary" />
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>

@@ -248,22 +248,22 @@ const Index = () => {
               </div>
 
               {/* small links under cards */}
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-sky-200">
+              {/* small links under cards */}
+<div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
   <Link
     to="/services"
-    className="inline-flex items-center gap-1 hover:underline hover:text-emerald-400 transition-colors"
+    className="text-cyan-300 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors"
   >
-    <span>Need both?</span>
-    <span className="font-medium">See packages</span>
+    Need both? <span className="font-medium">See packages</span>
   </Link>
 
-  <span className="h-3 w-px bg-white/20" />
+  <span className="h-3 w-px bg-white/20"></span>
 
   <Link
     to="/enterprise"
-    className="inline-flex items-center gap-1 hover:underline hover:text-emerald-400 transition-colors"
+    className="text-cyan-400 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors font-medium"
   >
-    <span className="font-medium">Enterprise solutions</span>
+    Enterprise solutions
   </Link>
 </div>
 

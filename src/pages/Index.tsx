@@ -246,19 +246,17 @@ const Index = () => {
                   </div>
                 </button>
               </div>
-              {/* small links under cards */}{" "}
+
+              {/* small links under cards */}
               <p className="text-[11px] text-white/60 pt-3 text-center lg:text-left">
-                {" "}
                 <Link to="/services" className="hover:underline underline-offset-2">
-                  {" "}
-                  Need both? See packages{" "}
-                </Link>{" "}
-                <span className="mx-2">|</span>{" "}
+                  Need both? See packages
+                </Link>
+                <span className="mx-2">|</span>
                 <Link to="/enterprise" className="hover:underline underline-offset-2">
-                  {" "}
-                  Enterprise inquiry{" "}
-                </Link>{" "}
-              </p>{" "}
+                  Enterprise inquiry
+                </Link>
+              </p>
             </div>
 
             {/* quick stats */}

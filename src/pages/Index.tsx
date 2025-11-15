@@ -215,20 +215,16 @@ const Index = () => {
               <span className="font-semibold text-cyan-300">£50/month</span>
             </p>
 
-                        {/* CHOICE CARDS + small links + stats */}
+            {/* CHOICE CARDS + small links + stats */}
             <div className="pt-3">
               {/* CHOICE CARDS */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-3 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
                 {/* Website Packages card */}
                 <button
                   type="button"
                   onClick={() => scrollToSection("web-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+                  className="flex-1 h-14 cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02] transition-all duration-200"
                 >
                   <Globe className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -241,12 +237,8 @@ const Index = () => {
                 <button
                   type="button"
                   onClick={() => scrollToSection("ai-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+                  className="flex-1 h-14 cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02] transition-all duration-200"
                 >
                   <Bot className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -257,25 +249,26 @@ const Index = () => {
               </div>
 
               {/* small links under cards */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-                <Link
-                  to="/services"
-                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  Need both? <span>See packages</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
+<div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
+  <Link
+    to="/services"
+    className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
+  >
+    Need both? <span>See packages</span>
+    <span aria-hidden="true">→</span>
+  </Link>
 
-                <span className="h-3 w-px bg-white/20" />
+  <span className="h-3 w-px bg-white/20"></span>
 
-                <Link
-                  to="/enterprise"
-                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  <span>Enterprise solutions</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
+  <Link
+    to="/enterprise"
+    className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
+  >
+    <span>Enterprise solutions</span>
+    <span aria-hidden="true">→</span>
+  </Link>
+</div>
+            </div>
 
               {/* quick stats */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
@@ -303,7 +296,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-
+          </div>
 
           {/* RIGHT – comparison card */}
           <div className="flex-1 w-full max-w-md mx-auto lg:mx-0">

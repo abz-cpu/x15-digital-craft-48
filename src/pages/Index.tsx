@@ -215,7 +215,7 @@ const Index = () => {
               <span className="font-semibold text-cyan-300">£50/month</span>
             </p>
 
-            {/* CHOICE CARDS */}
+                        {/* CHOICE CARDS */}
             <div className="pt-3">
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-3 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
                 {/* Website Packages card */}
@@ -248,143 +248,51 @@ const Index = () => {
               </div>
 
               {/* small links under cards */}
-              {/* small links under cards */}
-<div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-  <Link
-    to="/services"
-    className="text-cyan-300 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors"
-  >
-    Need both? <span className="font-medium">See packages</span>
-  </Link>
-
-  <span className="h-3 w-px bg-white/20"></span>
-
-  <Link
-    to="/enterprise"
-    className="text-cyan-400 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors font-medium"
-  >
-    Enterprise solutions
-  </Link>
-</div>
-
-
-            {/* quick stats */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
-              <div className="flex items-center gap-1.5">
-                <Star className="h-3.5 w-3.5 text-yellow-300" />
-                <span>
-                  <span className="font-semibold">4.9/5</span> rating
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
-                <span>Quote: 1–3 hours</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Zap className="h-3.5 w-3.5 text-emerald-300" />
-                <span>Delivery: 1–14 days</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Globe className="h-3.5 w-3.5 text-white/80" />
-                <span>UK-based team</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Shield className="h-3.5 w-3.5 text-emerald-300" />
-                <span>7-day guarantee</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT – comparison card */}
-          <div className="flex-1 w-full max-w-md mx-auto lg:mx-0">
-            <div className="hero-card p-6 sm:p-7 md:p-8 text-white">
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.16em] text-white/50 font-semibold">Project snapshot</p>
-                  <p className="text-lg sm:text-xl font-semibold text-white">What working with X15 feels like</p>
-                </div>
-                <Badge
-                  variant="outline"
-                  className="text-[10px] border-emerald-400/60 text-emerald-300 bg-emerald-500/5"
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
+                <Link
+                  to="/services"
+                  className="text-cyan-300 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors"
                 >
-                  No agency bloat
-                </Badge>
-              </div>
-
-              <div className="grid grid-cols-2 gap-5 mb-6">
-                <div className="space-y-3 rounded-2xl bg-white/5 p-3 border border-white/8">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-white/55">Typical agency</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/75">
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Vague pricing</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Slow replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Over-designed &amp; over-priced</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>You don&apos;t own it fully</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-3 rounded-2xl bg-emerald-400/10 p-3 border border-emerald-300/40">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-200">X15 Digital</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/85">
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £100</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Fast WhatsApp replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Built for conversions</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>You own everything</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">&lt;4 hrs</p>
-                  <p className="text-[10px] text-white/60">quote time</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">1–14d</p>
-                  <p className="text-[10px] text-white/60">delivery</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">UK-wide</p>
-                  <p className="text-[10px] text-white/60">service</p>
-                </div>
-              </div>
-
-              <Button
-                asChild
-                size="sm"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
-              >
-                <Link to="/quick-start">
-                  Get Quote (Takes 2 Minutes)
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  Need both? <span className="font-medium">See packages</span>
                 </Link>
-              </Button>
+
+                <span className="h-3 w-px bg-white/20" />
+
+                <Link
+                  to="/enterprise"
+                  className="text-cyan-400 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors font-medium"
+                >
+                  Enterprise solutions
+                </Link>
+              </div>
+
+              {/* quick stats */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
+                <div className="flex items-center gap-1.5">
+                  <Star className="h-3.5 w-3.5 text-yellow-300" />
+                  <span>
+                    <span className="font-semibold">4.9/5</span> rating
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
+                  <span>Quote: 1–3 hours</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Zap className="h-3.5 w-3.5 text-emerald-300" />
+                  <span>Delivery: 1–14 days</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Globe className="h-3.5 w-3.5 text-white/80" />
+                  <span>UK-based team</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Shield className="h-3.5 w-3.5 text-emerald-300" />
+                  <span>7-day guarantee</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+
       </section>
 
       {/* What We Offer */}

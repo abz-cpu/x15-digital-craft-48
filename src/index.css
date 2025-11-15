@@ -190,11 +190,11 @@
 @layer utilities {
   .fade-in-section {
     opacity: 0;
-    transform: translateY(18px) scale(0.99);
+    transform: translateY(12px) scale(0.99);
   }
 
   .animate-fade-in {
-    animation: fade-in-up 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    animation: fade-in-up 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   }
 
   .section-shell {
@@ -227,7 +227,7 @@
 @keyframes fade-in-up {
   0% {
     opacity: 0;
-    transform: translateY(22px) scale(0.98);
+    transform: translateY(16px) scale(0.98);
   }
   100% {
     opacity: 1;

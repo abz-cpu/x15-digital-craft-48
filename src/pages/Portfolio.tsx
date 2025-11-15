@@ -26,14 +26,14 @@ const Portfolio = () => {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.05, rootMargin: "50px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
     sections.forEach((section) => observerRef.current?.observe(section));
 
     return () => observerRef.current?.disconnect();
-  }, []);
+  }, [activeFilter]);
 
   const portfolioItems = [
     {

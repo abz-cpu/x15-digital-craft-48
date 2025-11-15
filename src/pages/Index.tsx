@@ -252,18 +252,20 @@ const Index = () => {
               <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
                 <Link
                   to="/services"
-                  className="text-cyan-300 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors"
+                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
                 >
-                  Need both? <span className="font-medium">See packages</span>
+                  Need both? <span>See packages</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
 
-                <span className="h-3 w-px bg-white/20" />
+                <span className="h-3 w-px bg-white/20"></span>
 
                 <Link
                   to="/enterprise"
-                  className="text-cyan-400 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors font-medium"
+                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
                 >
-                  Enterprise solutions
+                  <span>Enterprise solutions</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
 

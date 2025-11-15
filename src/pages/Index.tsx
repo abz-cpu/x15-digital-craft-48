@@ -249,26 +249,23 @@ const Index = () => {
               </div>
 
               {/* small links under cards */}
-<div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-  <Link
-    to="/services"
-    className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
-  >
-    Need both? <span>See packages</span>
-    <span aria-hidden="true">→</span>
-  </Link>
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
+                <Link
+                  to="/services"
+                  className="text-cyan-300 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors"
+                >
+                  Need both? <span className="font-medium">See packages</span>
+                </Link>
 
-  <span className="h-3 w-px bg-white/20"></span>
+                <span className="h-3 w-px bg-white/20" />
 
-  <Link
-    to="/enterprise"
-    className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-all flex items-center gap-1"
-  >
-    <span>Enterprise solutions</span>
-    <span aria-hidden="true">→</span>
-  </Link>
-</div>
-            </div>
+                <Link
+                  to="/enterprise"
+                  className="text-cyan-400 hover:text-emerald-400 hover:underline underline-offset-2 transition-colors font-medium"
+                >
+                  Enterprise solutions
+                </Link>
+              </div>
 
               {/* quick stats */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">

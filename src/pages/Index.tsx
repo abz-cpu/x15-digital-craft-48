@@ -193,13 +193,16 @@ const Index = () => {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-bold tracking-tight text-white">
-                Websites &amp; AI Automation
-                <span className="text-cyan-300"> That Pay for Themselves</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
+                Get More Customers With a £100 Website
+                <br />
+                <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
               </h1>
+
               <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Fast, modern websites and AI systems that capture leads and save time. Built for UK small businesses who
-                want results, not complexity.
+                Fast websites &amp; smart AI for UK small businesses.
+                <br />
+                Ready in 1–14 days. No monthly fees. You own everything.
               </p>
             </div>
 

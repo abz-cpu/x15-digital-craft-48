@@ -70,7 +70,7 @@ export const PortfolioModal = ({ isOpen, onClose, project, imageSrc }: Portfolio
 
           {/* Features */}
           <div>
-            <h3 className="font-semibold mb-3">What We Can Build:</h3>
+            <h3 className="font-semibold mb-3">{project.isLive ? "What We Built:" : "What We Can Build:"}</h3>
             <ul className="grid md:grid-cols-2 gap-2">
               {project.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-2">

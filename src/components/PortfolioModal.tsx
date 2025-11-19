@@ -1,0 +1,110 @@
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Globe, Clock, Code, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+interface PortfolioModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  project: {
+    title: string;
+    category: string;
+    type: string;
+    features: string[];
+    timeline: string;
+    tech: string;
+    image: string;
+    isLive?: boolean;
+    liveUrl?: string;
+  };
+  imageSrc: string;
+}
+
+export const PortfolioModal = ({ isOpen, onClose, project, imageSrc }: PortfolioModalProps) => {
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <DialogTitle className="text-2xl mb-2">{project.title}</DialogTitle>
+              <div className="flex gap-2 flex-wrap">
+                <Badge variant={project.isLive ? "default" : "secondary"}>
+                  {project.isLive ? "Live Client Project" : "Capability Example"}
+                </Badge>
+                <Badge variant="outline">{project.type}</Badge>
+              </div>
+            </div>
+          </div>
+        </DialogHeader>
+
+        {/* Large Image */}
+        <div className="w-full h-64 md:h-96 bg-muted rounded-lg overflow-hidden mb-6">
+          <img 
+            src={imageSrc} 
+            alt={`${project.title} Preview`} 
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Project Details */}
+        <div className="space-y-6">
+          {/* Key Info */}
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="flex items-start gap-3">
+              <Clock className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm">Timeline</p>
+                <p className="text-sm text-muted-foreground">{project.timeline}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <Code className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm">Technology Stack</p>
+                <p className="text-sm text-muted-foreground">{project.tech}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div>
+            <h3 className="font-semibold mb-3">What We Built:</h3>
+            <ul className="grid md:grid-cols-2 gap-2">
+              {project.features.map((feature, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                  <span className="text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CTA */}
+          <div className="pt-4 border-t">
+            {project.isLive ? (
+              <div className="flex gap-3">
+                <Button asChild className="flex-1">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <Globe className="h-4 w-4 mr-2" />
+                    View Live Site
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="flex-1">
+                  <Link to="/contact">Get Similar Project</Link>
+                </Button>
+              </div>
+            ) : (
+              <Button asChild variant="default" className="w-full">
+                <Link to="/contact">
+                  Interested in something similar? Get a quote <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};

@@ -1099,34 +1099,60 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Recent Work &amp; Capabilities
           </h2>
-          <p className="text-center text-muted-foreground mb-12">See what we can build for your business.</p>
+          <p className="text-center text-muted-foreground mb-8">See what we can build for your business.</p>
+          
+          {/* Promotional Text */}
+          <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
+            <p className="text-foreground font-medium">
+              Want a website just like{" "}
+              <a 
+                href="https://x15pcbuilders.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-semibold"
+              >
+                our sister brand X15 PC Builders
+              </a>
+              ? <br />
+              <Link to="/contact" className="text-primary hover:underline font-semibold">
+                Get in touch for a quote
+              </Link>{" "}
+              and we'll build something amazing for your business.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
+              {
+                title: "X15 PC Builders",
+                features: ["Professional showcase website", "Service packages display", "Build request form"],
+                timeline: "LIVE PROJECT",
+                tech: "React, Tailwind CSS",
+                isLive: true,
+                badge: "Live Client Project",
+              },
               {
                 title: "Elite Salon Website",
                 features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
                 timeline: "5–7 days",
                 tech: "React, Stripe, Calendly",
-              },
-              {
-                title: "Trade Business Site",
-                features: ["Service showcase", "Quote request form", "Local SEO optimisation"],
-                timeline: "3–5 days",
-                tech: "React, Tailwind, Tally",
+                badge: "Capability Example",
               },
               {
                 title: "AI Chatbot Integration",
                 features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
                 timeline: "2–4 days",
                 tech: "OpenAI, Custom API",
+                badge: "Capability Example",
               },
             ].map((project, index) => (
               <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
                 <Card className="hover-lift">
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
-                    <Badge variant="secondary">Capability Example</Badge>
+                    <Badge variant={project.isLive ? "default" : "secondary"}>
+                      {project.badge}
+                    </Badge>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 mb-4">
@@ -1145,9 +1171,19 @@ const Index = () => {
                         <strong>Tech:</strong> {project.tech}
                       </p>
                     </div>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link to="/portfolio">View Full Portfolio →</Link>
-                    </Button>
+                    {project.isLive ? (
+                      <div className="space-y-2">
+                        <Button asChild variant="default" className="w-full">
+                          <a href="https://x15pcbuilders.com/" target="_blank" rel="noopener noreferrer">
+                            View Live Site <ArrowRight className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/portfolio">View Full Portfolio →</Link>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </AnimatedSection>

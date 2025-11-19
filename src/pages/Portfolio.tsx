@@ -38,6 +38,25 @@ const Portfolio = () => {
 
   const portfolioItems = [
     {
+      id: 0,
+      title: "X15 PC Builders",
+      category: "ecommerce" as FilterType,
+      type: "E-commerce Platform",
+      features: [
+        "Custom PC configurator",
+        "Real-time pricing calculator",
+        "Product catalog & showcase",
+        "Shopping cart & checkout",
+        "Responsive design",
+        "Performance optimization",
+      ],
+      timeline: "Live Project",
+      tech: "React, Tailwind, Custom Config",
+      image: "pcbuilder",
+      isLive: true,
+      liveUrl: "https://x15pcbuilders.com/",
+    },
+    {
       id: 1,
       title: "Elite Salon & Spa",
       category: "web" as FilterType,
@@ -254,7 +273,10 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
-                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center">
+                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative">
+                  {item.isLive && (
+                    <Badge className="absolute top-3 right-3 bg-green-500 text-white">LIVE</Badge>
+                  )}
                   {item.category === "ai" ? (
                     <Bot className="h-24 w-24 text-primary" />
                   ) : item.category === "ecommerce" ? (
@@ -270,7 +292,9 @@ const Portfolio = () => {
                     <CardTitle className="text-xl">{item.title}</CardTitle>
                   </div>
                   <div className="flex gap-2">
-                    <Badge variant="secondary">Capability Example</Badge>
+                    <Badge variant={item.isLive ? "default" : "secondary"}>
+                      {item.isLive ? "Live Client Project" : "Capability Example"}
+                    </Badge>
                     <Badge variant="outline">{item.type}</Badge>
                   </div>
                 </CardHeader>
@@ -289,17 +313,40 @@ const Portfolio = () => {
                       <strong>Technology:</strong> {item.tech}
                     </p>
                   </div>
-                  <div className="bg-muted p-3 rounded-lg mb-4">
-                    <p className="text-xs text-muted-foreground flex items-start gap-2">
-                      <Globe className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      This is a capability demonstration showing what we can build for your business.
-                    </p>
-                  </div>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link to="/contact">
-                      Interested in something similar? Get a quote <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  {item.isLive ? (
+                    <>
+                      <div className="bg-primary/10 p-3 rounded-lg mb-4">
+                        <p className="text-xs text-foreground flex items-start gap-2">
+                          <Globe className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          Live client project - built and deployed by X15 Digital
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button asChild variant="default" className="flex-1">
+                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                            View Live Site <ArrowRight className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" className="flex-1">
+                          <Link to="/contact">Get Quote</Link>
+                        </Button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="bg-muted p-3 rounded-lg mb-4">
+                        <p className="text-xs text-muted-foreground flex items-start gap-2">
+                          <Globe className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          This is a capability demonstration showing what we can build for your business.
+                        </p>
+                      </div>
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/contact">
+                          Interested in something similar? Get a quote <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </>
+                  )}
                 </CardContent>
               </Card>
             ))}

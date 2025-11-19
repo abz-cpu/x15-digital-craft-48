@@ -449,7 +449,7 @@ const Services = () => {
             Choose your perfect starting point — upgrade anytime as you grow.
           </p>
 
-          {/* ROW 1 – MAIN PACKAGES */}
+          {/* ROW 1 – MAIN PACKAGES WITH ROTATING ENTERPRISE SLOT */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* DIY / TEMPLATE – Budget option (slightly smaller) */}
             <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
@@ -507,7 +507,7 @@ const Services = () => {
             <Card className="hover-lift relative transition-transform md:scale-105 md:border-2 md:border-primary md:shadow-2xl md:ring-4 md:ring-primary/10 z-10">
               {/* subtle glow behind card (desktop only) */}
               <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg"></div>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg" />
 
               {/* Animated Badge */}
               <AnimatedSection staggerIndex={1} animation="scale">
@@ -565,100 +565,51 @@ const Services = () => {
               </CardContent>
             </Card>
 
-            {/* BUSINESS – Professional tier */}
-            <Card className="hover-lift relative transition-transform md:border-2 md:border-secondary/30 md:shadow-lg">
-              <AnimatedSection staggerIndex={2} animation="scale">
-                <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
-                  🏆 PROFESSIONAL
-                </Badge>
-              </AnimatedSection>
-
-              <CardHeader>
-                <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
-                <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm font-semibold mb-4">
-                  Perfect for: Salons, consultants, local shops, small businesses
-                </p>
-
-                <p className="font-semibold mb-2">What&apos;s Included:</p>
-                <ul className="space-y-2 mb-4">
-                  {[
-                    "4-10 pages",
-                    "Full custom layout & branding",
-                    "Contact + advanced forms/booking",
-                    "Google Maps integration",
-                    "Portfolio/gallery options",
-                    "Full SEO package",
-                    "5-10 day delivery",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="text-sm font-semibold mb-2">Examples:</p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                  <li>• Salon with booking system</li>
-                  <li>• Consultancy service site</li>
-                  <li>• Local shop with products</li>
-                </ul>
-
-                <Button asChild className="w-full">
-                  <Link to="/quick-start">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-                    {/* PREMIUM & ENTERPRISE – CAROUSEL */}
-          <div className="mt-16 mb-12">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-secondary mb-2">Premium &amp; Enterprise Solutions</h3>
-              <p className="text-muted-foreground">
-                E-commerce, web applications &amp; custom platforms from £2,000.
-              </p>
-            </div>
-
-            {/* Desktop / Tablet: single carousel with 3 enterprise tiers */}
-            <div className="hidden md:block max-w-5xl mx-auto">
-              <Carousel className="w-full" opts={{ loop: true }}>
+            {/* ROTATING SLOT: Business / Premium / Web App */}
+            <div className="flex flex-col">
+              <Carousel className="w-full flex-1" opts={{ loop: true }}>
                 <CarouselContent>
                   {/* BUSINESS WEBSITE */}
                   <CarouselItem>
-                    <Card className="hover-lift h-full border-2 border-secondary/30 shadow-lg relative">
-                      <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
-                        🏆 PROFESSIONAL
-                      </Badge>
+                    <Card className="hover-lift relative h-full md:border-2 md:border-secondary/30 md:shadow-lg">
+                      <AnimatedSection staggerIndex={2} animation="scale">
+                        <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
+                          🏆 PROFESSIONAL
+                        </Badge>
+                      </AnimatedSection>
 
                       <CardHeader>
-                        <CardTitle className="text-xl">BUSINESS WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£750 - £1,800</p>
+                        <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
+                        <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: Established businesses, professional services
+                        <p className="text-sm font-semibold mb-4">
+                          Perfect for: Salons, consultants, local shops, small businesses
                         </p>
 
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
+                        <p className="font-semibold mb-2">What&apos;s Included:</p>
+                        <ul className="space-y-2 mb-4">
                           {[
-                            "5-10 fully custom pages",
-                            "Advanced features",
-                            "Booking/payment systems",
-                            "Advanced SEO",
+                            "4-10 pages",
+                            "Full custom layout & branding",
+                            "Contact + advanced forms/booking",
+                            "Google Maps integration",
+                            "Portfolio/gallery options",
+                            "Full SEO package",
                             "5-10 day delivery",
                           ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                               <span className="text-sm">{item}</span>
                             </li>
                           ))}
+                        </ul>
+
+                        <p className="text-sm font-semibold mb-2">Examples:</p>
+                        <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                          <li>• Salon with booking system</li>
+                          <li>• Consultancy service site</li>
+                          <li>• Local shop with products</li>
                         </ul>
 
                         <Button asChild className="w-full">
@@ -674,16 +625,16 @@ const Services = () => {
                   <CarouselItem>
                     <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all">
                       <CardHeader>
-                        <CardTitle className="text-xl">PREMIUM WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£2,000 - £3,500</p>
+                        <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
+                        <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <p className="text-sm font-semibold mb-4">
                           Perfect for: E-commerce, agencies, larger service sites
                         </p>
 
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
+                        <p className="font-semibold mb-2">What&apos;s Included:</p>
+                        <ul className="space-y-2 mb-4">
                           {[
                             "10+ fully custom pages",
                             "E-commerce & advanced features",
@@ -692,7 +643,7 @@ const Services = () => {
                             "1–4 week timeline",
                           ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                               <span className="text-sm">{item}</span>
                             </li>
                           ))}
@@ -711,19 +662,19 @@ const Services = () => {
                   <CarouselItem>
                     <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all">
                       <CardHeader>
-                        <CardTitle className="text-xl">WEB APPLICATION</CardTitle>
-                        <p className="text-2xl font-bold text-primary">
+                        <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
+                        <p className="text-3xl font-bold text-primary">
                           £3,500+
                           <span className="text-base font-normal text-muted-foreground"> (custom quote)</span>
                         </p>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <p className="text-sm font-semibold mb-4">
                           Perfect for: SaaS, CRMs, internal tools &amp; advanced platforms
                         </p>
 
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
+                        <p className="font-semibold mb-2">What&apos;s Included:</p>
+                        <ul className="space-y-2 mb-4">
                           {[
                             "Custom web application",
                             "User authentication & roles",
@@ -732,7 +683,7 @@ const Services = () => {
                             "Ongoing support options",
                           ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                               <span className="text-sm">{item}</span>
                             </li>
                           ))}
@@ -748,367 +699,21 @@ const Services = () => {
                   </CarouselItem>
                 </CarouselContent>
 
-                <div className="flex justify-center items-center gap-4 mt-6">
+                {/* Arrows + dots under the card */}
+                <div className="flex justify-center items-center gap-4 mt-4">
                   <CarouselPrevious className="static translate-y-0" />
                   <div className="flex gap-2">
-                    <div className="h-2 w-2 rounded-full bg-primary"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
+                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
+                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
                   </div>
                   <CarouselNext className="static translate-y-0" />
                 </div>
               </Carousel>
-            </div>
 
-            {/* Mobile: same carousel, full-width card */}
-            <div className="md:hidden max-w-md mx-auto">
-              <Carousel className="w-full" opts={{ loop: true }}>
-                <CarouselContent>
-                  {/* BUSINESS WEBSITE */}
-                  <CarouselItem>
-                    <Card className="hover-lift border-2 border-secondary/30 shadow-lg relative">
-                      <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
-                        🏆 PROFESSIONAL
-                      </Badge>
-
-                      <CardHeader>
-                        <CardTitle className="text-xl">BUSINESS WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£750 - £1,800</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: Established businesses, professional services
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "5-10 fully custom pages",
-                            "Advanced features",
-                            "Booking/payment systems",
-                            "Advanced SEO",
-                            "5-10 day delivery",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/quick-start">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* PREMIUM WEBSITE */}
-                  <CarouselItem>
-                    <Card className="hover-lift">
-                      <CardHeader>
-                        <CardTitle className="text-xl">PREMIUM WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£2,000 - £3,500</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: E-commerce, agencies, larger service sites
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "10+ fully custom pages",
-                            "E-commerce features",
-                            "Payment integration",
-                            "Advanced SEO",
-                            "1–4 week timeline",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/contact">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* WEB APPLICATION */}
-                  <CarouselItem>
-                    <Card className="hover-lift">
-                      <CardHeader>
-                        <CardTitle className="text-xl">WEB APPLICATION</CardTitle>
-                        <p className="text-2xl font-bold text-primary">
-                          £3,500+
-                          <span className="text-base font-normal text-muted-foreground"> (custom quote)</span>
-                        </p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: SaaS, CRMs, internal tools
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "Custom web application",
-                            "User authentication",
-                            "Database & API integrations",
-                            "Admin dashboard",
-                            "Ongoing support",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/contact">
-                            Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                </CarouselContent>
-
-                <div className="flex justify-center items-center gap-4 mt-6">
-                  <CarouselPrevious className="static translate-y-0" />
-                  <div className="flex gap-2">
-                    <div className="h-2 w-2 rounded-full bg-primary"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                  </div>
-                  <CarouselNext className="static translate-y-0" />
-                </div>
-              </Carousel>
-            </div>
-          </div>
-
-
-            {/* Mobile: Single card carousel */}
-            <div className="md:hidden max-w-md mx-auto">
-              <Carousel className="w-full" opts={{ loop: true }}>
-                <CarouselContent>
-                  {/* DIY/TEMPLATE */}
-                  <CarouselItem>
-                    <Card className="hover-lift">
-                      <CardHeader>
-                        <CardTitle className="text-xl">DIY / TEMPLATE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£100 - £300</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: Side hustles, personal brands, quick launches
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "1-page template site",
-                            "Pre-designed layout",
-                            "Basic customization",
-                            "Mobile responsive",
-                            "24-48 hour delivery",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/quick-start">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* STARTER */}
-                  <CarouselItem>
-                    <Card className="hover-lift border-2 border-primary shadow-lg">
-                      <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg">
-                        ⚡ MOST POPULAR
-                      </Badge>
-
-                      <CardHeader>
-                        <CardTitle className="text-xl">STARTER WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£250 - £500</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: Trades, freelancers, solo businesses
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "1-3 custom pages",
-                            "Semi-custom design",
-                            "Mobile responsive",
-                            "Contact form",
-                            "Basic SEO",
-                            "1-3 day delivery",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/quick-start">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* BUSINESS */}
-                  <CarouselItem>
-                    <Card className="hover-lift border-2 border-secondary/30 shadow-lg">
-                      <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
-                        🏆 PROFESSIONAL
-                      </Badge>
-
-                      <CardHeader>
-                        <CardTitle className="text-xl">BUSINESS WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£750 - £1,800</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: Established businesses, professional services
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "5-10 fully custom pages",
-                            "Advanced features",
-                            "Booking/payment systems",
-                            "Advanced SEO",
-                            "5-10 day delivery",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/quick-start">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* PREMIUM */}
-                  <CarouselItem>
-                    <Card className="hover-lift">
-                      <CardHeader>
-                        <CardTitle className="text-xl">PREMIUM WEBSITE</CardTitle>
-                        <p className="text-2xl font-bold text-primary">£2,000 - £3,500</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Perfect for: E-commerce, agencies, larger service sites
-                        </p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "10+ fully custom pages",
-                            "E-commerce features",
-                            "Payment integration",
-                            "Advanced SEO",
-                            "1–4 week timeline",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/contact">
-                            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-
-                  {/* WEB APPLICATION */}
-                  <CarouselItem>
-                    <Card className="hover-lift">
-                      <CardHeader>
-                        <CardTitle className="text-xl">WEB APPLICATION</CardTitle>
-                        <p className="text-2xl font-bold text-primary">
-                          £3,500+
-                          <span className="text-base font-normal text-muted-foreground"> (custom quote)</span>
-                        </p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">Perfect for: SaaS, CRMs, internal tools</p>
-
-                        <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                        <ul className="space-y-2 mb-6">
-                          {[
-                            "Custom web application",
-                            "User authentication",
-                            "Database & API integrations",
-                            "Admin dashboard",
-                            "Ongoing support",
-                          ].map((item, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                              <span className="text-sm">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full">
-                          <Link to="/contact">
-                            Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                </CarouselContent>
-
-                <div className="flex justify-center items-center gap-4 mt-6">
-                  <CarouselPrevious className="static translate-y-0" />
-                  <div className="flex gap-2">
-                    <div className="h-2 w-2 rounded-full bg-primary"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                    <div className="h-2 w-2 rounded-full bg-muted-foreground/30"></div>
-                  </div>
-                  <CarouselNext className="static translate-y-0" />
-                </div>
-              </Carousel>
+              <p className="text-xs text-muted-foreground text-center mt-2">
+                Slide to see Business, Premium &amp; Web App options.
+              </p>
             </div>
           </div>
 

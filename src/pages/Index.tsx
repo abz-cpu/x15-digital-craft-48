@@ -1104,7 +1104,7 @@ const Index = () => {
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
             <p className="text-foreground font-medium">
-              Want a website just like{" "}
+              Want a website just like this one or like{" "}
               <a 
                 href="https://x15pcbuilders.com/" 
                 target="_blank" 

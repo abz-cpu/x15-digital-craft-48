@@ -297,7 +297,7 @@ const Portfolio = () => {
       {/* Portfolio Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
                 <div 
@@ -340,7 +340,7 @@ const Portfolio = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-semibold mb-3">What We Built:</p>
+                  <p className="font-semibold mb-3">What We Can Build:</p>
                   <ul className="space-y-2 mb-4 text-sm">
                     {item.features.map((feature, i) => (
                       <li key={i}>• {feature}</li>

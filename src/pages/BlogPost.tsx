@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, Globe, Bot, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
+import { ArrowRight, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
+import blogWebDev from "@/assets/blog-web-dev.png";
+import blogAiAutomation from "@/assets/blog-ai-automation.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -328,12 +330,12 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       </div>
 
       {/* Hero Image */}
-      <div className="w-full h-64 md:h-96 bg-muted flex items-center justify-center">
-        {currentPost.category === "Web Development" ? (
-          <Globe className="h-32 w-32 text-primary" />
-        ) : (
-          <Bot className="h-32 w-32 text-primary" />
-        )}
+      <div className="w-full h-64 md:h-96 bg-muted overflow-hidden">
+        <img 
+          src={slug === "cheap-websites" ? blogWebDev : blogAiAutomation}
+          alt={currentPost.title}
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Post Content */}

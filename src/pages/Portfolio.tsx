@@ -274,19 +274,20 @@ const Portfolio = () => {
       {/* Filter Bar */}
       <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-muted border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {filters.map((filter) => (
               <Button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 variant={activeFilter === filter.id ? "default" : "outline"}
-                className={
+                size="sm"
+                className={`text-xs sm:text-sm ${
                   activeFilter === filter.id
                     ? "bg-primary text-primary-foreground"
                     : "border-primary text-primary hover:bg-primary/10"
-                }
+                }`}
               >
-                <filter.icon className="h-4 w-4 mr-2" />
+                <filter.icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 {filter.label}
               </Button>
             ))}
@@ -295,9 +296,9 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
                 <div 
@@ -340,7 +341,7 @@ const Portfolio = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-semibold mb-3">What We Can Build:</p>
+                  <p className="font-semibold mb-3">{item.isLive ? "What We Built:" : "What We Can Build:"}</p>
                   <ul className="space-y-2 mb-4 text-sm">
                     {item.features.map((feature, i) => (
                       <li key={i}>• {feature}</li>

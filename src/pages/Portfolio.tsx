@@ -12,6 +12,8 @@ import voiceImage from "@/assets/portfolio-voice.png";
 import restaurantImage from "@/assets/portfolio-restaurant.png";
 import salesImage from "@/assets/portfolio-sales.png";
 import { Button } from "@/components/ui/button";
+import { PortfolioModal } from "@/components/PortfolioModal";
+import { X15CaseStudyModal } from "@/components/X15CaseStudyModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
@@ -26,6 +28,8 @@ type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [showX15CaseStudy, setShowX15CaseStudy] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -296,7 +300,10 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
-                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden group">
+                <div 
+                  className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden group cursor-pointer"
+                  onClick={() => item.id === 0 ? setShowX15CaseStudy(true) : setSelectedProject(item)}
+                >
                   {item.isLive && (
                     <Badge className="absolute top-3 right-3 bg-green-500 text-white z-10">LIVE</Badge>
                   )}
@@ -315,6 +322,11 @@ const Portfolio = () => {
                   ) : (
                     <Globe className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
                   )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                      Click to view details
+                    </span>
+                  </div>
                 </div>
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
@@ -393,6 +405,21 @@ const Portfolio = () => {
 
       <Footer />
       <WhatsAppWidget />
+      
+      {/* Modals */}
+      {selectedProject && (
+        <PortfolioModal
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+          project={selectedProject}
+          imageSrc={portfolioImages[selectedProject.image]}
+        />
+      )}
+      
+      <X15CaseStudyModal
+        isOpen={showX15CaseStudy}
+        onClose={() => setShowX15CaseStudy(false)}
+      />
     </div>
   );
 };

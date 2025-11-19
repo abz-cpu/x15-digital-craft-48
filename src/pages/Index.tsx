@@ -1171,8 +1171,10 @@ const Index = () => {
                     </div>
                     {project.isLive ? (
                       <div className="space-y-2">
-                        <Button asChild variant="outline" className="w-full">
-                          <Link to="/portfolio">View Full Portfolio →</Link>
+                        <Button asChild variant="default" className="w-full">
+                          <Link to="/portfolio">
+                            View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
                         </Button>
                       </div>
                     ) : (

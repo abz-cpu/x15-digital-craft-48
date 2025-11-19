@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Bot, ShoppingBag, Code } from "lucide-react";
+import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -273,11 +274,17 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
-                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative">
+                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden">
                   {item.isLive && (
-                    <Badge className="absolute top-3 right-3 bg-green-500 text-white">LIVE</Badge>
+                    <Badge className="absolute top-3 right-3 bg-green-500 text-white z-10">LIVE</Badge>
                   )}
-                  {item.category === "ai" ? (
+                  {item.isLive && item.id === 0 ? (
+                    <img 
+                      src={x15Screenshot} 
+                      alt="X15 PC Builders Website Screenshot" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : item.category === "ai" ? (
                     <Bot className="h-24 w-24 text-primary" />
                   ) : item.category === "ecommerce" ? (
                     <ShoppingBag className="h-24 w-24 text-primary" />

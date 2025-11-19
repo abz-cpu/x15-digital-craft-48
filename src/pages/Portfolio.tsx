@@ -2,6 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Bot, ShoppingBag, Code } from "lucide-react";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
+import salonImage from "@/assets/portfolio-salon.png";
+import plumbingImage from "@/assets/portfolio-plumbing.png";
+import fashionImage from "@/assets/portfolio-fashion.png";
+import chatbotImage from "@/assets/portfolio-chatbot.png";
+import consultancyImage from "@/assets/portfolio-consultancy.png";
+import bookingImage from "@/assets/portfolio-booking.png";
+import voiceImage from "@/assets/portfolio-voice.png";
+import restaurantImage from "@/assets/portfolio-restaurant.png";
+import salesImage from "@/assets/portfolio-sales.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +45,19 @@ const Portfolio = () => {
 
     return () => observerRef.current?.disconnect();
   }, [activeFilter]);
+
+  const portfolioImages: Record<string, string> = {
+    pcbuilder: x15Screenshot,
+    salon: salonImage,
+    plumbing: plumbingImage,
+    fashion: fashionImage,
+    chatbot: chatbotImage,
+    consultancy: consultancyImage,
+    booking: bookingImage,
+    voice: voiceImage,
+    restaurant: restaurantImage,
+    sales: salesImage,
+  };
 
   const portfolioItems = [
     {
@@ -274,24 +296,24 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
-                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden">
+                <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden group">
                   {item.isLive && (
                     <Badge className="absolute top-3 right-3 bg-green-500 text-white z-10">LIVE</Badge>
                   )}
-                  {item.isLive && item.id === 0 ? (
+                  {item.image && portfolioImages[item.image] ? (
                     <img 
-                      src={x15Screenshot} 
-                      alt="X15 PC Builders Website Screenshot" 
-                      className="w-full h-full object-cover"
+                      src={portfolioImages[item.image]} 
+                      alt={`${item.title} Website Mockup`} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   ) : item.category === "ai" ? (
-                    <Bot className="h-24 w-24 text-primary" />
+                    <Bot className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
                   ) : item.category === "ecommerce" ? (
-                    <ShoppingBag className="h-24 w-24 text-primary" />
+                    <ShoppingBag className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
                   ) : item.category === "webapp" ? (
-                    <Code className="h-24 w-24 text-primary" />
+                    <Code className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
                   ) : (
-                    <Globe className="h-24 w-24 text-primary" />
+                    <Globe className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
                   )}
                 </div>
                 <CardHeader>

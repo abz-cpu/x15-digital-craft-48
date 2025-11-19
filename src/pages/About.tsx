@@ -21,6 +21,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const About = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -52,6 +53,7 @@ const About = () => {
       />
       <ScrollProgressBar />
       <Navigation />
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">

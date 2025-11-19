@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const Privacy = () => {
   return (
@@ -13,6 +14,7 @@ const Privacy = () => {
       />
       <ScrollProgressBar />
       <Navigation />
+      <BreadcrumbNav />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-8">Privacy Policy</h1>

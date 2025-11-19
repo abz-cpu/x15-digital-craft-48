@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -38,10 +38,10 @@ export default function Footer() {
         </div>
         
         {/* Main footer content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-8 mb-6">
           
-          {/* Left Column - Company Info */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Left Column - Company Info & Contact */}
+          <div className="space-y-5">
             <div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">X15 DIGITAL</h3>
               <p className="text-[11px] md:text-sm text-white/70 leading-relaxed">
@@ -76,10 +76,23 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+
+            {/* Sister Company */}
+            <div className="pt-3 border-t border-white/10">
+              <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-white/50 mb-2">Sister Company</p>
+              <a
+                href="https://x15pcbuilders.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-cyan-300 hover:text-white text-sm font-semibold transition-all hover:gap-3"
+              >
+                X15 PC Builders <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
 
-          {/* Right Side - 3 Column Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Right Side - 3 Column Grid for Links */}
+          <div className="grid grid-cols-3 gap-4 md:gap-8">
             
             {/* Services */}
             <div>
@@ -168,7 +181,7 @@ export default function Footer() {
             </div>
 
             {/* Resources */}
-            <div className="col-span-2 md:col-span-1">
+            <div>
               <h4 className="text-xs md:text-sm font-semibold mb-3 text-white/90">Resources</h4>
               <ul className="space-y-2">
                 <li>
@@ -187,38 +200,28 @@ export default function Footer() {
                     Terms of Service
                   </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://x15pcbuilders.co.uk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
-                  >
-                    X15 PC Builders ↗
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Business Hours & Service Areas */}
-        <div className="border-t border-white/10 pt-4 pb-4 grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div className="border-t border-white/10 pt-5 pb-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           <div className="flex items-start gap-2">
             <Clock className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Business Hours</p>
               <p className="text-[10px] md:text-xs text-white/60">
-                Available evenings & weekends for small business owners
+                Available evenings & weekends for London businesses
               </p>
             </div>
           </div>
           <div className="flex items-start gap-2">
             <MapPin className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
             <div>
-              <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Service Areas</p>
+              <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Service Area</p>
               <p className="text-[10px] md:text-xs text-white/60">
-                Based in London, working remotely across the UK
+                Based in London, working across the UK
               </p>
             </div>
           </div>
@@ -234,7 +237,7 @@ export default function Footer() {
               aria-label="LinkedIn"
               className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
             >
-              <Linkedin className="h-3.5 w-3.5 md:h-4 md:w-4" />
+              <Linkedin className="h-4 w-4" />
             </a>
             <a
               href="https://twitter.com"
@@ -243,7 +246,7 @@ export default function Footer() {
               aria-label="Twitter"
               className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
             >
-              <Twitter className="h-3.5 w-3.5 md:h-4 md:w-4" />
+              <Twitter className="h-4 w-4" />
             </a>
             <a
               href="https://instagram.com"
@@ -252,13 +255,21 @@ export default function Footer() {
               aria-label="Instagram"
               className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
             >
-              <Instagram className="h-3.5 w-3.5 md:h-4 md:w-4" />
+              <Instagram className="h-4 w-4" />
             </a>
           </div>
           
-          <p className="text-[10px] md:text-xs text-white/50 order-1 sm:order-2">
-            © {year} X15 Digital. All rights reserved.
-          </p>
+          <div className="flex items-center gap-2 text-[10px] md:text-xs text-white/50 order-1 sm:order-2">
+            <span>© {year} X15 Digital. All rights reserved.</span>
+            <span className="hidden sm:inline opacity-40">•</span>
+            <Link to="/privacy" className="hover:text-cyan-300 transition-colors">
+              Privacy
+            </Link>
+            <span className="opacity-40">•</span>
+            <Link to="/terms" className="hover:text-cyan-300 transition-colors">
+              Terms
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -449,18 +449,18 @@ const Services = () => {
             Choose your perfect starting point — upgrade anytime as you grow.
           </p>
 
-          {/* WEB PACKAGES – DESKTOP: 2 FIXED + ROTATING THIRD CARD */}
+          {/* DESKTOP: DIY + STARTER fixed, RIGHT CARD = CAROUSEL */}
           <div className="hidden md:block">
-            <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
               {/* DIY / TEMPLATE – Budget option */}
               <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
                 <AnimatedSection staggerIndex={0} animation="scale">
-                  <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-secondary text-white shadow-md badge-animated">
+                  <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-secondary text-white shadow-md badge-animated">
                     💡 BUDGET FRIENDLY
                   </Badge>
                 </AnimatedSection>
 
-                <CardHeader>
+                <CardHeader className="pt-10">
                   <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-primary">£100 - £300</p>
                 </CardHeader>
@@ -504,18 +504,18 @@ const Services = () => {
                 </CardContent>
               </Card>
 
-              {/* STARTER – MOST POPULAR, ALWAYS VISIBLE */}
+              {/* STARTER – Always visible, centre card */}
               <Card className="hover-lift relative transition-transform md:scale-105 md:border-2 md:border-primary md:shadow-2xl md:ring-4 md:ring-primary/10 z-10">
                 <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg" />
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg" />
 
                 <AnimatedSection staggerIndex={1} animation="scale">
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg badge-animated">
+                  <Badge className="absolute top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg badge-animated">
                     ⚡ MOST POPULAR
                   </Badge>
                 </AnimatedSection>
 
-                <CardHeader>
+                <CardHeader className="pt-10">
                   <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
                   <p className="text-3xl font-bold text-primary">£250 - £500</p>
                 </CardHeader>
@@ -563,20 +563,20 @@ const Services = () => {
                 </CardContent>
               </Card>
 
-              {/* THIRD COLUMN – ROTATING SLOT (BUSINESS / PREMIUM / WEB APP) */}
-              <div className="flex flex-col h-full">
-                <Carousel className="w-full flex-1" opts={{ loop: true }}>
-                  <CarouselContent>
-                    {/* BUSINESS WEBSITE – FIRST / DEFAULT */}
-                    <CarouselItem>
-                      <Card className="hover-lift relative h-full border-2 border-secondary/30 shadow-lg">
+              {/* RIGHT COLUMN = CAROUSEL: Business / Premium / Web App */}
+              <div className="h-full">
+                <Carousel className="w-full h-full" opts={{ loop: true }}>
+                  <CarouselContent className="h-full">
+                    {/* BUSINESS WEBSITE */}
+                    <CarouselItem className="h-full">
+                      <Card className="hover-lift h-full border-2 border-secondary/30 shadow-lg relative overflow-visible">
                         <AnimatedSection staggerIndex={2} animation="scale">
-                          <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
+                          <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
                             🏆 PROFESSIONAL
                           </Badge>
                         </AnimatedSection>
 
-                        <CardHeader>
+                        <CardHeader className="pt-10">
                           <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
                           <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
                         </CardHeader>
@@ -620,19 +620,19 @@ const Services = () => {
                     </CarouselItem>
 
                     {/* PREMIUM WEBSITE */}
-                    <CarouselItem>
-                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all">
-                        <CardHeader>
+                    <CarouselItem className="h-full">
+                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all relative overflow-visible">
+                        <CardHeader className="pt-10">
                           <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
                           <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-sm text-muted-foreground mb-4">
+                          <p className="text-sm font-semibold mb-4">
                             Perfect for: E-commerce, agencies, larger service sites
                           </p>
 
                           <p className="font-semibold mb-2">What&apos;s Included:</p>
-                          <ul className="space-y-2 mb-6">
+                          <ul className="space-y-2 mb-4">
                             {[
                               "10+ fully custom pages",
                               "E-commerce & advanced features",
@@ -657,9 +657,9 @@ const Services = () => {
                     </CarouselItem>
 
                     {/* WEB APPLICATION */}
-                    <CarouselItem>
-                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all">
-                        <CardHeader>
+                    <CarouselItem className="h-full">
+                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all relative overflow-visible">
+                        <CardHeader className="pt-10">
                           <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
                           <p className="text-3xl font-bold text-primary">
                             £3,500+
@@ -667,12 +667,12 @@ const Services = () => {
                           </p>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-sm text-muted-foreground mb-4">
+                          <p className="text-sm font-semibold mb-4">
                             Perfect for: SaaS, CRMs, internal tools &amp; advanced platforms
                           </p>
 
                           <p className="font-semibold mb-2">What&apos;s Included:</p>
-                          <ul className="space-y-2 mb-6">
+                          <ul className="space-y-2 mb-4">
                             {[
                               "Custom web application",
                               "User authentication & roles",
@@ -697,8 +697,8 @@ const Services = () => {
                     </CarouselItem>
                   </CarouselContent>
 
-                  {/* Controls under 3rd card */}
-                  <div className="flex justify-center items-center gap-4 mt-4">
+                  {/* Controls + static dots (no state, just UX hint) */}
+                  <div className="flex justify-center items-center gap-4 mt-6">
                     <CarouselPrevious className="static translate-y-0" />
                     <div className="flex gap-2">
                       <div className="h-2 w-2 rounded-full bg-primary" />
@@ -707,17 +707,16 @@ const Services = () => {
                     </div>
                     <CarouselNext className="static translate-y-0" />
                   </div>
+                  <p className="mt-3 text-center text-xs text-muted-foreground">
+                    Slide to see Business, Premium &amp; Web App options.
+                  </p>
                 </Carousel>
-
-                <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                  Slide to see <span className="font-semibold">Business, Premium &amp; Web App</span> options.
-                </p>
               </div>
             </div>
           </div>
 
-          {/* WEB PACKAGES – MOBILE: SINGLE CAROUSEL WITH ALL OPTIONS */}
-          <div className="md:hidden max-w-md mx-auto mt-6">
+          {/* MOBILE: Single-card carousel with all packages */}
+          <div className="md:hidden max-w-md mx-auto">
             <Carousel className="w-full" opts={{ loop: true }}>
               <CarouselContent>
                 {/* DIY/TEMPLATE */}
@@ -759,12 +758,12 @@ const Services = () => {
 
                 {/* STARTER */}
                 <CarouselItem>
-                  <Card className="hover-lift border-2 border-primary shadow-lg">
-                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg">
+                  <Card className="hover-lift border-2 border-primary shadow-lg relative overflow-visible">
+                    <Badge className="absolute top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg">
                       ⚡ MOST POPULAR
                     </Badge>
 
-                    <CardHeader>
+                    <CardHeader className="pt-10">
                       <CardTitle className="text-xl">STARTER WEBSITE</CardTitle>
                       <p className="text-2xl font-bold text-primary">£250 - £500</p>
                     </CardHeader>
@@ -801,12 +800,12 @@ const Services = () => {
 
                 {/* BUSINESS */}
                 <CarouselItem>
-                  <Card className="hover-lift border-2 border-secondary/30 shadow-lg">
-                    <Badge className="absolute -top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
+                  <Card className="hover-lift border-2 border-secondary/30 shadow-lg relative overflow-visible">
+                    <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
                       🏆 PROFESSIONAL
                     </Badge>
 
-                    <CardHeader>
+                    <CardHeader className="pt-10">
                       <CardTitle className="text-xl">BUSINESS WEBSITE</CardTitle>
                       <p className="text-2xl font-bold text-primary">£750 - £1,800</p>
                     </CardHeader>
@@ -927,12 +926,11 @@ const Services = () => {
                 </div>
                 <CarouselNext className="static translate-y-0" />
               </div>
+              <p className="mt-3 text-center text-xs text-muted-foreground">Swipe to see all website packages.</p>
             </Carousel>
-
-            <p className="mt-3 text-center text-[11px] text-muted-foreground">Swipe to see all website packages.</p>
           </div>
 
-          {/* Add comparison table */}
+          {/* Comparison table stays the same */}
           <ServicesComparisonTable />
 
           {/* Not sure which package? */}

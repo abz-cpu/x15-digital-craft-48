@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -54,6 +55,7 @@ const Install = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <BreadcrumbNav />
       
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">

@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const Start = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -33,6 +34,7 @@ const Start = () => {
     <div className="min-h-screen bg-background">
       <ScrollProgressBar />
       <Navigation />
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">

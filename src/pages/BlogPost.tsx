@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, Globe, Bot, Share2, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Globe, Bot, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -312,6 +313,19 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       />
       <ScrollProgressBar />
       <Navigation />
+      <BreadcrumbNav />
+      
+      {/* Back Button */}
+      <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <Button asChild variant="ghost" className="gap-2">
+            <Link to="/blog">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Blog
+            </Link>
+          </Button>
+        </div>
+      </div>
 
       {/* Hero Image */}
       <div className="w-full h-64 md:h-96 bg-muted flex items-center justify-center">

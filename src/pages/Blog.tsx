@@ -11,6 +11,8 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import blogWebDev from "@/assets/blog-web-dev.png";
+import blogAiAutomation from "@/assets/blog-ai-automation.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -29,6 +31,7 @@ const Blog = () => {
       readTime: 5,
       date: "2024-03-15",
       author: "Abdul M Taher",
+      image: blogWebDev,
     },
     {
       id: 2,
@@ -41,6 +44,7 @@ const Blog = () => {
       readTime: 7,
       date: "2024-03-10",
       author: "Abdul M Taher",
+      image: blogAiAutomation,
     },
   ];
 
@@ -113,14 +117,12 @@ const Blog = () => {
             {filteredPosts.map((post, index) => (
               <AnimatedSection key={post.id} staggerIndex={index}>
                 <Card className="hover-lift h-full">
-                  <div className="h-48 bg-muted rounded-t-lg flex items-center justify-center">
-                    {post.category === "web-dev" ? (
-                      <Globe className="h-24 w-24 text-primary" />
-                    ) : post.category === "ai-automation" ? (
-                      <Bot className="h-24 w-24 text-primary" />
-                    ) : (
-                      <TrendingUp className="h-24 w-24 text-primary" />
-                    )}
+                  <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardHeader>
                     <Badge className="mb-2 w-fit">{post.categoryLabel}</Badge>

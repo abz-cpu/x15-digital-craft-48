@@ -1100,14 +1100,14 @@ const Index = () => {
             Recent Work &amp; Capabilities
           </h2>
           <p className="text-center text-muted-foreground mb-8">See what we can build for your business.</p>
-          
+
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
             <p className="text-foreground font-medium">
               Want a website just like this one or like{" "}
-              <a 
-                href="https://x15pcbuilders.com/" 
-                target="_blank" 
+              <a
+                href="https://x15pcbuilders.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"
               >
@@ -1150,9 +1150,7 @@ const Index = () => {
                 <Card className="hover-lift">
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
-                    <Badge variant={project.isLive ? "default" : "secondary"}>
-                      {project.badge}
-                    </Badge>
+                    <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 mb-4">
@@ -1173,10 +1171,8 @@ const Index = () => {
                     </div>
                     {project.isLive ? (
                       <div className="space-y-2">
-                        <Button asChild variant="default" className="w-full">
-                          <a href="https://x15pcbuilders.com/" target="_blank" rel="noopener noreferrer">
-                            View Live Site <ArrowRight className="ml-2 h-4 w-4" />
-                          </a>
+                        <Button asChild variant="outline" className="w-full">
+                          <Link to="/portfolio">View Full Portfolio →</Link>
                         </Button>
                       </div>
                     ) : (

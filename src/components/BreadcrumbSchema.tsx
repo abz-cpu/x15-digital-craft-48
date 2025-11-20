@@ -13,10 +13,12 @@ const routeNames: Record<string, string> = {
   "/about": "About",
   "/contact": "Contact",
   "/blog": "Blog",
-  "/enterprise": "Enterprise",
+  "/enterprise": "Enterprise Solutions",
   "/start": "Get Started",
   "/quick-start": "Quick Start Guide",
   "/install": "Install App",
+  "/privacy": "Privacy Policy",
+  "/terms": "Terms of Service",
 };
 
 export const BreadcrumbSchema = () => {

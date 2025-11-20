@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>PC Builder Near Me London | Custom Gaming PC Assembly Service in Stratford</title>
+    <meta
+      name="description"
+      content="Professional PC builder in Stratford, East London. Custom gaming PC assembly, upgrades & repairs. You buy the parts, we build it perfectly. From £90. UK-wide delivery."
+    />
+    <meta name="author" content="X15 PC Builders" />
+    <meta
+      name="keywords"
+      content="custom pc builder uk, build a gaming pc uk, custom gaming pc london, bespoke pc builder stratford, pc building service uk, custom pc assembly london, pc upgrade service uk, upgrade gaming pc london, pc cleaning service london, pc builder near me london, pc assembly service london, custom pc build service london, help building gaming pc london, gaming pc builder london, get pc built from own parts london, local pc builder stratford, pc building service east london, computer assembly london, gaming rig builder london, pc build assistance london, professional pc builder uk, pc delivery uk wide, desktop upgrade near me, best custom pc builder uk"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="geo.region" content="GB-LND" />
+    <meta name="geo.placename" content="Stratford, London" />
+    <meta name="geo.position" content="51.5415;-0.0034" />
+    <meta name="ICBM" content="51.5415, -0.0034" />
+
+    <!-- Trustpilot Verification -->
+    <meta name="trustpilot-one-time-domain-verification-id" content="f608bd69-4719-4f8a-8ac8-d0da149c0267" />
+
+    <!-- Bing Verification -->
+    <meta name="msvalidate.01" content="1078D2750004B142A6AB84D326D3523D" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical font weights for better performance -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Preload OG images for faster loading -->
+    <link rel="preload" as="image" href="https://x15pcbuilders.com/images/og-preview.jpg" />
+    <link rel="preload" as="image" href="https://x15pcbuilders.com/images/twitter-preview.jpg" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="X15 Builders" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://x15pcbuilders.com/" />
+    <meta property="og:site_name" content="X15 PC Builders" />
+    <meta property="og:title" content="PC Builder Near Me London | Custom Gaming PC Assembly Service in Stratford" />
+    <meta
+      property="og:description"
+      content="Professional PC builder in Stratford, East London. Custom gaming PC assembly, upgrades & repairs. You buy the parts, we build it perfectly. From £90. UK-wide delivery."
+    />
+    <meta property="og:image" content="https://x15pcbuilders.com/images/og-preview.jpg" />
+    <meta property="og:image:secure_url" content="https://x15pcbuilders.com/images/og-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="X15 PC Builders - Expert Custom Gaming PC Assembly in London" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@x15pcbuilders" />
+    <meta name="twitter:creator" content="@x15pcbuilders" />
+    <meta name="twitter:title" content="PC Builder Near Me London | Custom Gaming PC Assembly Service in Stratford" />
+    <meta
+      name="twitter:description"
+      content="Professional PC builder in Stratford, East London. Custom gaming PC assembly, upgrades & repairs. You buy the parts, we build it perfectly. From £90. UK-wide delivery."
+    />
+    <meta name="twitter:image" content="https://x15pcbuilders.com/images/twitter-preview.jpg" />
+    <meta name="twitter:image:alt" content="X15 PC Builders - Expert Custom Gaming PC Assembly in London" />
+
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://x15pcbuilders.com/" />
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://x15pcbuilders.com/#localbusiness",
+        "name": "X15 PC Builders",
+        "url": "https://x15pcbuilders.com",
+        "image": "https://x15pcbuilders.com/images/og-preview.jpg",
+        "sameAs": [
+          "https://www.google.com/search?q=X15+PC+Builders",
+          "https://www.instagram.com/x15pcbuilders",
+          "https://www.tiktok.com/@x15pcbuilders",
+          "https://www.linkedin.com/company/x15pcbuilders",
+          "https://www.linkedin.com/in/abdul-m-taher-815177247"
+        ],
+        "description": "Professional PC building and assembly service in Stratford, East London. Custom gaming PCs, component upgrades, and performance optimization.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Stratford",
+          "addressLocality": "London",
+          "postalCode": "E15",
+          "addressCountry": "GB"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.5415",
+          "longitude": "-0.0034"
+        },
+        "telephone": "+447356260648",
+        "email": "x15builds@gmail.com",
+        "priceRange": "£90-£299",
+        "openingHours": "Mo-Su 09:00-20:00",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "London"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "East London"
+          }
+        ],
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.5415",
+            "longitude": "-0.0034"
+          },
+          "geoRadius": "30000"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "PC Building Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Essential Build",
+                "description": "Basic PC assembly with cable management and testing"
+              },
+              "price": "90",
+              "priceCurrency": "GBP"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Complete Build",
+                "description": "Full PC assembly with Windows installation and optimization"
+              },
+              "price": "130",
+              "priceCurrency": "GBP"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Premium Build",
+                "description": "Comprehensive PC build with advanced optimization and RGB setup"
+              },
+              "price": "299",
+              "priceCurrency": "GBP"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://x15pcbuilders.com/"
+          }
+        ]
+      }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where can I find a PC builder near me in London?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "X15 PC Builders is located in Stratford, East London E15. We offer professional PC building and assembly services with 24-48hr turnaround. Contact us via WhatsApp at +44 7356 260648 or email x15builds@gmail.com."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get help building my gaming PC in London?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We provide complete PC assembly services in Stratford, East London. Bring your parts and we'll handle the build, cable management, optimization, and testing. Prices start from £90 with warranty included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer PC assembly service for my own parts in London?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. We specialize in building PCs from customer-supplied parts. We'll verify compatibility, assemble your system, install Windows, optimize BIOS settings, and stress-test everything before delivery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a custom gaming PC build cost in London?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our PC building service costs £90 for Essential, £130 for Complete, and £299 for Premium builds. All include warranty, testing, and Windows installation."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload CSS to eliminate render-blocking -->
+    <script>
+      (function() {
+        var originalAppendChild = document.head.appendChild;
+        document.head.appendChild = function(node) {
+          if (node.tagName === "LINK" && node.rel === "stylesheet") {
+            node.media = "print";
+            node.onload = function() {
+              this.media = "all";
+              this.onload = null;
+            };
+          }
+          return originalAppendChild.call(this, node);
+        };
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Cw6fxDZA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BztQMkoE.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+
+  <body>
+    <div id="root"></div><script src="https://cdn.gpteng.co/lovable.js" type="module"></script>
+  </body>
+</html>

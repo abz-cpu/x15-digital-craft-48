@@ -23,6 +23,8 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { Container } from "@/components/Container";
+import { LazyImage } from "@/components/LazyImage";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
 
@@ -261,19 +263,19 @@ const Portfolio = () => {
       <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Recent Work & Capabilities</h1>
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 bg-background">
+        <Container className="text-center fade-in-section">
+          <h1 className="mb-6">Recent Work & Capabilities</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             See what we can build for your business. Most projects are capability examples showing our work - real
             client projects coming soon.
           </p>
-        </div>
+        </Container>
       </section>
 
       {/* Filter Bar */}
-      <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-muted border-b border-border">
-        <div className="max-w-7xl mx-auto">
+      <section className="sticky top-16 z-40 py-4 bg-muted border-b border-border">
+        <Container>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {filters.map((filter) => (
               <Button
@@ -292,12 +294,12 @@ const Portfolio = () => {
               </Button>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-8 sm:py-12 md:py-16 bg-background">
+        <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
@@ -309,7 +311,7 @@ const Portfolio = () => {
                     <Badge className="absolute top-3 right-3 bg-green-500 text-white z-10">LIVE</Badge>
                   )}
                   {item.image && portfolioImages[item.image] ? (
-                    <img 
+                    <LazyImage 
                       src={portfolioImages[item.image]} 
                       alt={`${item.title} Website Mockup`} 
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -399,7 +401,7 @@ const Portfolio = () => {
               <p className="text-muted-foreground">No projects found for this category.</p>
             </div>
           )}
-        </div>
+        </Container>
       </section>
 
       <CtaCard />

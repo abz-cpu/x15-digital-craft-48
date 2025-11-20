@@ -261,7 +261,7 @@ const Portfolio = () => {
       <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Recent Work & Capabilities</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -298,7 +298,7 @@ const Portfolio = () => {
       {/* Portfolio Grid */}
       <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="hover-lift fade-in-section">
                 <div 

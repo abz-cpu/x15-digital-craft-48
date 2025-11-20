@@ -35,7 +35,7 @@ const Navigation = () => {
         isScrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <PreloadLink to="/" className="flex items-center">
@@ -45,7 +45,7 @@ const Navigation = () => {
           </PreloadLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <PreloadLink
                 key={link.path}
@@ -67,7 +67,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-muted"
+            className="lg:hidden p-2 rounded-md hover:bg-muted"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -82,7 +82,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border animate-slide-in-right">
+        <div className="lg:hidden bg-background border-t border-border animate-slide-in-right">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <PreloadLink

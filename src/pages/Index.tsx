@@ -169,7 +169,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden hero-gradient pt-24 pb-24 px-4 sm:px-6 lg:px-8"
+        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-20 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
@@ -184,7 +184,7 @@ const Index = () => {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
             <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
@@ -192,8 +192,8 @@ const Index = () => {
               <span>Websites &amp; AI automation for UK businesses and creators</span>
             </div>
 
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
+            <div className="space-y-3 lg:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
                 Get More Customers With a £100 Website
                 <br />
                 <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
@@ -398,7 +398,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      <section className="legacy-section py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
@@ -406,7 +406,7 @@ const Index = () => {
             specific challenges and drive growth.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {[
               {
                 id: "design",
@@ -627,14 +627,14 @@ const Index = () => {
       </section>
 
       {/* What Do You Need? */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-3">What Do You Need?</h2>
           <p className="text-center text-muted-foreground mb-12">
             Choose the service that fits your business right now.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* Need a Website */}
             <AnimatedSection animation="fade" staggerIndex={0}>
               <Card className="hover-lift">
@@ -724,7 +724,7 @@ const Index = () => {
       </section>
 
       {/* Web Packages Preview */}
-      <section id="web-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="web-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
           <p className="text-center text-muted-foreground mb-12">
@@ -732,7 +732,7 @@ const Index = () => {
           </p>
 
           {/* 3 Main Cards – Budget → Starter → Business */}
-          <div className="grid gap-8 max-w-6xl mx-auto md:grid-cols-3 mb-12">
+          <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-12">
             {/* DIY / Template – Budget Friendly */}
             <AnimatedSection staggerIndex={0} animation="scale">
               <Card className="hover-lift relative">
@@ -933,7 +933,7 @@ const Index = () => {
       </section>
 
       {/* AI Automation Preview */}
-      <section id="ai-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="ai-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
           <p className="text-center text-muted-foreground mb-8">
@@ -960,7 +960,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* AI Website Chatbot */}
             <AnimatedSection staggerIndex={0} animation="fade">
               <Card className="hover-lift">
@@ -1094,7 +1094,7 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section id="portfolio-preview" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="portfolio-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Recent Work &amp; Capabilities
@@ -1121,7 +1121,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "X15 PC Builders",
@@ -1191,13 +1191,13 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
             Recent Inquiries &amp; Early Feedback
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <TestimonialsCarousel testimonials={testimonials} />
 
             <Card>
@@ -1240,7 +1240,7 @@ const Index = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-4xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Frequently Asked Questions</h2>
           <p className="text-center text-muted-foreground mb-12">Everything you need to know before getting started.</p>

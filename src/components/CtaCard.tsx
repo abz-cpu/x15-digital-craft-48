@@ -4,7 +4,7 @@ import { ArrowRight, Phone } from "lucide-react";
 
 export default function CtaCard() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 my-12 md:my-16">
+    <section className="px-4 sm:px-6 lg:px-8 xl:px-10 my-12 lg:my-14 xl:my-16">
       <div className="max-w-5xl mx-auto">
         <div className="mx-auto max-w-xl rounded-2xl bg-white shadow-[0_10px_40px_rgba(16,24,40,.12)] border border-[hsl(210,90%,56%)/.25] p-7 sm:p-9 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(208,30%,14%)]">Ready to Start?</h2>

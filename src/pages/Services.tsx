@@ -48,6 +48,7 @@ import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
+import { Container } from "@/components/Container";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { SEO } from "@/components/SEO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";

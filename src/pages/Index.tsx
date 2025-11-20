@@ -39,6 +39,8 @@ import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
+import { Container } from "@/components/Container";
+import { LazyImage } from "@/components/LazyImage";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);

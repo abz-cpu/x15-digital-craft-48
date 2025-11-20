@@ -404,7 +404,7 @@ const Services = () => {
       <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Services & Pricing</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
@@ -437,7 +437,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section id="web-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section id="web-packages" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
           <p className="text-center text-muted-foreground mb-4">
@@ -451,7 +451,7 @@ const Services = () => {
 
           {/* DESKTOP: DIY + STARTER fixed, RIGHT CARD = CAROUSEL */}
           <div className="hidden md:block">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
               {/* DIY / TEMPLATE – Budget option */}
               <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
                 <AnimatedSection staggerIndex={0} animation="scale">
@@ -1009,7 +1009,7 @@ const Services = () => {
       </section>
 
       {/* Add-Ons & Extras - Categorized Tabs */}
-      <section id="add-ons" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="add-ons" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons & Extras</h3>
           <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
@@ -1166,7 +1166,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
             {/* Custom PC Builds */}
             <Card className="hover-lift">
               <CardHeader>
@@ -1290,7 +1290,7 @@ const Services = () => {
       <section
         id="ai-automation"
         ref={aiRef}
-        className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background"
+        className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background"
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
@@ -1320,7 +1320,7 @@ const Services = () => {
           </div>
 
           {/* Main AI Services - 7 cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
             {/* AI Chatbot */}
             <Card className="hover-lift border-2 border-primary relative">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
@@ -1732,7 +1732,7 @@ const Services = () => {
       </section>
 
       {/* Combined Packages */}
-      <section id="combined-packages" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="combined-packages" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Website + AI Bundles (Save 10-15%)
@@ -1741,7 +1741,7 @@ const Services = () => {
             Get more value by combining services. All bundles include setup, training, and ongoing support.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "STARTER BUNDLE",
@@ -1813,7 +1813,7 @@ const Services = () => {
       </section>
 
       {/* Security & Compliance (Repeat from Homepage) */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Built With Security in Mind
@@ -1822,7 +1822,7 @@ const Services = () => {
             Every website and AI system we build follows industry best practices for data protection and security.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             <Card>
               <CardHeader className="text-center">
                 <Lock className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -1867,12 +1867,12 @@ const Services = () => {
       </section>
 
       {/* Who This ISN'T For */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Who This ISN'T For</h2>
           <p className="text-center text-muted-foreground mb-12">We're honest about what we can't do.</p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             <Card className="border-destructive/50">
               <CardHeader className="text-center">
                 <X className="h-12 w-12 text-destructive mx-auto mb-4" />
@@ -1916,7 +1916,7 @@ const Services = () => {
       </section>
 
       {/* Comparison Table (Repeat from Homepage) */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
             How We're Different from Typical Agencies

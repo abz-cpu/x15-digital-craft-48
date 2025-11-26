@@ -28,6 +28,8 @@ const Install = lazy(() => import("./pages/Install"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const WebPackage = lazy(() => import("./pages/WebPackage"));
+const AiPackage = lazy(() => import("./pages/AiPackage"));
 
 // Register preload functions for route prefetching
 registerPreload("/", () => import("./pages/Index"));
@@ -40,6 +42,8 @@ registerPreload("/blog", () => import("./pages/Blog"));
 registerPreload("/start", () => import("./pages/Start"));
 registerPreload("/quick-start", () => import("./pages/QuickStart"));
 registerPreload("/install", () => import("./pages/Install"));
+registerPreload("/web-package", () => import("./pages/WebPackage"));
+registerPreload("/ai-package", () => import("./pages/AiPackage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -89,6 +93,8 @@ const App = () => (
               <Route path="/install" element={<Install />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/web-package" element={<WebPackage />} />
+              <Route path="/ai-package" element={<AiPackage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

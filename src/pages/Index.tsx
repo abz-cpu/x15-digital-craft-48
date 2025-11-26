@@ -790,19 +790,18 @@ const Index = () => {
 
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
-            <p className="text-foreground font-medium mb-3">
+            <p className="text-foreground font-medium">
+              Want a website just like this one or like{" "}
               <a
                 href="https://x15pcbuilders.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"
               >
-                X15 PC Builders
-              </a>{" "}
-              is our sister company - proving we build sites that actually work for real businesses.
-            </p>
-            <p className="text-muted-foreground">
-              <Link to="/contact" className="text-primary hover:underline font-medium">
+                our sister brand X15 PC Builders
+              </a>
+              ? <br />
+              <Link to="/contact" className="text-primary hover:underline font-semibold">
                 Get in touch for a quote
               </Link>{" "}
               and we'll build something amazing for your business.

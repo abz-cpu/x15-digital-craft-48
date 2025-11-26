@@ -193,9 +193,13 @@ const Index = () => {
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
             <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              <span className="relative flex h-2.5 w-2.5">
+                {/* Outer pulsing ring - ENHANCED */}
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90"></span>
+                {/* Middle glow ring - ADDED */}
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm"></span>
+                {/* Inner solid dot - ENHANCED WITH GLOW */}
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 dot-glow"></span>
               </span>
               <span>UK Websites &amp; AI Automation</span>
             </div>
@@ -216,8 +220,6 @@ const Index = () => {
             <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
               Built for UK businesses. Delivered in 1–14 days. Full ownership. No monthly fees.
             </p>
-
-            {/* REMOVED: Redundant pricing line */}
 
             {/* CHOICE CARDS + stats */}
             <div className="pt-4">

@@ -18,21 +18,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // MAIN TEAL CTA
+        // MAIN TEAL CTA – KEEP THIS
         default: [
           "relative overflow-hidden",
-          "bg-[#0F766E]",
+          "bg-[#0F766E]", // teal
           "text-primary-foreground",
           "shadow-[0_2px_8px_rgba(15,118,110,0.2)]",
-          "hover:bg-[#F59E0B]",
+          "hover:bg-[#F59E0B]", // warm yellow hover
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        // OUTLINE BUTTONS → teal hover
+        // OUTLINE, GHOST, ETC → FROM SECOND SNIPPET
         outline: [
-          "border-2 border-white bg-transparent text-white",
-          "hover:bg-[#F59E0B] hover:text-white hover:border-[#F59E0B]",
-          "hover:shadow-[0_2px_8px_rgba(245,158,11,0.3)]",
+          "border border-border/80 bg-transparent text-secondary",
+          "hover:bg-success hover:text-success-foreground hover:border-success",
+          "hover:shadow-[0_18px_40px_rgba(22,163,74,0.45)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

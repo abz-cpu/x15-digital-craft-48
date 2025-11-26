@@ -188,121 +188,48 @@ const Index = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
           {/* LEFT – copy + CTAs */}
-          <div className="flex-1 text-center lg:text-left space-y-6">
-            <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          <div className="flex-1 text-center lg:text-left space-y-6 max-w-[600px] mx-auto lg:mx-0 lg:pr-[60px]">
+            <div className="inline-flex items-center gap-2 bg-[#0F766E] text-white px-4 py-2 rounded-full text-sm">
+              <span className="inline-flex h-2 w-2 rounded-full bg-white" />
               <span>Websites &amp; AI automation for UK businesses and creators</span>
             </div>
 
-            <div className="space-y-3 lg:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
-                Get More Customers With a £100 Website
-                <br />
-                <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.1]">
+                Your Website Should Work As Hard As You Do
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Fast websites &amp; smart AI for UK small businesses.
-                <br />
-                Ready in 1–14 days. No monthly fees. You own everything.
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-[560px] mx-auto lg:mx-0">
+                Professional websites that convert, paired with AI that never misses a lead. You focus on running your business. We handle the rest.
               </p>
             </div>
 
-            {/* trust line + pricing */}
-            <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
-              Transparent pricing. Full ownership. 1–14 day delivery.
-              <br />
-              Websites from <span className="font-semibold text-cyan-300">£100</span>{" "}
-              <span className="text-white/60">•</span> AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>
+            {/* trust line */}
+            <p className="text-base text-white/80">
+              Built for UK businesses. Delivered in 1–14 days. Yours forever.
             </p>
 
-            {/* CHOICE CARDS + small links + stats */}
-            <div className="pt-3">
-              {/* CHOICE CARDS */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
-                {/* Website Packages card */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("web-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+            {/* CTA Buttons */}
+            <div className="pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center lg:justify-start">
+                <Button
+                  asChild
+                  className="bg-white text-[#0F766E] hover:bg-[#F59E0B] hover:text-white px-7 py-3.5 text-base font-bold rounded-lg shadow-none"
                 >
-                  <Globe className="h-4 w-4 text-white/80" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Website Packages</span>
-                    <span className="text-xs text-cyan-300">From £100 →</span>
-                  </div>
-                </button>
+                  <Link to="/services#web-packages">
+                    Explore Web Packages →
+                  </Link>
+                </Button>
 
-                {/* AI Automation card */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("ai-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+                <Button
+                  asChild
+                  variant="outline"
+                  className="bg-transparent text-white border-2 border-white hover:bg-[#F59E0B] hover:border-[#F59E0B] hover:text-white px-7 py-3.5 text-base rounded-lg"
                 >
-                  <Bot className="h-4 w-4 text-white/80" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">AI Automation</span>
-                    <span className="text-xs text-cyan-300">From £50/mo →</span>
-                  </div>
-                </button>
-              </div>
-
-              {/* small links under cards */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-                <Link
-                  to="/services"
-                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  Need both? <span>See packages</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-
-                <span className="h-3 w-px bg-white/20" />
-
-                <Link
-                  to="/enterprise"
-                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  <span>Enterprise solutions</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-
-              {/* quick stats */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
-                <div className="flex items-center gap-1.5">
-                  <Star className="h-3.5 w-3.5 text-yellow-300" />
-                  <span>
-                    <span className="font-semibold">4.9/5</span> rating
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
-                  <span>Quote: 1–3 hours</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Zap className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>Delivery: 1–14 days</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Globe className="h-3.5 w-3.5 text-white/80" />
-                  <span>UK-based team</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Shield className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>7-day guarantee</span>
-                </div>
+                  <Link to="/services#ai-packages">
+                    Explore AI Automation →
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

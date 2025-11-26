@@ -491,14 +491,14 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-primary/40 shadow-lg hover:shadow-[0_0_60px_rgba(245,158,11,0.3)]"
+                  className="hover-lift group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-primary/40 shadow-lg hover:shadow-[0_0_60px_rgba(59,130,246,0.3)]"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(15,118,110,0.4)]">
-                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(15,118,110,0.6)]" />
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
@@ -835,7 +835,7 @@ const Index = () => {
               },
             ].map((project, index) => (
               <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-                <Card className="group transition-all duration-300 hover:scale-[1.02] hover:border-[#0F766E]/40 hover:shadow-[0_8px_30px_rgba(15,118,110,0.2)]">
+                <Card className="hover-lift">
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
                     <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
@@ -857,11 +857,19 @@ const Index = () => {
                         <strong>Tech:</strong> {project.tech}
                       </p>
                     </div>
-                    <Button asChild variant={project.isLive ? "default" : "outline"} className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white">
-                      <Link to="/portfolio">
-                        View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    {project.isLive ? (
+                      <div className="space-y-2">
+                        <Button asChild variant="default" className="w-full">
+                          <Link to="/portfolio">
+                            View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/portfolio">View Full Portfolio →</Link>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </AnimatedSection>

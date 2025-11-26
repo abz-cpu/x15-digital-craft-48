@@ -191,78 +191,119 @@ const Index = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
           {/* LEFT – copy + CTAs */}
-          <div className="flex-1 text-center lg:text-left space-y-8 max-w-[560px] mx-auto lg:mx-0 lg:pl-20 lg:pr-[60px]">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#0F766E]/90 text-white px-5 py-2 rounded-full text-sm font-medium">
-              <span className="inline-flex h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
-              <span>UK Websites &amp; AI Automation</span>
+          <div className="flex-1 text-center lg:text-left space-y-6">
+            <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              <span>Websites &amp; AI automation for UK businesses and creators</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-[3.5rem] font-bold tracking-tight text-white leading-[1.1] max-w-[540px] mx-auto lg:mx-0" style={{ letterSpacing: '-0.02em' }}>
-              Your Website Should Work As Hard As You Do
-            </h1>
+            <div className="space-y-3 lg:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
+                Get More Customers With a £100 Website
+                <br />
+                <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
+              </h1>
 
-            {/* Subheadline */}
-            <p className="text-lg text-white/90 leading-[1.6] max-w-[520px] mx-auto lg:mx-0">
-              Professional websites that convert, paired with AI that never misses a lead. You focus on running your business. We handle the rest.
+              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Fast websites &amp; smart AI for UK small businesses.
+                <br />
+                Ready in 1–14 days. No monthly fees. You own everything.
+              </p>
+            </div>
+
+            {/* trust line + pricing */}
+            <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
+              Transparent pricing. Full ownership. 1–14 day delivery.
+              <br />
+              Websites from <span className="font-semibold text-cyan-300">£100</span>{" "}
+              <span className="text-white/60">•</span> AI automation from{" "}
+              <span className="font-semibold text-cyan-300">£50/month</span>
             </p>
 
-            {/* Small text */}
-            <p className="text-[15px] font-medium text-white/80 leading-[1.5]">
-              Built for UK businesses. Delivered in 1–14 days. Yours forever.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="pt-0">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center lg:justify-start">
-                <Link
-                  to="/web-package"
-                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
+            {/* CHOICE CARDS + small links + stats */}
+            <div className="pt-3">
+              {/* CHOICE CARDS */}
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
+                {/* Website Packages card */}
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("web-preview")}
+                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                             active:scale-[0.98] active:shadow-none
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                             transition-all duration-200 transform"
                 >
-                  <Globe className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
-                  <div className="flex flex-col items-start flex-1">
-                    <span className="text-base font-semibold">Website Packages</span>
-                    <span className="text-sm text-[#52FFF8] font-medium">From £200 →</span>
+                  <Globe className="h-4 w-4 text-white/80" />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold text-white">Website Packages</span>
+                    <span className="text-xs text-cyan-300">From £100 →</span>
                   </div>
+                </button>
+
+                {/* AI Automation card */}
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("ai-preview")}
+                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                             active:scale-[0.98] active:shadow-none
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                             transition-all duration-200 transform"
+                >
+                  <Bot className="h-4 w-4 text-white/80" />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semibold text-white">AI Automation</span>
+                    <span className="text-xs text-cyan-300">From £50/mo →</span>
+                  </div>
+                </button>
+              </div>
+
+              {/* small links under cards */}
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
+                <Link
+                  to="/services"
+                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
+                >
+                  Need both? <span>See packages</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
 
+                <span className="h-3 w-px bg-white/20" />
+
                 <Link
-                  to="/ai-package"
-                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
+                  to="/enterprise"
+                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
                 >
-                  <Bot className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
-                  <div className="flex flex-col items-start flex-1">
-                    <span className="text-base font-semibold">AI Automation</span>
-                    <span className="text-sm text-[#52FFF8] font-medium">From £50/mo →</span>
-                  </div>
+                  <span>Enterprise solutions</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2 mt-8 text-sm text-white/70">
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Star className="h-4 w-4 text-[#0F766E] fill-[#0F766E]" />
-                  <span>4.9/5 rating</span>
+              {/* quick stats */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
+                <div className="flex items-center gap-1.5">
+                  <Star className="h-3.5 w-3.5 text-yellow-300" />
+                  <span>
+                    <span className="font-semibold">4.9/5</span> rating
+                  </span>
                 </div>
-                <span className="text-white/40">•</span>
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <MessageSquare className="h-4 w-4 text-[#0F766E]" />
+                <div className="flex items-center gap-1.5">
+                  <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
                   <span>Quote: 1–3 hours</span>
                 </div>
-                <span className="text-white/40">•</span>
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Package className="h-4 w-4 text-[#0F766E]" />
+                <div className="flex items-center gap-1.5">
+                  <Zap className="h-3.5 w-3.5 text-emerald-300" />
                   <span>Delivery: 1–14 days</span>
                 </div>
-                <span className="text-white/40">•</span>
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <MapPin className="h-4 w-4 text-[#0F766E]" />
+                <div className="flex items-center gap-1.5">
+                  <Globe className="h-3.5 w-3.5 text-white/80" />
                   <span>UK-based team</span>
                 </div>
-                <span className="text-white/40">•</span>
-                <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <CheckCircle2 className="h-4 w-4 text-[#0F766E]" />
+                <div className="flex items-center gap-1.5">
+                  <Shield className="h-3.5 w-3.5 text-emerald-300" />
                   <span>7-day guarantee</span>
                 </div>
               </div>
@@ -313,7 +354,7 @@ const Index = () => {
                   <ul className="space-y-1.5 text-[11px] text-white/85">
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £200</span>
+                      <span>Clear packages from £100</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
@@ -590,7 +631,6 @@ const Index = () => {
         </div>
       </section>
 
-
       {/* Ready to Get Started Section */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
@@ -606,9 +646,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center h-full">
                   <Globe className="h-16 w-16 text-[#0F766E] mb-6" />
                   <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites Built to Convert</h3>
-                  <p className="text-base text-[#6B7280] mb-8">
-                    For businesses ready to show up professionally online
-                  </p>
+                  <p className="text-base text-[#6B7280] mb-8">For businesses ready to show up professionally online</p>
 
                   <div className="space-y-4 mb-8 flex-1">
                     <div className="flex items-center gap-3">
@@ -686,10 +724,8 @@ const Index = () => {
       {/* Trust Section - Why Choose X15 Digital */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">
-            Why Choose X15 Digital
-          </h2>
-          
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">Why Choose X15 Digital</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Fast Delivery */}
             <div className="text-center">
@@ -725,15 +761,16 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
-              How It Works
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">How It Works</h2>
             <p className="text-lg text-[#6B7280]">Simple Process. Professional Results.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
             {/* Timeline connector line - hidden on mobile */}
-            <div className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30" style={{ transform: 'translateY(-50%)' }}></div>
+            <div
+              className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30"
+              style={{ transform: "translateY(-50%)" }}
+            ></div>
 
             {/* Step 1 - Discovery */}
             <div className="text-center relative">
@@ -769,7 +806,10 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section id="portfolio-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
+      <section
+        id="portfolio-preview"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted"
+      >
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Recent Work &amp; Capabilities

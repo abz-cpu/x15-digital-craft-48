@@ -218,51 +218,51 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center lg:justify-start">
                 <Link
                   to="/web-package"
-                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
+                  className="group flex items-center gap-3 bg-[#1e293b]/80 backdrop-blur-sm text-white px-6 py-5 rounded-xl border border-[#0ea5e9]/30 transition-all duration-300 hover:scale-[1.03] hover:bg-[#1e293b] hover:border-[#0ea5e9]/60 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]"
                 >
-                  <Globe className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
+                  <Globe className="h-7 w-7 text-[#52FFF8] flex-shrink-0" />
                   <div className="flex flex-col items-start flex-1">
-                    <span className="text-base font-semibold">Website Packages</span>
+                    <span className="text-lg font-semibold">Explore Web Packages</span>
                     <span className="text-sm text-[#52FFF8] font-medium">From £200 →</span>
                   </div>
                 </Link>
 
                 <Link
                   to="/ai-package"
-                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
+                  className="group flex items-center gap-3 bg-[#1e293b]/80 backdrop-blur-sm text-white px-6 py-5 rounded-xl border border-[#0ea5e9]/30 transition-all duration-300 hover:scale-[1.03] hover:bg-[#1e293b] hover:border-[#0ea5e9]/60 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]"
                 >
-                  <Bot className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
+                  <Bot className="h-7 w-7 text-[#52FFF8] flex-shrink-0" />
                   <div className="flex flex-col items-start flex-1">
-                    <span className="text-base font-semibold">AI Automation</span>
+                    <span className="text-lg font-semibold">Explore AI Automation</span>
                     <span className="text-sm text-[#52FFF8] font-medium">From £50/mo →</span>
                   </div>
                 </Link>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2 mt-8 text-sm text-white/70">
+              {/* Trust indicators - single line */}
+              <div className="flex items-center justify-center lg:justify-start gap-x-3 mt-8 text-sm text-white/70 overflow-x-auto">
                 <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Star className="h-4 w-4 text-[#0F766E] fill-[#0F766E]" />
+                  <Star className="h-4 w-4 text-[#10B981] fill-[#10B981]" />
                   <span>4.9/5 rating</span>
                 </div>
                 <span className="text-white/40">•</span>
                 <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <MessageSquare className="h-4 w-4 text-[#0F766E]" />
+                  <MessageSquare className="h-4 w-4 text-[#10B981]" />
                   <span>Quote: 1–3 hours</span>
                 </div>
                 <span className="text-white/40">•</span>
                 <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Package className="h-4 w-4 text-[#0F766E]" />
+                  <Package className="h-4 w-4 text-[#10B981]" />
                   <span>Delivery: 1–14 days</span>
                 </div>
                 <span className="text-white/40">•</span>
                 <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <MapPin className="h-4 w-4 text-[#0F766E]" />
+                  <MapPin className="h-4 w-4 text-[#10B981]" />
                   <span>UK-based team</span>
                 </div>
                 <span className="text-white/40">•</span>
                 <div className="flex items-center gap-1.5 whitespace-nowrap">
-                  <CheckCircle2 className="h-4 w-4 text-[#0F766E]" />
+                  <CheckCircle2 className="h-4 w-4 text-[#10B981]" />
                   <span>7-day guarantee</span>
                 </div>
               </div>

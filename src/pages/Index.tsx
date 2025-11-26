@@ -192,7 +192,7 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
-            <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-1">
               <span className="relative flex h-2.5 w-2.5">
                 {/* Outer pulsing ring - ENHANCED */}
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90"></span>

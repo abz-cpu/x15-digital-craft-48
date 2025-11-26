@@ -679,6 +679,90 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trust Section - Why Choose X15 Digital */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">
+            Why Choose X15 Digital
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Fast Delivery */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <span className="text-3xl">⚡</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Fast Delivery</h3>
+              <p className="text-[#6B7280]">1-14 days, not months</p>
+            </div>
+
+            {/* Transparent Pricing */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <span className="text-3xl">🎯</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Transparent Pricing</h3>
+              <p className="text-[#6B7280]">No hidden fees</p>
+            </div>
+
+            {/* Full Ownership */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <span className="text-3xl">💪</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Full Ownership</h3>
+              <p className="text-[#6B7280]">You own everything</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+              How It Works
+            </h2>
+            <p className="text-lg text-[#6B7280]">Simple Process. Professional Results.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+            {/* Timeline connector line - hidden on mobile */}
+            <div className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30" style={{ transform: 'translateY(-50%)' }}></div>
+
+            {/* Step 1 - Discovery */}
+            <div className="text-center relative">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
+                1
+              </div>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">DISCOVERY</h3>
+              <p className="text-[#6B7280] mb-2">15-minute chat</p>
+              <p className="text-[#6B7280]">Book a quick call</p>
+            </div>
+
+            {/* Step 2 - Build */}
+            <div className="text-center relative">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
+                2
+              </div>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">BUILD</h3>
+              <p className="text-[#6B7280] mb-2">We create &amp; optimize</p>
+              <p className="text-[#6B7280]">1-14 days depending on your package</p>
+            </div>
+
+            {/* Step 3 - Launch */}
+            <div className="text-center relative">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
+                3
+              </div>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">LAUNCH</h3>
+              <p className="text-[#6B7280] mb-2">Go live + ongoing support</p>
+              <p className="text-[#6B7280]">You own everything</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Portfolio Preview */}
       <section id="portfolio-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
@@ -691,20 +775,15 @@ const Index = () => {
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
             <p className="text-foreground font-medium">
-              Want a website just like this one or like{" "}
               <a
                 href="https://x15pcbuilders.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"
               >
-                our sister brand X15 PC Builders
-              </a>
-              ? <br />
-              <Link to="/contact" className="text-primary hover:underline font-semibold">
-                Get in touch for a quote
-              </Link>{" "}
-              and we'll build something amazing for your business.
+                X15 PC Builders
+              </a>{" "}
+              is our sister company - proving we build sites that actually work for real businesses.
             </p>
           </div>
 

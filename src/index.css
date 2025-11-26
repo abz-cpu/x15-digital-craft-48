@@ -12,10 +12,10 @@
     --muted-foreground: 215 16% 47%;
 
     /* Brand (use mostly for CTAs, important highlights) */
-    --primary: 170 83% 25%; /* Teal ≈ #0F766E */
+    --primary: 221 83% 53%; /* Sapphire ≈ #2563EB */
     --primary-foreground: 0 0% 100%;
-    --primary-700: 170 83% 20%;
-    --primary-800: 170 83% 15%;
+    --primary-700: 221 83% 45%;
+    --primary-800: 221 83% 38%;
 
     /* Heading / price / nav anchor */
     --secondary: 222 47% 11%; /* Midnight navy */
@@ -28,8 +28,8 @@
     --success: 142 60% 34%; /* Deep emerald */
 
     /* Accent – use very sparingly (AI highlights etc.) */
-    --accent: 38 92% 50%; /* Warm Yellow #F59E0B */
-    --accent-foreground: 0 0% 100%;
+    --accent: 95 70% 42%; /* Soft lime */
+    --accent-foreground: 0 0% 10%;
 
     /* State Colors */
     --info: 217 85% 56%;
@@ -165,8 +165,8 @@
   /* Premium hero background */
   .hero-gradient {
     background:
-      radial-gradient(circle at top left, hsla(170, 83%, 35%, 0.85) 0, transparent 52%),
-      radial-gradient(circle at top right, hsla(170, 83%, 25%, 0.7) 0, transparent 55%),
+      radial-gradient(circle at top left, hsla(221, 83%, 65%, 0.85) 0, transparent 52%),
+      radial-gradient(circle at top right, hsla(199, 100%, 72%, 0.7) 0, transparent 55%),
       radial-gradient(circle at bottom, hsla(222, 47%, 10%, 1) 0, hsla(222, 47%, 5%, 1) 65%);
     color: #f9fafb;
   }
@@ -193,15 +193,15 @@
       background-color 200ms ease-out;
     box-shadow:
       0 16px 40px rgba(15, 23, 42, 0.1),
-      0 0 30px rgba(15, 118, 110, 0.05);
+      0 0 30px rgba(59, 130, 246, 0.05);
   }
 
   .hover-lift:hover {
     transform: translateY(-6px);
     box-shadow:
       0 30px 80px rgba(15, 23, 42, 0.3),
-      0 0 60px rgba(15, 118, 110, 0.25),
-      0 0 0 1px rgba(15, 118, 110, 0.3),
+      0 0 60px rgba(59, 130, 246, 0.25),
+      0 0 0 1px rgba(59, 130, 246, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
@@ -209,7 +209,7 @@
     transform: translateY(-2px);
     box-shadow:
       0 20px 60px rgba(15, 23, 42, 0.32),
-      0 0 40px rgba(15, 118, 110, 0.2);
+      0 0 40px rgba(59, 130, 246, 0.2);
   }
 
   /* Subtle gradient headings if you want them */
@@ -282,47 +282,4 @@
   50% {
     transform: translateY(-3px);
   }
-}
-
-/* Keyframes */
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes float-subtle {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-/* ADD THIS NEW ANIMATION FOR THE GREEN DOT */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow:
-      0 0 8px rgba(52, 211, 153, 0.8),
-      0 0 16px rgba(52, 211, 153, 0.4);
-  }
-  50% {
-    box-shadow:
-      0 0 12px rgba(52, 211, 153, 1),
-      0 0 24px rgba(52, 211, 153, 0.6),
-      0 0 36px rgba(52, 211, 153, 0.3);
-  }
-}
-
-/* DOT GLOW CLASS */
-.dot-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
 }

@@ -18,21 +18,24 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // MAIN TEAL CTA
+        // MAIN CTA – TEAL → WARM YELLOW GRADIENT
         default: [
           "relative overflow-hidden",
-          "bg-[#0F766E]",
+          // gradient built from your teal + warm yellow
+          "bg-[linear-gradient(135deg,_#0F766E_0%,_#0F766E_45%,_#F59E0B_100%)]",
           "text-primary-foreground",
-          "shadow-[0_2px_8px_rgba(15,118,110,0.2)]",
-          "hover:bg-[#F59E0B]",
+          // teal-based glow
+          "shadow-[0_18px_40px_rgba(15,118,110,0.35)]",
+          // stronger hover glow, hint of warm yellow
+          "hover:shadow-[0_22px_55px_rgba(245,158,11,0.45)]",
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        // OUTLINE BUTTONS → teal hover
+        // OUTLINE – neutral base, TEAL HOVER
         outline: [
-          "border-2 border-white bg-transparent text-white",
-          "hover:bg-[#F59E0B] hover:text-white hover:border-[#F59E0B]",
-          "hover:shadow-[0_2px_8px_rgba(245,158,11,0.3)]",
+          "border border-border/80 bg-transparent text-secondary",
+          "hover:bg-[#0F766E] hover:text-white hover:border-[#0F766E]",
+          "hover:shadow-[0_18px_40px_rgba(15,118,110,0.45)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

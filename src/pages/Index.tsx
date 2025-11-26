@@ -208,25 +208,19 @@ const Index = () => {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Professional websites that convert, paired with AI that never misses a lead. You focus on running your
-                business. We handle the rest.
+                Professional websites and smart AI that work 24/7. You run your business—we handle the tech.
               </p>
             </div>
 
-            {/* Small text + pricing */}
-            <div className="space-y-2">
-              <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
-                Built for UK businesses. Delivered in 1–14 days. Yours forever.
-              </p>
-              <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
-                Websites from <span className="font-semibold text-cyan-300">£200</span>{" "}
-                <span className="text-white/60">•</span> AI automation from{" "}
-                <span className="font-semibold text-cyan-300">£50/month</span>
-              </p>
-            </div>
+            {/* Small text - COMBINED & IMPROVED */}
+            <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
+              Built for UK businesses. Delivered in 1–14 days. Full ownership. No monthly fees.
+            </p>
 
-            {/* CHOICE CARDS + small links + stats */}
-            <div className="pt-3">
+            {/* REMOVED: Redundant pricing line */}
+
+            {/* CHOICE CARDS + stats */}
+            <div className="pt-4">
               {/* CHOICE CARDS */}
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
                 {/* Website Packages card */}
@@ -234,11 +228,11 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("web-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                       hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                       hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                       active:scale-[0.98] active:shadow-none
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                       transition-all duration-200 transform"
+                 hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                 active:scale-[0.98] active:shadow-none
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                 transition-all duration-200 transform"
                 >
                   <Globe className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -252,11 +246,11 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("ai-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                       hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                       hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                       active:scale-[0.98] active:shadow-none
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                       transition-all duration-200 transform"
+                 hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                 active:scale-[0.98] active:shadow-none
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                 transition-all duration-200 transform"
                 >
                   <Bot className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -266,7 +260,7 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* quick stats */}
+              {/* quick stats - REDUCED TO TOP 3 */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
                 <div className="flex items-center gap-1.5">
                   <Star className="h-3.5 w-3.5 text-yellow-300" />
@@ -276,19 +270,11 @@ const Index = () => {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
-                  <span>Quote: 1–3 hours</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Zap className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>Delivery: 1–14 days</span>
+                  <span>Quote in 1–3 hours</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Globe className="h-3.5 w-3.5 text-white/80" />
                   <span>UK-based team</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Shield className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>7-day guarantee</span>
                 </div>
               </div>
             </div>
@@ -385,6 +371,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">

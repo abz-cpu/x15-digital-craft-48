@@ -498,7 +498,7 @@ const Index = () => {
                 >
                   <CardHeader>
                     <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(15,118,110,0.4)]">
-                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(15,118,110,0.6)]" />
+                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
@@ -790,18 +790,19 @@ const Index = () => {
 
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
-            <p className="text-foreground font-medium">
-              Want a website just like this one or like{" "}
+            <p className="text-foreground font-medium mb-3">
               <a
                 href="https://x15pcbuilders.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"
               >
-                our sister brand X15 PC Builders
-              </a>
-              ? <br />
-              <Link to="/contact" className="text-primary hover:underline font-semibold">
+                X15 PC Builders
+              </a>{" "}
+              is our sister company - proving we build sites that actually work for real businesses.
+            </p>
+            <p className="text-muted-foreground">
+              <Link to="/contact" className="text-primary hover:underline font-medium">
                 Get in touch for a quote
               </Link>{" "}
               and we'll build something amazing for your business.

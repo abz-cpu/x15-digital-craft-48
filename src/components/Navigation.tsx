@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,9 +30,8 @@ const Navigation = () => {
   ];
 
   const webServices = [
-    { name: "Web Packages", path: "/services#web-packages", bold: true },
-    { name: "Web Design", path: "/services#web-design" },
-    { name: "Web Development", path: "/services#web-development" },
+    { name: "Web Packages", path: "/web-package", bold: true },
+    { name: "Logo Design", path: "/services#logo-design" },
     { name: "Landing Page Creation", path: "/services#landing-pages" },
     { name: "SEO", path: "/services#seo" },
     { name: "Website Maintenance", path: "/services#maintenance" },
@@ -39,8 +39,7 @@ const Navigation = () => {
   ];
 
   const aiServices = [
-    { name: "AI Packages", path: "/services#ai-packages", bold: true },
-    { name: "AI Automation", path: "/services#ai-automation" },
+    { name: "AI Packages", path: "/ai-package", bold: true },
     { name: "AI Chatbots", path: "/services#ai-chatbots" },
     { name: "AI Receptionist", path: "/services#ai-receptionist" },
     { name: "AI Sales Assistant", path: "/services#ai-sales" },
@@ -64,13 +63,20 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setShowServicesDropdown(true)}
-              onMouseLeave={() => setShowServicesDropdown(false)}
-            >
+            <div className="relative">
               <button
                 className="flex items-center gap-1 text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors"
+                onMouseEnter={() => {
+                  if (closeTimeoutRef.current) {
+                    clearTimeout(closeTimeoutRef.current);
+                  }
+                  setShowServicesDropdown(true);
+                }}
+                onMouseLeave={() => {
+                  closeTimeoutRef.current = setTimeout(() => {
+                    setShowServicesDropdown(false);
+                  }, 200);
+                }}
                 onClick={() => setShowServicesDropdown(!showServicesDropdown)}
               >
                 Services
@@ -79,48 +85,63 @@ const Navigation = () => {
 
               {/* Dropdown Menu */}
               {showServicesDropdown && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[600px] bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 animate-fade-in">
-                  <div className="grid grid-cols-2 gap-10">
-                    {/* Web Services Column */}
-                    <div>
-                      <h3 className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-4 font-semibold">
-                        WEB SERVICES
-                      </h3>
-                      <ul className="space-y-0">
-                        {webServices.map((service) => (
-                          <li key={service.path}>
-                            <PreloadLink
-                              to={service.path}
-                              className={`block py-2.5 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
-                                service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
-                              }`}
-                            >
-                              {service.name}
-                            </PreloadLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2"
+                  onMouseEnter={() => {
+                    if (closeTimeoutRef.current) {
+                      clearTimeout(closeTimeoutRef.current);
+                    }
+                    setShowServicesDropdown(true);
+                  }}
+                  onMouseLeave={() => {
+                    closeTimeoutRef.current = setTimeout(() => {
+                      setShowServicesDropdown(false);
+                    }, 200);
+                  }}
+                >
+                  <div className="w-[600px] bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
+                    <div className="grid grid-cols-2 gap-10">
+                      {/* Web Services Column */}
+                      <div>
+                        <h3 className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-5 font-semibold">
+                          WEB SERVICES
+                        </h3>
+                        <ul className="space-y-0">
+                          {webServices.map((service) => (
+                            <li key={service.path}>
+                              <PreloadLink
+                                to={service.path}
+                                className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
+                                  service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
+                                }`}
+                              >
+                                {service.name}
+                              </PreloadLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    {/* AI Services Column */}
-                    <div>
-                      <h3 className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-4 font-semibold">
-                        AI SERVICES
-                      </h3>
-                      <ul className="space-y-0">
-                        {aiServices.map((service) => (
-                          <li key={service.path}>
-                            <PreloadLink
-                              to={service.path}
-                              className={`block py-2.5 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
-                                service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
-                              }`}
-                            >
-                              {service.name}
-                            </PreloadLink>
-                          </li>
-                        ))}
-                      </ul>
+                      {/* AI Services Column */}
+                      <div>
+                        <h3 className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-5 font-semibold">
+                          AI SERVICES
+                        </h3>
+                        <ul className="space-y-0">
+                          {aiServices.map((service) => (
+                            <li key={service.path}>
+                              <PreloadLink
+                                to={service.path}
+                                className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
+                                  service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
+                                }`}
+                              >
+                                {service.name}
+                              </PreloadLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -174,7 +174,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-20 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 xl:pt-28 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
@@ -189,214 +189,180 @@ const Index = () => {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
-          {/* LEFT – copy + CTAs */}
-          <div className="flex-1 text-center lg:text-left space-y-6">
-            <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Websites &amp; AI automation for UK businesses and creators</span>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* CENTERED HEADER - Badge + Headline */}
+          <div className="text-center mb-12 lg:mb-16 space-y-6">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-white/20 text-white/90 text-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span>UK Websites &amp; AI Automation</span>
             </div>
 
-            <div className="space-y-3 lg:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
-                Get More Customers With a £100 Website
-                <br />
-                <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
-              </h1>
-
-              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Fast websites &amp; smart AI for UK small businesses.
-                <br />
-                Ready in 1–14 days. No monthly fees. You own everything.
-              </p>
-            </div>
-
-            {/* trust line + pricing */}
-            <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
-              Transparent pricing. Full ownership. 1–14 day delivery.
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.1] max-w-4xl mx-auto">
+              Your Website Should Work
               <br />
-              Websites from <span className="font-semibold text-cyan-300">£100</span>{" "}
-              <span className="text-white/60">•</span> AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>
-            </p>
+              As Hard As You Do
+            </h1>
+          </div>
 
-            {/* CHOICE CARDS + small links + stats */}
-            <div className="pt-3">
-              {/* CHOICE CARDS */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
-                {/* Website Packages card */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("web-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
-                >
-                  <Globe className="h-4 w-4 text-white/80" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Website Packages</span>
-                    <span className="text-xs text-cyan-300">From £100 →</span>
-                  </div>
-                </button>
+          {/* TWO COLUMNS - Content + Card */}
+          <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-14 xl:gap-16">
+            {/* LEFT COLUMN – copy + CTAs */}
+            <div className="flex-1 text-center lg:text-left space-y-6 max-w-2xl mx-auto lg:mx-0">
+              {/* Subheadline */}
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
+                Professional websites that convert, paired with AI that never misses a lead. You focus on running your
+                business. We handle the rest.
+              </p>
 
-                {/* AI Automation card */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("ai-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+              {/* Small text */}
+              <p className="text-base text-white/80">Built for UK businesses. Delivered in 1–14 days. Yours forever.</p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-primary font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
                 >
-                  <Bot className="h-4 w-4 text-white/80" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">AI Automation</span>
-                    <span className="text-xs text-cyan-300">From £50/mo →</span>
-                  </div>
-                </button>
+                  <Link to="/web-packages">
+                    Explore Web Packages
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-white hover:bg-[#F59E0B] text-primary hover:text-primary border-white/20 font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+                >
+                  <Link to="/ai-automation">
+                    Explore AI Automation
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
+            </div>
 
-              {/* small links under cards */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-                <Link
-                  to="/services"
-                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
+            {/* RIGHT COLUMN – comparison card */}
+            <div className="flex-1 w-full max-w-md mx-auto lg:mx-0">
+              <div className="hero-card p-6 sm:p-7 md:p-8 text-white">
+                <div className="flex items-center justify-between mb-4 gap-3">
+                  <div className="space-y-1">
+                    <p className="text-xs uppercase tracking-[0.16em] text-white/50 font-semibold">Project snapshot</p>
+                    <p className="text-lg sm:text-xl font-semibold text-white">What working with X15 feels like</p>
+                  </div>
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] border-emerald-400/60 text-emerald-300 bg-emerald-500/5"
+                  >
+                    No agency bloat
+                  </Badge>
+                </div>
+
+                <div className="grid grid-cols-2 gap-5 mb-6">
+                  <div className="space-y-3 rounded-2xl bg-white/5 p-3 border border-white/8">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-white/55">Typical agency</p>
+                    <ul className="space-y-1.5 text-[11px] text-white/75">
+                      <li className="flex items-start gap-1.5">
+                        <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
+                        <span>Vague pricing</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
+                        <span>Slow replies</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
+                        <span>Over-designed &amp; over-priced</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
+                        <span>You don&apos;t own it fully</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="space-y-3 rounded-2xl bg-emerald-400/10 p-3 border border-emerald-300/40">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-emerald-200">X15 Digital</p>
+                    <ul className="space-y-1.5 text-[11px] text-white/85">
+                      <li className="flex items-start gap-1.5">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span>Clear packages from £100</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span>Fast WhatsApp replies</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span>Built for conversions</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span>You own everything</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
+                  <div className="rounded-xl border border-white/12 py-2.5">
+                    <p className="text-sm font-semibold text-white">&lt;4 hrs</p>
+                    <p className="text-[10px] text-white/60">quote time</p>
+                  </div>
+                  <div className="rounded-xl border border-white/12 py-2.5">
+                    <p className="text-sm font-semibold text-white">1–14d</p>
+                    <p className="text-[10px] text-white/60">delivery</p>
+                  </div>
+                  <div className="rounded-xl border border-white/12 py-2.5">
+                    <p className="text-sm font-semibold text-white">UK-wide</p>
+                    <p className="text-[10px] text-white/60">service</p>
+                  </div>
+                </div>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
                 >
-                  Need both? <span>See packages</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-
-                <span className="h-3 w-px bg-white/20" />
-
-                <Link
-                  to="/enterprise"
-                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  <span>Enterprise solutions</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-
-              {/* quick stats */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
-                <div className="flex items-center gap-1.5">
-                  <Star className="h-3.5 w-3.5 text-yellow-300" />
-                  <span>
-                    <span className="font-semibold">4.9/5</span> rating
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
-                  <span>Quote: 1–3 hours</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Zap className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>Delivery: 1–14 days</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Globe className="h-3.5 w-3.5 text-white/80" />
-                  <span>UK-based team</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Shield className="h-3.5 w-3.5 text-emerald-300" />
-                  <span>7-day guarantee</span>
-                </div>
+                  <Link to="/quick-start">
+                    Get Quote (Takes 2 Minutes)
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
 
-          {/* RIGHT – comparison card */}
-          <div className="flex-1 w-full max-w-md mx-auto lg:mx-0">
-            <div className="hero-card p-6 sm:p-7 md:p-8 text-white">
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.16em] text-white/50 font-semibold">Project snapshot</p>
-                  <p className="text-lg sm:text-xl font-semibold text-white">What working with X15 feels like</p>
-                </div>
-                <Badge
-                  variant="outline"
-                  className="text-[10px] border-emerald-400/60 text-emerald-300 bg-emerald-500/5"
-                >
-                  No agency bloat
-                </Badge>
-              </div>
-
-              <div className="grid grid-cols-2 gap-5 mb-6">
-                <div className="space-y-3 rounded-2xl bg-white/5 p-3 border border-white/8">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-white/55">Typical agency</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/75">
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Vague pricing</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Slow replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Over-designed &amp; over-priced</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>You don&apos;t own it fully</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-3 rounded-2xl bg-emerald-400/10 p-3 border border-emerald-300/40">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-200">X15 Digital</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/85">
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £100</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Fast WhatsApp replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Built for conversions</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>You own everything</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">&lt;4 hrs</p>
-                  <p className="text-[10px] text-white/60">quote time</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">1–14d</p>
-                  <p className="text-[10px] text-white/60">delivery</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">UK-wide</p>
-                  <p className="text-[10px] text-white/60">service</p>
-                </div>
-              </div>
-
-              <Button
-                asChild
-                size="sm"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
-              >
-                <Link to="/quick-start">
-                  Get Quote (Takes 2 Minutes)
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+          {/* TRUST BADGES - Centered below both columns */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/70 pt-10 mt-10 border-t border-white/10">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 text-yellow-300" />
+              <span>
+                <span className="font-semibold text-white/90">4.9/5</span> rating
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageCircle className="h-4 w-4 text-cyan-300" />
+              <span>Quote: 1–3 hours</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-emerald-300" />
+              <span>Delivery: 1–14 days</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Globe className="h-4 w-4 text-white/80" />
+              <span>UK-based team</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-emerald-300" />
+              <span>7-day guarantee</span>
             </div>
           </div>
         </div>

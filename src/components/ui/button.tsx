@@ -18,21 +18,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // MAIN TEAL CTA
+        // MAIN BLUE CTA (unchanged)
         default: [
           "relative overflow-hidden",
-          "bg-[#0F766E]",
+          "bg-[linear-gradient(135deg,_hsl(221,83%,65%)_0%,_hsl(221,83%,53%)_40%,_hsl(221,83%,45%)_100%)]",
           "text-primary-foreground",
-          "shadow-[0_2px_8px_rgba(15,118,110,0.2)]",
-          "hover:bg-[#F59E0B]",
+          "shadow-[0_18px_40px_rgba(37,99,235,0.35)]",
+          "hover:shadow-[0_22px_55px_rgba(37,99,235,0.5)]",
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        // OUTLINE BUTTONS → teal hover
+        // OUTLINE BUTTONS → old green hover using your `success` color
         outline: [
-          "border-2 border-white bg-transparent text-white",
-          "hover:bg-[#F59E0B] hover:text-white hover:border-[#F59E0B]",
-          "hover:shadow-[0_2px_8px_rgba(245,158,11,0.3)]",
+          "border border-border/80 bg-transparent text-secondary",
+          "hover:bg-success hover:text-success-foreground hover:border-success",
+          "hover:shadow-[0_18px_40px_rgba(22,163,74,0.45)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

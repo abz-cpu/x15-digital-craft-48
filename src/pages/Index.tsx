@@ -193,32 +193,37 @@ const Index = () => {
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
             <div className="pill mb-1 bg-white/10 border-white/20 text-white/80">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Websites &amp; AI automation for UK businesses and creators</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span>UK Websites &amp; AI Automation</span>
             </div>
 
             <div className="space-y-3 lg:space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
-                Get More Customers With a £100 Website
+                Your Website Should Work
                 <br />
-                <span className="text-cyan-300">&amp; AI That Answers Your Calls</span>
+                As Hard As You Do
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Fast websites &amp; smart AI for UK small businesses.
-                <br />
-                Ready in 1–14 days. No monthly fees. You own everything.
+              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Professional websites that convert, paired with AI that never misses a lead. You focus on running your
+                business. We handle the rest.
               </p>
             </div>
 
-            {/* trust line + pricing */}
-            <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
-              Transparent pricing. Full ownership. 1–14 day delivery.
-              <br />
-              Websites from <span className="font-semibold text-cyan-300">£100</span>{" "}
-              <span className="text-white/60">•</span> AI automation from{" "}
-              <span className="font-semibold text-cyan-300">£50/month</span>
-            </p>
+            {/* Small text + pricing */}
+            <div className="space-y-2">
+              <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
+                Built for UK businesses. Delivered in 1–14 days. Yours forever.
+              </p>
+              <p className="text-sm sm:text-base text-white/75 max-w-xl mx-auto lg:mx-0">
+                Websites from <span className="font-semibold text-cyan-300">£200</span>{" "}
+                <span className="text-white/60">•</span> AI automation from{" "}
+                <span className="font-semibold text-cyan-300">£50/month</span>
+              </p>
+            </div>
 
             {/* CHOICE CARDS + small links + stats */}
             <div className="pt-3">
@@ -229,16 +234,16 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("web-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+                       hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                       hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                       active:scale-[0.98] active:shadow-none
+                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                       transition-all duration-200 transform"
                 >
                   <Globe className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Website Packages</span>
-                    <span className="text-xs text-cyan-300">From £100 →</span>
+                    <span className="text-sm font-semibold text-white">Explore Website Packages</span>
+                    <span className="text-xs text-cyan-300">From £200 →</span>
                   </div>
                 </button>
 
@@ -247,43 +252,22 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("ai-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                             hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                             hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                             active:scale-[0.98] active:shadow-none
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                             transition-all duration-200 transform"
+                       hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+                       hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+                       active:scale-[0.98] active:shadow-none
+                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+                       transition-all duration-200 transform"
                 >
                   <Bot className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">AI Automation</span>
+                    <span className="text-sm font-semibold text-white">Explore AI Automation</span>
                     <span className="text-xs text-cyan-300">From £50/mo →</span>
                   </div>
                 </button>
               </div>
 
-              {/* small links under cards */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs">
-                <Link
-                  to="/services"
-                  className="text-cyan-300 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  Need both? <span>See packages</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-
-                <span className="h-3 w-px bg-white/20" />
-
-                <Link
-                  to="/enterprise"
-                  className="text-cyan-400 font-medium hover:text-emerald-400 hover:underline underline-offset-2 transition-colors flex items-center gap-1"
-                >
-                  <span>Enterprise solutions</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-
               {/* quick stats */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-4">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
                 <div className="flex items-center gap-1.5">
                   <Star className="h-3.5 w-3.5 text-yellow-300" />
                   <span>
@@ -354,7 +338,7 @@ const Index = () => {
                   <ul className="space-y-1.5 text-[11px] text-white/85">
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £100</span>
+                      <span>Clear packages from £200</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
@@ -401,7 +385,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">

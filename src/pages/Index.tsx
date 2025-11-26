@@ -267,7 +267,7 @@ const Index = () => {
               </div>
 
               {/* quick stats */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
                 <div className="flex items-center gap-1.5">
                   <Star className="h-3.5 w-3.5 text-yellow-300" />
                   <span>

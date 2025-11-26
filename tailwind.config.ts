@@ -26,6 +26,16 @@ const config: Config = {
           foreground: "hsl(var(--primary-foreground))",
           700: "hsl(var(--primary-700))",
           800: "hsl(var(--primary-800))",
+          50: "#F0F9F7",
+        },
+        teal: {
+          DEFAULT: "#0F766E",
+          50: "#F0F9F7",
+          600: "#0F766E",
+          700: "#0D6B64",
+        },
+        yellow: {
+          DEFAULT: "#F59E0B",
         },
         ink: {
           DEFAULT: "hsl(var(--ink))",

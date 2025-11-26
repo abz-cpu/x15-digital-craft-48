@@ -12,10 +12,10 @@
     --muted-foreground: 215 16% 47%;
 
     /* Brand (use mostly for CTAs, important highlights) */
-    --primary: 221 83% 53%; /* Sapphire ≈ #2563EB */
+    --primary: 170 83% 25%; /* Teal ≈ #0F766E */
     --primary-foreground: 0 0% 100%;
-    --primary-700: 221 83% 45%;
-    --primary-800: 221 83% 38%;
+    --primary-700: 170 83% 20%;
+    --primary-800: 170 83% 15%;
 
     /* Heading / price / nav anchor */
     --secondary: 222 47% 11%; /* Midnight navy */
@@ -28,8 +28,8 @@
     --success: 142 60% 34%; /* Deep emerald */
 
     /* Accent – use very sparingly (AI highlights etc.) */
-    --accent: 95 70% 42%; /* Soft lime */
-    --accent-foreground: 0 0% 10%;
+    --accent: 38 92% 50%; /* Warm Yellow #F59E0B */
+    --accent-foreground: 0 0% 100%;
 
     /* State Colors */
     --info: 217 85% 56%;
@@ -165,8 +165,8 @@
   /* Premium hero background */
   .hero-gradient {
     background:
-      radial-gradient(circle at top left, hsla(221, 83%, 65%, 0.85) 0, transparent 52%),
-      radial-gradient(circle at top right, hsla(199, 100%, 72%, 0.7) 0, transparent 55%),
+      radial-gradient(circle at top left, hsla(170, 83%, 35%, 0.85) 0, transparent 52%),
+      radial-gradient(circle at top right, hsla(170, 83%, 25%, 0.7) 0, transparent 55%),
       radial-gradient(circle at bottom, hsla(222, 47%, 10%, 1) 0, hsla(222, 47%, 5%, 1) 65%);
     color: #f9fafb;
   }

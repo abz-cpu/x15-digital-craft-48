@@ -194,7 +194,7 @@ const Index = () => {
           <div className="flex-1 text-center lg:text-left space-y-8 max-w-[560px] mx-auto lg:mx-0 lg:pl-20 lg:pr-[60px]">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#0F766E]/90 text-white px-5 py-2 rounded-full text-sm font-medium">
-              <span className="inline-flex h-2 w-2 rounded-full bg-white" />
+              <span className="inline-flex h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               <span>UK Websites &amp; AI Automation</span>
             </div>
 
@@ -216,48 +216,52 @@ const Index = () => {
             {/* CTA Buttons */}
             <div className="pt-0">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center lg:justify-start">
-                <Button
-                  asChild
-                  className="bg-white text-[#0F766E] hover:bg-[#F59E0B] hover:text-white px-7 py-3.5 text-base font-semibold rounded-lg shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
+                <Link
+                  to="/web-package"
+                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
                 >
-                  <Link to="/web-package">
-                    Explore Web Packages →
-                  </Link>
-                </Button>
+                  <Globe className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
+                  <div className="flex flex-col items-start flex-1">
+                    <span className="text-base font-semibold">Website Packages</span>
+                    <span className="text-sm text-[#52FFF8] font-medium">From £200 →</span>
+                  </div>
+                </Link>
 
-                <Button
-                  asChild
-                  className="bg-white text-[#0F766E] hover:bg-[#F59E0B] hover:text-white px-7 py-3.5 text-base font-semibold rounded-lg shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
+                <Link
+                  to="/ai-package"
+                  className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-6 py-4 rounded-xl border border-white/20 transition-all duration-300"
                 >
-                  <Link to="/ai-package">
-                    Explore AI Automation →
-                  </Link>
-                </Button>
+                  <Bot className="h-6 w-6 text-[#52FFF8] flex-shrink-0" />
+                  <div className="flex flex-col items-start flex-1">
+                    <span className="text-base font-semibold">AI Automation</span>
+                    <span className="text-sm text-[#52FFF8] font-medium">From £50/mo →</span>
+                  </div>
+                </Link>
               </div>
 
               {/* Trust indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 mt-8 text-sm text-white/70">
-                <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2 mt-8 text-sm text-white/70">
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
                   <Star className="h-4 w-4 text-[#0F766E] fill-[#0F766E]" />
                   <span>4.9/5 rating</span>
                 </div>
-                <span className="hidden sm:inline text-white/40">•</span>
-                <div className="flex items-center gap-1.5">
+                <span className="text-white/40">•</span>
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
                   <MessageSquare className="h-4 w-4 text-[#0F766E]" />
                   <span>Quote: 1–3 hours</span>
                 </div>
-                <span className="hidden sm:inline text-white/40">•</span>
-                <div className="flex items-center gap-1.5">
+                <span className="text-white/40">•</span>
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
                   <Package className="h-4 w-4 text-[#0F766E]" />
                   <span>Delivery: 1–14 days</span>
                 </div>
-                <span className="hidden sm:inline text-white/40">•</span>
-                <div className="flex items-center gap-1.5">
+                <span className="text-white/40">•</span>
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
                   <MapPin className="h-4 w-4 text-[#0F766E]" />
                   <span>UK-based team</span>
                 </div>
-                <span className="hidden sm:inline text-white/40">•</span>
-                <div className="flex items-center gap-1.5">
+                <span className="text-white/40">•</span>
+                <div className="flex items-center gap-1.5 whitespace-nowrap">
                   <CheckCircle2 className="h-4 w-4 text-[#0F766E]" />
                   <span>7-day guarantee</span>
                 </div>
@@ -309,7 +313,7 @@ const Index = () => {
                   <ul className="space-y-1.5 text-[11px] text-white/85">
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £100</span>
+                      <span>Clear packages from £200</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
@@ -774,7 +778,7 @@ const Index = () => {
 
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
-            <p className="text-foreground font-medium">
+            <p className="text-foreground font-medium mb-3">
               <a
                 href="https://x15pcbuilders.com/"
                 target="_blank"
@@ -784,6 +788,12 @@ const Index = () => {
                 X15 PC Builders
               </a>{" "}
               is our sister company - proving we build sites that actually work for real businesses.
+            </p>
+            <p className="text-muted-foreground">
+              <Link to="/contact" className="text-primary hover:underline font-medium">
+                Get in touch for a quote
+              </Link>{" "}
+              and we'll build something amazing for your business.
             </p>
           </div>
 

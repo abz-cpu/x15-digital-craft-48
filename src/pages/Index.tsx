@@ -497,7 +497,7 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(15,118,110,0.4)]">
+                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
                       <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                     </div>
                     <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
@@ -778,107 +778,105 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-<section
-  id="portfolio-preview"
-  className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted"
->
-  <div className="max-w-7xl mx-auto fade-in-section">
-    <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-      Recent Work &amp; Capabilities
-    </h2>
-    <p className="text-center text-muted-foreground mb-8">See what we can build for your business.</p>
+      <section
+        id="portfolio-preview"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted"
+      >
+        <div className="max-w-7xl mx-auto fade-in-section">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
+            Recent Work &amp; Capabilities
+          </h2>
+          <p className="text-center text-muted-foreground mb-8">See what we can build for your business.</p>
 
-    {/* Promotional Text */}
-    <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
-      <p className="text-foreground font-medium mb-3">
-        Want a website just like this one or like{" "}
-        
-          href="https://x15pcbuilders.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:underline font-semibold"
-        >
-          our sister brand X15 PC Builders
-        </a>
-        ?
-      </p>
-      <p className="text-muted-foreground">
-        <Link to="/contact" className="text-primary hover:underline font-medium">
-          Get in touch for a quote
-        </Link>{" "}
-        and we'll build something amazing for your business.
-      </p>
-    </div>
+          {/* Promotional Text */}
+          <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
+            <p className="text-foreground font-medium mb-3">
+              <a
+                href="https://x15pcbuilders.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-semibold"
+              >
+                X15 PC Builders
+              </a>{" "}
+              is our sister company - proving we build sites that actually work for real businesses.
+            </p>
+            <p className="text-muted-foreground">
+              <Link to="/contact" className="text-primary hover:underline font-medium">
+                Get in touch for a quote
+              </Link>{" "}
+              and we'll build something amazing for your business.
+            </p>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-      {[
-        {
-          title: "X15 PC Builders",
-          features: ["Professional showcase website", "Service packages display", "Build request form"],
-          timeline: "LIVE PROJECT",
-          tech: "React, Tailwind CSS",
-          isLive: true,
-          badge: "Live Client Project",
-        },
-        {
-          title: "Elite Salon Website",
-          features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
-          timeline: "5–7 days",
-          tech: "React, Stripe, Calendly",
-          badge: "Capability Example",
-        },
-        {
-          title: "AI Chatbot Integration",
-          features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
-          timeline: "2–4 days",
-          tech: "OpenAI, Custom API",
-          badge: "Capability Example",
-        },
-      ].map((project, index) => (
-        <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-          <Card className="hover-lift">
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-4">
-                {project.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="text-sm text-muted-foreground space-y-1 mb-4">
-                <p>
-                  <strong>Timeline:</strong> {project.timeline}
-                </p>
-                <p>
-                  <strong>Tech:</strong> {project.tech}
-                </p>
-              </div>
-              {project.isLive ? (
-                <Button asChild variant="default" className="w-full">
-                  <Link to="/portfolio">
-                    View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              ) : (
-                <Link 
-                  to="/portfolio" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center justify-center gap-2 py-2"
-                >
-                  View Full Portfolio →
-                </Link>
-              )}
-            </CardContent>
-          </Card>
-        </AnimatedSection>
-      ))}
-    </div>
-  </div>
-</section>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                title: "X15 PC Builders",
+                features: ["Professional showcase website", "Service packages display", "Build request form"],
+                timeline: "LIVE PROJECT",
+                tech: "React, Tailwind CSS",
+                isLive: true,
+                badge: "Live Client Project",
+              },
+              {
+                title: "Elite Salon Website",
+                features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
+                timeline: "5–7 days",
+                tech: "React, Stripe, Calendly",
+                badge: "Capability Example",
+              },
+              {
+                title: "AI Chatbot Integration",
+                features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
+                timeline: "2–4 days",
+                tech: "OpenAI, Custom API",
+                badge: "Capability Example",
+              },
+            ].map((project, index) => (
+              <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
+                <Card className="hover-lift">
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                    <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-4">
+                      {project.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="text-sm text-muted-foreground space-y-1 mb-4">
+                      <p>
+                        <strong>Timeline:</strong> {project.timeline}
+                      </p>
+                      <p>
+                        <strong>Tech:</strong> {project.tech}
+                      </p>
+                    </div>
+                    {project.isLive ? (
+                      <div className="space-y-2">
+                        <Button asChild variant="default" className="w-full">
+                          <Link to="/portfolio">
+                            View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/portfolio">View Full Portfolio →</Link>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">

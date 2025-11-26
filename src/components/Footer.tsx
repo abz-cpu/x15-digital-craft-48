@@ -52,25 +52,25 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="space-y-2">
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <span>London, United Kingdom</span>
               </div>
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Phone className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <a 
                   href="https://wa.me/447424062513" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="hover:text-cyan-300 transition-colors"
+                  className="hover:text-[#F59E0B] transition-colors"
                 >
                   +44 7424 062 513
                 </a>
               </div>
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Mail className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <Mail className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <a 
                   href="mailto:hello@x15digital.co.uk"
-                  className="hover:text-cyan-300 transition-colors"
+                  className="hover:text-[#F59E0B] transition-colors"
                 >
                   hello@x15digital.co.uk
                 </a>
@@ -84,7 +84,7 @@ export default function Footer() {
                 href="https://x15pcbuilders.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-cyan-300 hover:text-white text-sm font-semibold transition-all hover:gap-3"
+                className="inline-flex items-center gap-2 text-[#52FFF8] hover:text-[#F59E0B] text-sm font-semibold transition-all hover:gap-3"
               >
                 X15 PC Builders <ArrowRight className="h-3.5 w-3.5" />
               </a>
@@ -101,7 +101,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/services#web" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Websites & Landing Pages
                   </Link>
@@ -109,7 +109,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/services#ai-automation" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     AI Chatbots & Automation
                   </Link>
@@ -117,7 +117,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/services#combined-packages" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Combined Packages
                   </Link>
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/services#addons" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     SEO & Add-ons
                   </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/portfolio" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Portfolio
                   </Link>
@@ -148,7 +148,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/blog" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Blog
                   </Link>
@@ -156,7 +156,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/about" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     About
                   </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/contact" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Contact
                   </Link>
@@ -172,7 +172,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/quick-start" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Quick Start
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/privacy" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Privacy Policy
                   </Link>
@@ -195,7 +195,7 @@ export default function Footer() {
                 <li>
                   <Link 
                     to="/terms" 
-                    className="text-[10px] md:text-xs text-white/60 hover:text-cyan-300 transition-colors block"
+                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
                   >
                     Terms of Service
                   </Link>
@@ -208,7 +208,7 @@ export default function Footer() {
         {/* Business Hours & Service Areas */}
         <div className="border-t border-white/10 pt-5 pb-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           <div className="flex items-start gap-2">
-            <Clock className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+            <Clock className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Business Hours</p>
               <p className="text-[10px] md:text-xs text-white/60">
@@ -217,7 +217,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <MapPin className="h-3 w-3 md:h-4 md:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+            <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Service Area</p>
               <p className="text-[10px] md:text-xs text-white/60">
@@ -235,7 +235,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
+              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
             >
               <Linkedin className="h-4 w-4" />
             </a>
@@ -244,7 +244,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
+              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
             >
               <Twitter className="h-4 w-4" />
             </a>
@@ -253,7 +253,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-cyan-300 hover:bg-white/10 transition-colors"
+              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -262,11 +262,11 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-[10px] md:text-xs text-white/50 order-1 sm:order-2">
             <span>© {year} X15 Digital. All rights reserved.</span>
             <span className="hidden sm:inline opacity-40">•</span>
-            <Link to="/privacy" className="hover:text-cyan-300 transition-colors">
+            <Link to="/privacy" className="hover:text-[#F59E0B] transition-colors">
               Privacy
             </Link>
             <span className="opacity-40">•</span>
-            <Link to="/terms" className="hover:text-cyan-300 transition-colors">
+            <Link to="/terms" className="hover:text-[#F59E0B] transition-colors">
               Terms
             </Link>
           </div>

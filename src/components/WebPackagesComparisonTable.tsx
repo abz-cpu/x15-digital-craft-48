@@ -25,20 +25,8 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     scale: "Fully custom",
     enterprise: "Premium custom",
   },
-  {
-    feature: "Mobile responsive",
-    foundation: true,
-    growth: true,
-    scale: true,
-    enterprise: true,
-  },
-  {
-    feature: "Contact forms",
-    foundation: true,
-    growth: true,
-    scale: true,
-    enterprise: true,
-  },
+  { feature: "Mobile responsive", foundation: true, growth: true, scale: true, enterprise: true },
+  { feature: "Contact forms", foundation: true, growth: true, scale: true, enterprise: true },
   {
     feature: "SEO setup",
     foundation: "Basic",
@@ -53,20 +41,8 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     scale: "All pages",
     enterprise: "All pages + strategy",
   },
-  {
-    feature: "Google Maps",
-    foundation: "—",
-    growth: true,
-    scale: true,
-    enterprise: true,
-  },
-  {
-    feature: "Payment integration",
-    foundation: "—",
-    growth: "—",
-    scale: true,
-    enterprise: "✓ (multi-gateway)",
-  },
+  { feature: "Google Maps", foundation: "—", growth: true, scale: true, enterprise: true },
+  { feature: "Payment integration", foundation: "—", growth: "—", scale: true, enterprise: "✓ (multi-gateway)" },
   {
     feature: "Booking system",
     foundation: "—",
@@ -74,41 +50,11 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     scale: "Advanced",
     enterprise: "Advanced + automation",
   },
-  {
-    feature: "E-commerce",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
-    enterprise: "✓ (full shop)",
-  },
-  {
-    feature: "Customer accounts",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
-    enterprise: true,
-  },
-  {
-    feature: "CRM integration",
-    foundation: "—",
-    growth: "—",
-    scale: "Basic",
-    enterprise: "Advanced",
-  },
-  {
-    feature: "Multi-user dashboard",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
-    enterprise: true,
-  },
-  {
-    feature: "Priority support",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
-    enterprise: true,
-  },
+  { feature: "E-commerce", foundation: "—", growth: "—", scale: "—", enterprise: "✓ (full shop)" },
+  { feature: "Customer accounts", foundation: "—", growth: "—", scale: "—", enterprise: true },
+  { feature: "CRM integration", foundation: "—", growth: "—", scale: "Basic", enterprise: "Advanced" },
+  { feature: "Multi-user dashboard", foundation: "—", growth: "—", scale: "—", enterprise: true },
+  { feature: "Priority support", foundation: "—", growth: "—", scale: "—", enterprise: true },
   {
     feature: "Delivery timeline",
     foundation: "48 hours",
@@ -130,13 +76,7 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     scale: "4 rounds",
     enterprise: "Unlimited",
   },
-  {
-    feature: "Post-launch support",
-    foundation: "7 days",
-    growth: "14 days",
-    scale: "30 days",
-    enterprise: "90 days",
-  },
+  { feature: "Post-launch support", foundation: "7 days", growth: "14 days", scale: "30 days", enterprise: "90 days" },
 ];
 
 const renderCell = (value: Cell, isPopular: boolean) => {
@@ -163,38 +103,28 @@ export const WebPackagesComparisonTable = () => {
     <section className="py-16 md:py-20 lg:py-24 bg-background">
       <Container>
         <div className="mb-12 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Detailed Package Comparison</h2>
+          <h2 className="text-3xl md:4xl lg:text-5xl font-bold mb-4">Detailed Package Comparison</h2>
           <p className="text-lg text-muted-foreground">
             See exactly what&apos;s included at each level so you can choose the right tier with confidence.
           </p>
         </div>
 
         {/* DESKTOP TABLE */}
-        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
-          {/* Badge Row - ABOVE TABLE */}
-          <div className="bg-muted/30 py-2 border-b border-border">
-            <div className="flex">
-              <div className="w-52 px-6" /> {/* Feature column spacer */}
-              <div className="flex-1" /> {/* Foundation spacer */}
-              <div className="flex-1 flex justify-center">
-                {/* Growth badge */}
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg uppercase tracking-wide">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  Most Popular
-                </span>
-              </div>
-              <div className="flex-1" /> {/* Scale spacer */}
-              <div className="flex-1" /> {/* Enterprise spacer */}
-            </div>
-          </div>
-
-          {/* Clean Header - NO BADGE INSIDE TH */}
+        <div className="hidden lg:block rounded-2xl border border-border bg-card shadow-2xl overflow-visible">
           <table className="min-w-full text-left border-collapse">
             <thead>
               <tr className="bg-gradient-to-br from-[#0F766E] to-[#0D6660]">
-                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-52">Feature</th>
+                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-56">Feature</th>
                 {tiers.map((tier) => (
-                  <th key={tier.key} className={`py-5 px-4 text-center ${tier.popular ? "bg-white/10" : ""}`}>
+                  <th key={tier.key} className={`py-6 px-4 text-center relative ${tier.popular ? "bg-[#0D6660]" : ""}`}>
+                    {tier.popular && (
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg uppercase tracking-wide">
+                          <Sparkles className="h-3.5 w-3.5" />
+                          Most Popular
+                        </span>
+                      </div>
+                    )}
                     <div className="flex flex-col items-center gap-1.5">
                       <span className="text-[11px] uppercase tracking-[0.15em] text-white/70 font-semibold">
                         {tier.label}
@@ -223,7 +153,7 @@ export const WebPackagesComparisonTable = () => {
           </table>
         </div>
 
-        {/* MOBILE STACKED CARDS */}
+        {/* MOBILE (unchanged) */}
         <div className="lg:hidden space-y-6">
           {tiers.map((tier) => (
             <div
@@ -232,7 +162,6 @@ export const WebPackagesComparisonTable = () => {
                 tier.popular ? "border-[#F59E0B] shadow-lg shadow-[#F59E0B]/20" : "border-border"
               }`}
             >
-              {/* Header */}
               <div className={`p-4 ${tier.popular ? "bg-[#0F766E]" : "bg-muted"} relative`}>
                 {tier.popular && (
                   <div className="absolute -top-3 right-4">
@@ -256,7 +185,6 @@ export const WebPackagesComparisonTable = () => {
                 </div>
               </div>
 
-              {/* Features */}
               <div className="p-4 space-y-3 bg-card">
                 {rows.map((row) => {
                   const value = row[tier.key];

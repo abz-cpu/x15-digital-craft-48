@@ -283,45 +283,90 @@ const Contact = () => {
                 <CardTitle>Response Times & Process</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-1.5">
-                  <p className="text-sm">
-                    <strong>Monday–Friday:</strong> <span className="text-muted-foreground">Within 2–4 hours</span>
-                  </p>
-                  <p className="text-sm">
-                    <strong>Weekends:</strong> <span className="text-muted-foreground">Within 24 hours</span>
-                  </p>
-                  <p className="text-sm">
-                    <strong>Bank Holidays:</strong> <span className="text-muted-foreground">Within 48 hours</span>
-                  </p>
-                  <p className="text-sm pt-2 border-t flex items-center gap-2">
+                {/* Response Times */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <p className="text-sm">
+                      <strong>Monday–Friday:</strong> <span className="text-muted-foreground">Within 2–4 hours</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <p className="text-sm">
+                      <strong>Weekends:</strong> <span className="text-muted-foreground">Within 24 hours</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <p className="text-sm">
+                      <strong>Bank Holidays:</strong> <span className="text-muted-foreground">Within 48 hours</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* WhatsApp Callout */}
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <p className="text-sm font-medium flex items-center gap-2">
                     <MessageCircle className="h-4 w-4 text-green-600" />
-                    <span className="text-green-600 font-medium">
-                      WhatsApp: Instant during business hours (9am–6pm GMT)
-                    </span>
+                    <span className="text-green-700">WhatsApp: Instant during business hours (9am–6pm GMT)</span>
                   </p>
                 </div>
 
-                <div className="pt-3 border-t">
+                {/* Process Steps */}
+                <div className="pt-2">
                   <p className="font-semibold text-sm mb-3">What happens after you contact us:</p>
-                  <div className="space-y-2.5">
-                    <div className="flex gap-2.5">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                         1
                       </span>
-                      <p className="text-sm text-muted-foreground">We review your requirements</p>
+                      <div>
+                        <p className="text-sm font-medium">We review your requirements</p>
+                        <p className="text-xs text-muted-foreground">Usually within 2 hours on weekdays</p>
+                      </div>
                     </div>
-                    <div className="flex gap-2.5">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                         2
                       </span>
-                      <p className="text-sm text-muted-foreground">You get a detailed quote + timeline</p>
+                      <div>
+                        <p className="text-sm font-medium">You get a detailed quote + timeline</p>
+                        <p className="text-xs text-muted-foreground">Transparent pricing, no hidden costs</p>
+                      </div>
                     </div>
-                    <div className="flex gap-2.5">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                         3
                       </span>
-                      <p className="text-sm text-muted-foreground">Quick call to clarify (optional)</p>
+                      <div>
+                        <p className="text-sm font-medium">Quick call to clarify any questions</p>
+                        <p className="text-xs text-muted-foreground">Optional - only if you need it</p>
+                      </div>
                     </div>
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
+                        4
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium">Project starts immediately upon approval</p>
+                        <p className="text-xs text-muted-foreground">No delays, no bureaucracy</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Trust Badge */}
+                <div className="pt-3 border-t">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Check className="h-3 w-3 text-green-600" />
+                      No obligation quotes
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Check className="h-3 w-3 text-green-600" />
+                      No sales pressure
+                    </span>
                   </div>
                 </div>
               </CardContent>

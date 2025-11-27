@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-900 text-white border-t border-white/5">
+    <footer className="relative bg-[radial-gradient(circle_at_top,_hsl(170,83%,22%)_0,_hsl(170,47%,10%)_40%,_hsl(170,47%,5%)_100%)] text-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Ready When You Are CTA */}
         <div className="mb-8 md:mb-12">
@@ -50,11 +50,11 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="space-y-2">
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4 text-primary mt-0.5 flex-shrink-0" />
+                <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <span>London, United Kingdom</span>
               </div>
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <a
                   href="https://wa.me/447424062513"
                   target="_blank"
@@ -65,7 +65,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Mail className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                <Mail className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
                 <a href="mailto:hello@x15digital.co.uk" className="hover:text-[#F59E0B] transition-colors">
                   hello@x15digital.co.uk
                 </a>
@@ -79,7 +79,7 @@ export default function Footer() {
                 href="https://x15pcbuilders.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#0F766E] hover:text-[#F59E0B] text-sm font-semibold transition-all hover:gap-3"
+                className="inline-flex items-center gap-2 text-[#52FFF8] hover:text-[#F59E0B] text-sm font-semibold transition-all hover:gap-3"
               >
                 X15 PC Builders <ArrowRight className="h-3.5 w-3.5" />
               </a>
@@ -202,7 +202,7 @@ export default function Footer() {
         {/* Business Hours & Service Areas */}
         <div className="border-t border-white/10 pt-5 pb-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           <div className="flex items-start gap-2">
-            <Clock className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+            <Clock className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Business Hours</p>
               <p className="text-[10px] md:text-xs text-white/60">
@@ -211,7 +211,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+            <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#52FFF8] mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Service Area</p>
               <p className="text-[10px] md:text-xs text-white/60">Based in London, working across the UK</p>

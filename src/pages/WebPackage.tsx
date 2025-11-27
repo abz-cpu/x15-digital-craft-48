@@ -264,7 +264,7 @@ const WebPackage = () => {
                         <span>Advanced booking systems with calendar sync</span>
                       </li>
                     </ul>
-                    <Button asChild variant="outline" size="lg" className="w-full">
+                    <Button asChild size="lg" className="w-full">
                       <Link to="/contact">
                         Request Enterprise Quote <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
@@ -299,7 +299,8 @@ const WebPackage = () => {
                         <span>Advanced analytics &amp; reporting dashboards</span>
                       </li>
                     </ul>
-                    <Button asChild size="lg" className="w-full">
+
+                    <Button asChild variant="outline" size="lg" className="w-full">
                       <Link to="/contact">
                         Request Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>

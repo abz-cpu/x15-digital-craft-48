@@ -218,7 +218,6 @@ const WebPackage = () => {
                 </Card>
               </AnimatedSection>
             </div>
-
             <WebPackagesComparisonTable />
 
             {/* Advanced Solutions */}

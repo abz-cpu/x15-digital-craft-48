@@ -509,34 +509,34 @@ const AiPackage = () => {
                 </p>
               </div>
 
-              <Card className="bg-background border border-border shadow-sm md:shadow-md rounded-2xl">
+              <Card className="rounded-2xl border border-teal-200 bg-[#E8F7F5]/60 shadow-sm md:shadow-md backdrop-blur-[2px]">
                 <CardContent className="p-6 md:p-8">
                   <h3 className="text-xl font-semibold text-secondary mb-4">Recent Custom Builds</h3>
 
                   <ul className="space-y-3 mb-8 text-sm md:text-base">
-                    <li className="flex items-start gap-3 text-muted-foreground">
+                    <li className="flex items-start gap-3 text-foreground/80">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <span>Healthcare appointment automation with patient intake &amp; insurance verification</span>
+                      <span>Healthcare appointment automation with patient intake & insurance verification</span>
                     </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
+                    <li className="flex items-start gap-3 text-foreground/80">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>E-commerce inventory management with supplier API integration</span>
                     </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
+                    <li className="flex items-start gap-3 text-foreground/80">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>Restaurant multi-location ordering system with delivery coordination</span>
                     </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
+                    <li className="flex items-start gap-3 text-foreground/80">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <span>Property management applicant filtering &amp; tenant communication</span>
+                      <span>Property management applicant filtering & tenant communication</span>
                     </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
+                    <li className="flex items-start gap-3 text-foreground/80">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>Legal firm document intake workflows with client portal integration</span>
                     </li>
                   </ul>
 
-                  <div className="bg-muted/60 rounded-xl p-4 mb-6">
+                  <div className="bg-white/70 border border-teal-100 rounded-xl p-4 mb-6 shadow-sm">
                     <p className="text-sm text-foreground mb-1">
                       <span className="font-semibold">Starting from £800 setup</span> · Monthly from £200+
                     </p>
@@ -546,7 +546,11 @@ const AiPackage = () => {
                     </p>
                   </div>
 
-                  <Button asChild size="lg" className="w-full">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:opacity-90 shadow-md"
+                  >
                     <Link to="/contact">
                       Request Custom AI Solution <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

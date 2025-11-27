@@ -9,6 +9,37 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
 
+const additionalAiServices = [
+  {
+    name: "AI Invoice & Admin Bot",
+    price: "£350–900 setup | £50–200/month",
+  },
+  {
+    name: "RPA (Robotic Process Automation)",
+    price: "£1,000+ setup | £200+/month",
+  },
+  {
+    name: "LinkedIn Lead Prospecting",
+    price: "£500–900 setup | £75–200/month",
+  },
+  {
+    name: "AI Recruitment Screening",
+    price: "£200–800 setup | £50–250/month",
+  },
+  {
+    name: "AI Data Insights & Reporting",
+    price: "£200–1,000 setup | £50–350/month",
+  },
+  {
+    name: "AI Meeting Notes & Transcription",
+    price: "£300–700 setup | £75–200/month",
+  },
+  {
+    name: "AI Customer Feedback Analysis",
+    price: "£400–800 setup | £100–250/month",
+  },
+];
+
 const AiPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -278,17 +309,41 @@ const AiPackage = () => {
               </AnimatedSection>
             </div>
 
-            {/* Bottom CTA */}
-            <div className="text-center max-w-4xl mx-auto">
-              <p className="text-sm md:text-base text-muted-foreground mb-3">
-                <span className="font-semibold text-secondary">Need something else?</span> We build custom AI
-                assistants, automations, and internal tools tailored to your business.
+            {/* Additional AI Services */}
+            <div className="mt-10 border-t border-border pt-8 max-w-5xl mx-auto">
+              <h3 className="text-center text-xl md:text-2xl font-semibold text-secondary mb-4">
+                Additional AI Automation Services
+              </h3>
+
+              <p className="text-center text-sm md:text-base text-muted-foreground mb-6">
+                These are plug-in add-ons for invoicing, outreach, reporting, and operations — built on the same AI
+                engine.
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/contact">
-                  Discuss Your Needs <ArrowRight className="ml-2 h-5 w-5" />
+
+              {/* Compact 2-column list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 text-sm">
+                {additionalAiServices.map((service) => (
+                  <div
+                    key={service.name}
+                    className="flex items-baseline justify-between border-b border-border/60 pb-2"
+                  >
+                    <span className="text-secondary font-medium pr-3">{service.name}</span>
+                    <span className="text-xs text-muted-foreground text-right">{service.price}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="mt-6 text-center text-sm md:text-base text-muted-foreground">
+                Don&apos;t see what you need?{" "}
+                <Link
+                  to="/contact"
+                  className="text-primary font-semibold inline-flex items-center gap-1 hover:underline"
+                >
+                  Request a Custom AI Solution
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
-              </Button>
+              </div>
             </div>
           </Container>
         </section>

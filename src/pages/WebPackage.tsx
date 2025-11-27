@@ -233,7 +233,8 @@ const WebPackage = () => {
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
               <p className="text-base text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
-                Custom platforms, SaaS tools, and internal systems built to your exact specifications.
+                For larger projects that go beyond standard websites, we design fully bespoke systems tailored to how
+                your business actually works.
               </p>
 
               <div className="grid gap-6 md:grid-cols-2">

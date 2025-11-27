@@ -215,6 +215,19 @@ const AiPackage = () => {
                       </div>
                     </div>
 
+                    <Badge
+                      className="
+  absolute -top-3 left-1/2 -translate-x-1/2
+  bg-[#0F766E] text-white
+  px-3 py-1.5 text-[11px] font-bold
+  rounded-full shadow-md flex items-center gap-1.5
+  uppercase tracking-wide
+"
+                    >
+                      <Target className="h-3 w-3" />
+                      BEST FOR LOCAL BUSINESSES
+                    </Badge>
+
                     <h3 className="text-2xl font-bold mb-2">AI Receptionist</h3>
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">

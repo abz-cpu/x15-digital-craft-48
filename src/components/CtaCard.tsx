@@ -45,8 +45,11 @@ const CtaCard: React.FC = () => {
           <div className="px-6 sm:px-8 py-8 space-y-6">
             <div className="text-center space-y-2">
               <p className="text-sm text-muted-foreground">
-                Tell us what you need in 2 minutes. We’ll map out your website and automation plan and send a clear,
-                no-pressure quote.
+                Tell us what you need in about 2 minutes. We’ll map out your website and automation plan and send a
+                clear, no-pressure quote.
+              </p>
+              <p className="text-xs text-muted-foreground">
+                You&apos;ll work directly with the founder — no outsourcing, no runaround.
               </p>
             </div>
 
@@ -66,23 +69,33 @@ const CtaCard: React.FC = () => {
             </Link>
 
             {/* Secondary Path – Questions? WhatsApp */}
-            <p className="text-sm text-muted-foreground text-center">
-              Prefer to ask a few questions first?{" "}
+            <p className="text-sm text-muted-foreground text-center">Prefer to ask a few questions first?</p>
+            <div className="flex justify-center">
               <a
                 href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions%20about%20your%20web%20and%20AI%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium text-primary underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80
+                  px-4 py-2 text-sm font-medium text-primary hover:border-[#25D366]
+                  hover:bg-[#25D366]/10 hover:text-[#25D366]
+                  transition-all duration-300"
               >
-                <MessageCircle className="h-4 w-4" />
+                <span className="inline-flex items-center justify-center rounded-full bg-primary/10 p-1.5">
+                  <MessageCircle className="h-4 w-4" />
+                </span>
                 <span>Let&apos;s chat on WhatsApp</span>
               </a>
-            </p>
+            </div>
 
             {/* Inline Trust Signals */}
-            <p className="text-[11px] sm:text-xs text-muted-foreground text-center">
-              No pushy sales • Free quote within 3 hours • Transparent pricing • London-based, small expert team
-            </p>
+            <div className="space-y-1 text-center">
+              <p className="text-xs sm:text-[13px] text-ink/80 font-medium">
+                No pushy sales • Free quote within 3 hours • Transparent pricing • You work directly with the founder
+              </p>
+              <p className="text-[11px] text-muted-foreground">
+                If it&apos;s not a fit, you still keep the plan — no obligation to continue.
+              </p>
+            </div>
           </div>
         </div>
       </Container>

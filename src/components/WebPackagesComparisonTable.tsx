@@ -143,56 +143,51 @@ const renderCell = (value: Cell, isPopular: boolean) => {
   if (typeof value === "boolean") {
     return value ? (
       <CheckCircle2
-        className={`h-4 w-4 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
+        className={`h-5 w-5 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
         aria-hidden="true"
       />
     ) : (
-      <span className="text-xs text-muted-foreground">—</span>
+      <span className="text-muted-foreground">—</span>
     );
   }
 
   if (value === "—") {
-    return <span className="text-xs text-muted-foreground">—</span>;
+    return <span className="text-muted-foreground">—</span>;
   }
 
-  return <span className="text-xs md:text-sm text-foreground font-medium">{value}</span>;
+  return <span className="text-sm text-foreground font-medium">{value}</span>;
 };
 
 export const WebPackagesComparisonTable = () => {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-background">
       <Container>
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">Detailed Package Comparison</h2>
-          <p className="text-base md:text-lg text-muted-foreground">
-            See exactly what&apos;s included at each level so you can choose the right tier with confidence.
+        <div className="mb-12 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Detailed Package Comparison</h2>
+          <p className="text-lg text-muted-foreground">
+            See exactly what's included at each level so you can choose the right tier with confidence.
           </p>
         </div>
 
         {/* Desktop Table */}
-        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl max-w-6xl mx-auto">
-          <table className="w-full text-left border-collapse text-sm">
+        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+          <table className="min-w-full text-left border-collapse">
             <thead>
               <tr className="bg-[#0F766E]">
-                <th className="py-4 px-6 text-white/90 font-semibold text-xs uppercase tracking-wider w-52">Feature</th>
+                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider">Feature</th>
                 {tiers.map((tier) => (
-                  <th
-                    key={tier.key}
-                    className={`py-4 px-4 text-center align-bottom relative ${tier.popular ? "bg-[#0D6660]" : ""}`}
-                  >
+                  <th key={tier.key} className={`py-5 px-4 text-center relative ${tier.popular ? "bg-[#0D6660]" : ""}`}>
                     {tier.popular && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-[10px] font-bold text-white shadow-lg">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-white shadow-lg">
                           <Sparkles className="h-3 w-3" />
                           MOST POPULAR
                         </span>
                       </div>
                     )}
-                    <div className="flex flex-col items-center gap-1 mt-1">
-                      <span className="text-[11px] uppercase tracking-[0.15em] text-white/70 font-medium">
-                        {tier.label}
-                      </span>
-                      <span className="text-lg font-bold text-white">{tier.price}</span>
+                    <div className="flex flex-col items-center gap-1 mt-2">
+                      <span className="text-xs uppercase tracking-widest text-white/70 font-medium">{tier.label}</span>
+                      <span className="text-xl font-bold text-white">{tier.price}</span>
                     </div>
                   </th>
                 ))}
@@ -202,13 +197,13 @@ export const WebPackagesComparisonTable = () => {
               {rows.map((row, idx) => (
                 <tr
                   key={row.feature}
-                  className={`transition-colors hover:bg-muted/40 ${idx % 2 === 0 ? "bg-card" : "bg-muted/20"}`}
+                  className={`transition-colors hover:bg-muted/50 ${idx % 2 === 0 ? "bg-card" : "bg-muted/20"}`}
                 >
-                  <td className="py-3 px-6 font-medium text-foreground text-xs md:text-sm">{row.feature}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.foundation, false)}</td>
-                  <td className="py-3 px-4 text-center bg-[#0F766E]/5">{renderCell(row.growth, true)}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.scale, false)}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.enterprise, false)}</td>
+                  <td className="py-4 px-6 font-medium text-foreground">{row.feature}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.foundation, false)}</td>
+                  <td className="py-4 px-4 text-center bg-[#0F766E]/5">{renderCell(row.growth, true)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.scale, false)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.enterprise, false)}</td>
                 </tr>
               ))}
             </tbody>
@@ -227,22 +222,24 @@ export const WebPackagesComparisonTable = () => {
               {/* Header */}
               <div className={`p-4 ${tier.popular ? "bg-[#0F766E]" : "bg-muted"} relative`}>
                 {tier.popular && (
-                  <div className="absolute -top-3 right-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-[10px] font-bold text-white shadow-lg">
+                  <div className="absolute -top-3 right-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-white shadow-lg">
                       <Sparkles className="h-3 w-3" />
                       MOST POPULAR
                     </span>
                   </div>
                 )}
-                <div className="text-center mt-1">
+                <div className="text-center mt-2">
                   <p
-                    className={`text-[11px] uppercase tracking-[0.15em] mb-1 ${
+                    className={`text-xs uppercase tracking-widest mb-1 ${
                       tier.popular ? "text-white/70" : "text-muted-foreground"
                     }`}
                   >
                     {tier.label}
                   </p>
-                  <p className={`text-xl font-bold ${tier.popular ? "text-white" : "text-foreground"}`}>{tier.price}</p>
+                  <p className={`text-2xl font-bold ${tier.popular ? "text-white" : "text-foreground"}`}>
+                    {tier.price}
+                  </p>
                 </div>
               </div>
 
@@ -251,7 +248,7 @@ export const WebPackagesComparisonTable = () => {
                 {rows.map((row) => {
                   const value = row[tier.key];
                   return (
-                    <div key={row.feature} className="flex items-start justify-between gap-3 text-xs">
+                    <div key={row.feature} className="flex items-start justify-between gap-3 text-sm">
                       <span className="text-muted-foreground flex-1">{row.feature}</span>
                       <span className="font-medium flex-shrink-0">{renderCell(value, tier.popular)}</span>
                     </div>
@@ -262,7 +259,7 @@ export const WebPackagesComparisonTable = () => {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm text-muted-foreground text-center max-w-2xl mx-auto">
+        <p className="mt-8 text-sm text-muted-foreground text-center max-w-2xl mx-auto">
           All prices shown are starting points. Your final quote depends on specific features, content requirements, and
           integrations needed.
         </p>

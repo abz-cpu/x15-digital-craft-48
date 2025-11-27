@@ -174,30 +174,34 @@ export const WebPackagesComparisonTable = () => {
           <table className="min-w-full text-left border-collapse text-sm">
             <thead>
               <tr className="bg-[#0F766E]">
-                <th className="py-4 px-6 text-white/90 font-semibold text-xs uppercase tracking-wider w-52">Feature</th>
+                <th className="py-6 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-52">Feature</th>
+
                 {tiers.map((tier) => (
                   <th
                     key={tier.key}
-                    className={`py-4 px-4 text-center relative align-bottom ${tier.popular ? "bg-[#0D6660]" : ""}`}
+                    className={`py-6 px-4 text-center relative ${tier.popular ? "bg-[#0D6660]" : ""}`}
+                    style={{ height: "82px" }} // gives room for the badge
                   >
+                    {/* MOST POPULAR BADGE */}
                     {tier.popular && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-[10px] font-bold text-white shadow-lg">
+                      <div className="absolute top-1 left-1/2 -translate-x-1/2 z-10">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-white shadow-md">
                           <Sparkles className="h-3 w-3" />
                           MOST POPULAR
                         </span>
                       </div>
                     )}
-                    <div className="flex flex-col items-center gap-1 mt-3">
-                      <span className="text-[11px] uppercase tracking-[0.15em] text-white/70 font-medium">
-                        {tier.label}
-                      </span>
-                      <span className="text-lg font-bold text-white">{tier.price}</span>
+
+                    {/* Column label + price */}
+                    <div className="flex flex-col items-center gap-1 mt-5">
+                      <span className="text-xs uppercase tracking-widest text-white/70 font-medium">{tier.label}</span>
+                      <span className="text-xl font-bold text-white">{tier.price}</span>
                     </div>
                   </th>
                 ))}
               </tr>
             </thead>
+
             <tbody className="divide-y divide-border">
               {rows.map((row, idx) => (
                 <tr

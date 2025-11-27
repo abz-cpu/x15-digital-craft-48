@@ -662,6 +662,56 @@ const AiPackage = () => {
             </div>
           </Container>
         </section>
+
+        {/* FINAL CTA */}
+        <section className="py-20 md:py-24 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
+          <Container>
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+                <span className="text-xs font-semibold tracking-wider text-white/90 uppercase">
+                  Live in 48 Hours – 2 Weeks
+                </span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">Ready to Add AI to Your Business?</h2>
+
+              {/* Subhead */}
+              <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                See how AI automation works live, or start with a free consultation to find the perfect solution.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6"
+                >
+                  <Link to="/contact">
+                    See All AI Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base font-semibold px-8 py-6"
+                >
+                  <Link to="/contact">
+                    Book Strategy Call <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Trust line */}
+              <p className="text-sm text-white/70">Free demo • No long-term contracts • Live in 48 hours</p>
+            </div>
+          </Container>
+        </section>
       </main>
 
       <Footer />

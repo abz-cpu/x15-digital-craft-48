@@ -218,20 +218,59 @@ const WebPackage = () => {
               </AnimatedSection>
             </div>
 
-            {/* Advanced Options */}
-            <div className="text-center max-w-3xl mx-auto mt-16">
-              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">Need Something More Advanced?</h3>
-              <p className="text-sm md:text-base text-muted-foreground mb-4">
-                <span className="font-semibold text-secondary">Web applications</span> &nbsp;|&nbsp; From{" "}
-                <span className="font-semibold">£3,500</span>.
-                <br />
-                Custom platforms, SaaS tools, and internal systems built to your exact needs.
+            {/* Advanced Solutions */}
+            <div className="max-w-4xl mx-auto mt-12">
+              <h3 className="text-xl md:text-2xl font-bold text-secondary text-center mb-2">
+                Need Something More Advanced?
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground text-center mb-8">
+                For larger projects that go beyond standard websites, we design fully bespoke systems tailored to how
+                your business actually works.
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/services#web-apps">
-                  Request Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {/* Enterprise Systems */}
+                <Card className="h-full">
+                  <CardHeader className="pb-3">
+                    <p className="text-xs font-semibold tracking-[0.16em] uppercase text-primary mb-1">
+                      Enterprise Systems
+                    </p>
+                    <p className="text-2xl font-bold text-secondary">From £2,400</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      E-commerce, customer portals, booking platforms, and CRM integrations with full business
+                      automation.
+                    </p>
+                    <Button asChild variant="outline" className="w-full">
+                      <Link to="/services#enterprise">
+                        Request Enterprise Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Custom Web Applications */}
+                <Card className="h-full">
+                  <CardHeader className="pb-3">
+                    <p className="text-xs font-semibold tracking-[0.16em] uppercase text-primary mb-1">
+                      Custom Web Applications
+                    </p>
+                    <p className="text-2xl font-bold text-secondary">From £3,500</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      Bespoke platforms, SaaS tools, internal systems, and advanced integrations built to your exact
+                      specifications.
+                    </p>
+                    <Button asChild className="w-full">
+                      <Link to="/services#web-apps">
+                        Request Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </Container>
         </section>

@@ -47,7 +47,12 @@ const WebPackage = () => {
               {/* FOUNDATION TIER */}
               <AnimatedSection staggerIndex={0} animation="scale">
                 <Card className="hover-lift relative h-full bg-white">
-                  <CardHeader className="pt-6 pb-4">
+                  {/* Budget Friendly Badge */}
+                  <Badge className="absolute -top-3 left-4 bg-white text-teal-700 border border-teal-200 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
+                    💡 Budget Friendly
+                  </Badge>
+
+                  <CardHeader className="pt-8 pb-4">
                     <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
                       Foundation
                     </CardTitle>

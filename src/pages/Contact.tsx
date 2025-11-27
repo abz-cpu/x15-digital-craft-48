@@ -241,38 +241,40 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Location */}
-<Card>
-  <CardHeader>
-    <MapPin className="h-8 w-8 text-primary mb-2" />
-    <CardTitle>Location</CardTitle>
-  </CardHeader>
-  <CardContent className="space-y-2">
-    <p className="font-semibold">Based in Stratford, London (E15 3JZ)</p>
-    <p className="text-muted-foreground">
-      Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
-    </p>
-    <p className="text-sm text-muted-foreground italic mt-4">
-      Remote-first business – all meetings via video call unless otherwise arranged.
-    </p>
+      {/* Location & Hours Section */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+        <div className="max-w-6xl mx-auto fade-in-section">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Location */}
+            <Card>
+              <CardHeader>
+                <MapPin className="h-8 w-8 text-primary mb-2" />
+                <CardTitle>Location</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <p className="font-semibold">Based in Stratford, London (E15 3JZ)</p>
+                <p className="text-muted-foreground">
+                  Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+                </p>
+                <p className="text-sm text-muted-foreground italic mt-4">
+                  Remote-first business – all meetings via video call unless otherwise arranged.
+                </p>
 
-    {/* Google Map */}
-<div className="mt-4 rounded-lg overflow-hidden h-[220px] border border-border/60">
-  <iframe
-    src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
-    allowFullScreen
-  ></iframe>
-</div>
-
-  </CardContent>
-</Card>
-
+                {/* Google Map */}
+                <div className="mt-4 rounded-lg overflow-hidden h-[220px] border border-border/60">
+                  <iframe
+                    src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+                    allowFullScreen
+                  />
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Response Times */}
             <Card>
@@ -295,6 +297,30 @@ const Contact = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Final soft CTA */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t">
+        <div className="max-w-4xl mx-auto text-center fade-in-section">
+          <h3 className="text-2xl font-bold text-secondary mb-3">Still deciding?</h3>
+          <p className="text-muted-foreground mb-6">
+            No stress. Browse our packages or take a quick quiz to see what fits your needs.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/services">
+                View Packages <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+
+            <Button asChild size="lg">
+              <Link to="/start">
+                Take 30s Quiz <Zap className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

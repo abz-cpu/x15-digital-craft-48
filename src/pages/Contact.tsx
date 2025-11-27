@@ -241,26 +241,37 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Location & Hours Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Location */}
-            <Card>
-              <CardHeader>
-                <MapPin className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Location</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <p className="font-semibold">Based in London, UK</p>
-                <p className="text-muted-foreground">
-                  Serving businesses nationwide and English-speaking clients worldwide
-                </p>
-                <p className="text-sm text-muted-foreground italic mt-4">
-                  (Remote-first business - all meetings via video call)
-                </p>
-              </CardContent>
-            </Card>
+      {/* Location */}
+<Card>
+  <CardHeader>
+    <MapPin className="h-8 w-8 text-primary mb-2" />
+    <CardTitle>Location</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-2">
+    <p className="font-semibold">Based in Stratford, London (E15 3JZ)</p>
+    <p className="text-muted-foreground">
+      Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+    </p>
+    <p className="text-sm text-muted-foreground italic mt-4">
+      Remote-first business – all meetings via video call unless otherwise arranged.
+    </p>
+
+    {/* Google Map */}
+    <div className="mt-4 rounded-lg overflow-hidden h-[220px] border border-border/60">
+      <iframe
+        src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+        allowFullScreen
+      />
+    </div>
+  </CardContent>
+</Card>
+
 
             {/* Response Times */}
             <Card>

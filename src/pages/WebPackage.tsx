@@ -310,9 +310,7 @@ const WebPackage = () => {
           <Container>
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">What We&apos;ve Built</h2>
-              <p className="text-lg text-muted-foreground">
-                Professional websites delivering results for UK businesses.
-              </p>
+              <p className="text-lg text-muted-foreground">From local trades to tech startups—websites that attract customers and drive growth</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">

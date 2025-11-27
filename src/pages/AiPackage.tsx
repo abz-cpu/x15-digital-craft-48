@@ -74,14 +74,18 @@ const AiPackage = () => {
                 <Card className="hover-lift h-full border border-primary/30">
                   <CardContent className="p-6 flex flex-col h-full">
                     {/* Icon + Badge */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="inline-flex p-3 rounded-lg bg-primary/10">
-                        <MessageSquare className="h-8 w-8 text-primary" />
-                      </div>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-[11px] font-bold text-white uppercase tracking-wide shadow">
-                        ⭐ Most Popular
-                      </span>
-                    </div>
+                    <Badge
+                      className="
+  absolute -top-3 left-1/2 -translate-x-1/2
+  bg-[#F59E0B] text-white
+  px-3 py-1.5 text-[11px] font-bold
+  rounded-full shadow-md flex items-center gap-1.5
+  uppercase tracking-wide
+"
+                    >
+                      <Star className="h-3 w-3" />
+                      MOST POPULAR
+                    </Badge>
 
                     <h3 className="text-2xl font-bold mb-2">AI Website Chatbot</h3>
 

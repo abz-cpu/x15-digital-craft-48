@@ -56,19 +56,24 @@ const AiPackage = () => {
         {/* AI Solutions */}
         <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted">
           <Container>
+            {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">Most Popular AI Solutions</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+                Automate Your Admin. Capture More Leads.
+              </h2>
               <p className="text-sm md:text-base text-muted-foreground">
-                Plug-in AI systems that answer customers, capture leads, and handle admin while you focus on the work.
+                AI systems that answer customers, capture leads, and run admin — while you focus on what you do best.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
-              {/* AI Website Chatbot – MOST POPULAR */}
+              {/* =======================
+          AI WEBSITE CHATBOT — MOST POPULAR
+      ======================== */}
               <AnimatedSection staggerIndex={0} animation="fade">
                 <Card className="hover-lift h-full border border-primary/30">
                   <CardContent className="p-6 flex flex-col h-full">
-                    {/* Badge + Icon */}
+                    {/* Icon + Badge */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
                         <MessageSquare className="h-8 w-8 text-primary" />
@@ -78,25 +83,24 @@ const AiPackage = () => {
                       </span>
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-2xl font-bold mb-2">AI Website Chatbot</h3>
 
-                    {/* Description FIRST */}
+                    {/* Benefit-first description */}
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Turn more visitors into customers. AI chat answers questions instantly, qualifies leads, and
-                      captures contact details 24/7 — even while you sleep.
+                      Capture leads while you sleep. AI converts visitors into qualified enquiries by answering
+                      questions, booking calls, and collecting details automatically — 24/7.
                     </p>
 
-                    {/* Pricing AFTER description */}
+                    {/* Pricing */}
                     <div className="mb-5 pb-4 border-b border-border">
                       <p className="text-sm text-muted-foreground mb-1">
-                        From <span className="font-semibold text-foreground">£50/month</span> — less than £2/day for
-                        24/7 coverage
+                        From <span className="font-semibold text-foreground">£50/month</span> (less than £2/day for 24/7
+                        coverage)
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        One-time setup: <span className="font-semibold">£250–600</span>
+                        One-time setup: <span className="font-semibold">£250–600</span> | Includes up to 1,000
+                        interactions/month
                       </p>
-                      <p className="text-xs text-muted-foreground mt-1">Includes up to 1,000 interactions/month.</p>
                     </div>
 
                     {/* Perfect For */}
@@ -104,35 +108,41 @@ const AiPackage = () => {
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Service businesses needing 24/7 FAQ + lead capture</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Service businesses losing leads to faster competitors</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Trades capturing leads outside working hours</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Trades missing £5k+ jobs because no one answers after 5pm</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Websites with decent traffic wasting enquiries</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Websites with 100+ visitors but under 5 enquiries</span>
                         </li>
                       </ul>
                     </div>
 
-                    {/* CTA */}
-                    <Button asChild size="lg" className="w-full mt-auto">
-                      <Link to="/contact">
-                        See How It Works <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    {/* CTA + Trust line */}
+                    <div>
+                      <Button asChild size="lg" className="w-full">
+                        <Link to="/contact">
+                          See How It Works <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center mt-2">
+                        Setup in 48 hours • No long-term contract
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </AnimatedSection>
 
-              {/* AI Inbox Assistant */}
+              {/* =======================
+          AI INBOX ASSISTANT
+      ======================== */}
               <AnimatedSection staggerIndex={1} animation="fade">
                 <Card className="hover-lift h-full">
                   <CardContent className="p-6 flex flex-col h-full">
-                    {/* Icon */}
                     <div className="mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
                         <Mail className="h-8 w-8 text-primary" />
@@ -142,55 +152,58 @@ const AiPackage = () => {
                     <h3 className="text-2xl font-bold mb-2">AI Inbox Assistant</h3>
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Never miss a customer enquiry again. AI reads and replies to emails, WhatsApp, and contact forms
-                      instantly — so every lead gets a fast response, even at 3am.
+                      Reclaim 15+ hours per week. AI manages your inbox — replying, sorting, removing spam, and routing
+                      urgent enquiries — so you only see what actually matters.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
                       <p className="text-sm text-muted-foreground mb-1">
-                        From <span className="font-semibold text-foreground">£50/month</span> for shared inbox
-                        automation
+                        From <span className="font-semibold">£50/month</span>
                       </p>
                       <p className="text-sm text-muted-foreground">
                         One-time setup: <span className="font-semibold">£200–500</span>
                       </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Handles email + WhatsApp templates, routing, and canned replies.
-                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">Works with email + WhatsApp + website forms.</p>
                     </div>
 
                     <div className="mb-6 space-y-2">
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Owners drowning in emails and WhatsApp messages</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Business owners spending 2+ hours daily on email</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Small teams who need instant first replies</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Teams missing leads buried in 100+ daily messages</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Businesses that can’t justify a full-time admin</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Businesses needing admin support but not £25k/year staff</span>
                         </li>
                       </ul>
                     </div>
 
-                    <Button asChild size="lg" className="w-full mt-auto">
-                      <Link to="/contact">
-                        Get Inbox Quote <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div>
+                      <Button asChild size="lg" className="w-full">
+                        <Link to="/contact">
+                          Get Inbox Quote <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center mt-2">
+                        Free consultation • See it work with your emails
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </AnimatedSection>
 
-              {/* AI Receptionist */}
+              {/* =======================
+          AI RECEPTIONIST 
+      ======================== */}
               <AnimatedSection staggerIndex={2} animation="fade">
                 <Card className="hover-lift h-full border border-primary/40">
                   <CardContent className="p-6 flex flex-col h-full">
-                    {/* Icon */}
                     <div className="mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
                         <Phone className="h-8 w-8 text-primary" />
@@ -200,53 +213,58 @@ const AiPackage = () => {
                     <h3 className="text-2xl font-bold mb-2">AI Receptionist</h3>
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      AI answers phone calls, books appointments, takes messages, and passes calls to staff when needed.
-                      Natural-sounding voice — clients think it’s a real receptionist.
+                      Never miss a call again. AI receptionist answers 24/7 with a natural voice that books
+                      appointments, handles messages, and transfers urgent calls — customers won’t know it’s not human.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
                       <p className="text-sm text-muted-foreground mb-1">
-                        From <span className="font-semibold text-foreground">£100/month</span> for 24/7 phone coverage
+                        From <span className="font-semibold">£100/month</span> (replaces a £25k/year receptionist)
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        One-time setup: <span className="font-semibold">£500–2,000</span>
+                        One-time setup: <span className="font-semibold">£500–2,000</span> | Pays for itself after 5
+                        missed calls
                       </p>
-                      <p className="text-xs text-muted-foreground mt-1">Often cheaper than 1 day of staff per month.</p>
                     </div>
 
                     <div className="mb-6 space-y-2">
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Clinics, salons, garages, and booking-heavy businesses</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Salons/clinics losing £10k/month from missed appointments</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Trades that miss calls while working on-site</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Trades losing quotes because you're on the tools</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                          <span>Any business that can’t afford to miss calls</span>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <span>Businesses where one missed call = £500+ lost revenue</span>
                         </li>
                       </ul>
                     </div>
 
-                    <Button asChild size="lg" className="w-full mt-auto">
-                      <Link to="/contact">
-                        Book a Demo Call <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div>
+                      <Button asChild size="lg" className="w-full">
+                        <Link to="/contact">
+                          Book a Demo Call <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center mt-2">
+                        Hear the AI live • 15-minute demo
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </AnimatedSection>
             </div>
 
-            {/* More AI Services */}
+            {/* Bottom CTA */}
             <div className="text-center max-w-4xl mx-auto">
               <p className="text-sm md:text-base text-muted-foreground mb-3">
-                <span className="font-semibold text-secondary">Need something else?</span> We also build sales
-                assistants, lead-qualifying bots, workflow automation, and fully custom AI systems for your stack.
+                <span className="font-semibold text-secondary">Need something else?</span> We build custom AI
+                assistants, automations, and internal tools tailored to your business.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link to="/contact">

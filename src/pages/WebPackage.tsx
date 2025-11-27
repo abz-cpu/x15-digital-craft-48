@@ -8,6 +8,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 
 const WebPackage = () => {
   return (
@@ -217,6 +218,8 @@ const WebPackage = () => {
                 </Card>
               </AnimatedSection>
             </div>
+
+            <WebPackagesComparisonTable />
 
             {/* Advanced Solutions */}
             <div className="max-w-4xl mx-auto mt-12">

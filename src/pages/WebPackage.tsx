@@ -21,7 +21,7 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="pt-0 pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Web Development Packages</h1>

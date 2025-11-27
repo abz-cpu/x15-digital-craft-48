@@ -9,36 +9,34 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
 
-// put this above your component
-const extraServices = [
-  // mid-tier services that used to be cards
+const highlightedServices = [
   {
     name: "AI Sales Assistant",
+    tagline: "Automated follow-ups and sales call booking.",
     setup: "£800–2,000 setup",
     monthly: "£200–800/month",
   },
   {
     name: "AI Email Outreach",
+    tagline: "Cold email campaigns that run on autopilot.",
     setup: "£400–1,000 setup",
     monthly: "£100–400/month",
   },
   {
     name: "AI Social Media Manager",
+    tagline: "Auto-posts, replies, and content scheduling.",
     setup: "£200–600 setup",
     monthly: "£50–150/month",
   },
   {
     name: "AI Admin Assistant",
+    tagline: "Back-office workflows, data entry and ops.",
     setup: "£500–1,500 setup",
     monthly: "£150–600/month",
   },
-  {
-    name: "AI Email Assistant",
-    setup: "£500–1,000 setup",
-    monthly: "£150–300/month",
-  },
+];
 
-  // the smaller “additional” services from the old table
+const secondaryServices = [
   {
     name: "AI Invoice & Admin Bot",
     setup: "£350–900 setup",
@@ -345,28 +343,51 @@ const AiPackage = () => {
               </AnimatedSection>
             </div>
 
-            {/* Additional AI Services */}
+            {/* Additional AI Automation Services */}
             <div className="mt-12 border-t border-border pt-10">
               <div className="text-center mb-6">
                 <h3 className="text-lg md:text-xl font-semibold">Additional AI Automation Services</h3>
                 <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-                  These are plug-in add-ons for invoicing, outreach, reporting, and operations — all running on the same
-                  AI engine.
+                  Plug-in add-ons for outreach, reporting and operations — all powered by the same AI engine.
                 </p>
               </div>
 
+              {/* 4 highlight mini-cards */}
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-4 mb-8">
+                {highlightedServices.map((service) => (
+                  <div
+                    key={service.name}
+                    className="rounded-xl border border-border bg-card/70 p-4 flex flex-col justify-between"
+                  >
+                    <div>
+                      <h4 className="text-sm font-semibold text-secondary mb-1">{service.name}</h4>
+                      <p className="text-xs text-muted-foreground mb-3">{service.tagline}</p>
+                    </div>
+                    <div className="mt-auto">
+                      <p className="text-xs text-muted-foreground">
+                        <span className="font-medium">{service.setup}</span>
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        <span className="font-medium">{service.monthly}</span>
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* low-noise list for the rest */}
               <div className="rounded-2xl border border-border bg-card/60 p-4 sm:p-6">
                 <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
-                  {extraServices.map((service) => (
+                  {secondaryServices.map((service) => (
                     <div
                       key={service.name}
                       className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between
-                     border-b border-border/60 last:border-b-0 py-3 first:pt-0 last:pb-0"
+                     border-b border-border/50 last:border-b-0 py-2 first:pt-0 last:pb-0"
                     >
-                      <p className="text-sm font-medium text-foreground">{service.name}</p>
-                      <p className="mt-1 sm:mt-0 text-xs sm:text-sm text-muted-foreground sm:text-right">
+                      <p className="text-xs sm:text-sm font-medium text-foreground">{service.name}</p>
+                      <p className="mt-1 sm:mt-0 text-[11px] sm:text-xs text-muted-foreground sm:text-right">
                         <span className="font-medium">{service.setup}</span>
-                        <span className="mx-1 text-border">|</span>
+                        <span className="mx-1 text-border/80">|</span>
                         <span>{service.monthly}</span>
                       </p>
                     </div>

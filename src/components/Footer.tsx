@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-br from-[#0F766E] via-[#0F766E]/95 to-[#134E4A] text-white">
+    <footer className="relative bg-[radial-gradient(circle_at_top,_hsl(221,83%,22%)_0,_hsl(222,47%,10%)_40%,_hsl(222,47%,5%)_100%)] text-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         
         {/* Ready When You Are CTA */}

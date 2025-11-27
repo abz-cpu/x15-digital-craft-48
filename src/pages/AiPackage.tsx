@@ -7,6 +7,7 @@ import { ArrowRight, MessageSquare, Mail, Phone, CheckCircle2 } from "lucide-rea
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { Badge } from "@/components/ui/badge";
 
 const AiPackage = () => {
   return (

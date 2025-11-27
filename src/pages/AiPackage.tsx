@@ -498,54 +498,55 @@ const AiPackage = () => {
           </Container>
         </section>
 
-        {/* CUSTOM AI SOLUTION - BLUE SECTION */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
+        {/* CUSTOM AI SOLUTION - LIGHT SECTION */}
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40">
           <Container>
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4"> Custom AI Solution </h2>
-                <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                  Need something specific? We build bespoke AI automation tailored to your exact business needs.
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-3">Custom AI Solution</h2>
+                <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Need something specific? We design bespoke AI systems around your exact workflow, tools, and goals.
                 </p>
               </div>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold text-white mb-4">Recent Custom Solutions:</h3>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-start gap-3 text-white/90">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-300 mt-0.5 flex-shrink-0" />
-                      <span>Healthcare appointment automation with patient intake & insurance verification</span>
+              <Card className="bg-background border border-border shadow-sm md:shadow-md rounded-2xl">
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="text-xl font-semibold text-secondary mb-4">Recent Custom Builds</h3>
+
+                  <ul className="space-y-3 mb-8 text-sm md:text-base">
+                    <li className="flex items-start gap-3 text-muted-foreground">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <span>Healthcare appointment automation with patient intake &amp; insurance verification</span>
                     </li>
-                    <li className="flex items-start gap-3 text-white/90">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-300 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-3 text-muted-foreground">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>E-commerce inventory management with supplier API integration</span>
                     </li>
-                    <li className="flex items-start gap-3 text-white/90">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-300 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-3 text-muted-foreground">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>Restaurant multi-location ordering system with delivery coordination</span>
                     </li>
-                    <li className="flex items-start gap-3 text-white/90">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-300 mt-0.5 flex-shrink-0" />
-                      <span>Property management applicant filtering & tenant communication</span>
+                    <li className="flex items-start gap-3 text-muted-foreground">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <span>Property management applicant filtering &amp; tenant communication</span>
                     </li>
-                    <li className="flex items-start gap-3 text-white/90">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-300 mt-0.5 flex-shrink-0" />
+                    <li className="flex items-start gap-3 text-muted-foreground">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <span>Legal firm document intake workflows with client portal integration</span>
                     </li>
                   </ul>
 
-                  <div className="bg-white/5 rounded-lg p-4 mb-6">
-                    <p className="text-white/80 text-sm mb-2">
-                      <span className="font-semibold text-white">Starting from £800 setup</span> | Monthly from £200+
+                  <div className="bg-muted/60 rounded-xl p-4 mb-6">
+                    <p className="text-sm text-foreground mb-1">
+                      <span className="font-semibold">Starting from £800 setup</span> · Monthly from £200+
                     </p>
-                    <p className="text-white/70 text-xs">
-                      Price depends on complexity, integrations, and volume. Most custom builds are live within 4-6
+                    <p className="text-xs text-muted-foreground">
+                      Final pricing depends on complexity, integrations, and volume. Most projects go live within 4–6
                       weeks.
                     </p>
                   </div>
 
-                  <Button asChild size="lg" className="w-full bg-white text-[#0F766E] hover:bg-white/90 shadow-xl">
+                  <Button asChild size="lg" className="w-full">
                     <Link to="/contact">
                       Request Custom AI Solution <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
@@ -560,98 +561,99 @@ const AiPackage = () => {
         <section className="py-16 md:py-20 bg-muted/50">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Common Questions About AI Automation</h2>
-                <p className="text-lg text-muted-foreground">Everything you need to know before getting started.</p>
+              <div className="text-center mb-10 md:mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Common Questions About AI Automation</h2>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  Clear answers so you know exactly what you’re getting.
+                </p>
               </div>
 
               <div className="space-y-4">
                 {/* FAQ Item 1 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       1
                     </span>
-                    What if customers don't like talking to AI?
+                    What if customers don&apos;t like talking to AI?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Our AI is trained to sound natural and helpful. Most customers can't tell the difference — and if
-                    they prefer a human, the AI can seamlessly transfer to you or take a message. You're always in
-                    control.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    Our AI is trained to sound natural and helpful. Most customers can&apos;t tell the difference — and
+                    if they prefer a human, the AI can transfer to you or take a message. You stay in control the whole
+                    time.
                   </p>
                 </div>
 
                 {/* FAQ Item 2 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       2
                     </span>
-                    Can I change the AI's responses later?
+                    Can I change the AI&apos;s responses later?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Absolutely. You can update responses, add new services, or modify the AI's behaviour anytime. We
-                    provide simple training tools, or we can make updates for you at no extra cost for the first 30
-                    days.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    Yes. You can update responses, add new services, or tweak behaviour anytime. We give you simple
+                    tools to do it yourself, and we include adjustments for free during the first 30 days.
                   </p>
                 </div>
 
                 {/* FAQ Item 3 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       3
                     </span>
                     What platforms do you use?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    We use industry-leading AI platforms (like OpenAI, Anthropic, and Google) combined with custom code
-                    to build solutions that work reliably. All data is encrypted and GDPR-compliant.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    We use industry-leading AI platforms (like OpenAI, Anthropic, and Google) combined with custom code.
+                    Everything is encrypted, GDPR-compliant, and built to be reliable for real businesses.
                   </p>
                 </div>
 
                 {/* FAQ Item 4 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       4
                     </span>
                     How much integration work is required?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Minimal. We handle all the technical work. For websites, we add a code snippet. For phone systems,
-                    we connect to your existing number. For email, we link to your inbox. Most setups are live within 48
-                    hours.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    Very little. We handle the technical side. For websites, we add a small code snippet. For phone
+                    systems, we connect to your existing number. For email, we plug into your inbox. Most setups are
+                    live within 48 hours.
                   </p>
                 </div>
 
                 {/* FAQ Item 5 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       5
                     </span>
                     Do you charge per conversation?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    No surprise fees. Our monthly pricing includes a set number of interactions (usually 500-1,000+). If
-                    you exceed that, we'll let you know and upgrade your plan — but most businesses stay well within
-                    limits.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    No surprise bills. Each plan includes a set number of interactions (usually 500–1,000+ per month).
+                    If you&apos;re consistently above that, we&apos;ll recommend a higher tier — but most businesses
+                    stay well within limits.
                   </p>
                 </div>
 
                 {/* FAQ Item 6 */}
-                <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       6
                     </span>
                     What if the AI makes a mistake?
                   </h3>
-                  <p className="text-muted-foreground pl-8 leading-relaxed">
-                    We build safety guardrails into every AI system. The AI is trained on your specific business, tested
-                    thoroughly before launch, and monitored continuously. If something goes wrong, you can pause the
-                    system instantly and we'll fix it within 24 hours.
+                  <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
+                    We build safety rules into every system, test with your real scenarios before launch, and monitor
+                    performance. If something isn&apos;t right, you can pause the AI instantly and we&apos;ll correct it
+                    within 24 hours.
                   </p>
                 </div>
               </div>
@@ -676,7 +678,8 @@ const AiPackage = () => {
 
               {/* Subhead */}
               <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                See how AI automation works live, or start with a free consultation to find the perfect solution.
+                Tell us how you work today and we&apos;ll show you exactly what AI can automate — with clear pricing and
+                no jargon.
               </p>
 
               {/* Buttons */}
@@ -687,7 +690,7 @@ const AiPackage = () => {
                   className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6"
                 >
                   <Link to="/contact">
-                    See All AI Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                    Start AI Project <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
 
@@ -704,7 +707,9 @@ const AiPackage = () => {
               </div>
 
               {/* Trust line */}
-              <p className="text-sm text-white/70">Free demo • No long-term contracts • Live in 48 hours</p>
+              <p className="text-sm text-white/70">
+                Free demo • No long-term contracts • Live in as little as 48 hours
+              </p>
             </div>
           </Container>
         </section>

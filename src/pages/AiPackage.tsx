@@ -13,7 +13,6 @@ import {
   Target,
   Inbox,
   TrendingUp,
-  Send,
   Share2,
   Briefcase,
 } from "lucide-react";
@@ -30,61 +29,69 @@ type HighlightedService = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   bullets: string[];
   cta: string;
+  trust: string;
 };
 
 const highlightedServices: HighlightedService[] = [
   {
     name: "AI Sales Assistant",
-    description: "Automated lead generation that books sales calls and follows up with warm leads automatically.",
+    description:
+      "Stop chasing cold leads. AI finds qualified prospects, books calls with decision-makers, and follows up automatically — so you only speak to people ready to buy.",
     setup: "£800–2,000 setup",
     monthly: "£200–800/month",
     icon: TrendingUp,
     bullets: [
-      "B2B services needing more booked calls",
-      "Agencies that want automated follow-ups",
-      "Sales teams that forget to chase every lead",
+      "B2B consultants spending 15+ hours/week on manual outreach",
+      "Agencies losing £10k+ deals because follow-ups fall through",
+      "Sales teams sitting on 100+ leads with no system to chase them",
     ],
     cta: "Get Sales Assistant Quote",
+    trust: "Free consultation • Built around your sales process",
   },
   {
     name: "AI Email Outreach",
     description:
-      "Cold email campaigns that run on autopilot — warming up prospects and booking replies while you sleep.",
+      "Generate 20+ qualified leads per month while you sleep. AI sends personalised outreach, warms up prospects, and books meetings automatically — no spam, no manual work.",
     setup: "£400–1,000 setup",
     monthly: "£100–400/month",
     icon: Mail,
     bullets: [
-      "Consultants and agencies doing outbound",
-      "Founders who hate writing outreach emails",
-      "Teams that need volume without spam vibes",
+      "Founders who hate writing cold emails but still need pipeline",
+      "Agencies wanting consistent outbound without hiring a SDR",
+      "Teams whose campaigns die after week one of follow-ups",
     ],
-    cta: "Plan Your Outreach",
+    cta: "See Outreach Plan",
+    trust: "Strategy + setup included • No long-term contract",
   },
   {
     name: "AI Social Media Manager",
-    description: "AI that auto-posts, responds to comments, and keeps your brand active without you babysitting it.",
+    description:
+      "Stay visible without the daily grind. AI creates, schedules, and posts engaging content across platforms — plus responds to comments — so your brand grows on autopilot.",
     setup: "£200–600 setup",
     monthly: "£50–150/month",
     icon: Share2,
     bullets: [
-      "Brands that need consistent posting",
-      "Solo founders managing too many platforms",
-      "Shops and gyms wanting daily visibility",
+      "Business owners posting once a month (if they remember)",
+      "Solo founders juggling 4+ socials manually",
+      "Local shops and gyms losing customers to competitors who post daily",
     ],
-    cta: "Optimise My Socials",
+    cta: "Get Social Quote",
+    trust: "Content calendar + setup • You approve before it goes live",
   },
   {
     name: "AI Admin Assistant",
-    description: "Back-office automation for data entry, order processing, and internal workflows that eat your time.",
+    description:
+      "Reclaim 20+ hours per week. AI handles invoicing, data entry, order processing, and routine admin automatically — so you can focus on growing the business, not paperwork.",
     setup: "£500–1,500 setup",
     monthly: "£150–600/month",
     icon: Briefcase,
     bullets: [
-      "Busy owners drowning in admin tasks",
-      "Ops teams manually updating spreadsheets",
-      "Businesses that want less copy-paste work",
+      "Owners spending evenings catching up on invoices and forms",
+      "Ops teams copying data between apps all day",
+      "Businesses delaying growth projects because admin eats the week",
     ],
-    cta: "Streamline My Admin",
+    cta: "See How It Works",
+    trust: "Process audit included • Usually live in under 14 days",
   },
 ];
 
@@ -93,43 +100,43 @@ const secondaryServices = [
     name: "LinkedIn Lead Prospecting",
     setup: "£500–900",
     monthly: "£75–200",
-    bestFor: "B2B outreach & sales teams",
+    bestFor: "B2B sales teams needing 50+ qualified leads/month",
   },
   {
     name: "AI Invoice & Admin Bot",
     setup: "£350–900",
     monthly: "£50–200",
-    bestFor: "Finance, ops, and back-office",
+    bestFor: "Growing businesses drowning in manual invoicing & billing",
   },
   {
     name: "AI Meeting Notes & Transcription",
     setup: "£300–700",
     monthly: "£75–200",
-    bestFor: "Teams with lots of calls",
+    bestFor: "Remote / hybrid teams with 10+ calls or meetings per week",
   },
   {
     name: "AI Data Insights & Reporting",
     setup: "£200–1,000",
     monthly: "£50–350",
-    bestFor: "Analytics & management",
+    bestFor: "Teams making decisions without real-time dashboards",
   },
   {
     name: "Workflow / RPA Automation",
     setup: "£1,000+",
     monthly: "£200+",
-    bestFor: "Scaling operations & enterprise",
+    bestFor: "Ops teams repeating the same tasks across tools every day",
   },
   {
     name: "AI Recruitment Screening",
     setup: "£200–800",
     monthly: "£50–250",
-    bestFor: "HR teams & growing companies",
+    bestFor: "HR teams screening 50+ applications per role",
   },
   {
     name: "AI Customer Feedback Analysis",
     setup: "£400–800",
     monthly: "£100–250",
-    bestFor: "Review / NPS heavy businesses",
+    bestFor: "Service businesses with 100+ reviews or surveys to analyse",
   },
 ];
 
@@ -383,9 +390,7 @@ const AiPackage = () => {
               </AnimatedSection>
             </div>
 
-            {/* =======================
-                ADDITIONAL AI SERVICES (4 CARDS)
-            ======================== */}
+            {/* ADDITIONAL AI SERVICES (4 CARDS) */}
             <div className="mb-12">
               <div className="text-center mb-8">
                 <h3 className="text-xl md:text-2xl font-semibold">Additional AI Services</h3>
@@ -440,6 +445,7 @@ const AiPackage = () => {
                                 {service.cta} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                               </Link>
                             </Button>
+                            <p className="text-[10px] text-muted-foreground text-center mt-1.5">{service.trust}</p>
                           </div>
                         </CardContent>
                       </Card>
@@ -449,9 +455,7 @@ const AiPackage = () => {
               </div>
             </div>
 
-            {/* =======================
-                SPECIALIZED AI SOLUTIONS TABLE
-            ======================== */}
+            {/* SPECIALIZED AI SOLUTIONS TABLE */}
             <div className="mt-4 border-t border-border pt-10">
               <div className="text-center mb-6">
                 <h3 className="text-lg md:text-xl font-semibold">Specialized AI Solutions</h3>

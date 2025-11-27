@@ -277,50 +277,53 @@ const Contact = () => {
             </Card>
 
             {/* Response Times */}
-<Card>
-  <CardHeader>
-    <Clock className="h-8 w-8 text-primary mb-2" />
-    <CardTitle>Response Times</CardTitle>
-  </CardHeader>
-  <CardContent className="space-y-3">
-    <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-        <Clock className="h-5 w-5 text-primary" />
-      </div>
-      <div>
-        <p className="font-semibold">Monday–Friday</p>
-        <p className="text-muted-foreground text-sm">Within 2–4 hours</p>
-      </div>
-    </div>
+            <Card>
+              <CardHeader>
+                <Clock className="h-8 w-8 text-primary mb-2" />
+                <CardTitle>Response Times</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Monday–Friday</p>
+                    <p className="text-muted-foreground text-sm">Within 2–4 hours</p>
+                  </div>
+                </div>
 
-    <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-        <Clock className="h-5 w-5 text-primary" />
-      </div>
-      <div>
-        <p className="font-semibold">Weekends</p>
-        <p className="text-muted-foreground text-sm">Within 24 hours</p>
-      </div>
-    </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Weekends</p>
+                    <p className="text-muted-foreground text-sm">Within 24 hours</p>
+                  </div>
+                </div>
 
-    <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-        <Clock className="h-5 w-5 text-primary" />
-      </div>
-      <div>
-        <p className="font-semibold">Bank Holidays</p>
-        <p className="text-muted-foreground text-sm">Within 48 hours</p>
-      </div>
-    </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Bank Holidays</p>
+                    <p className="text-muted-foreground text-sm">Within 48 hours</p>
+                  </div>
+                </div>
 
-    <div className="pt-3 border-t">
-      <p className="text-sm font-medium flex items-center gap-2">
-        <MessageCircle className="h-4 w-4 text-green-600" />
-        <span className="text-green-600">WhatsApp replies are near-instant (9am–6pm)</span>
-      </p>
-    </div>
-  </CardContent>
-</Card>
+                <div className="pt-3 border-t">
+                  <p className="text-sm font-medium flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-green-600">WhatsApp replies are near-instant (9am–6pm)</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* Final soft CTA */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t">

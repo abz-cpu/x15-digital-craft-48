@@ -143,19 +143,19 @@ const renderCell = (value: Cell, isPopular: boolean) => {
   if (typeof value === "boolean") {
     return value ? (
       <CheckCircle2
-        className={`h-4 w-4 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
+        className={`h-5 w-5 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
         aria-hidden="true"
       />
     ) : (
-      <span className="text-xs text-muted-foreground">—</span>
+      <span className="text-muted-foreground">—</span>
     );
   }
 
   if (value === "—") {
-    return <span className="text-xs text-muted-foreground">—</span>;
+    return <span className="text-muted-foreground">—</span>;
   }
 
-  return <span className="text-xs md:text-sm text-foreground font-medium">{value}</span>;
+  return <span className="text-sm text-foreground font-medium">{value}</span>;
 };
 
 export const WebPackagesComparisonTable = () => {
@@ -169,34 +169,36 @@ export const WebPackagesComparisonTable = () => {
           </p>
         </div>
 
-        {/* Desktop Table */}
-        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl max-w-6xl mx-auto">
-          <table className="min-w-full text-left border-collapse text-sm">
+        {/* DESKTOP TABLE */}
+        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+          {/* Badge Row - ABOVE TABLE */}
+          <div className="bg-muted/30 py-2 border-b border-border">
+            <div className="flex">
+              <div className="w-52 px-6" /> {/* Feature column spacer */}
+              <div className="flex-1" /> {/* Foundation spacer */}
+              <div className="flex-1 flex justify-center">
+                {/* Growth badge */}
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg uppercase tracking-wide">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Most Popular
+                </span>
+              </div>
+              <div className="flex-1" /> {/* Scale spacer */}
+              <div className="flex-1" /> {/* Enterprise spacer */}
+            </div>
+          </div>
+
+          {/* Clean Header - NO BADGE INSIDE TH */}
+          <table className="min-w-full text-left border-collapse">
             <thead>
               <tr className="bg-gradient-to-br from-[#0F766E] to-[#0D6660]">
-                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider align-bottom">
-                  Feature
-                </th>
+                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-52">Feature</th>
                 {tiers.map((tier) => (
-                  <th
-                    key={tier.key}
-                    className={`py-5 px-4 text-center align-bottom ${tier.popular ? "bg-white/10" : ""}`}
-                  >
-                    <div className="flex flex-col items-center gap-2 pb-1">
-                      {/* Badge - Only for popular tier */}
-                      {tier.popular && (
-                        <div className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-2.5 py-1 text-[10px] font-bold text-white shadow-lg uppercase tracking-wide">
-                          <Sparkles className="h-3 w-3" />
-                          Most Popular
-                        </div>
-                      )}
-
-                      {/* Tier name */}
+                  <th key={tier.key} className={`py-5 px-4 text-center ${tier.popular ? "bg-white/10" : ""}`}>
+                    <div className="flex flex-col items-center gap-1.5">
                       <span className="text-[11px] uppercase tracking-[0.15em] text-white/70 font-semibold">
                         {tier.label}
                       </span>
-
-                      {/* Price */}
                       <span className="text-2xl font-bold text-white">{tier.price}</span>
                     </div>
                   </th>
@@ -210,18 +212,18 @@ export const WebPackagesComparisonTable = () => {
                   key={row.feature}
                   className={`transition-colors hover:bg-muted/50 ${idx % 2 === 0 ? "bg-card" : "bg-muted/20"}`}
                 >
-                  <td className="py-3 px-6 font-medium text-foreground text-xs md:text-sm">{row.feature}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.foundation, false)}</td>
-                  <td className="py-3 px-4 text-center bg-[#0F766E]/5">{renderCell(row.growth, true)}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.scale, false)}</td>
-                  <td className="py-3 px-4 text-center">{renderCell(row.enterprise, false)}</td>
+                  <td className="py-4 px-6 font-medium text-foreground">{row.feature}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.foundation, false)}</td>
+                  <td className="py-4 px-4 text-center bg-[#0F766E]/5">{renderCell(row.growth, true)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.scale, false)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.enterprise, false)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* Mobile Cards */}
+        {/* MOBILE STACKED CARDS */}
         <div className="lg:hidden space-y-6">
           {tiers.map((tier) => (
             <div

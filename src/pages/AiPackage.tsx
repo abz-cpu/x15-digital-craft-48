@@ -150,7 +150,7 @@ const AiPackage = () => {
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
-                        <Mail className="h-8 w-8 text-primary" />
+                        <Inbox className="h-8 w-8 text-primary" />
                       </div>
                     </div>
 

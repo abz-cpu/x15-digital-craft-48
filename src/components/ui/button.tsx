@@ -21,18 +21,21 @@ const buttonVariants = cva(
         // MAIN TEAL CTA
         default: [
           "relative overflow-hidden",
-          "bg-[#0F766E]",
+          // 🟢 TEAL GRADIENT
+          "bg-[linear-gradient(135deg,_hsl(170,83%,45%)_0%,_hsl(170,83%,35%)_40%,_hsl(170,83%,25%)_100%)]",
           "text-primary-foreground",
-          "shadow-[0_2px_8px_rgba(15,118,110,0.2)]",
-          "hover:bg-[#F59E0B]",
+          // 🟢 TEAL SHADOW — rgba(15,118,110) = TEAL (#0F766E)
+          "shadow-[0_18px_40px_rgba(15,118,110,0.35)]",
+          // 🟢 TEAL HOVER SHADOW
+          "hover:shadow-[0_22px_55px_rgba(15,118,110,0.5)]",
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        // OUTLINE BUTTONS → teal hover
+        // OUTLINE BUTTONS → old green hover using your `success` color
         outline: [
-          "border-2 border-white bg-transparent text-white",
-          "hover:bg-[#F59E0B] hover:text-white hover:border-[#F59E0B]",
-          "hover:shadow-[0_2px_8px_rgba(245,158,11,0.3)]",
+          "border border-border/80 bg-transparent text-secondary",
+          "hover:bg-accent hover:text-accent-foreground hover:border-accent",
+          "hover:shadow-[0_18px_40px_rgba(245,158,11,0.45)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

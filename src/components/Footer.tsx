@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[radial-gradient(circle_at_top,_hsl(170,83%,22%)_0,_hsl(170,47%,10%)_40%,_hsl(170,47%,5%)_100%)] text-white">
+    <footer className="relative bg-slate-900 text-white border-t border-white/5">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Ready When You Are CTA */}
         <div className="mb-8 md:mb-12">

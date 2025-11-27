@@ -792,7 +792,7 @@ const Index = () => {
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
             <p className="text-foreground font-medium mb-3">
               <a
-                href="https://x15pcbuilders.com/"
+                href="https://x15pcbuilders.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"

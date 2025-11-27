@@ -251,7 +251,7 @@ const Contact = () => {
                 <MapPin className="h-8 w-8 text-primary mb-2" />
                 <CardTitle>Location</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-3">
                 <p className="font-semibold">Based in Stratford, London (E15 3JZ)</p>
                 <p className="text-muted-foreground">
                   Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.

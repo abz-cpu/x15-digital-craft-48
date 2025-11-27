@@ -1,35 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, DollarSign, Package, X } from "lucide-react";
+import { MessageCircle, Package, X, FileText, Sparkles } from "lucide-react";
 
 const FloatingActionMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // Close when clicking outside
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   const actions = [
     {
+      icon: FileText,
+      label: "Get Free Quote",
+      href: "/contact",
+      external: false,
+      primary: true,
+    },
+    {
       icon: MessageCircle,
-      label: "WhatsApp",
+      label: "WhatsApp Chat",
       href: "https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services",
       external: true,
     },
     {
-      icon: DollarSign,
-      label: "Pricing",
-      href: "/services",
-      external: false,
-    },
-    {
       icon: Package,
-      label: "Packages",
-      href: "/services#web-preview",
+      label: "View Packages",
+      href: "/web-package",
       external: false,
     },
-  ];
+  ] as const;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[1000]">
+    <div ref={menuRef} className="fixed bottom-6 right-6 z-[1000]">
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${
@@ -38,10 +54,16 @@ const FloatingActionMenu = () => {
       >
         {actions.map((action) => {
           const Icon = action.icon;
+          const baseClasses =
+            "flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 border text-sm font-medium";
+          const colorClasses = action.primary
+            ? "bg-[#0F766E] text-white border-[#0F766E] hover:bg-[#F59E0B]"
+            : "bg-background text-foreground border-border";
+
           const content = (
             <>
               <Icon className="h-5 w-5" />
-              <span className="text-sm font-medium">{action.label}</span>
+              <span>{action.label}</span>
             </>
           );
 
@@ -51,7 +73,7 @@ const FloatingActionMenu = () => {
               href={action.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-background text-foreground px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border"
+              className={`${baseClasses} ${colorClasses}`}
               onClick={() => setIsOpen(false)}
             >
               {content}
@@ -60,7 +82,7 @@ const FloatingActionMenu = () => {
             <Link
               key={action.label}
               to={action.href}
-              className="flex items-center gap-2 bg-background text-foreground px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border"
+              className={`${baseClasses} ${colorClasses}`}
               onClick={() => setIsOpen(false)}
             >
               {content}
@@ -77,10 +99,10 @@ const FloatingActionMenu = () => {
              hover:bg-[#F59E0B] hover:scale-110
              transition-transform duration-200
              focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-        aria-label={isOpen ? "Close menu" : "Open quick actions menu"}
+        aria-label={isOpen ? "Close quick actions menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
       >
-        {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Package className="h-6 w-6 md:h-7 md:w-7" />}
+        {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Sparkles className="h-6 w-6 md:h-7 md:w-7" />}
       </button>
     </div>
   );

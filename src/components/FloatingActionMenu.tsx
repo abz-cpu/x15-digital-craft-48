@@ -35,12 +35,14 @@ const FloatingActionMenu = () => {
       label: "WhatsApp Chat",
       href: "https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services",
       external: true,
+      primary: false, // ← ADD THIS
     },
     {
       icon: Package,
       label: "View Packages",
       href: "/web-package",
       external: false,
+      primary: false, // ← ADD THIS
     },
   ] as const;
 

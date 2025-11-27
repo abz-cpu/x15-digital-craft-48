@@ -4,14 +4,20 @@ import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
+
 const WebPackage = () => {
-  return <div className="min-h-screen flex flex-col">
-      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No monthly fees or surprises." canonicalUrl="https://x15.digital/web-package" />
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Web Development Packages | X15 Digital"
+        description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No monthly fees or surprises."
+        canonicalUrl="https://x15.digital/web-package"
+      />
       <Navigation />
 
       <main className="flex-1">
@@ -93,12 +99,14 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card className="
+                <Card
+                  className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  ">
+                  "
+                >
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -210,10 +218,95 @@ const WebPackage = () => {
                 </Card>
               </AnimatedSection>
             </div>
-            <WebPackagesComparisonTable />
 
-            {/* Advanced Solutions */}
-            <div className="max-w-4xl mx-auto mt-12 my-0">
+            {/* Comparison Table */}
+            <WebPackagesComparisonTable />
+          </Container>
+        </section>
+
+        {/* LEVEL UP: ADD AI AUTOMATION */}
+        <section className="py-16 md:py-20 bg-[#FFFBEB] border-y border-[#FEF3C7]">
+          <Container>
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Level Up: Add AI Automation</h2>
+              <p className="text-lg text-muted-foreground">
+                Your website closes deals. Our AI handles everything else.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+              {/* AI Chatbot */}
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+                    <MessageSquare className="h-8 w-8 text-[#0F766E]" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">AI Website Chatbot</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Answers questions 24/7 and captures leads while you sleep.
+                  </p>
+                  <p className="text-xl font-bold text-[#0F766E] mb-4">From £50/month</p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to="/ai-package">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* AI Receptionist */}
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+                    <Phone className="h-8 w-8 text-[#0F766E]" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">AI Phone Receptionist</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Never miss a call again — bookings and enquiries handled for you.
+                  </p>
+                  <p className="text-xl font-bold text-[#0F766E] mb-4">From £100/month</p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to="/ai-package">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Custom Automation */}
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+                    <Briefcase className="h-8 w-8 text-[#0F766E]" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Custom AI Solution</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Built around your workflows — from inbox to operations.
+                  </p>
+                  <p className="text-xl font-bold text-[#0F766E] mb-4">Custom pricing</p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to="/ai-package">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button asChild size="lg" variant="outline">
+                <Link to="/ai-package">
+                  See All AI Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </Container>
+        </section>
+
+        {/* ADVANCED SOLUTIONS */}
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            <div className="max-w-4xl mx-auto">
               <h3 className="text-xl md:text-2xl font-bold text-secondary text-center mb-2">
                 Need Something More Advanced?
               </h3>
@@ -268,9 +361,206 @@ const WebPackage = () => {
             </div>
           </Container>
         </section>
+
+        {/* PORTFOLIO SHOWCASE */}
+        <section className="py-16 md:py-20 bg-background">
+          <Container>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">What We&apos;ve Built</h2>
+              <p className="text-lg text-muted-foreground">Real websites for real UK businesses.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
+              {/* Portfolio Item 1 - X15 PC Builders */}
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="aspect-[4/3] bg-slate-100">
+                  <img
+                    src="/images/portfolio/x15-pc-builders.jpg"
+                    alt="X15 PC Builders Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
+                    Scale Package • PC Building
+                  </p>
+                  <h3 className="text-xl font-bold text-white mb-2">X15 PC Builders</h3>
+                  <p className="text-sm text-white/80">
+                    Custom PC building site with services, FAQs, and lead capture.
+                  </p>
+                </div>
+              </Link>
+
+              {/* Portfolio Item 2 */}
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="aspect-[4/3] bg-slate-100">
+                  <img
+                    src="/images/portfolio/sample-salon.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
+                    Growth Package • Professional Services
+                  </p>
+                  <h3 className="text-xl font-bold text-white mb-2">Elite Salon</h3>
+                  <p className="text-sm text-white/80">Booking-focused website for a London salon.</p>
+                </div>
+              </Link>
+
+              {/* Portfolio Item 3 */}
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="aspect-[4/3] bg-slate-100">
+                  <img
+                    src="/images/portfolio/sample-trades.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
+                    Foundation Package • Local Business
+                  </p>
+                  <h3 className="text-xl font-bold text-white mb-2">Local Plumber</h3>
+                  <p className="text-sm text-white/80">Single-page lead-generation site with clear call-to-actions.</p>
+                </div>
+              </Link>
+            </div>
+
+            <div className="text-center">
+              <Button asChild size="lg">
+                <Link to="/portfolio">
+                  View Full Portfolio <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </Container>
+        </section>
+
+        {/* WEBSITE-SPECIFIC FAQ */}
+        <section className="py-16 md:py-20 bg-muted">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Common Questions About Web Packages</h2>
+
+              <div className="space-y-6">
+                {/* FAQ Item 1 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">Can I modify my website later?</h3>
+                  <p className="text-muted-foreground">
+                    Absolutely. You own everything—code, content, and design. Make changes yourself or hire us for
+                    updates. We offer maintenance packages starting at £50/month for ongoing support and updates.
+                  </p>
+                </div>
+
+                {/* FAQ Item 2 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">Do you provide hosting?</h3>
+                  <p className="text-muted-foreground">
+                    Yes. We can handle hosting for you (from £10/month) or you can host it yourself. We&apos;ll give you
+                    all the files and help you set it up wherever you want—no lock-in, no hidden fees.
+                  </p>
+                </div>
+
+                {/* FAQ Item 3 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">What if I already have a domain?</h3>
+                  <p className="text-muted-foreground">
+                    Perfect—we&apos;ll use it. Just give us access and we&apos;ll connect your new website to your
+                    existing domain. Don&apos;t have one yet? We&apos;ll help you register one for about £10/year.
+                  </p>
+                </div>
+
+                {/* FAQ Item 4 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">How does the process work?</h3>
+                  <p className="text-muted-foreground">
+                    1) You choose a package and pay the deposit (50%). 2) We send a questionnaire about your business.
+                    3) We build your site and send previews. 4) You request changes (included in your package). 5) We
+                    launch your site. Simple.
+                  </p>
+                </div>
+
+                {/* FAQ Item 5 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">Can you add features later?</h3>
+                  <p className="text-muted-foreground">
+                    Yes. Need booking, payments, or integrations added later? We can do it. Most additions are £200–800
+                    depending on complexity. You&apos;re never locked into your original package.
+                  </p>
+                </div>
+
+                {/* FAQ Item 6 */}
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="text-lg font-semibold mb-2">What platforms do you build on?</h3>
+                  <p className="text-muted-foreground">
+                    We use modern web technologies (React, Next.js) and no-code tools (Webflow, Framer) depending on
+                    your needs. You&apos;ll get a fast, mobile-friendly website that works on all devices. No WordPress
+                    bloat.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 text-center">
+                <p className="text-muted-foreground mb-4">More questions?</p>
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/contact">
+                    Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="py-16 md:py-20 bg-gradient-to-br from-[#0F766E] to-[#0D6660]">
+          <Container>
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Your Website Live?</h2>
+              <p className="text-lg text-white/90 mb-8">
+                Choose your package, book a call, or get a custom quote—we&apos;re here to help.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white text-[#0F766E] hover:bg-white/90 shadow-xl text-base">
+                  <Link to="/contact">
+                    Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base"
+                >
+                  <Link to="/contact">
+                    Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+
+              <p className="text-sm text-white/70 mt-6">Free quote in 4 hours • Zero pressure • You own everything</p>
+            </div>
+          </Container>
+        </section>
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default WebPackage;

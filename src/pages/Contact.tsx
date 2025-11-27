@@ -257,18 +257,19 @@ const Contact = () => {
     </p>
 
     {/* Google Map */}
-    <div className="mt-4 rounded-lg overflow-hidden h-[220px] border border-border/60">
-      <iframe
-        src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
-        allowFullScreen
-      />
-    </div>
+<div className="mt-4 rounded-lg overflow-hidden h-[220px] border border-border/60">
+  <iframe
+    src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+    allowFullScreen
+  ></iframe>
+</div>
+
   </CardContent>
 </Card>
 

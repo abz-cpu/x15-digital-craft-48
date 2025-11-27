@@ -65,7 +65,7 @@ const WebPackage = () => {
                   </CardHeader>
 
                   <CardContent className="pb-6">
-                    <p className="text-sm font-semibold text-secondary mb-1">Launch Fast, Look Legit</p>
+                    <p className="text-sm font-semibold text-secondary mb-1">Start Attracting Customers</p>
                     <p className="text-sm text-muted-foreground mb-5">
                       Launch a professional online presence quickly and start attracting customers immediately.
                     </p>
@@ -227,7 +227,7 @@ const WebPackage = () => {
         </section>
 
         {/* 3. ADVANCED SOLUTIONS */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background md:py-0">
+        <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-bold text-center mb-3">Need Something More Advanced?</h3>

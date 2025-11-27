@@ -9,15 +9,9 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
-
 const WebPackage = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SEO
-        title="Web Development Packages | X15 Digital"
-        description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No monthly fees or surprises."
-        canonicalUrl="https://x15.digital/web-package"
-      />
+  return <div className="min-h-screen flex flex-col">
+      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No monthly fees or surprises." canonicalUrl="https://x15.digital/web-package" />
       <Navigation />
 
       <main className="flex-1">
@@ -99,14 +93,12 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card
-                  className="
+                <Card className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  "
-                >
+                  ">
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -221,7 +213,7 @@ const WebPackage = () => {
             <WebPackagesComparisonTable />
 
             {/* Advanced Solutions */}
-            <div className="max-w-4xl mx-auto mt-12">
+            <div className="max-w-4xl mx-auto mt-12 my-0">
               <h3 className="text-xl md:text-2xl font-bold text-secondary text-center mb-2">
                 Need Something More Advanced?
               </h3>
@@ -279,8 +271,6 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default WebPackage;

@@ -1,13 +1,13 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { Container } from "@/components/Container";
 
 type Cell = string | boolean;
 
 const tiers = [
-  { key: "foundation", label: "FOUNDATION", price: "£200" },
-  { key: "growth", label: "GROWTH", price: "£600" },
-  { key: "scale", label: "SCALE", price: "£1,400" },
-  { key: "enterprise", label: "ENTERPRISE", price: "£2,400+" },
+  { key: "foundation", label: "FOUNDATION", price: "£200", popular: false },
+  { key: "growth", label: "GROWTH", price: "£600", popular: true },
+  { key: "scale", label: "SCALE", price: "£1,400", popular: false },
+  { key: "enterprise", label: "ENTERPRISE", price: "£2,400+", popular: false },
 ] as const;
 
 const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; enterprise: Cell }[] = [
@@ -64,7 +64,7 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     feature: "Payment integration",
     foundation: "—",
     growth: "—",
-    scale: "—",
+    scale: true,
     enterprise: "✓ (multi-gateway)",
   },
   {
@@ -139,76 +139,129 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
   },
 ];
 
-const renderCell = (value: Cell) => {
+const renderCell = (value: Cell, isPopular: boolean) => {
   if (typeof value === "boolean") {
     return value ? (
-      <CheckCircle2 className="h-4 w-4 text-emerald-500 mx-auto" aria-hidden="true" />
+      <CheckCircle2
+        className={`h-5 w-5 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
+        aria-hidden="true"
+      />
     ) : (
-      <span className="text-slate-500">—</span>
+      <span className="text-muted-foreground">—</span>
     );
   }
 
   if (value === "—") {
-    return <span className="text-slate-400">—</span>;
+    return <span className="text-muted-foreground">—</span>;
   }
 
-  return <span className="text-xs md:text-sm text-slate-100">{value}</span>;
+  return <span className="text-sm text-foreground font-medium">{value}</span>;
 };
 
 export const WebPackagesComparisonTable = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-slate-950">
+    <section className="py-16 md:py-20 lg:py-24 bg-background">
       <Container>
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Detailed Package Comparison</h2>
-          <p className="text-sm md:text-base text-slate-400">
-            See exactly what&apos;s included at each level so you can choose the right tier with confidence.
+        <div className="mb-12 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Detailed Package Comparison</h2>
+          <p className="text-lg text-muted-foreground">
+            See exactly what's included at each level so you can choose the right tier with confidence.
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/80 shadow-xl shadow-black/40">
-          <table className="min-w-full text-left text-xs md:text-sm border-collapse">
+        {/* Desktop Table */}
+        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+          <table className="min-w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-slate-800 bg-slate-900/90">
-                <th className="py-4 pl-4 pr-3 md:pl-6 text-slate-300 font-semibold sticky left-0 bg-slate-900/90">
-                  Feature
-                </th>
+              <tr className="bg-[#0F766E]">
+                <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider">Feature</th>
                 {tiers.map((tier) => (
-                  <th
-                    key={tier.key}
-                    className="py-4 px-3 text-slate-100 font-semibold text-center whitespace-nowrap"
-                  >
-                    <div className="flex flex-col items-center gap-0.5">
-                      <span className="text-[11px] uppercase tracking-[0.12em] text-slate-400">
-                        {tier.label}
-                      </span>
-                      <span className="text-sm md:text-base font-bold">{tier.price}</span>
+                  <th key={tier.key} className={`py-5 px-4 text-center relative ${tier.popular ? "bg-[#0D6660]" : ""}`}>
+                    {tier.popular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-white shadow-lg">
+                          <Sparkles className="h-3 w-3" />
+                          MOST POPULAR
+                        </span>
+                      </div>
+                    )}
+                    <div className="flex flex-col items-center gap-1 mt-2">
+                      <span className="text-xs uppercase tracking-widest text-white/70 font-medium">{tier.label}</span>
+                      <span className="text-xl font-bold text-white">{tier.price}</span>
                     </div>
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-border">
               {rows.map((row, idx) => (
                 <tr
                   key={row.feature}
-                  className={idx % 2 === 0 ? "bg-slate-900/80" : "bg-slate-900/60 border-y border-slate-800/60"}
+                  className={`transition-colors hover:bg-muted/50 ${idx % 2 === 0 ? "bg-card" : "bg-muted/20"}`}
                 >
-                  <td className="py-3 pl-4 pr-3 md:pl-6 align-top text-slate-200 text-xs md:text-sm sticky left-0 bg-inherit">
-                    {row.feature}
-                  </td>
-                  <td className="py-3 px-3 text-center align-top">{renderCell(row.foundation)}</td>
-                  <td className="py-3 px-3 text-center align-top">{renderCell(row.growth)}</td>
-                  <td className="py-3 px-3 text-center align-top">{renderCell(row.scale)}</td>
-                  <td className="py-3 px-3 text-center align-top">{renderCell(row.enterprise)}</td>
+                  <td className="py-4 px-6 font-medium text-foreground">{row.feature}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.foundation, false)}</td>
+                  <td className="py-4 px-4 text-center bg-[#0F766E]/5">{renderCell(row.growth, true)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.scale, false)}</td>
+                  <td className="py-4 px-4 text-center">{renderCell(row.enterprise, false)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <p className="mt-4 text-[11px] md:text-xs text-slate-500 text-center">
-          All prices are guide ranges – final quote depends on features, content, and integrations required.
+        {/* Mobile Cards */}
+        <div className="lg:hidden space-y-6">
+          {tiers.map((tier) => (
+            <div
+              key={tier.key}
+              className={`rounded-xl border-2 overflow-hidden ${
+                tier.popular ? "border-[#F59E0B] shadow-lg shadow-[#F59E0B]/20" : "border-border"
+              }`}
+            >
+              {/* Header */}
+              <div className={`p-4 ${tier.popular ? "bg-[#0F766E]" : "bg-muted"} relative`}>
+                {tier.popular && (
+                  <div className="absolute -top-3 right-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-bold text-white shadow-lg">
+                      <Sparkles className="h-3 w-3" />
+                      MOST POPULAR
+                    </span>
+                  </div>
+                )}
+                <div className="text-center mt-2">
+                  <p
+                    className={`text-xs uppercase tracking-widest mb-1 ${
+                      tier.popular ? "text-white/70" : "text-muted-foreground"
+                    }`}
+                  >
+                    {tier.label}
+                  </p>
+                  <p className={`text-2xl font-bold ${tier.popular ? "text-white" : "text-foreground"}`}>
+                    {tier.price}
+                  </p>
+                </div>
+              </div>
+
+              {/* Features */}
+              <div className="p-4 space-y-3 bg-card">
+                {rows.map((row) => {
+                  const value = row[tier.key];
+                  return (
+                    <div key={row.feature} className="flex items-start justify-between gap-3 text-sm">
+                      <span className="text-muted-foreground flex-1">{row.feature}</span>
+                      <span className="font-medium flex-shrink-0">{renderCell(value, tier.popular)}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-sm text-muted-foreground text-center max-w-2xl mx-auto">
+          All prices shown are starting points. Your final quote depends on specific features, content requirements, and
+          integrations needed.
         </p>
       </Container>
     </section>

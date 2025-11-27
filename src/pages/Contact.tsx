@@ -276,48 +276,53 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Response Times */}
+            {/* Response Times & Process */}
             <Card>
               <CardHeader>
                 <Clock className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Response Times</CardTitle>
+                <CardTitle>Response Times & Process</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-                    <Clock className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Monday–Friday</p>
-                    <p className="text-muted-foreground text-sm">Within 2–4 hours</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-                    <Clock className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Weekends</p>
-                    <p className="text-muted-foreground text-sm">Within 24 hours</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-                    <Clock className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Bank Holidays</p>
-                    <p className="text-muted-foreground text-sm">Within 48 hours</p>
-                  </div>
+              <CardContent className="space-y-4">
+                <div className="space-y-1.5">
+                  <p className="text-sm">
+                    <strong>Monday–Friday:</strong> <span className="text-muted-foreground">Within 2–4 hours</span>
+                  </p>
+                  <p className="text-sm">
+                    <strong>Weekends:</strong> <span className="text-muted-foreground">Within 24 hours</span>
+                  </p>
+                  <p className="text-sm">
+                    <strong>Bank Holidays:</strong> <span className="text-muted-foreground">Within 48 hours</span>
+                  </p>
+                  <p className="text-sm pt-2 border-t flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-green-600 font-medium">
+                      WhatsApp: Instant during business hours (9am–6pm GMT)
+                    </span>
+                  </p>
                 </div>
 
                 <div className="pt-3 border-t">
-                  <p className="text-sm font-medium flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-green-600" />
-                    <span className="text-green-600">WhatsApp replies are near-instant (9am–6pm)</span>
-                  </p>
+                  <p className="font-semibold text-sm mb-3">What happens after you contact us:</p>
+                  <div className="space-y-2.5">
+                    <div className="flex gap-2.5">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                        1
+                      </span>
+                      <p className="text-sm text-muted-foreground">We review your requirements</p>
+                    </div>
+                    <div className="flex gap-2.5">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                        2
+                      </span>
+                      <p className="text-sm text-muted-foreground">You get a detailed quote + timeline</p>
+                    </div>
+                    <div className="flex gap-2.5">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
+                        3
+                      </span>
+                      <p className="text-sm text-muted-foreground">Quick call to clarify (optional)</p>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>

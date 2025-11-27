@@ -121,7 +121,7 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     foundation: "—",
     growth: "5–7 days (+£150)",
     scale: "10–14 days (+£300)",
-    enterprise: "Quote individually (+£500)",
+    enterprise: "Quote individually (~£500)",
   },
   {
     feature: "Revisions included",

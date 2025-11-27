@@ -12,19 +12,16 @@ const CtaCard: React.FC = () => {
             Ready to Grow Your Business?
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Get professional websites and AI automation that actually deliver results. 
+            Get professional websites and AI automation that actually deliver results.
             <span className="block mt-2 font-medium text-[#0F766E]">Free quote in 4 hours • You own everything</span>
           </p>
         </div>
 
         {/* Main Card */}
         <div className="mx-auto max-w-2xl rounded-2xl bg-white border border-slate-200 shadow-lg overflow-hidden">
-          
           {/* Service Selection */}
           <div className="px-6 sm:px-8 py-6 bg-gradient-to-br from-slate-50 to-white border-b border-slate-100">
-            <p className="text-sm font-semibold text-slate-700 mb-4 text-center">
-              What do you need help with?
-            </p>
+            <p className="text-sm font-semibold text-slate-700 mb-4 text-center">What do you need help with?</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/services/websites"
@@ -70,9 +67,7 @@ const CtaCard: React.FC = () => {
             >
               Get Your Free Quote →
             </Link>
-            <p className="text-xs text-slate-500 text-center mt-3">
-              No obligation • Average response time: 3 hours
-            </p>
+            <p className="text-xs text-slate-500 text-center mt-3">No obligation • Average response time: 3 hours</p>
           </div>
 
           {/* Divider */}
@@ -88,7 +83,7 @@ const CtaCard: React.FC = () => {
           <div className="px-6 sm:px-8 py-6 bg-gradient-to-br from-slate-50 to-white">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <a
-                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I'd%20like%20a%20quote"
+                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20a%20quote"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -129,7 +124,7 @@ const CtaCard: React.FC = () => {
               >
                 <Phone className="h-6 w-6" />
                 <span className="text-sm">Book Call</span>
-              </a>
+              </Link>
             </div>
           </div>
 

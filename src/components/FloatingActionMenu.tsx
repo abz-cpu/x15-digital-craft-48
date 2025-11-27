@@ -29,10 +29,7 @@ const FloatingActionMenu = () => {
   ];
 
   return (
-    <div
-      className="fixed z-[60] bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-5 md:right-8 lg:right-10"
-      style={{ left: "auto" }} // hard kill any inherited left:*
-    >
+    <div className="fixed z-[60] bottom-[max(5.5rem,env(safe-area-inset-bottom))] right-6" style={{ left: "auto" }}>
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${

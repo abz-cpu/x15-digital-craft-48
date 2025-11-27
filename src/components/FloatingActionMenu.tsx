@@ -29,7 +29,7 @@ const FloatingActionMenu = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-[1000] group">
+    <div className="fixed bottom-6 right-6 z-[1000]">
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${
@@ -72,7 +72,11 @@ const FloatingActionMenu = () => {
       {/* Main FAB button */}
       <button
         onClick={toggleMenu}
-        className="bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        className="bg-[#0F766E] text-white p-4 rounded-full 
+             shadow-[0_4px_12px_rgba(15,118,110,0.3)]
+             hover:bg-[#F59E0B] hover:scale-110
+             transition-transform duration-200
+             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
         aria-label={isOpen ? "Close menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
       >

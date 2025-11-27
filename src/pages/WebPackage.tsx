@@ -10,8 +10,13 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 const WebPackage = () => {
-  return <div className="min-h-screen flex flex-col">
-      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers." canonicalUrl="https://x15.digital/web-package" />
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Web Development Packages | X15 Digital"
+        description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers."
+        canonicalUrl="https://x15.digital/web-package"
+      />
       <Navigation />
 
       <main className="flex-1">
@@ -96,12 +101,14 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card className="
+                <Card
+                  className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  ">
+                  "
+                >
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -274,7 +281,10 @@ const WebPackage = () => {
                     <p className="text-3xl font-bold text-secondary">From £3,500</p>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">Bespoke platforms, SaaS tools, internal systems, and advanced integrations built to match your exact workflows.</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Bespoke platforms, SaaS tools, internal systems, and advanced integrations built to match your
+                      exact workflows.
+                    </p>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
@@ -306,7 +316,7 @@ const WebPackage = () => {
         <section className="py-16 md:py-20 bg-background">
           <Container>
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">What We&apos;ve Built</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">Trusted by Growing UK Businesses</h2>
               <p className="text-lg text-muted-foreground">
                 From local trades to tech startups—websites that attract customers and drive growth
               </p>
@@ -314,9 +324,16 @@ const WebPackage = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               {/* Portfolio Item 1 - X15 PC Builders */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/x15-pc-builders.jpg" alt="X15 PC Builders Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/x15-pc-builders.jpg"
+                    alt="X15 PC Builders Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -331,9 +348,16 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 2 */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/sample-salon.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/sample-salon.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -345,9 +369,16 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 3 */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/sample-trades.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/sample-trades.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -587,13 +618,22 @@ const WebPackage = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button asChild size="lg" className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6"
+                >
                   <Link to="/quick-start">
                     Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
 
-                <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base font-semibold px-8 py-6">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base font-semibold px-8 py-6"
+                >
                   <Link to="/contact">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -608,6 +648,7 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
 export default WebPackage;

@@ -76,7 +76,6 @@ const extraServices = [
   },
 ];
 
-
 const AiPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -347,49 +346,40 @@ const AiPackage = () => {
             </div>
 
             {/* Additional AI Services */}
-<div className="mt-12 border-t border-border pt-10">
-  <div className="text-center mb-6">
-    <h3 className="text-lg md:text-xl font-semibold">
-      Additional AI Automation Services
-    </h3>
-    <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-      These are plug-in add-ons for invoicing, outreach, reporting, and operations —
-      all running on the same AI engine.
-    </p>
-  </div>
+            <div className="mt-12 border-t border-border pt-10">
+              <div className="text-center mb-6">
+                <h3 className="text-lg md:text-xl font-semibold">Additional AI Automation Services</h3>
+                <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+                  These are plug-in add-ons for invoicing, outreach, reporting, and operations — all running on the same
+                  AI engine.
+                </p>
+              </div>
 
-  <div className="rounded-2xl border border-border bg-card/60 p-4 sm:p-6">
-    <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
-      {extraServices.map((service) => (
-        <div
-          key={service.name}
-          className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between
+              <div className="rounded-2xl border border-border bg-card/60 p-4 sm:p-6">
+                <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+                  {extraServices.map((service) => (
+                    <div
+                      key={service.name}
+                      className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between
                      border-b border-border/60 last:border-b-0 py-3 first:pt-0 last:pb-0"
-        >
-          <p className="text-sm font-medium text-foreground">
-            {service.name}
-          </p>
-          <p className="mt-1 sm:mt-0 text-xs sm:text-sm text-muted-foreground sm:text-right">
-            <span className="font-medium">{service.setup}</span>
-            <span className="mx-1 text-border">|</span>
-            <span>{service.monthly}</span>
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
+                    >
+                      <p className="text-sm font-medium text-foreground">{service.name}</p>
+                      <p className="mt-1 sm:mt-0 text-xs sm:text-sm text-muted-foreground sm:text-right">
+                        <span className="font-medium">{service.setup}</span>
+                        <span className="mx-1 text-border">|</span>
+                        <span>{service.monthly}</span>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-  <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center">
-    Don&apos;t see what you need?{" "}
-    <Link
-      to="/contact"
-      className="font-medium text-primary hover:underline"
-    >
-      Request a Custom AI Solution →
-    </Link>
-  </p>
-</div>
-
+              <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center">
+                Don&apos;t see what you need?{" "}
+                <Link to="/contact" className="font-medium text-primary hover:underline">
+                  Request a Custom AI Solution →
+                </Link>
+              </p>
             </div>
           </Container>
         </section>

@@ -8,7 +8,10 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Use number instead of NodeJS.Timeout to avoid TS/browser type issues
+  const closeTimeoutRef = useRef<number | null>(null);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -19,6 +22,7 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menus when route changes
   useEffect(() => {
     setIsOpen(false);
     setShowServicesDropdown(false);
@@ -45,19 +49,32 @@ const Navigation = () => {
     { name: "AI Sales Assistant", path: "/services#ai-sales" },
   ];
 
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleDropdownClose = () => {
+    clearCloseTimeout();
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setShowServicesDropdown(false);
+    }, 200);
+  };
+
+  const getServiceActiveClass = (path: string) => {
+    const basePath = path.split("#")[0]; // handle /services#section
+    return location.pathname === basePath ? "bg-[#F0F9F7] text-[#0F766E]" : "";
+  };
+
   return (
-    <nav
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
-        isScrolled ? "shadow-md" : ""
-      }`}
-    >
+    <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <PreloadLink to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-[#1F2937]">
-              X15 DIGITAL
-            </span>
+            <span className="text-2xl font-bold text-[#1F2937]">X15 DIGITAL</span>
           </PreloadLink>
 
           {/* Desktop Navigation */}
@@ -67,39 +84,29 @@ const Navigation = () => {
               <button
                 className="flex items-center gap-1 text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors"
                 onMouseEnter={() => {
-                  if (closeTimeoutRef.current) {
-                    clearTimeout(closeTimeoutRef.current);
-                  }
+                  clearCloseTimeout();
                   setShowServicesDropdown(true);
                 }}
-                onMouseLeave={() => {
-                  closeTimeoutRef.current = setTimeout(() => {
-                    setShowServicesDropdown(false);
-                  }, 200);
-                }}
-                onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+                onMouseLeave={scheduleDropdownClose}
+                onClick={() => setShowServicesDropdown((prev) => !prev)}
               >
                 Services
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showServicesDropdown ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${showServicesDropdown ? "rotate-180" : ""}`}
+                />
               </button>
 
               {/* Dropdown Menu */}
               {showServicesDropdown && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2"
+                  className="absolute left-0 top-full pt-2"
                   onMouseEnter={() => {
-                    if (closeTimeoutRef.current) {
-                      clearTimeout(closeTimeoutRef.current);
-                    }
+                    clearCloseTimeout();
                     setShowServicesDropdown(true);
                   }}
-                  onMouseLeave={() => {
-                    closeTimeoutRef.current = setTimeout(() => {
-                      setShowServicesDropdown(false);
-                    }, 200);
-                  }}
+                  onMouseLeave={scheduleDropdownClose}
                 >
-                  <div className="w-[600px] bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
+                  <div className="w-[90vw] max-w-[600px] bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
                     <div className="grid grid-cols-2 gap-10">
                       {/* Web Services Column */}
                       <div>
@@ -112,8 +119,8 @@ const Navigation = () => {
                               <PreloadLink
                                 to={service.path}
                                 className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
-                                  service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
-                                }`}
+                                  service.bold ? "font-semibold text-[#1F2937]" : "text-[#1F2937]"
+                                } ${getServiceActiveClass(service.path)}`}
                               >
                                 {service.name}
                               </PreloadLink>
@@ -133,8 +140,8 @@ const Navigation = () => {
                               <PreloadLink
                                 to={service.path}
                                 className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors ${
-                                  service.bold ? 'font-semibold text-[#1F2937]' : 'text-[#1F2937]'
-                                }`}
+                                  service.bold ? "font-semibold text-[#1F2937]" : "text-[#1F2937]"
+                                } ${getServiceActiveClass(service.path)}`}
                               >
                                 {service.name}
                               </PreloadLink>
@@ -159,6 +166,7 @@ const Navigation = () => {
                 {link.name}
               </PreloadLink>
             ))}
+
             <Button
               asChild
               className="bg-[#0F766E] text-white hover:bg-[#F59E0B] px-6 py-3 rounded-lg shadow-[0_2px_8px_rgba(15,118,110,0.2)]"
@@ -170,14 +178,10 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 rounded-md hover:bg-gray-100"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X className="h-6 w-6 text-[#1F2937]" />
-            ) : (
-              <Menu className="h-6 w-6 text-[#1F2937]" />
-            )}
+            {isOpen ? <X className="h-6 w-6 text-[#1F2937]" /> : <Menu className="h-6 w-6 text-[#1F2937]" />}
           </button>
         </div>
       </div>
@@ -190,10 +194,10 @@ const Navigation = () => {
             <div>
               <button
                 className="flex items-center justify-between w-full py-2 text-[#1F2937] font-medium"
-                onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+                onClick={() => setShowServicesDropdown((prev) => !prev)}
               >
                 Services
-                <ChevronDown className={`h-4 w-4 transition-transform ${showServicesDropdown ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform ${showServicesDropdown ? "rotate-180" : ""}`} />
               </button>
               {showServicesDropdown && (
                 <div className="pl-4 mt-2 space-y-2">
@@ -202,17 +206,22 @@ const Navigation = () => {
                     <PreloadLink
                       key={service.path}
                       to={service.path}
-                      className={`block py-2 text-sm ${service.bold ? 'font-semibold' : ''} text-[#1F2937]`}
+                      className={`block py-2 text-sm ${
+                        service.bold ? "font-semibold" : ""
+                      } text-[#1F2937] ${getServiceActiveClass(service.path)}`}
                     >
                       {service.name}
                     </PreloadLink>
                   ))}
+
                   <div className="text-xs uppercase tracking-wide text-[#9CA3AF] mt-4 mb-2">AI Services</div>
                   {aiServices.map((service) => (
                     <PreloadLink
                       key={service.path}
                       to={service.path}
-                      className={`block py-2 text-sm ${service.bold ? 'font-semibold' : ''} text-[#1F2937]`}
+                      className={`block py-2 text-sm ${
+                        service.bold ? "font-semibold" : ""
+                      } text-[#1F2937] ${getServiceActiveClass(service.path)}`}
                     >
                       {service.name}
                     </PreloadLink>
@@ -232,10 +241,8 @@ const Navigation = () => {
                 {link.name}
               </PreloadLink>
             ))}
-            <Button
-              asChild
-              className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B]"
-            >
+
+            <Button asChild className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B]">
               <PreloadLink to="/contact">Get Started</PreloadLink>
             </Button>
           </div>

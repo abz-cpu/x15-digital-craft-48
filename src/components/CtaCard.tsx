@@ -49,7 +49,6 @@ const CtaCard: React.FC = () => {
       {/* Main CTA Section */}
       <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-b from-white via-slate-50 to-white">
         <div className="max-w-4xl mx-auto">
-          
           {/* Heading */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
@@ -70,12 +69,9 @@ const CtaCard: React.FC = () => {
 
           {/* CTA Card */}
           <div className="mx-auto max-w-3xl rounded-3xl bg-white border border-slate-200 shadow-2xl overflow-hidden">
-            
             {/* Service Selection */}
             <div className="px-8 py-8 bg-gradient-to-br from-slate-50/50 to-white">
-              <p className="text-base font-bold text-slate-800 mb-5 text-center">
-                What do you need help with?
-              </p>
+              <p className="text-base font-bold text-slate-800 mb-5 text-center">What do you need help with?</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   to="/services/websites"
@@ -143,7 +139,7 @@ const CtaCard: React.FC = () => {
             <div className="px-8 py-8 bg-gradient-to-br from-slate-50/50 to-white">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <a
-                  href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I'd%20like%20a%20quote"
+                  href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20a%20quote"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
@@ -184,7 +180,7 @@ const CtaCard: React.FC = () => {
                 >
                   <Phone className="h-7 w-7" />
                   <span className="text-sm">Book Call</span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -210,16 +206,14 @@ const CtaCard: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-sm font-bold text-white/80 mb-2 uppercase tracking-wide">
-                Ready When You Are
-              </p>
+              <p className="text-sm font-bold text-white/80 mb-2 uppercase tracking-wide">Ready When You Are</p>
               <p className="text-xl md:text-2xl font-bold text-white">
                 Send your idea, links, or screenshots – get a clear quote back fast.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
-                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I'd%20like%20a%20quote"
+                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20a%20quote"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="

@@ -57,7 +57,7 @@ const highlightedServices: HighlightedService[] = [
     icon: Mail,
     bullets: [
       "Founders who hate writing cold emails but need 20+ leads/month",
-      "Agencies needing consistent pipeline without £35k/year SDR cost",
+      "Agencies needing consistent pipeline without hiring a £35k/year SDR",
       "Teams whose campaigns die after 1 week because follow-up is manual",
     ],
     cta: "See Outreach Plan",

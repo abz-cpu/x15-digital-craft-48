@@ -276,16 +276,18 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Response Times & Quick Contact */}
+            {/* Response Times (Premium Version) */}
             <Card>
               <CardHeader>
                 <Clock className="h-8 w-8 text-primary mb-2" />
                 <CardTitle>Response Times</CardTitle>
               </CardHeader>
+
               <CardContent className="space-y-4">
+                {/* Response Time List */}
                 <div className="space-y-1">
                   <p className="font-semibold">
-                    Monday–Friday: <span className="font-normal text-muted-foreground">Within 2–4 hours</span>
+                    Monday–Friday: <span className="font-normal text-muted-foreground">2–4 hours</span>
                   </p>
                   <p className="font-semibold">
                     Weekends: <span className="font-normal text-muted-foreground">Within 24 hours</span>
@@ -293,32 +295,30 @@ const Contact = () => {
                   <p className="font-semibold">
                     Bank Holidays: <span className="font-normal text-muted-foreground">Within 48 hours</span>
                   </p>
+                  <p className="text-sm text-primary font-semibold pt-2">WhatsApp replies are near-instant (9am–6pm)</p>
                 </div>
 
-                <div className="pt-4 border-t border-border/60">
-                  <p className="font-semibold mb-3 flex items-center gap-2">
-                    <Zap className="h-4 w-4 text-primary" />
-                    Need immediate help?
-                  </p>
-                  <div className="space-y-2">
-                    <Button asChild className="w-full" size="sm">
-                      <a
-                        href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="mr-2 h-4 w-4" />
-                        WhatsApp (Instant 9am–6pm)
-                      </a>
-                    </Button>
+                {/* Divider */}
+                <div className="h-px bg-border/60 my-4" />
 
-                    <Button asChild variant="outline" className="w-full" size="sm">
-                      <a href="mailto:info@x15digital.co.uk">
-                        <Mail className="mr-2 h-4 w-4" />
-                        Email Us
-                      </a>
-                    </Button>
-                  </div>
+                {/* Mini CTA */}
+                <div className="space-y-3">
+                  <p className="font-semibold text-secondary text-center">Need quick help?</p>
+
+                  <Button asChild className="w-full" size="sm">
+                    <a
+                      href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I'd%20like%20to%20learn%20more"
+                      target="_blank"
+                    >
+                      <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp (Instant)
+                    </a>
+                  </Button>
+
+                  <Button asChild variant="outline" className="w-full" size="sm">
+                    <a href="mailto:info@x15digital.co.uk">
+                      <Mail className="h-4 w-4 mr-2" /> Email Us
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

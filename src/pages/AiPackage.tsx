@@ -3,19 +3,7 @@ import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  MessageSquare,
-  Mail,
-  Phone,
-  CheckCircle2,
-  Star,
-  Target,
-  Inbox,
-  TrendingUp,
-  Share2,
-  Briefcase,
-} from "lucide-react";
+import { ArrowRight, MessageSquare, Mail, Phone, CheckCircle2, Star, Target, Inbox, TrendingUp, Share2, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -30,120 +18,82 @@ type HighlightedService = {
   cta: string;
   trust: string;
 };
-const highlightedServices: HighlightedService[] = [
-  {
-    name: "AI Sales Assistant",
-    description:
-      "Stop chasing cold leads. AI finds qualified prospects, books calls with decision-makers, and follows up automatically — so you only speak to people ready to buy.",
-    setup: "£800–2,000 setup",
-    monthly: "£200–800/month",
-    icon: TrendingUp,
-    bullets: [
-      "B2B consultants wasting 15+ hours/week on manual outreach",
-      "Agencies losing £10k+ deals to faster competitors",
-      "Sales teams with 100+ leads but no follow-up system",
-    ],
-    cta: "Get Sales Assistant Quote",
-    trust: "Free consultation • Built around your sales process",
-  },
-  {
-    name: "AI Email Outreach",
-    description:
-      "Generate 20+ qualified leads per month while you sleep. AI sends personalised outreach, warms up prospects, and books meetings automatically — no spam, no manual work.",
-    setup: "£400–1,000 setup",
-    monthly: "£100–400/month",
-    icon: Mail,
-    bullets: [
-      "Founders who hate writing cold emails but need 20+ leads/month",
-      "Agencies needing consistent pipeline without hiring a £35k/year SDR",
-      "Teams whose campaigns die after 1 week because follow-up is manual",
-    ],
-    cta: "See Outreach Plan",
-    trust: "Strategy + setup included • No long-term contract",
-  },
-  {
-    name: "AI Social Media Manager",
-    description:
-      "Stay visible without the daily grind. AI creates, schedules, and posts engaging content across platforms — plus responds to comments — so your brand grows on autopilot.",
-    setup: "£200–600 setup",
-    monthly: "£50–150/month",
-    icon: Share2,
-    bullets: [
-      "Business owners posting once a month (if they remember)",
-      "Solo founders juggling 4+ social accounts manually",
-      "Local shops and gyms losing customers to competitors who post daily",
-    ],
-    cta: "Get Social Plan",
-    trust: "Content calendar + setup • You approve before it goes live",
-  },
-  {
-    name: "AI Admin Assistant",
-    description:
-      "Reclaim 20+ hours per week. AI handles invoicing, data entry, order processing, and routine admin automatically — so you can focus on growing the business, not paperwork.",
-    setup: "£500–1,500 setup",
-    monthly: "£150–600/month",
-    icon: Briefcase,
-    bullets: [
-      "Owners spending 5+ hours/week on invoices and admin",
-      "Ops teams manually copying data between systems every day",
-      "Businesses stuck in admin hell instead of growing revenue",
-    ],
-    cta: "See How It Works",
-    trust: "Process audit included • Usually live in under 14 days",
-  },
-];
-const secondaryServices = [
-  {
-    name: "LinkedIn Lead Prospecting",
-    setup: "£500–900",
-    monthly: "£75–200",
-    bestFor: "B2B sales teams needing 50+ qualified leads/month",
-  },
-  {
-    name: "AI Invoice & Admin Bot",
-    setup: "£350–900",
-    monthly: "£50–200",
-    bestFor: "Growing businesses drowning in manual invoicing & billing",
-  },
-  {
-    name: "AI Meeting Notes & Transcription",
-    setup: "£300–700",
-    monthly: "£75–200",
-    bestFor: "Remote / hybrid teams with 10+ calls or meetings per week",
-  },
-  {
-    name: "AI Data Insights & Reporting",
-    setup: "£200–1,000",
-    monthly: "£50–350",
-    bestFor: "Teams making decisions without real-time dashboards",
-  },
-  {
-    name: "Workflow / RPA Automation",
-    setup: "£1,000+",
-    monthly: "£200+",
-    bestFor: "Ops teams repeating the same tasks across tools every day",
-  },
-  {
-    name: "AI Recruitment Screening",
-    setup: "£200–800",
-    monthly: "£50–250",
-    bestFor: "HR teams screening 50+ applications per role",
-  },
-  {
-    name: "AI Customer Feedback Analysis",
-    setup: "£400–800",
-    monthly: "£100–250",
-    bestFor: "Service businesses with 100+ reviews or surveys to analyse",
-  },
-];
+const highlightedServices: HighlightedService[] = [{
+  name: "AI Sales Assistant",
+  description: "Stop chasing cold leads. AI finds qualified prospects, books calls with decision-makers, and follows up automatically — so you only speak to people ready to buy.",
+  setup: "£800–2,000 setup",
+  monthly: "£200–800/month",
+  icon: TrendingUp,
+  bullets: ["B2B consultants wasting 15+ hours/week on manual outreach", "Agencies losing £10k+ deals to faster competitors", "Sales teams with 100+ leads but no follow-up system"],
+  cta: "Get Sales Assistant Quote",
+  trust: "Free consultation • Built around your sales process"
+}, {
+  name: "AI Email Outreach",
+  description: "Generate 20+ qualified leads per month while you sleep. AI sends personalised outreach, warms up prospects, and books meetings automatically — no spam, no manual work.",
+  setup: "£400–1,000 setup",
+  monthly: "£100–400/month",
+  icon: Mail,
+  bullets: ["Founders who hate writing cold emails but need 20+ leads/month", "Agencies needing consistent pipeline without hiring a £35k/year SDR", "Teams whose campaigns die after 1 week because follow-up is manual"],
+  cta: "See Outreach Plan",
+  trust: "Strategy + setup included • No long-term contract"
+}, {
+  name: "AI Social Media Manager",
+  description: "Stay visible without the daily grind. AI creates, schedules, and posts engaging content across platforms — plus responds to comments — so your brand grows on autopilot.",
+  setup: "£200–600 setup",
+  monthly: "£50–150/month",
+  icon: Share2,
+  bullets: ["Business owners posting once a month (if they remember)", "Solo founders juggling 4+ social accounts manually", "Local shops and gyms losing customers to competitors who post daily"],
+  cta: "Get Social Plan",
+  trust: "Content calendar + setup • You approve before it goes live"
+}, {
+  name: "AI Admin Assistant",
+  description: "Reclaim 20+ hours per week. AI handles invoicing, data entry, order processing, and routine admin automatically — so you can focus on growing the business, not paperwork.",
+  setup: "£500–1,500 setup",
+  monthly: "£150–600/month",
+  icon: Briefcase,
+  bullets: ["Owners spending 5+ hours/week on invoices and admin", "Ops teams manually copying data between systems every day", "Businesses stuck in admin hell instead of growing revenue"],
+  cta: "See How It Works",
+  trust: "Process audit included • Usually live in under 14 days"
+}];
+const secondaryServices = [{
+  name: "LinkedIn Lead Prospecting",
+  setup: "£500–900",
+  monthly: "£75–200",
+  bestFor: "B2B sales teams needing 50+ qualified leads/month"
+}, {
+  name: "AI Invoice & Admin Bot",
+  setup: "£350–900",
+  monthly: "£50–200",
+  bestFor: "Growing businesses drowning in manual invoicing & billing"
+}, {
+  name: "AI Meeting Notes & Transcription",
+  setup: "£300–700",
+  monthly: "£75–200",
+  bestFor: "Remote / hybrid teams with 10+ calls or meetings per week"
+}, {
+  name: "AI Data Insights & Reporting",
+  setup: "£200–1,000",
+  monthly: "£50–350",
+  bestFor: "Teams making decisions without real-time dashboards"
+}, {
+  name: "Workflow / RPA Automation",
+  setup: "£1,000+",
+  monthly: "£200+",
+  bestFor: "Ops teams repeating the same tasks across tools every day"
+}, {
+  name: "AI Recruitment Screening",
+  setup: "£200–800",
+  monthly: "£50–250",
+  bestFor: "HR teams screening 50+ applications per role"
+}, {
+  name: "AI Customer Feedback Analysis",
+  setup: "£400–800",
+  monthly: "£100–250",
+  bestFor: "Service businesses with 100+ reviews or surveys to analyse"
+}];
 const AiPackage = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SEO
-        title="AI Automation Solutions | X15 Digital"
-        description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
-        canonicalUrl="https://x15.digital/ai-package"
-      />
+  return <div className="min-h-screen flex flex-col">
+      <SEO title="AI Automation Solutions | X15 Digital" description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website." canonicalUrl="https://x15.digital/ai-package" />
       <Navigation />
 
       <main className="flex-1">
@@ -397,9 +347,8 @@ const AiPackage = () => {
 
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 {highlightedServices.map((service, index) => {
-                  const Icon = service.icon;
-                  return (
-                    <AnimatedSection key={service.name} staggerIndex={3 + index} animation="fade">
+                const Icon = service.icon;
+                return <AnimatedSection key={service.name} staggerIndex={3 + index} animation="fade">
                       <Card className="hover-lift h-full">
                         <CardContent className="p-5 flex flex-col h-full">
                           <div className="mb-3">
@@ -426,12 +375,10 @@ const AiPackage = () => {
                           <div className="mb-4">
                             <h4 className="text-[11px] font-semibold mb-1">Best For:</h4>
                             <ul className="space-y-1 text-[11px] text-muted-foreground">
-                              {service.bullets.map((item) => (
-                                <li key={item} className="flex items-start gap-1.5">
+                              {service.bullets.map(item => <li key={item} className="flex items-start gap-1.5">
                                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 mt-0.5" />
                                   <span>{item}</span>
-                                </li>
-                              ))}
+                                </li>)}
                             </ul>
                           </div>
 
@@ -445,9 +392,8 @@ const AiPackage = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    </AnimatedSection>
-                  );
-                })}
+                    </AnimatedSection>;
+              })}
               </div>
             </div>
 
@@ -472,14 +418,12 @@ const AiPackage = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
-                    {secondaryServices.map((service) => (
-                      <tr key={service.name} className="hover:bg-muted/60 transition-colors">
+                    {secondaryServices.map(service => <tr key={service.name} className="hover:bg-muted/60 transition-colors">
                         <td className="py-3 px-4 font-medium text-foreground">{service.name}</td>
                         <td className="py-3 px-4 text-muted-foreground">{service.setup}</td>
                         <td className="py-3 px-4 text-primary font-semibold">{service.monthly}</td>
                         <td className="py-3 px-4 text-muted-foreground">{service.bestFor}</td>
-                      </tr>
-                    ))}
+                      </tr>)}
                   </tbody>
                 </table>
               </div>
@@ -546,11 +490,7 @@ const AiPackage = () => {
                     </p>
                   </div>
 
-                  <Button
-                    asChild
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:opacity-90 shadow-md"
-                  >
+                  <Button asChild size="lg" className="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:opacity-90 shadow-md">
                     <Link to="/contact">
                       Request Custom AI Solution <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
@@ -689,38 +629,29 @@ const AiPackage = () => {
               </h2>
 
               {/* Subhead */}
-              <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
-                Tell us how you work today and we&apos;ll show you exactly what AI can automate — with clear pricing and
-                no jargon.
-              </p>
+              <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">Book a 15-minute call. We'll show you exactly what AI can automate in YOUR business — with pricing in the same conversation.</p>
             </div>
 
             {/* Buttons – Same styling as main CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               {/* Primary CTA */}
-              <Link
-                to="/contact"
-                className="group flex items-center justify-center gap-2
+              <Link to="/contact" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all"
-              >
+          transition-all">
                 Start AI Project
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Secondary CTA */}
-              <Link
-                to="/contact"
-                className="group flex items-center justify-center gap-2
+              <Link to="/contact" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all"
-              >
+          active:scale-[0.97] transition-all">
                 Book Strategy Call
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -735,7 +666,6 @@ const AiPackage = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default AiPackage;

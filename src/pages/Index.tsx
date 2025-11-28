@@ -509,20 +509,20 @@ const Index = () => {
                     <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
                   </CardHeader>
 
-                  <CardContent>
+                  <CardContent className="md:min-h-[260px] lg:min-h-[280px]">
                     {/* DESKTOP: Hover to expand */}
                     <div className="hidden md:block">
-                      {/* Default state - short description */}
-                      <div className="group-hover:hidden">
+                      {/* Default state - short description (always in layout, just fades out) */}
+                      <div className="transition-opacity duration-300 group-hover:opacity-0">
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                         <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                           <span>Hover for details</span>
-                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </div>
                       </div>
 
-                      {/* Expanded state - full details (shows on hover) */}
-                      <div className="hidden group-hover:block">
+                      {/* Expanded state - full details (fades in, no layout jump) */}
+                      <div className="mt-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
                         <div className="mb-4">
                           <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
@@ -550,9 +550,9 @@ const Index = () => {
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: Click to expand */}
+                    {/* MOBILE/TABLET: Click to expand (unchanged) */}
                     <div className="md:hidden">
-                      {/* Default state */}
+                      {/* your existing mobile logic stays the same */}
                       {!isExpanded && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
@@ -563,7 +563,6 @@ const Index = () => {
                         </div>
                       )}
 
-                      {/* Expanded state */}
                       {isExpanded && (
                         <div className="space-y-4">
                           <p className="text-sm text-muted-foreground">{service.fullDescription}</p>

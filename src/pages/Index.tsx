@@ -508,47 +508,50 @@ const Index = () => {
                   </CardHeader>
 
                   <CardContent>
-                    {/* DESKTOP: Hover to expand */}
+                    {/* DESKTOP ONLY */}
                     <div className="hidden md:flex md:flex-col h-full">
-                      {/* Description – refined */}
+                      {/* MAIN DESCRIPTION — compact text, expandable */}
                       <div
-                        className="text-[13.5px] text-muted-foreground leading-[1.45] mb-1.5
+                        className="text-[13px] text-muted-foreground leading-[1.38] mb-3
                  overflow-hidden transition-[max-height] duration-300 ease-out
-                 max-h-[3.2rem] group-hover:max-h-[200px]"
+                 max-h-[3.2rem] group-hover:max-h-[180px]"
                       >
                         <p className="line-clamp-2 group-hover:line-clamp-none">{service.fullDescription}</p>
                       </div>
 
-                      {/* Hover hint */}
-                      <div className="mt-2 text-[11px] font-medium text-muted-foreground text-center tracking-tight transition-opacity duration-200 group-hover:opacity-0">
-                        <span>Hover to see how we work</span>
-                        <ArrowRight className="inline-block ml-1 h-3 w-3 align-middle transition-transform group-hover:translate-x-1" />
+                      {/* OLD HOVER TEXT — restored exactly as before */}
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground font-medium text-[13px] transition-opacity duration-200 group-hover:opacity-0">
+                        <span>Hover for details</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
 
-                      {/* Expanded content */}
+                      {/* EXPANDED AREA */}
                       <div
-                        className="overflow-hidden mt-2 border-t border-border/60 pt-3
+                        className="overflow-hidden mt-2 border-t border-border/60 pt-2
                  max-h-0 opacity-0
                  transition-[max-height,opacity] duration-300 ease-out
                  group-hover:max-h-[240px] group-hover:opacity-100"
                       >
-                        <p className="text-[10px] font-semibold text-secondary mb-1.5 uppercase tracking-[0.09em]">
+                        {/* Title */}
+                        <p className="text-[11px] font-semibold text-secondary mb-1.5 uppercase tracking-[0.07em]">
                           Our Process
                         </p>
 
-                        <ol className="space-y-1 text-[12.5px] leading-[1.35] text-muted-foreground">
+                        {/* Steps */}
+                        <ol className="space-y-1.5 text-[12px] leading-[1.33] text-muted-foreground">
                           {service.process.map((step: string, i: number) => (
-                            <li key={i} className="flex items-start gap-1.5">
-                              <span className="mt-[1px] text-[11px] font-semibold text-secondary">{i + 1}.</span>
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="text-[11px] font-semibold text-secondary mt-[1px]">{i + 1}.</span>
                               <span>{step}</span>
                             </li>
                           ))}
                         </ol>
 
+                        {/* Button */}
                         <ButtonLegacy
                           variant="outline"
                           size="sm"
-                          className="mt-4 w-full text-[13px] py-2"
+                          className="w-full mt-4 text-[13px] py-2"
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();

@@ -665,16 +665,16 @@ const AiPackage = () => {
           </Container>
         </section>
 
-        {/* FINAL CTA – MATCHED TO MAIN CTA STYLE WITH SOFT TEAL BACKGROUND */}
-        <section className="relative py-12 md:py-20 overflow-hidden bg-[#ECFDFB]">
-          {/* Radial glow background (same as first CTA, super subtle on teal) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.05),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.05),transparent_55%)]" />
+        {/* FINAL CTA – FULL WIDTH, MATCHED TO MAIN CTA STYLE */}
+        <section className="relative py-16 md:py-20 overflow-hidden bg-[#ECFDFB]">
+          {/* Very soft radial accents to match your main CTA */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" />
 
           <Container size="narrow" className="relative">
-            {/* Heading block */}
-            <div className="text-center mb-8 space-y-3">
-              {/* Badge styled like first CTA */}
+            {/* Heading Block */}
+            <div className="text-center mb-10 space-y-4">
+              {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wider uppercase">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <span>Live in 48 Hours – 2 Weeks</span>
@@ -695,56 +695,41 @@ const AiPackage = () => {
               </p>
             </div>
 
-            {/* Glass Card */}
-            <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
-              <div className="px-5 sm:px-6 py-6 space-y-5">
-                {/* Intro */}
-                <div className="text-center space-y-1.5">
-                  <p className="text-sm text-muted-foreground">
-                    Share a quick overview of your current workflow and we&apos;ll map out where AI can save time, cut
-                    costs, and improve results.
-                  </p>
-                </div>
+            {/* Buttons – Same styling as main CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              {/* Primary CTA */}
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
+          h-12 px-6 text-sm font-semibold rounded-xl
+          bg-gradient-to-r from-primary via-teal-500 to-primary
+          text-primary-foreground shadow-md hover:shadow-lg
+          hover:scale-[1.015] active:scale-[0.97]
+          transition-all"
+              >
+                Start AI Project
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
 
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Primary */}
-                  <Link
-                    to="/contact"
-                    className="group flex-1 flex items-center justify-center gap-2
-              h-12 px-5 text-sm font-semibold rounded-xl
-              bg-gradient-to-r from-primary via-teal-500 to-primary
-              text-primary-foreground shadow-md
-              hover:shadow-lg hover:scale-[1.015]
-              active:scale-[0.98] transition-all"
-                  >
-                    Start AI Project
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  {/* Secondary */}
-                  <Link
-                    to="/contact"
-                    className="group flex-1 flex items-center justify-center gap-2
-              h-12 px-5 text-sm font-semibold rounded-xl
-              border border-border bg-background/80
-              text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
-              shadow-sm hover:shadow-md hover:scale-[1.015]
-              active:scale-[0.98] transition-all"
-                  >
-                    Book Strategy Call
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-
-                {/* Trust */}
-                <div className="text-center pt-1">
-                  <p className="text-xs text-ink/80 font-medium">
-                    Free demo • No long-term contracts • Live in as little as 48 hours
-                  </p>
-                </div>
-              </div>
+              {/* Secondary CTA */}
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
+          h-12 px-6 text-sm font-semibold rounded-xl
+          border border-border bg-background/70
+          text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
+          shadow-sm hover:shadow-md hover:scale-[1.015]
+          active:scale-[0.97] transition-all"
+              >
+                Book Strategy Call
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
+
+            {/* Trust Line */}
+            <p className="text-xs text-ink/80 text-center">
+              Free demo • No long-term contracts • Live in as little as 48 hours
+            </p>
           </Container>
         </section>
       </main>

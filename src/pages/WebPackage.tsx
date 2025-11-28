@@ -596,56 +596,84 @@ const WebPackage = () => {
           </Container>
         </section>
 
-        {/* 7. FINAL CTA – CLEAN, SINGLE DECISION POINT */}
-        <section className="py-14 md:py-20 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
-          <Container>
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <span className="text-[11px] font-semibold tracking-wider text-white/90 uppercase">
-                  Launch-Ready In 2–14 Days
-                </span>
+        {/* 7. FINAL CTA – MATCHED TO MAIN CTA STYLE */}
+        <section className="relative py-12 md:py-20 overflow-hidden bg-gradient-to-br from-background via-paper-light to-background">
+          {/* Radial glow background (same as first CTA) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.05),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.05),transparent_50%)]" />
+
+          <Container size="narrow" className="relative">
+            {/* Heading block */}
+            <div className="text-center mb-8 space-y-3">
+              {/* Badge styled like first CTA */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wider uppercase">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span>Launch-Ready In 2–14 Days</span>
               </div>
 
-              {/* Headline (hero style) */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Let&apos;s Get Your Website Live
+              {/* Headline (keep content, match style) */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight">
+                Let&apos;s Get Your{" "}
+                <span className="bg-gradient-to-r from-primary via-teal-400 to-accent bg-clip-text text-transparent">
+                  Website Live
+                </span>
               </h2>
 
-              {/* Subhead */}
-              <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto">
+              {/* Subhead – same content, first-CTA styling */}
+              <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
                 Pick your package and start today, or book a call to discuss custom requirements.
               </p>
+            </div>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-xl shadow-black/20
-                     text-base font-semibold px-7 py-5 rounded-xl"
-                >
-                  <Link to="/quick-start">
-                    Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
+            {/* Main Card – same shape + blur as first CTA */}
+            <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
+              <div className="px-5 sm:px-6 py-6 space-y-5">
+                {/* Intro copy */}
+                <div className="text-center space-y-1.5">
+                  <p className="text-sm text-muted-foreground">
+                    Choose the option that fits you best. Start instantly with Quick Start or talk it through first on a
+                    free consultation call.
+                  </p>
+                </div>
 
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-transparent border-2 border-white/80 text-white hover:bg-white/10
-                     text-base font-semibold px-7 py-5 rounded-xl"
-                >
-                  <Link to="/contact">
-                    Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                {/* Dual CTAs – styled like primary CTA but with two buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {/* Primary: Start Your Project */}
+                  <Link
+                    to="/quick-start"
+                    className="group flex-1 flex items-center justify-center gap-2
+              h-12 px-5 text-sm font-semibold rounded-xl
+              bg-gradient-to-r from-primary via-teal-500 to-primary
+              text-primary-foreground shadow-md
+              hover:shadow-lg hover:scale-[1.015]
+              active:scale-[0.98] transition-all"
+                  >
+                    Start Your Project
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                </Button>
+
+                  {/* Secondary: Book Free Consultation */}
+                  <Link
+                    to="/contact"
+                    className="group flex-1 flex items-center justify-center gap-2
+              h-12 px-5 text-sm font-semibold rounded-xl
+              border border-border bg-background/80
+              text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
+              shadow-sm hover:shadow-md hover:scale-[1.015]
+              active:scale-[0.98] transition-all"
+                  >
+                    Book Free Consultation
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Trust line – keep content, match style */}
+                <div className="text-center pt-1">
+                  <p className="text-xs text-ink/80 font-medium">
+                    Quick quote in 4 hours · Full ownership · No ongoing fees
+                  </p>
+                </div>
               </div>
-
-              {/* Trust line */}
-              <p className="text-xs text-white/70 pt-2">Quick quote in 4 hours · Full ownership · No ongoing fees</p>
             </div>
           </Container>
         </section>

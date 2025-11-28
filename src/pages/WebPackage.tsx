@@ -597,31 +597,34 @@ const WebPackage = () => {
         </section>
 
         {/* 7. FINAL CTA – CLEAN, SINGLE DECISION POINT */}
-        <section className="py-20 md:py-24 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
+        <section className="py-14 md:py-20 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
           <Container>
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-                <span className="text-xs font-semibold tracking-wider text-white/90 uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                <span className="text-[11px] font-semibold tracking-wider text-white/90 uppercase">
                   Launch-Ready In 2–14 Days
                 </span>
               </div>
 
-              {/* Headline */}
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">Let&apos;s Get Your Website Live</h2>
+              {/* Headline (hero style) */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                Let&apos;s Get Your Website Live
+              </h2>
 
               {/* Subhead */}
-              <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto">
                 Pick your package and start today, or book a call to discuss custom requirements.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6"
+                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-xl shadow-black/20
+                     text-base font-semibold px-7 py-5 rounded-xl"
                 >
                   <Link to="/quick-start">
                     Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
@@ -632,7 +635,8 @@ const WebPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base font-semibold px-8 py-6"
+                  className="bg-transparent border-2 border-white/80 text-white hover:bg-white/10
+                     text-base font-semibold px-7 py-5 rounded-xl"
                 >
                   <Link to="/contact">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
@@ -641,7 +645,7 @@ const WebPackage = () => {
               </div>
 
               {/* Trust line */}
-              <p className="text-sm text-white/70">Quick quote in 4 hours · Full ownership · No ongoing fees</p>
+              <p className="text-xs text-white/70 pt-2">Quick quote in 4 hours · Full ownership · No ongoing fees</p>
             </div>
           </Container>
         </section>

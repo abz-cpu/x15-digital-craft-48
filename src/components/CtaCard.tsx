@@ -18,7 +18,7 @@ const CtaCard: React.FC = () => {
             <span>Let's Build Something Amazing</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold text-ink leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight">
             Ready to Grow Your{" "}
             <span className="bg-gradient-to-r from-primary via-teal-400 to-accent bg-clip-text text-transparent">
               Business?

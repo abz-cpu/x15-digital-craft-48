@@ -390,8 +390,6 @@ const Index = () => {
                 icon: Palette,
                 title: "Web/App Design",
                 tagline: "Sites that convert visitors into customers",
-                shortDescription:
-                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
                 fullDescription:
                   "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
                 process: [
@@ -406,9 +404,7 @@ const Index = () => {
                 id: "web-dev",
                 icon: Globe,
                 title: "Web Development",
-                tagline: "Lightning-fast sites delivered in days",
-                shortDescription:
-                  "Modern, responsive websites built with the latest technology and optimized for speed...",
+                tagline: "Lightning-fast sites delivered in days, not weeks",
                 fullDescription:
                   "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
                 process: [
@@ -423,10 +419,9 @@ const Index = () => {
                 id: "app-dev",
                 icon: Smartphone,
                 title: "App Development",
-                tagline: "Apps your customers will love",
-                shortDescription: "Native iOS and Android applications designed for an exceptional user experience...",
+                tagline: "Mobile apps your customers will love using",
                 fullDescription:
-                  "Native iOS and Android applications designed for an exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+                  "Native iOS and Android applications designed for exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
                 process: [
                   "Strategy & Feature Planning",
                   "Design & Development",
@@ -439,16 +434,14 @@ const Index = () => {
                 id: "marketing",
                 icon: TrendingUp,
                 title: "Digital Marketing",
-                tagline: "Rank higher, get more customers",
-                shortDescription:
-                  "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
+                tagline: "Get found by customers ready to buy",
                 fullDescription:
-                  "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO (search ranking), PPC ads, engaging content, and social media—so your business attracts the right buyers and you see measurable ROI, with reporting you can trust.",
+                  "Strategic digital marketing that puts you in front of high-intent buyers. We combine proven SEO tactics, targeted PPC campaigns, compelling content, and social media management to increase visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
                 process: [
-                  "Market & competitor analysis",
-                  "Strategy & budget planning",
-                  "SEO, PPC & content / social campaign launch",
-                  "Reporting, tracking & continuous improvement",
+                  "Market & Competitor Analysis",
+                  "Strategy & Budget Planning",
+                  "Campaign Launch (SEO, PPC & Content)",
+                  "Performance Tracking & Optimization",
                 ],
                 link: "/services#marketing",
               },
@@ -456,15 +449,14 @@ const Index = () => {
                 id: "branding",
                 icon: Image,
                 title: "Graphic Design",
-                tagline: "Branding that makes you memorable",
-                shortDescription: "Professional branding and visual design that communicates your unique value...",
+                tagline: "Branding that makes you stand out",
                 fullDescription:
-                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build recognition.",
+                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build lasting recognition.",
                 process: [
                   "Brand Discovery & Research",
                   "Concept Creation & Exploration",
                   "Design Development & Refinement",
-                  "Brand Guidelines & Assets",
+                  "Brand Guidelines & Assets Delivery",
                 ],
                 link: "/services#branding",
               },
@@ -472,8 +464,7 @@ const Index = () => {
                 id: "ai-automation",
                 icon: Bot,
                 title: "AI Automation",
-                tagline: "24/7 customer service on autopilot",
-                shortDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments...",
+                tagline: "Work smarter with 24/7 AI assistance",
                 fullDescription:
                   "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
                 process: [

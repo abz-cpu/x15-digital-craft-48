@@ -596,22 +596,22 @@ const WebPackage = () => {
           </Container>
         </section>
 
-        {/* 7. FINAL CTA – MATCHED TO MAIN CTA STYLE */}
-        <section className="relative py-12 md:py-20 overflow-hidden bg-gradient-to-br from-background via-paper-light to-background">
-          {/* Radial glow background (same as first CTA) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.05),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.05),transparent_50%)]" />
+        {/* 7. FINAL CTA – WEB PACKAGES, MATCHED TO GLOBAL CTA STYLE */}
+        <section className="relative py-16 md:py-20 overflow-hidden bg-[#ECFDFB]">
+          {/* Soft radial accents to match global CTA styling */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" />
 
           <Container size="narrow" className="relative">
             {/* Heading block */}
-            <div className="text-center mb-8 space-y-3">
+            <div className="text-center mb-10 space-y-4">
               {/* Badge styled like first CTA */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wider uppercase">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <span>Launch-Ready In 2–14 Days</span>
               </div>
 
-              {/* Headline (keep content, match style) */}
+              {/* Headline (content kept, style matched) */}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight">
                 Let&apos;s Get Your{" "}
                 <span className="bg-gradient-to-r from-primary via-teal-400 to-accent bg-clip-text text-transparent">
@@ -619,62 +619,51 @@ const WebPackage = () => {
                 </span>
               </h2>
 
-              {/* Subhead – same content, first-CTA styling */}
+              {/* Subhead – same content, global CTA styling */}
               <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
                 Pick your package and start today, or book a call to discuss custom requirements.
               </p>
+
+              {/* Extra intro copy (kept, but slightly smaller for hierarchy) */}
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+                Choose the option that fits you best. Start instantly with Quick Start or talk it through first on a
+                free consultation call.
+              </p>
             </div>
 
-            {/* Main Card – same shape + blur as first CTA */}
-            <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
-              <div className="px-5 sm:px-6 py-6 space-y-5">
-                {/* Intro copy */}
-                <div className="text-center space-y-1.5">
-                  <p className="text-sm text-muted-foreground">
-                    Choose the option that fits you best. Start instantly with Quick Start or talk it through first on a
-                    free consultation call.
-                  </p>
-                </div>
+            {/* Dual CTAs – same UX/UI as AI final CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              {/* Primary: Start Your Project */}
+              <Link
+                to="/quick-start"
+                className="group flex items-center justify-center gap-2
+          h-12 px-6 text-sm font-semibold rounded-xl
+          bg-gradient-to-r from-primary via-teal-500 to-primary
+          text-primary-foreground shadow-md hover:shadow-lg
+          hover:scale-[1.015] active:scale-[0.97]
+          transition-all"
+              >
+                Start Your Project
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
 
-                {/* Dual CTAs – styled like primary CTA but with two buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Primary: Start Your Project */}
-                  <Link
-                    to="/quick-start"
-                    className="group flex-1 flex items-center justify-center gap-2
-              h-12 px-5 text-sm font-semibold rounded-xl
-              bg-gradient-to-r from-primary via-teal-500 to-primary
-              text-primary-foreground shadow-md
-              hover:shadow-lg hover:scale-[1.015]
-              active:scale-[0.98] transition-all"
-                  >
-                    Start Your Project
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  {/* Secondary: Book Free Consultation */}
-                  <Link
-                    to="/contact"
-                    className="group flex-1 flex items-center justify-center gap-2
-              h-12 px-5 text-sm font-semibold rounded-xl
-              border border-border bg-background/80
-              text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
-              shadow-sm hover:shadow-md hover:scale-[1.015]
-              active:scale-[0.98] transition-all"
-                  >
-                    Book Free Consultation
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-
-                {/* Trust line – keep content, match style */}
-                <div className="text-center pt-1">
-                  <p className="text-xs text-ink/80 font-medium">
-                    Quick quote in 4 hours · Full ownership · No ongoing fees
-                  </p>
-                </div>
-              </div>
+              {/* Secondary: Book Free Consultation */}
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
+          h-12 px-6 text-sm font-semibold rounded-xl
+          border border-border bg-background/70
+          text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
+          shadow-sm hover:shadow-md hover:scale-[1.015]
+          active:scale-[0.97] transition-all"
+              >
+                Book Free Consultation
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
+
+            {/* Trust line – content kept, styling matched */}
+            <p className="text-xs text-ink/80 text-center">Quick quote in 4 hours · Full ownership · No ongoing fees</p>
           </Container>
         </section>
       </main>

@@ -665,69 +665,55 @@ const AiPackage = () => {
           </Container>
         </section>
 
-        {/* FINAL CTA – Premium Glass Card */}
-        <section className="relative py-16 md:py-20 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B] overflow-hidden">
-          {/* subtle overlay */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(0 0% 100%/0.16),transparent_60%)]" />
-
+        {/* FINAL CTA */}
+        <section className="py-20 md:py-24 bg-gradient-to-br from-[#0F766E] via-[#0B4F4A] to-[#062F2B]">
           <Container>
-            <div className="relative max-w-3xl mx-auto">
-              {/* White Glass Card */}
-              <div className="mx-auto max-w-2xl rounded-3xl bg-white/95 backdrop-blur-sm border border-white/40 shadow-2xl shadow-black/30 px-6 sm:px-8 py-8 md:py-9 text-center space-y-6">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[11px] font-semibold tracking-wider text-emerald-900 uppercase">
-                    Live in 48 Hours – 2 Weeks
-                  </span>
-                </div>
-
-                {/* Headline */}
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                  Ready to Add AI to Your Business?
-                </h2>
-
-                {/* Subhead */}
-                <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-                  Tell us how you work today and we&apos;ll show you exactly what AI can automate — with clear pricing
-                  and no jargon.
-                </p>
-
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                  {/* Primary Button */}
-                  <Button
-                    asChild
-                    size="lg"
-                    className="w-full sm:w-auto bg-gradient-to-r from-primary via-teal-500 to-primary
-                       text-primary-foreground shadow-lg shadow-emerald-400/40
-                       hover:shadow-xl hover:scale-[1.015] active:scale-[0.98]
-                       text-base font-semibold px-7 h-12 rounded-xl"
-                  >
-                    <Link to="/contact">
-                      Start AI Project <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-
-                  {/* Secondary Button */}
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="w-full sm:w-auto bg-white border border-slate-200 text-slate-900
-                       hover:bg-slate-50 text-base font-semibold px-7 h-12 rounded-xl"
-                  >
-                    <Link to="/contact">
-                      Book Strategy Call <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
-
-                {/* Trust line */}
-                <p className="text-xs text-slate-500 pt-1">
-                  Free demo • No long-term contracts • Live in as little as 48 hours
-                </p>
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+                <span className="text-xs font-semibold tracking-wider text-white/90 uppercase">
+                  Live in 48 Hours – 2 Weeks
+                </span>
               </div>
+
+              {/* Headline */}
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">Ready to Add AI to Your Business?</h2>
+
+              {/* Subhead */}
+              <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Tell us how you work today and we&apos;ll show you exactly what AI can automate — with clear pricing and
+                no jargon.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#0F766E] hover:bg-white/90 shadow-2xl shadow-black/20 text-base font-semibold px-8 py-6"
+                >
+                  <Link to="/contact">
+                    Start AI Project <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base font-semibold px-8 py-6"
+                >
+                  <Link to="/contact">
+                    Book Strategy Call <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Trust line */}
+              <p className="text-sm text-white/70">
+                Free demo • No long-term contracts • Live in as little as 48 hours
+              </p>
             </div>
           </Container>
         </section>

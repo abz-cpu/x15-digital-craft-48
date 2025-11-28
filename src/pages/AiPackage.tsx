@@ -665,11 +665,11 @@ const AiPackage = () => {
           </Container>
         </section>
 
-        {/* FINAL CTA – MATCHED TO MAIN CTA STYLE */}
-        <section className="relative py-12 md:py-20 overflow-hidden bg-gradient-to-br from-background via-paper-light to-background">
-          {/* Radial glow background (same as first CTA) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.05),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.05),transparent_50%)]" />
+        {/* FINAL CTA – MATCHED TO MAIN CTA STYLE WITH SOFT TEAL BACKGROUND */}
+        <section className="relative py-12 md:py-20 overflow-hidden bg-[#ECFDFB]">
+          {/* Radial glow background (same as first CTA, super subtle on teal) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.05),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.05),transparent_55%)]" />
 
           <Container size="narrow" className="relative">
             {/* Heading block */}
@@ -680,7 +680,7 @@ const AiPackage = () => {
                 <span>Live in 48 Hours – 2 Weeks</span>
               </div>
 
-              {/* Headline – same styling as main CTA */}
+              {/* Headline */}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight">
                 Ready to Add{" "}
                 <span className="bg-gradient-to-r from-primary via-teal-400 to-accent bg-clip-text text-transparent">
@@ -688,17 +688,17 @@ const AiPackage = () => {
                 </span>
               </h2>
 
-              {/* Subhead – same visual style as other CTAs */}
+              {/* Subhead */}
               <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
                 Tell us how you work today and we&apos;ll show you exactly what AI can automate — with clear pricing and
                 no jargon.
               </p>
             </div>
 
-            {/* Main Card – same glass card as other CTAs */}
+            {/* Glass Card */}
             <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
               <div className="px-5 sm:px-6 py-6 space-y-5">
-                {/* Intro copy */}
+                {/* Intro */}
                 <div className="text-center space-y-1.5">
                   <p className="text-sm text-muted-foreground">
                     Share a quick overview of your current workflow and we&apos;ll map out where AI can save time, cut
@@ -706,9 +706,9 @@ const AiPackage = () => {
                   </p>
                 </div>
 
-                {/* Dual CTAs – same styling system as other CTA card */}
+                {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Primary: Start AI Project */}
+                  {/* Primary */}
                   <Link
                     to="/contact"
                     className="group flex-1 flex items-center justify-center gap-2
@@ -722,7 +722,7 @@ const AiPackage = () => {
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
 
-                  {/* Secondary: Book Strategy Call */}
+                  {/* Secondary */}
                   <Link
                     to="/contact"
                     className="group flex-1 flex items-center justify-center gap-2
@@ -737,7 +737,7 @@ const AiPackage = () => {
                   </Link>
                 </div>
 
-                {/* Trust line – same style */}
+                {/* Trust */}
                 <div className="text-center pt-1">
                   <p className="text-xs text-ink/80 font-medium">
                     Free demo • No long-term contracts • Live in as little as 48 hours

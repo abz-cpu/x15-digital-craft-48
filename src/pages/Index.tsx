@@ -509,45 +509,46 @@ const Index = () => {
 
                   <CardContent>
                     {/* DESKTOP: Hover to expand */}
-                    <div className="hidden md:flex md:flex-col">
-                      {/* Description – SAME text, starts clamped, expands from the ... */}
+                    <div className="hidden md:flex md:flex-col h-full">
+                      {/* Main description – opens from the ... */}
                       <div
-                        className="text-sm text-muted-foreground mb-4 overflow-hidden
-                 transition-[max-height] duration-300 ease-out
-                 max-h-[3.6rem] group-hover:max-h-[200px]"
+                        className="text-sm text-muted-foreground leading-relaxed mb-2
+                 overflow-hidden transition-[max-height] duration-300 ease-out
+                 max-h-[3.8rem] group-hover:max-h-[220px]"
                       >
                         <p className="line-clamp-2 group-hover:line-clamp-none">{service.fullDescription}</p>
                       </div>
 
-                      {/* Hover hint – visible only when collapsed */}
-                      <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm transition-opacity duration-200 group-hover:opacity-0">
-                        <span>Hover for details</span>
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      {/* Hover hint */}
+                      <div className="mt-3 text-xs font-medium text-muted-foreground text-center tracking-tight transition-opacity duration-200 group-hover:opacity-0">
+                        <span>Hover to see how we work</span>
+                        <ArrowRight className="inline-block ml-1 h-3 w-3 align-middle transition-transform group-hover:translate-x-1" />
                       </div>
 
-                      {/* Extra details (process + button) – slide open on hover */}
+                      {/* Expanded content: process + button */}
                       <div
-                        className="overflow-hidden mt-3
+                        className="overflow-hidden mt-4 border-t border-border/70 pt-3
                  max-h-0 opacity-0
                  transition-[max-height,opacity] duration-300 ease-out
                  group-hover:max-h-[260px] group-hover:opacity-100"
                       >
-                        <div className="mb-4">
-                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                          <ol className="space-y-1">
-                            {service.process.map((step: string, i: number) => (
-                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                <span className="font-semibold text-secondary">{i + 1}.</span>
-                                <span>{step}</span>
-                              </li>
-                            ))}
-                          </ol>
-                        </div>
+                        <p className="text-[11px] font-semibold text-secondary mb-2 uppercase tracking-[0.08em]">
+                          Our Process
+                        </p>
+
+                        <ol className="space-y-1.5 text-[13px] text-muted-foreground">
+                          {service.process.map((step: string, i: number) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="mt-[1px] text-xs font-semibold text-secondary">{i + 1}.</span>
+                              <span>{step}</span>
+                            </li>
+                          ))}
+                        </ol>
 
                         <ButtonLegacy
                           variant="outline"
                           size="sm"
-                          className="w-full"
+                          className="mt-4 w-full text-sm py-2.5"
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();

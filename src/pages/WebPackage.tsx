@@ -401,7 +401,7 @@ const WebPackage = () => {
         </section>
 
         {/* 5. LEVEL UP: ADD AI AUTOMATION */}
-        <section className="py-16 md:py-20 bg-[#FFFBEB] border-y border-[#FEF3C7]">
+        <section className="py-16 md:py-20 bg-muted/30">
           <Container>
             <div className="text-center max-w-3xl mx-auto mb-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Level Up: Add AI Automation</h2>

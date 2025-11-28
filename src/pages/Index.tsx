@@ -508,50 +508,35 @@ const Index = () => {
                   </CardHeader>
 
                   <CardContent>
-                    {/* DESKTOP ONLY */}
-                    <div className="hidden md:flex md:flex-col h-full">
-                      {/* MAIN DESCRIPTION — compact text, expandable */}
-                      <div
-                        className="text-[13px] text-muted-foreground leading-[1.38] mb-3
-                 overflow-hidden transition-[max-height] duration-300 ease-out
-                 max-h-[3.2rem] group-hover:max-h-[180px]"
-                      >
-                        <p className="line-clamp-2 group-hover:line-clamp-none">{service.fullDescription}</p>
+                    {/* DESKTOP: Hover to expand (original layout) */}
+                    <div className="hidden md:block">
+                      {/* Default state - short description */}
+                      <div className="group-hover:hidden">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
 
-                      {/* OLD HOVER TEXT — restored exactly as before */}
-                      <div className="flex items-center justify-center gap-2 text-muted-foreground font-medium text-[13px] transition-opacity duration-200 group-hover:opacity-0">
-                        <span>Hover for details</span>
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </div>
-
-                      {/* EXPANDED AREA */}
-                      <div
-                        className="overflow-hidden mt-2 border-t border-border/60 pt-2
-                 max-h-0 opacity-0
-                 transition-[max-height,opacity] duration-300 ease-out
-                 group-hover:max-h-[240px] group-hover:opacity-100"
-                      >
-                        {/* Title */}
-                        <p className="text-[11px] font-semibold text-secondary mb-1.5 uppercase tracking-[0.07em]">
-                          Our Process
-                        </p>
-
-                        {/* Steps */}
-                        <ol className="space-y-1.5 text-[12px] leading-[1.33] text-muted-foreground">
-                          {service.process.map((step: string, i: number) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="text-[11px] font-semibold text-secondary mt-[1px]">{i + 1}.</span>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ol>
-
-                        {/* Button */}
+                      {/* Expanded state - full details (shows on hover) */}
+                      <div className="hidden group-hover:block">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                          <ol className="space-y-1">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                <span className="font-semibold text-secondary">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
                         <ButtonLegacy
                           variant="outline"
                           size="sm"
-                          className="w-full mt-4 text-[13px] py-2"
+                          className="w-full"
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();
@@ -563,14 +548,14 @@ const Index = () => {
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: Click to expand – keep your existing version */}
+                    {/* MOBILE/TABLET: Click to expand (keep your existing logic) */}
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
                       )}

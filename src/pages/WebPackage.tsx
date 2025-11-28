@@ -400,6 +400,76 @@ const WebPackage = () => {
           </Container>
         </section>
 
+        {/* 4.5. EDUCATIONAL CONTENT - VALUE VS PRICE */}
+        <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white">
+          <Container>
+            <div className="max-w-5xl mx-auto">
+              {/* Featured Article Card */}
+              <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Image Side */}
+                  <Link
+                    to="/blog/cheap-websites"
+                    className="relative aspect-[4/3] md:aspect-auto overflow-hidden group"
+                  >
+                    <img
+                      src="/images/blog/cheap-websites-header.jpg"
+                      alt="Why cheap websites cost more"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                    {/* Category Badge */}
+                    <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">Web Development</Badge>
+                  </Link>
+
+                  {/* Content Side */}
+                  <div className="p-8 md:p-10 flex flex-col justify-center">
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-primary mb-2 tracking-wider uppercase">
+                        📚 Required Reading
+                      </p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-3 leading-tight">
+                        Why Cheap Websites Cost More in the Long Run
+                      </h3>
+                    </div>
+
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      That £50 website builder might seem like a bargain, but hidden costs add up fast. Learn what
+                      you're really paying for and why transparent pricing saves money.
+                    </p>
+
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                      <span>5 min read</span>
+                      <span>•</span>
+                      <span>15 March 2024</span>
+                    </div>
+
+                    <Button asChild size="lg" variant="outline" className="w-full sm:w-auto group">
+                      <Link to="/blog/cheap-websites">
+                        Read Full Article
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Optional: Related Resources Strip */}
+              <div className="mt-8 text-center">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Want more insights on web development and business growth?
+                </p>
+                <Button asChild variant="ghost" size="sm">
+                  <Link to="/blog">
+                    View All Articles <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
         {/* 5. LEVEL UP: ADD AI AUTOMATION */}
         <section className="py-16 md:py-20 bg-muted/30">
           <Container>

@@ -510,36 +510,36 @@ const Index = () => {
                   <CardContent>
                     {/* DESKTOP: Hover to expand */}
                     <div className="hidden md:flex md:flex-col h-full">
-                      {/* Main description – opens from the ... */}
+                      {/* Description – refined */}
                       <div
-                        className="text-sm text-muted-foreground leading-relaxed mb-2
+                        className="text-[13.5px] text-muted-foreground leading-[1.45] mb-1.5
                  overflow-hidden transition-[max-height] duration-300 ease-out
-                 max-h-[3.8rem] group-hover:max-h-[220px]"
+                 max-h-[3.2rem] group-hover:max-h-[200px]"
                       >
                         <p className="line-clamp-2 group-hover:line-clamp-none">{service.fullDescription}</p>
                       </div>
 
                       {/* Hover hint */}
-                      <div className="mt-3 text-xs font-medium text-muted-foreground text-center tracking-tight transition-opacity duration-200 group-hover:opacity-0">
+                      <div className="mt-2 text-[11px] font-medium text-muted-foreground text-center tracking-tight transition-opacity duration-200 group-hover:opacity-0">
                         <span>Hover to see how we work</span>
                         <ArrowRight className="inline-block ml-1 h-3 w-3 align-middle transition-transform group-hover:translate-x-1" />
                       </div>
 
-                      {/* Expanded content: process + button */}
+                      {/* Expanded content */}
                       <div
-                        className="overflow-hidden mt-4 border-t border-border/70 pt-3
+                        className="overflow-hidden mt-2 border-t border-border/60 pt-3
                  max-h-0 opacity-0
                  transition-[max-height,opacity] duration-300 ease-out
-                 group-hover:max-h-[260px] group-hover:opacity-100"
+                 group-hover:max-h-[240px] group-hover:opacity-100"
                       >
-                        <p className="text-[11px] font-semibold text-secondary mb-2 uppercase tracking-[0.08em]">
+                        <p className="text-[10px] font-semibold text-secondary mb-1.5 uppercase tracking-[0.09em]">
                           Our Process
                         </p>
 
-                        <ol className="space-y-1.5 text-[13px] text-muted-foreground">
+                        <ol className="space-y-1 text-[12.5px] leading-[1.35] text-muted-foreground">
                           {service.process.map((step: string, i: number) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="mt-[1px] text-xs font-semibold text-secondary">{i + 1}.</span>
+                            <li key={i} className="flex items-start gap-1.5">
+                              <span className="mt-[1px] text-[11px] font-semibold text-secondary">{i + 1}.</span>
                               <span>{step}</span>
                             </li>
                           ))}
@@ -548,7 +548,7 @@ const Index = () => {
                         <ButtonLegacy
                           variant="outline"
                           size="sm"
-                          className="mt-4 w-full text-sm py-2.5"
+                          className="mt-4 w-full text-[13px] py-2"
                           onClick={(e) => {
                             e.stopPropagation();
                             e.preventDefault();

@@ -492,7 +492,7 @@ const Index = () => {
                 <Card
                   key={service.id}
                   className="hover-lift group cursor-pointer
-             transition-all duration-300 hover:scale-105
+             transition-all duration-300
              border-2 border-transparent shadow-lg
              hover:border-primary hover:shadow-[0_0_60px_rgba(15,118,110,0.4)]"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
@@ -510,48 +510,45 @@ const Index = () => {
                   <CardContent>
                     {/* DESKTOP: Hover to expand */}
                     <div className="hidden md:block">
-                      {/* Fixed-height container so card size doesn't change */}
-                      <div className="relative h-[230px] lg:h-[250px]">
-                        {/* Default state – short description */}
-                        <div className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0">
-                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
-                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
-                            <span>Hover for details</span>
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </div>
+                      {/* Default state - short description */}
+                      <div className="group-hover:hidden">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                          <span>Hover for details</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </div>
+                      </div>
 
-                        {/* Hover state – full details */}
-                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-                          <div className="mb-4">
-                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
-                            <ol className="space-y-1">
-                              {service.process.map((step: string, i: number) => (
-                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                  <span className="font-semibold text-secondary">{i + 1}.</span>
-                                  <span>{step}</span>
-                                </li>
-                              ))}
-                            </ol>
-                          </div>
-                          <ButtonLegacy
-                            variant="outline"
-                            size="sm"
-                            className="w-full"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                              scrollToSection("ai-preview");
-                            }}
-                          >
-                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                          </ButtonLegacy>
+                      {/* Expanded state - full details (shows on hover) */}
+                      <div className="hidden group-hover:block">
+                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                          <ol className="space-y-1">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                <span className="font-semibold text-secondary">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
                         </div>
+                        <ButtonLegacy
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            scrollToSection("ai-preview");
+                          }}
+                        >
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </ButtonLegacy>
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: Click to expand – keep your existing logic here */}
+                    {/* MOBILE/TABLET: Click to expand (keep as you had) */}
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>

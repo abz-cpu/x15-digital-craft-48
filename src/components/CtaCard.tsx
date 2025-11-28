@@ -6,9 +6,9 @@ import { Container } from "./Container";
 const CtaCard: React.FC = () => {
   return (
     <section className="relative py-14 md:py-20 overflow-hidden bg-[#D9F7F4]">
-      {/* Premium soft radial background */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_25%,hsl(var(--primary)/0.10),transparent_55%)]" />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_80%_65%,hsl(var(--accent)/0.10),transparent_55%)]" />
+      {/* Premium radial glows (soft & balanced) */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_25%_30%,hsl(var(--primary)/0.08),transparent_60%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_80%_70%,hsl(var(--accent)/0.08),transparent_60%)]" />
 
       <Container size="narrow" className="relative">
         {/* Heading */}
@@ -40,8 +40,8 @@ const CtaCard: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Card */}
-        <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
+        {/* Main Card (unchanged UI) */}
+        <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-xl shadow-primary/10 overflow-hidden transition-all duration-500">
           <div className="px-5 sm:px-6 py-6 space-y-4">
             <div className="text-center space-y-1.5">
               <p className="text-sm text-muted-foreground">
@@ -66,7 +66,7 @@ const CtaCard: React.FC = () => {
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* WhatsApp */}
+            {/* WhatsApp CTA */}
             <div className="text-center space-y-2 pt-1">
               <p className="text-sm text-muted-foreground">Prefer to ask a few questions first?</p>
 
@@ -83,7 +83,7 @@ const CtaCard: React.FC = () => {
               </a>
             </div>
 
-            {/* Trust */}
+            {/* Trust Line */}
             <div className="text-center space-y-1 pt-2">
               <p className="text-xs text-ink/80 font-medium">
                 No pushy sales • Free quote within 3 hours • Transparent pricing • Work directly with the founder

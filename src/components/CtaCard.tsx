@@ -5,10 +5,10 @@ import { Container } from "./Container";
 
 const CtaCard: React.FC = () => {
   return (
-    <section className="relative py-14 md:py-20 overflow-hidden bg-[#D9F7F4]">
-      {/* Premium soft radial background */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_25%,hsl(var(--primary)/0.10),transparent_55%)]" />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_80%_65%,hsl(var(--accent)/0.10),transparent_55%)]" />
+    <section className="relative py-16 md:py-20 overflow-hidden bg-[#D9F7F4]">
+      {/* Very soft radial accents – matched to other final CTA */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" />
 
       <Container size="narrow" className="relative">
         {/* Heading */}
@@ -40,60 +40,59 @@ const CtaCard: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Card */}
-        <div className="mx-auto max-w-2xl rounded-3xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
-          <div className="px-5 sm:px-6 py-6 space-y-4">
-            <div className="text-center space-y-1.5">
-              <p className="text-sm text-muted-foreground">
-                Tell us what you need in about 2 minutes. We’ll map out your website + automation plan and send a clear
-                quote.
-              </p>
+        {/* Supporting copy (no card, just inline under heading) */}
+        <div className="text-center space-y-1.5 mb-6">
+          <p className="text-sm text-muted-foreground">
+            Tell us what you need in about 2 minutes. We’ll map out your website + automation plan and send a clear
+            quote.
+          </p>
+          <p className="text-xs text-muted-foreground">You’ll work directly with the founder — no outsourcing.</p>
+        </div>
 
-              <p className="text-xs text-muted-foreground">You’ll work directly with the founder — no outsourcing.</p>
-            </div>
+        {/* Primary + Secondary CTAs (same system as final AI CTA) */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          {/* Primary CTA – Free Quote */}
+          <Link
+            to="/contact"
+            className="group flex items-center justify-center gap-2
+              h-12 px-6 text-sm font-semibold rounded-xl
+              bg-gradient-to-r from-primary via-teal-500 to-primary
+              text-primary-foreground shadow-md hover:shadow-lg
+              hover:scale-[1.015] active:scale-[0.97]
+              transition-all"
+          >
+            Get Your Free Quote
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
 
-            {/* Primary CTA */}
-            <Link
-              to="/contact"
-              className="group w-full flex items-center justify-center gap-2
-                h-12 px-5 text-sm font-semibold rounded-xl
-                bg-gradient-to-r from-primary via-teal-500 to-primary
-                text-primary-foreground shadow-md
-                hover:shadow-lg hover:scale-[1.015]
-                active:scale-[0.98] transition-all"
-            >
-              Get Your Free Quote
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+          {/* Secondary CTA – WhatsApp */}
+          <a
+            href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-2
+              h-12 px-6 text-sm font-semibold rounded-xl
+              border border-border bg-background/70
+              text-primary hover:border-[#25D366] hover:text-[#25D366]
+              shadow-sm hover:shadow-md hover:scale-[1.015]
+              active:scale-[0.97] transition-all"
+          >
+            <span className="inline-flex items-center justify-center rounded-full bg-primary/10 p-1.5">
+              <MessageCircle className="h-4 w-4" />
+            </span>
+            Let&apos;s chat on WhatsApp
+          </a>
+        </div>
 
-            {/* WhatsApp */}
-            <div className="text-center space-y-2 pt-1">
-              <p className="text-sm text-muted-foreground">Prefer to ask a few questions first?</p>
+        {/* Trust */}
+        <div className="text-center space-y-1">
+          <p className="text-xs text-ink/80 font-medium">
+            No pushy sales • Free quote within 3 hours • Transparent pricing • Work directly with the founder
+          </p>
 
-              <a
-                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-primary hover:border-[#25D366] hover:text-[#25D366] transition-all"
-              >
-                <span className="inline-flex items-center justify-center rounded-full bg-primary/10 p-1.5">
-                  <MessageCircle className="h-4 w-4" />
-                </span>
-                Let&apos;s chat on WhatsApp
-              </a>
-            </div>
-
-            {/* Trust */}
-            <div className="text-center space-y-1 pt-2">
-              <p className="text-xs text-ink/80 font-medium">
-                No pushy sales • Free quote within 3 hours • Transparent pricing • Work directly with the founder
-              </p>
-
-              <p className="text-[11px] text-muted-foreground leading-tight">
-                If it’s not a fit, you still keep the plan — no obligation to continue.
-              </p>
-            </div>
-          </div>
+          <p className="text-[11px] text-muted-foreground leading-tight">
+            If it’s not a fit, you still keep the plan — no obligation to continue.
+          </p>
         </div>
       </Container>
     </section>

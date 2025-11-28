@@ -510,24 +510,28 @@ const Index = () => {
                   <CardContent>
                     {/* DESKTOP: Hover to expand */}
                     <div className="hidden md:flex md:flex-col">
-                      {/* Short, static top content */}
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                      {/* Description – SAME text, starts clamped, expands from the ... */}
+                      <div
+                        className="text-sm text-muted-foreground mb-4 overflow-hidden
+                 transition-[max-height] duration-300 ease-out
+                 max-h-[3.6rem] group-hover:max-h-[200px]"
+                      >
+                        <p className="line-clamp-2 group-hover:line-clamp-none">{service.fullDescription}</p>
+                      </div>
 
-                      {/* "Hover for details" row – fades out when expanded */}
-                      <div className="flex items-center justify-center gap-2 mt-auto text-muted-foreground font-medium text-sm transition-opacity duration-200 group-hover:opacity-0">
+                      {/* Hover hint – visible only when collapsed */}
+                      <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm transition-opacity duration-200 group-hover:opacity-0">
                         <span>Hover for details</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
 
-                      {/* Expandable panel – closed by default, opens on hover */}
+                      {/* Extra details (process + button) – slide open on hover */}
                       <div
                         className="overflow-hidden mt-3
                  max-h-0 opacity-0
                  transition-[max-height,opacity] duration-300 ease-out
                  group-hover:max-h-[260px] group-hover:opacity-100"
                       >
-                        <p className="text-sm text-muted-foreground mb-4">{service.fullDescription}</p>
-
                         <div className="mb-4">
                           <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                           <ol className="space-y-1">
@@ -555,7 +559,7 @@ const Index = () => {
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: Click to expand – keep what you already had */}
+                    {/* MOBILE/TABLET: Click to expand – keep your existing version */}
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>

@@ -15,6 +15,31 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
+type BlogPostConfig = {
+  title: string;
+  category: "Web Development" | "AI Automation";
+  date: string;
+  readTime: number;
+  author: string;
+  content: string;
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+  ogImage: string;
+  heroAlt: string;
+};
+
+const getCategoryBadgeClass = (category: string) => {
+  switch (category) {
+    case "Web Development":
+      return "bg-teal-600 text-white";
+    case "AI Automation":
+      return "bg-violet-600 text-white";
+    default:
+      return "bg-secondary text-secondary-foreground";
+  }
+};
+
 const BlogPost = () => {
   const { slug } = useParams();
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -46,13 +71,20 @@ const BlogPost = () => {
     });
   };
 
-  const posts: any = {
+  const posts: Record<string, BlogPostConfig> = {
     "cheap-websites": {
       title: "Why Cheap Websites Cost More in the Long Run",
       category: "Web Development",
       date: "2024-03-15",
       readTime: 5,
       author: "Abdul M Taher",
+      seoTitle: "Why Cheap Websites Cost More in the Long Run | X15 Digital",
+      seoDescription:
+        "That £50 website builder might seem like a bargain, but hidden platform fees, lost time, SEO issues and migration costs quickly turn it into a £2,000+ problem.",
+      seoKeywords:
+        "cheap websites, £50 website builder, website builder hidden costs, professional web design UK, cheap website problems",
+      ogImage: blogWebDev,
+      heroAlt: "Small business website layout representing cheap website builders versus professional design",
       content: `
 ## The £50 Website Promise
 
@@ -109,6 +141,17 @@ Tempted by a £200 developer in India or Pakistan?
 
 [Read why offshore development comes with even more hidden costs and legal risks](/blog/offshore-development-risks) - from GDPR fines to communication nightmares.
 
+### Hidden Cost 7: Missed Automation Opportunities
+
+A cheap site usually can't integrate proper AI or automation:
+
+- No smart lead capture
+- No chatbot or FAQ automation
+- No integration with booking systems
+- No retargeting or proper tracking
+
+[See how small businesses use AI to save 10–20 hours per week](/blog/ai-for-small-businesses).
+
 ## The Real Cost of Cheap
 
 Let's do the math:
@@ -150,6 +193,13 @@ Want to do it right the first time? [See our packages](/services) or [get a free
       date: "2024-03-10",
       readTime: 7,
       author: "Abdul M Taher",
+      seoTitle: "How Small Businesses Can Use AI Without Being Techy | X15 Digital",
+      seoDescription:
+        "AI automation isn't just for tech giants. Learn how UK small businesses use chatbots, voice agents and automation to save 10–20 hours per week without any technical skills.",
+      seoKeywords:
+        "AI for small business, AI automation UK, chatbot for small business, AI voice agent, save time with AI",
+      ogImage: blogAiAutomation,
+      heroAlt: "Business owner using AI tools on a laptop to automate messages and bookings",
       content: `
 ## AI Isn't Just for Tech Giants
 
@@ -290,6 +340,8 @@ AI automation isn't complicated. It's just smart business.
 
 **£50-200/month** to save **10-20 hours/week** = **No-brainer investment**
 
+If your current website is weak or built on a cheap builder, fix that first so AI actually has something solid to plug into. [See why cheap websites cost more in the long run](/blog/cheap-websites).
+
 Ready to automate? [See our AI services](/services#ai-automation) or [get a free quote](/contact).
       `,
     },
@@ -299,6 +351,13 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       date: "2024-03-20",
       readTime: 6,
       author: "Abdul M Taher",
+      seoTitle: "The Hidden Dangers of Hiring Offshore Web Developers | X15 Digital",
+      seoDescription:
+        "That £200 offshore developer might look cheap, but GDPR fines up to £17.5M, poor quality, and zero legal protection make it an expensive gamble for UK businesses.",
+      seoKeywords:
+        "offshore web development risks, hire UK developer, GDPR fines, cheap offshore developer, UK website compliance",
+      ogImage: blogOffshoreRisks,
+      heroAlt: "Laptop showing a red warning sign symbolising offshore web development risks for UK businesses",
       content: `
 ## Why £200 from India Costs £2,000 in the Long Run
 
@@ -323,20 +382,54 @@ A London plumber hired a developer in Pakistan for £150. The website looked pro
 
 **Cost to fix:** £800 + lost customers who thought it was a scam site
 
-### Danger 2: GDPR Violations Can Cost You £17.5 Million
+### Danger 2: GDPR Violations Can Destroy Your Business
 
-This isn't a typo. The ICO (UK data regulator) can fine you **up to £17.5 million** for GDPR violations.
+The ICO (UK's data regulator) can fine you **up to £17.5 million OR 4% of your annual global turnover - whichever is higher.**
+
+For most small and medium businesses, the £17.5 million represents the maximum fixed-amount tier, while very large businesses (£500M+ turnover) face fines calculated at 4% of global revenue.
+
+**Real UK GDPR fines:**
+
+- **British Airways: £20 million** (2020) - Data breach affecting 400,000+ customers
+- **Marriott International: £18.4 million** (2020) - Exposed 339 million guest records
+- **Ticketmaster: £1.25 million** (2020) - Failed to protect customer payment data
+
+These companies had professional IT teams and legal departments. Imagine the risk with an offshore developer who doesn't understand UK law.
 
 **Common offshore GDPR failures:**
-- Contact forms with no privacy policy
-- Data stored outside UK/EU without proper safeguards
-- No cookie consent (£50,000+ fine)
-- Email lists without proper opt-in
-- No data protection officer contact
 
-**One UK business** was fined £80,000 because their offshore developer didn't implement basic GDPR requirements.
+- Contact forms without proper privacy policies
+- Data stored outside UK/EU without adequate safeguards
+- Cookie consent mechanisms that don't meet PECR requirements
+- Email lists without documented opt-in consent
+- Missing data processing agreements with service providers
 
-You're legally responsible - not them.
+**The legal reality:**
+
+Under UK GDPR, **you** are the "data controller" - legally responsible for compliance, regardless of who builds your website.
+
+The ICO expects businesses to take reasonable steps to ensure their suppliers comply with data protection law. "My offshore developer didn't tell me" won't protect you from enforcement action.
+
+**What offshore developers often miss:**
+
+- Privacy policies must reference UK GDPR and ICO specifically
+- Cookie consent under PECR requires genuine choice, not just "Accept" buttons
+- Data Processing Agreements needed between you and service providers
+- Special safeguards required when data moves outside UK/EU
+
+**The expensive fix:**
+
+If you hire an offshore developer who builds a non-compliant site, you'll need:
+
+- GDPR compliance audit: £800-2,000
+- Implementing proper consent mechanisms: £500-1,500
+- Data Processing Agreements: £300-800
+- Privacy policy rewrite: £200-500
+- **Total: £1,800-4,800**
+
+Plus potential fines and ICO investigation costs if you're already non-compliant.
+
+**UK-based developers build compliance in from day one** because we understand UK law and face the same legal jurisdiction as you. We can't disappear across international borders if something goes wrong.
 
 ### Danger 3: The "Paid and Disappeared" Scam
 
@@ -517,13 +610,11 @@ Want it done right? [See our UK-based packages](/web-package) or [get a free quo
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${currentPost.title} | X15 Digital Blog`}
-        description={currentPost.content
-          .substring(0, 160)
-          .replace(/[#*\n]/g, " ")
-          .trim()}
-        keywords={`${currentPost.category}, web development, AI automation, UK business`}
+        title={currentPost.seoTitle}
+        description={currentPost.seoDescription}
+        keywords={currentPost.seoKeywords}
         ogType="article"
+        ogImage={currentPost.ogImage}
       />
       <ScrollProgressBar />
       <Navigation />
@@ -543,23 +634,13 @@ Want it done right? [See our UK-based packages](/web-package) or [get a free quo
 
       {/* Hero Image */}
       <div className="w-full h-64 md:h-96 bg-muted overflow-hidden">
-        <img
-          src={
-            slug === "cheap-websites"
-              ? blogWebDev
-              : slug === "offshore-development-risks"
-                ? blogOffshoreRisks
-                : blogAiAutomation
-          }
-          alt={currentPost.title}
-          className="w-full h-full object-cover"
-        />
+        <img src={currentPost.ogImage} alt={currentPost.heroAlt} className="w-full h-full object-cover" />
       </div>
 
       {/* Post Content */}
       <article className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto fade-in-section">
-          <Badge className="mb-4">{currentPost.category}</Badge>
+          <Badge className={`mb-4 ${getCategoryBadgeClass(currentPost.category)}`}>{currentPost.category}</Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{currentPost.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8 pb-8 border-b border-border">
             <span>By {currentPost.author}</span>
@@ -672,10 +753,10 @@ Want it done right? [See our UK-based packages](/web-package) or [get a free quo
             {Object.entries(posts)
               .filter(([key]) => key !== slug)
               .slice(0, 3)
-              .map(([key, post]: [string, any]) => (
+              .map(([key, post]) => (
                 <Card key={key} className="hover-lift">
                   <CardHeader>
-                    <Badge className="mb-2 w-fit">{post.category}</Badge>
+                    <Badge className={`mb-2 w-fit ${getCategoryBadgeClass(post.category)}`}>{post.category}</Badge>
                     <CardTitle className="text-lg">{post.title}</CardTitle>
                   </CardHeader>
                   <CardContent>

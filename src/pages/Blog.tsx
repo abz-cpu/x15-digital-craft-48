@@ -17,6 +17,21 @@ import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
+const getCategoryBadgeClass = (category: Category) => {
+  switch (category) {
+    case "web-dev":
+      return "bg-teal-600 text-white";
+    case "ai-automation":
+      return "bg-violet-600 text-white";
+    case "business":
+      return "bg-amber-600 text-white";
+    case "case-studies":
+      return "bg-sky-600 text-white";
+    default:
+      return "bg-secondary text-secondary-foreground";
+  }
+};
+
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
 
@@ -28,7 +43,7 @@ const Blog = () => {
       category: "web-dev" as Category,
       categoryLabel: "Web Development",
       excerpt:
-        "That £50 website builder might seem like a bargain, but hidden costs add up fast. Here's what you're really paying for.",
+        "That £50 website builder might seem like a bargain, but hidden platform fees, lost time, and migration costs quickly turn it into a £2,000 problem.",
       readTime: 5,
       date: "2024-03-15",
       author: "Abdul M Taher",
@@ -41,7 +56,7 @@ const Blog = () => {
       category: "web-dev" as Category,
       categoryLabel: "Web Development",
       excerpt:
-        "That £200 developer in India might seem tempting, but GDPR fines and quality issues cost far more. Learn why UK-based development protects your business.",
+        "That £200 developer in India might seem tempting, but one GDPR mistake could cost £17.5M. Learn why UK-based development protects your business.",
       readTime: 6,
       date: "2024-03-20",
       author: "Abdul M Taher",
@@ -54,7 +69,7 @@ const Blog = () => {
       category: "ai-automation" as Category,
       categoryLabel: "AI Automation",
       excerpt:
-        "AI automation isn't just for tech companies. Here's how small businesses are using chatbots and voice agents to save 20+ hours per week.",
+        "AI automation isn't just for tech companies. See how UK small businesses use chatbots and voice agents to save 10–20 hours per week without being technical.",
       readTime: 7,
       date: "2024-03-10",
       author: "Abdul M Taher",
@@ -62,10 +77,9 @@ const Blog = () => {
     },
   ];
 
-  // NEW: sort by date (newest first)
+  // sort by date (newest first)
   const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  // UPDATE this to use sortedPosts instead of blogPosts
   const filteredPosts =
     activeCategory === "all" ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory);
 
@@ -81,8 +95,8 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Blog - Web Development & AI Automation Insights | X15 Digital"
-        description="Read expert insights on web development, AI automation, and business growth. Tips, case studies, and guides for UK small businesses."
-        keywords="web development blog UK, AI automation guides, website tips, business automation advice"
+        description="Read expert insights on web development, offshore risks, cheap website pitfalls, and AI automation. Practical guides and case studies for UK small businesses."
+        keywords="web development blog UK, offshore development risks, cheap websites, AI automation guides, website tips, UK small business"
       />
       <ScrollProgressBar />
       <Navigation />
@@ -134,7 +148,7 @@ const Blog = () => {
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
                   <CardHeader>
-                    <Badge className="mb-2 w-fit">{post.categoryLabel}</Badge>
+                    <Badge className={`mb-2 w-fit ${getCategoryBadgeClass(post.category)}`}>{post.categoryLabel}</Badge>
                     <CardTitle className="text-xl">{post.title}</CardTitle>
                   </CardHeader>
                   <CardContent>

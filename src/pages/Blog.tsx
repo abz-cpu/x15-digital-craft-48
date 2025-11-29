@@ -69,9 +69,6 @@ const Blog = () => {
   const filteredPosts =
     activeCategory === "all" ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory);
 
-  const filteredPosts =
-    activeCategory === "all" ? blogPosts : blogPosts.filter((post) => post.category === activeCategory);
-
   const categories = [
     { id: "all" as Category, label: "All", icon: FileText },
     { id: "web-dev" as Category, label: "Web Development", icon: Globe },

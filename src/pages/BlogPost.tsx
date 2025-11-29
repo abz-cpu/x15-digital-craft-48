@@ -376,25 +376,29 @@ You hire an offshore developer for £150-300. The website looks professional ini
 **Then UK customers start noticing issues:**
 
 **Technical problems:**
-- Phone numbers in international format (not UK standard)
-- American spelling throughout ("color" not "colour", "center" not "centre")
-- Missing required certifications (Gas Safe for plumbers, FCA for financial services)
-- No GDPR compliance mechanisms
-- Generic stock photos instead of UK-relevant imagery
+- **Phone numbers** in international format (not UK standard)
+- **American spelling** throughout ("color" not "colour", "center" not "centre")
+- **Missing certifications** (Gas Safe for plumbers, FCA for financial services)
+- **No GDPR compliance** mechanisms
+- **Generic stock photos** instead of UK-relevant imagery
 
 **Business problems:**
-- Customers question if you're a legitimate UK business
-- Lost conversions from confused visitors  
-- Damage to professional credibility
-- Expensive corrections after launch
+- **Customers question your legitimacy** as a UK business
+- **Lost conversions** from confused visitors
+- **Damaged professional credibility**
+- **More expensive clean-up** after launch
 
 **Why this happens:**
 
-Offshore developers aren't trying to do poor work—they genuinely don't know:
-- UK spelling conventions
-- UK legal requirements (Gas Safe, GDPR, accessibility law)
-- UK consumer expectations
-- UK business terminology and professional standards
+> 💡 **It's not about skill—it's about context.**  
+> Offshore developers aren't usually trying to do poor work. They simply don't operate inside the UK market and don't see the same rules you do every day.
+
+What they typically don't know:
+
+- **UK spelling conventions**
+- **UK legal requirements** (Gas Safe, GDPR, accessibility law)
+- **UK consumer expectations** around trust and professionalism
+- **UK business terminology** and professional standards
 
 **The fix costs more than doing it right:**
 - GDPR compliance audit and implementation: £500-1,000
@@ -405,6 +409,10 @@ Offshore developers aren't trying to do poor work—they genuinely don't know:
 Plus the opportunity cost of customers who saw your website and didn't trust it.
 
 **UK-based developers know these requirements** because we live in the same market as your customers.
+
+---
+
+But market knowledge isn't the only risk...
 
 ### Danger 2: GDPR Violations Can Destroy Your Business
 

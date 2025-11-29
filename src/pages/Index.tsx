@@ -544,7 +544,7 @@ const Index = () => {
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>
-                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.shortDescription}</p>
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.tagline}</p>
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

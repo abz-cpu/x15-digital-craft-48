@@ -411,7 +411,7 @@ const WebPackage = () => {
               <div className="text-center mb-10">
                 <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">📚 Essential Reading</Badge>
                 <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                  Before You Choose: Know What You're Really Paying For
+                  Before You Choose: Know What You&apos;re Really Paying For
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   Understanding the true cost of cheap websites and offshore development helps you make informed
@@ -428,7 +428,7 @@ const WebPackage = () => {
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
                         src={blogWebDevHero}
-                        alt="Why cheap websites cost more"
+                        alt="Code editor next to website builder showing the hidden costs of cheap websites"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -443,8 +443,8 @@ const WebPackage = () => {
                         Why Cheap Websites Cost More in the Long Run
                       </h3>
                       <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                        That £50 website builder might seem like a bargain, but hidden costs add up fast. Learn what
-                        you're really paying for and why transparent pricing saves money.
+                        That £50 website builder might seem like a bargain, but hidden rebuild costs add up fast. Learn
+                        what you&apos;re really paying for and why transparent pricing saves money.
                       </p>
                       <div className="mt-auto flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">5 min read</span>
@@ -464,7 +464,7 @@ const WebPackage = () => {
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
                         src={blogOffshoreRisks}
-                        alt="Offshore development risks"
+                        alt="Laptop with red warning sign and UK flag representing offshore development risks"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -480,7 +480,7 @@ const WebPackage = () => {
                       </h3>
                       <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                         That £200 developer in India might seem tempting, but GDPR fines start at £17.5M and quality
-                        issues cost far more. Learn why UK-based development protects your business.
+                        issues often require complete rebuilds. Learn why UK-based development protects your business.
                       </p>
                       <div className="mt-auto flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">6 min read</span>

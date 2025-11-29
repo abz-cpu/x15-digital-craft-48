@@ -10,6 +10,8 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
+import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
+
 const WebPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -401,63 +403,99 @@ const WebPackage = () => {
           </Container>
         </section>
 
-        {/* 4.5. EDUCATIONAL CONTENT - VALUE VS PRICE */}
+        {/* 4.5. EDUCATIONAL CONTENT - VALUE VS PRICE (DUAL FEATURED ARTICLES) */}
         <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white">
           <Container>
-            <div className="max-w-5xl mx-auto">
-              {/* Featured Article Card */}
-              <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
-                <div className="grid md:grid-cols-2 gap-0">
-                  {/* Image Side */}
-                  <Link
-                    to="/blog/cheap-websites"
-                    className="relative aspect-[4/3] md:aspect-auto overflow-hidden group"
-                  >
-                    <img
-                      src={blogWebDevHero}
-                      alt="Why cheap websites cost more"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-10">
+                <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">📚 Essential Reading</Badge>
+                <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                  Before You Choose: Know What You're Really Paying For
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Understanding the true cost of cheap websites and offshore development helps you make informed
+                  decisions.
+                </p>
+              </div>
 
-                    {/* Category Badge */}
-                    <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">Web Development</Badge>
-                  </Link>
+              {/* Two Featured Articles Grid */}
+              <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8 items-stretch">
+                {/* Article 1: Cheap Websites */}
+                <Card className="overflow-hidden border-2 border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group h-full">
+                  <Link to="/blog/cheap-websites" className="block h-full">
+                    {/* Image */}
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <img
+                        src={blogWebDevHero}
+                        alt="Why cheap websites cost more"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                        Web Development
+                      </Badge>
+                    </div>
 
-                  {/* Content Side */}
-                  <div className="p-8 md:p-10 flex flex-col justify-center">
-                    <div className="mb-4">
-                      <p className="text-xs font-semibold text-primary mb-2 tracking-wider uppercase">
-                        📚 Required Reading
-                      </p>
-                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-3 leading-tight">
+                    {/* Content */}
+                    <div className="p-6 flex flex-col h-full">
+                      <h3 className="text-xl font-bold text-secondary mb-3 leading-tight group-hover:text-primary transition-colors">
                         Why Cheap Websites Cost More in the Long Run
                       </h3>
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                        That £50 website builder might seem like a bargain, but hidden costs add up fast. Learn what
+                        you're really paying for and why transparent pricing saves money.
+                      </p>
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">5 min read</span>
+                        <span className="text-sm font-medium text-primary inline-flex items-center gap-1">
+                          Read Article
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </Card>
+
+                {/* Article 2: Offshore Risks */}
+                <Card className="overflow-hidden border-2 border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group h-full">
+                  <Link to="/blog/offshore-development-risks" className="block h-full">
+                    {/* Image */}
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <img
+                        src={blogOffshoreRisks}
+                        alt="Offshore development risks"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                        Web Development
+                      </Badge>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      That £50 website builder might seem like a bargain, but hidden costs add up fast. Learn what
-                      you're really paying for and why transparent pricing saves money.
-                    </p>
-
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                      <span>5 min read</span>
-                      <span>•</span>
-                      <span>15 March 2024</span>
+                    {/* Content */}
+                    <div className="p-6 flex flex-col h-full">
+                      <h3 className="text-xl font-bold text-secondary mb-3 leading-tight group-hover:text-primary transition-colors">
+                        The Hidden Dangers of Hiring Offshore Developers
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                        That £200 developer in India might seem tempting, but GDPR fines start at £17.5M and quality
+                        issues cost far more. Learn why UK-based development protects your business.
+                      </p>
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">6 min read</span>
+                        <span className="text-sm font-medium text-primary inline-flex items-center gap-1">
+                          Read Article
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
                     </div>
+                  </Link>
+                </Card>
+              </div>
 
-                    <Button asChild size="lg" variant="outline" className="w-full sm:w-auto group">
-                      <Link to="/blog/cheap-websites">
-                        Read Full Article
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Optional: Related Resources Strip */}
-              <div className="mt-8 text-center">
+              {/* Bottom CTA */}
+              <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">
                   Want more insights on web development and business growth?
                 </p>
@@ -694,8 +732,6 @@ const WebPackage = () => {
               <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
                 Pick your package and start today, or book a call to discuss custom requirements.
               </p>
-
-              {/* Extra intro copy (kept, but slightly smaller for hierarchy) */}
             </div>
 
             {/* Dual CTAs – same UX/UI as AI final CTA */}
@@ -739,4 +775,5 @@ const WebPackage = () => {
     </div>
   );
 };
+
 export default WebPackage;

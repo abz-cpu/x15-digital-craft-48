@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
+import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 const WebPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -413,7 +414,7 @@ const WebPackage = () => {
                     className="relative aspect-[4/3] md:aspect-auto overflow-hidden group"
                   >
                     <img
-                      src="/images/blog/cheap-websites-header.jpg"
+                      src={blogWebDevHero}
                       alt="Why cheap websites cost more"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

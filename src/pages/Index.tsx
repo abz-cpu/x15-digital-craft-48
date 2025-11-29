@@ -22,6 +22,7 @@ import {
   MessageSquare,
   MapPin,
   Image,
+  Setting,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

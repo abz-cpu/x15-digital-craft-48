@@ -386,21 +386,6 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {[
               {
-                id: "design",
-                icon: Palette,
-                title: "Web/App Design",
-                tagline: "Sites that convert visitors into customers",
-                fullDescription:
-                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
-                process: [
-                  "Discovery & Brand Research",
-                  "Design Concepts & Mockups",
-                  "User Experience Testing",
-                  "Final Design & Handoff",
-                ],
-                link: "/services#design",
-              },
-              {
                 id: "web-dev",
                 icon: Globe,
                 title: "Web Development",
@@ -416,19 +401,49 @@ const Index = () => {
                 link: "#web-preview",
               },
               {
-                id: "app-dev",
-                icon: Smartphone,
-                title: "App Development",
-                tagline: "Mobile apps your customers will love using",
+                id: "maintenance",
+                icon: Settings,
+                title: "Website Maintenance",
+                tagline: "Keep your site secure, fast, and running perfectly",
                 fullDescription:
-                  "Native iOS and Android applications designed for exceptional user experience. From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+                  "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business. Every maintenance plan includes proactive monitoring to catch issues before they become problems.",
                 process: [
-                  "Strategy & Feature Planning",
-                  "Design & Development",
-                  "Testing & Refinement",
-                  "App Store Launch & Updates",
+                  "Security Updates & Monitoring",
+                  "Performance Optimization",
+                  "Content Updates & Backups",
+                  "Priority Support & Emergency Fixes",
                 ],
-                link: "/services#app-development",
+                link: "/services#maintenance",
+              },
+              {
+                id: "ai-automation",
+                icon: Bot,
+                title: "AI Automation",
+                tagline: "Work smarter with 24/7 AI assistance",
+                fullDescription:
+                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                process: [
+                  "Workflow Analysis & Planning",
+                  "AI Training & Configuration",
+                  "Integration & Testing",
+                  "Launch & Performance Monitoring",
+                ],
+                link: "#ai-preview",
+              },
+              {
+                id: "design",
+                icon: Palette,
+                title: "Web/App Design",
+                tagline: "Sites that convert visitors into customers",
+                fullDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                process: [
+                  "Discovery & Brand Research",
+                  "Design Concepts & Mockups",
+                  "User Experience Testing",
+                  "Final Design & Handoff",
+                ],
+                link: "/services#design",
               },
               {
                 id: "marketing",
@@ -460,21 +475,6 @@ const Index = () => {
                 ],
                 link: "/services#branding",
               },
-              {
-                id: "ai-automation",
-                icon: Bot,
-                title: "AI Automation",
-                tagline: "Work smarter with 24/7 AI assistance",
-                fullDescription:
-                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
-                process: [
-                  "Workflow Analysis & Planning",
-                  "AI Training & Configuration",
-                  "Integration & Testing",
-                  "Launch & Performance Monitoring",
-                ],
-                link: "#ai-preview",
-              },
             ].map((service) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
@@ -502,7 +502,6 @@ const Index = () => {
                     {/* DESKTOP: smooth expand, same paragraph continues */}
                     <div className="hidden md:block">
                       <div className="overflow-hidden transition-[max-height] duration-300 ease-out max-h-[140px] group-hover:max-h-[420px]">
-                        {/* One paragraph only: always fullDescription */}
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2 group-hover:line-clamp-none">
                           {service.fullDescription}
                         </p>
@@ -531,7 +530,14 @@ const Index = () => {
                             onClick={(e) => {
                               e.stopPropagation();
                               e.preventDefault();
-                              scrollToSection("ai-preview");
+
+                              if (service.id === "web-dev") {
+                                scrollToSection("web-preview");
+                              } else if (service.id === "ai-automation") {
+                                scrollToSection("ai-preview");
+                              } else if (service.link.startsWith("/services")) {
+                                window.location.href = service.link;
+                              }
                             }}
                           >
                             Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -540,7 +546,7 @@ const Index = () => {
                       </div>
                     </div>
 
-                    {/* MOBILE/TABLET: keep your existing click-to-expand logic */}
+                    {/* MOBILE/TABLET: click-to-expand */}
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>

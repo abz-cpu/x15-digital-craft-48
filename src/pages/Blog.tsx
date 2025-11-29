@@ -13,6 +13,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";
+import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -35,6 +36,19 @@ const Blog = () => {
     },
     {
       id: 2,
+      slug: "offshore-development-risks",
+      title: "The Hidden Dangers of Hiring Offshore Web Developers",
+      category: "web-dev" as Category,
+      categoryLabel: "Web Development",
+      excerpt:
+        "That £200 developer in India might seem tempting, but GDPR fines and quality issues cost far more. Learn why UK-based development protects your business.",
+      readTime: 6,
+      date: "2024-03-20",
+      author: "Abdul M Taher",
+      image: blogOffshoreRisks,
+    },
+    {
+      id: 3,
       slug: "ai-for-small-businesses",
       title: "How Small Businesses Can Use AI Without Being Techy",
       category: "ai-automation" as Category,
@@ -49,9 +63,7 @@ const Blog = () => {
   ];
 
   const filteredPosts =
-    activeCategory === "all"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === activeCategory);
+    activeCategory === "all" ? blogPosts : blogPosts.filter((post) => post.category === activeCategory);
 
   const categories = [
     { id: "all" as Category, label: "All", icon: FileText },
@@ -63,7 +75,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="Blog - Web Development & AI Automation Insights | X15 Digital"
         description="Read expert insights on web development, AI automation, and business growth. Tips, case studies, and guides for UK small businesses."
         keywords="web development blog UK, AI automation guides, website tips, business automation advice"
@@ -75,12 +87,9 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Resources & Insights
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Resources & Insights</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Practical tips on web development, AI automation, and growing your business
-            online.
+            Practical tips on web development, AI automation, and growing your business online.
             <br />
             No fluff. No jargon. Just actionable advice.
           </p>
@@ -118,11 +127,7 @@ const Blog = () => {
               <AnimatedSection key={post.id} staggerIndex={index}>
                 <Card className="hover-lift h-full">
                   <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
                   <CardHeader>
                     <Badge className="mb-2 w-fit">{post.categoryLabel}</Badge>
@@ -134,9 +139,7 @@ const Blog = () => {
                       <span>{post.readTime} min read</span>
                     </div>
                     <div className="border-t border-border pt-4 mb-4">
-                      <p className="text-xs text-muted-foreground">
-                        By {post.author}
-                      </p>
+                      <p className="text-xs text-muted-foreground">By {post.author}</p>
                       <p className="text-xs text-muted-foreground">
                         {new Date(post.date).toLocaleDateString("en-GB", {
                           day: "numeric",
@@ -158,9 +161,7 @@ const Blog = () => {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">
-                No posts found in this category yet. Check back soon!
-              </p>
+              <p className="text-muted-foreground text-lg">No posts found in this category yet. Check back soon!</p>
             </div>
           )}
         </div>

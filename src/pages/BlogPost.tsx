@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";
+import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +29,7 @@ const BlogPost = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -101,6 +102,12 @@ When something breaks (and it will):
 Want to switch platforms later? 
 
 Most cheap builders lock you in with proprietary code. You'll pay £500-1,500 to migrate everything to a proper platform.
+
+### Hidden Cost 6: The Offshore Gamble
+
+Tempted by a £200 developer in India or Pakistan? 
+
+[Read why offshore development comes with even more hidden costs and legal risks](/blog/offshore-development-risks) - from GDPR fines to communication nightmares.
 
 ## The Real Cost of Cheap
 
@@ -286,6 +293,208 @@ AI automation isn't complicated. It's just smart business.
 Ready to automate? [See our AI services](/services#ai-automation) or [get a free quote](/contact).
       `,
     },
+    "offshore-development-risks": {
+      title: "The Hidden Dangers of Hiring Offshore Web Developers",
+      category: "Web Development",
+      date: "2024-03-20",
+      readTime: 6,
+      author: "Abdul M Taher",
+      content: `
+## Why £200 from India Costs £2,000 in the Long Run
+
+"Get a website built in India for £200!" 
+
+Sounds tempting. Until you realize what you're actually getting.
+
+Here's what nobody tells you about offshore development:
+
+### Danger 1: They Don't Understand the UK Market
+
+**Real Example:**
+
+A London plumber hired a developer in Pakistan for £150. The website looked professional.
+
+**Problems:**
+- Phone number format was wrong (international, not UK)
+- Spelling was American ("color" not "colour")
+- No mention of Gas Safe certification (required by UK law)
+- No GDPR compliance whatsoever
+- Called customers "clients" instead of using UK trades terminology
+
+**Cost to fix:** £800 + lost customers who thought it was a scam site
+
+### Danger 2: GDPR Violations Can Cost You £17.5 Million
+
+This isn't a typo. The ICO (UK data regulator) can fine you **up to £17.5 million** for GDPR violations.
+
+**Common offshore GDPR failures:**
+- Contact forms with no privacy policy
+- Data stored outside UK/EU without proper safeguards
+- No cookie consent (£50,000+ fine)
+- Email lists without proper opt-in
+- No data protection officer contact
+
+**One UK business** was fined £80,000 because their offshore developer didn't implement basic GDPR requirements.
+
+You're legally responsible - not them.
+
+### Danger 3: The "Paid and Disappeared" Scam
+
+**How it works:**
+
+1. You pay 50% upfront (£100-500)
+2. They send "preview" (stolen template)
+3. You pay remaining 50%
+4. They disappear or deliver rubbish
+5. You can't sue them (they're overseas)
+
+**UK legal protection:** ZERO
+
+No UK contracts. No UK courts. No recourse.
+
+### Danger 4: Communication Nightmares
+
+**Time zones:**
+- India: 5.5 hours ahead
+- Philippines: 8 hours ahead
+- Pakistan: 5 hours ahead
+
+**Real conversation:**
+
+**You (9am UK):** "The contact form is broken"
+
+**Them (2pm their time, already leaving):** "Will check tomorrow"
+
+**You (next morning):** "Any update?"
+
+**Them (just waking up):** "Looking now"
+
+**Result:** 2 days to fix a 10-minute problem.
+
+### Danger 5: English Isn't the Problem - Context Is
+
+Most offshore developers speak English well. That's not the issue.
+
+**The real problem:**
+
+They don't know:
+- UK business culture
+- UK consumer expectations
+- UK legal requirements
+- UK payment systems (Stripe vs UK banks)
+- UK competitor standards
+
+**Example:**
+
+Indian developer: "Contact form requires full address"
+
+**Why it's wrong:** UK customers won't fill out long forms. You'll lose 70% of leads.
+
+A UK developer knows: "Just name, email, phone - we'll get details later."
+
+### Danger 6: Quality Control Is Impossible
+
+You can't check the code quality. You don't know if:
+- It's secure (hackers love poorly coded sites)
+- It's optimized (affects Google rankings)
+- It follows UK accessibility law (required by Equality Act 2010)
+- It works on all devices
+
+**One business** discovered their offshore developer copy-pasted code from 5 different sources. Site broke after 3 months.
+
+**Fix cost:** £1,200
+
+### Danger 7: Ongoing Support? Good Luck.
+
+**What happens when:**
+- Your website breaks at 2pm Friday?
+- You need urgent changes for a promotion?
+- Google changes their algorithm?
+- You want to add a feature?
+
+**Offshore:** 24-48 hour response (if they respond at all)
+
+**UK-based:** Same-day fixes, often within hours
+
+### Danger 8: They Don't Care About Your Success
+
+Hard truth: To an offshore developer, you're job #147 this month.
+
+To a UK developer building a local reputation? You're a potential 5-star review and referral source.
+
+**Offshore motivation:** Finish fast, get paid, move to next client
+
+**UK motivation:** Make you successful so you refer others
+
+### The Real Cost Comparison
+
+**Offshore Developer:**
+- Initial cost: £200-500
+- Communication delays: 20 hours of your time (£300)
+- GDPR compliance fixes: £500-1,000
+- Quality issues: £800-1,500
+- Redo with UK developer: £600-1,400
+- **Total: £2,400-4,400**
+
+**UK Developer (X15 Digital):**
+- Initial cost: £300-600
+- Your time: 2 hours
+- GDPR: Included
+- Quality: Guaranteed
+- Redo: £0
+- **Total: £300-600**
+
+### When Offshore Makes Sense
+
+I'll be honest - there ARE situations where offshore works:
+
+**Good offshore scenarios:**
+- You're a tech company with full-time dev team
+- You need a developer to augment your in-house team
+- You're building an internal tool (not customer-facing)
+- You have technical expertise to review code
+
+**Bad offshore scenarios:**
+- You're a small UK business
+- This is your main website
+- You don't know how to check code quality
+- You need ongoing support
+
+### Not Sure What's Worse?
+
+Cheap UK website builders have their own hidden costs too. 
+
+[See our full breakdown of why cheap websites cost more than you think](/blog/cheap-websites).
+
+### What to Do Instead
+
+**Option 1:** Hire UK-based (us or competitors)
+- Full GDPR compliance
+- UK consumer understanding
+- Same-day support
+- Legal recourse
+
+**Option 2:** Use quality no-code tools yourself
+- Framer, Webflow, Squarespace
+- Learn in a weekend
+- Better than bad offshore work
+
+**Option 3:** Hybrid approach
+- UK developer sets up foundation
+- You handle small updates
+- Call them for major changes
+
+## The Bottom Line
+
+£200 saved = £2,000+ in problems
+
+**Offshore development isn't cheap. It's expensive amateur hour.**
+
+Want it done right? [See our UK-based packages](/web-package) or [get a free quote](/contact).
+
+**P.S.** We're based in London. You can literally visit our office. Try doing that with your developer in Mumbai.
+    `,
+    },
   };
 
   const currentPost = posts[slug || ""];
@@ -307,16 +516,19 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title={`${currentPost.title} | X15 Digital Blog`}
-        description={currentPost.content.substring(0, 160).replace(/[#*\n]/g, ' ').trim()}
+        description={currentPost.content
+          .substring(0, 160)
+          .replace(/[#*\n]/g, " ")
+          .trim()}
         keywords={`${currentPost.category}, web development, AI automation, UK business`}
         ogType="article"
       />
       <ScrollProgressBar />
       <Navigation />
       <BreadcrumbNav />
-      
+
       {/* Back Button */}
       <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto">
@@ -331,8 +543,14 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
 
       {/* Hero Image */}
       <div className="w-full h-64 md:h-96 bg-muted overflow-hidden">
-        <img 
-          src={slug === "cheap-websites" ? blogWebDev : blogAiAutomation}
+        <img
+          src={
+            slug === "cheap-websites"
+              ? blogWebDev
+              : slug === "offshore-development-risks"
+                ? blogOffshoreRisks
+                : blogAiAutomation
+          }
           alt={currentPost.title}
           className="w-full h-full object-cover"
         />
@@ -342,10 +560,8 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       <article className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto fade-in-section">
           <Badge className="mb-4">{currentPost.category}</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            {currentPost.title}
-          </h1>
-          <div className="flex items-center gap-4 text-muted-foreground mb-8 pb-8 border-b border-border">
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{currentPost.title}</h1>
+          <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8 pb-8 border-b border-border">
             <span>By {currentPost.author}</span>
             <span>•</span>
             <span>
@@ -378,7 +594,7 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
                     if (match) {
                       return line.replace(
                         match[0],
-                        `<a href="${match[2]}" class="text-primary hover:underline">${match[1]}</a>`
+                        `<a href="${match[2]}" class="text-primary hover:underline">${match[1]}</a>`,
                       );
                     }
                   }
@@ -403,9 +619,9 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
               onClick={() =>
                 window.open(
                   `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                    window.location.href
+                    window.location.href,
                   )}&text=${encodeURIComponent(currentPost.title)}`,
-                  "_blank"
+                  "_blank",
                 )
               }
             >
@@ -415,10 +631,8 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
               variant="outline"
               onClick={() =>
                 window.open(
-                  `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                    window.location.href
-                  )}`,
-                  "_blank"
+                  `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+                  "_blank",
                 )
               }
             >
@@ -434,9 +648,7 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       {/* CTA Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-            Ready to start your project?
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Ready to start your project?</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
               <Link to="/services">
@@ -455,9 +667,7 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       {/* Related Posts */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-2xl font-bold text-secondary mb-8 text-center">
-            Related Posts
-          </h3>
+          <h3 className="text-2xl font-bold text-secondary mb-8 text-center">Related Posts</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {Object.entries(posts)
               .filter(([key]) => key !== slug)

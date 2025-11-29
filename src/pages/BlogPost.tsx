@@ -369,18 +369,42 @@ Here's what nobody tells you about offshore development:
 
 ### Danger 1: They Don't Understand the UK Market
 
-**Real Example:**
+**Common scenario UK businesses face:**
 
-A London plumber hired a developer in Pakistan for £150. The website looked professional.
+You hire an offshore developer for £150-300. The website looks professional initially.
 
-**Problems:**
-- Phone number format was wrong (international, not UK)
-- Spelling was American ("color" not "colour")
-- No mention of Gas Safe certification (required by UK law)
-- No GDPR compliance whatsoever
-- Called customers "clients" instead of using UK trades terminology
+**Then UK customers start noticing issues:**
 
-**Cost to fix:** £800 + lost customers who thought it was a scam site
+**Technical problems:**
+- Phone numbers in international format (not UK standard)
+- American spelling throughout ("color" not "colour", "center" not "centre")
+- Missing required certifications (Gas Safe for plumbers, FCA for financial services)
+- No GDPR compliance mechanisms
+- Generic stock photos instead of UK-relevant imagery
+
+**Business problems:**
+- Customers question if you're a legitimate UK business
+- Lost conversions from confused visitors  
+- Damage to professional credibility
+- Expensive corrections after launch
+
+**Why this happens:**
+
+Offshore developers aren't trying to do poor work—they genuinely don't know:
+- UK spelling conventions
+- UK legal requirements (Gas Safe, GDPR, accessibility law)
+- UK consumer expectations
+- UK business terminology and professional standards
+
+**The fix costs more than doing it right:**
+- GDPR compliance audit and implementation: £500-1,000
+- Content rewrite (British English, correct terminology): £300-600
+- Legal compliance (certifications, policies): £200-500
+- **Total: £1,000-2,100**
+
+Plus the opportunity cost of customers who saw your website and didn't trust it.
+
+**UK-based developers know these requirements** because we live in the same market as your customers.
 
 ### Danger 2: GDPR Violations Can Destroy Your Business
 

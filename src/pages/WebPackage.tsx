@@ -423,7 +423,7 @@ const WebPackage = () => {
               <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8 items-stretch">
                 {/* Article 1: Cheap Websites */}
                 <Card className="overflow-hidden border-2 border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group h-full">
-                  <Link to="/blog/cheap-websites" className="block h-full">
+                  <Link to="/blog/cheap-websites" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
@@ -438,15 +438,15 @@ const WebPackage = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 flex flex-col h-full">
+                    <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-xl font-bold text-secondary mb-3 leading-tight group-hover:text-primary transition-colors">
                         Why Cheap Websites Cost More in the Long Run
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
                         That £50 website builder might seem like a bargain, but hidden rebuild costs add up fast. Learn
                         what you&apos;re really paying for and why transparent pricing saves money.
                       </p>
-                      <div className="mt-auto flex items-center justify-between">
+                      <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">5 min read</span>
                         <span className="text-sm font-medium text-primary inline-flex items-center gap-1">
                           Read Article
@@ -459,7 +459,7 @@ const WebPackage = () => {
 
                 {/* Article 2: Offshore Risks */}
                 <Card className="overflow-hidden border-2 border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group h-full">
-                  <Link to="/blog/offshore-development-risks" className="block h-full">
+                  <Link to="/blog/offshore-development-risks" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
@@ -474,15 +474,15 @@ const WebPackage = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 flex flex-col h-full">
+                    <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-xl font-bold text-secondary mb-3 leading-tight group-hover:text-primary transition-colors">
                         The Hidden Dangers of Hiring Offshore Developers
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
                         That £200 developer in India might seem tempting, but GDPR fines start at £17.5M and quality
                         issues often require complete rebuilds. Learn why UK-based development protects your business.
                       </p>
-                      <div className="mt-auto flex items-center justify-between">
+                      <div className="flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">6 min read</span>
                         <span className="text-sm font-medium text-primary inline-flex items-center gap-1">
                           Read Article

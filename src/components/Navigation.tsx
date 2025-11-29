@@ -35,10 +35,12 @@ const Navigation = () => {
 
   const webServices = [
     { name: "Web Packages", path: "/web-package", bold: true },
+    { name: "App Development", path: "/services#app-development" },
     { name: "Logo Design", path: "/services#logo-design" },
     { name: "Landing Page Creation", path: "/services#landing-pages" },
     { name: "SEO", path: "/services#seo" },
     { name: "Website Maintenance", path: "/services#maintenance" },
+    { name: "IT Support", path: "/services#it-support" },
     { name: "Branding", path: "/services#branding" },
   ];
 

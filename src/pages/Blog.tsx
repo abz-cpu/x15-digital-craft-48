@@ -62,6 +62,13 @@ const Blog = () => {
     },
   ];
 
+  // NEW: sort by date (newest first)
+  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // UPDATE this to use sortedPosts instead of blogPosts
+  const filteredPosts =
+    activeCategory === "all" ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory);
+
   const filteredPosts =
     activeCategory === "all" ? blogPosts : blogPosts.filter((post) => post.category === activeCategory);
 

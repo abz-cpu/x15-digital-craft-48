@@ -11,15 +11,9 @@ import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
-
 const WebPackage = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SEO
-        title="Web Development Packages | X15 Digital"
-        description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers."
-        canonicalUrl="https://x15.digital/web-package"
-      />
+  return <div className="min-h-screen flex flex-col">
+      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers." canonicalUrl="https://x15.digital/web-package" />
       <Navigation />
 
       <main className="flex-1">
@@ -104,14 +98,12 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card
-                  className="
+                <Card className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  "
-                >
+                  ">
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -359,7 +351,7 @@ const WebPackage = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Performance tuning</span>
+                          <span className="text-sm">Speed optimisation tuning</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -610,16 +602,9 @@ const WebPackage = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               {/* Portfolio Item 1 - X15 PC Builders */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
+              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/x15-pc-builders.jpg"
-                    alt="X15 PC Builders Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src="/images/portfolio/x15-pc-builders.jpg" alt="X15 PC Builders Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -634,16 +619,9 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 2 */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
+              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/sample-salon.jpg"
-                    alt="Client Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src="/images/portfolio/sample-salon.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -655,16 +633,9 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 3 */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
+              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/sample-trades.jpg"
-                    alt="Client Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src="/images/portfolio/sample-trades.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -709,11 +680,7 @@ const WebPackage = () => {
                   <Link to="/blog/cheap-websites" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={blogWebDevHero}
-                        alt="Code editor next to website builder showing the hidden costs of cheap websites"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <img src={blogWebDevHero} alt="Code editor next to website builder showing the hidden costs of cheap websites" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -745,11 +712,7 @@ const WebPackage = () => {
                   <Link to="/blog/offshore-development-risks" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={blogOffshoreRisks}
-                        alt="Laptop with red warning sign and UK flag representing offshore development risks"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <img src={blogOffshoreRisks} alt="Laptop with red warning sign and UK flag representing offshore development risks" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -1020,29 +983,23 @@ const WebPackage = () => {
             {/* Dual CTAs – same UX/UI as AI final CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               {/* Primary: Start Your Project */}
-              <Link
-                to="/quick-start"
-                className="group flex items-center justify-center gap-2
+              <Link to="/quick-start" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all"
-              >
+          transition-all">
                 Start Your Project
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Secondary: Book Free Consultation */}
-              <Link
-                to="/contact"
-                className="group flex items-center justify-center gap-2
+              <Link to="/contact" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all"
-              >
+          active:scale-[0.97] transition-all">
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -1055,8 +1012,6 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default WebPackage;

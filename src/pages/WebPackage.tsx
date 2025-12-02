@@ -315,6 +315,222 @@ const WebPackage = () => {
           </Container>
         </section>
 
+        {/* CLOUDFLARE PERFORMANCE & SECURITY PACKAGES */}
+        <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-teal-50/30">
+          <Container>
+            <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-12">
+                <Badge className="mb-4 bg-teal-600/10 text-teal-700 border-teal-200">⚡ Performance & Security</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                  Supercharge Your Website Performance
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Make your website faster, more secure, and more reliable with enterprise-grade Cloudflare
+                  optimization.
+                </p>
+              </div>
+
+              {/* Three Package Cards */}
+              <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-12">
+                {/* PACKAGE 1: Setup Only */}
+                <AnimatedSection staggerIndex={0} animation="scale">
+                  <Card className="hover-lift relative h-full bg-white border border-border">
+                    <CardHeader className="pt-6 pb-4">
+                      <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                        Cloudflare Setup
+                      </CardTitle>
+                      <p className="text-3xl font-bold text-secondary mt-1">
+                        £35
+                        <span className="block text-xs font-medium text-muted-foreground">One-time payment</span>
+                      </p>
+                    </CardHeader>
+
+                    <CardContent className="pb-6">
+                      <p className="text-sm font-semibold text-secondary mb-1">Professional Performance Foundation</p>
+                      <p className="text-sm text-muted-foreground mb-5">
+                        Complete Cloudflare optimization for websites that need speed and security without ongoing
+                        management.
+                      </p>
+
+                      <p className="text-xs font-semibold mb-2">What you get:</p>
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Global DNS setup with faster loading speeds</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Free SSL certificate & HTTPS enforcement</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">DDoS protection & bot blocking</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Free CDN for worldwide performance</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Page Rules: redirects & cache optimization</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Firewall security rules & analytics</span>
+                        </li>
+                      </ul>
+
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/contact">
+                          Get Setup <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+
+                {/* PACKAGE 2: Support & Maintenance */}
+                <AnimatedSection staggerIndex={1} animation="scale">
+                  <Card className="hover-lift relative h-full bg-white border border-primary/30">
+                    <Badge className="absolute -top-3 left-4 bg-white text-teal-700 border border-teal-200 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
+                      💼 Peace of Mind
+                    </Badge>
+
+                    <CardHeader className="pt-8 pb-4">
+                      <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                        Support & Maintenance
+                      </CardTitle>
+                      <p className="text-3xl font-bold text-secondary mt-1">
+                        £15
+                        <span className="block text-xs font-medium text-muted-foreground">/month</span>
+                      </p>
+                    </CardHeader>
+
+                    <CardContent className="pb-6">
+                      <p className="text-sm font-semibold text-secondary mb-1">Keep Your Site Healthy & Fast</p>
+                      <p className="text-sm text-muted-foreground mb-5">
+                        Ongoing maintenance and Cloudflare optimization so your website stays fast, secure, and
+                        problem-free.
+                      </p>
+
+                      <p className="text-xs font-semibold mb-2">Everything in Setup, plus:</p>
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Monthly bug fixes & small updates</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Content updates (up to 30 min/month)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Security updates & firewall tuning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Performance monitoring & cache optimization</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">DNS management & redirect updates</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Email support (24-48h response)</span>
+                        </li>
+                      </ul>
+
+                      <p className="text-xs text-muted-foreground mb-4 italic">
+                        * Hosting not included - use your own provider
+                      </p>
+
+                      <Button asChild className="w-full">
+                        <Link to="/contact">
+                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+
+                {/* PACKAGE 3: Hosting + Support */}
+                <AnimatedSection staggerIndex={2} animation="scale">
+                  <Card className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-md">
+                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
+                      ⭐ BEST VALUE
+                    </Badge>
+
+                    <CardHeader className="pt-8 pb-4">
+                      <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                        Hosting + Support
+                      </CardTitle>
+                      <p className="text-3xl font-bold text-secondary mt-1">
+                        £22
+                        <span className="block text-xs font-medium text-muted-foreground">/month total</span>
+                      </p>
+                    </CardHeader>
+
+                    <CardContent className="pb-6">
+                      <p className="text-sm font-semibold text-secondary mb-1">Complete Website Care Package</p>
+                      <p className="text-sm text-muted-foreground mb-5">
+                        Full-service hosting, maintenance, and optimization. We handle everything so you can focus on
+                        your business.
+                      </p>
+
+                      <p className="text-xs font-semibold mb-2">Everything in Maintenance, plus:</p>
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Ultra-fast Cloudflare Pages hosting</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Automatic deployments & updates</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Global CDN with 99.99% uptime</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Complete DNS & redirect control</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Traffic reports & analytics dashboard</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Error monitoring & instant fixes</span>
+                        </li>
+                      </ul>
+
+                      <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                        <Link to="/contact">
+                          Get Full Service <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              </div>
+
+              {/* Bottom Trust Statement */}
+              <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-teal-100">
+                <p className="text-sm text-muted-foreground mb-2">
+                  <span className="font-semibold text-secondary">Perfect for existing websites:</span> Already have a
+                  website? These packages work with any site to make it faster, more secure, and more reliable.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Enterprise-grade infrastructure · 24/7 monitoring · No technical knowledge required
+                </p>
+              </div>
+            </div>
+          </Container>
+        </section>
+
         {/* 4. PORTFOLIO SHOWCASE */}
         <section className="py-16 md:py-20 bg-background">
           <Container>

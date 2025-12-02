@@ -121,7 +121,7 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
     foundation: "—",
     growth: "5–7 days (+£150)",
     scale: "10–14 days (+£300)",
-    enterprise: "Quote individually (~£500)",
+    enterprise: "Custom quote (from £500)",
   },
   {
     feature: "Revisions included",
@@ -165,7 +165,8 @@ export const WebPackagesComparisonTable = () => {
         <div className="mb-12 text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Detailed Package Comparison</h2>
           <p className="text-lg text-muted-foreground">
-            See exactly what&apos;s included at each level so you can choose the right tier with confidence.
+            See exactly what&apos;s included at each level so you can choose the right tier with confidence. If you need
+            something beyond these, check the <strong>Advanced &amp; Enterprise solutions</strong> just below.
           </p>
         </div>
 

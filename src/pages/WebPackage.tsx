@@ -326,8 +326,8 @@ const WebPackage = () => {
                   Supercharge Your Website Performance
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Make your website faster, more secure, and more reliable with enterprise-grade Cloudflare
-                  optimization.
+                  Make your website faster, more secure, and more reliable with enterprise-grade optimization built on
+                  modern edge infrastructure.
                 </p>
               </div>
 
@@ -338,7 +338,7 @@ const WebPackage = () => {
                   <Card className="hover-lift relative h-full bg-white border border-border">
                     <CardHeader className="pt-6 pb-4">
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
-                        Cloudflare Setup
+                        Performance & Security Setup
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
                         £35
@@ -347,9 +347,9 @@ const WebPackage = () => {
                     </CardHeader>
 
                     <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Professional Performance Foundation</p>
+                      <p className="text-sm font-semibold text-secondary mb-1">Solid Technical Foundation</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Complete Cloudflare optimization for websites that need speed and security without ongoing
+                        One-time optimization for websites that need a faster, more secure setup without ongoing
                         management.
                       </p>
 
@@ -357,27 +357,29 @@ const WebPackage = () => {
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Global DNS setup with faster loading speeds</span>
+                          <span className="text-sm">DNS configuration and routing tuned for faster global loading</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Free SSL certificate & HTTPS enforcement</span>
+                          <span className="text-sm">SSL certificate configuration & full HTTPS enforcement</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">DDoS protection & bot blocking</span>
+                          <span className="text-sm">DDoS protection setup & basic bot filtering</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Free CDN for worldwide performance</span>
+                          <span className="text-sm">Global CDN configuration for faster worldwide performance</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Page Rules: redirects & cache optimization</span>
+                          <span className="text-sm">
+                            Page Rules for redirects, caching, and smarter traffic routing
+                          </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Firewall security rules & analytics</span>
+                          <span className="text-sm">Security rules and traffic analytics configured for your site</span>
                         </li>
                       </ul>
 
@@ -410,40 +412,40 @@ const WebPackage = () => {
                     <CardContent className="pb-6">
                       <p className="text-sm font-semibold text-secondary mb-1">Keep Your Site Healthy & Fast</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Ongoing maintenance and Cloudflare optimization so your website stays fast, secure, and
-                        problem-free.
+                        Ongoing maintenance, monitoring, and optimization so your website stays fast, secure, and
+                        stable.
                       </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Setup, plus:</p>
+                      <p className="text-xs font-semibold mb-2">Includes everything in Setup, plus:</p>
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Monthly bug fixes & small updates</span>
+                          <span className="text-sm">Monthly bug fixes & small technical adjustments</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Content updates (up to 30 min/month)</span>
+                          <span className="text-sm">Content updates (up to 30 minutes per month)</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Security updates & firewall tuning</span>
+                          <span className="text-sm">Ongoing security updates & firewall tuning</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Performance monitoring & cache optimization</span>
+                          <span className="text-sm">Performance monitoring & cache optimisation</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">DNS management & redirect updates</span>
+                          <span className="text-sm">DNS management & redirect updates when needed</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Email support (24-48h response)</span>
+                          <span className="text-sm">Email support with a typical 24–48h response time</span>
                         </li>
                       </ul>
 
                       <p className="text-xs text-muted-foreground mb-4 italic">
-                        * Hosting not included - use your own provider
+                        * Hosting not included — you keep your current hosting provider.
                       </p>
 
                       <Button asChild className="w-full">
@@ -475,35 +477,35 @@ const WebPackage = () => {
                     <CardContent className="pb-6">
                       <p className="text-sm font-semibold text-secondary mb-1">Complete Website Care Package</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Full-service hosting, maintenance, and optimization. We handle everything so you can focus on
+                        Fully managed hosting, maintenance, and optimisation — we handle the tech so you can focus on
                         your business.
                       </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Maintenance, plus:</p>
+                      <p className="text-xs font-semibold mb-2">Includes everything in Maintenance, plus:</p>
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Ultra-fast Cloudflare Pages hosting</span>
+                          <span className="text-sm">Managed cloud hosting on fast edge infrastructure</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Automatic deployments & updates</span>
+                          <span className="text-sm">Automatic deployments & configuration for new updates</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Global CDN with 99.99% uptime</span>
+                          <span className="text-sm">Global content delivery with high uptime and reliability</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Complete DNS & redirect control</span>
+                          <span className="text-sm">Full DNS & redirect control managed for you</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Traffic reports & analytics dashboard</span>
+                          <span className="text-sm">Traffic reports & simple analytics overview</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Error monitoring & instant fixes</span>
+                          <span className="text-sm">Error monitoring with fast response for critical issues</span>
                         </li>
                       </ul>
 
@@ -521,10 +523,11 @@ const WebPackage = () => {
               <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-teal-100">
                 <p className="text-sm text-muted-foreground mb-2">
                   <span className="font-semibold text-secondary">Perfect for existing websites:</span> Already have a
-                  website? These packages work with any site to make it faster, more secure, and more reliable.
+                  website? These packages layer on top of your current setup to make it faster, more secure, and more
+                  reliable.
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Enterprise-grade infrastructure · 24/7 monitoring · No technical knowledge required
+                  Modern edge infrastructure · Performance-focused configuration · No technical knowledge required
                 </p>
               </div>
             </div>

@@ -12,8 +12,13 @@ import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTa
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 const WebPackage = () => {
-  return <div className="min-h-screen flex flex-col">
-      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers." canonicalUrl="https://x15.digital/web-package" />
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Web Development Packages | X15 Digital"
+        description="Choose from Foundation, Growth, or Scale website packages. One payment, you own everything. No ongoing fees or retainers."
+        canonicalUrl="https://x15.digital/web-package"
+      />
       <Navigation />
 
       <main className="flex-1">
@@ -98,12 +103,14 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card className="
+                <Card
+                  className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  ">
+                  "
+                >
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -218,6 +225,92 @@ const WebPackage = () => {
 
             {/* Comparison Table */}
             <WebPackagesComparisonTable />
+          </Container>
+        </section>
+
+        {/* 3. ADVANCED SOLUTIONS */}
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">
+          <Container>
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
+              <p className="text-base text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+                For larger projects that go beyond standard websites, we design fully bespoke systems tailored to how
+                your business actually works.
+              </p>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                {/* Enterprise Systems */}
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-4">
+                    <p className="text-xs font-bold tracking-[0.16em] uppercase text-primary mb-2">
+                      ENTERPRISE SYSTEMS
+                    </p>
+                    <p className="text-3xl font-bold text-secondary">From £2,400</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      E-commerce platforms, customer portals, multi-user dashboards, and CRM integrations with full
+                      business automation.
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>Payment gateway integration (Stripe, PayPal)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>Customer accounts &amp; order history</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>Advanced booking systems with calendar sync</span>
+                      </li>
+                    </ul>
+                    <Button asChild size="lg" className="w-full">
+                      <Link to="/contact">
+                        Request Enterprise Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Custom Web Applications */}
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-4">
+                    <p className="text-xs font-bold tracking-[0.16em] uppercase text-primary mb-2">
+                      CUSTOM WEB APPLICATIONS
+                    </p>
+                    <p className="text-3xl font-bold text-secondary">From £3,500</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Bespoke platforms, SaaS tools, internal systems, and advanced integrations built to match your
+                      exact workflows.
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>Custom database architecture</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>API integrations with your existing tools</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>Advanced analytics &amp; reporting dashboards</span>
+                      </li>
+                    </ul>
+
+                    <Button asChild variant="outline" size="lg" className="w-full">
+                      <Link to="/contact">
+                        Request Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </Container>
         </section>
 
@@ -504,92 +597,6 @@ const WebPackage = () => {
           </Container>
         </section>
 
-        {/* 3. ADVANCED SOLUTIONS */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">
-          <Container>
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
-              <p className="text-base text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
-                For larger projects that go beyond standard websites, we design fully bespoke systems tailored to how
-                your business actually works.
-              </p>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {/* Enterprise Systems */}
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-4">
-                    <p className="text-xs font-bold tracking-[0.16em] uppercase text-primary mb-2">
-                      ENTERPRISE SYSTEMS
-                    </p>
-                    <p className="text-3xl font-bold text-secondary">From £2,400</p>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">
-                      E-commerce platforms, customer portals, multi-user dashboards, and CRM integrations with full
-                      business automation.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>Payment gateway integration (Stripe, PayPal)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>Customer accounts &amp; order history</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>Advanced booking systems with calendar sync</span>
-                      </li>
-                    </ul>
-                    <Button asChild size="lg" className="w-full">
-                      <Link to="/contact">
-                        Request Enterprise Quote <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Custom Web Applications */}
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-4">
-                    <p className="text-xs font-bold tracking-[0.16em] uppercase text-primary mb-2">
-                      CUSTOM WEB APPLICATIONS
-                    </p>
-                    <p className="text-3xl font-bold text-secondary">From £3,500</p>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">
-                      Bespoke platforms, SaaS tools, internal systems, and advanced integrations built to match your
-                      exact workflows.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>Custom database architecture</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>API integrations with your existing tools</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span>Advanced analytics &amp; reporting dashboards</span>
-                      </li>
-                    </ul>
-
-                    <Button asChild variant="outline" size="lg" className="w-full">
-                      <Link to="/contact">
-                        Request Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </Container>
-        </section>
-
         {/* 4. PORTFOLIO SHOWCASE */}
         <section className="py-16 md:py-20 bg-background">
           <Container>
@@ -602,9 +609,16 @@ const WebPackage = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               {/* Portfolio Item 1 - X15 PC Builders */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/x15-pc-builders.jpg" alt="X15 PC Builders Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/x15-pc-builders.jpg"
+                    alt="X15 PC Builders Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -619,9 +633,16 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 2 */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/sample-salon.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/sample-salon.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -633,9 +654,16 @@ const WebPackage = () => {
               </Link>
 
               {/* Portfolio Item 3 */}
-              <Link to="/portfolio" className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300">
+              <Link
+                to="/portfolio"
+                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="aspect-[4/3] bg-slate-100">
-                  <img src="/images/portfolio/sample-trades.jpg" alt="Client Website" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src="/images/portfolio/sample-trades.jpg"
+                    alt="Client Website"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
@@ -680,7 +708,11 @@ const WebPackage = () => {
                   <Link to="/blog/cheap-websites" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img src={blogWebDevHero} alt="Code editor next to website builder showing the hidden costs of cheap websites" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={blogWebDevHero}
+                        alt="Code editor next to website builder showing the hidden costs of cheap websites"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -712,7 +744,11 @@ const WebPackage = () => {
                   <Link to="/blog/offshore-development-risks" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img src={blogOffshoreRisks} alt="Laptop with red warning sign and UK flag representing offshore development risks" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={blogOffshoreRisks}
+                        alt="Laptop with red warning sign and UK flag representing offshore development risks"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -853,8 +889,8 @@ const WebPackage = () => {
                     Can I modify my website later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Absolutely. You own everything—code, content, and design. Make changes yourself or hire us for
-                    updates. We offer maintenance packages starting at £50/month for ongoing support and updates.
+                    Yes — you own everything. Code, design, and content. You can update the website yourself, or you can
+                    use my Support & Maintenance package (£15/month) for ongoing help, fixes, and small updates.
                   </p>
                 </div>
 
@@ -867,8 +903,10 @@ const WebPackage = () => {
                     Do you provide hosting?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes. We can handle hosting for you (from £10/month) or you can host it yourself. We&apos;ll give you
-                    all the files and help you set it up wherever you want—no lock-in, no hidden fees.
+                    Yes. You can host the site yourself, or I can fully manage it for you.
+                    <br />• <strong>£22/month</strong> — Hosting + Support (fully managed)
+                    <br />• <strong>£15/month</strong> — Support only, if you already have hosting
+                    <br />• Or you keep your own hosting and pay nothing extra.
                   </p>
                 </div>
 
@@ -881,8 +919,8 @@ const WebPackage = () => {
                     What if I already have a domain?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Perfect—we&apos;ll use it. Just give us access and we&apos;ll connect your new website to your
-                    existing domain. Don&apos;t have one yet? We&apos;ll help you register one for about £10/year.
+                    That’s perfect. I’ll connect your new website to your existing domain. If you don’t have one yet,
+                    I’ll help you set it up (typical cost £10/year).
                   </p>
                 </div>
 
@@ -896,24 +934,24 @@ const WebPackage = () => {
                   </h3>
                   <div className="text-muted-foreground pl-8 leading-relaxed space-y-2">
                     <p className="flex items-start gap-2">
-                      <span className="font-semibold text-primary flex-shrink-0">1.</span>
-                      <span>Choose your package and pay the deposit (50%).</span>
+                      <span className="font-semibold text-primary">1.</span>
+                      <span>Choose your package and pay a 50% deposit.</span>
                     </p>
                     <p className="flex items-start gap-2">
-                      <span className="font-semibold text-primary flex-shrink-0">2.</span>
-                      <span>We send a questionnaire about your business.</span>
+                      <span className="font-semibold text-primary">2.</span>
+                      <span>Fill out a short questionnaire about your business.</span>
                     </p>
                     <p className="flex items-start gap-2">
-                      <span className="font-semibold text-primary flex-shrink-0">3.</span>
-                      <span>We build your site and send previews.</span>
+                      <span className="font-semibold text-primary">3.</span>
+                      <span>I build your website and send preview pages.</span>
                     </p>
                     <p className="flex items-start gap-2">
-                      <span className="font-semibold text-primary flex-shrink-0">4.</span>
-                      <span>You request changes (included in your package).</span>
+                      <span className="font-semibold text-primary">4.</span>
+                      <span>You request changes (revisions included in your package).</span>
                     </p>
                     <p className="flex items-start gap-2">
-                      <span className="font-semibold text-primary flex-shrink-0">5.</span>
-                      <span>We launch your site and hand over everything.</span>
+                      <span className="font-semibold text-primary">5.</span>
+                      <span>We launch the site and hand over everything to you.</span>
                     </p>
                   </div>
                 </div>
@@ -927,8 +965,9 @@ const WebPackage = () => {
                     Can you add features later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes. Need booking, payments, or integrations added later? We can do it. Most additions are £200–800
-                    depending on complexity. You&apos;re never locked into your original package.
+                    Yes — your website is fully expandable. I can add booking systems, payments, dashboards,
+                    integrations, and more later. Most add-ons range from <strong>£200–800</strong> depending on
+                    complexity.
                   </p>
                 </div>
 
@@ -941,9 +980,9 @@ const WebPackage = () => {
                     What platforms do you build on?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    We use modern web technologies (React, Next.js) and high-quality no-code tools (Webflow, Framer)
-                    depending on your needs. You&apos;ll get a fast, mobile-friendly website optimised for performance
-                    and conversions.
+                    I build using modern frameworks like React and Next.js, as well as premium no-code tools like
+                    Webflow and Framer depending on your needs. Your site will be fast, mobile-friendly, and optimised
+                    for conversions.
                   </p>
                 </div>
               </div>
@@ -983,23 +1022,29 @@ const WebPackage = () => {
             {/* Dual CTAs – same UX/UI as AI final CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               {/* Primary: Start Your Project */}
-              <Link to="/quick-start" className="group flex items-center justify-center gap-2
+              <Link
+                to="/quick-start"
+                className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all">
+          transition-all"
+              >
                 Start Your Project
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Secondary: Book Free Consultation */}
-              <Link to="/contact" className="group flex items-center justify-center gap-2
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all">
+          active:scale-[0.97] transition-all"
+              >
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -1012,6 +1057,7 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
 export default WebPackage;

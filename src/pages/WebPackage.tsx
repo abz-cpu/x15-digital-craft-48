@@ -36,6 +36,199 @@ const WebPackage = () => {
           </Container>
         </section>
 
+        {/* 2. MAIN PACKAGES + COMPARISON */}
+        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            {/* Section header */}
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-3">Choose Your Growth Package</h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                Pick the website package that matches where your business is today. One clear price. You keep full
+                control.
+              </p>
+            </div>
+
+            {/* Tier cards */}
+            <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+              {/* FOUNDATION TIER */}
+              <AnimatedSection staggerIndex={0} animation="scale">
+                <Card className="hover-lift relative h-full bg-white">
+                  {/* Budget Friendly Badge */}
+                  <Badge className="absolute -top-3 left-4 bg-white text-teal-700 border border-teal-200 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
+                    💡 Budget Friendly
+                  </Badge>
+
+                  <CardHeader className="pt-8 pb-4">
+                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                      Foundation
+                    </CardTitle>
+                    <p className="text-3xl font-bold text-secondary mt-1">
+                      £200 <span className="block text-xs font-medium text-muted-foreground">One payment</span>
+                    </p>
+                  </CardHeader>
+
+                  <CardContent className="pb-6">
+                    <p className="text-sm font-semibold text-secondary mb-1">Start Attracting Customers</p>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      Launch a professional online presence quickly and start attracting customers immediately.
+                    </p>
+
+                    <p className="text-xs font-semibold mb-2">What you get:</p>
+                    <ul className="space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">One powerful page designed to convert visitors into enquiries</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Mobile-perfect, responsive design</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Contact form or enquiry integration</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Ready in 48 hours</span>
+                      </li>
+                    </ul>
+
+                    <Button asChild className="w-full">
+                      <Link to="/quick-start">
+                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* GROWTH TIER (MOST POPULAR) */}
+              <AnimatedSection staggerIndex={1} animation="scale">
+                <Card
+                  className="
+                    hover-lift relative h-full bg-white border border-primary/40
+                    shadow-md shadow-primary/20 lg:-mt-2
+                    transition-all duration-200
+                    hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
+                  "
+                >
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
+                    ⭐ MOST POPULAR
+                  </Badge>
+
+                  <CardHeader className="pt-6 pb-4">
+                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                      Growth
+                    </CardTitle>
+                    <p className="text-3xl font-bold text-secondary mt-1">
+                      £600{" "}
+                      <span className="block text-xs font-medium text-muted-foreground">
+                        One payment, yours forever
+                      </span>
+                    </p>
+                  </CardHeader>
+
+                  <CardContent className="pb-6">
+                    <p className="text-sm font-semibold text-secondary mb-1">Stand Out & Convert More</p>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      For growing businesses that want to stand out and convert more visitors into customers.
+                    </p>
+
+                    <p className="text-xs font-semibold mb-2">What you get:</p>
+                    <ul className="space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">3–5 custom pages (e.g. Home, About, Services, Contact)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Strategic copywriting for key pages</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">SEO foundation (metadata, structure, speed)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Contact + simple booking or enquiry system</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Ready in 5–7 days</span>
+                      </li>
+                    </ul>
+
+                    <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                      <Link to="/quick-start">
+                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* SCALE TIER */}
+              <AnimatedSection staggerIndex={2} animation="scale">
+                <Card className="hover-lift relative h-full bg-white border border-primary/30">
+                  <CardHeader className="pt-6 pb-4">
+                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
+                      Scale
+                    </CardTitle>
+                    <p className="text-3xl font-bold text-secondary mt-1">
+                      £1,400{" "}
+                      <span className="block text-xs font-medium text-muted-foreground">
+                        One payment, yours forever
+                      </span>
+                    </p>
+                  </CardHeader>
+
+                  <CardContent className="pb-6">
+                    <p className="text-sm font-semibold text-secondary mb-1">Your Customer Generation Engine</p>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      For businesses serious about growth and ready to dominate their market.
+                    </p>
+
+                    <p className="text-xs font-semibold mb-2">What you get:</p>
+                    <ul className="space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">7–12 custom pages</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">
+                          Advanced features &amp; integrations (booking, payments, automations)
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Full SEO optimisation across all pages</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Portfolio, blog, or advanced booking system</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">Ready in 10–14 days</span>
+                      </li>
+                    </ul>
+
+                    <Button asChild className="w-full">
+                      <Link to="/quick-start">
+                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+
+            {/* Comparison Table */}
+            <WebPackagesComparisonTable />
+          </Container>
+        </section>
+
         {/* CLOUDFLARE PERFORMANCE & SECURITY PACKAGES */}
         <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-teal-50/30">
           <Container>
@@ -275,199 +468,6 @@ const WebPackage = () => {
                 </div>
               </div>
             </div>
-          </Container>
-        </section>
-
-        {/* 2. MAIN PACKAGES + COMPARISON */}
-        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
-          <Container>
-            {/* Section header */}
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-3">Choose Your Growth Package</h2>
-              <p className="text-base md:text-lg text-muted-foreground">
-                Pick the website package that matches where your business is today. One clear price. You keep full
-                control.
-              </p>
-            </div>
-
-            {/* Tier cards */}
-            <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-              {/* FOUNDATION TIER */}
-              <AnimatedSection staggerIndex={0} animation="scale">
-                <Card className="hover-lift relative h-full bg-white">
-                  {/* Budget Friendly Badge */}
-                  <Badge className="absolute -top-3 left-4 bg-white text-teal-700 border border-teal-200 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
-                    💡 Budget Friendly
-                  </Badge>
-
-                  <CardHeader className="pt-8 pb-4">
-                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
-                      Foundation
-                    </CardTitle>
-                    <p className="text-3xl font-bold text-secondary mt-1">
-                      £200 <span className="block text-xs font-medium text-muted-foreground">One payment</span>
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="pb-6">
-                    <p className="text-sm font-semibold text-secondary mb-1">Start Attracting Customers</p>
-                    <p className="text-sm text-muted-foreground mb-5">
-                      Launch a professional online presence quickly and start attracting customers immediately.
-                    </p>
-
-                    <p className="text-xs font-semibold mb-2">What you get:</p>
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">One powerful page designed to convert visitors into enquiries</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Mobile-perfect, responsive design</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Contact form or enquiry integration</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ready in 48 hours</span>
-                      </li>
-                    </ul>
-
-                    <Button asChild className="w-full">
-                      <Link to="/quick-start">
-                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* GROWTH TIER (MOST POPULAR) */}
-              <AnimatedSection staggerIndex={1} animation="scale">
-                <Card
-                  className="
-                    hover-lift relative h-full bg-white border border-primary/40
-                    shadow-md shadow-primary/20 lg:-mt-2
-                    transition-all duration-200
-                    hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  "
-                >
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
-                    ⭐ MOST POPULAR
-                  </Badge>
-
-                  <CardHeader className="pt-6 pb-4">
-                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
-                      Growth
-                    </CardTitle>
-                    <p className="text-3xl font-bold text-secondary mt-1">
-                      £600{" "}
-                      <span className="block text-xs font-medium text-muted-foreground">
-                        One payment, yours forever
-                      </span>
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="pb-6">
-                    <p className="text-sm font-semibold text-secondary mb-1">Stand Out & Convert More</p>
-                    <p className="text-sm text-muted-foreground mb-5">
-                      For growing businesses that want to stand out and convert more visitors into customers.
-                    </p>
-
-                    <p className="text-xs font-semibold mb-2">What you get:</p>
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">3–5 custom pages (e.g. Home, About, Services, Contact)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Strategic copywriting for key pages</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">SEO foundation (metadata, structure, speed)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Contact + simple booking or enquiry system</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ready in 5–7 days</span>
-                      </li>
-                    </ul>
-
-                    <Button asChild className="w-full bg-primary hover:bg-primary/90">
-                      <Link to="/quick-start">
-                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* SCALE TIER */}
-              <AnimatedSection staggerIndex={2} animation="scale">
-                <Card className="hover-lift relative h-full bg-white border border-primary/30">
-                  <CardHeader className="pt-6 pb-4">
-                    <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
-                      Scale
-                    </CardTitle>
-                    <p className="text-3xl font-bold text-secondary mt-1">
-                      £1,400{" "}
-                      <span className="block text-xs font-medium text-muted-foreground">
-                        One payment, yours forever
-                      </span>
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="pb-6">
-                    <p className="text-sm font-semibold text-secondary mb-1">Your Customer Generation Engine</p>
-                    <p className="text-sm text-muted-foreground mb-5">
-                      For businesses serious about growth and ready to dominate their market.
-                    </p>
-
-                    <p className="text-xs font-semibold mb-2">What you get:</p>
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">7–12 custom pages</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">
-                          Advanced features &amp; integrations (booking, payments, automations)
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Full SEO optimisation across all pages</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Portfolio, blog, or advanced booking system</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ready in 10–14 days</span>
-                      </li>
-                    </ul>
-
-                    <Button asChild className="w-full">
-                      <Link to="/quick-start">
-                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            </div>
-
-            {/* Comparison Table */}
-            <WebPackagesComparisonTable />
           </Container>
         </section>
 

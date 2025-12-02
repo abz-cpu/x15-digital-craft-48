@@ -889,8 +889,9 @@ const WebPackage = () => {
                     Can I modify my website later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes — you own everything. Code, design, and content. You can update the website yourself, or you can
-                    use my Support & Maintenance package (£15/month) for ongoing help, fixes, and small updates.
+                    Yes — you can request changes anytime. Your website can be updated, expanded, and improved whenever
+                    needed. For ongoing help, fixes, and small updates, the Support & Maintenance plan (£15/month) is
+                    available.
                   </p>
                 </div>
 

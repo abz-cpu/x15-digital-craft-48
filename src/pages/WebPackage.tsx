@@ -870,6 +870,9 @@ const WebPackage = () => {
           </Container>
         </section>
 
+        {/* Section Separator */}
+        <div className="w-full h-px bg-slate-200 my-12 md:my-16"></div>
+
         {/* 6. WEBSITE-SPECIFIC FAQ */}
         <section className="py-16 md:py-20 bg-muted/50">
           <Container>
@@ -889,9 +892,8 @@ const WebPackage = () => {
                     Can I modify my website later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes — you can request changes anytime. Your website can be updated, expanded, and improved whenever
-                    needed. For ongoing help, fixes, and small updates, the Support & Maintenance plan (£15/month) is
-                    available.
+                    Yes — your website is fully editable and expandable. For ongoing help, fixes, and small updates, the
+                    Support & Maintenance plan (£15/month) is available.
                   </p>
                 </div>
 
@@ -904,10 +906,10 @@ const WebPackage = () => {
                     Do you provide hosting?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes. You can host the site yourself, or I can fully manage it for you.
+                    Yes — you can use your own hosting, or I can fully manage everything for you:
                     <br />• <strong>£22/month</strong> — Hosting + Support (fully managed)
-                    <br />• <strong>£15/month</strong> — Support only, if you already have hosting
-                    <br />• Or you keep your own hosting and pay nothing extra.
+                    <br />• <strong>£15/month</strong> — Support only (if you already have hosting)
+                    <br />• <strong>£0</strong> — Use your own hosting with no extra cost
                   </p>
                 </div>
 

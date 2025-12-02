@@ -235,13 +235,15 @@ const WebPackage = () => {
             <div className="max-w-6xl mx-auto">
               {/* Section Header */}
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-teal-600/10 text-teal-700 border-teal-200">⚡ Performance & Security</Badge>
+                <Badge className="mb-4 bg-teal-600/10 text-teal-700 border-teal-200">
+                  ⚡ Powered by Cloudflare Enterprise Infrastructure
+                </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                  Supercharge Your Website Performance
+                  Make Your Website Faster, Safer & More Reliable
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Make your website faster, more secure, and more reliable with enterprise-grade Cloudflare
-                  optimization.
+                  Enterprise-grade optimization trusted by millions of websites worldwide. Get the same infrastructure
+                  that powers Netflix, Discord, and Shopify.
                 </p>
               </div>
 
@@ -256,42 +258,41 @@ const WebPackage = () => {
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
                         £35
-                        <span className="block text-xs font-medium text-muted-foreground">One-time payment</span>
+                        <span className="block text-xs font-medium text-muted-foreground">One-time</span>
                       </p>
                     </CardHeader>
 
                     <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Professional Performance Foundation</p>
+                      <p className="text-sm font-semibold text-secondary mb-1">Transform Your Website Performance</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Complete Cloudflare optimization for websites that need speed and security without ongoing
-                        management.
+                        Get enterprise-grade speed and security in one setup.
                       </p>
 
-                      <p className="text-xs font-semibold mb-2">What you get:</p>
+                      <p className="text-xs font-semibold mb-2">Your website gets:</p>
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Secure-by-default DNS configuration</span>
+                          <span className="text-sm">Lightning-fast loading from 300+ global locations</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Automatically optimized performance routes</span>
+                          <span className="text-sm">Industry-standard encryption & security</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Enhanced threat filtering & bot protection</span>
+                          <span className="text-sm">Protection against attacks & bots</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Edge-level caching & global acceleration</span>
+                          <span className="text-sm">Professional DNS & routing</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Smart redirects & cache optimization rules</span>
+                          <span className="text-sm">Smart caching & redirects</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Advanced firewall security & traffic analytics</span>
+                          <span className="text-sm">Real-time analytics</span>
                         </li>
                       </ul>
 
@@ -309,7 +310,7 @@ const WebPackage = () => {
 
                       <Button asChild variant="outline" className="w-full">
                         <Link to="/contact">
-                          Boost My Website <ArrowRight className="ml-2 h-4 w-4" />
+                          Upgrade Your Site <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
                     </CardContent>
@@ -337,42 +338,40 @@ const WebPackage = () => {
                     </CardHeader>
 
                     <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Keep Your Site Healthy & Fast</p>
+                      <p className="text-sm font-semibold text-secondary mb-1">Never Worry About Your Website Again</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Your website stays fast, secure, and healthy — without you lifting a finger.
+                        We handle everything so you can focus on your business.
                       </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Setup, plus:</p>
+                      <p className="text-xs font-semibold mb-2">Everything in Cloudflare Setup, plus:</p>
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Monthly bug fixes & small updates</span>
+                          <span className="text-sm">Priority fixes when issues arise</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Content updates (up to 30 min/month)</span>
+                          <span className="text-sm">Monthly content updates (30 min)</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Security updates & firewall tuning</span>
+                          <span className="text-sm">Security monitoring & threat blocking</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Performance monitoring & cache optimization</span>
+                          <span className="text-sm">Performance tuning</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">DNS management & redirect updates</span>
+                          <span className="text-sm">Expert support (24-48h)</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Email support (24-48h response)</span>
+                          <span className="text-sm">Monthly health reports</span>
                         </li>
                       </ul>
 
-                      <p className="text-xs text-muted-foreground mb-4 italic">
-                        * Hosting not included - use your own provider
-                      </p>
+                      <p className="text-xs text-muted-foreground mb-4 italic">* Works with your existing hosting</p>
 
                       {/* Micro-trust badge */}
                       <div className="mb-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
@@ -384,7 +383,7 @@ const WebPackage = () => {
 
                       <Button asChild className="w-full bg-primary hover:bg-primary/90">
                         <Link to="/contact">
-                          Maintain My Site <ArrowRight className="ml-2 h-4 w-4" />
+                          Get Peace of Mind <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
                     </CardContent>
@@ -404,44 +403,47 @@ const WebPackage = () => {
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
                         £22
-                        <span className="block text-xs font-medium text-muted-foreground">/month total</span>
+                        <span className="block text-xs font-medium text-muted-foreground">/month all-inclusive</span>
                       </p>
                     </CardHeader>
 
                     <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Complete Website Care Package</p>
+                      <p className="text-sm font-semibold text-secondary mb-1">Maximum Speed, Security & Reliability</p>
                       <p className="text-sm text-muted-foreground mb-5">
-                        Full-service hosting, maintenance, and optimization. We handle everything so you can focus on
-                        your business.
+                        Fully managed hosting on enterprise infrastructure.
                       </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Maintenance, plus:</p>
+                      <p className="text-xs font-semibold mb-2">Everything in Support & Maintenance, plus:</p>
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Ultra-fast Cloudflare Pages hosting</span>
+                          <span className="text-sm">Enterprise hosting with 99.99% uptime</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Automatic deployments & updates</span>
+                          <span className="text-sm">Instant loading from 300+ data centres</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Global CDN with 99.99% uptime</span>
+                          <span className="text-sm">Automatic seamless updates</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Complete DNS & redirect control</span>
+                          <span className="text-sm">Complete domain control</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Traffic reports & analytics dashboard</span>
+                          <span className="text-sm">Advanced visitor analytics</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Error monitoring & instant fixes</span>
+                          <span className="text-sm">Proactive monitoring & instant fixes</span>
                         </li>
                       </ul>
+
+                      <p className="text-xs text-emerald-700 mb-4 font-medium">
+                        Perfect for business sites, portfolios & web apps
+                      </p>
 
                       {/* Micro-trust badge */}
                       <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
@@ -453,7 +455,7 @@ const WebPackage = () => {
 
                       <Button asChild className="w-full">
                         <Link to="/contact">
-                          Manage Everything For Me <ArrowRight className="ml-2 h-4 w-4" />
+                          Get Complete Protection <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
                     </CardContent>

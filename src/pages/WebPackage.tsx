@@ -284,7 +284,7 @@ const WebPackage = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Professional DNS & routing</span>
+                          <span className="text-sm">Optimised DNS routing for faster loading</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -363,7 +363,7 @@ const WebPackage = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Expert support (24-48h)</span>
+                          <span className="text-sm">Priority support (24-48h response)</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -451,6 +451,7 @@ const WebPackage = () => {
                           <CheckCircle2 className="h-3.5 w-3.5 text-amber-600" />
                           Replaces your hosting bill
                         </p>
+                        <p className="text-xs text-amber-700 mt-1">No separate hosting subscription needed</p>
                       </div>
 
                       <Button asChild className="w-full">

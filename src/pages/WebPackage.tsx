@@ -877,11 +877,15 @@ const WebPackage = () => {
         <section className="py-16 md:py-20 bg-muted/50">
           <Container>
             <div className="max-w-4xl mx-auto">
+              {/* Header */}
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Common Questions About Web Packages</h2>
-                <p className="text-lg text-muted-foreground">Everything you need to know before getting started.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Website Packages — Frequently Asked Questions</h2>
+                <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
+                  Clear, simple answers — no hidden fees, no complicated terms.
+                </p>
               </div>
 
+              {/* FAQ List */}
               <div className="space-y-4">
                 {/* FAQ Item 1 */}
                 <div className="bg-background rounded-lg p-6 shadow-sm border border-border hover:border-primary/50 transition-colors">
@@ -923,7 +927,7 @@ const WebPackage = () => {
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
                     That’s perfect. I’ll connect your new website to your existing domain. If you don’t have one yet,
-                    I’ll help you set it up (typical cost £10/year).
+                    I’ll help you set it up (usually around £10/year).
                   </p>
                 </div>
 
@@ -969,8 +973,7 @@ const WebPackage = () => {
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
                     Yes — your website is fully expandable. I can add booking systems, payments, dashboards,
-                    integrations, and more later. Most add-ons range from <strong>£200–800</strong> depending on
-                    complexity.
+                    integrations and more. Most add-ons range from <strong>£200–800</strong> depending on complexity.
                   </p>
                 </div>
 
@@ -983,9 +986,8 @@ const WebPackage = () => {
                     What platforms do you build on?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    I build using modern frameworks like React and Next.js, as well as premium no-code tools like
-                    Webflow and Framer depending on your needs. Your site will be fast, mobile-friendly, and optimised
-                    for conversions.
+                    I use modern frameworks like React and Next.js, as well as premium no-code tools like Webflow and
+                    Framer when suitable. Your site will be fast, mobile-friendly, and optimised for conversions.
                   </p>
                 </div>
               </div>

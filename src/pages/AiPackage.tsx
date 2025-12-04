@@ -147,12 +147,35 @@ const AiPackage = () => {
       <Navigation />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        {/* HERO – AI Automation */}
+        <section
+          className="
+    relative overflow-hidden
+    py-16 md:py-20 lg:py-24 
+    px-4 sm:px-6 lg:px-8 
+    bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900
+  "
+        >
+          {/* Background image layer */}
+          <div
+            aria-hidden="true"
+            className="
+      absolute inset-0 
+      bg-cover bg-no-repeat
+      bg-[center_30%] md:bg-[center_40%] lg:bg-center
+      opacity-85
+      mix-blend-overlay
+      pointer-events-none
+    "
+            style={{ backgroundImage: "url('/ai.png')" }}
+          />
+
           <Container>
-            <div className="text-center max-w-3xl mx-auto">
+            <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">AI Automation Solutions</h1>
+
               <p className="text-xl text-white/90 mb-4">Stand-alone or integrated with your website.</p>
+
               <p className="text-lg text-white/80">Works with ANY website — yours or ours.</p>
             </div>
           </Container>

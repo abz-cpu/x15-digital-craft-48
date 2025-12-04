@@ -777,7 +777,7 @@ const Services = () => {
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-sm text-muted-foreground mb-2">Recommended for All Packages</p>
                   <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Support & Maintenance</h3>
-                  <p className="text-3xl font-bold text-primary mb-4">From £15/month</p>
+                  <p className="text-3xl font-bold text-primary mb-4">From £25/month</p>
                   <p className="text-muted-foreground mb-4">Keep your website secure, fast, and up-to-date.</p>
 
                   <div className="grid md:grid-cols-2 gap-2 mb-6">

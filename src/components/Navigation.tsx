@@ -28,22 +28,26 @@ const Navigation = () => {
     setShowServicesDropdown(false);
   }, [location]);
 
+  // TOP-LEVEL NAV LINKS
   const navLinks = [
     { name: "Portfolio", path: "/portfolio" },
+    { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
   ];
 
+  // WEB SERVICES COLUMN
   const webServices = [
     { name: "Web Packages", path: "/web-package", bold: true },
     { name: "App Development", path: "/services#app-development" },
-    { name: "Logo Design", path: "/services#logo-design" },
+    { name: "Personalised Apps", path: "/services#personalised-apps" },
     { name: "Landing Page Creation", path: "/services#landing-pages" },
-    { name: "SEO", path: "/services#seo" },
-    { name: "Website Maintenance", path: "/services#maintenance" },
-    { name: "IT Support", path: "/services#it-support" },
+    { name: "Logo Design", path: "/services#logo-design" },
     { name: "Branding", path: "/services#branding" },
+    { name: "Maintenance & Support", path: "/services#maintenance" },
+    { name: "IT Support", path: "/services#it-support" },
   ];
 
+  // AI SERVICES COLUMN (UNCHANGED)
   const aiServices = [
     { name: "AI Packages", path: "/ai-package", bold: true },
     { name: "AI Chatbots", path: "/services#ai-chatbots" },
@@ -244,7 +248,7 @@ const Navigation = () => {
               </PreloadLink>
             ))}
 
-            <Button asChild className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B]">
+            <Button className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B]" asChild>
               <PreloadLink to="/contact">Get Started</PreloadLink>
             </Button>
           </div>

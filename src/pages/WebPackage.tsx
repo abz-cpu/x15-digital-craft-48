@@ -26,11 +26,22 @@ const WebPackage = () => {
         <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="text-center max-w-3xl mx-auto">
+              {/* keep your existing heading + subtext exactly as it is */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Web Development Packages</h1>
-              <p className="text-xl text-white/90 mb-3">
+              <p className="text-xl text-white/90 mb-4">
                 Professional websites that attract customers and grow your business.
               </p>
               <p className="text-lg text-white/80">One payment. Full ownership. No ongoing fees.</p>
+            </div>
+
+            {/* NEW: hero image */}
+            <div className="mt-10 max-w-4xl mx-auto">
+              <img
+                src="/website.png"
+                alt="Futuristic web design mockup"
+                className="w-full h-auto rounded-2xl shadow-2xl border border-white/10"
+                loading="lazy"
+              />
             </div>
           </Container>
         </section>

@@ -31,6 +31,15 @@ const Terms = lazy(() => import("./pages/Terms"));
 const WebPackage = lazy(() => import("./pages/WebPackage"));
 const AiPackage = lazy(() => import("./pages/AiPackage"));
 
+// Service pages
+const AppDevelopment = lazy(() => import("./pages/services/AppDevelopment"));
+const PersonalisedApps = lazy(() => import("./pages/services/PersonalisedApps"));
+const LandingPages = lazy(() => import("./pages/services/LandingPages"));
+const LogoDesign = lazy(() => import("./pages/services/LogoDesign"));
+const Branding = lazy(() => import("./pages/services/Branding"));
+const MaintenanceSupport = lazy(() => import("./pages/services/MaintenanceSupport"));
+const ItSupport = lazy(() => import("./pages/services/ItSupport"));
+
 // Register preload functions for route prefetching
 registerPreload("/", () => import("./pages/Index"));
 registerPreload("/services", () => import("./pages/Services"));
@@ -44,6 +53,13 @@ registerPreload("/quick-start", () => import("./pages/QuickStart"));
 registerPreload("/install", () => import("./pages/Install"));
 registerPreload("/web-package", () => import("./pages/WebPackage"));
 registerPreload("/ai-package", () => import("./pages/AiPackage"));
+registerPreload("/services/app-development", () => import("./pages/services/AppDevelopment"));
+registerPreload("/services/personalised-apps", () => import("./pages/services/PersonalisedApps"));
+registerPreload("/services/landing-pages", () => import("./pages/services/LandingPages"));
+registerPreload("/services/logo-design", () => import("./pages/services/LogoDesign"));
+registerPreload("/services/branding", () => import("./pages/services/Branding"));
+registerPreload("/services/maintenance-support", () => import("./pages/services/MaintenanceSupport"));
+registerPreload("/services/it-support", () => import("./pages/services/ItSupport"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -95,6 +111,13 @@ const App = () => (
               <Route path="/terms" element={<Terms />} />
               <Route path="/web-package" element={<WebPackage />} />
               <Route path="/ai-package" element={<AiPackage />} />
+              <Route path="/services/app-development" element={<AppDevelopment />} />
+              <Route path="/services/personalised-apps" element={<PersonalisedApps />} />
+              <Route path="/services/landing-pages" element={<LandingPages />} />
+              <Route path="/services/logo-design" element={<LogoDesign />} />
+              <Route path="/services/branding" element={<Branding />} />
+              <Route path="/services/maintenance-support" element={<MaintenanceSupport />} />
+              <Route path="/services/it-support" element={<ItSupport />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

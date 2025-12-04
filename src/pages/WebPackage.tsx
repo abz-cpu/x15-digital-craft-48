@@ -23,7 +23,6 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        {/* 1. HERO */}
         <section
           className="
     relative overflow-hidden

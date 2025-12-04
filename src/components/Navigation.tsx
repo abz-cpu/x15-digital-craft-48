@@ -38,13 +38,13 @@ const Navigation = () => {
   // WEB SERVICES COLUMN
   const webServices = [
     { name: "Web Packages", path: "/web-package", bold: true },
-    { name: "App Development", path: "/services#app-development" },
-    { name: "Personalised Apps", path: "/services#personalised-apps" },
-    { name: "Landing Page Creation", path: "/services#landing-pages" },
-    { name: "Logo Design", path: "/services#logo-design" },
-    { name: "Branding", path: "/services#branding" },
-    { name: "Maintenance & Support", path: "/services#maintenance" },
-    { name: "IT Support", path: "/services#it-support" },
+    { name: "App Development", path: "/services/app-development" },
+    { name: "Personalised Apps", path: "/services/personalised-apps" },
+    { name: "Landing Page Creation", path: "/services/landing-pages" },
+    { name: "Logo Design", path: "/services/logo-design" },
+    { name: "Branding", path: "/services/branding" },
+    { name: "Maintenance & Support", path: "/services/maintenance-support" },
+    { name: "IT Support", path: "/services/it-support" },
   ];
 
   // AI SERVICES COLUMN (UNCHANGED)

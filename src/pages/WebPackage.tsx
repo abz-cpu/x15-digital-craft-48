@@ -23,19 +23,32 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
+        {/* 1. HERO */}
         <section
           className="
-    py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 
-    bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900 
-    bg-cover bg-center bg-no-repeat
+    relative overflow-hidden
+    py-16 md:py-20 lg:py-24 
+    px-4 sm:px-6 lg:px-8 
+    bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900
   "
-          style={{
-            backgroundImage: "url('/website.png')",
-            backgroundBlendMode: "overlay",
-          }}
         >
+          {/* Background image overlay */}
+          <div
+            aria-hidden="true"
+            className="
+      absolute inset-0 
+      bg-cover bg-no-repeat
+      bg-[center_25%] md:bg-[center_35%] lg:bg-center
+      opacity-85
+      mix-blend-overlay
+      pointer-events-none
+    "
+            style={{ backgroundImage: "url('/website.png')" }}
+          />
+
           <Container>
-            <div className="text-center max-w-3xl mx-auto">
+            {/* Keep content above background */}
+            <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Web Development Packages</h1>
 
               <p className="text-xl text-white/90 mb-4">

@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -240,6 +240,70 @@ const WebPackage = () => {
             <WebPackagesComparisonTable />
           </Container>
         </section>
+
+            </section>
+
+    {/* Support & Maintenance Section */}
+    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
+      <div className="max-w-5xl mx-auto">
+        <Card className="border-2 border-primary/20 bg-background">
+          <CardContent className="p-8">
+            <div className="flex flex-col md:flex-row gap-6 items-center">
+              <div className="flex-shrink-0">
+                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-primary" />
+                </div>
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-sm text-muted-foreground mb-2">Recommended for All Packages</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
+                  Support & Maintenance
+                </h3>
+                <p className="text-3xl font-bold text-primary mb-4">From £25/month</p>
+                <p className="text-muted-foreground mb-4">
+                  Keep your website secure, fast, and up-to-date.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-2 mb-6">
+                  {[
+                    "Regular updates & security patches",
+                    "Weekly backups",
+                    "Priority support (4-hour response)",
+                    "Performance monitoring",
+                    "Fast bug fixes",
+                    "Content updates (up to 1 hour/month)",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-sm text-muted-foreground mb-4">
+                  <strong>Perfect for:</strong> Any business that wants peace of mind
+                </p>
+
+                <Button asChild>
+                  <Link to="/contact">
+                    Add to Any Package <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+
+                <p className="text-xs text-muted-foreground mt-4">
+                  💡 Optional but highly recommended — protect your investment
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+
+    {/* 3. ADVANCED SOLUTIONS */}
+    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">
+      ...
+
 
         {/* 3. ADVANCED SOLUTIONS */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">

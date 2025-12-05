@@ -233,7 +233,7 @@ const Index = () => {
             </p>
 
             {/* Primary CTA – visible before choice cards */}
-            <div className="mt-3 sm:mt-4 mb-2 flex flex-col sm:flex-row sm:items-center sm:gap-3">
+            <div className="mt-3 sm:mt-4 mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start sm:gap-3 max-w-xl mx-auto lg:mx-0">
               <Button
                 asChild
                 size="lg"

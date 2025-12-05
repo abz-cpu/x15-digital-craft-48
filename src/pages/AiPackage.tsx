@@ -15,6 +15,7 @@ import {
   TrendingUp,
   Share2,
   Briefcase,
+  ChevronDown,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -206,28 +207,52 @@ const AiPackage = () => {
         {/* Scenario Section */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
-            <div className="bg-card rounded-2xl p-8 md:p-10 mb-12 text-center max-w-3xl mx-auto shadow-lg border border-border">
-              <p className="text-lg text-muted-foreground mb-4">
-                Your customer texts at 11 PM.
-                <br />
-                Your phone rings during dinner.
-                <br />
-                Your inbox has 47 unread emails.
-              </p>
+            <div className="bg-card rounded-2xl p-8 md:p-10 mb-8 text-center max-w-3xl mx-auto shadow-lg border border-border">
+              {/* Pain points with icons */}
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center justify-center gap-3">
+                  <MessageSquare className="h-5 w-5 text-[#0F766E]" />
+                  <p className="text-lg text-muted-foreground">Your customer texts at 11 PM.</p>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Phone className="h-5 w-5 text-[#0F766E]" />
+                  <p className="text-lg text-muted-foreground">Your phone rings during dinner.</p>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Inbox className="h-5 w-5 text-[#0F766E]" />
+                  <p className="text-lg text-muted-foreground">Your inbox has 47 unread emails.</p>
+                </div>
+              </div>
+
+              {/* Main question */}
               <p className="text-xl md:text-2xl font-semibold text-secondary mb-4">
                 What if you had a digital assistant that works 24/7?
               </p>
+
+              {/* Support copy */}
               <p className="text-muted-foreground">
                 Already have a website? Add AI automation.
                 <br />
                 Works with ANY website — yours or ours.
               </p>
             </div>
+
+            {/* Soft transition to next section */}
+            <div className="flex justify-center">
+              <a
+                href="#ai-packages"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#0F766E] transition-colors"
+              >
+                See AI systems in action
+                <ChevronDown className="h-4 w-4 animate-bounce" />
+              </a>
+            </div>
           </Container>
         </section>
 
         {/* MAIN AI SOLUTIONS (3 PRIMARY CARDS) */}
-        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+        {/* MAIN AI SOLUTIONS (3 PRIMARY CARDS) */}
+        <section id="ai-solutions" className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted">
           <Container>
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-10">

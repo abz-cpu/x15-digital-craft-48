@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle } from "lucide-react";
+import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -11,6 +11,8 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const QuickStart = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [isQuickStartOpen, setIsQuickStartOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -30,38 +32,19 @@ const QuickStart = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const handleQuickStartClick = () => {
-    const formId = "mRoDv3"; // your Tally form ID
+  const handleQuickStartSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Try to use the Tally widget if it's loaded
-    const tally = (window as any).Tally;
-    if (tally && typeof tally.openPopup === "function") {
-      tally.openPopup(formId, {
-        layout: "modal",
-        width: 600,
-      });
-      return;
-    }
-
-    // Fallback: open the form directly in a new tab
-    window.open(`https://tally.so/r/${formId}`, "_blank", "noopener,noreferrer");
-  };
-
-  const openTallyQuickStart = () => {
-    const formId = "mRoDv3";
-
-    // If Tally widget is loaded, open modal popup
-    const Tally = (window as any).Tally;
-    if (Tally && typeof Tally.openPopup === "function") {
-      Tally.openPopup(formId, {
-        layout: "modal",
-        width: 600,
-      });
-      return;
-    }
-
-    // Fallback — open in new tab
-    window.open(`https://tally.so/r/${formId}`, "_blank", "noopener,noreferrer");
+    // Here you can later:
+    // - send to your backend
+    // - send to a Google Sheet / Make / Zapier webhook
+    // For now we'll just simulate and close the modal.
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsQuickStartOpen(false);
+      // Optionally show a toast if you have one: toast.success("Thanks! We'll be in touch within a few hours.");
+    }, 800);
   };
 
   return (
@@ -73,9 +56,9 @@ const QuickStart = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Let's Get Started Quickly</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Let&apos;s Get Started Quickly</h1>
           <p className="text-xl text-muted-foreground mb-4">
-            Tell us what you need in 30 seconds. We'll reply within 4 hours with a clear quote and next steps.
+            Tell us what you need in 30 seconds. We&apos;ll reply within 4 hours with a clear quote and next steps.
           </p>
           <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-5 w-5 text-primary" />
@@ -84,7 +67,7 @@ const QuickStart = () => {
         </div>
       </section>
 
-      {/* Quick Start Form */}
+      {/* Quick Start Form CTA */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto fade-in-section">
           <Card>
@@ -100,7 +83,7 @@ const QuickStart = () => {
                 instead.
               </p>
 
-              <Button size="lg" className="w-full mb-4" type="button" onClick={openTallyQuickStart}>
+              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsQuickStartOpen(true)}>
                 <Zap className="mr-2 h-5 w-5" />
                 Start Your Project Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -199,6 +182,120 @@ const QuickStart = () => {
           </div>
         </div>
       </section>
+
+      {/* Quick Start Modal */}
+      {isQuickStartOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="quick-start-title"
+        >
+          <div className="w-full max-w-lg rounded-2xl bg-background shadow-2xl border border-border relative">
+            <button
+              type="button"
+              aria-label="Close quick start form"
+              className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/60 bg-background/80 hover:bg-muted transition"
+              onClick={() => setIsQuickStartOpen(false)}
+            >
+              <X className="h-4 w-4 text-muted-foreground" />
+            </button>
+
+            <div className="p-6 sm:p-7">
+              <h3
+                id="quick-start-title"
+                className="text-xl sm:text-2xl font-semibold text-secondary mb-2 flex items-center gap-2"
+              >
+                <Zap className="h-5 w-5 text-primary" />
+                Quick Project Snapshot
+              </h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Give us the basics in under 30 seconds. We&apos;ll respond with a clear quote and timeline within a few
+                hours.
+              </p>
+
+              <form onSubmit={handleQuickStartSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Your name</label>
+                    <input
+                      required
+                      type="text"
+                      name="name"
+                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                      placeholder="e.g. Sarah Khan"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Email</label>
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                      placeholder="you@business.co.uk"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">What do you need?</label>
+                  <select
+                    name="projectType"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    defaultValue="website"
+                  >
+                    <option value="website">New website</option>
+                    <option value="redesign">Redesign my current website</option>
+                    <option value="ai-automation">AI automation / chatbot</option>
+                    <option value="both">Website + AI automation</option>
+                    <option value="other">Something else</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                    Rough budget (one-off)
+                  </label>
+                  <select
+                    name="budget"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    defaultValue="not-sure"
+                  >
+                    <option value="under-300">Under £300</option>
+                    <option value="300-600">£300 – £600</option>
+                    <option value="600-1000">£600 – £1,000</option>
+                    <option value="1000-plus">£1,000+</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                    One or two sentences about your project
+                  </label>
+                  <textarea
+                    name="details"
+                    rows={3}
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    placeholder="e.g. Local barber shop in London, need a simple 3-page site and online booking."
+                  />
+                </div>
+
+                <Button type="submit" className="w-full mt-2" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Submit & Get My Quote"}
+                  {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                </Button>
+
+                <p className="mt-2 text-[11px] text-muted-foreground text-center">
+                  No spam. No obligations. We&apos;ll only use your details to send your quote and follow-up questions
+                  if needed.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
       <WhatsAppWidget />

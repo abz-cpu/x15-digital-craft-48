@@ -147,36 +147,58 @@ const AiPackage = () => {
       <Navigation />
 
       <main className="flex-1">
-        {/* HERO – AI Automation */}
-        <section
-          className="
-    relative overflow-hidden
-    py-16 md:py-20 lg:py-24 
-    px-4 sm:px-6 lg:px-8 
-    bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900
-  "
-        >
-          {/* Background image layer */}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+          {/* Background image (if you’re using /ai.png) */}
           <div
             aria-hidden="true"
-            className="
-      absolute inset-0 
-      bg-cover bg-no-repeat
-      bg-[center_30%] md:bg-[center_40%] lg:bg-center
-      opacity-85
-      mix-blend-overlay
-      pointer-events-none
-    "
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-70 mix-blend-overlay pointer-events-none"
             style={{ backgroundImage: "url('/ai.png')" }}
           />
 
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
+              {/* Micro badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/5 backdrop-blur-sm border border-white/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-emerald-100">
+                  🤖 Live in 48 hours
+                </span>
+              </div>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">AI Automation Solutions</h1>
 
-              <p className="text-xl text-white/90 mb-4">Stand-alone or integrated with your website.</p>
+              <p className="text-xl text-white/90 mb-3">
+                Save 20+ hours every week with AI that answers, books, and follows up 24/7.
+              </p>
 
-              <p className="text-lg text-white/80">Works with ANY website — yours or ours.</p>
+              <p className="text-lg text-white/80">Works with any website — yours or ours. No IT team required.</p>
+
+              {/* Hero CTAs */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-md hover:shadow-lg"
+                >
+                  <Link to="#ai-solutions">
+                    See AI Solutions
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/70 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link to="/contact">
+                    Book Free Demo
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </Container>
         </section>

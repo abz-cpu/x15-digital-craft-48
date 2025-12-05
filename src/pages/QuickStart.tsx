@@ -69,7 +69,7 @@ const QuickStart = () => {
               <Button
                 size="lg"
                 className="w-full mb-4"
-                data-tally-open="VITE_TALLY_QUICK_START_FORM_ID=mRoDv3"
+                data-tally-open="mRoDv3"
                 data-tally-layout="modal"
                 data-tally-width="600"
               >

@@ -1,1736 +1,667 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+// src/pages/Services.tsx
+
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { CheckCircle2, ArrowRight, Zap, DollarSign, MessageCircle, Globe, Bot, Lock, ClipboardCheck, Shield, Star, Target, Phone, Mail, Users, BarChart, Workflow, Inbox, X, ChevronDown, ChevronUp, Rocket, Gauge, Eye, FolderSync, Palette, Image, TrendingUp, Calendar, FileText, Video, Cloud, HardDrive, Activity, ShoppingBag } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import CtaCard from "@/components/CtaCard";
-import { Container } from "@/components/Container";
-import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { SEO } from "@/components/SEO";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Container } from "@/components/Container";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import ServicesComparisonTable from "@/components/ServicesComparisonTable";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Globe2,
+  Smartphone,
+  Bot,
+  MessageSquare,
+  PhoneCall,
+  Sparkles,
+  Shield,
+  Wrench,
+  Cpu,
+  LayoutTemplate,
+  Brush,
+  Headset,
+  Zap,
+} from "lucide-react";
+
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [expandedFaq, setExpandedFaq] = useState<string[]>([]);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const {
-    search
-  } = useLocation();
-  const aiRef = useRef<HTMLDivElement | null>(null);
-  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  // Simple fade-in observer for .fade-in-section blocks
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-        }
-      });
-    }, {
-      threshold: 0.01,
-      rootMargin: "300px"
-    });
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "200px",
+      },
+    );
+
     const sections = document.querySelectorAll(".fade-in-section");
-    sections.forEach(section => observerRef.current?.observe(section));
+    sections.forEach((section) => observerRef.current?.observe(section));
+
     return () => observerRef.current?.disconnect();
   }, []);
-  useLayoutEffect(() => {
-    const scrollTarget = new URLSearchParams(search).get("scroll");
-    if (scrollTarget === "ai-automation" && aiRef.current) {
-      aiRef.current.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  }, [search]);
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({
-      behavior: "smooth"
-    });
-  };
-  const addOnCategories = [{
-    id: "speed",
-    label: "Speed & Priority",
-    icon: Zap,
-    addons: [{
-      name: "Rush Delivery",
-      icon: Zap,
-      price: "£150 - £500",
-      description: "Jump the queue. Launch in 24-48 hours instead of standard timeline.",
-      perfectFor: ["Urgent launches", "Time-sensitive campaigns", '"We needed it yesterday" situations'],
-      details: "Pricing: DIY/Starter £150, Business £250, Premium £400, Web App £500"
-    }, {
-      name: "Priority Setup",
-      icon: Rocket,
-      price: "£100 - £200",
-      description: "Start your project within 24 hours (instead of 2-3 day wait).",
-      perfectFor: ["Fast-moving businesses", "Seasonal launches", "Beating competitors to market"],
-      details: "Doesn't speed up delivery, just starts faster"
-    }]
-  }, {
-    id: "technical",
-    label: "Technical & Performance",
-    icon: Gauge,
-    addons: [{
-      name: "Performance Optimization",
-      icon: Gauge,
-      price: "£150 - £400",
-      description: "Speed tuning, Core Web Vitals optimization, Google PageSpeed 90+ score.",
-      perfectFor: ["E-commerce (speed = sales)", "SEO improvement", "Mobile-first businesses"],
-      details: "Image optimization, code minification, Core Web Vitals fixes, before/after report"
-    }, {
-      name: "Accessibility Compliance",
-      icon: Eye,
-      price: "£100 - £350",
-      description: "WCAG 2.1 AA compliance, screen reader optimization, keyboard navigation.",
-      perfectFor: ["Public sector/government", "Healthcare, education, finance", "Legal compliance (ADA, Equality Act)"],
-      details: "Pricing: Starter £100, Business £200, Premium/complex £350"
-    }, {
-      name: "Multi-language Setup",
-      icon: Globe,
-      price: "£200 - £500",
-      description: "Reach international customers with multi-language support.",
-      perfectFor: ["UK businesses targeting EU", "International services", "Tourism, hospitality, e-commerce"],
-      details: "2 languages £200, 3 languages £350, 4+ languages £500"
-    }, {
-      name: "Content Migration",
-      icon: FolderSync,
-      price: "£150 - £500",
-      description: "Hassle-free move from your old site. We handle everything.",
-      perfectFor: ["Redesigns", "Platform switches (Wix → custom, etc.)", "Modernizing legacy sites"],
-      details: "<20 pages £150, 20-50 pages £300, 50+ pages £500"
-    }]
-  }, {
-    id: "security",
-    label: "Security & Compliance",
-    icon: Shield,
-    addons: [{
-      name: "SSL Certificate & Security",
-      icon: Lock,
-      price: "Included Free ✅",
-      description: "HTTPS encryption, secure connection (padlock icon), basic security hardening.",
-      perfectFor: ["All websites"],
-      details: "This is standard in ALL our packages."
-    }, {
-      name: "Advanced Security & Monitoring",
-      icon: Shield,
-      price: "£100 - £300",
-      description: "Enhanced protection: DDoS protection, malware scanning, security monitoring.",
-      perfectFor: ["E-commerce sites", "Sites handling sensitive data", "High-traffic sites"],
-      details: "WAF, DDoS protection, malware scanning, security dashboard, automated alerts"
-    }, {
-      name: "GDPR Compliance Setup",
-      icon: ClipboardCheck,
-      price: "£80 - £200",
-      description: "Cookie consent, privacy policy, data handling compliant with UK/EU law.",
-      perfectFor: ["UK/EU businesses", "Sites with forms/email capture", "E-commerce sites"],
-      details: "Basic (banner + privacy) £80, Standard (+ forms) £150, Advanced (e-commerce) £200"
-    }]
-  }, {
-    id: "branding",
-    label: "Branding & Design",
-    icon: Palette,
-    addons: [{
-      name: "Logo Design",
-      icon: Palette,
-      price: "£80 - £250",
-      description: "Professional logo design with 2-3 concepts and unlimited revisions.",
-      perfectFor: ["New businesses", "Rebrands", "Startups without existing branding"],
-      details: "Basic logo £80, Logo + variations £150, Full brand identity £250"
-    }, {
-      name: "Custom Illustrations",
-      icon: Image,
-      price: "£100 - £400",
-      description: "Bespoke illustrations, icons, or graphics for your website.",
-      perfectFor: ["Unique brand personality", "Storytelling sections", "Service/product explanations"],
-      details: "3 icons £100, 5-7 illustrations £250, 10+ illustrations £400"
-    }]
-  }, {
-    id: "marketing",
-    label: "Marketing & SEO",
-    icon: TrendingUp,
-    addons: [{
-      name: "Advanced SEO Package",
-      icon: TrendingUp,
-      price: "£250 - £600",
-      description: "Comprehensive SEO: keyword research, competitor analysis, technical optimization.",
-      perfectFor: ["Local businesses", "High-competition industries", "Long-term organic growth"],
-      details: "Local SEO £250, Regional SEO £400, National/competitive £600"
-    }, {
-      name: "Google Ads Setup",
-      icon: Target,
-      price: "£200 - £400",
-      description: "Professional Google Ads campaign setup for immediate traffic.",
-      perfectFor: ["Immediate lead generation", "Seasonal campaigns", "Testing market demand"],
-      details: "Campaign setup, keyword research, conversion tracking (ad spend not included)"
-    }, {
-      name: "Email Marketing Setup",
-      icon: Mail,
-      price: "£150 - £350",
-      description: "Professional email setup: Mailchimp/ConvertKit integration, templates, automation.",
-      perfectFor: ["Building email lists", "Customer nurture sequences", "Newsletter launches"],
-      details: "Basic (signup + 1 template) £150, Standard (+ sequences) £250, Advanced £350"
-    }]
-  }, {
-    id: "ecommerce",
-    label: "E-commerce & Conversions",
-    icon: DollarSign,
-    addons: [{
-      name: "E-commerce Setup",
-      icon: DollarSign,
-      price: "£400 - £900",
-      description: "Full online shop: products, cart, checkout, payment processing.",
-      perfectFor: ["Retail businesses", "Service packages for sale", "Digital products"],
-      details: "Up to 10 products £400, 11-30 products £650, 31-50 products £900, 50+ custom quote"
-    }, {
-      name: "Membership Portal",
-      icon: Users,
-      price: "£300 - £800",
-      description: "Members-only area with user accounts, gated content, subscriptions.",
-      perfectFor: ["Online courses", "Subscription services", "Community platforms", "Premium content"],
-      details: "Basic (login + content) £300, Standard (+ payments) £500, Advanced (full portal) £800"
-    }, {
-      name: "Booking System",
-      icon: Calendar,
-      price: "£200 - £500",
-      description: "Appointment booking, calendar sync, automated reminders.",
-      perfectFor: ["Salons, clinics, consultants", "Service-based businesses", "1-on-1 appointments"],
-      details: "Basic (Calendly embed) £200, Standard (custom) £350, Advanced (payments) £500"
-    }]
-  }, {
-    id: "content",
-    label: "Content & Training",
-    icon: FileText,
-    addons: [{
-      name: "Professional Content Writing",
-      icon: FileText,
-      price: "£40 - £120 per page",
-      description: "Professional, SEO-optimized copywriting for your website.",
-      perfectFor: ["Businesses without time to write", "SEO-optimized content", "Professional tone & polish"],
-      details: "Basic page (300 words) £40, Standard (500 words) £70, Long-form (1,000+ words) £120"
-    }, {
-      name: "Website Training (1 hour)",
-      icon: Video,
-      price: "£80 - £150",
-      description: "1-hour Zoom session: learn to update your site, add content, manage forms.",
-      perfectFor: ["DIY content updates", "Empowering your team", "Reducing reliance on developers"],
-      details: "1 person £80, 2-5 people (team training) £150"
-    }]
-  }, {
-    id: "hosting",
-    label: "Hosting & Infrastructure",
-    icon: Cloud,
-    addons: [{
-      name: "Cloud Hosting Setup",
-      icon: Cloud,
-      price: "£80 - £200",
-      description: "Professional hosting setup on AWS, Google Cloud, or premium providers.",
-      perfectFor: ["High-traffic sites", "E-commerce", "Custom requirements"],
-      details: "Basic (shared) £80, Standard (VPS/cloud) £150, Enterprise (dedicated) £200"
-    }, {
-      name: "Automated Backups",
-      icon: HardDrive,
-      price: "£50 - £150",
-      description: "Daily automated backups, uptime monitoring, instant alerts.",
-      perfectFor: ["E-commerce sites", "Business-critical sites", "Peace of mind"],
-      details: "Daily backups, 30-day retention, uptime monitoring, 1-click restore"
-    }]
-  }, {
-    id: "analytics",
-    label: "Analytics & Tracking",
-    icon: BarChart,
-    addons: [{
-      name: "Analytics Dashboard",
-      icon: Activity,
-      price: "£150 - £350",
-      description: "Custom analytics setup: Google Analytics, goals, conversion tracking, reports.",
-      perfectFor: ["Data-driven businesses", "Tracking ROI", "Understanding customer behavior"],
-      details: "Basic (GA4 + goals) £150, Standard (+ e-commerce) £250, Advanced (custom tracking) £350"
-    }, {
-      name: "Heatmap & User Recording",
-      icon: Eye,
-      price: "£100 - £250",
-      description: "See how users interact with your site: clicks, scrolls, recordings.",
-      perfectFor: ["Conversion rate optimization", "UX improvement", "Understanding user behavior"],
-      details: "Basic (1,000 sessions) £100, Standard (5,000 sessions) £180, Advanced (10,000+) £250"
-    }]
-  }, {
-    id: "bundles",
-    label: "Bundles (Save 10-20%)",
-    icon: ShoppingBag,
-    addons: [{
-      name: "Launch Bundle",
-      icon: Rocket,
-      price: "£250 (Save £80)",
-      description: "Logo + SEO + Email Setup + Training",
-      perfectFor: ["New businesses launching for the first time"],
-      details: "Regular price: £330 → Bundle: £250"
-    }, {
-      name: "Growth Bundle",
-      icon: TrendingUp,
-      price: "£700 (Save £200)",
-      description: "Advanced SEO + Email Marketing + Analytics + Content (5 pages)",
-      perfectFor: ["Established businesses ready to scale"],
-      details: "Regular price: £900 → Bundle: £700"
-    }, {
-      name: "E-commerce Bundle",
-      icon: ShoppingBag,
-      price: "£1,200 (Save £300)",
-      description: "E-commerce (50 products) + Performance Optimization + Analytics + Security",
-      perfectFor: ["Online shops ready to launch"],
-      details: "Regular price: £1,500 → Bundle: £1,200"
-    }]
-  }];
-  return <div className="min-h-screen bg-background">
-      <SEO title="Services & Pricing - Web Development & AI Automation | X15 Digital" description="Web development packages from £100-£3,500 + AI automation from £50-£400/month. 5 transparent pricing tiers + 26 add-ons across 10 categories. 1 day to 4 week delivery. View our full service menu for UK businesses." keywords="web development pricing UK, AI automation cost, website packages, AI chatbot pricing, business automation" />
-      <ScrollProgressBar />
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Services | X15 Digital"
+        description="Websites, apps, and AI systems that actually get you clients. Choose from web packages, AI automation, and ongoing support – all built for UK businesses."
+        canonicalUrl="https://x15.digital/services"
+      />
+
       <Navigation />
-      <BreadcrumbNav />
 
-      {/* Hero Section */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Services & Pricing</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
-            Choose what you need. See exactly what you'll pay. No surprises.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button onClick={() => scrollToSection("web-packages")} variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              Web Packages <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button onClick={() => scrollToSection("ai-automation")} variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button onClick={() => scrollToSection("combined-packages")} variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              Combined Bundles <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section id="web-packages" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Web Development Packages</h2>
-          <p className="text-center text-muted-foreground mb-4">
-            One-time payment. You own everything. No monthly fees.
-          </p>
-          <p className="text-center text-sm text-muted-foreground mb-12">
-            (Optional: Add support/maintenance for peace of mind — from £30/month)
-            <br />
-            Choose your perfect starting point — upgrade anytime as you grow.
-          </p>
-
-          {/* DESKTOP: DIY + STARTER fixed, RIGHT CARD = CAROUSEL */}
-          <div className="hidden md:block">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-              {/* DIY / TEMPLATE – Budget option */}
-              <Card className="hover-lift relative transition-transform md:scale-95 md:opacity-95 md:shadow-sm">
-                <AnimatedSection staggerIndex={0} animation="scale">
-                  <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-secondary text-white shadow-md badge-animated">
-                    💡 BUDGET FRIENDLY
-                  </Badge>
-                </AnimatedSection>
-
-                <CardHeader className="pt-10">
-                  <CardTitle className="text-2xl">DIY/TEMPLATE WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-primary">£100 - £300</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm font-semibold mb-4">Perfect for: Individuals, startups, micro-businesses</p>
-
-                  <p className="font-semibold mb-2">What&apos;s Included:</p>
-                  <ul className="space-y-2 mb-4">
-                    {["1-page site OR custom landing page", "Professional template selection", "Simple content editor instructions", "Mobile responsive design", "1 business day delivery", "Upgrade path to Starter/Business"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>)}
-                  </ul>
-
-                  <p className="text-sm font-semibold mb-2">Examples:</p>
-                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>• New freelancer portfolio</li>
-                    <li>• Event RSVP / campaign landing page</li>
-                    <li>• &quot;Coming soon&quot; placeholder</li>
-                    <li>• Quick promotional page</li>
-                  </ul>
-
-                  <p className="text-xs text-primary font-semibold mb-4">
-                    💡 Upgrade to Starter anytime for full custom design
-                  </p>
-
-                  <Button asChild className="w-full">
-                    <Link to="/quick-start">
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* STARTER – Always visible, centre card */}
-              <Card className="hover-lift relative transition-transform md:scale-105 md:border-2 md:border-primary md:shadow-2xl md:ring-4 md:ring-primary/10 z-10">
-                <div className="pointer-events-none absolute -inset-1 hidden md:block bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl -z-10" />
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 -z-10 w-32 h-7 rounded-full bg-warning/30 blur-lg" />
-
-                <AnimatedSection staggerIndex={1} animation="scale">
-                  <Badge className="absolute top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg badge-animated">
-                    ⚡ MOST POPULAR
-                  </Badge>
-                </AnimatedSection>
-
-                <CardHeader className="pt-10">
-                  <CardTitle className="text-2xl">STARTER WEBSITE</CardTitle>
-                  <p className="text-3xl font-bold text-primary">£250 - £500</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm font-semibold mb-4">Perfect for: Trades, freelancers, solo businesses</p>
-
-                  <div className="mb-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Star className="h-4 w-4 text-orange-600 fill-orange-600" />
-                      <p className="text-xs font-semibold text-orange-900">Best value for growing businesses</p>
-                    </div>
-                    <p className="text-xs text-orange-800">Everything you need to start strong.</p>
-                  </div>
-
-                  <p className="font-semibold mb-2">What&apos;s Included:</p>
-                  <ul className="space-y-2 mb-4">
-                    {["1-3 custom pages (Home, About, Contact)", "Fully custom or semi-custom design", "Mobile responsive", "Contact form integration", "Basic SEO setup", "Social media links", "1-3 day delivery"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>)}
-                  </ul>
-
-                  <p className="text-sm font-semibold mb-2">Examples:</p>
-                  <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>• Electrician landing page</li>
-                    <li>• Plumber portfolio site</li>
-                    <li>• Freelance consultant page</li>
-                  </ul>
-
-                  <Button asChild className="w-full">
-                    <Link to="/quick-start">
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* RIGHT COLUMN = CAROUSEL: Business / Premium / Web App */}
-              <div className="h-full">
-                <Carousel className="w-full h-full" opts={{
-                loop: true
-              }}>
-                  <CarouselContent className="h-full">
-                    {/* BUSINESS WEBSITE */}
-                    <CarouselItem className="h-full">
-                      <Card className="hover-lift h-full border-2 border-secondary/30 shadow-lg relative overflow-visible">
-                        <AnimatedSection staggerIndex={2} animation="scale">
-                          <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md badge-animated">
-                            🏆 PROFESSIONAL
-                          </Badge>
-                        </AnimatedSection>
-
-                        <CardHeader className="pt-10">
-                          <CardTitle className="text-2xl">BUSINESS WEBSITE</CardTitle>
-                          <p className="text-3xl font-bold text-primary">£750 - £1,800</p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm font-semibold mb-4">
-                            Perfect for: Salons, consultants, local shops, small businesses
-                          </p>
-
-                          <p className="font-semibold mb-2">What&apos;s Included:</p>
-                          <ul className="space-y-2 mb-4">
-                            {["4-10 pages", "Full custom layout & branding", "Contact + advanced forms/booking", "Google Maps integration", "Portfolio/gallery options", "Full SEO package", "5-10 day delivery"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                                <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                                <span className="text-sm">{item}</span>
-                              </li>)}
-                          </ul>
-
-                          <p className="text-sm font-semibold mb-2">Examples:</p>
-                          <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                            <li>• Salon with booking system</li>
-                            <li>• Consultancy service site</li>
-                            <li>• Local shop with products</li>
-                          </ul>
-
-                          <Button asChild className="w-full">
-                            <Link to="/quick-start">
-                              Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-
-                    {/* PREMIUM WEBSITE */}
-                    <CarouselItem className="h-full">
-                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all relative overflow-visible">
-                        <CardHeader className="pt-10">
-                          <CardTitle className="text-2xl">PREMIUM WEBSITE</CardTitle>
-                          <p className="text-3xl font-bold text-primary">£2,000 - £3,500</p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm font-semibold mb-4">
-                            Perfect for: E-commerce, agencies, larger service sites
-                          </p>
-
-                          <p className="font-semibold mb-2">What&apos;s Included:</p>
-                          <ul className="space-y-2 mb-4">
-                            {["10+ fully custom pages", "E-commerce & advanced features", "Payment integration", "Advanced SEO & performance", "1–4 week timeline"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                                <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                                <span className="text-sm">{item}</span>
-                              </li>)}
-                          </ul>
-
-                          <Button asChild className="w-full">
-                            <Link to="/contact">
-                              Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-
-                    {/* WEB APPLICATION */}
-                    <CarouselItem className="h-full">
-                      <Card className="hover-lift h-full border-2 border-border hover:border-primary/50 transition-all relative overflow-visible">
-                        <CardHeader className="pt-10">
-                          <CardTitle className="text-2xl">WEB APPLICATION</CardTitle>
-                          <p className="text-3xl font-bold text-primary">
-                            £3,500+
-                            <span className="text-base font-normal text-muted-foreground"> (custom quote)</span>
-                          </p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm font-semibold mb-4">
-                            Perfect for: SaaS, CRMs, internal tools &amp; advanced platforms
-                          </p>
-
-                          <p className="font-semibold mb-2">What&apos;s Included:</p>
-                          <ul className="space-y-2 mb-4">
-                            {["Custom web application", "User authentication & roles", "Database & API integrations", "Admin dashboard", "Ongoing support options"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                                <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                                <span className="text-sm">{item}</span>
-                              </li>)}
-                          </ul>
-
-                          <Button asChild className="w-full">
-                            <Link to="/contact">
-                              Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  </CarouselContent>
-
-                  {/* Controls + static dots (no state, just UX hint) */}
-                  <div className="flex justify-center items-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0" />
-                    <div className="flex gap-2">
-                      <div className="h-2 w-2 rounded-full bg-primary" />
-                      <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                      <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                    </div>
-                    <CarouselNext className="static translate-y-0" />
-                  </div>
-                  <p className="mt-3 text-center text-xs text-muted-foreground">
-                    Slide to see Business, Premium &amp; Web App options.
-                  </p>
-                </Carousel>
-              </div>
-            </div>
-          </div>
-
-          {/* MOBILE: Single-card carousel with all packages */}
-          <div className="md:hidden max-w-md mx-auto">
-            <Carousel className="w-full" opts={{
-            loop: true
-          }}>
-              <CarouselContent>
-                {/* DIY/TEMPLATE */}
-                <CarouselItem>
-                  <Card className="hover-lift">
-                    <CardHeader>
-                      <CardTitle className="text-xl">DIY / TEMPLATE</CardTitle>
-                      <p className="text-2xl font-bold text-primary">£100 - £300</p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Perfect for: Side hustles, personal brands, quick launches
-                      </p>
-
-                      <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                      <ul className="space-y-2 mb-6">
-                        {["1-page template site", "Pre-designed layout", "Basic customization", "Mobile responsive", "24-48 hour delivery"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
-                          </li>)}
-                      </ul>
-
-                      <Button asChild className="w-full">
-                        <Link to="/quick-start">
-                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* STARTER */}
-                <CarouselItem>
-                  <Card className="hover-lift border-2 border-primary shadow-lg relative overflow-visible">
-                    <Badge className="absolute top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-warning text-warning-foreground shadow-lg">
-                      ⚡ MOST POPULAR
-                    </Badge>
-
-                    <CardHeader className="pt-10">
-                      <CardTitle className="text-xl">STARTER WEBSITE</CardTitle>
-                      <p className="text-2xl font-bold text-primary">£250 - £500</p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Perfect for: Trades, freelancers, solo businesses
-                      </p>
-
-                      <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                      <ul className="space-y-2 mb-6">
-                        {["1-3 custom pages", "Semi-custom design", "Mobile responsive", "Contact form", "Basic SEO", "1-3 day delivery"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
-                          </li>)}
-                      </ul>
-
-                      <Button asChild className="w-full">
-                        <Link to="/quick-start">
-                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* BUSINESS */}
-                <CarouselItem>
-                  <Card className="hover-lift border-2 border-secondary/30 shadow-lg relative overflow-visible">
-                    <Badge className="absolute top-3 right-4 px-3 py-1 rounded-full text-[11px] tracking-wide font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
-                      🏆 PROFESSIONAL
-                    </Badge>
-
-                    <CardHeader className="pt-10">
-                      <CardTitle className="text-xl">BUSINESS WEBSITE</CardTitle>
-                      <p className="text-2xl font-bold text-primary">£750 - £1,800</p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Perfect for: Established businesses, professional services
-                      </p>
-
-                      <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                      <ul className="space-y-2 mb-6">
-                        {["5-10 fully custom pages", "Advanced features", "Booking/payment systems", "Advanced SEO", "5-10 day delivery"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
-                          </li>)}
-                      </ul>
-
-                      <Button asChild className="w-full">
-                        <Link to="/quick-start">
-                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* PREMIUM */}
-                <CarouselItem>
-                  <Card className="hover-lift">
-                    <CardHeader>
-                      <CardTitle className="text-xl">PREMIUM WEBSITE</CardTitle>
-                      <p className="text-2xl font-bold text-primary">£2,000 - £3,500</p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Perfect for: E-commerce, agencies, larger service sites
-                      </p>
-
-                      <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                      <ul className="space-y-2 mb-6">
-                        {["10+ fully custom pages", "E-commerce features", "Payment integration", "Advanced SEO", "1–4 week timeline"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
-                          </li>)}
-                      </ul>
-
-                      <Button asChild className="w-full">
-                        <Link to="/contact">
-                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-
-                {/* WEB APPLICATION */}
-                <CarouselItem>
-                  <Card className="hover-lift">
-                    <CardHeader>
-                      <CardTitle className="text-xl">WEB APPLICATION</CardTitle>
-                      <p className="text-2xl font-bold text-primary">
-                        £3,500+
-                        <span className="text-base font-normal text-muted-foreground"> (custom quote)</span>
-                      </p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">Perfect for: SaaS, CRMs, internal tools</p>
-
-                      <p className="font-semibold mb-2 text-sm">What&apos;s Included:</p>
-                      <ul className="space-y-2 mb-6">
-                        {["Custom web application", "User authentication", "Database & API integrations", "Admin dashboard", "Ongoing support"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
-                          </li>)}
-                      </ul>
-
-                      <Button asChild className="w-full">
-                        <Link to="/contact">
-                          Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              </CarouselContent>
-
-              <div className="flex justify-center items-center gap-4 mt-6">
-                <CarouselPrevious className="static translate-y-0" />
-                <div className="flex gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                  <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                  <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                  <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
-                </div>
-                <CarouselNext className="static translate-y-0" />
-              </div>
-              <p className="mt-3 text-center text-xs text-muted-foreground">Swipe to see all website packages.</p>
-            </Carousel>
-          </div>
-
-          {/* Comparison table stays the same */}
-          <ServicesComparisonTable />
-
-          {/* Not sure which package? */}
-          <div className="mt-8 text-center">
-            <p className="text-lg text-muted-foreground mb-4">💡 Not sure which package fits your needs?</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild variant="outline">
-                <Link to="/quick-start">Take our 30-second quiz</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <a href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20help%20choosing%20a%20web%20package" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                  Chat on WhatsApp
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Support & Maintenance Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
-        <div className="max-w-5xl mx-auto">
-          <Card className="border-2 border-primary/20 bg-background">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="flex-shrink-0">
-                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Shield className="h-8 w-8 text-primary" />
-                  </div>
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <p className="text-sm text-muted-foreground mb-2">Recommended for All Packages</p>
-                  <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Support & Maintenance</h3>
-                  <p className="text-3xl font-bold text-primary mb-4">From £25/month</p>
-                  <p className="text-muted-foreground mb-4">Keep your website secure, fast, and up-to-date.</p>
-
-                  <div className="grid md:grid-cols-2 gap-2 mb-6">
-                    {["Regular updates & security patches", "Weekly backups", "Priority support (4-hour response)", "Performance monitoring", "Fast bug fixes", "Content updates (up to 1 hour/month)"].map((item, i) => <div key={i} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </div>)}
-                  </div>
-
-                  <p className="text-sm text-muted-foreground mb-4">
-                    <strong>Perfect for:</strong> Any business that wants peace of mind
-                  </p>
-
-                  <Button asChild>
-                    <Link to="/contact">
-                      Add to Any Package <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-
-                  <p className="text-xs text-muted-foreground mt-4">
-                    💡 Optional but highly recommended — protect your investment
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Add-Ons & Extras - Categorized Tabs */}
-      <section id="add-ons" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons & Extras</h3>
-          <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
-          <p className="text-center text-sm text-muted-foreground mb-12">
-            💡 Bundle 2-3 add-ons and save 10-20% — ask us about package deals!
-          </p>
-
-          {/* Desktop: Tabs */}
-          <div className="hidden md:block">
-            <Tabs defaultValue="speed" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 bg-muted p-2 rounded-lg mb-8 h-auto">
-                {addOnCategories.map(cat => {
-                const shortLabels: Record<string, string> = {
-                  "Speed & Priority": "Speed & Priority",
-                  "Technical & Performance": "Performance",
-                  "Security & Compliance": "Security",
-                  "Branding & Design": "Branding",
-                  "Marketing & SEO": "Marketing",
-                  "E-commerce & Conversions": "E-commerce",
-                  "Content & Training": "Content",
-                  "Hosting & Infrastructure": "Hosting",
-                  "Analytics & Tracking": "Analytics",
-                  "Bundles (Save 10-20%)": "Bundles"
-                };
-                return <TabsTrigger key={cat.id} value={cat.id} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm py-3 px-3 rounded-md hover:bg-accent transition-colors whitespace-normal text-center leading-tight">
-                      <cat.icon className="h-4 w-4 mr-1 flex-shrink-0" />
-                      <span>{shortLabels[cat.label] || cat.label}</span>
-                    </TabsTrigger>;
-              })}
-              </TabsList>
-
-              {addOnCategories.map(category => <TabsContent key={category.id} value={category.id}>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {category.addons.map((addon, i) => <Card key={i} className="hover-lift p-4">
-                        <div className="flex items-start gap-3 mb-3">
-                          <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
-                            <p className="text-lg font-bold text-primary">{addon.price}</p>
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
-                        {addon.perfectFor && <div className="mb-3">
-                            <p className="text-xs font-semibold mb-1">Perfect for:</p>
-                            <ul className="text-xs text-muted-foreground space-y-0.5">
-                              {addon.perfectFor.map((item, j) => <li key={j}>• {item}</li>)}
-                            </ul>
-                          </div>}
-                        <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
-                        <Button size="sm" className="w-full" asChild>
-                          <Link to="/contact">Add to Package</Link>
-                        </Button>
-                      </Card>)}
-                  </div>
-                </TabsContent>)}
-            </Tabs>
-          </div>
-
-          {/* Mobile: Accordion */}
-          <div className="md:hidden">
-            <Accordion type="single" collapsible className="w-full">
-              {addOnCategories.map(category => <AccordionItem key={category.id} value={category.id}>
-                  <AccordionTrigger className="text-left">
-                    <div className="flex items-center gap-2">
-                      <category.icon className="h-5 w-5 text-success" />
-                      <span className="font-semibold">{category.label}</span>
-                      <span className="text-xs text-muted-foreground">({category.addons.length})</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-4 pt-4">
-                      {category.addons.map((addon, i) => <Card key={i} className="p-4">
-                          <div className="flex items-start gap-3 mb-3">
-                            <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
-                              <p className="text-lg font-bold text-primary">{addon.price}</p>
-                            </div>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
-                          {addon.perfectFor && <div className="mb-3">
-                              <p className="text-xs font-semibold mb-1">Perfect for:</p>
-                              <ul className="text-xs text-muted-foreground space-y-0.5">
-                                {addon.perfectFor.map((item, j) => <li key={j}>• {item}</li>)}
-                              </ul>
-                            </div>}
-                          <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
-                          <Button size="sm" className="w-full" asChild>
-                            <Link to="/contact">Add to Package</Link>
-                          </Button>
-                        </Card>)}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>)}
-            </Accordion>
-          </div>
-
-          {/* Footer CTA */}
-          <div className="mt-12 text-center">
-            <p className="text-lg text-muted-foreground mb-4">Don't see what you need?</p>
-            <p className="text-muted-foreground mb-6">
-              We can customize any add-on or create bespoke solutions for your specific requirements.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild variant="outline">
-                <Link to="/contact">Request Custom Solution</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <a href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20a%20custom%20add-on" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                  Chat on WhatsApp
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* X15 PC Builders - Sister Brand Services */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary">SISTER BRAND</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">X15 PC Builders</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Custom PC builds, repairs, and maintenance services in the UK
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
-            {/* Custom PC Builds */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <HardDrive className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Custom PC Builds</CardTitle>
-                <p className="text-3xl font-bold text-primary">From £500</p>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What's Included:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Custom component selection", "Professional assembly", "Cable management", "Initial setup & testing", "Windows installation", "1-year parts warranty"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect for:</strong> Gaming, video editing, 3D rendering, or general use
-                </p>
-                <Button asChild className="w-full">
-                  <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
-                    View PC Builds <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* PC Repairs */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Activity className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">PC Repairs</CardTitle>
-                <p className="text-3xl font-bold text-primary">From £40</p>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What We Fix:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Hardware diagnostics", "Component replacement", "Software troubleshooting", "Virus & malware removal", "Performance upgrades", "Data recovery assistance"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect for:</strong> When your PC isn't running right or won't start
-                </p>
-                <Button asChild variant="outline" className="w-full">
-                  <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
-                    Get a Repair Quote <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Maintenance & Cleaning */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Gauge className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">Maintenance & Cleaning</CardTitle>
-                <p className="text-3xl font-bold text-primary">From £50</p>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What's Included:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Deep dust cleaning", "Thermal paste replacement", "Fan optimization", "Software updates", "Performance testing", "Health check report"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect for:</strong> Keeping your PC running smoothly and quietly
-                </p>
-                <Button asChild variant="outline" className="w-full">
-                  <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
-                    Book Maintenance <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center">
-            <p className="text-muted-foreground mb-4">
-              X15 PC Builders is our sister brand specializing in custom PC solutions
-            </p>
-            <Button asChild size="lg">
-              <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
-                Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Automation Section */}
-      <section id="ai-automation" ref={aiRef} className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">AI Automation Solutions</h2>
-          <p className="text-center text-muted-foreground mb-8">
-            Stand-alone or integrated with your website.
-            <br />
-            Works with ANY website — yours or ours.
-          </p>
-
-          {/* Pain-first intro */}
-          <div className="bg-white rounded-lg p-8 mb-12 text-center max-w-3xl mx-auto">
-            <p className="text-lg text-muted-foreground mb-4">
-              Your customer texts at 11 PM.
-              <br />
-              Your phone rings during dinner.
-              <br />
-              Your inbox has 47 unread emails.
-            </p>
-            <p className="text-xl font-semibold text-secondary mb-4">
-              What if you had a digital assistant that works 24/7?
-            </p>
-            <p className="text-muted-foreground">
-              Already have a website? Add AI automation.
-              <br />
-              Works with ANY website — yours or ours.
-            </p>
-          </div>
-
-          {/* Main AI Services - 7 cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
-            {/* AI Chatbot */}
-            <Card className="hover-lift border-2 border-primary relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-                <Star className="h-3 w-3 mr-1" /> MOST POPULAR
+      <main className="flex-1">
+        {/* HERO – Services Hub */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+          {/* Soft background accents */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(45,212,191,0.18),transparent_55%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(59,130,246,0.16),transparent_55%)]" />
+
+          <Container>
+            <div className="relative max-w-3xl mx-auto text-center fade-in-section">
+              <Badge className="mb-4 bg-white/5 text-emerald-200 border-emerald-400/30">
+                Websites · Apps · AI Systems
               </Badge>
-              <CardHeader>
-                <Bot className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Chatbot</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £200-400</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £50-100</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Answers FAQs instantly", "Captures lead information", "Qualifies customer needs", "Works 24/7, never sleeps"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Service businesses, e-commerce, consultants
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Custom trained on your business, integrates with your website,
-                  multi-platform support
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Websites, Apps &amp; AI that actually get you clients.
+              </h1>
+
+              <p className="text-base md:text-lg text-slate-200/90 mb-6">
+                Choose a clear package or mix-and-match services. No bloated retainers, no confusing jargon — just
+                systems that help your business run smoother and convert more leads.
+              </p>
+
+              {/* Micro trust + booking state */}
+              <p className="text-xs md:text-sm text-emerald-200/90 mb-8">
+                Currently booking new projects <span className="font-semibold">2–3 weeks in advance</span>.
+              </p>
+
+              {/* Hero CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-slate-900 hover:bg-slate-100 shadow-md hover:shadow-lg"
+                >
+                  <Link to="/web-package">
+                    View Web Packages
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-              </CardContent>
-            </Card>
 
-            {/* Voice Agent */}
-            <Card className="hover-lift relative">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white">
-                <Target className="h-3 w-3 mr-1" /> BEST FOR LOCAL BUSINESSES
-              </Badge>
-              <CardHeader>
-                <Phone className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Receptionist</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £400-800</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £100-200</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Answers phone calls naturally", "Books appointments", "Takes messages", "Handles after-hours inquiries"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Salons, clinics, offices with high call volume
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Natural conversational AI, calendar sync, call transcripts
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/60 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link to="/ai-package">
+                    View AI Solutions
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-              </CardContent>
-            </Card>
-
-            {/* Sales Agent */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Sales Assistant</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £800-2,000</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £200-800</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Automated lead generation", "Qualifies prospects", "Books sales calls", "Follow-up sequences"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> B2B services, consultants, agencies, SaaS
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Multi-channel outreach, CRM integration, lead scoring
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Email Outreach */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Mail className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Email Outreach</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £400-1,000</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £100-400</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Automated email campaigns", "Lead nurturing sequences", "Smart follow-ups", "Personalised at scale"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Sales teams, marketing, lead generation
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Custom templates, A/B testing, analytics & tracking
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Social Media Manager */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <MessageCircle className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Social Media Manager</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £200-600</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £50-150</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Auto-posts to platforms", "Responds to comments", "Analytics & insights", "Content scheduling"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Retail, online brands, content creators
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Multi-platform support, engagement monitoring, performance reports
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Workflow Automation */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Workflow className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Admin Assistant</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £500-1,500</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £150-600</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Multi-app integrations", "Automated data entry", "Order/payment processing", "Custom workflows"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> E-commerce, logistics, operations teams
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Zapier/Make integration, 1,000+ app connections, error handling
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Inbox Manager */}
-            <Card className="hover-lift">
-              <CardHeader>
-                <Inbox className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl">AI Email Assistant</CardTitle>
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Setup: £500-1,000</p>
-                  <p className="text-sm text-muted-foreground">Monthly: £150-300</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold mb-4">What It Does:</p>
-                <ul className="space-y-2 mb-4">
-                  {["Sorts and prioritises emails", "Sends auto-responses", "Flags urgent messages", "Automates workflows"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>)}
-                </ul>
-                <p className="text-sm text-muted-foreground mb-4">
-                  <strong>Perfect For:</strong> Busy professionals, customer support teams
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  <strong>Technical Details:</strong> Smart categorisation, CRM integration, daily summaries
-                </p>
-                <Button asChild className="w-full">
-                  <Link to="/contact">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Additional AI Services */}
-          <div className="bg-white rounded-lg p-8 mb-12">
-            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">Additional AI Automation Services</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              {[{
-              name: "AI Invoice & Admin Bot",
-              setup: "£350-900",
-              monthly: "£50-200/month"
-            }, {
-              name: "AI Data Insights & Reporting",
-              setup: "£200-1,000",
-              monthly: "£50-350/month"
-            }, {
-              name: "RPA (Robotic Process Automation)",
-              setup: "£1,000+",
-              monthly: "£200+/month"
-            }, {
-              name: "AI Meeting Notes & Transcription",
-              setup: "£300-700",
-              monthly: "£75-200/month"
-            }, {
-              name: "LinkedIn Lead Prospecting",
-              setup: "£500-900",
-              monthly: "£75-200/month"
-            }, {
-              name: "AI Customer Feedback Analysis",
-              setup: "£400-800",
-              monthly: "£100-250/month"
-            }, {
-              name: "AI Recruitment Screening",
-              setup: "£200-800",
-              monthly: "£50-250/month"
-            }].map((service, i) => <div key={i} className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">{service.name}</span>
-                  <span className="text-muted-foreground">
-                    {service.setup} setup | {service.monthly}
-                  </span>
-                </div>)}
+              </div>
             </div>
-            <p className="text-center mt-6 text-muted-foreground">
-              Don't see what you need?{" "}
-              <Link to="/contact" className="text-primary hover:underline inline-flex items-center gap-1">
-                Request Custom AI Solution <ArrowRight className="h-4 w-4" />
-              </Link>
-            </p>
-          </div>
+          </Container>
+        </section>
 
-          {/* AI Pricing Table */}
-          <div className="bg-white rounded-lg p-8 overflow-x-auto mb-12">
-            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">AI Automation Pricing Overview</h3>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="p-3 text-left font-semibold">Service</th>
-                  <th className="p-3 text-left font-semibold">Setup</th>
-                  <th className="p-3 text-left font-semibold">Monthly</th>
-                  <th className="p-3 text-left font-semibold">Best For</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[["Chatbot", "£200-400", "£50-100", "Customer support, FAQs"], ["AI Receptionist", "£400-800", "£100-200", "Phone answering, bookings"], ["AI Sales Assistant", "£800-2,000", "£200-800", "Lead generation, B2B"], ["Email Outreach", "£400-1,000", "£100-400", "Marketing campaigns"], ["Social Media", "£200-600", "£50-150", "Content automation"], ["AI Admin Assistant", "£500-1,500", "£150-600", "Process optimisation"], ["Inbox Manager", "£500-1,000", "£150-300", "Email management"], ["Custom Solution", "£800+", "£200+", "Bespoke requirements"]].map(([service, setup, monthly, bestFor], i) => <tr key={i} className="border-b border-border last:border-b-0">
-                    <td className="p-3 font-medium">{service}</td>
-                    <td className="p-3 text-primary">{setup}</td>
-                    <td className="p-3 text-primary">{monthly}</td>
-                    <td className="p-3 text-muted-foreground">{bestFor}</td>
-                  </tr>)}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Custom AI Solution CTA */}
-          <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-lg p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Custom AI Solution</h2>
-            <p className="text-lg mb-6 max-w-3xl mx-auto">
-              Need something specific? We build bespoke AI automation tailored to your exact business needs.
-            </p>
-            <div className="mb-6 text-left max-w-2xl mx-auto">
-              <p className="font-semibold mb-2">Recent Custom Solutions:</p>
-              <ul className="space-y-1">
-                {["Healthcare appointment automation", "Legal document processing", "Restaurant multi-location ordering", "Property management workflows", "Marketing agency white-label AI"].map((item, i) => <li key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-            </div>
-            <div className="mb-6">
-              <p className="text-xl font-semibold">Setup: £800+ | Monthly: £200+</p>
-              <p className="text-sm mt-2">
-                Every project is unique. Let's discuss your requirements and build the perfect AI solution for your
-                business.
+        {/* 1. CHOOSE YOUR PATH – 3 Main Tiles */}
+        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            <div className="max-w-3xl mx-auto text-center mb-10 fade-in-section">
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Choose your starting point</h2>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Most clients start with a website or app, then add AI and support once they&apos;re live. You can keep
+                it simple or build a full system over time.
               </p>
             </div>
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-transform">
-              <Link to="/contact">Request Consultation</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
-      {/* Combined Packages */}
-      <section id="combined-packages" className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Website + AI Bundles (Save 10-15%)
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Get more value by combining services. All bundles include setup, training, and ongoing support.
-          </p>
+            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
+              {/* Websites & Apps */}
+              <AnimatedSection staggerIndex={0} animation="up">
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-teal-600/10 mb-3">
+                      <Globe2 className="h-5 w-5 text-teal-700" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">Websites &amp; Apps</CardTitle>
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
+                      Design · Build · Launch
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-4 text-sm text-muted-foreground">
+                    <p>
+                      From one-page sites to full web applications — built to look premium and convert visitors into
+                      enquiries.
+                    </p>
+                    <ul className="space-y-1">
+                      <li>• One-time payment, you own everything</li>
+                      <li>• Mobile-perfect, fast, SEO-friendly</li>
+                      <li>• Launch in 2–4 weeks (on average)</li>
+                    </ul>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {[{
-            title: "STARTER BUNDLE",
-            desc: "Website (£250-500) + Chatbot",
-            price: "£550 total setup + £50/month",
-            save: "Save £100 on setup",
-            link: "/quick-start"
-          }, {
-            title: "BUSINESS BUNDLE",
-            desc: "Website (£750-1,800) + Chatbot",
-            price: "£1,000 total setup + £75/month",
-            save: "Save £150 on setup",
-            popular: true,
-            link: "/quick-start"
-          }, {
-            title: "PREMIUM BUNDLE",
-            desc: "Website (£2,000-3,500) + Voice Agent",
-            price: "£2,800 total setup + £100/month",
-            save: "Save £300 on setup",
-            link: "/quick-start"
-          }, {
-            title: "SALES ACCELERATOR",
-            desc: "Website (£750-1,800) + Sales Agent",
-            price: "£1,800 total setup + £250/month",
-            save: "Save £250 on setup",
-            link: "/quick-start"
-          }, {
-            title: "MARKETING PRO",
-            desc: "Website (£750-1,800) + Email + Social",
-            price: "£1,400 total setup + £200/month",
-            save: "Save £250 on setup",
-            link: "/quick-start"
-          }, {
-            title: "COMPLETE AUTOMATION",
-            desc: "Website (£2,000-3,500) + Multi-AI Stack",
-            price: "Custom quote",
-            save: "Maximum savings",
-            link: "/contact"
-          }].map((bundle, i) => <Card key={i} className={`hover-lift ${bundle.popular ? "border-2 border-primary relative" : ""}`}>
-                {bundle.popular && <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-warning text-warning-foreground">
-                    <Star className="h-3 w-3 mr-1" /> MOST POPULAR
-                  </Badge>}
-                <CardHeader>
-                  <CardTitle className="text-xl">{bundle.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{bundle.desc}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold text-primary mb-2">{bundle.price}</p>
-                  <p className="text-sm text-success mb-4">{bundle.save}</p>
-                  <Button asChild className="w-full">
-                    <Link to={bundle.link}>
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
+                    <Button asChild className="w-full mt-2">
+                      <Link to="/web-package">
+                        View Web Packages
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-      {/* Security & Compliance (Repeat from Homepage) */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Built With Security in Mind
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Every website and AI system we build follows industry best practices for data protection and security.
-          </p>
+              {/* AI Automation */}
+              <AnimatedSection staggerIndex={1} animation="up">
+                <Card className="h-full hover-lift border-primary/40 shadow-primary/20 shadow-sm">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 mb-3">
+                      <Bot className="h-5 w-5 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">AI Automation</CardTitle>
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
+                      Chatbots · Receptionists · Workflows
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-4 text-sm text-muted-foreground">
+                    <p>
+                      AI that answers questions, books appointments, and follows up with leads — while you&apos;re
+                      offline.
+                    </p>
+                    <ul className="space-y-1">
+                      <li>• Save 20+ hours per week</li>
+                      <li>• Works with any existing website</li>
+                      <li>• Live in as little as 48 hours</li>
+                    </ul>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            <Card>
-              <CardHeader className="text-center">
-                <Lock className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>SSL Encryption</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  All sites include HTTPS for secure connections and encrypted data transfer.
-                </p>
-              </CardContent>
-            </Card>
+                    <Button asChild className="w-full mt-2" variant="outline">
+                      <Link to="/ai-package">
+                        View AI Solutions
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-            <Card>
-              <CardHeader className="text-center">
-                <ClipboardCheck className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>GDPR Ready</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  Forms, cookies, and privacy policies setup included to keep you compliant.
-                </p>
-              </CardContent>
-            </Card>
+              {/* Support & Care */}
+              <AnimatedSection staggerIndex={2} animation="up">
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-600/10 mb-3">
+                      <Shield className="h-5 w-5 text-emerald-700" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">Maintenance &amp; Support</CardTitle>
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
+                      After Launch · Peace of Mind
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-4 text-sm text-muted-foreground">
+                    <p>Stay secure, up-to-date, and bug-free without touching the tech yourself.</p>
+                    <ul className="space-y-1">
+                      <li>• Updates, backups &amp; monitoring</li>
+                      <li>• Priority fixes when something breaks</li>
+                      <li>• Works even if we didn&apos;t build your site</li>
+                    </ul>
 
-            <Card>
-              <CardHeader className="text-center">
-                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>Secure Hosting</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  Hosted on enterprise-grade infrastructure with automatic backups and monitoring.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+                    <Button asChild className="w-full mt-2" variant="outline">
+                      <Link to="/contact">
+                        Discuss Support Options
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+          </Container>
+        </section>
 
-          <p className="text-center text-muted-foreground mt-12">
-            Your customers' data stays safe. Your business stays compliant.
-          </p>
-        </div>
-      </section>
-
-      {/* Who This ISN'T For */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Who This ISN'T For</h2>
-          <p className="text-center text-muted-foreground mb-12">We're honest about what we can't do.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            <Card className="border-destructive/50">
-              <CardHeader className="text-center">
-                <X className="h-12 w-12 text-destructive mx-auto mb-4" />
-                <CardTitle>You Need It Yesterday</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  We're fast (1-14 days), but we're not same-day. If you need a site live tomorrow, we're not the right
-                  fit.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-destructive/50">
-              <CardHeader className="text-center">
-                <X className="h-12 w-12 text-destructive mx-auto mb-4" />
-                <CardTitle>You Want Endless Meetings</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  We work efficiently. One kickoff call, async updates, done. If you need weekly check-ins and
-                  presentations, hire an agency.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-destructive/50">
-              <CardHeader className="text-center">
-                <X className="h-12 w-12 text-destructive mx-auto mb-4" />
-                <CardTitle>You Have a £50 Budget</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground">
-                  Our pricing is fair, but we can't compete with £50 Fiverr sites. Quality costs more than that (but way
-                  less than agencies).
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Table (Repeat from Homepage) */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
-            How We're Different from Typical Agencies
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full bg-white rounded-lg shadow-md">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="p-4 text-left font-semibold">Feature</th>
-                  <th className="p-4 text-left font-semibold">Typical Agency</th>
-                  <th className="p-4 text-left font-semibold bg-primary/10">X15 Digital</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[["Price for basic site", "£3,000-£10,000", "£100-£500 (Entry/Starter)"], ["Timeline", "4-12 weeks", "1-3 days (Entry/Starter), 1-2 weeks (Business)"], ["Who you work with", "Account manager", "Lead developer, direct support"], ["Pricing transparency", '"Let\'s discuss your budget"', "All prices on website"], ["AI automation", "Extra £5k+", "From £50-£200 as add-on, fully integrated"], ["Monthly fees", "£50-£200/month hosting", "£0-£30 (you own it, affordable maintenance)"], ["Revisions", "2-3 rounds max", "Unlimited until happy"]].map(([feature, agency, x15], i) => <tr key={i} className="border-b border-border last:border-b-0">
-                    <td className="p-4 font-medium">{feature}</td>
-                    <td className="p-4 text-muted-foreground">{agency}</td>
-                    <td className="p-4 bg-primary/5 font-semibold text-primary">{x15}</td>
-                  </tr>)}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-center text-muted-foreground mt-8 flex items-center justify-center gap-2">
-            <Zap className="h-5 w-5 text-success" />
-            We keep costs low by using modern tools and working smart. You get professional results without agency
-            overhead.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-4xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Frequently Asked Questions</h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Let's address the deal-breakers first, then the details.
-          </p>
-
-          {/* Deal-Breaker FAQs */}
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-6">
-              <X className="h-6 w-6 text-destructive" />
-              <h3 className="text-2xl font-bold text-destructive">Deal-Breakers (Read These First)</h3>
+        {/* 2. WEB & APP SERVICES – with anchors for hash links */}
+        <section
+          id="web-services"
+          className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60"
+        >
+          <Container>
+            <div className="max-w-3xl mx-auto text-center mb-10 fade-in-section">
+              <Badge className="mb-3 bg-primary/10 text-primary border-primary/20">Websites, Apps &amp; Brand</Badge>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                Web &amp; Brand services you can mix and match
+              </h2>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Start lean or go all-in — everything here can be combined with your main web package or used
+                individually.
+              </p>
             </div>
 
-            <Accordion type="multiple" className="space-y-4">
-              <AccordionItem value="q1" className="border border-destructive/30 rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">Can you build my site for £50?</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  <p className="mb-4">
-                    No. Our minimum is £100 for a basic 1-page site, and that's already below what quality work costs.
-                  </p>
-                  <p className="mb-2">If your budget is under £100, we recommend:</p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>Free builders like Wix or Carrd</li>
-                    <li>£50 Fiverr templates (you get what you pay for)</li>
-                  </ul>
-                  <p className="mt-4">We focus on quality over rock-bottom pricing.</p>
-                </AccordionContent>
-              </AccordionItem>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto fade-in-section">
+              {/* App Development */}
+              <AnimatedSection staggerIndex={0} animation="scale">
+                <Card id="app-development" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-primary/10 items-center justify-center mb-2">
+                      <Smartphone className="h-5 w-5 text-primary" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">App Development</CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Native &amp; hybrid mobile apps for iOS and Android.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>
+                      From idea to App Store / Play Store — strategy, development, testing, and launch handled for you.
+                    </p>
+                    <p className="text-xs font-semibold text-secondary">
+                      Best for: Products, tools &amp; on-the-go users
+                    </p>
+                    <Button asChild size="sm" className="mt-1 w-full">
+                      <Link to="/contact">
+                        Discuss an App
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <AccordionItem value="q2" className="border border-destructive/30 rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">
-                  Can you build my site in 24 hours?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  <p className="mb-4">Not unless it's extremely simple (1 page, no custom features).</p>
-                  <p className="mb-2">Realistic timelines:</p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>Starter site (1-3 pages): 1-3 days</li>
-                    <li>Business site (4-10 pages): 5-7 days</li>
-                    <li>Premium/e-commerce: 7-14 days</li>
-                    <li>Web application: 2-6 weeks</li>
-                  </ul>
-                  <p className="mt-4">We're fast, but we don't sacrifice quality for speed.</p>
-                </AccordionContent>
-              </AccordionItem>
+              {/* Personalised Apps */}
+              <AnimatedSection staggerIndex={1} animation="scale">
+                <Card id="personalised-apps" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-emerald-600/10 items-center justify-center mb-2">
+                      <Cpu className="h-5 w-5 text-emerald-700" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">
+                      Personalised Tools &amp; Mini Apps
+                    </CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Custom calculators, dashboards, trackers &amp; internal tools.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>
+                      Invoices tracker, simple CRM, booking helper — lightweight tools built around how you actually
+                      work.
+                    </p>
+                    <p className="text-xs font-semibold text-secondary">Best for: Solo founders &amp; small teams</p>
+                    <Button asChild size="sm" className="mt-1 w-full" variant="outline">
+                      <Link to="/contact">
+                        Talk about a custom tool
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <AccordionItem value="q3" className="border border-destructive/30 rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">
-                  Do you offer monthly payment plans?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  <p className="mb-4">Not for web development (you pay once, own it forever).</p>
-                  <p className="mb-2">We DO offer monthly subscriptions for:</p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>AI automation services (£50-800/month)</li>
-                    <li>Ongoing support/maintenance (optional)</li>
-                  </ul>
-                  <p className="mt-4">But website builds are one-time payments.</p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
+              {/* Landing Pages */}
+              <AnimatedSection staggerIndex={2} animation="scale">
+                <Card id="landing-pages" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-teal-600/10 items-center justify-center mb-2">
+                      <LayoutTemplate className="h-5 w-5 text-teal-700" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">Landing Page Creation</CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">High-converting pages for one clear offer.</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>Perfect for ads, limited campaigns, or one flagship service.</p>
+                    <p className="text-xs font-semibold text-secondary">Best for: Launches &amp; paid traffic</p>
+                    <Button asChild size="sm" className="mt-1 w-full" variant="outline">
+                      <Link to="/web-package">
+                        See Web Packages
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-          {/* AI-Focused FAQs */}
-          <Accordion type="multiple" className="space-y-4 mb-12">
-            {[{
-            q: "Do I need a website to use your AI automation?",
-            a: "No! Our AI automation works with ANY website - including sites you already have (Wix, WordPress, Shopify, Squarespace, custom-built, etc.) or even if you don't have a website yet. We can integrate AI chatbots, voice agents, or inbox managers into your existing digital presence, regardless of who built it."
-          }, {
-            q: "I already have a website. Can I just get AI automation?",
-            a: "Absolutely! Many of our AI automation clients already have websites and just need intelligent automation to handle customer inquiries, bookings, or support. We'll integrate seamlessly with your existing site - no rebuild required."
-          }, {
-            q: "Can I start with one service and add the other later?",
-            a: "Yes! Start with web development and add AI later, or start with AI and build a website later. No pressure to bundle. (Though we do offer 10-15% bundle discounts if you want both!)"
-          }, {
-            q: "Which AI automation service should I choose?",
-            a: "It depends on your biggest pain point:\n\n• Overwhelmed by customer inquiries? → Chatbot or Voice Agent\n• Need more leads? → Sales Agent or Email Outreach\n• Social media taking too much time? → Social Media Manager\n• Manual data entry killing productivity? → Workflow Automation\n• Email inbox chaos? → Inbox Manager\n\nNot sure? Book a free 15-min consultation and we'll recommend the best solution for your specific situation."
-          }, {
-            q: "Can I combine multiple AI automation services?",
-            a: "Yes! Many clients combine services for complete automation:\n\nPopular combinations:\n• Chatbot + Email Outreach (capture leads + nurture them)\n• Voice Agent + Social Media (phone + online presence)\n• Sales Agent + Workflow Automation (generate + process leads)\n\nMulti-service packages available with 15-20% discount."
-          }, {
-            q: "Do these AI services work with my existing tools?",
-            a: "Yes! Our AI automation integrates with:\n• CRMs (HubSpot, Salesforce, Pipedrive)\n• Email (Gmail, Outlook, Mailchimp)\n• Calendar (Google, Outlook, Calendly)\n• Social Media (Instagram, Facebook, LinkedIn, Twitter)\n• E-commerce (Shopify, WooCommerce, Stripe)\n• And 1,000+ other apps via Zapier/Make\n\nIf you have specific tools, let us know and we'll confirm compatibility."
-          }].map((faq, i) => <AccordionItem key={i} value={`ai-${i}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground whitespace-pre-line">{faq.a}</AccordionContent>
-              </AccordionItem>)}
-          </Accordion>
+              {/* Logo Design */}
+              <AnimatedSection staggerIndex={3} animation="scale">
+                <Card id="logo-design" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-amber-500/10 items-center justify-center mb-2">
+                      <Brush className="h-5 w-5 text-amber-600" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">Logo Design</CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Clean, memorable logos that work across web &amp; print.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>2–3 concepts, refinements, and social-ready exports.</p>
+                    <p className="text-xs font-semibold text-secondary">Best for: New brands &amp; rebrands</p>
+                    <Button asChild size="sm" className="mt-1 w-full" variant="outline">
+                      <Link to="/contact">
+                        Discuss branding
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-          {/* Standard FAQs */}
-          <Accordion type="multiple" className="space-y-4">
-            {[{
-            q: "What's included in 'SEO setup'?",
-            a: "Basic SEO (included in all packages):\n• Page titles and meta descriptions\n• Header tag structure (H1, H2, H3)\n• Image alt text\n• Mobile optimisation\n• Fast loading speed\n• XML sitemap\n\nAdvanced SEO (Premium package or £200-400 add-on):\n• Keyword research\n• Competitor analysis\n• Schema markup\n• Google Business setup\n• Monthly performance reports"
-          }, {
-            q: "Do you do ongoing maintenance?",
-            a: "Websites: No monthly fees required (you own everything).\n\nOptional support packages available:\n• £50/month: Security updates, backups, small tweaks\n• £100/month: Above + content updates, performance monitoring\n• £200/month: Above + priority support, strategic consulting\n\nAI automation: Monthly fees include support and monitoring."
-          }, {
-            q: "What if I don't like the design?",
-            a: "Unlimited revisions until you're happy (within scope).\n\nWe start with a mockup/wireframe for your approval before building. Changes to structure/layout are free until final delivery.\n\nAfter final delivery:\n• Minor tweaks (text, colours): Free for 30 days\n• Major changes (new pages, features): Quoted separately"
-          }, {
-            q: "Can I update the site myself after it's built?",
-            a: "Yes! We build with:\n• Easy-to-edit CMS (if requested)\n• Clear documentation\n• Training video (for Premium+ packages)\n\nOr we can update it for you (see maintenance packages)."
-          }, {
-            q: "What payment methods do you accept?",
-            a: "• Bank transfer (preferred)\n• PayPal\n• Stripe (card payments)\n\nPayment schedule:\n• <£500 projects: 50% upfront, 50% on delivery\n• £500-£1,500: 50% upfront, 25% mid-project, 25% on delivery\n• £1,500+: Custom schedule (typically 3-4 milestones)"
-          }, {
-            q: "Do you offer refunds?",
-            a: "100% Money-Back Guarantee within first 7 days if:\n• We miss agreed deadline by more than 3 days (without your approval)\n• Final product doesn't match agreed scope\n• You're unsatisfied and we can't resolve it\n\nAfter final delivery approval: No refunds (you own the complete site)."
-          }, {
-            q: "Can you redesign my existing website?",
-            a: "Yes! We can:\n• Rebuild your site from scratch (keeping content)\n• Modernise design while keeping structure\n• Add new features to existing site\n\nPricing depends on current site complexity. Contact us for a quote."
-          }].map((faq, i) => <AccordionItem key={i} value={`std-${i}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="text-left font-semibold">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground whitespace-pre-line">{faq.a}</AccordionContent>
-              </AccordionItem>)}
-          </Accordion>
-        </div>
-      </section>
+              {/* Branding */}
+              <AnimatedSection staggerIndex={4} animation="scale">
+                <Card id="branding" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-indigo-500/10 items-center justify-center mb-2">
+                      <Sparkles className="h-5 w-5 text-indigo-600" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">
+                      Branding &amp; Visual System
+                    </CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Colours, typography, and visuals that stay consistent.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>Build a recognisable, professional look across web, socials, and print.</p>
+                    <p className="text-xs font-semibold text-secondary">Best for: Businesses ready to level up</p>
+                    <Button asChild size="sm" className="mt-1 w-full" variant="outline">
+                      <Link to="/contact">
+                        Plan a brand refresh
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-      <CtaCard />
+              {/* IT Support */}
+              <AnimatedSection staggerIndex={5} animation="scale">
+                <Card id="it-support" className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-slate-500/10 items-center justify-center mb-2">
+                      <Headset className="h-5 w-5 text-slate-700" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-secondary">IT Support &amp; Care</CardTitle>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Tech support for small businesses without an in-house team.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>Lightweight IT help for hosting, email, domains, and basic troubleshooting.</p>
+                    <p className="text-xs font-semibold text-secondary">Best for: Small local businesses</p>
+                    <Button asChild size="sm" className="mt-1 w-full" variant="outline">
+                      <Link to="/contact">
+                        Ask about IT support
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+          </Container>
+        </section>
+
+        {/* 3. AI AUTOMATION PREVIEW (links into AiPackage) */}
+        <section
+          id="ai-automation"
+          className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white border-t border-slate-800"
+        >
+          <Container>
+            {/* Scenario card */}
+            <div className="max-w-3xl mx-auto mb-10 fade-in-section">
+              <div className="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-8 md:p-10 text-center shadow-lg">
+                <p className="text-lg text-slate-200 mb-3">
+                  Your customer texts at 11 PM.
+                  <br />
+                  Your phone rings during dinner.
+                  <br />
+                  Your inbox has 47 unread emails.
+                </p>
+                <p className="text-xl md:text-2xl font-semibold text-white mb-4">
+                  What if you had a digital assistant that works 24/7?
+                </p>
+                <p className="text-sm text-slate-300">
+                  Already have a website? Add AI automation.
+                  <br />
+                  Works with <span className="font-semibold">any</span> website — yours or ours.
+                </p>
+
+                {/* Soft arrow to next section */}
+                <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-400">
+                  <span>See what AI can handle for you</span>
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-600">
+                    ↓
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3 main AI solution cards */}
+            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
+              {/* AI Chatbot */}
+              <AnimatedSection staggerIndex={0} animation="up">
+                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-emerald-500/15 items-center justify-center mb-2">
+                      <MessageSquare className="h-5 w-5 text-emerald-300" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-white">AI Website Chatbot</CardTitle>
+                    <p className="text-xs text-slate-400 mt-1">24/7 answers on your site</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-slate-300">
+                    <p>Instant replies to common questions and automatic lead capture.</p>
+                    <p className="text-xs font-semibold text-emerald-300">
+                      Best for: Local services, clinics, salons, trades
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* AI Receptionist */}
+              <AnimatedSection staggerIndex={1} animation="up">
+                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-cyan-500/15 items-center justify-center mb-2">
+                      <PhoneCall className="h-5 w-5 text-cyan-300" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-white">AI Phone Receptionist</CardTitle>
+                    <p className="text-xs text-slate-400 mt-1">Never miss a call again</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-slate-300">
+                    <p>Answers calls, books appointments, and sends summaries to you.</p>
+                    <p className="text-xs font-semibold text-cyan-300">
+                      Best for: Busy owners who can&apos;t live on the phone
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* Custom AI */}
+              <AnimatedSection staggerIndex={2} animation="up">
+                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-9 h-9 rounded-lg bg-indigo-500/15 items-center justify-center mb-2">
+                      <Zap className="h-5 w-5 text-indigo-300" />
+                    </div>
+                    <CardTitle className="text-base font-semibold text-white">Custom AI Automation</CardTitle>
+                    <p className="text-xs text-slate-400 mt-1">Email triage, admin &amp; workflows</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-slate-300">
+                    <p>AI that plugs into your existing tools and removes boring admin.</p>
+                    <p className="text-xs font-semibold text-indigo-300">Best for: Teams drowning in manual work</p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+
+            {/* CTA to AI page */}
+            <div className="mt-10 text-center fade-in-section">
+              <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
+                <Link to="/ai-package">
+                  See Full AI Automation Packages
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </Container>
+        </section>
+
+        {/* 4. SUPPORT & MAINTENANCE – short version */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5 border-t border-primary/10">
+          <Container>
+            <div className="max-w-4xl mx-auto fade-in-section">
+              <Card className="border-2 border-primary/20 bg-background">
+                <CardContent className="p-8 md:p-10 flex flex-col md:flex-row gap-6 items-center">
+                  <div className="flex-shrink-0">
+                    <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Wrench className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <p className="text-xs uppercase tracking-[0.16em] text-primary mb-2 font-semibold">
+                      Recommended for all websites &amp; apps
+                    </p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Support &amp; Maintenance</h3>
+                    <p className="text-2xl font-bold text-primary mb-3">From £25/month</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Keep your website or app secure, fast, and up-to-date — without worrying about updates, backups,
+                      or bugs.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-2 mb-4 text-sm text-muted-foreground">
+                      <p>• Regular updates &amp; security patches</p>
+                      <p>• Weekly backups &amp; uptime checks</p>
+                      <p>• Priority fixes when something breaks</p>
+                      <p>• Content tweaks &amp; small changes included</p>
+                    </div>
+
+                    <p className="text-xs text-muted-foreground mb-4">
+                      Works with sites we build and sites built elsewhere.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                      <Button asChild>
+                        <Link to="/contact">
+                          Add Maintenance &amp; Support
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline">
+                        <a
+                          href="https://wa.me/447424062513?text=Hi%2C%20I%27m%20interested%20in%20Support%20%26%20Maintenance%20for%20my%20website"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Chat on WhatsApp
+                          <MessageSquare className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </Container>
+        </section>
+
+        {/* 5. X15 PC BUILDERS STRIP */}
+        <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-50">
+          <Container>
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-4 fade-in-section">
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-1">
+                  Sister brand · Custom PCs &amp; Repairs
+                </p>
+                <h3 className="text-lg md:text-xl font-semibold mb-2">Need a custom PC or repair work?</h3>
+                <p className="text-sm text-slate-300">
+                  For high-performance gaming rigs, creator builds, and PC repair in the UK, we run{" "}
+                  <span className="font-semibold">X15 PC Builders</span> as a dedicated service.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <Button asChild variant="outline" className="border-slate-500 text-slate-50 hover:bg-slate-800">
+                  <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                    Visit X15 PC Builders
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* 6. FINAL CTA */}
+        <section className="relative py-16 md:py-20 bg-[#D9F7F4] overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" />
+
+          <Container size="narrow" className="relative fade-in-section">
+            <div className="text-center mb-8 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wider uppercase">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span>Quick plan in under 24 hours</span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ink leading-tight">
+                Not sure which{" "}
+                <span className="bg-gradient-to-r from-primary via-teal-500 to-accent bg-clip-text text-transparent">
+                  service
+                </span>{" "}
+                you actually need?
+              </h2>
+
+              <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto">
+                Tell me where your business is now, and I&apos;ll recommend a simple path — website, AI, or both — with
+                a clear price and timeline.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+              <Link
+                to="/quick-start"
+                className="group flex items-center justify-center gap-2
+                h-12 px-6 text-sm font-semibold rounded-xl
+                bg-gradient-to-r from-primary via-teal-500 to-primary
+                text-primary-foreground shadow-md hover:shadow-lg
+                hover:scale-[1.015] active:scale-[0.97]
+                transition-all"
+              >
+                Take 30-second Project Quiz
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
+                h-12 px-6 text-sm font-semibold rounded-xl
+                border border-border bg-background/70
+                text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
+                shadow-sm hover:shadow-md hover:scale-[1.015]
+                active:scale-[0.97] transition-all"
+              >
+                Book Free Call
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            <p className="text-xs text-ink/80 text-center">
+              No pressure, no hard sell — just a clear plan for your website, app, or AI system.
+            </p>
+          </Container>
+        </section>
+      </main>
 
       <Footer />
-      <WhatsAppWidget />
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && <button onClick={scrollToTop} className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-110" aria-label="Scroll to top">
-          <ChevronUp className="h-6 w-6" />
-        </button>}
-    </div>;
+    </div>
+  );
 };
+
 export default Services;

@@ -200,10 +200,11 @@ const Contact = () => {
 
           <Card>
             <CardContent className="pt-8">
-              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsInquiryOpen(true)}>
+              <Button size="lg" className="w-full mb-4" type="button">
                 Start Your Project Inquiry <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
+
+              <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2 mb-2">
                 <Zap className="h-4 w-4 text-primary" />
                 Not sure what you need?{" "}
                 <Link to="/start" className="text-primary hover:underline">
@@ -213,6 +214,19 @@ const Contact = () => {
                 <Link to="/services" className="text-primary hover:underline">
                   Browse packages first
                 </Link>
+              </p>
+
+              <p className="text-center text-xs text-muted-foreground">
+                Prefer to talk it through?{" "}
+                <a
+                  href="https://calendly.com/x15builds/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-medium hover:underline"
+                >
+                  Book a free 30-minute strategy call
+                </a>
+                .
               </p>
             </CardContent>
           </Card>

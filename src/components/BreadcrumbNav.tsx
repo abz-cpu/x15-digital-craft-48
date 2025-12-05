@@ -46,8 +46,8 @@ export const BreadcrumbNav = () => {
   });
 
   return (
-    <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto">
+    <div className="hidden sm:block bg-background border-b border-border/70">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
         <Breadcrumb>
           <BreadcrumbList>
             {breadcrumbItems.map((item, index) => (

@@ -367,7 +367,7 @@ const WebPackage = () => {
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
+              <h3 className="text-2xl md:3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
               <p className="text-base text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
                 For larger projects that go beyond standard websites, we design fully bespoke systems tailored to how
                 your business actually works.
@@ -462,8 +462,8 @@ const WebPackage = () => {
                   Make Your Website Faster, Safer & More Reliable
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Enterprise-grade optimization trusted by millions of websites worldwide. Get the same infrastructure
-                  that powers Netflix, Discord, and Shopify.
+                  Your site can feel up to 3× faster and more secure by running through the same global network that
+                  powers brands like Netflix, Discord, and Shopify — without you touching a single setting.
                 </p>
               </div>
 

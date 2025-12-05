@@ -193,33 +193,38 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
+            {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-1">
               <span className="relative flex h-2.5 w-2.5">
-                {/* Outer pulsing ring - ENHANCED */}
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90"></span>
-                {/* Middle glow ring - ADDED */}
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm"></span>
-                {/* Inner solid dot - ENHANCED WITH GLOW */}
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 dot-glow"></span>
+                {/* Outer pulsing ring */}
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90" />
+                {/* Middle glow */}
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm" />
+                {/* Inner solid dot */}
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 dot-glow" />
               </span>
-              <span>UK Websites &amp; AI Automation</span>
+              <span>
+                🚀 Websites That Convert in <span className="font-semibold">1–14 Days</span>
+              </span>
             </div>
 
             <div className="space-y-3 lg:space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
                 Your Website Should Work
                 <br />
-                As Hard As You Do
+                24/7 — Like You Wish You Could
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Professional websites and smart AI that work 24/7. You run your business—we handle the tech.
+                Professional websites and smart AI that answer questions, capture leads, and book clients while
+                you&apos;re offline.
               </p>
             </div>
 
-            {/* Small text - COMBINED & IMPROVED */}
+            {/* Small text – keep trust + speed */}
             <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
-              Built for UK businesses. Delivered in 1–14 days. Full ownership. No monthly fees.
+              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. You own
+              everything. No bloated retainers.
             </p>
 
             {/* CHOICE CARDS + stats */}
@@ -231,11 +236,11 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("web-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                 hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                 active:scale-[0.98] active:shadow-none
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                 transition-all duration-200 transform"
+               hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+               hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+               active:scale-[0.98] active:shadow-none
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+               transition-all duration-200 transform"
                 >
                   <Globe className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -249,11 +254,11 @@ const Index = () => {
                   type="button"
                   onClick={() => scrollToSection("ai-preview")}
                   className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-                 hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-                 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-                 active:scale-[0.98] active:shadow-none
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-                 transition-all duration-200 transform"
+               hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
+               hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
+               active:scale-[0.98] active:shadow-none
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
+               transition-all duration-200 transform"
                 >
                   <Bot className="h-4 w-4 text-white/80" />
                   <div className="flex flex-col items-start">
@@ -263,7 +268,7 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* quick stats - REDUCED TO TOP 3 */}
+              {/* quick stats - keep top 3 */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
                 <div className="flex items-center gap-1.5">
                   <Star className="h-3.5 w-3.5 text-yellow-300" />
@@ -283,8 +288,8 @@ const Index = () => {
             </div>
           </div>
 
-          {/* RIGHT – comparison card */}
-          <div className="flex-1 w-full max-w-md mx-auto lg:mx-0">
+          {/* RIGHT – comparison card (Desktop only) */}
+          <div className="flex-1 w-full max-w-md mx-auto lg:mx-0 hidden lg:block">
             <div className="hero-card p-6 sm:p-7 md:p-8 text-white">
               <div className="flex items-center justify-between mb-4 gap-3">
                 <div className="space-y-1">

@@ -209,19 +209,21 @@ const AiPackage = () => {
           <Container>
             <div className="bg-card rounded-2xl p-8 md:p-10 mb-8 text-center max-w-3xl mx-auto shadow-lg border border-border">
               {/* Pain points with icons */}
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-center gap-3">
-                  <MessageSquare className="h-5 w-5 text-[#0F766E]" />
-                  <p className="text-lg text-muted-foreground">Your customer texts at 11 PM.</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Phone className="h-5 w-5 text-[#0F766E]" />
-                  <p className="text-lg text-muted-foreground">Your phone rings during dinner.</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Inbox className="h-5 w-5 text-[#0F766E]" />
-                  <p className="text-lg text-muted-foreground">Your inbox has 47 unread emails.</p>
-                </div>
+              <div className="space-y-1.5 mb-4">
+                <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
+                  <MessageSquare className="h-4 w-4 text-primary" />
+                  Your customer texts at 11 PM.
+                </p>
+
+                <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
+                  <Phone className="h-4 w-4 text-primary" />
+                  Your phone rings during dinner.
+                </p>
+
+                <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
+                  <Mail className="h-4 w-4 text-primary" />
+                  Your inbox has 47 unread emails.
+                </p>
               </div>
 
               {/* Main question */}
@@ -250,7 +252,6 @@ const AiPackage = () => {
           </Container>
         </section>
 
-        {/* MAIN AI SOLUTIONS (3 PRIMARY CARDS) */}
         {/* MAIN AI SOLUTIONS (3 PRIMARY CARDS) */}
         <section id="ai-solutions" className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted">
           <Container>

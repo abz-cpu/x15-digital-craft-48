@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PreloadLink } from "@/components/PreloadLink";
 
@@ -71,31 +71,79 @@ const Navigation = () => {
     };
   }, [showServicesDropdown]);
 
-  // Sales psychology: Reordered for conversion - Services first, then social proof (Portfolio), trust (About), value (Blog)
   const navLinks = [
     { name: "Portfolio", path: "/portfolio" },
     { name: "About", path: "/about" },
     { name: "Blog", path: "/blog" },
   ];
 
-  // Conversion-optimized: Reordered by profitability & renamed for outcomes
+  // Shorter names with brief descriptions for clarity
   const webServices = [
-    { name: "Complete Website Solutions", path: "/web-package", bold: true }, // More benefit-focused than "Web Packages"
-    { name: "Custom Web Development", path: "/services/app-development" }, // Clearer than "App Development"
-    { name: "Personalised Web Apps", path: "/services/personalised-apps" },
-    { name: "High-Converting Landing Pages", path: "/services/landing-pages" }, // More outcome-driven
-    { name: "Professional Logo Design", path: "/services/logo-design" },
-    { name: "Brand Identity & Strategy", path: "/services/branding" }, // More comprehensive than "Branding"
-    { name: "Ongoing Maintenance & Support", path: "/services/maintenance-support" },
-    { name: "Reliable IT Support", path: "/services/it-support" },
+    {
+      name: "Web Packages",
+      path: "/web-package",
+      bold: true,
+      desc: "Complete website solutions",
+    },
+    {
+      name: "App Development",
+      path: "/services/app-development",
+      desc: "Custom web applications",
+    },
+    {
+      name: "Personalised Apps",
+      path: "/services/personalised-apps",
+      desc: "Bespoke business tools",
+    },
+    {
+      name: "Landing Pages",
+      path: "/services/landing-pages",
+      desc: "High-converting single pages",
+    },
+    {
+      name: "Logo Design",
+      path: "/services/logo-design",
+      desc: "Professional brand marks",
+    },
+    {
+      name: "Branding",
+      path: "/services/branding",
+      desc: "Complete brand identity",
+    },
+    {
+      name: "Maintenance & Support",
+      path: "/services/maintenance-support",
+      desc: "Ongoing website care",
+    },
+    {
+      name: "IT Support",
+      path: "/services/it-support",
+      desc: "Technical help when needed",
+    },
   ];
 
-  // Conversion-optimized: Renamed package for clarity
   const aiServices = [
-    { name: "AI-Powered Business Tools", path: "/ai-package", bold: true }, // More benefit-focused than "AI Packages"
-    { name: "24/7 AI Chatbots", path: "/services#ai-chatbots" }, // Added "24/7" for appeal
-    { name: "AI Receptionist", path: "/services#ai-receptionist" },
-    { name: "AI Sales Assistant", path: "/services#ai-sales" },
+    {
+      name: "AI Packages",
+      path: "/ai-package",
+      bold: true,
+      desc: "Complete AI solutions",
+    },
+    {
+      name: "AI Chatbots",
+      path: "/services#ai-chatbots",
+      desc: "24/7 customer support bots",
+    },
+    {
+      name: "AI Receptionist",
+      path: "/services#ai-receptionist",
+      desc: "Automated call handling",
+    },
+    {
+      name: "AI Sales Assistant",
+      path: "/services#ai-sales",
+      desc: "Smart lead qualification",
+    },
   ];
 
   const clearCloseTimeout = () => {
@@ -117,7 +165,6 @@ const Navigation = () => {
     return location.pathname === basePath ? "bg-[#F0F9F7] text-[#0F766E]" : "";
   };
 
-  // Accessibility: Keyboard navigation for Services button
   const handleServicesKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -127,7 +174,7 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Accessibility: Skip link for keyboard users */}
+      {/* Accessibility: Skip link */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-[#0F766E] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
@@ -144,7 +191,7 @@ const Navigation = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
           <div className="flex justify-between items-center h-20">
-            {/* Logo - Enhanced focus state */}
+            {/* Logo */}
             <PreloadLink
               to="/"
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all"
@@ -155,7 +202,7 @@ const Navigation = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              {/* Services Dropdown - Enhanced accessibility */}
+              {/* Services Dropdown */}
               <div className="relative">
                 <button
                   ref={servicesButtonRef}
@@ -178,7 +225,7 @@ const Navigation = () => {
                   />
                 </button>
 
-                {/* Dropdown Menu - Enhanced accessibility & UX */}
+                {/* Enhanced Dropdown with descriptions */}
                 {showServicesDropdown && (
                   <div
                     ref={dropdownRef}
@@ -191,7 +238,7 @@ const Navigation = () => {
                     role="menu"
                     aria-label="Services submenu"
                   >
-                    <div className="w-[90vw] max-w-[640px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
+                    <div className="w-[90vw] max-w-[700px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
                       <div className="grid grid-cols-2 gap-10">
                         {/* Web Services Column */}
                         <div>
@@ -201,17 +248,22 @@ const Navigation = () => {
                           >
                             WEB SERVICES
                           </h3>
-                          <ul className="space-y-0" role="group" aria-labelledby="web-services-heading">
+                          <ul className="space-y-1" role="group" aria-labelledby="web-services-heading">
                             {webServices.map((service) => (
                               <li key={service.path} role="none">
                                 <PreloadLink
                                   to={service.path}
                                   role="menuitem"
-                                  className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${
-                                    service.bold ? "font-semibold text-[#1F2937]" : "text-[#1F2937]"
-                                  } ${getServiceActiveClass(service.path)}`}
+                                  className={`block py-2.5 px-3 -mx-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                                    service.path,
+                                  )}`}
                                 >
-                                  {service.name}
+                                  <div
+                                    className={`text-base ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}
+                                  >
+                                    {service.name}
+                                  </div>
+                                  <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
                                 </PreloadLink>
                               </li>
                             ))}
@@ -226,17 +278,22 @@ const Navigation = () => {
                           >
                             AI SERVICES
                           </h3>
-                          <ul className="space-y-0" role="group" aria-labelledby="ai-services-heading">
+                          <ul className="space-y-1" role="group" aria-labelledby="ai-services-heading">
                             {aiServices.map((service) => (
                               <li key={service.path} role="none">
                                 <PreloadLink
                                   to={service.path}
                                   role="menuitem"
-                                  className={`block py-3 px-3 -mx-3 text-base rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${
-                                    service.bold ? "font-semibold text-[#1F2937]" : "text-[#1F2937]"
-                                  } ${getServiceActiveClass(service.path)}`}
+                                  className={`block py-2.5 px-3 -mx-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                                    service.path,
+                                  )}`}
                                 >
-                                  {service.name}
+                                  <div
+                                    className={`text-base ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}
+                                  >
+                                    {service.name}
+                                  </div>
+                                  <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
                                 </PreloadLink>
                               </li>
                             ))}
@@ -248,7 +305,6 @@ const Navigation = () => {
                 )}
               </div>
 
-              {/* Enhanced focus states for nav links */}
               {navLinks.map((link) => (
                 <PreloadLink
                   key={link.path}
@@ -261,7 +317,17 @@ const Navigation = () => {
                 </PreloadLink>
               ))}
 
-              {/* CTA Button - More action-oriented copy */}
+              {/* Phone Number - Click to call */}
+              <a
+                href="tel:+447123456789"
+                className="flex items-center gap-2 text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-2 py-1"
+                aria-label="Call us on 07123 456789"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                <span className="hidden xl:inline">07123 456789</span>
+              </a>
+
+              {/* CTA Button */}
               <Button
                 asChild
                 className="bg-[#0F766E] text-white hover:bg-[#F59E0B] px-6 py-3 rounded-lg shadow-[0_4px_12px_rgba(15,118,110,0.25)] hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 font-semibold"
@@ -270,7 +336,7 @@ const Navigation = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button - Enhanced accessibility */}
+            {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -287,7 +353,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - Enhanced UX & accessibility */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
@@ -296,7 +362,7 @@ const Navigation = () => {
             aria-label="Mobile menu"
           >
             <div className="px-4 py-5 space-y-1">
-              {/* Services Accordion - Separate state from desktop */}
+              {/* Services Accordion */}
               <div className="border-b border-[#E5E7EB] pb-3 mb-3">
                 <button
                   className="flex items-center justify-between w-full py-3 px-2 text-[#1F2937] font-medium hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
@@ -314,7 +380,7 @@ const Navigation = () => {
                 </button>
                 {showMobileServicesAccordion && (
                   <div className="pl-3 pr-2 mt-3 space-y-3">
-                    {/* Web Services Section */}
+                    {/* Web Services */}
                     <div>
                       <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
                         Web Services
@@ -324,17 +390,20 @@ const Navigation = () => {
                           <PreloadLink
                             key={service.path}
                             to={service.path}
-                            className={`block py-3 px-3 text-sm rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                              service.bold ? "font-semibold text-[#1F2937]" : "text-[#4B5563]"
-                            } ${getServiceActiveClass(service.path)}`}
+                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                              service.path,
+                            )}`}
                           >
-                            {service.name}
+                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
+                              {service.name}
+                            </div>
+                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
                           </PreloadLink>
                         ))}
                       </div>
                     </div>
 
-                    {/* AI Services Section */}
+                    {/* AI Services */}
                     <div className="pt-3 border-t border-[#E5E7EB]">
                       <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
                         AI Services
@@ -344,11 +413,14 @@ const Navigation = () => {
                           <PreloadLink
                             key={service.path}
                             to={service.path}
-                            className={`block py-3 px-3 text-sm rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                              service.bold ? "font-semibold text-[#1F2937]" : "text-[#4B5563]"
-                            } ${getServiceActiveClass(service.path)}`}
+                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                              service.path,
+                            )}`}
                           >
-                            {service.name}
+                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
+                              {service.name}
+                            </div>
+                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
                           </PreloadLink>
                         ))}
                       </div>
@@ -357,7 +429,7 @@ const Navigation = () => {
                 )}
               </div>
 
-              {/* Other nav links - Better spacing & touch targets */}
+              {/* Other nav links */}
               {navLinks.map((link) => (
                 <PreloadLink
                   key={link.path}
@@ -370,7 +442,16 @@ const Navigation = () => {
                 </PreloadLink>
               ))}
 
-              {/* Mobile CTA - Full width, prominent */}
+              {/* Phone Number - Mobile */}
+              <a
+                href="tel:+447123456789"
+                className="flex items-center gap-2 py-3 px-3 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+              >
+                <Phone className="h-4 w-4 text-[#0F766E]" aria-hidden="true" />
+                <span>07123 456789</span>
+              </a>
+
+              {/* Mobile CTA */}
               <div className="pt-3 border-t border-[#E5E7EB] mt-3">
                 <Button
                   className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B] py-4 text-base font-semibold shadow-[0_4px_12px_rgba(15,118,110,0.25)] focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 transition-all"

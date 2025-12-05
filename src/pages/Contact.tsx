@@ -16,6 +16,7 @@ const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -36,17 +37,20 @@ const Contact = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  // Close modal with Escape key
+  // Close modals with Escape key
   useEffect(() => {
-    if (!isInquiryOpen) return;
+    if (!isInquiryOpen && !isCalendlyOpen) return;
+
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsInquiryOpen(false);
+        setIsCalendlyOpen(false);
       }
     };
+
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isInquiryOpen]);
+  }, [isInquiryOpen, isCalendlyOpen]);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("info@x15digital.co.uk");
@@ -81,6 +85,7 @@ const Contact = () => {
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       setIsInquiryOpen(false);
+      setIsCalendlyOpen(false);
     }
   };
 
@@ -200,7 +205,8 @@ const Contact = () => {
 
           <Card>
             <CardContent className="pt-8">
-              <Button size="lg" className="w-full mb-4" type="button">
+              {/* OPEN PROJECT INQUIRY POPUP */}
+              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsInquiryOpen(true)}>
                 Start Your Project Inquiry <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 
@@ -218,14 +224,13 @@ const Contact = () => {
 
               <p className="text-center text-xs text-muted-foreground">
                 Prefer to talk it through?{" "}
-                <a
-                  href="https://calendly.com/x15builds/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline"
+                <button
+                  type="button"
+                  onClick={() => setIsCalendlyOpen(true)}
+                  className="text-primary font-medium hover:underline underline-offset-2"
                 >
                   Book a free 30-minute strategy call
-                </a>
+                </button>
                 .
               </p>
             </CardContent>
@@ -444,6 +449,7 @@ const Contact = () => {
 
       <Footer />
       <WhatsAppWidget />
+
       {/* === PROJECT INQUIRY POPUP MODAL === */}
       {isInquiryOpen && (
         <div
@@ -623,6 +629,49 @@ const Contact = () => {
                 </p>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* === CALENDLY POPUP MODAL === */}
+      {isCalendlyOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Book a free 30-minute strategy call"
+          onClick={handleOverlayClick}
+        >
+          <div className="relative w-full max-w-3xl rounded-2xl bg-background shadow-2xl border border-border/60 h-[80vh] flex flex-col">
+            <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-border/60">
+              <div>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Free strategy call</p>
+                <h2 className="text-lg md:text-xl font-semibold text-secondary">
+                  Book a 30-minute call with X15 Digital
+                </h2>
+                <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                  We’ll review your goals and advise the best package – no pressure, no obligation.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsCalendlyOpen(false)}
+                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                aria-label="Close call booking"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="flex-1">
+              <iframe
+                src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
+                className="w-full h-full border-0"
+                loading="lazy"
+                title="Book a 30-minute strategy call with X15 Digital"
+              />
+            </div>
           </div>
         </div>
       )}

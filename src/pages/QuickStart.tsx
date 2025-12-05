@@ -30,40 +30,6 @@ const QuickStart = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const handleQuickStartClick = () => {
-    const formId = "mRoDv3"; // your Tally form ID
-
-    // Try to use the Tally widget if it's loaded
-    const tally = (window as any).Tally;
-    if (tally && typeof tally.openPopup === "function") {
-      tally.openPopup(formId, {
-        layout: "modal",
-        width: 600,
-      });
-      return;
-    }
-
-    // Fallback: open the form directly in a new tab
-    window.open(`https://tally.so/r/${formId}`, "_blank", "noopener,noreferrer");
-  };
-
-  const openTallyQuickStart = () => {
-    const formId = "mRoDv3";
-
-    // If Tally widget is loaded, open modal popup
-    const Tally = (window as any).Tally;
-    if (Tally && typeof Tally.openPopup === "function") {
-      Tally.openPopup(formId, {
-        layout: "modal",
-        width: 600,
-      });
-      return;
-    }
-
-    // Fallback — open in new tab
-    window.open(`https://tally.so/r/${formId}`, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgressBar />
@@ -100,7 +66,13 @@ const QuickStart = () => {
                 instead.
               </p>
 
-              <Button size="lg" className="w-full mb-4" type="button" onClick={openTallyQuickStart}>
+              <Button
+                size="lg"
+                className="w-full mb-4"
+                data-tally-open="mRoDv3"
+                data-tally-layout="modal"
+                data-tally-width="600"
+              >
                 <Zap className="mr-2 h-5 w-5" />
                 Start Your Project Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

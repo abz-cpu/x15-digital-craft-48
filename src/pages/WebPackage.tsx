@@ -4,13 +4,14 @@ import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
+
 const WebPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -50,6 +51,14 @@ const WebPackage = () => {
           <Container>
             {/* Keep content above background */}
             <div className="relative text-center max-w-3xl mx-auto">
+              {/* Urgency / scarcity badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/30">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-emerald-100">
+                  Currently booking 2–3 weeks out
+                </span>
+              </div>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Web Development Packages</h1>
 
               <p className="text-xl text-white/90 mb-4">
@@ -57,6 +66,32 @@ const WebPackage = () => {
               </p>
 
               <p className="text-lg text-white/80">One payment. Full ownership. No ongoing fees.</p>
+
+              {/* Hero CTAs */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#0F766E] hover:bg-slate-50 hover:text-[#0F766E] shadow-md hover:shadow-lg"
+                >
+                  <Link to="/quick-start">
+                    Start Your Project
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/70 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link to="/contact">
+                    Book Free Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </Container>
         </section>
@@ -89,6 +124,13 @@ const WebPackage = () => {
                     </CardTitle>
                     <p className="text-3xl font-bold text-secondary mt-1">
                       £200 <span className="block text-xs font-medium text-muted-foreground">One payment</span>
+                    </p>
+                    {/* Best for + value line */}
+                    <p className="text-xs font-medium text-muted-foreground mt-2">
+                      Best for: new businesses, trades, and solo founders needing a clean, simple site.
+                    </p>
+                    <p className="text-[11px] text-muted-foreground mt-1">
+                      Roughly less than £0.10 per visitor converted over a year.
                     </p>
                   </CardHeader>
 
@@ -151,6 +193,13 @@ const WebPackage = () => {
                         One payment, yours forever
                       </span>
                     </p>
+                    {/* Best for + value line */}
+                    <p className="text-xs font-medium text-muted-foreground mt-2">
+                      Best for: growing service businesses that need multiple pages and stronger conversion.
+                    </p>
+                    <p className="text-[11px] text-muted-foreground mt-1">
+                      Often pays for itself with a few extra booked clients.
+                    </p>
                   </CardHeader>
 
                   <CardContent className="pb-6">
@@ -204,6 +253,13 @@ const WebPackage = () => {
                       <span className="block text-xs font-medium text-muted-foreground">
                         One payment, yours forever
                       </span>
+                    </p>
+                    {/* Best for + value line */}
+                    <p className="text-xs font-medium text-muted-foreground mt-2">
+                      Best for: established businesses ready to turn their website into a true sales engine.
+                    </p>
+                    <p className="text-[11px] text-muted-foreground mt-1">
+                      Built to generate leads daily and support long-term growth.
                     </p>
                   </CardHeader>
 

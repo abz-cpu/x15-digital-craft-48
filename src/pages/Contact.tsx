@@ -1,6 +1,7 @@
+import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap } from "lucide-react";
+import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -14,6 +15,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -34,6 +36,18 @@ const Contact = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  // Close modal with Escape key
+  useEffect(() => {
+    if (!isInquiryOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsInquiryOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [isInquiryOpen]);
+
   const copyEmail = () => {
     navigator.clipboard.writeText("info@x15digital.co.uk");
     setCopied(true);
@@ -47,6 +61,27 @@ const Contact = () => {
   const scrollToForm = () => {
     const formSection = document.getElementById("contact-form");
     formSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Later you can send this to Airtable / backend / email
+    // const formData = new FormData(e.currentTarget);
+
+    toast({
+      title: "Inquiry sent 🚀",
+      description: "We’ll reply within 2–4 hours with a detailed quote and next steps.",
+    });
+
+    (e.currentTarget as HTMLFormElement).reset();
+    setIsInquiryOpen(false);
+  };
+
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsInquiryOpen(false);
+    }
   };
 
   return (
@@ -165,13 +200,7 @@ const Contact = () => {
 
           <Card>
             <CardContent className="pt-8">
-              <Button
-                size="lg"
-                className="w-full mb-4"
-                data-tally-open="MAIN_CONTACT_FORM_ID"
-                data-tally-layout="modal"
-                data-tally-width="700"
-              >
+              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsInquiryOpen(true)}>
                 Start Your Project Inquiry <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
@@ -401,6 +430,188 @@ const Contact = () => {
 
       <Footer />
       <WhatsAppWidget />
+      {/* === PROJECT INQUIRY POPUP MODAL === */}
+      {isInquiryOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project inquiry form"
+          onClick={handleOverlayClick}
+        >
+          <div className="relative w-full max-w-xl rounded-2xl bg-background shadow-2xl border border-border/60">
+            <div className="flex items-start justify-between px-6 pt-6">
+              <div>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Project snapshot</p>
+                <h2 className="text-xl md:text-2xl font-semibold text-secondary">
+                  Tell us the essentials (30 seconds)
+                </h2>
+                <p className="text-xs md:text-sm text-muted-foreground mt-1 flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-primary" />
+                  We’ll reply within <span className="font-medium">2–4 hours</span> with a clear quote.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsInquiryOpen(false)}
+                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                aria-label="Close inquiry form"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleInquirySubmit} className="px-6 pb-6 pt-4 space-y-4">
+              {/* Name + Email */}
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="text-sm font-medium text-secondary">
+                    Your name *
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="e.g. Sarah Ahmed"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label htmlFor="email" className="text-sm font-medium text-secondary">
+                    Email *
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="you@company.com"
+                  />
+                </div>
+              </div>
+
+              {/* Business + Website */}
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-1.5">
+                  <label htmlFor="business" className="text-sm font-medium text-secondary">
+                    Business / brand name
+                    <span className="text-xs text-muted-foreground"> (optional)</span>
+                  </label>
+                  <input
+                    id="business"
+                    name="business"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="X15 Digital"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label htmlFor="website" className="text-sm font-medium text-secondary">
+                    Current website
+                    <span className="text-xs text-muted-foreground"> (optional)</span>
+                  </label>
+                  <input
+                    id="website"
+                    name="website"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="https://your-site.com"
+                  />
+                </div>
+              </div>
+
+              {/* Project type + Budget */}
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-1.5">
+                  <label htmlFor="projectType" className="text-sm font-medium text-secondary">
+                    What do you need most?
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    defaultValue="website"
+                  >
+                    <option value="website">New website</option>
+                    <option value="redesign">Redesign my existing site</option>
+                    <option value="ai">AI automation / chatbot</option>
+                    <option value="both">Website + AI automation</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label htmlFor="budget" className="text-sm font-medium text-secondary">
+                    Rough budget
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    defaultValue="not-sure"
+                  >
+                    <option value="under-300">Under £300</option>
+                    <option value="300-600">£300 – £600</option>
+                    <option value="600-1200">£600 – £1,200</option>
+                    <option value="1200-plus">£1,200+</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Timeline */}
+              <div className="space-y-1.5">
+                <label htmlFor="timeline" className="text-sm font-medium text-secondary">
+                  Ideal timeline
+                </label>
+                <select
+                  id="timeline"
+                  name="timeline"
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                  defaultValue="2-4-weeks"
+                >
+                  <option value="asap">ASAP (this week)</option>
+                  <option value="1-2-weeks">Within 1–2 weeks</option>
+                  <option value="2-4-weeks">Within 2–4 weeks</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+
+              {/* Goals / Message */}
+              <div className="space-y-1.5">
+                <label htmlFor="message" className="text-sm font-medium text-secondary">
+                  What are you trying to achieve?
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                  placeholder="Tell us about your project, goals, and any examples you like."
+                />
+                <p className="text-[11px] text-muted-foreground">
+                  Keep it simple – bullet points are fine. We’ll ask follow-up questions if needed.
+                </p>
+              </div>
+
+              {/* Actions */}
+              <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <Button
+                  type="submit"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-primary-foreground shadow-lg shadow-primary/40"
+                >
+                  Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+
+                <p className="text-[11px] text-muted-foreground text-center sm:text-right">
+                  No spam. No pressure. Just a clear quote and honest advice based on your goals.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

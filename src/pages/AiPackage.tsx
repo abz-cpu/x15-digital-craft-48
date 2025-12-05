@@ -150,10 +150,10 @@ const AiPackage = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-          {/* Background image (if you’re using /ai.png) */}
+          {/* Background image (AI blueprint) */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-70 mix-blend-overlay pointer-events-none"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-55 mix-blend-overlay pointer-events-none"
             style={{ backgroundImage: "url('/ai.png')" }}
           />
 
@@ -167,7 +167,9 @@ const AiPackage = () => {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">AI Automation Solutions</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(45,212,191,0.28)]">
+                AI Automation Solutions
+              </h1>
 
               <p className="text-xl text-white/90 mb-3">
                 Save 20+ hours every week with AI that answers, books, and follows up 24/7.
@@ -180,7 +182,7 @@ const AiPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-md hover:shadow-lg"
+                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-[0_18px_45px_rgba(15,118,110,0.35)] transition-shadow"
                 >
                   <Link to="#ai-solutions">
                     See AI Solutions
@@ -192,7 +194,7 @@ const AiPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/70 text-white hover:bg-white/10 hover:text-white"
+                  className="border-white/60 text-white/90 bg-white/5 hover:bg-white/15 hover:text-white shadow-sm hover:shadow-md"
                 >
                   <Link to="/contact">
                     Book Free Demo

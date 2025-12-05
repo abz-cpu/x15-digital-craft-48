@@ -21,7 +21,7 @@ const QuickStart = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -39,12 +39,9 @@ const QuickStart = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">
-            Let's Get Started Quickly
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Let's Get Started Quickly</h1>
           <p className="text-xl text-muted-foreground mb-4">
-            Tell us what you need in 30 seconds. We'll reply within 4 hours with a
-            clear quote and next steps.
+            Tell us what you need in 30 seconds. We'll reply within 4 hours with a clear quote and next steps.
           </p>
           <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-5 w-5 text-primary" />
@@ -72,7 +69,7 @@ const QuickStart = () => {
               <Button
                 size="lg"
                 className="w-full mb-4"
-                data-tally-open="QUICK_START_FORM_ID"
+                data-tally-open="VITE_TALLY_QUICK_START_FORM_ID=mRoDv3"
                 data-tally-layout="modal"
                 data-tally-width="600"
               >
@@ -126,8 +123,7 @@ const QuickStart = () => {
               {
                 step: "1",
                 title: "Within 1 hour",
-                description:
-                  "We review your requirements and check feasibility.",
+                description: "We review your requirements and check feasibility.",
               },
               {
                 step: "2",
@@ -138,8 +134,7 @@ const QuickStart = () => {
               {
                 step: "3",
                 title: "Within 24 hours (if you approve)",
-                description:
-                  "We start your project and send you login details for our project tracker.",
+                description: "We start your project and send you login details for our project tracker.",
               },
               {
                 step: "4",
@@ -154,9 +149,7 @@ const QuickStart = () => {
                       {item.step}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-secondary mb-2">
-                        {item.title}
-                      </h3>
+                      <h3 className="text-xl font-semibold text-secondary mb-2">{item.title}</h3>
                       <p className="text-muted-foreground">{item.description}</p>
                     </div>
                   </div>
@@ -166,16 +159,9 @@ const QuickStart = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-lg font-semibold text-secondary mb-2">
-              No hidden fees. No surprises. No BS.
-            </p>
+            <p className="text-lg font-semibold text-secondary mb-2">No hidden fees. No surprises. No BS.</p>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-muted-foreground">
-              {[
-                "Transparent pricing",
-                "Fast delivery",
-                "Direct communication",
-                "You own everything",
-              ].map((item, i) => (
+              {["Transparent pricing", "Fast delivery", "Direct communication", "You own everything"].map((item, i) => (
                 <span key={i} className="flex items-center gap-1">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
                   {item}

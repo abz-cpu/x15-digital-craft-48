@@ -16,6 +16,7 @@ import {
   Smartphone,
   Bot,
   MessageSquare,
+  MessageCircle,
   PhoneCall,
   Sparkles,
   Shield,
@@ -25,7 +26,317 @@ import {
   Brush,
   Headset,
   Zap,
+  HardDrive,
+  Activity,
+  Gauge,
+  Eye,
+  FolderSync,
+  Lock,
+  ClipboardCheck,
+  Palette,
+  Image,
+  TrendingUp,
+  Target,
+  Mail,
+  DollarSign,
+  Users,
+  Calendar,
+  FileText,
+  Video,
+  Cloud,
+  ShoppingBag,
+  Activity as ActivityIcon,
+  HardDrive as HardDriveIcon,
+  CheckCircle2,
 } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+
+// ADD-ONS DATA
+const addOnCategories = [
+  {
+    id: "speed",
+    label: "Speed & Priority",
+    icon: Zap,
+    addons: [
+      {
+        name: "Rush Delivery",
+        icon: Zap,
+        price: "£150 - £500",
+        description: "Jump the queue. Launch in 24-48 hours instead of standard timeline.",
+        perfectFor: ["Urgent launches", "Time-sensitive campaigns", '"We needed it yesterday" situations'],
+        details: "Pricing: DIY/Starter £150, Business £250, Premium £400, Web App £500",
+      },
+      {
+        name: "Priority Setup",
+        icon: Sparkles,
+        price: "£100 - £200",
+        description: "Start your project within 24 hours (instead of 2-3 day wait).",
+        perfectFor: ["Fast-moving businesses", "Seasonal launches", "Beating competitors to market"],
+        details: "Doesn't speed up delivery, just starts faster",
+      },
+    ],
+  },
+  {
+    id: "technical",
+    label: "Technical & Performance",
+    icon: Gauge,
+    addons: [
+      {
+        name: "Performance Optimization",
+        icon: Gauge,
+        price: "£150 - £400",
+        description: "Speed tuning, Core Web Vitals optimization, Google PageSpeed 90+ score.",
+        perfectFor: ["E-commerce (speed = sales)", "SEO improvement", "Mobile-first businesses"],
+        details: "Image optimization, code minification, Core Web Vitals fixes, before/after report",
+      },
+      {
+        name: "Accessibility Compliance",
+        icon: Eye,
+        price: "£100 - £350",
+        description: "WCAG 2.1 AA compliance, screen reader optimization, keyboard navigation.",
+        perfectFor: [
+          "Public sector/government",
+          "Healthcare, education, finance",
+          "Legal compliance (ADA, Equality Act)",
+        ],
+        details: "Pricing: Starter £100, Business £200, Premium/complex £350",
+      },
+      {
+        name: "Multi-language Setup",
+        icon: Globe2,
+        price: "£200 - £500",
+        description: "Reach international customers with multi-language support.",
+        perfectFor: ["UK businesses targeting EU", "International services", "Tourism, hospitality, e-commerce"],
+        details: "2 languages £200, 3 languages £350, 4+ languages £500",
+      },
+      {
+        name: "Content Migration",
+        icon: FolderSync,
+        price: "£150 - £500",
+        description: "Hassle-free move from your old site. We handle everything.",
+        perfectFor: ["Redesigns", "Platform switches (Wix → custom, etc.)", "Modernizing legacy sites"],
+        details: "<20 pages £150, 20-50 pages £300, 50+ pages £500",
+      },
+    ],
+  },
+  {
+    id: "security",
+    label: "Security & Compliance",
+    icon: Shield,
+    addons: [
+      {
+        name: "SSL Certificate & Security",
+        icon: Lock,
+        price: "Included Free ✅",
+        description: "HTTPS encryption, secure connection (padlock icon), basic security hardening.",
+        perfectFor: ["All websites"],
+        details: "This is standard in ALL our packages.",
+      },
+      {
+        name: "Advanced Security & Monitoring",
+        icon: Shield,
+        price: "£100 - £300",
+        description: "Enhanced protection: DDoS protection, malware scanning, security monitoring.",
+        perfectFor: ["E-commerce sites", "Sites handling sensitive data", "High-traffic sites"],
+        details: "WAF, DDoS protection, malware scanning, security dashboard, automated alerts",
+      },
+      {
+        name: "GDPR Compliance Setup",
+        icon: ClipboardCheck,
+        price: "£80 - £200",
+        description: "Cookie consent, privacy policy, data handling compliant with UK/EU law.",
+        perfectFor: ["UK/EU businesses", "Sites with forms/email capture", "E-commerce sites"],
+        details: "Basic (banner + privacy) £80, Standard (+ forms) £150, Advanced (e-commerce) £200",
+      },
+    ],
+  },
+  {
+    id: "branding",
+    label: "Branding & Design",
+    icon: Palette,
+    addons: [
+      {
+        name: "Logo Design",
+        icon: Brush,
+        price: "£80 - £250",
+        description: "Professional logo design with 2-3 concepts and unlimited revisions.",
+        perfectFor: ["New businesses", "Rebrands", "Startups without existing branding"],
+        details: "Basic logo £80, Logo + variations £150, Full brand identity £250",
+      },
+      {
+        name: "Custom Illustrations",
+        icon: Image,
+        price: "£100 - £400",
+        description: "Bespoke illustrations, icons, or graphics for your website.",
+        perfectFor: ["Unique brand personality", "Storytelling sections", "Service/product explanations"],
+        details: "3 icons £100, 5-7 illustrations £250, 10+ illustrations £400",
+      },
+    ],
+  },
+  {
+    id: "marketing",
+    label: "Marketing & SEO",
+    icon: TrendingUp,
+    addons: [
+      {
+        name: "Advanced SEO Package",
+        icon: TrendingUp,
+        price: "£250 - £600",
+        description: "Comprehensive SEO: keyword research, competitor analysis, technical optimization.",
+        perfectFor: ["Local businesses", "High-competition industries", "Long-term organic growth"],
+        details: "Local SEO £250, Regional SEO £400, National/competitive £600",
+      },
+      {
+        name: "Google Ads Setup",
+        icon: Target,
+        price: "£200 - £400",
+        description: "Professional Google Ads campaign setup for immediate traffic.",
+        perfectFor: ["Immediate lead generation", "Seasonal campaigns", "Testing market demand"],
+        details: "Campaign setup, keyword research, conversion tracking (ad spend not included)",
+      },
+      {
+        name: "Email Marketing Setup",
+        icon: Mail,
+        price: "£150 - £350",
+        description: "Professional email setup: Mailchimp/ConvertKit integration, templates, automation.",
+        perfectFor: ["Building email lists", "Customer nurture sequences", "Newsletter launches"],
+        details: "Basic (signup + 1 template) £150, Standard (+ sequences) £250, Advanced £350",
+      },
+    ],
+  },
+  {
+    id: "ecommerce",
+    label: "E-commerce & Conversions",
+    icon: DollarSign,
+    addons: [
+      {
+        name: "E-commerce Setup",
+        icon: ShoppingBag,
+        price: "£400 - £900",
+        description: "Full online shop: products, cart, checkout, payment processing.",
+        perfectFor: ["Retail businesses", "Service packages for sale", "Digital products"],
+        details: "Up to 10 products £400, 11-30 products £650, 31-50 products £900, 50+ custom quote",
+      },
+      {
+        name: "Membership Portal",
+        icon: Users,
+        price: "£300 - £800",
+        description: "Members-only area with user accounts, gated content, subscriptions.",
+        perfectFor: ["Online courses", "Subscription services", "Community platforms", "Premium content"],
+        details: "Basic (login + content) £300, Standard (+ payments) £500, Advanced (full portal) £800",
+      },
+      {
+        name: "Booking System",
+        icon: Calendar,
+        price: "£200 - £500",
+        description: "Appointment booking, calendar sync, automated reminders.",
+        perfectFor: ["Salons, clinics, consultants", "Service-based businesses", "1-on-1 appointments"],
+        details: "Basic (Calendly embed) £200, Standard (custom) £350, Advanced (payments) £500",
+      },
+    ],
+  },
+  {
+    id: "content",
+    label: "Content & Training",
+    icon: FileText,
+    addons: [
+      {
+        name: "Professional Content Writing",
+        icon: FileText,
+        price: "£40 - £120 per page",
+        description: "Professional, SEO-optimized copywriting for your website.",
+        perfectFor: ["Businesses without time to write", "SEO-optimized content", "Professional tone & polish"],
+        details: "Basic page (300 words) £40, Standard (500 words) £70, Long-form (1,000+ words) £120",
+      },
+      {
+        name: "Website Training (1 hour)",
+        icon: Video,
+        price: "£80 - £150",
+        description: "1-hour Zoom session: learn to update your site, add content, manage forms.",
+        perfectFor: ["DIY content updates", "Empowering your team", "Reducing reliance on developers"],
+        details: "1 person £80, 2-5 people (team training) £150",
+      },
+    ],
+  },
+  {
+    id: "hosting",
+    label: "Hosting & Infrastructure",
+    icon: Cloud,
+    addons: [
+      {
+        name: "Cloud Hosting Setup",
+        icon: Cloud,
+        price: "£80 - £200",
+        description: "Professional hosting setup on AWS, Google Cloud, or premium providers.",
+        perfectFor: ["High-traffic sites", "E-commerce", "Custom requirements"],
+        details: "Basic (shared) £80, Standard (VPS/cloud) £150, Enterprise (dedicated) £200",
+      },
+      {
+        name: "Automated Backups",
+        icon: HardDriveIcon,
+        price: "£50 - £150",
+        description: "Daily automated backups, uptime monitoring, instant alerts.",
+        perfectFor: ["E-commerce sites", "Business-critical sites", "Peace of mind"],
+        details: "Daily backups, 30-day retention, uptime monitoring, 1-click restore",
+      },
+    ],
+  },
+  {
+    id: "analytics",
+    label: "Analytics & Tracking",
+    icon: Activity,
+    addons: [
+      {
+        name: "Analytics Dashboard",
+        icon: ActivityIcon,
+        price: "£150 - £350",
+        description: "Custom analytics setup: Google Analytics, goals, conversion tracking, reports.",
+        perfectFor: ["Data-driven businesses", "Tracking ROI", "Understanding customer behavior"],
+        details: "Basic (GA4 + goals) £150, Standard (+ e-commerce) £250, Advanced (custom tracking) £350",
+      },
+      {
+        name: "Heatmap & User Recording",
+        icon: Eye,
+        price: "£100 - £250",
+        description: "See how users interact with your site: clicks, scrolls, recordings.",
+        perfectFor: ["Conversion rate optimization", "UX improvement", "Understanding user behavior"],
+        details: "Basic (1,000 sessions) £100, Standard (5,000 sessions) £180, Advanced (10,000+) £250",
+      },
+    ],
+  },
+  {
+    id: "bundles",
+    label: "Bundles (Save 10-20%)",
+    icon: ShoppingBag,
+    addons: [
+      {
+        name: "Launch Bundle",
+        icon: Star,
+        price: "£250 (Save £80)",
+        description: "Logo + SEO + Email Setup + Training",
+        perfectFor: ["New businesses launching for the first time"],
+        details: "Regular price: £330 → Bundle: £250",
+      },
+      {
+        name: "Growth Bundle",
+        icon: TrendingUp,
+        price: "£700 (Save £200)",
+        description: "Advanced SEO + Email Marketing + Analytics + Content (5 pages)",
+        perfectFor: ["Established businesses ready to scale"],
+        details: "Regular price: £900 → Bundle: £700",
+      },
+      {
+        name: "E-commerce Bundle",
+        icon: ShoppingBag,
+        price: "£1,200 (Save £300)",
+        description: "E-commerce (50 products) + Performance Optimization + Analytics + Security",
+        perfectFor: ["Online shops ready to launch"],
+        details: "Regular price: £1,500 → Bundle: £1,200",
+      },
+    ],
+  },
+];
 
 const Services = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -118,116 +429,7 @@ const Services = () => {
           </Container>
         </section>
 
-        {/* 1. CHOOSE YOUR PATH – 3 Main Tiles */}
-        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
-          <Container>
-            <div className="max-w-3xl mx-auto text-center mb-10 fade-in-section">
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Choose your starting point</h2>
-              <p className="text-sm md:text-base text-muted-foreground">
-                Most clients start with a website or app, then add AI and support once they&apos;re live. You can keep
-                it simple or build a full system over time.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
-              {/* Websites & Apps */}
-              <AnimatedSection staggerIndex={0} animation="up">
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-teal-600/10 mb-3">
-                      <Globe2 className="h-5 w-5 text-teal-700" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">Websites &amp; Apps</CardTitle>
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
-                      Design · Build · Launch
-                    </p>
-                  </CardHeader>
-                  <CardContent className="space-y-4 text-sm text-muted-foreground">
-                    <p>
-                      From one-page sites to full web applications — built to look premium and convert visitors into
-                      enquiries.
-                    </p>
-                    <ul className="space-y-1">
-                      <li>• One-time payment, you own everything</li>
-                      <li>• Mobile-perfect, fast, SEO-friendly</li>
-                      <li>• Launch in 2–4 weeks (on average)</li>
-                    </ul>
-
-                    <Button asChild className="w-full mt-2">
-                      <Link to="/web-package">
-                        View Web Packages
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* AI Automation */}
-              <AnimatedSection staggerIndex={1} animation="up">
-                <Card className="h-full hover-lift border-primary/40 shadow-primary/20 shadow-sm">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 mb-3">
-                      <Bot className="h-5 w-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">AI Automation</CardTitle>
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
-                      Chatbots · Receptionists · Workflows
-                    </p>
-                  </CardHeader>
-                  <CardContent className="space-y-4 text-sm text-muted-foreground">
-                    <p>
-                      AI that answers questions, books appointments, and follows up with leads — while you&apos;re
-                      offline.
-                    </p>
-                    <ul className="space-y-1">
-                      <li>• Save 20+ hours per week</li>
-                      <li>• Works with any existing website</li>
-                      <li>• Live in as little as 48 hours</li>
-                    </ul>
-
-                    <Button asChild className="w-full mt-2" variant="outline">
-                      <Link to="/ai-package">
-                        View AI Solutions
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* Support & Care */}
-              <AnimatedSection staggerIndex={2} animation="up">
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-600/10 mb-3">
-                      <Shield className="h-5 w-5 text-emerald-700" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">Maintenance &amp; Support</CardTitle>
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mt-1">
-                      After Launch · Peace of Mind
-                    </p>
-                  </CardHeader>
-                  <CardContent className="space-y-4 text-sm text-muted-foreground">
-                    <p>Stay secure, up-to-date, and bug-free without touching the tech yourself.</p>
-                    <ul className="space-y-1">
-                      <li>• Updates, backups &amp; monitoring</li>
-                      <li>• Priority fixes when something breaks</li>
-                      <li>• Works even if we didn&apos;t build your site</li>
-                    </ul>
-
-                    <Button asChild className="w-full mt-2" variant="outline">
-                      <Link to="/contact">
-                        Discuss Support Options
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            </div>
-          </Container>
-        </section>
+        {/* ⛔ REMOVED: "Choose your starting point" section */}
 
         {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         <section
@@ -409,110 +611,7 @@ const Services = () => {
           </Container>
         </section>
 
-        {/* 3. AI AUTOMATION PREVIEW (links into AiPackage) */}
-        <section
-          id="ai-automation"
-          className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white border-t border-slate-800"
-        >
-          <Container>
-            {/* Scenario card */}
-            <div className="max-w-3xl mx-auto mb-10 fade-in-section">
-              <div className="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-8 md:p-10 text-center shadow-lg">
-                <p className="text-lg text-slate-200 mb-3">
-                  Your customer texts at 11 PM.
-                  <br />
-                  Your phone rings during dinner.
-                  <br />
-                  Your inbox has 47 unread emails.
-                </p>
-                <p className="text-xl md:text-2xl font-semibold text-white mb-4">
-                  What if you had a digital assistant that works 24/7?
-                </p>
-                <p className="text-sm text-slate-300">
-                  Already have a website? Add AI automation.
-                  <br />
-                  Works with <span className="font-semibold">any</span> website — yours or ours.
-                </p>
-
-                {/* Soft arrow to next section */}
-                <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-400">
-                  <span>See what AI can handle for you</span>
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-600">
-                    ↓
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* 3 main AI solution cards */}
-            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
-              {/* AI Chatbot */}
-              <AnimatedSection staggerIndex={0} animation="up">
-                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-9 h-9 rounded-lg bg-emerald-500/15 items-center justify-center mb-2">
-                      <MessageSquare className="h-5 w-5 text-emerald-300" />
-                    </div>
-                    <CardTitle className="text-base font-semibold text-white">AI Website Chatbot</CardTitle>
-                    <p className="text-xs text-slate-400 mt-1">24/7 answers on your site</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-slate-300">
-                    <p>Instant replies to common questions and automatic lead capture.</p>
-                    <p className="text-xs font-semibold text-emerald-300">
-                      Best for: Local services, clinics, salons, trades
-                    </p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* AI Receptionist */}
-              <AnimatedSection staggerIndex={1} animation="up">
-                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-9 h-9 rounded-lg bg-cyan-500/15 items-center justify-center mb-2">
-                      <PhoneCall className="h-5 w-5 text-cyan-300" />
-                    </div>
-                    <CardTitle className="text-base font-semibold text-white">AI Phone Receptionist</CardTitle>
-                    <p className="text-xs text-slate-400 mt-1">Never miss a call again</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-slate-300">
-                    <p>Answers calls, books appointments, and sends summaries to you.</p>
-                    <p className="text-xs font-semibold text-cyan-300">
-                      Best for: Busy owners who can&apos;t live on the phone
-                    </p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* Custom AI */}
-              <AnimatedSection staggerIndex={2} animation="up">
-                <Card className="bg-slate-900 border-slate-700/80 h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-9 h-9 rounded-lg bg-indigo-500/15 items-center justify-center mb-2">
-                      <Zap className="h-5 w-5 text-indigo-300" />
-                    </div>
-                    <CardTitle className="text-base font-semibold text-white">Custom AI Automation</CardTitle>
-                    <p className="text-xs text-slate-400 mt-1">Email triage, admin &amp; workflows</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-slate-300">
-                    <p>AI that plugs into your existing tools and removes boring admin.</p>
-                    <p className="text-xs font-semibold text-indigo-300">Best for: Teams drowning in manual work</p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            </div>
-
-            {/* CTA to AI page */}
-            <div className="mt-10 text-center fade-in-section">
-              <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
-                <Link to="/ai-package">
-                  See Full AI Automation Packages
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </Container>
-        </section>
+        {/* ⛔ REMOVED: AI Automation preview section */}
 
         {/* 4. SUPPORT & MAINTENANCE – short version */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5 border-t border-primary/10">
@@ -572,30 +671,284 @@ const Services = () => {
           </Container>
         </section>
 
-        {/* 5. X15 PC BUILDERS STRIP */}
-        <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-50">
-          <Container>
-            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-4 fade-in-section">
-              <div className="flex-1 text-center md:text-left">
-                <p className="text-xs uppercase tracking-[0.16em] text-slate-400 mb-1">
-                  Sister brand · Custom PCs &amp; Repairs
-                </p>
-                <h3 className="text-lg md:text-xl font-semibold mb-2">Need a custom PC or repair work?</h3>
-                <p className="text-sm text-slate-300">
-                  For high-performance gaming rigs, creator builds, and PC repair in the UK, we run{" "}
-                  <span className="font-semibold">X15 PC Builders</span> as a dedicated service.
-                </p>
-              </div>
-              <div className="flex-shrink-0">
-                <Button asChild variant="outline" className="border-slate-500 text-slate-50 hover:bg-slate-800">
-                  <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                    Visit X15 PC Builders
-                    <ArrowRight className="ml-2 h-4 w-4" />
+        {/* X15 PC Builders - Sister Brand Services (BIG SECTION) */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+          <div className="max-w-7xl mx-auto fade-in-section">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary">SISTER BRAND</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">X15 PC Builders</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Custom PC builds, repairs, and maintenance services in the UK
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
+              {/* Custom PC Builds */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <HardDrive className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Custom PC Builds</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £500</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Custom component selection",
+                      "Professional assembly",
+                      "Cable management",
+                      "Initial setup & testing",
+                      "Windows installation",
+                      "1-year parts warranty",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Gaming, video editing, 3D rendering, or general use
+                  </p>
+                  <Button asChild className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      View PC Builds <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* PC Repairs */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Activity className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">PC Repairs</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £40</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What We Fix:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Hardware diagnostics",
+                      "Component replacement",
+                      "Software troubleshooting",
+                      "Virus & malware removal",
+                      "Performance upgrades",
+                      "Data recovery assistance",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> When your PC isn't running right or won't start
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Get a Repair Quote <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Maintenance & Cleaning */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Gauge className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Maintenance &amp; Cleaning</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £50</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Deep dust cleaning",
+                      "Thermal paste replacement",
+                      "Fan optimization",
+                      "Software updates",
+                      "Performance testing",
+                      "Health check report",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Keeping your PC running smoothly and quietly
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Book Maintenance <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <p className="text-muted-foreground mb-4">
+                X15 PC Builders is our sister brand specializing in custom PC solutions
+              </p>
+              <Button asChild size="lg">
+                <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Add-Ons & Extras - Categorized Tabs */}
+        <section
+          id="add-ons"
+          className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background"
+        >
+          <div className="max-w-7xl mx-auto fade-in-section">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons &amp; Extras</h3>
+            <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
+            <p className="text-center text-sm text-muted-foreground mb-12">
+              💡 Bundle 2-3 add-ons and save 10-20% — ask us about package deals!
+            </p>
+
+            {/* Desktop: Tabs */}
+            <div className="hidden md:block">
+              <Tabs defaultValue="speed" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 bg-muted p-2 rounded-lg mb-8 h-auto">
+                  {addOnCategories.map((cat) => {
+                    const shortLabels: Record<string, string> = {
+                      "Speed & Priority": "Speed & Priority",
+                      "Technical & Performance": "Performance",
+                      "Security & Compliance": "Security",
+                      "Branding & Design": "Branding",
+                      "Marketing & SEO": "Marketing",
+                      "E-commerce & Conversions": "E-commerce",
+                      "Content & Training": "Content",
+                      "Hosting & Infrastructure": "Hosting",
+                      "Analytics & Tracking": "Analytics",
+                      "Bundles (Save 10-20%)": "Bundles",
+                    };
+                    return (
+                      <TabsTrigger
+                        key={cat.id}
+                        value={cat.id}
+                        className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm py-3 px-3 rounded-md hover:bg-accent transition-colors whitespace-normal text-center leading-tight"
+                      >
+                        <cat.icon className="h-4 w-4 mr-1 flex-shrink-0" />
+                        <span>{shortLabels[cat.label] || cat.label}</span>
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+
+                {addOnCategories.map((category) => (
+                  <TabsContent key={category.id} value={category.id}>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {category.addons.map((addon, i) => (
+                        <Card key={i} className="hover-lift p-4">
+                          <div className="flex items-start gap-3 mb-3">
+                            <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                              <p className="text-lg font-bold text-primary">{addon.price}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
+                          {addon.perfectFor && (
+                            <div className="mb-3">
+                              <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                              <ul className="text-xs text-muted-foreground space-y-0.5">
+                                {addon.perfectFor.map((item: string, j: number) => (
+                                  <li key={j}>• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
+                          <Button size="sm" className="w-full" asChild>
+                            <Link to="/contact">Add to Package</Link>
+                          </Button>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </div>
+
+            {/* Mobile: Accordion */}
+            <div className="md:hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {addOnCategories.map((category) => (
+                  <AccordionItem key={category.id} value={category.id}>
+                    <AccordionTrigger className="text-left">
+                      <div className="flex items-center gap-2">
+                        <category.icon className="h-5 w-5 text-success" />
+                        <span className="font-semibold">{category.label}</span>
+                        <span className="text-xs text-muted-foreground">({category.addons.length})</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-4 pt-4">
+                        {category.addons.map((addon, i) => (
+                          <Card key={i} className="p-4">
+                            <div className="flex items-start gap-3 mb-3">
+                              <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                                <p className="text-lg font-bold text-primary">{addon.price}</p>
+                              </div>
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
+                            {addon.perfectFor && (
+                              <div className="mb-3">
+                                <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                                <ul className="text-xs text-muted-foreground space-y-0.5">
+                                  {addon.perfectFor.map((item: string, j: number) => (
+                                    <li key={j}>• {item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                            <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
+                            <Button size="sm" className="w-full" asChild>
+                              <Link to="/contact">Add to Package</Link>
+                            </Button>
+                          </Card>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            {/* Footer CTA */}
+            <div className="mt-12 text-center">
+              <p className="text-lg text-muted-foreground mb-4">Don't see what you need?</p>
+              <p className="text-muted-foreground mb-6">
+                We can customize any add-on or create bespoke solutions for your specific requirements.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild variant="outline">
+                  <Link to="/contact">Request Custom Solution</Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <a
+                    href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20a%20custom%20add-on"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Chat on WhatsApp
                   </a>
                 </Button>
               </div>
             </div>
-          </Container>
+          </div>
         </section>
 
         {/* 6. FINAL CTA */}

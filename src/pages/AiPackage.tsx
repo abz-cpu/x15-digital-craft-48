@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -16,11 +17,21 @@ import {
   Share2,
   Briefcase,
   ChevronDown,
+  X,
+  Info,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+
 type HighlightedService = {
   name: string;
   description: string;
@@ -31,6 +42,7 @@ type HighlightedService = {
   cta: string;
   trust: string;
 };
+
 const highlightedServices: HighlightedService[] = [
   {
     name: "AI Sales Assistant",
@@ -93,6 +105,7 @@ const highlightedServices: HighlightedService[] = [
     trust: "Process audit included • Usually live in under 14 days",
   },
 ];
+
 const secondaryServices = [
   {
     name: "LinkedIn Lead Prospecting",
@@ -137,6 +150,111 @@ const secondaryServices = [
     bestFor: "Service businesses with 100+ reviews or surveys to analyse",
   },
 ];
+
+// Mobile Sticky CTA Component
+const MobileStickyCTA = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isNearFooter, setIsNearFooter] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroHeight = 500; // Approximate hero height
+      const footerOffset = document.body.scrollHeight - window.innerHeight - 400;
+      
+      setIsVisible(scrollY > heroHeight);
+      setIsNearFooter(scrollY > footerOffset);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!isVisible || isNearFooter) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border p-3 shadow-lg animate-fade-in">
+      <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
+        <p className="text-sm font-medium text-foreground truncate">
+          Ready to add AI?
+        </p>
+        <Button asChild size="sm" className="shrink-0">
+          <Link to="/quick-start">
+            Get Started
+            <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+          </Link>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+// Exit Intent Popup Component (Desktop Only)
+const ExitIntentPopup = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasShown = useRef(false);
+
+  useEffect(() => {
+    // Only show on desktop
+    if (window.innerWidth < 1024) return;
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !hasShown.current) {
+        hasShown.current = true;
+        setIsOpen(true);
+      }
+    };
+
+    document.addEventListener("mouseout", handleMouseLeave);
+    return () => document.removeEventListener("mouseout", handleMouseLeave);
+  }, []);
+
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 z-[100] hidden lg:flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in"
+      onClick={() => setIsOpen(false)}
+    >
+      <div 
+        className="relative bg-card rounded-2xl p-8 max-w-md mx-4 shadow-2xl border border-border animate-scale-in"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label="Close popup"
+        >
+          <X className="h-5 w-5 text-muted-foreground" />
+        </button>
+
+        <div className="text-center">
+          <div className="inline-flex p-3 rounded-full bg-primary/10 mb-4">
+            <MessageSquare className="h-8 w-8 text-primary" />
+          </div>
+          <h3 className="text-2xl font-bold text-foreground mb-2">Before you go…</h3>
+          <p className="text-muted-foreground mb-6">
+            Get a free 5-minute AI strategy plan tailored to your business. 
+            No commitment, just clarity on what AI could automate for you.
+          </p>
+          <Button asChild size="lg" className="w-full mb-3">
+            <Link to="/quick-start">
+              Get a 5-Minute AI Plan
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:underline"
+          >
+            No thanks, I'll explore more
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AiPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -177,12 +295,17 @@ const AiPackage = () => {
 
               <p className="text-lg text-white/80">Works with any website — yours or ours. No IT team required.</p>
 
+              {/* Urgency micro-copy */}
+              <p className="mt-4 text-sm text-emerald-200/80 font-medium">
+                ⏱️ Currently booking AI setups 1–2 weeks in advance
+              </p>
+
               {/* Hero CTAs */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-[0_18px_45px_rgba(15,118,110,0.35)] transition-shadow"
+                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-[0_18px_45px_rgba(15,118,110,0.35)] transition-shadow focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   <Link to="#ai-solutions">
                     See AI Solutions
@@ -194,7 +317,7 @@ const AiPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/60 text-white/90 bg-white/5 hover:bg-white/15 hover:text-white shadow-sm hover:shadow-md"
+                  className="border-white/60 text-white/90 bg-white/5 hover:bg-white/15 hover:text-white shadow-sm hover:shadow-md focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   <Link to="/contact">
                     Book Free Demo
@@ -213,25 +336,25 @@ const AiPackage = () => {
               {/* Pain points with icons */}
               <div className="space-y-1.5 mb-4">
                 <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
-                  <MessageSquare className="h-4 w-4 text-primary" />
+                  <MessageSquare className="h-4 w-4 text-primary" aria-hidden="true" />
                   Your customer texts at 11 PM.
                 </p>
 
                 <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
-                  <Phone className="h-4 w-4 text-primary" />
+                  <Phone className="h-4 w-4 text-primary" aria-hidden="true" />
                   Your phone rings during dinner.
                 </p>
 
                 <p className="flex items-center justify-center gap-2 text-muted-foreground text-base leading-tight">
-                  <Mail className="h-4 w-4 text-primary" />
+                  <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
                   Your inbox has 47 unread emails.
                 </p>
               </div>
 
               {/* Main question */}
-              <p className="text-xl md:text-2xl font-semibold text-secondary mb-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-secondary mb-4">
                 What if you had a digital assistant that works 24/7?
-              </p>
+              </h2>
 
               {/* Support copy */}
               <p className="text-muted-foreground">
@@ -245,10 +368,10 @@ const AiPackage = () => {
             <div className="flex justify-center">
               <a
                 href="#ai-packages"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#0F766E] transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#0F766E] transition-colors focus:outline-none focus:underline"
               >
                 See AI systems in action
-                <ChevronDown className="h-4 w-4 animate-bounce" />
+                <ChevronDown className="h-4 w-4 animate-bounce" aria-hidden="true" />
               </a>
             </div>
           </Container>
@@ -275,13 +398,13 @@ const AiPackage = () => {
                   <CardContent className="p-6 flex flex-col h-full">
                     {/* Badge */}
                     <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-white px-3 py-1.5 text-[11px] font-bold rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
-                      <Star className="h-3 w-3" />
+                      <Star className="h-3 w-3" aria-hidden="true" />
                       MOST POPULAR
                     </Badge>
 
                     <div className="mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
-                        <MessageSquare className="h-8 w-8 text-primary" />
+                        <MessageSquare className="h-8 w-8 text-primary" aria-hidden="true" />
                       </div>
                     </div>
 
@@ -307,24 +430,24 @@ const AiPackage = () => {
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Service businesses losing leads to faster competitors</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Trades missing £5k+ jobs because no one answers after 5pm</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Websites with 100+ visitors but under 5 enquiries</span>
                         </li>
                       </ul>
                     </div>
 
                     <div>
-                      <Button asChild size="lg" className="w-full">
+                      <Button asChild size="lg" className="w-full focus:ring-2 focus:ring-primary focus:ring-offset-2">
                         <Link to="/contact">
-                          See How It Works <ArrowRight className="ml-2 h-4 w-4" />
+                          See How It Works <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                         </Link>
                       </Button>
                       <p className="text-xs text-muted-foreground text-center mt-2">
@@ -341,7 +464,7 @@ const AiPackage = () => {
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="mb-4">
                       <div className="inline-flex p-3 rounded-lg bg-primary/10">
-                        <Inbox className="h-8 w-8 text-primary" />
+                        <Inbox className="h-8 w-8 text-primary" aria-hidden="true" />
                       </div>
                     </div>
 
@@ -366,24 +489,24 @@ const AiPackage = () => {
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Business owners spending 2+ hours daily on email</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Teams missing leads buried in 100+ daily messages</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Businesses needing admin support but not £25k/year staff</span>
                         </li>
                       </ul>
                     </div>
 
                     <div>
-                      <Button asChild size="lg" className="w-full">
+                      <Button asChild size="lg" className="w-full focus:ring-2 focus:ring-primary focus:ring-offset-2">
                         <Link to="/contact">
-                          Get Inbox Quote <ArrowRight className="ml-2 h-4 w-4" />
+                          Get Inbox Quote <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                         </Link>
                       </Button>
                       <p className="text-xs text-muted-foreground text-center mt-2">
@@ -398,22 +521,22 @@ const AiPackage = () => {
               <AnimatedSection staggerIndex={2} animation="fade">
                 <Card className="hover-lift h-full border border-primary/40 relative">
                   <CardContent className="p-6 flex flex-col h-full">
-                    <div className="mb-4">
-                      <div className="inline-flex p-3 rounded-lg bg-primary/10">
-                        <Phone className="h-8 w-8 text-primary" />
-                      </div>
-                    </div>
-
                     <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0F766E] text-white px-3 py-1.5 text-[11px] font-bold rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
-                      <Target className="h-3 w-3" />
+                      <Target className="h-3 w-3" aria-hidden="true" />
                       BEST FOR LOCAL BUSINESSES
                     </Badge>
+
+                    <div className="mb-4">
+                      <div className="inline-flex p-3 rounded-lg bg-primary/10">
+                        <Phone className="h-8 w-8 text-primary" aria-hidden="true" />
+                      </div>
+                    </div>
 
                     <h3 className="text-2xl font-bold mb-2">AI Receptionist</h3>
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       Never miss a call again. AI receptionist answers 24/7 with a natural voice that books
-                      appointments, handles messages, and transfers urgent calls — customers won’t know it’s not human.
+                      appointments, handles messages, and transfers urgent calls — customers won't know it's not human.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
@@ -430,24 +553,24 @@ const AiPackage = () => {
                       <h4 className="font-semibold mb-1 text-sm">Perfect For:</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Salons/clinics losing £10k/month from missed appointments</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Trades losing quotes because you're on the tools</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" aria-hidden="true" />
                           <span>Businesses where one missed call = £500+ lost revenue</span>
                         </li>
                       </ul>
                     </div>
 
                     <div>
-                      <Button asChild size="lg" className="w-full">
+                      <Button asChild size="lg" className="w-full focus:ring-2 focus:ring-primary focus:ring-offset-2">
                         <Link to="/contact">
-                          Book a Demo Call <ArrowRight className="ml-2 h-4 w-4" />
+                          Book a Demo Call <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                         </Link>
                       </Button>
                       <p className="text-xs text-muted-foreground text-center mt-2">
@@ -477,7 +600,7 @@ const AiPackage = () => {
                         <CardContent className="p-5 flex flex-col h-full">
                           <div className="mb-3">
                             <div className="inline-flex p-2.5 rounded-lg bg-primary/10">
-                              <Icon className="h-6 w-6 text-primary" />
+                              <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
                             </div>
                           </div>
 
@@ -501,7 +624,7 @@ const AiPackage = () => {
                             <ul className="space-y-1 text-[11px] text-muted-foreground">
                               {service.bullets.map((item) => (
                                 <li key={item} className="flex items-start gap-1.5">
-                                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 mt-0.5" />
+                                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 mt-0.5" aria-hidden="true" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -509,9 +632,9 @@ const AiPackage = () => {
                           </div>
 
                           <div className="mt-auto">
-                            <Button asChild size="sm" className="w-full text-xs py-2">
+                            <Button asChild size="sm" className="w-full text-xs py-2 focus:ring-2 focus:ring-primary focus:ring-offset-2">
                               <Link to="/contact">
-                                {service.cta} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                                {service.cta} <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" />
                               </Link>
                             </Button>
                             <p className="text-[10px] text-muted-foreground text-center mt-1.5">{service.trust}</p>
@@ -534,28 +657,48 @@ const AiPackage = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-border bg-card/80 shadow-lg">
-                <table className="min-w-full text-left text-sm">
-                  <thead>
-                    <tr className="bg-[#0F766E]">
-                      <th className="py-3.5 px-4 text-white font-semibold">Service</th>
-                      <th className="py-3.5 px-4 text-white font-semibold">Setup</th>
-                      <th className="py-3.5 px-4 text-white font-semibold">Monthly</th>
-                      <th className="py-3.5 px-4 text-white font-semibold">Best For</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border">
-                    {secondaryServices.map((service) => (
-                      <tr key={service.name} className="hover:bg-muted/60 transition-colors">
-                        <td className="py-3 px-4 font-medium text-foreground">{service.name}</td>
-                        <td className="py-3 px-4 text-muted-foreground">{service.setup}</td>
-                        <td className="py-3 px-4 text-primary font-semibold">{service.monthly}</td>
-                        <td className="py-3 px-4 text-muted-foreground">{service.bestFor}</td>
+              <TooltipProvider>
+                <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-border bg-card/80 shadow-lg">
+                  <table className="min-w-full text-left text-sm">
+                    <thead>
+                      <tr className="bg-[#0F766E]">
+                        <th className="py-3.5 px-4 text-white font-semibold">Service</th>
+                        <th className="py-3.5 px-4 text-white font-semibold">Setup</th>
+                        <th className="py-3.5 px-4 text-white font-semibold">Monthly</th>
+                        <th className="py-3.5 px-4 text-white font-semibold hidden md:table-cell">Best For</th>
+                        <th className="py-3.5 px-4 text-white font-semibold md:hidden w-12"></th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {secondaryServices.map((service) => (
+                        <tr key={service.name} className="hover:bg-muted/60 transition-colors">
+                          <td className="py-3 px-4 font-medium text-foreground">{service.name}</td>
+                          <td className="py-3 px-4 text-muted-foreground">{service.setup}</td>
+                          <td className="py-3 px-4 text-primary font-semibold">{service.monthly}</td>
+                          {/* Desktop: Show Best For text */}
+                          <td className="py-3 px-4 text-muted-foreground hidden md:table-cell">{service.bestFor}</td>
+                          {/* Mobile: Show tooltip icon */}
+                          <td className="py-3 px-4 md:hidden">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button 
+                                  className="p-1.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                                  aria-label={`Best for: ${service.bestFor}`}
+                                >
+                                  <Info className="h-4 w-4 text-muted-foreground" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent side="left" className="max-w-[200px]">
+                                <p className="text-xs"><strong>Best For:</strong> {service.bestFor}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </TooltipProvider>
 
               <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center max-w-2xl mx-auto">
                 All prices are starting points. Final cost depends on complexity, integrations, and volume.
@@ -563,7 +706,7 @@ const AiPackage = () => {
 
               <p className="mt-3 text-xs sm:text-sm text-muted-foreground text-center">
                 Don&apos;t see what you need?{" "}
-                <Link to="/contact" className="font-medium text-primary hover:underline">
+                <Link to="/contact" className="font-medium text-primary hover:underline focus:outline-none focus:underline">
                   Request a Custom AI Solution →
                 </Link>
               </p>
@@ -588,23 +731,23 @@ const AiPackage = () => {
 
                   <ul className="space-y-3 mb-8 text-sm md:text-base">
                     <li className="flex items-start gap-3 text-foreground/80">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>Healthcare appointment automation with patient intake & insurance verification</span>
                     </li>
                     <li className="flex items-start gap-3 text-foreground/80">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>E-commerce inventory management with supplier API integration</span>
                     </li>
                     <li className="flex items-start gap-3 text-foreground/80">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>Restaurant multi-location ordering system with delivery coordination</span>
                     </li>
                     <li className="flex items-start gap-3 text-foreground/80">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>Property management applicant filtering & tenant communication</span>
                     </li>
                     <li className="flex items-start gap-3 text-foreground/80">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
                       <span>Legal firm document intake workflows with client portal integration</span>
                     </li>
                   </ul>
@@ -622,10 +765,10 @@ const AiPackage = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:opacity-90 shadow-md"
+                    className="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:opacity-90 shadow-md focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                   >
                     <Link to="/contact">
-                      Request Custom AI Solution <ArrowRight className="ml-2 h-5 w-5" />
+                      Request Custom AI Solution <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -641,13 +784,13 @@ const AiPackage = () => {
               <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">Common Questions About AI Automation</h2>
                 <p className="text-base md:text-lg text-muted-foreground">
-                  Clear answers so you know exactly what you’re getting.
+                  Clear answers so you know exactly what you're getting.
                 </p>
               </div>
 
               <div className="space-y-4">
                 {/* FAQ Item 1 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       1
@@ -662,7 +805,7 @@ const AiPackage = () => {
                 </div>
 
                 {/* FAQ Item 2 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       2
@@ -676,7 +819,7 @@ const AiPackage = () => {
                 </div>
 
                 {/* FAQ Item 3 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       3
@@ -690,7 +833,7 @@ const AiPackage = () => {
                 </div>
 
                 {/* FAQ Item 4 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       4
@@ -705,7 +848,7 @@ const AiPackage = () => {
                 </div>
 
                 {/* FAQ Item 5 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       5
@@ -720,7 +863,7 @@ const AiPackage = () => {
                 </div>
 
                 {/* FAQ Item 6 */}
-                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors">
+                <div className="bg-background rounded-xl p-5 md:p-6 border border-border shadow-sm hover:border-primary/50 transition-colors focus-within:ring-2 focus-within:ring-primary">
                   <h3 className="text-lg font-semibold mb-3 text-foreground flex items-center gap-2">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
                       6
@@ -734,6 +877,16 @@ const AiPackage = () => {
                   </p>
                 </div>
               </div>
+
+              {/* FAQ CTA */}
+              <div className="mt-8 text-center">
+                <p className="text-muted-foreground mb-4">Still have questions?</p>
+                <Button asChild variant="outline" size="lg" className="focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                  <Link to="/contact">
+                    Let's Chat <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </Container>
         </section>
@@ -741,15 +894,15 @@ const AiPackage = () => {
         {/* FINAL CTA – FULL WIDTH, MATCHED TO MAIN CTA STYLE */}
         <section className="relative py-16 md:py-20 overflow-hidden bg-[#D9F7F4]">
           {/* Very soft radial accents to match your main CTA */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_40%,hsl(var(--primary)/0.06),transparent_55%)]" aria-hidden="true" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_60%,hsl(var(--accent)/0.06),transparent_55%)]" aria-hidden="true" />
 
           <Container size="narrow" className="relative">
             {/* Heading Block */}
             <div className="text-center mb-10 space-y-4">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wider uppercase">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
                 <span>Live in 48 Hours – 2 Weeks</span>
               </div>
 
@@ -778,10 +931,10 @@ const AiPackage = () => {
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all"
+          transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Start AI Project
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
 
               {/* Secondary CTA */}
@@ -792,10 +945,10 @@ const AiPackage = () => {
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all"
+          active:scale-[0.97] transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Book Strategy Call
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
             </div>
 
@@ -808,7 +961,14 @@ const AiPackage = () => {
       </main>
 
       <Footer />
+
+      {/* Mobile Sticky CTA */}
+      <MobileStickyCTA />
+
+      {/* Exit Intent Popup (Desktop) */}
+      <ExitIntentPopup />
     </div>
   );
 };
+
 export default AiPackage;

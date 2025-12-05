@@ -175,13 +175,13 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-20 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-16 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* soft glows */}
+        {/* soft glows + vignette */}
         <div
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{
@@ -189,7 +189,7 @@ const Index = () => {
               "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), " +
               "radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%), " +
               "radial-gradient(circle at 50% 100%, rgba(15,118,110,0.35) 0, transparent 60%), " +
-              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.85) 100%)",
+              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.75) 100%)",
           }}
         />
 
@@ -197,7 +197,7 @@ const Index = () => {
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
             {/* Badge */}
-            <div className="hero-status-badge inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-1">
+            <div className="hero-status-badge inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-0.5">
               <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                 {/* Outer pulsing ring */}
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90" />
@@ -213,7 +213,7 @@ const Index = () => {
               </span>
             </div>
 
-            <div className="space-y-3 lg:space-y-4">
+            <div className="space-y-3 lg:space-y-3.5">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
                 Your Website Should Work
                 <br />
@@ -226,18 +226,18 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Small text – keep trust + speed */}
+            {/* Small text – trust + speed */}
             <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
               Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. You own
               everything. No bloated retainers.
             </p>
 
             {/* Primary CTA – visible before choice cards */}
-            <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:gap-3">
+            <div className="mt-3 sm:mt-4 mb-2 flex flex-col sm:flex-row sm:items-center sm:gap-3">
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white shadow-lg shadow-emerald-500/40"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white shadow-lg shadow-emerald-500/25 sm:shadow-emerald-500/40"
               >
                 <Link to="/quick-start">
                   Book a Free Consultation
@@ -255,8 +255,8 @@ const Index = () => {
                   type="button"
                   aria-label="Explore website packages and pricing"
                   onClick={() => scrollToSection("web-preview")}
-                  className="hero-choice-card hero-choice-card-primary flex-1 lg:flex-[1.2] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                  className="hero-choice-card hero-choice-card-primary flex-1 lg:flex-[1.2] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   <Globe className="hero-icon-animated hero-icon-spin h-4 w-4 text-white/85" aria-hidden="true" />
                   <div className="flex flex-col items-start">
@@ -272,8 +272,8 @@ const Index = () => {
                   type="button"
                   aria-label="Automate my sales with AI"
                   onClick={() => scrollToSection("ai-preview")}
-                  className="hero-choice-card flex-1 lg:flex-[0.9] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                  className="hero-choice-card flex-1 lg:flex-[0.9] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   <Bot className="hero-icon-animated hero-icon-blink h-4 w-4 text-white/80" aria-hidden="true" />
                   <div className="flex flex-col items-start">

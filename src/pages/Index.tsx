@@ -186,7 +186,10 @@ const Index = () => {
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             background:
-              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%)",
+              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), " +
+              "radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%), " +
+              "radial-gradient(circle at 50% 100%, rgba(15,118,110,0.35) 0, transparent 60%), " +
+              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.85) 100%)",
           }}
         />
 
@@ -194,14 +197,16 @@ const Index = () => {
           {/* LEFT – copy + CTAs */}
           <div className="flex-1 text-center lg:text-left space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-1">
-              <span className="relative flex h-2.5 w-2.5">
+            <div className="hero-status-badge inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-1">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                 {/* Outer pulsing ring */}
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90" />
+                {/* Extra burst on hover */}
+                <span className="hero-dot-burst absolute inline-flex h-full w-full rounded-full bg-cyan-400/40" />
                 {/* Middle glow */}
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm dot-glow" />
                 {/* Inner solid dot */}
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 dot-glow" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
               </span>
               <span>
                 🚀 Websites That Convert in <span className="font-semibold">1–14 Days</span>
@@ -227,43 +232,55 @@ const Index = () => {
               everything. No bloated retainers.
             </p>
 
+            {/* Primary CTA – visible before choice cards */}
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white shadow-lg shadow-emerald-500/40"
+              >
+                <Link to="/quick-start">
+                  Book a Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+
             {/* CHOICE CARDS + stats */}
             <div className="pt-4">
               {/* CHOICE CARDS */}
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
-                {/* Website Packages card */}
+                {/* Website Packages card – primary */}
                 <button
                   type="button"
+                  aria-label="Explore website packages and pricing"
                   onClick={() => scrollToSection("web-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-               hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-               hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-               active:scale-[0.98] active:shadow-none
-               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-               transition-all duration-200 transform"
+                  className="hero-choice-card hero-choice-card-primary flex-1 lg:flex-[1.2] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
-                  <Globe className="h-4 w-4 text-white/80" />
+                  <Globe className="hero-icon-animated hero-icon-spin h-4 w-4 text-white/85" aria-hidden="true" />
                   <div className="flex flex-col items-start">
                     <span className="text-sm font-semibold text-white">Explore Website Packages</span>
-                    <span className="text-xs text-cyan-300">From £200 →</span>
+                    <span className="text-xs text-emerald-200">
+                      From £200 <span className="hero-arrow">→</span>
+                    </span>
                   </div>
                 </button>
 
-                {/* AI Automation card */}
+                {/* AI Automation card – outcome-focused label */}
                 <button
                   type="button"
+                  aria-label="Automate my sales with AI"
                   onClick={() => scrollToSection("ai-preview")}
-                  className="flex-1 min-h-[56px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
-               hover:border-cyan-300/80 hover:bg-white/15 hover:scale-[1.02]
-               hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]
-               active:scale-[0.98] active:shadow-none
-               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-               transition-all duration-200 transform"
+                  className="hero-choice-card flex-1 lg:flex-[0.9] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 flex items-center gap-3 text-left
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
-                  <Bot className="h-4 w-4 text-white/80" />
+                  <Bot className="hero-icon-animated hero-icon-blink h-4 w-4 text-white/80" aria-hidden="true" />
                   <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Explore AI Automation</span>
-                    <span className="text-xs text-cyan-300">From £50/mo →</span>
+                    <span className="text-sm font-semibold text-white">Automate My Sales</span>
+                    <span className="text-xs text-cyan-300">
+                      From £50/mo <span className="hero-arrow">→</span>
+                    </span>
                   </div>
                 </button>
               </div>

@@ -11,33 +11,32 @@ export const useParallax = (options: UseParallaxOptions = {}) => {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
     if (prefersReducedMotion) {
       return;
     }
 
-    let rafId: number;
-    let lastScrollY = window.scrollY;
+    let ticking = false;
 
     const handleScroll = () => {
-      rafId = requestAnimationFrame(() => {
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        const delta = (scrollY - lastScrollY) * speed;
-        
-        setOffset((prev) => {
-          const newOffset = prev + delta;
-          return Math.max(-maxOffset, Math.min(maxOffset, newOffset));
-        });
-        
-        lastScrollY = scrollY;
+        const rawOffset = scrollY * speed;
+        const clamped = Math.max(-maxOffset, Math.min(maxOffset, rawOffset));
+        setOffset(clamped);
+        ticking = false;
       });
     };
 
+    // initial value
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [speed, maxOffset]);
 

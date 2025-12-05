@@ -324,4 +324,87 @@
 /* DOT GLOW CLASS */
 .dot-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+  transition:
+    background 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+/* ===== HERO MICRO-INTERACTIONS ===== */
+
+/* Badge container */
+.hero-status-badge {
+  transition:
+    box-shadow 200ms ease-out,
+    transform 200ms ease-out,
+    background 200ms ease-out;
+}
+
+.hero-status-badge:hover {
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Extra radial burst on hover */
+.hero-dot-burst {
+  opacity: 0;
+  transform: scale(1);
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms ease-out;
+}
+
+.hero-status-badge:hover .hero-dot-burst {
+  opacity: 0.9;
+  transform: scale(1.8);
+}
+
+/* Emerald → cyan glow shift on hover */
+.hero-status-badge:hover .dot-glow {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.95) 0%, rgba(8, 145, 178, 0.9) 60%);
+}
+
+/* Choice cards */
+.hero-choice-card {
+  position: relative;
+  transition:
+    transform 220ms ease-out,
+    box-shadow 220ms ease-out,
+    border-color 220ms ease-out,
+    background 220ms ease-out;
+}
+
+.hero-choice-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.28);
+}
+
+/* Primary website card – more dominant */
+.hero-choice-card-primary {
+  border-color: rgba(52, 211, 153, 0.75);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(45, 212, 191, 0.08));
+}
+
+/* Icon animation base */
+.hero-icon-animated {
+  transition: transform 260ms ease-out;
+}
+
+/* Full spin for globe */
+.hero-choice-card:hover .hero-icon-spin {
+  transform: rotate(360deg);
+}
+
+/* Subtle blink/pop for bot */
+.hero-choice-card:hover .hero-icon-blink {
+  transform: translateY(-1px) scale(1.08);
+}
+
+/* Arrow slide */
+.hero-arrow {
+  display: inline-block;
+  transition: transform 220ms ease-out;
+}
+
+.hero-choice-card:hover .hero-arrow {
+  transform: translateX(4px);
 }

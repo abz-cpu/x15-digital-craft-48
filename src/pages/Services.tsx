@@ -43,6 +43,7 @@ import {
   Calendar,
   FileText,
   Video,
+  Star,
   Cloud,
   ShoppingBag,
   Activity as ActivityIcon,

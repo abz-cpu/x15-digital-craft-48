@@ -430,9 +430,6 @@ const Services = () => {
           </Container>
         </section>
 
-        {/* ⛔ REMOVED: "Choose your starting point" section */}
-
-        {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         <section
           id="web-services"
@@ -612,8 +609,6 @@ const Services = () => {
             </div>
           </Container>
         </section>
-
-        {/* ⛔ REMOVED: AI Automation preview section */}
 
         {/* 4. SUPPORT & MAINTENANCE – short version */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5 border-t border-primary/10">

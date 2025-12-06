@@ -110,6 +110,77 @@ const WebPackage = () => {
 
             {/* Tier cards */}
             <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+              <Card className="relative border-2 border-teal-500 shadow-2xl scale-105 z-10 bg-white">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <span className="bg-teal-600 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide shadow-lg">
+                    Most Popular Choice
+                  </span>
+                </div>
+
+                <CardHeader className="pt-10 text-center border-b border-slate-100 bg-slate-50/50">
+                  <h3 className="text-teal-700 font-bold tracking-widest uppercase text-sm">Growth Package</h3>
+                  <div className="flex items-baseline justify-center gap-1 mt-2">
+                    <span className="text-5xl font-extrabold text-slate-900">£600</span>
+                    <span className="text-slate-500 font-medium">/ once</span>
+                  </div>
+                  <p className="text-sm text-slate-500 mt-2">Pay once. Yours forever.</p>
+                </CardHeader>
+
+                <CardContent className="pt-8 space-y-6">
+                  <p className="text-center text-slate-700 font-medium">
+                    Everything a growing service business needs to look professional and get leads.
+                  </p>
+
+                  <div className="space-y-4">
+                    {/* Group 1: The Core */}
+                    <div className="space-y-2">
+                      <li className="flex gap-3 text-sm text-slate-700">
+                        <div className="mt-0.5 bg-teal-100 p-1 rounded-full">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-teal-700" />
+                        </div>
+                        <span>
+                          <strong>5 Custom Pages</strong> (Home, About, Services, etc)
+                        </span>
+                      </li>
+                      <li className="flex gap-3 text-sm text-slate-700">
+                        <div className="mt-0.5 bg-teal-100 p-1 rounded-full">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-teal-700" />
+                        </div>
+                        <span>
+                          <strong>Strategic Copywriting</strong> included
+                        </span>
+                      </li>
+                    </div>
+
+                    {/* Separator */}
+                    <div className="h-px bg-slate-100" />
+
+                    {/* Group 2: The Tech */}
+                    <div className="space-y-2">
+                      <li className="flex gap-3 text-sm text-slate-700">
+                        <div className="mt-0.5 bg-amber-100 p-1 rounded-full">
+                          <Zap className="h-3.5 w-3.5 text-amber-600" />
+                        </div>
+                        <span>
+                          <strong>95+ Google Speed Score</strong>
+                        </span>
+                      </li>
+                      <li className="flex gap-3 text-sm text-slate-700">
+                        <div className="mt-0.5 bg-blue-100 p-1 rounded-full">
+                          <Bot className="h-3.5 w-3.5 text-blue-600" />
+                        </div>
+                        <span>
+                          <strong>Basic SEO</strong> Setup (Meta & Schema)
+                        </span>
+                      </li>
+                    </div>
+                  </div>
+
+                  <Button className="w-full h-12 text-lg bg-teal-600 hover:bg-teal-700 shadow-md">
+                    Start Growth Project
+                  </Button>
+                </CardContent>
+              </Card>
               {/* FOUNDATION TIER */}
               <AnimatedSection staggerIndex={0} animation="scale">
                 <Card className="hover-lift relative h-full bg-white">

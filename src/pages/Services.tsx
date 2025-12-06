@@ -433,15 +433,17 @@ const Services = () => {
         {/* ⛔ REMOVED: "Choose your starting point" section */}
 
         {/* 2. WEB & APP SERVICES – with anchors for hash links */}
+        {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         <section
           id="web-services"
           className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60"
         >
           <Container>
+            {/* Section header */}
             <div className="max-w-3xl mx-auto text-center mb-10 fade-in-section">
               <Badge className="mb-3 bg-primary/10 text-primary border-primary/20">Websites, Apps &amp; Brand</Badge>
               <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                Web &amp; Brand services you can mix and match
+                Web &amp; brand services you can mix and match
               </h2>
               <p className="text-sm md:text-base text-muted-foreground">
                 Start lean or go all-in — everything here can be combined with your main web package or used
@@ -449,6 +451,7 @@ const Services = () => {
               </p>
             </div>
 
+            {/* Service grid */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto fade-in-section">
               {/* App Development */}
               <AnimatedSection staggerIndex={0} animation="scale">
@@ -459,19 +462,17 @@ const Services = () => {
                     </div>
                     <CardTitle className="text-base font-semibold text-secondary">App Development</CardTitle>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Native &amp; hybrid mobile apps for iOS and Android.
+                      Custom web &amp; mobile apps for your workflows.
                     </p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>
-                      From idea to App Store / Play Store — strategy, development, testing, and launch handled for you.
-                    </p>
+                    <p>From idea to launch — strategy, development, testing, and deployment handled for you.</p>
                     <p className="text-xs font-semibold text-secondary">
                       Best for: Products, tools &amp; on-the-go users
                     </p>
                     <Button asChild size="sm" className="mt-1 w-full">
-                      <Link to="/contact">
-                        Discuss an App
+                      <Link to="/services/app-development">
+                        View app services
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
@@ -495,13 +496,13 @@ const Services = () => {
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>
-                      Invoices tracker, simple CRM, booking helper — lightweight tools built around how you actually
+                      Invoice trackers, simple CRMs, booking helpers — lightweight tools built around how you actually
                       work.
                     </p>
                     <p className="text-xs font-semibold text-secondary">Best for: Solo founders &amp; small teams</p>
                     <Button asChild size="sm" className="mt-1 w-full" variant="outline">
-                      <Link to="/contact">
-                        Talk about a custom tool
+                      <Link to="/services/personalised-apps">
+                        View personalised tools
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
@@ -523,8 +524,8 @@ const Services = () => {
                     <p>Perfect for ads, limited campaigns, or one flagship service.</p>
                     <p className="text-xs font-semibold text-secondary">Best for: Launches &amp; paid traffic</p>
                     <Button asChild size="sm" className="mt-1 w-full" variant="outline">
-                      <Link to="/web-package">
-                        See Web Packages
+                      <Link to="/services/landing-pages">
+                        View landing page options
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
@@ -548,8 +549,8 @@ const Services = () => {
                     <p>2–3 concepts, refinements, and social-ready exports.</p>
                     <p className="text-xs font-semibold text-secondary">Best for: New brands &amp; rebrands</p>
                     <Button asChild size="sm" className="mt-1 w-full" variant="outline">
-                      <Link to="/contact">
-                        Discuss branding
+                      <Link to="/services/logo-design">
+                        View logo design
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
@@ -575,8 +576,8 @@ const Services = () => {
                     <p>Build a recognisable, professional look across web, socials, and print.</p>
                     <p className="text-xs font-semibold text-secondary">Best for: Businesses ready to level up</p>
                     <Button asChild size="sm" className="mt-1 w-full" variant="outline">
-                      <Link to="/contact">
-                        Plan a brand refresh
+                      <Link to="/services/branding">
+                        View branding services
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
@@ -600,8 +601,8 @@ const Services = () => {
                     <p>Lightweight IT help for hosting, email, domains, and basic troubleshooting.</p>
                     <p className="text-xs font-semibold text-secondary">Best for: Small local businesses</p>
                     <Button asChild size="sm" className="mt-1 w-full" variant="outline">
-                      <Link to="/contact">
-                        Ask about IT support
+                      <Link to="/services/it-support">
+                        View IT support
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>

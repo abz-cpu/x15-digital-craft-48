@@ -740,41 +740,35 @@ const Index = () => {
       {/* Trust Section - Why Choose X15 Digital */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-12">Why Choose X15 Digital</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">Why Choose X15 Digital</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Fast Delivery */}
-            <AnimatedSection animation="fade" staggerIndex={0}>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#F59E0B]/5 mb-5">
-                  <Clock className="h-7 w-7 text-[#0F766E]" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-[#1F2937] mb-2">Fast Delivery</h3>
-                <p className="text-sm md:text-base text-[#6B7280]">1–14 days, not months</p>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <Clock className="h-8 w-8 text-[#F59E0B]" />
               </div>
-            </AnimatedSection>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Fast Delivery</h3>
+              <p className="text-[#6B7280]">1–14 days, not months</p>
+            </div>
 
             {/* 100% Transparent Pricing */}
-            <AnimatedSection animation="fade" staggerIndex={1}>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#F59E0B]/5 mb-5">
-                  <Receipt className="h-7 w-7 text-[#0F766E]" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-[#1F2937] mb-2">100% Transparent Pricing</h3>
-                <p className="text-sm md:text-base text-[#6B7280]">No surprises. No hidden fees.</p>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <Receipt className="h-8 w-8 text-[#F59E0B]" />
               </div>
-            </AnimatedSection>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">100% Transparent Pricing</h3>
+              <p className="text-[#6B7280]">No surprises. No hidden fees.</p>
+            </div>
 
-            {/* Satisfaction Guarantee */}
-            <AnimatedSection animation="fade" staggerIndex={2}>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#F59E0B]/5 mb-5">
-                  <ShieldCheck className="h-7 w-7 text-[#0F766E]" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-[#1F2937] mb-2">Satisfaction Guarantee</h3>
-                <p className="text-sm md:text-base text-[#6B7280]">30-day peace of mind for every project.</p>
+            {/* Satisfaction-Focused Process */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <ShieldCheck className="h-8 w-8 text-[#F59E0B]" />
               </div>
-            </AnimatedSection>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Satisfaction-Focused Process</h3>
+              <p className="text-[#6B7280]">Clear feedback rounds so your site feels right before launch.</p>
+            </div>
           </div>
         </div>
       </section>

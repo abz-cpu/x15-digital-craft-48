@@ -23,17 +23,64 @@ const MaintenanceSupport = () => {
         <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Maintenance & Support
-              </h1>
-              <p className="text-xl text-white/90 mb-4">
-                Ongoing updates, fixes, and protection for your website.
-              </p>
-              <p className="text-lg text-white/80">
-                Peace of mind so you can focus on running your business.
-              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Maintenance & Support</h1>
+              <p className="text-xl text-white/90 mb-4">Ongoing updates, fixes, and protection for your website.</p>
+              <p className="text-lg text-white/80">Peace of mind so you can focus on running your business.</p>
             </div>
           </Container>
+        </section>
+
+        {/* Support & Maintenance Section */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
+          <div className="max-w-5xl mx-auto">
+            <Card className="border-2 border-primary/20 bg-background">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row gap-6 items-center">
+                  <div className="flex-shrink-0">
+                    <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Shield className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <p className="text-sm text-muted-foreground mb-2">Recommended for All Packages</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-2">Support & Maintenance</h3>
+                    <p className="text-3xl font-bold text-primary mb-4">From £25/month</p>
+                    <p className="text-muted-foreground mb-4">Keep your website secure, fast, and up-to-date.</p>
+
+                    <div className="grid md:grid-cols-2 gap-2 mb-6">
+                      {[
+                        "Regular updates & security patches",
+                        "Weekly backups",
+                        "Priority support (4-hour response)",
+                        "Performance monitoring",
+                        "Fast bug fixes",
+                        "Content updates (up to 1 hour/month)",
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm">
+                          <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="text-sm text-muted-foreground mb-4">
+                      <strong>Perfect for:</strong> Any business that wants peace of mind
+                    </p>
+
+                    <Button asChild>
+                      <Link to="/contact">
+                        Add to Any Package <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+
+                    <p className="text-xs text-muted-foreground mt-4">
+                      💡 Optional but highly recommended — protect your investment
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         {/* Who This Is For */}
@@ -41,11 +88,10 @@ const MaintenanceSupport = () => {
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">
-                  Who This Is For
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">Who This Is For</h2>
                 <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-                  Website maintenance is essential for any business that relies on their website and wants to keep it running smoothly.
+                  Website maintenance is essential for any business that relies on their website and wants to keep it
+                  running smoothly.
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
@@ -70,9 +116,7 @@ const MaintenanceSupport = () => {
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                  What You Get
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">What You Get</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {[
                     { icon: Shield, title: "Security Updates", desc: "Regular patches to keep your site protected" },
@@ -99,9 +143,7 @@ const MaintenanceSupport = () => {
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                  What's Included
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">What's Included</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
                     "Regular updates & security patches",
@@ -128,18 +170,10 @@ const MaintenanceSupport = () => {
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Pricing
-              </h2>
-              <p className="text-lg text-muted-foreground mb-2">
-                Affordable monthly plans to protect your investment.
-              </p>
-              <p className="text-2xl font-bold text-primary mb-6">
-                From £25/month
-              </p>
-              <p className="text-muted-foreground">
-                Cancel anytime. No long-term contracts required.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Pricing</h2>
+              <p className="text-lg text-muted-foreground mb-2">Affordable monthly plans to protect your investment.</p>
+              <p className="text-2xl font-bold text-primary mb-6">From £25/month</p>
+              <p className="text-muted-foreground">Cancel anytime. No long-term contracts required.</p>
             </div>
           </Container>
         </section>
@@ -148,9 +182,7 @@ const MaintenanceSupport = () => {
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready for Peace of Mind?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready for Peace of Mind?</h2>
               <p className="text-xl text-white/90 mb-8">
                 Let us handle the technical stuff while you focus on your business.
               </p>
@@ -161,9 +193,7 @@ const MaintenanceSupport = () => {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  <Link to="/quick-start">
-                    Start Project Brief
-                  </Link>
+                  <Link to="/quick-start">Start Project Brief</Link>
                 </Button>
               </div>
             </div>

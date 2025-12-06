@@ -492,8 +492,13 @@ const WebPackage = () => {
                   <Card className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2">
                     {/* Enhanced Badge - Bigger, Full Width, with Glow */}
                     <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                      <Badge className="bg-gradient-to-r from-teal-600 to-teal-700 text-white font-bold px-6 py-2 text-xs tracking-wide shadow-lg shadow-teal-600/30">
-                        💼 STRESS-FREE CHOICE
+                      <Badge
+                        className="absolute -top-3 left-4
+             bg-white text-teal-700 border border-teal-300/40
+             shadow-sm flex items-center gap-1 px-3 py-1
+             text-[11px] font-semibold tracking-wide"
+                      >
+                        💼 Stress-Free Choice
                       </Badge>
                     </div>
 

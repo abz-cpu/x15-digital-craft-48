@@ -75,72 +75,31 @@ const Navigation = () => {
     { name: "Blog", path: "/blog" },
   ];
 
-  // Shorter names with brief descriptions for clarity
-  const webServices = [
+  // Simplified featured services for dropdown - most important only
+  const featuredServices = [
     {
       name: "Web Packages",
       path: "/web-package",
-      bold: true,
       desc: "Complete website solutions",
+      category: "web",
     },
     {
-      name: "App Development",
-      path: "/services/app-development",
-      desc: "Custom web applications",
+      name: "AI Packages",
+      path: "/ai-package",
+      desc: "Complete AI solutions",
+      category: "ai",
     },
     {
-      name: "Personalised Apps",
-      path: "/services/personalised-apps",
-      desc: "Bespoke business tools",
-    },
-    {
-      name: "Landing Pages",
-      path: "/services/landing-pages",
-      desc: "High-converting single pages",
-    },
-    {
-      name: "Logo Design",
-      path: "/services/logo-design",
-      desc: "Professional brand marks",
-    },
-    {
-      name: "Branding",
-      path: "/services/branding",
-      desc: "Complete brand identity",
+      name: "SEO Services",
+      path: "/services/seo",
+      desc: "Get found on Google",
+      category: "web",
     },
     {
       name: "Maintenance & Support",
       path: "/services/maintenance-support",
       desc: "Ongoing website care",
-    },
-    {
-      name: "IT Support",
-      path: "/services/it-support",
-      desc: "Technical help when needed",
-    },
-  ];
-
-  const aiServices = [
-    {
-      name: "AI Packages",
-      path: "/ai-package",
-      bold: true,
-      desc: "Complete AI solutions",
-    },
-    {
-      name: "AI Chatbots",
-      path: "/services#ai-chatbots",
-      desc: "24/7 customer support bots",
-    },
-    {
-      name: "AI Receptionist",
-      path: "/services#ai-receptionist",
-      desc: "Automated call handling",
-    },
-    {
-      name: "AI Sales Assistant",
-      path: "/services#ai-sales",
-      desc: "Smart lead qualification",
+      category: "web",
     },
   ];
 
@@ -223,7 +182,7 @@ const Navigation = () => {
                   />
                 </button>
 
-                {/* Enhanced Dropdown with descriptions */}
+                {/* Simplified Dropdown - Featured Services Only */}
                 {showServicesDropdown && (
                   <div
                     ref={dropdownRef}
@@ -236,67 +195,37 @@ const Navigation = () => {
                     role="menu"
                     aria-label="Services submenu"
                   >
-                    <div className="w-[90vw] max-w-[700px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB]/50 p-8 animate-fade-in">
-                      <div className="grid grid-cols-2 gap-10">
-                        {/* Web Services Column */}
-                        <div>
-                          <h3
-                            className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-5 font-semibold"
-                            id="web-services-heading"
+                    <div className="w-[90vw] max-w-[520px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB]/50 p-6 animate-fade-in">
+                      {/* Featured Services in Single Column */}
+                      <div className="space-y-1">
+                        {featuredServices.map((service) => (
+                          <PreloadLink
+                            key={service.path}
+                            to={service.path}
+                            role="menuitem"
+                            className={`block py-3 px-4 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                              service.path,
+                            )}`}
                           >
-                            WEB SERVICES
-                          </h3>
-                          <ul className="space-y-1" role="group" aria-labelledby="web-services-heading">
-                            {webServices.map((service) => (
-                              <li key={service.path} role="none">
-                                <PreloadLink
-                                  to={service.path}
-                                  role="menuitem"
-                                  className={`block py-2.5 px-3 -mx-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                                    service.path,
-                                  )}`}
-                                >
-                                  <div
-                                    className={`text-base ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}
-                                  >
-                                    {service.name}
-                                  </div>
-                                  <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                                </PreloadLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                            <div className="text-base font-semibold text-[#1F2937]">{service.name}</div>
+                            <div className="text-sm text-[#6B7280] mt-0.5">{service.desc}</div>
+                          </PreloadLink>
+                        ))}
+                      </div>
 
-                        {/* AI Services Column */}
-                        <div>
-                          <h3
-                            className="text-xs uppercase tracking-[0.1em] text-[#9CA3AF] mb-5 font-semibold"
-                            id="ai-services-heading"
-                          >
-                            AI SERVICES
-                          </h3>
-                          <ul className="space-y-1" role="group" aria-labelledby="ai-services-heading">
-                            {aiServices.map((service) => (
-                              <li key={service.path} role="none">
-                                <PreloadLink
-                                  to={service.path}
-                                  role="menuitem"
-                                  className={`block py-2.5 px-3 -mx-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                                    service.path,
-                                  )}`}
-                                >
-                                  <div
-                                    className={`text-base ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}
-                                  >
-                                    {service.name}
-                                  </div>
-                                  <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                                </PreloadLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                      {/* View All Services CTA */}
+                      <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                        <PreloadLink
+                          to="/services"
+                          role="menuitem"
+                          className="flex items-center justify-between py-3 px-4 rounded-lg bg-[#F9FAFB] hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] group"
+                        >
+                          <span className="text-base font-medium text-[#1F2937]">View All Services</span>
+                          <ChevronDown
+                            className="h-4 w-4 -rotate-90 text-[#0F766E] group-hover:translate-x-1 transition-transform"
+                            aria-hidden="true"
+                          />
+                        </PreloadLink>
                       </div>
                     </div>
                   </div>

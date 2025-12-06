@@ -23,15 +23,9 @@ const ItSupport = () => {
         <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                IT Support
-              </h1>
-              <p className="text-xl text-white/90 mb-4">
-                Reliable technical support for your day-to-day operations.
-              </p>
-              <p className="text-lg text-white/80">
-                Expert help when you need it, without the full-time cost.
-              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">IT Support</h1>
+              <p className="text-xl text-white/90 mb-4">Reliable technical support for your day-to-day operations.</p>
+              <p className="text-lg text-white/80">Expert help when you need it, without the full-time cost.</p>
             </div>
           </Container>
         </section>
@@ -41,11 +35,10 @@ const ItSupport = () => {
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">
-                  Who This Is For
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">Who This Is For</h2>
                 <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-                  IT support is perfect for small businesses that need technical help but don't have a dedicated IT team.
+                  IT support is perfect for small businesses that need technical help but don't have a dedicated IT
+                  team.
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
@@ -70,9 +63,7 @@ const ItSupport = () => {
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                  What You Get
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">What You Get</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {[
                     { icon: Monitor, title: "Remote Support", desc: "Quick fixes without waiting for on-site visits" },
@@ -99,9 +90,7 @@ const ItSupport = () => {
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                  What's Covered
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">What's Covered</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
                     "Email setup and troubleshooting",
@@ -124,22 +113,294 @@ const ItSupport = () => {
           </Container>
         </section>
 
+        {/* X15 PC Builders - Sister Brand Services (BIG SECTION) */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+          <div className="max-w-7xl mx-auto fade-in-section">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary">SISTER BRAND</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">X15 PC Builders</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Custom PC builds, repairs, and maintenance services in the UK
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
+              {/* Custom PC Builds */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <HardDrive className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Custom PC Builds</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £500</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Custom component selection",
+                      "Professional assembly",
+                      "Cable management",
+                      "Initial setup & testing",
+                      "Windows installation",
+                      "1-year parts warranty",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Gaming, video editing, 3D rendering, or general use
+                  </p>
+                  <Button asChild className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      View PC Builds <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* PC Repairs */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Activity className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">PC Repairs</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £40</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What We Fix:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Hardware diagnostics",
+                      "Component replacement",
+                      "Software troubleshooting",
+                      "Virus & malware removal",
+                      "Performance upgrades",
+                      "Data recovery assistance",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> When your PC isn't running right or won't start
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Get a Repair Quote <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Maintenance & Cleaning */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Gauge className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Maintenance &amp; Cleaning</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £50</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Deep dust cleaning",
+                      "Thermal paste replacement",
+                      "Fan optimization",
+                      "Software updates",
+                      "Performance testing",
+                      "Health check report",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Keeping your PC running smoothly and quietly
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Book Maintenance <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <p className="text-muted-foreground mb-4">
+                X15 PC Builders is our sister brand specializing in custom PC solutions
+              </p>
+              <Button asChild size="lg">
+                <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Add-Ons & Extras - Categorized Tabs */}
+        <section
+          id="add-ons"
+          className="scroll-mt-24 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background"
+        >
+          <div className="max-w-7xl mx-auto fade-in-section">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-4">Add-Ons &amp; Extras</h3>
+            <p className="text-center text-muted-foreground mb-2">Enhance any package with these optional features.</p>
+            <p className="text-center text-sm text-muted-foreground mb-12">
+              💡 Bundle 2-3 add-ons and save 10-20% — ask us about package deals!
+            </p>
+
+            {/* Desktop: Tabs */}
+            <div className="hidden md:block">
+              <Tabs defaultValue="speed" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 bg-muted p-2 rounded-lg mb-8 h-auto">
+                  {addOnCategories.map((cat) => {
+                    const shortLabels: Record<string, string> = {
+                      "Speed & Priority": "Speed & Priority",
+                      "Technical & Performance": "Performance",
+                      "Security & Compliance": "Security",
+                      "Branding & Design": "Branding",
+                      "Marketing & SEO": "Marketing",
+                      "E-commerce & Conversions": "E-commerce",
+                      "Content & Training": "Content",
+                      "Hosting & Infrastructure": "Hosting",
+                      "Analytics & Tracking": "Analytics",
+                      "Bundles (Save 10-20%)": "Bundles",
+                    };
+                    return (
+                      <TabsTrigger
+                        key={cat.id}
+                        value={cat.id}
+                        className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm py-3 px-3 rounded-md hover:bg-accent transition-colors whitespace-normal text-center leading-tight"
+                      >
+                        <cat.icon className="h-4 w-4 mr-1 flex-shrink-0" />
+                        <span>{shortLabels[cat.label] || cat.label}</span>
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+
+                {addOnCategories.map((category) => (
+                  <TabsContent key={category.id} value={category.id}>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {category.addons.map((addon, i) => (
+                        <Card key={i} className="hover-lift p-4">
+                          <div className="flex items-start gap-3 mb-3">
+                            <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                              <p className="text-lg font-bold text-primary">{addon.price}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
+                          {addon.perfectFor && (
+                            <div className="mb-3">
+                              <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                              <ul className="text-xs text-muted-foreground space-y-0.5">
+                                {addon.perfectFor.map((item: string, j: number) => (
+                                  <li key={j}>• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
+                          <Button size="sm" className="w-full" asChild>
+                            <Link to="/contact">Add to Package</Link>
+                          </Button>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </div>
+
+            {/* Mobile: Accordion */}
+            <div className="md:hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {addOnCategories.map((category) => (
+                  <AccordionItem key={category.id} value={category.id}>
+                    <AccordionTrigger className="text-left">
+                      <div className="flex items-center gap-2">
+                        <category.icon className="h-5 w-5 text-success" />
+                        <span className="font-semibold">{category.label}</span>
+                        <span className="text-xs text-muted-foreground">({category.addons.length})</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-4 pt-4">
+                        {category.addons.map((addon, i) => (
+                          <Card key={i} className="p-4">
+                            <div className="flex items-start gap-3 mb-3">
+                              <addon.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-bold text-base text-secondary mb-1 leading-tight">{addon.name}</h4>
+                                <p className="text-lg font-bold text-primary">{addon.price}</p>
+                              </div>
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-3">{addon.description}</p>
+                            {addon.perfectFor && (
+                              <div className="mb-3">
+                                <p className="text-xs font-semibold mb-1">Perfect for:</p>
+                                <ul className="text-xs text-muted-foreground space-y-0.5">
+                                  {addon.perfectFor.map((item: string, j: number) => (
+                                    <li key={j}>• {item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                            <p className="text-xs text-muted-foreground mb-3">{addon.details}</p>
+                            <Button size="sm" className="w-full" asChild>
+                              <Link to="/contact">Add to Package</Link>
+                            </Button>
+                          </Card>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            {/* Footer CTA */}
+            <div className="mt-12 text-center">
+              <p className="text-lg text-muted-foreground mb-4">Don't see what you need?</p>
+              <p className="text-muted-foreground mb-6">
+                We can customize any add-on or create bespoke solutions for your specific requirements.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild variant="outline">
+                  <Link to="/contact">Request Custom Solution</Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <a
+                    href="https://wa.me/447424062513?text=Hi%2C%20I%20need%20a%20custom%20add-on"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Chat on WhatsApp
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Pricing
-              </h2>
-              <p className="text-lg text-muted-foreground mb-2">
-                Flexible support options to suit your needs.
-              </p>
-              <p className="text-2xl font-bold text-primary mb-6">
-                From £35/hour or £75/month retainer
-              </p>
-              <p className="text-muted-foreground">
-                Pay as you go or lock in a monthly rate for priority support.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Pricing</h2>
+              <p className="text-lg text-muted-foreground mb-2">Flexible support options to suit your needs.</p>
+              <p className="text-2xl font-bold text-primary mb-6">From £35/hour or £75/month retainer</p>
+              <p className="text-muted-foreground">Pay as you go or lock in a monthly rate for priority support.</p>
             </div>
           </Container>
         </section>
@@ -148,9 +409,7 @@ const ItSupport = () => {
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Need Tech Help?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Need Tech Help?</h2>
               <p className="text-xl text-white/90 mb-8">
                 Get reliable IT support without the overhead of a full-time hire.
               </p>
@@ -161,9 +420,7 @@ const ItSupport = () => {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  <Link to="/quick-start">
-                    Start Project Brief
-                  </Link>
+                  <Link to="/quick-start">Start Project Brief</Link>
                 </Button>
               </div>
             </div>

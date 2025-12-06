@@ -113,6 +113,137 @@ const ItSupport = () => {
           </Container>
         </section>
 
+        {/* X15 PC Builders - Sister Brand Services (BIG SECTION) */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+          <div className="max-w-7xl mx-auto fade-in-section">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary">SISTER BRAND</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">X15 PC Builders</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Custom PC builds, repairs, and maintenance services in the UK
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
+              {/* Custom PC Builds */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <HardDrive className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Custom PC Builds</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £500</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Custom component selection",
+                      "Professional assembly",
+                      "Cable management",
+                      "Initial setup & testing",
+                      "Windows installation",
+                      "1-year parts warranty",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Gaming, video editing, 3D rendering, or general use
+                  </p>
+                  <Button asChild className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      View PC Builds <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* PC Repairs */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Activity className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">PC Repairs</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £40</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What We Fix:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Hardware diagnostics",
+                      "Component replacement",
+                      "Software troubleshooting",
+                      "Virus & malware removal",
+                      "Performance upgrades",
+                      "Data recovery assistance",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> When your PC isn't running right or won't start
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Get a Repair Quote <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Maintenance & Cleaning */}
+              <Card className="hover-lift">
+                <CardHeader>
+                  <Gauge className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Maintenance &amp; Cleaning</CardTitle>
+                  <p className="text-3xl font-bold text-primary">From £50</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-semibold mb-4">What's Included:</p>
+                  <ul className="space-y-2 mb-4">
+                    {[
+                      "Deep dust cleaning",
+                      "Thermal paste replacement",
+                      "Fan optimization",
+                      "Software updates",
+                      "Performance testing",
+                      "Health check report",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Perfect for:</strong> Keeping your PC running smoothly and quietly
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                      Book Maintenance <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <p className="text-muted-foreground mb-4">
+                X15 PC Builders is our sister brand specializing in custom PC solutions
+              </p>
+              <Button asChild size="lg">
+                <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>

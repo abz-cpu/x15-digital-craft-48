@@ -177,68 +177,7 @@ const Index = () => {
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
       <ScrollProgressBar />
       <Navigation />
-      /* Improved Hero Section Component Structure */
-      <section className="relative overflow-hidden bg-slate-950 pt-20 pb-32">
-        {/* Modern Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-        <Container className="relative z-10">
-          <div className="text-center max-w-4xl mx-auto space-y-8">
-            {/* Social Proof Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-1.5 backdrop-blur-md">
-              <span className="flex h-2 w-2 rounded-full bg-teal-400 animate-pulse"></span>
-              <span className="text-sm font-medium text-teal-200">Accepting 3 new projects for December</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-              Stop{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
-                Renting
-              </span>{" "}
-              Your Website.
-              <br />
-              <span className="text-white">Start Owning It.</span>
-            </h1>
-
-            {/* Subhead */}
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              High-performance websites and AI automation systems built for UK businesses.
-              <span className="text-white font-medium"> One-time payment. Full code ownership. 14-day delivery.</span>
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button
-                size="lg"
-                className="h-14 px-8 text-lg bg-teal-600 hover:bg-teal-500 text-white shadow-[0_0_40px_-10px_rgba(13,148,136,0.5)]"
-              >
-                View Pricing & Packages
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 px-8 text-lg border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
-              >
-                See Live Portfolio
-              </Button>
-            </div>
-
-            {/* Micro-Trust */}
-            <div className="pt-8 flex items-center justify-center gap-8 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                <span>No monthly platform fees</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                <span>Built in React/Next.js</span>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
       {/* Hero */}
       <section
         className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-16 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
@@ -462,6 +401,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
@@ -696,6 +636,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Ready to Get Started Section */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
@@ -801,6 +742,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Trust Section - Why Choose X15 Digital */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
@@ -836,6 +778,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* How It Works Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -883,6 +826,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"
@@ -983,6 +927,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Testimonials */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
@@ -1031,6 +976,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* FAQ */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-4xl mx-auto fade-in-section">
@@ -1157,6 +1103,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Trust + global CTA + footer */}
       <TrustBadgesBar />
       <CtaCard />

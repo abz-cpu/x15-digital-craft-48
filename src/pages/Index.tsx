@@ -646,6 +646,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center h-full">
                   <Globe className="h-16 w-16 text-[#0F766E] mb-6" />
                   <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites Built to Convert</h3>
+
                   <p className="text-base text-[#6B7280] mb-8">For businesses ready to show up professionally online</p>
 
                   <div className="space-y-4 mb-8 flex-1">
@@ -653,21 +654,28 @@ const Index = () => {
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">One-time payment</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Full ownership</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">1-14 day delivery</span>
+                      <span className="text-sm text-[#1F2937]">1–14 day delivery</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">No monthly fees</span>
                     </div>
                   </div>
 
-                  <p className="text-xl font-semibold text-[#0F766E] mb-6">Starting at £200</p>
+                  {/* PRICE */}
+                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
+
+                  {/* SUBTLE URGENCY */}
+                  <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
 
                   <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
                     <Link to="/web-package">
@@ -684,6 +692,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center h-full">
                   <Bot className="h-16 w-16 text-[#0F766E] mb-6" />
                   <h3 className="text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
+
                   <p className="text-base text-[#6B7280] mb-8">
                     For businesses ready to automate customer interactions 24/7
                   </p>
@@ -691,23 +700,30 @@ const Index = () => {
                   <div className="space-y-4 mb-8 flex-1">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
+                      <span className="text-sm text-[#1F2937]">Handles calls & messages</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Books appointments</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Qualifies leads</span>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Works while you sleep</span>
                     </div>
                   </div>
 
-                  <p className="text-xl font-semibold text-[#0F766E] mb-6">Starting at £50/month</p>
+                  {/* PRICE */}
+                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £50/month</p>
+
+                  {/* SUBTLE URGENCY */}
+                  <p className="text-sm text-[#6B7280] mb-6">Limited onboarding slots each month</p>
 
                   <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
                     <Link to="/ai-package">

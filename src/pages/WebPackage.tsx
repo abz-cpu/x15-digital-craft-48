@@ -490,29 +490,28 @@ const WebPackage = () => {
                 {/* PACKAGE 2: Support & Maintenance - HIGHLIGHTED MIDDLE OPTION */}
                 <AnimatedSection staggerIndex={1} animation="scale">
                   <Card className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2">
-                    {/* Enhanced Badge - Bigger, Full Width, with Glow */}
-                    <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                      <Badge
-                        className="absolute -top-3 left-4 
-               inline-flex items-center gap-1 
-               rounded-full bg-white 
-               text-[#0F766E] 
-               border border-[#0F766E]/30 
-               shadow-sm 
-               px-3 py-1 
-               text-[11px] font-medium tracking-wide"
-                      >
-                        <span className="text-xs">💼</span>
-                        STRESS-FREE CHOICE
-                      </Badge>
-                    </div>
+                    {/* MATCHED BADGE (same style & placement as Hosting + Support) */}
+                    <Badge
+                      className="absolute -top-3 left-4
+                 inline-flex items-center gap-1
+                 rounded-full bg-white
+                 text-[#0F766E]
+                 border border-[#0F766E]/30
+                 shadow-sm
+                 px-3 py-1
+                 text-[11px] font-medium tracking-wide"
+                    >
+                      <span className="text-xs">💼</span>
+                      STRESS-FREE CHOICE
+                    </Badge>
 
                     <CardHeader className="pt-8 pb-4">
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
-                        Support & Maintenance
+                        Support &amp; Maintenance
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
-                        £25 /month<span className="block text-xs font-medium text-muted-foreground">/month</span>
+                        £25 /month
+                        <span className="block text-xs font-medium text-muted-foreground">/month</span>
                       </p>
                     </CardHeader>
 
@@ -534,7 +533,7 @@ const WebPackage = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Security monitoring & threat blocking</span>
+                          <span className="text-sm">Security monitoring &amp; threat blocking</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
@@ -542,7 +541,7 @@ const WebPackage = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Priority support (24-48h response)</span>
+                          <span className="text-sm">Priority support (24–48h response)</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />

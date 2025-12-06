@@ -24,6 +24,7 @@ import {
   Image,
   Settings,
   Clock,
+  Receipt,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

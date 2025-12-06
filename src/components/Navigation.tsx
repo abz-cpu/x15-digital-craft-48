@@ -351,7 +351,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - Simplified with key services + "View All" */}
+        {/* Mobile Menu - Simplified with key services shown */}
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
@@ -386,7 +386,19 @@ const Navigation = () => {
                   </div>
                 </PreloadLink>
 
-                {/* Additional key services - Mobile only */}
+                {/* Additional Key Services - Mobile Only */}
+                <PreloadLink
+                  to="/services/seo"
+                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                    location.pathname === "/services/seo" ? "bg-[#F0F9F7]" : ""
+                  }`}
+                >
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-[#1F2937]">SEO Services</div>
+                    <div className="text-xs text-[#6B7280] mt-0.5">Get found on Google</div>
+                  </div>
+                </PreloadLink>
+
                 <PreloadLink
                   to="/services/maintenance-support"
                   className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
@@ -396,18 +408,6 @@ const Navigation = () => {
                   <div className="flex-1">
                     <div className="text-sm font-medium text-[#1F2937]">Maintenance & Support</div>
                     <div className="text-xs text-[#6B7280] mt-0.5">Ongoing website care</div>
-                  </div>
-                </PreloadLink>
-
-                <PreloadLink
-                  to="/services/it-support"
-                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/services/it-support" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-[#1F2937]">IT Support</div>
-                    <div className="text-xs text-[#6B7280] mt-0.5">Technical help when needed</div>
                   </div>
                 </PreloadLink>
 

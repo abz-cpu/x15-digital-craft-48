@@ -428,7 +428,7 @@ const WebPackage = () => {
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
                         £35
-                        <span className="block text-xs font-medium text-muted-foreground">One-time</span>
+                        <span className="block text-xs font-medium text-muted-foreground">One-time setup fee</span>
                       </p>
                     </CardHeader>
 

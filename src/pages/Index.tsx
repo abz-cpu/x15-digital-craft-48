@@ -265,12 +265,11 @@ const Index = () => {
               {/* CHOICE CARDS */}
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
                 {/* Website Packages card – primary */}
-                <button
-                  type="button"
+                <Link
+                  to="/web-package"
                   aria-label="Explore website packages and pricing"
-                  onClick={() => scrollToSection("web-preview")}
                   className="hero-choice-card hero-choice-card-primary flex-1 lg:flex-[1.2] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   <Globe className="hero-icon-animated hero-icon-spin h-4 w-4 text-white/85" aria-hidden="true" />
                   <div className="flex flex-col items-start">
@@ -279,15 +278,14 @@ const Index = () => {
                       From £200 <span className="hero-arrow">→</span>
                     </span>
                   </div>
-                </button>
+                </Link>
 
                 {/* AI Automation card – outcome-focused label */}
-                <button
-                  type="button"
+                <Link
+                  to="/ai-package"
                   aria-label="Automate my sales with AI"
-                  onClick={() => scrollToSection("ai-preview")}
                   className="hero-choice-card flex-1 lg:flex-[0.9] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   <Bot className="hero-icon-animated hero-icon-blink h-4 w-4 text-white/80" aria-hidden="true" />
                   <div className="flex flex-col items-start">
@@ -296,7 +294,7 @@ const Index = () => {
                       From £50/mo <span className="hero-arrow">→</span>
                     </span>
                   </div>
-                </button>
+                </Link>
               </div>
 
               {/* quick stats - keep top 3 */}

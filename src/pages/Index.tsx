@@ -27,6 +27,7 @@ import {
   Receipt,
   ShieldCheck,
   BadgeCheck,
+  X,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,7 @@ import { ReviewSchema } from "@/components/ReviewSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
-
+import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const parallaxOffset = useParallax({ speed: 0.5, maxOffset: 50 });
@@ -589,6 +590,11 @@ const Index = () => {
 
                       {isExpanded && (
                         <div className="space-y-4">
+                          {/* Close indicator */}
+                          <div className="flex items-center justify-center gap-2 text-primary font-medium text-sm bg-primary/10 py-2 px-3 rounded-lg -mt-2">
+                            <X className="h-4 w-4" />
+                            <span>Tap to close</span>
+                          </div>
                           <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
                           <div>
                             <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
@@ -974,13 +980,22 @@ const Index = () => {
       {/* FAQ */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-4xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">Frequently Asked Questions</h2>
-          <p className="text-center text-muted-foreground mb-12">Everything you need to know before getting started.</p>
+          {/* Header with illustration */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Frequently Asked Questions</h2>
+              <p className="text-muted-foreground">Everything you need to know before getting started.</p>
+            </div>
+            {/* FAQ Illustration */}
+            <div className="hidden md:flex items-center justify-center w-32 h-32 rounded-full bg-primary/10 flex-shrink-0">
+              <MessageSquare className="h-14 w-14 text-primary" />
+            </div>
+          </div>
 
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left font-semibold">
-                How long does a typical project take?
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            <AccordionItem value="item-1" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Project timeline</strong> — How long does a typical project take?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Entry/Starter websites: 1–3 days. Business packages: 5–10 days. AI automation setup: 2–5 days. Most
@@ -988,9 +1003,9 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left font-semibold">
-                Why is your pricing lower than typical agencies?
+            <AccordionItem value="item-2" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Affordable pricing</strong> — Why is your pricing lower than typical agencies?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We use modern tools and work lean—no expensive offices or account managers. You get agency-quality work
@@ -998,17 +1013,19 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left font-semibold">Do I own everything after launch?</AccordionTrigger>
+            <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Full ownership</strong> — Do I own everything after launch?</span>
+              </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Yes, 100%. Full ownership of all code, designs, and files. No platform lock-in, no ongoing licensing
                 fees. It&apos;s completely yours.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left font-semibold">
-                What if I need changes after launch?
+            <AccordionItem value="item-4" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Post-launch changes</strong> — What if I need changes after launch?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Unlimited revisions until you&apos;re happy. After launch, minor tweaks are free for 30 days. We also
@@ -1016,9 +1033,9 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left font-semibold">
-                Can you work with my existing website?
+            <AccordionItem value="item-5" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Existing websites</strong> — Can you work with my existing website?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 In most cases, yes. We can either improve your current site or build a new one and migrate content. AI
@@ -1026,25 +1043,29 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left font-semibold">Can I see examples of your work?</AccordionTrigger>
+            <AccordionItem value="item-6" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Portfolio examples</strong> — Can I see examples of your work?</span>
+              </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Absolutely. Check the Portfolio page for recent projects and capability examples. We&apos;re building
                 our first 10 client projects and documenting everything transparently.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7">
-              <AccordionTrigger className="text-left font-semibold">Do you offer payment plans?</AccordionTrigger>
+            <AccordionItem value="item-7" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Payment flexibility</strong> — Do you offer payment plans?</span>
+              </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly,
                 so there&apos;s no large upfront investment.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-8">
-              <AccordionTrigger className="text-left font-semibold">
-                What happens if I&apos;m not happy with the result?
+            <AccordionItem value="item-8" className="border rounded-lg px-4 bg-background">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                <span><strong className="text-primary">Satisfaction guarantee</strong> — What happens if I&apos;m not happy with the result?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We offer unlimited revisions until you&apos;re satisfied. If we genuinely can&apos;t deliver what you
@@ -1052,6 +1073,16 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+
+          {/* CTA after FAQ */}
+          <div className="mt-10 text-center p-6 bg-background rounded-xl border border-primary/20">
+            <p className="text-lg font-medium text-secondary mb-4">Still have questions? Let's chat.</p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+              <Link to="/contact">
+                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -1060,6 +1091,7 @@ const Index = () => {
       <CtaCard />
       <Footer />
       <FloatingActionMenu />
+      <MobileFloatingCTA />
     </div>
   );
 };

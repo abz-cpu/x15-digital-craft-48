@@ -39,6 +39,7 @@ const LogoDesign = lazy(() => import("./pages/services/LogoDesign"));
 const Branding = lazy(() => import("./pages/services/Branding"));
 const MaintenanceSupport = lazy(() => import("./pages/services/MaintenanceSupport"));
 const ItSupport = lazy(() => import("./pages/services/ItSupport"));
+const Seo = lazy(() => import("./pages/services/Seo"));
 
 // Register preload functions for route prefetching
 registerPreload("/", () => import("./pages/Index"));
@@ -60,6 +61,7 @@ registerPreload("/services/logo-design", () => import("./pages/services/LogoDesi
 registerPreload("/services/branding", () => import("./pages/services/Branding"));
 registerPreload("/services/maintenance-support", () => import("./pages/services/MaintenanceSupport"));
 registerPreload("/services/it-support", () => import("./pages/services/ItSupport"));
+registerPreload("/services/seo", () => import("./pages/services/Seo"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -118,6 +120,7 @@ const App = () => (
               <Route path="/services/branding" element={<Branding />} />
               <Route path="/services/maintenance-support" element={<MaintenanceSupport />} />
               <Route path="/services/it-support" element={<ItSupport />} />
+              <Route path="/services/seo" element={<Seo />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

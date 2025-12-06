@@ -120,6 +120,11 @@ const Navigation = () => {
       path: "/services/it-support",
       desc: "Technical help when needed",
     },
+    {
+      name: "SEO",
+      path: "/services/seo",
+      desc: "Get found on Google",
+    },
   ];
 
   const aiServices = [

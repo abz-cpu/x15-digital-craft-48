@@ -400,7 +400,9 @@ const Index = () => {
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">What We Offer</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
+            Everything You Need to Grow Online
+          </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
             Comprehensive digital services designed to transform your business. Each service is tailored to solve your
             specific challenges and drive growth.

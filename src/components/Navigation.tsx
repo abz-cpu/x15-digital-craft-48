@@ -8,7 +8,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
-  const [showMobileServicesAccordion, setShowMobileServicesAccordion] = useState(false);
+  const [showMobileAllServices, setShowMobileAllServices] = useState(false);
 
   const closeTimeoutRef = useRef<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ const Navigation = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setShowServicesDropdown(false);
-    setShowMobileServicesAccordion(false);
+    setShowMobileAllServices(false);
   }, [location]);
 
   // Accessibility: Close dropdown on click outside
@@ -119,11 +119,6 @@ const Navigation = () => {
       name: "IT Support",
       path: "/services/it-support",
       desc: "Technical help when needed",
-    },
-    {
-      name: "SEO",
-      path: "/services/seo",
-      desc: "Get found on Google",
     },
   ];
 
@@ -358,7 +353,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Simplified with expandable services */}
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
@@ -366,80 +361,91 @@ const Navigation = () => {
             role="dialog"
             aria-label="Mobile menu"
           >
-            <div className="px-4 py-5 space-y-1">
-              {/* Services Accordion */}
-              <div className="border-b border-[#E5E7EB] pb-3 mb-3">
-                <button
-                  className="flex items-center justify-between w-full py-3 px-2 text-[#1F2937] font-medium hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
-                  onClick={() => setShowMobileServicesAccordion((prev) => !prev)}
-                  aria-expanded={showMobileServicesAccordion}
-                  aria-label="Services menu"
+            <div className="px-4 py-5 space-y-2">
+              {/* Highlighted Package Links */}
+              <div className="space-y-2 pb-3 mb-3 border-b border-[#E5E7EB]">
+                <PreloadLink
+                  to="/web-package"
+                  className={`flex items-start gap-3 py-3 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                    location.pathname === "/web-package" ? "bg-[#F0F9F7]" : ""
+                  }`}
                 >
-                  <span className="text-base">Services</span>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      showMobileServicesAccordion ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </button>
-                {showMobileServicesAccordion && (
-                  <div className="pl-3 pr-2 mt-3 space-y-3">
-                    {/* Web Services */}
-                    <div>
-                      <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
-                        Web Services
-                      </div>
-                      <div className="space-y-1">
-                        {webServices.map((service) => (
-                          <PreloadLink
-                            key={service.path}
-                            to={service.path}
-                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                              service.path,
-                            )}`}
-                          >
-                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
-                              {service.name}
-                            </div>
-                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                          </PreloadLink>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* AI Services */}
-                    <div className="pt-3 border-t border-[#E5E7EB]">
-                      <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
-                        AI Services
-                      </div>
-                      <div className="space-y-1">
-                        {aiServices.map((service) => (
-                          <PreloadLink
-                            key={service.path}
-                            to={service.path}
-                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                              service.path,
-                            )}`}
-                          >
-                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
-                              {service.name}
-                            </div>
-                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                          </PreloadLink>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="flex-1">
+                    <div className="text-base font-semibold text-[#1F2937]">Web Packages</div>
+                    <div className="text-sm text-[#6B7280] mt-0.5">Complete website solutions</div>
                   </div>
-                )}
+                </PreloadLink>
+
+                <PreloadLink
+                  to="/ai-package"
+                  className={`flex items-start gap-3 py-3 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                    location.pathname === "/ai-package" ? "bg-[#F0F9F7]" : ""
+                  }`}
+                >
+                  <div className="flex-1">
+                    <div className="text-base font-semibold text-[#1F2937]">AI Packages</div>
+                    <div className="text-sm text-[#6B7280] mt-0.5">AI-powered business automation</div>
+                  </div>
+                </PreloadLink>
+
+                {/* Expandable All Services - Simple toggle */}
+                <div>
+                  <button
+                    onClick={() => setShowMobileAllServices((prev) => !prev)}
+                    className="flex items-center justify-between w-full py-2.5 px-3 text-sm font-medium text-[#0F766E] hover:bg-[#F0F9F7] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                    aria-expanded={showMobileAllServices}
+                  >
+                    <span>View All Services</span>
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                        showMobileAllServices ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  {/* Expanded Services List */}
+                  {showMobileAllServices && (
+                    <div className="mt-2 pl-3 space-y-1 animate-fade-in">
+                      {webServices
+                        .filter((s) => !s.bold)
+                        .map((service) => (
+                          <PreloadLink
+                            key={service.path}
+                            to={service.path}
+                            className={`block py-2 px-3 text-sm rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                              service.path,
+                            )}`}
+                          >
+                            <div className="font-medium text-[#1F2937]">{service.name}</div>
+                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
+                          </PreloadLink>
+                        ))}
+                      {aiServices
+                        .filter((s) => !s.bold)
+                        .map((service) => (
+                          <PreloadLink
+                            key={service.path}
+                            to={service.path}
+                            className={`block py-2 px-3 text-sm rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                              service.path,
+                            )}`}
+                          >
+                            <div className="font-medium text-[#1F2937]">{service.name}</div>
+                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
+                          </PreloadLink>
+                        ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
-              {/* Other nav links */}
+              {/* Main nav links */}
               {navLinks.map((link) => (
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`block py-3 px-3 text-base rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                  className={`block py-3 px-3 text-base font-medium rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
                     location.pathname === link.path ? "text-[#0F766E] font-semibold bg-[#F0F9F7]" : "text-[#1F2937]"
                   }`}
                 >
@@ -450,14 +456,14 @@ const Navigation = () => {
               {/* Phone Number - Mobile */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 py-3 px-3 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                className="flex items-center gap-3 py-3 px-3 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
               >
-                <Phone className="h-4 w-4 text-[#0F766E]" aria-hidden="true" />
+                <Phone className="h-5 w-5 text-[#0F766E]" aria-hidden="true" />
                 <span>07123 456789</span>
               </a>
 
               {/* Mobile CTA */}
-              <div className="pt-3 border-t border-[#E5E7EB] mt-3">
+              <div className="pt-3 mt-3 border-t border-[#E5E7EB]">
                 <Button
                   className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B] py-4 text-base font-semibold shadow-[0_4px_12px_rgba(15,118,110,0.25)] focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 transition-all"
                   asChild

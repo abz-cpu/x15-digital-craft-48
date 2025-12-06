@@ -722,32 +722,41 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">Why Choose X15 Digital</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Fast Delivery */}
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <span className="text-3xl">⚡</span>
+                <Clock className="h-8 w-8 text-[#0F766E]" />
               </div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-3">Fast Delivery</h3>
-              <p className="text-[#6B7280]">1-14 days, not months</p>
+              <p className="text-[#6B7280]">1–14 days, not months</p>
             </div>
 
             {/* Transparent Pricing */}
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <span className="text-3xl">🎯</span>
+                <Receipt className="h-8 w-8 text-[#0F766E]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Transparent Pricing</h3>
-              <p className="text-[#6B7280]">No hidden fees</p>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">100% Transparent Pricing</h3>
+              <p className="text-[#6B7280]">No surprises. No hidden fees.</p>
             </div>
 
             {/* Full Ownership */}
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <span className="text-3xl">💪</span>
+                <ShieldCheck className="h-8 w-8 text-[#0F766E]" />
               </div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-3">Full Ownership</h3>
-              <p className="text-[#6B7280]">You own everything</p>
+              <p className="text-[#6B7280]">Your site. Your files. Forever.</p>
+            </div>
+
+            {/* Risk-Free Guarantee */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
+                <BadgeCheck className="h-8 w-8 text-[#0F766E]" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Satisfaction Guarantee</h3>
+              <p className="text-[#6B7280]">30-day peace of mind for every project.</p>
             </div>
           </div>
         </div>

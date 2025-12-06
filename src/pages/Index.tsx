@@ -154,7 +154,8 @@ const Index = () => {
             </div>
 
             <div className="space-y-3 lg:space-y-3.5">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">Your Business Sleeps. Your Website Shouldn't.<br />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">Your Business Sleeps. Your Website Shouldn't.
+              <br />
                 24/7 — Like You Wish You Could
               </h1>
 

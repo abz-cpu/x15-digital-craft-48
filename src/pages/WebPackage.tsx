@@ -117,7 +117,7 @@ const WebPackage = () => {
                 <Card className="hover-lift relative h-full bg-white">
                   {/* Budget Friendly Badge */}
                   <Badge className="absolute -top-3 left-4 bg-white text-teal-700 border border-teal-200 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
-                    💡 Budget Friendly
+                    🚀 Essential
                   </Badge>
 
                   <CardHeader className="pt-8 pb-4">

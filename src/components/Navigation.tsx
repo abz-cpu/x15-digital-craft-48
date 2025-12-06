@@ -146,24 +146,24 @@ const Navigation = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-[72px]">
             {/* Logo */}
             <PreloadLink
               to="/"
-              className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all"
+              className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
               aria-label="X15 Digital home"
             >
-              <span className="text-2xl font-bold text-[#1F2937]">X15 DIGITAL</span>
+              <span className="text-[22px] font-bold text-[#1F2937] tracking-tight">X15 DIGITAL</span>
             </PreloadLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center gap-1.5">
               {/* Services Dropdown */}
               <div className="relative">
                 <button
                   ref={servicesButtonRef}
-                  className="flex items-center gap-1 text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors focus:outline-none focus:text-[#0F766E] focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-2 py-1"
+                  className="flex items-center gap-1.5 text-[15px] font-medium text-[#4B5563] hover:text-[#0F766E] transition-colors focus:outline-none focus:text-[#0F766E] focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-3.5 py-2"
                   onMouseEnter={() => {
                     clearCloseTimeout();
                     setShowServicesDropdown(true);
@@ -186,7 +186,7 @@ const Navigation = () => {
                 {showServicesDropdown && (
                   <div
                     ref={dropdownRef}
-                    className="absolute left-0 top-full pt-2"
+                    className="absolute left-0 top-full pt-3"
                     onMouseEnter={() => {
                       clearCloseTimeout();
                       setShowServicesDropdown(true);
@@ -195,7 +195,7 @@ const Navigation = () => {
                     role="menu"
                     aria-label="Services submenu"
                   >
-                    <div className="w-[90vw] max-w-[520px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB]/50 p-6 animate-fade-in">
+                    <div className="w-[400px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB] p-4 animate-fade-in">
                       {/* Featured Services in Single Column */}
                       <div className="space-y-1">
                         {featuredServices.map((service) => (
@@ -203,24 +203,24 @@ const Navigation = () => {
                             key={service.path}
                             to={service.path}
                             role="menuitem"
-                            className={`block py-3 px-4 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
+                            className={`block py-3 px-3.5 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
                               service.path,
                             )}`}
                           >
-                            <div className="text-base font-semibold text-[#1F2937]">{service.name}</div>
-                            <div className="text-sm text-[#6B7280] mt-0.5">{service.desc}</div>
+                            <div className="text-[15px] font-semibold text-[#1F2937]">{service.name}</div>
+                            <div className="text-[13px] text-[#6B7280] mt-0.5">{service.desc}</div>
                           </PreloadLink>
                         ))}
                       </div>
 
                       {/* View All Services CTA */}
-                      <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                      <div className="mt-3 pt-3 border-t border-[#E5E7EB]">
                         <PreloadLink
                           to="/services"
                           role="menuitem"
-                          className="flex items-center justify-between py-3 px-4 rounded-lg bg-[#F9FAFB] hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] group"
+                          className="flex items-center justify-between py-3 px-3.5 rounded-lg bg-[#F9FAFB] hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] group"
                         >
-                          <span className="text-base font-medium text-[#1F2937]">View All Services</span>
+                          <span className="text-[15px] font-medium text-[#1F2937]">View All Services</span>
                           <ChevronDown
                             className="h-4 w-4 -rotate-90 text-[#0F766E] group-hover:translate-x-1 transition-transform"
                             aria-hidden="true"
@@ -232,11 +232,12 @@ const Navigation = () => {
                 )}
               </div>
 
+              {/* Nav Links */}
               {navLinks.map((link) => (
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors focus:outline-none focus:text-[#0F766E] focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-2 py-1 ${
+                  className={`text-[15px] font-medium text-[#4B5563] hover:text-[#0F766E] transition-colors focus:outline-none focus:text-[#0F766E] focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-3.5 py-2 ${
                     location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""
                   }`}
                 >
@@ -247,17 +248,17 @@ const Navigation = () => {
               {/* Phone Number - Click to call */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 text-base font-medium text-[#6B7280] hover:text-[#0F766E] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-2 py-1"
+                className="flex items-center gap-2 text-[15px] font-medium text-[#4B5563] hover:text-[#0F766E] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg px-3.5 py-2 ml-1"
                 aria-label="Call us on 07123 456789"
               >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span className="hidden xl:inline">07123 456789</span>
+                <Phone className="h-[18px] w-[18px]" aria-hidden="true" />
+                <span>07123 456789</span>
               </a>
 
               {/* CTA Button */}
               <Button
                 asChild
-                className="bg-[#0F766E] text-white hover:bg-[#F59E0B] px-6 py-3 rounded-lg shadow-[0_4px_12px_rgba(15,118,110,0.25)] hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 font-semibold"
+                className="bg-[#0F766E] text-white hover:bg-[#0D9488] px-6 py-2.5 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 font-semibold text-[15px] ml-2"
               >
                 <PreloadLink to="/contact">Start Your Project</PreloadLink>
               </Button>

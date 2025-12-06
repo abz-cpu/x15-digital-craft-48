@@ -375,7 +375,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>You control your domain, hosting &amp; content</span>
+                      <span>Clear terms & no long contracts</span>
                     </li>
                   </ul>
                 </div>
@@ -1032,14 +1032,17 @@ const Index = () => {
             <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
                 <span>
-                  <strong className="text-primary">Ownership &amp; control</strong> — What do I actually own?
+                  <strong className="text-primary">Ownership &amp; access</strong> — What do I actually own?
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                You fully own your domain, hosting account, and all of your content. The core codebase and technical
-                implementation stay with X15 Digital so we can keep everything secure, high-performing, and
-                maintainable. There are no monthly platform rental fees just to keep your site online, and you can opt
-                in or out of our optional support plan whenever you like.
+                You fully own your domain, hosting account, and all of your content. The underlying codebase stays with
+                X15 Digital to ensure quality, security, and long-term maintainability.
+                <br />
+                <br />
+                If you host the site yourself, it stays online as long as your hosting stays active. If you&apos;re on
+                one of our hosting or maintenance plans, the site remains live while the plan is active. If those
+                payments stop, hosting and service are discontinued and the site goes offline.
               </AccordionContent>
             </AccordionItem>
 

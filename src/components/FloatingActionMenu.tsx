@@ -4,9 +4,24 @@ import { MessageCircle, Package, X, FileText, Sparkles } from "lucide-react";
 
 const FloatingActionMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileCtaVisible, setMobileCtaVisible] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // Track mobile CTA visibility to adjust position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolledPastHero = window.scrollY > 500;
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 600;
+      setMobileCtaVisible(scrolledPastHero && !nearBottom);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close when clicking outside
   useEffect(() => {
@@ -35,19 +50,24 @@ const FloatingActionMenu = () => {
       label: "WhatsApp Chat",
       href: "https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services",
       external: true,
-      primary: false, // ← ADD THIS
+      primary: false,
     },
     {
       icon: Package,
       label: "View Packages",
       href: "/web-package",
       external: false,
-      primary: false, // ← ADD THIS
+      primary: false,
     },
   ] as const;
 
   return (
-    <div ref={menuRef} className="fixed bottom-6 right-6 z-[1000]">
+    <div 
+      ref={menuRef} 
+      className={`fixed right-4 z-[1000] transition-all duration-300 ${
+        mobileCtaVisible ? "bottom-20 md:bottom-6" : "bottom-6"
+      }`}
+    >
       {/* Action buttons */}
       <div
         className={`flex flex-col gap-3 mb-3 transition-all duration-300 ${
@@ -100,7 +120,7 @@ const FloatingActionMenu = () => {
              shadow-[0_4px_12px_rgba(15,118,110,0.3)]
              hover:bg-[#F59E0B] hover:scale-110
              transition-transform duration-200
-             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ml-auto block"
         aria-label={isOpen ? "Close quick actions menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
       >

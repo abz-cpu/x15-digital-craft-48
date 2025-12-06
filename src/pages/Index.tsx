@@ -177,7 +177,68 @@ const Index = () => {
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
       <ScrollProgressBar />
       <Navigation />
+      /* Improved Hero Section Component Structure */
+      <section className="relative overflow-hidden bg-slate-950 pt-20 pb-32">
+        {/* Modern Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
+        <Container className="relative z-10">
+          <div className="text-center max-w-4xl mx-auto space-y-8">
+            {/* Social Proof Pill */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-1.5 backdrop-blur-md">
+              <span className="flex h-2 w-2 rounded-full bg-teal-400 animate-pulse"></span>
+              <span className="text-sm font-medium text-teal-200">Accepting 3 new projects for December</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+              Stop{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
+                Renting
+              </span>{" "}
+              Your Website.
+              <br />
+              <span className="text-white">Start Owning It.</span>
+            </h1>
+
+            {/* Subhead */}
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+              High-performance websites and AI automation systems built for UK businesses.
+              <span className="text-white font-medium"> One-time payment. Full code ownership. 14-day delivery.</span>
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button
+                size="lg"
+                className="h-14 px-8 text-lg bg-teal-600 hover:bg-teal-500 text-white shadow-[0_0_40px_-10px_rgba(13,148,136,0.5)]"
+              >
+                View Pricing & Packages
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 text-lg border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
+              >
+                See Live Portfolio
+              </Button>
+            </div>
+
+            {/* Micro-Trust */}
+            <div className="pt-8 flex items-center justify-center gap-8 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                <span>No monthly platform fees</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                <span>Built in React/Next.js</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
       {/* Hero */}
       <section
         className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-16 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
@@ -401,7 +462,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
@@ -636,7 +696,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Ready to Get Started Section */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
@@ -742,7 +801,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Trust Section - Why Choose X15 Digital */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto">
@@ -778,7 +836,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* How It Works Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -826,7 +883,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"
@@ -927,7 +983,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Testimonials */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
@@ -976,7 +1031,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* FAQ */}
       <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
         <div className="max-w-4xl mx-auto fade-in-section">
@@ -995,7 +1049,9 @@ const Index = () => {
           <Accordion type="single" collapsible className="w-full space-y-2">
             <AccordionItem value="item-1" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Project timeline</strong> — How long does a typical project take?</span>
+                <span>
+                  <strong className="text-primary">Project timeline</strong> — How long does a typical project take?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Entry/Starter websites: 1–3 days. Business packages: 5–10 days. AI automation setup: 2–5 days. Most
@@ -1005,7 +1061,10 @@ const Index = () => {
 
             <AccordionItem value="item-2" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Affordable pricing</strong> — Why is your pricing lower than typical agencies?</span>
+                <span>
+                  <strong className="text-primary">Affordable pricing</strong> — Why is your pricing lower than typical
+                  agencies?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We use modern tools and work lean—no expensive offices or account managers. You get agency-quality work
@@ -1015,7 +1074,9 @@ const Index = () => {
 
             <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Full ownership</strong> — Do I own everything after launch?</span>
+                <span>
+                  <strong className="text-primary">Full ownership</strong> — Do I own everything after launch?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Yes, 100%. Full ownership of all code, designs, and files. No platform lock-in, no ongoing licensing
@@ -1025,7 +1086,9 @@ const Index = () => {
 
             <AccordionItem value="item-4" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Post-launch changes</strong> — What if I need changes after launch?</span>
+                <span>
+                  <strong className="text-primary">Post-launch changes</strong> — What if I need changes after launch?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Unlimited revisions until you&apos;re happy. After launch, minor tweaks are free for 30 days. We also
@@ -1035,7 +1098,9 @@ const Index = () => {
 
             <AccordionItem value="item-5" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Existing websites</strong> — Can you work with my existing website?</span>
+                <span>
+                  <strong className="text-primary">Existing websites</strong> — Can you work with my existing website?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 In most cases, yes. We can either improve your current site or build a new one and migrate content. AI
@@ -1045,7 +1110,9 @@ const Index = () => {
 
             <AccordionItem value="item-6" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Portfolio examples</strong> — Can I see examples of your work?</span>
+                <span>
+                  <strong className="text-primary">Portfolio examples</strong> — Can I see examples of your work?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Absolutely. Check the Portfolio page for recent projects and capability examples. We&apos;re building
@@ -1055,7 +1122,9 @@ const Index = () => {
 
             <AccordionItem value="item-7" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Payment flexibility</strong> — Do you offer payment plans?</span>
+                <span>
+                  <strong className="text-primary">Payment flexibility</strong> — Do you offer payment plans?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly,
@@ -1065,7 +1134,10 @@ const Index = () => {
 
             <AccordionItem value="item-8" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span><strong className="text-primary">Satisfaction guarantee</strong> — What happens if I&apos;m not happy with the result?</span>
+                <span>
+                  <strong className="text-primary">Satisfaction guarantee</strong> — What happens if I&apos;m not happy
+                  with the result?
+                </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We offer unlimited revisions until you&apos;re satisfied. If we genuinely can&apos;t deliver what you
@@ -1085,7 +1157,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Trust + global CTA + footer */}
       <TrustBadgesBar />
       <CtaCard />

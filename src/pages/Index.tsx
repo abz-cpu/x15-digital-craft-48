@@ -25,6 +25,8 @@ import {
   Settings,
   Clock,
   Receipt,
+  ShieldCheck,
+  BadgeCheck,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

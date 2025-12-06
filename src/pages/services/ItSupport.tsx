@@ -7,6 +7,7 @@ import { CheckCircle2, ArrowRight, Monitor, Wifi, HardDrive, LifeBuoy, Badge, Ac
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { useEffect, useRef } from "react";
 
 const observerRef = useRef<IntersectionObserver | null>(null);
 

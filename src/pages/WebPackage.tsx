@@ -502,7 +502,7 @@ const WebPackage = () => {
                       </Badge>
                     </div>
 
-                    <CardHeader className="pt-10 pb-4">
+                    <CardHeader className="pt-8 pb-4">
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
                         Support & Maintenance
                       </CardTitle>

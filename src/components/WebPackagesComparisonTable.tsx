@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { CheckCircle2, Sparkles, ChevronDown, ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
 type Cell = string | boolean;
@@ -17,7 +11,13 @@ const tiers = [
   { key: "foundation", label: "FOUNDATION", price: "£200", popular: false, highlight: "1 page • 48hr delivery" },
   { key: "growth", label: "GROWTH", price: "£600", popular: true, highlight: "3-5 pages • SEO included" },
   { key: "scale", label: "SCALE", price: "£1,400", popular: false, highlight: "7-12 pages • Full features" },
-  { key: "enterprise", label: "ENTERPRISE", price: "£2,400+", popular: false, highlight: "10+ pages • Priority support" },
+  {
+    key: "enterprise",
+    label: "ENTERPRISE",
+    price: "£2,400+",
+    popular: false,
+    highlight: "10+ pages • Priority support",
+  },
 ] as const;
 
 const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; enterprise: Cell }[] = [
@@ -149,13 +149,10 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
   },
 ];
 
-const renderCell = (value: Cell, isPopular: boolean) => {
+const renderCell = (value: Cell, _isPopular: boolean) => {
   if (typeof value === "boolean") {
     return value ? (
-      <CheckCircle2
-        className={`h-5 w-5 mx-auto ${isPopular ? "text-[#F59E0B]" : "text-emerald-500"}`}
-        aria-hidden="true"
-      />
+      <CheckCircle2 className="h-5 w-5 mx-auto text-success" aria-hidden="true" />
     ) : (
       <span className="text-muted-foreground">—</span>
     );
@@ -189,7 +186,7 @@ export const WebPackagesComparisonTable = () => {
               <div className="flex-1" /> {/* Foundation spacer */}
               <div className="flex-1 flex justify-center">
                 {/* Growth badge */}
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F59E0B] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg uppercase tracking-wide">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-[11px] font-bold text-white shadow-lg uppercase tracking-wide">
                   <Sparkles className="h-3.5 w-3.5" />
                   Most Popular
                 </span>
@@ -205,9 +202,11 @@ export const WebPackagesComparisonTable = () => {
               {/* Sticky Header */}
               <thead className="sticky top-0 z-10">
                 <tr className="bg-gradient-to-br from-[#0F766E] to-[#0D6660]">
-                  <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-52">Feature</th>
+                  <th className="py-5 px-6 text-white/90 font-semibold text-sm uppercase tracking-wider w-52">
+                    Feature
+                  </th>
                   {tiers.map((tier) => (
-                    <th key={tier.key} className={`py-5 px-4 text-center ${tier.popular ? "bg-white/10" : ""}`}>
+                    <th key={tier.key} className={cn("py-5 px-4 text-center", tier.popular && "bg-white/10")}>
                       <div className="flex flex-col items-center gap-1.5">
                         <span className="text-[11px] uppercase tracking-[0.15em] text-white/70 font-semibold">
                           {tier.label}
@@ -223,7 +222,7 @@ export const WebPackagesComparisonTable = () => {
                 {rows.map((row, idx) => (
                   <tr
                     key={row.feature}
-                    className={`transition-colors hover:bg-muted/50 ${idx % 2 === 0 ? "bg-card" : "bg-muted/20"}`}
+                    className={cn("transition-colors hover:bg-muted/50", idx % 2 === 0 ? "bg-card" : "bg-muted/20")}
                   >
                     <td className="py-4 px-6 font-medium text-foreground">{row.feature}</td>
                     <td className="py-4 px-4 text-center">{renderCell(row.foundation, false)}</td>
@@ -232,20 +231,18 @@ export const WebPackagesComparisonTable = () => {
                     <td className="py-4 px-4 text-center">{renderCell(row.enterprise, false)}</td>
                   </tr>
                 ))}
-                
+
                 {/* CTA Row */}
                 <tr className="bg-muted/30 border-t-2 border-border">
                   <td className="py-6 px-6 font-semibold text-foreground">Get Started</td>
                   {tiers.map((tier) => (
-                    <td key={tier.key} className={`py-6 px-4 text-center ${tier.popular ? "bg-[#0F766E]/5" : ""}`}>
+                    <td key={tier.key} className={cn("py-6 px-4 text-center", tier.popular && "bg-[#0F766E]/5")}>
                       <Button
                         asChild
                         size="sm"
                         className={cn(
-                          "w-full max-w-[140px]",
-                          tier.popular 
-                            ? "bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white" 
-                            : "bg-primary hover:bg-primary/90"
+                          "w-full max-w-[140px] bg-primary hover:bg-primary/90 text-primary-foreground",
+                          tier.popular && "ring-2 ring-offset-2 ring-amber-400 shadow-md shadow-amber-400/30",
                         )}
                       >
                         <Link to="/quick-start">
@@ -270,51 +267,56 @@ export const WebPackagesComparisonTable = () => {
                 value={tier.key}
                 className={cn(
                   "rounded-xl border-2 overflow-hidden bg-card",
-                  tier.popular 
-                    ? "border-[#F59E0B] shadow-lg shadow-[#F59E0B]/20" 
-                    : "border-border"
+                  tier.popular ? "border-amber-400 shadow-lg shadow-amber-400/20" : "border-border",
                 )}
               >
-                <AccordionTrigger 
+                <AccordionTrigger
                   className={cn(
                     "px-4 py-4 hover:no-underline [&[data-state=open]>svg]:rotate-180",
-                    tier.popular ? "bg-[#0F766E]" : "bg-muted"
+                    tier.popular
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card border-b border-border text-foreground",
                   )}
                 >
                   <div className="flex flex-col items-start gap-1 text-left w-full pr-4 relative">
                     {tier.popular && (
-                      <span className="absolute -top-1 right-0 inline-flex items-center gap-1 rounded-full bg-[#F59E0B] px-2 py-0.5 text-[10px] font-bold text-white shadow">
+                      <span className="absolute -top-1 right-0 inline-flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold text-white shadow">
                         <Sparkles className="h-2.5 w-2.5" />
                         POPULAR
                       </span>
                     )}
                     <div className="flex items-center gap-3">
-                      <span className={cn(
-                        "text-xs uppercase tracking-widest font-semibold",
-                        tier.popular ? "text-white/80" : "text-muted-foreground"
-                      )}>
+                      <span
+                        className={cn(
+                          "text-xs uppercase tracking-widest font-semibold",
+                          tier.popular ? "text-primary-foreground/80" : "text-ink-2",
+                        )}
+                      >
                         {tier.label}
                       </span>
-                      <span className={cn(
-                        "text-xl font-bold",
-                        tier.popular ? "text-white" : "text-foreground"
-                      )}>
+                      <span
+                        className={cn(
+                          "text-xl font-bold",
+                          tier.popular ? "text-primary-foreground" : "text-foreground",
+                        )}
+                      >
                         {tier.price}
                       </span>
                     </div>
-                    <span className={cn(
-                      "text-xs",
-                      tier.popular ? "text-white/70" : "text-muted-foreground"
-                    )}>
+                    <span
+                      className={cn("text-xs", tier.popular ? "text-primary-foreground/80" : "text-muted-foreground")}
+                    >
                       {tier.highlight}
                     </span>
                   </div>
-                  <ChevronDown className={cn(
-                    "h-5 w-5 shrink-0 transition-transform duration-200",
-                    tier.popular ? "text-white" : "text-muted-foreground"
-                  )} />
+                  <ChevronDown
+                    className={cn(
+                      "h-5 w-5 shrink-0 transition-transform duration-200",
+                      tier.popular ? "text-primary-foreground" : "text-muted-foreground",
+                    )}
+                  />
                 </AccordionTrigger>
-                
+
                 <AccordionContent className="px-0 pb-0">
                   <div className="p-4 space-y-3 bg-card">
                     {rows.map((row) => {
@@ -326,16 +328,14 @@ export const WebPackagesComparisonTable = () => {
                         </div>
                       );
                     })}
-                    
+
                     {/* CTA inside accordion */}
                     <div className="pt-4 mt-4 border-t border-border">
                       <Button
                         asChild
                         className={cn(
-                          "w-full",
-                          tier.popular 
-                            ? "bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white" 
-                            : "bg-primary hover:bg-primary/90"
+                          "w-full bg-primary hover:bg-primary/90 text-primary-foreground",
+                          tier.popular && "ring-2 ring-offset-2 ring-amber-400 shadow-md shadow-amber-400/30",
                         )}
                       >
                         <Link to="/quick-start">

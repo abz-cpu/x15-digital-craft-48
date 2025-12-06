@@ -49,6 +49,7 @@ import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
+
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const parallaxOffset = useParallax({
@@ -59,6 +60,7 @@ const Index = () => {
   const currentMonth = new Date().toLocaleString("en-GB", { month: "long" });
 
   const [expandedService, setExpandedService] = useState<string | null>(null);
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -72,10 +74,13 @@ const Index = () => {
         threshold: 0.1,
       },
     );
+
     const sections = document.querySelectorAll(".fade-in-section");
     sections.forEach((section) => observerRef.current?.observe(section));
+
     return () => observerRef.current?.disconnect();
   }, []);
+
   const testimonials = [
     {
       quote: "Got a quote in 2 hours – way faster than other devs.",
@@ -93,6 +98,7 @@ const Index = () => {
       location: "Manchester",
     },
   ];
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -100,6 +106,7 @@ const Index = () => {
       behavior: "smooth",
     });
   };
+
   const services = [
     {
       id: "web-app",
@@ -168,11 +175,12 @@ const Index = () => {
       link: "#ai-preview",
     },
   ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
         title="X15 Digital - Affordable Web Development & AI Automation for UK Businesses"
-        description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, you own everything. Based in London."
+        description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
         keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
@@ -234,8 +242,8 @@ const Index = () => {
 
             {/* Small text – trust + speed */}
             <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
-              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. You own
-              everything. No bloated retainers.
+              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. No monthly
+              platform fees. Optional support from <span className="font-semibold">£25/month</span>.
             </p>
 
             {/* Primary CTA – visible before choice cards */}
@@ -345,7 +353,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-1.5">
                       <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>You don&apos;t own it fully</span>
+                      <span>Locked into long contracts</span>
                     </li>
                   </ul>
                 </div>
@@ -367,7 +375,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>You own everything</span>
+                      <span>You control your domain, hosting &amp; content</span>
                     </li>
                   </ul>
                 </div>
@@ -509,6 +517,7 @@ const Index = () => {
             ].map((service) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
+
               return (
                 <Card
                   key={service.id}
@@ -560,6 +569,7 @@ const Index = () => {
                             onClick={(e) => {
                               e.stopPropagation();
                               e.preventDefault();
+
                               if (service.id === "web-dev") {
                                 scrollToSection("web-preview");
                               } else if (service.id === "ai-automation") {
@@ -662,7 +672,7 @@ const Index = () => {
 
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">Full ownership</span>
+                      <span className="text-sm text-[#1F2937]">Client-hosted (your domain &amp; hosting)</span>
                     </div>
 
                     <div className="flex items-center gap-3">
@@ -672,7 +682,7 @@ const Index = () => {
 
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">No monthly fees</span>
+                      <span className="text-sm text-[#1F2937]">No forced monthly platform fees</span>
                     </div>
                   </div>
 
@@ -705,7 +715,7 @@ const Index = () => {
                   <div className="space-y-4 mb-8 flex-1">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">Handles calls & messages</span>
+                      <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
                     </div>
 
                     <div className="flex items-center gap-3">
@@ -821,8 +831,8 @@ const Index = () => {
                 3
               </div>
               <h3 className="text-2xl font-bold text-[#1F2937] mb-3">LAUNCH</h3>
-              <p className="text-[#6B7280] mb-2">Go live + ongoing support</p>
-              <p className="text-[#6B7280]">You own everything</p>
+              <p className="text-[#6B7280] mb-2">Go live + optional support</p>
+              <p className="text-[#6B7280]">No monthly platform rental fees</p>
             </div>
           </div>
         </div>
@@ -1022,12 +1032,14 @@ const Index = () => {
             <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
                 <span>
-                  <strong className="text-primary">Full ownership</strong> — Do I own everything after launch?
+                  <strong className="text-primary">Ownership &amp; control</strong> — What do I actually own?
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes, 100%. Full ownership of all code, designs, and files. No platform lock-in, no ongoing licensing
-                fees. It&apos;s completely yours.
+                You fully own your domain, hosting account, and all of your content. The core codebase and technical
+                implementation stay with X15 Digital so we can keep everything secure, high-performing, and
+                maintainable. There are no monthly platform rental fees just to keep your site online, and you can opt
+                in or out of our optional support plan whenever you like.
               </AccordionContent>
             </AccordionItem>
 
@@ -1095,7 +1107,7 @@ const Index = () => {
 
           {/* CTA after FAQ */}
           <div className="mt-10 text-center p-6 bg-background rounded-xl border border-primary/20">
-            <p className="text-lg font-medium text-secondary mb-4">Still have questions? Let's chat.</p>
+            <p className="text-lg font-medium text-secondary mb-4">Still have questions? Let&apos;s chat.</p>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
               <Link to="/contact">
                 Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
@@ -1114,4 +1126,5 @@ const Index = () => {
     </div>
   );
 };
+
 export default Index;

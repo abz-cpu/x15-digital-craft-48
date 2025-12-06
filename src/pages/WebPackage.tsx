@@ -493,12 +493,17 @@ const WebPackage = () => {
                     {/* Enhanced Badge - Bigger, Full Width, with Glow */}
                     <div className="absolute -top-4 left-0 right-0 flex justify-center">
                       <Badge
-                        className="absolute -top-3 left-4
-             bg-white text-teal-700 border border-teal-300/40
-             shadow-sm flex items-center gap-1 px-3 py-1
-             text-[11px] font-semibold tracking-wide"
+                        className="absolute -top-3 left-4 
+               inline-flex items-center gap-1 
+               rounded-full bg-white 
+               text-[#0F766E] 
+               border border-[#0F766E]/30 
+               shadow-sm 
+               px-3 py-1 
+               text-[11px] font-medium tracking-wide"
                       >
-                        💼 Stress-Free Choice
+                        <span className="text-xs">💼</span>
+                        STRESS-FREE CHOICE
                       </Badge>
                     </div>
 

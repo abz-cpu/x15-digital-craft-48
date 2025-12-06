@@ -8,6 +8,29 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 
+const observerRef = useRef<IntersectionObserver | null>(null);
+
+useEffect(() => {
+  observerRef.current = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in");
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: "200px",
+    },
+  );
+
+  const sections = document.querySelectorAll(".fade-in-section");
+  sections.forEach((section) => observerRef.current?.observe(section));
+
+  return () => observerRef.current?.disconnect();
+}, []);
+
 const ItSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">

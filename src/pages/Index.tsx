@@ -752,7 +752,7 @@ const Index = () => {
               <p className="text-[#6B7280]">1–14 days, not months</p>
             </div>
 
-            {/* 100% Transparent Pricing */}
+            {/* Transparent Pricing */}
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
                 <Receipt className="h-8 w-8 text-[#F59E0B]" />
@@ -761,13 +761,13 @@ const Index = () => {
               <p className="text-[#6B7280]">No surprises. No hidden fees.</p>
             </div>
 
-            {/* Satisfaction-Focused Process */}
+            {/* Money-Back Guarantee */}
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <ShieldCheck className="h-8 w-8 text-[#F59E0B]" />
+                <BadgeCheck className="h-8 w-8 text-[#F59E0B]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Satisfaction-Focused Process</h3>
-              <p className="text-[#6B7280]">Clear feedback rounds so your site feels right before launch.</p>
+              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Money-Back Guarantee</h3>
+              <p className="text-[#6B7280]">14-day risk-free period on all new projects.</p>
             </div>
           </div>
         </div>

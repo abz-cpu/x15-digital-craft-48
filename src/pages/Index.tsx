@@ -663,6 +663,11 @@ const Index = () => {
                     </div>
                   </div>
 
+                  {/* New urgency line */}
+                  <p className="text-sm font-medium text-[#92400E] bg-[#FEF3C7] px-4 py-2 rounded-full mb-4">
+                    Limited slots available · Currently booking 2–3 weeks ahead
+                  </p>
+
                   <p className="text-xl font-semibold text-[#0F766E] mb-6">Starting at £200</p>
 
                   <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
@@ -702,6 +707,11 @@ const Index = () => {
                       <span className="text-sm text-[#1F2937]">Works while you sleep</span>
                     </div>
                   </div>
+
+                  {/* New urgency line */}
+                  <p className="text-sm font-medium text-[#92400E] bg-[#FEF3C7] px-4 py-2 rounded-full mb-4">
+                    Limited onboarding slots · Typical setup in 7–10 days
+                  </p>
 
                   <p className="text-xl font-semibold text-[#0F766E] mb-6">Starting at £50/month</p>
 

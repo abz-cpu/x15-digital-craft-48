@@ -375,7 +375,7 @@
 
 .hero-choice-card:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.28);
+  box-shadow: 0 0 18px rgba(15, 118, 110, 0.45);
 }
 
 /* Primary website card – more dominant */
@@ -387,11 +387,6 @@
 /* Icon animation base */
 .hero-icon-animated {
   transition: transform 260ms ease-out;
-}
-
-/* Full spin for globe */
-.hero-choice-card:hover .hero-icon-spin {
-  transform: rotate(360deg);
 }
 
 /* Subtle blink/pop for bot */

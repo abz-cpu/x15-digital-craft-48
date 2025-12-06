@@ -200,10 +200,10 @@ const Index = () => {
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             background:
-              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.16) 0, transparent 55%), " +
-              "radial-gradient(circle at 100% 0%, rgba(41,98,255,0.2) 0, transparent 60%), " +
-              "radial-gradient(circle at 50% 100%, rgba(15,118,110,0.35) 0, transparent 60%), " +
-              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.75) 100%)",
+              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.10) 0, transparent 55%), " + // reduced cyan glow
+              "radial-gradient(circle at 100% 0%, rgba(41,98,255,0.10) 0, transparent 60%), " + // reduced blue glow
+              "radial-gradient(circle at 50% 100%, rgba(15,118,110,0.40) 0, transparent 60%), " + // stronger teal (on-brand)
+              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.85) 100%)",
           }}
         />
 

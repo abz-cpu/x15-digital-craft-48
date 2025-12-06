@@ -242,8 +242,8 @@ const Index = () => {
 
             {/* Small text – trust + speed */}
             <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
-              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. No monthly
-              platform fees. Optional support from <span className="font-semibold">£25/month</span>.
+              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. Client-Hosted &
+              Managed. Optional support from <span className="font-semibold">£25/month</span>.
             </p>
 
             {/* Primary CTA – visible before choice cards */}

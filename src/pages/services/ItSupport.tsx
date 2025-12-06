@@ -7,7 +7,7 @@ import { CheckCircle2, ArrowRight, Monitor, Wifi, HardDrive, LifeBuoy, Badge
 CardHeader,
 CardTitle,
 Activity,
-Gauge } from "lucide-react";
+Gauge, } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";

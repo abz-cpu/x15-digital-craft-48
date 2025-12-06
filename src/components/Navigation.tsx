@@ -8,7 +8,6 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
-  const [showMobileServicesAccordion, setShowMobileServicesAccordion] = useState(false);
 
   const closeTimeoutRef = useRef<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -28,7 +27,6 @@ const Navigation = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setShowServicesDropdown(false);
-    setShowMobileServicesAccordion(false);
   }, [location]);
 
   // Accessibility: Close dropdown on click outside
@@ -77,7 +75,14 @@ const Navigation = () => {
     { name: "Blog", path: "/blog" },
   ];
 
-  // Shorter names with brief descriptions for clarity
+  // Flattened mobile navigation - direct links only
+  const mobileLinks = [
+    { name: "Home", path: "/" },
+    { name: "Web Packages", path: "/web-package" },
+    { name: "AI Automation", path: "/ai-package" },
+    { name: "Portfolio", path: "/portfolio" },
+  ];
+
   const webServices = [
     {
       name: "Web Packages",
@@ -119,11 +124,6 @@ const Navigation = () => {
       name: "IT Support",
       path: "/services/it-support",
       desc: "Technical help when needed",
-    },
-    {
-      name: "SEO",
-      path: "/services/seo",
-      desc: "Get found on Google",
     },
   ];
 
@@ -358,7 +358,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - FLATTENED (No nested accordions) */}
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
@@ -366,81 +366,16 @@ const Navigation = () => {
             role="dialog"
             aria-label="Mobile menu"
           >
-            <div className="px-4 py-5 space-y-1">
-              {/* Services Accordion */}
-              <div className="border-b border-[#E5E7EB] pb-3 mb-3">
-                <button
-                  className="flex items-center justify-between w-full py-3 px-2 text-[#1F2937] font-medium hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
-                  onClick={() => setShowMobileServicesAccordion((prev) => !prev)}
-                  aria-expanded={showMobileServicesAccordion}
-                  aria-label="Services menu"
-                >
-                  <span className="text-base">Services</span>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      showMobileServicesAccordion ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </button>
-                {showMobileServicesAccordion && (
-                  <div className="pl-3 pr-2 mt-3 space-y-3">
-                    {/* Web Services */}
-                    <div>
-                      <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
-                        Web Services
-                      </div>
-                      <div className="space-y-1">
-                        {webServices.map((service) => (
-                          <PreloadLink
-                            key={service.path}
-                            to={service.path}
-                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                              service.path,
-                            )}`}
-                          >
-                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
-                              {service.name}
-                            </div>
-                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                          </PreloadLink>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* AI Services */}
-                    <div className="pt-3 border-t border-[#E5E7EB]">
-                      <div className="text-xs uppercase tracking-wide text-[#9CA3AF] font-semibold mb-3 px-2">
-                        AI Services
-                      </div>
-                      <div className="space-y-1">
-                        {aiServices.map((service) => (
-                          <PreloadLink
-                            key={service.path}
-                            to={service.path}
-                            className={`block py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                              service.path,
-                            )}`}
-                          >
-                            <div className={`text-sm ${service.bold ? "font-semibold" : "font-medium"} text-[#1F2937]`}>
-                              {service.name}
-                            </div>
-                            <div className="text-xs text-[#6B7280] mt-0.5">{service.desc}</div>
-                          </PreloadLink>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Other nav links */}
-              {navLinks.map((link) => (
+            <div className="px-4 py-5 space-y-2">
+              {/* Direct links - no nesting */}
+              {mobileLinks.map((link) => (
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`block py-3 px-3 text-base rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === link.path ? "text-[#0F766E] font-semibold bg-[#F0F9F7]" : "text-[#1F2937]"
+                  className={`block py-3.5 px-4 text-base font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                    location.pathname === link.path
+                      ? "text-[#0F766E] bg-[#F0F9F7] font-semibold"
+                      : "text-[#1F2937] hover:bg-gray-50"
                   }`}
                 >
                   {link.name}
@@ -450,19 +385,19 @@ const Navigation = () => {
               {/* Phone Number - Mobile */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 py-3 px-3 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                className="flex items-center gap-3 py-3.5 px-4 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
               >
-                <Phone className="h-4 w-4 text-[#0F766E]" aria-hidden="true" />
+                <Phone className="h-5 w-5 text-[#0F766E]" aria-hidden="true" />
                 <span>07123 456789</span>
               </a>
 
-              {/* Mobile CTA */}
-              <div className="pt-3 border-t border-[#E5E7EB] mt-3">
+              {/* Mobile CTA - Prominent */}
+              <div className="pt-4 mt-4 border-t border-[#E5E7EB]">
                 <Button
-                  className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B] py-4 text-base font-semibold shadow-[0_4px_12px_rgba(15,118,110,0.25)] focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 transition-all"
+                  className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B] py-4 text-base font-semibold shadow-[0_4px_12px_rgba(15,118,110,0.25)] focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 transition-all rounded-xl"
                   asChild
                 >
-                  <PreloadLink to="/contact">Start Your Project</PreloadLink>
+                  <PreloadLink to="/contact">Book a Call</PreloadLink>
                 </Button>
               </div>
             </div>

@@ -253,9 +253,10 @@ const WebPackage = () => {
                     <p className="text-3xl font-bold text-secondary mt-1">
                       £1,400{" "}
                       <span className="block text-xs font-medium text-muted-foreground">
-                        One payment, yours forever
+                        One payment, client-owned assets
                       </span>
                     </p>
+
                     {/* Best for + value line */}
                     <p className="text-xs font-medium text-muted-foreground mt-2">
                       Best for: established businesses ready to turn their website into a true sales engine.

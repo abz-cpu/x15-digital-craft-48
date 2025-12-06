@@ -630,7 +630,7 @@ const Index = () => {
           <div className="text-center">
             <ButtonLegacy asChild size="lg">
               <Link to="/services">
-                Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
+                See More <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </ButtonLegacy>
           </div>

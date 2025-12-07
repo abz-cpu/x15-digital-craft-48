@@ -64,8 +64,8 @@ const FloatingActionMenu = () => {
   return (
     <div 
       ref={menuRef} 
-      className={`fixed right-4 z-[1000] transition-all duration-300 ${
-        mobileCtaVisible ? "bottom-20 md:bottom-6" : "bottom-6"
+      className={`fixed right-4 bottom-6 z-[1000] transition-all duration-300 ${
+        mobileCtaVisible ? "max-md:bottom-20" : ""
       }`}
     >
       {/* Action buttons */}

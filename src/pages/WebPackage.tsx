@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -9,9 +10,68 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
+import { PortfolioModal } from "@/components/PortfolioModal";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
+import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
+import portfolioSalon from "@/assets/portfolio-salon.png";
+import x15pcbuilders from "@/assets/x15pcbuilders-screenshot-new.png";
+
+const portfolioItems = [
+  {
+    id: "x15-pc-builders",
+    title: "X15 PC Builders",
+    category: "Scale Package • PC Building",
+    type: "Scale",
+    features: [
+      "Custom PC building services showcase",
+      "FAQ section with common questions",
+      "Lead capture forms",
+      "Service pages with pricing",
+    ],
+    timeline: "10-14 days",
+    tech: "React, Tailwind CSS, SEO optimised",
+    image: x15pcbuilders,
+    isLive: true,
+    liveUrl: "https://x15pcbuilders.co.uk",
+  },
+  {
+    id: "elite-salon",
+    title: "Elite Salon",
+    category: "Growth Package • Professional Services",
+    type: "Growth",
+    features: [
+      "Online booking integration",
+      "Service gallery",
+      "Staff profiles",
+      "Contact forms",
+    ],
+    timeline: "5-7 days",
+    tech: "React, Tailwind CSS, Booking system",
+    image: portfolioSalon,
+    isLive: false,
+  },
+  {
+    id: "local-plumber",
+    title: "Local Plumber",
+    category: "Foundation Package • Local Business",
+    type: "Foundation",
+    features: [
+      "Single-page lead generation",
+      "Clear call-to-actions",
+      "Service area map",
+      "Contact form",
+    ],
+    timeline: "48 hours",
+    tech: "React, Tailwind CSS, Mobile-first",
+    image: portfolioPlumbing,
+    isLive: false,
+  },
+];
+
 const WebPackage = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof portfolioItems[0] | null>(null);
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
@@ -701,71 +761,29 @@ const WebPackage = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              {/* Portfolio Item 1 - X15 PC Builders */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/x15-pc-builders.jpg"
-                    alt="X15 PC Builders Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
-                    Scale Package • PC Building
-                  </p>
-                  <h3 className="text-xl font-bold text-white mb-2">X15 PC Builders</h3>
-                  <p className="text-sm text-white/80">
-                    Custom PC building site with services, FAQs, and lead capture.
-                  </p>
-                </div>
-              </Link>
-
-              {/* Portfolio Item 2 */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/sample-salon.jpg"
-                    alt="Client Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
-                    Growth Package • Professional Services
-                  </p>
-                  <h3 className="text-xl font-bold text-white mb-2">Elite Salon</h3>
-                  <p className="text-sm text-white/80">Booking-focused website for a London salon.</p>
-                </div>
-              </Link>
-
-              {/* Portfolio Item 3 */}
-              <Link
-                to="/portfolio"
-                className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="aspect-[4/3] bg-slate-100">
-                  <img
-                    src="/images/portfolio/sample-trades.jpg"
-                    alt="Client Website"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
-                    Foundation Package • Local Business
-                  </p>
-                  <h3 className="text-xl font-bold text-white mb-2">Local Plumber</h3>
-                  <p className="text-sm text-white/80">Single-page lead-generation site with clear call-to-actions.</p>
-                </div>
-              </Link>
+              {portfolioItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedProject(item)}
+                  className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left"
+                >
+                  <div className="aspect-[4/3] bg-slate-100">
+                    <img
+                      src={item.image}
+                      alt={`${item.title} Website`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
+                      {item.category}
+                    </p>
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-white/80">Click to view details</p>
+                  </div>
+                </button>
+              ))}
             </div>
 
             <div className="text-center">
@@ -775,6 +793,16 @@ const WebPackage = () => {
                 </Link>
               </Button>
             </div>
+
+            {/* Portfolio Modal */}
+            {selectedProject && (
+              <PortfolioModal
+                isOpen={!!selectedProject}
+                onClose={() => setSelectedProject(null)}
+                project={selectedProject}
+                imageSrc={selectedProject.image}
+              />
+            )}
           </Container>
         </section>
 

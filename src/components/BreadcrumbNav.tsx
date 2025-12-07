@@ -11,6 +11,14 @@ import {
 const routeNames: Record<string, string> = {
   "/": "Home",
   "/services": "Services",
+  "/services/app-development": "App Development",
+  "/services/personalised-apps": "Personalised Apps",
+  "/services/landing-pages": "Landing Pages",
+  "/services/logo-design": "Logo Design",
+  "/services/branding": "Branding",
+  "/services/maintenance-support": "Maintenance & Support",
+  "/services/it-support": "IT Support",
+  "/services/seo": "SEO",
   "/portfolio": "Portfolio",
   "/about": "About",
   "/contact": "Contact",
@@ -21,6 +29,8 @@ const routeNames: Record<string, string> = {
   "/install": "Install App",
   "/terms": "Terms",
   "/privacy": "Privacy",
+  "/web-package": "Web Packages",
+  "/ai-package": "AI Package",
 };
 
 export const BreadcrumbNav = () => {

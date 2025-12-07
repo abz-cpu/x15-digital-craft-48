@@ -986,132 +986,178 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
-        <div className="max-w-4xl mx-auto fade-in-section">
-          {/* Header with illustration */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Frequently Asked Questions</h2>
-              <p className="text-muted-foreground">Everything you need to know before getting started.</p>
+      {/* FAQ Section - Improved UX/UI */}
+      <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0F766E]/10 mb-6">
+              <MessageSquare className="h-8 w-8 text-[#0F766E]" />
             </div>
-            {/* FAQ Illustration */}
-            <div className="hidden md:flex items-center justify-center w-32 h-32 rounded-full bg-primary/10 flex-shrink-0">
-              <MessageSquare className="h-14 w-14 text-primary" />
-            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-base md:text-lg text-[#6B7280] max-w-2xl mx-auto">
+              Everything you need to know before getting started
+            </p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full space-y-2">
-            <AccordionItem value="item-1" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Project timeline</strong> — How long does a typical project take?
+          {/* FAQ Accordion */}
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            <AccordionItem
+              value="item-1"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5 group">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <Clock className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>How long does a typical project take?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Entry/Starter websites: 1–3 days. Business packages: 5–10 days. AI automation setup: 2–5 days. Most
-                projects are delivered faster than agencies that take 4–12 weeks.
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
+                <strong className="text-[#1F2937]">Entry/Starter websites:</strong> 1–3 days
+                <br />
+                <strong className="text-[#1F2937]">Business packages:</strong> 5–10 days
+                <br />
+                <strong className="text-[#1F2937]">AI automation setup:</strong> 2–5 days
+                <br />
+                <br />
+                Most projects are delivered faster than agencies that take 4–12 weeks.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Affordable pricing</strong> — Why is your pricing lower than typical
-                  agencies?
+            <AccordionItem
+              value="item-2"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <DollarSign className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>Why is your pricing lower than typical agencies?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
                 We use modern tools and work lean—no expensive offices or account managers. You get agency-quality work
                 without the overhead. Same results, better price.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Ownership &amp; access</strong> — What do I actually own?
+            <AccordionItem
+              value="item-3"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <ShieldCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>What do I actually own?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
                 You fully own your domain, hosting account, and all of your content. The underlying codebase stays with
                 X15 Digital to ensure quality, security, and long-term maintainability.
                 <br />
                 <br />
-                If you host the site yourself, it stays online as long as your hosting stays active. If you&apos;re on
-                one of our hosting or maintenance plans, the site remains live while the plan is active. If those
-                payments stop, hosting and service are discontinued and the site goes offline.
+                If you host the site yourself, it stays online as long as your hosting stays active. If you're on one of
+                our hosting or maintenance plans, the site remains live while the plan is active.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Post-launch changes</strong> — What if I need changes after launch?
+            <AccordionItem
+              value="item-4"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <Settings className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>What if I need changes after launch?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Unlimited revisions until you&apos;re happy. After launch, minor tweaks are free for 30 days. We also
-                offer affordable maintenance if you prefer we handle updates.
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
+                Unlimited revisions until you're happy. After launch, minor tweaks are free for 30 days. We also offer
+                affordable maintenance if you prefer we handle updates.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Existing websites</strong> — Can you work with my existing website?
+            <AccordionItem
+              value="item-5"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <Globe className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>Can you work with my existing website?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
                 In most cases, yes. We can either improve your current site or build a new one and migrate content. AI
                 automation works with almost any existing platform.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Portfolio examples</strong> — Can I see examples of your work?
+            <AccordionItem
+              value="item-6"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <Image className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>Can I see examples of your work?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Absolutely. Check the Portfolio page for recent projects and capability examples. We&apos;re building
-                our first 10 client projects and documenting everything transparently.
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
+                Absolutely. Check the Portfolio page for recent projects and capability examples. We're building our
+                first 10 client projects and documenting everything transparently.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Payment flexibility</strong> — Do you offer payment plans?
+            <AccordionItem
+              value="item-7"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <Receipt className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>Do you offer payment plans?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
                 Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly,
-                so there&apos;s no large upfront investment.
+                so there's no large upfront investment.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-8" className="border rounded-lg px-4 bg-background">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                <span>
-                  <strong className="text-primary">Satisfaction guarantee</strong> — What happens if I&apos;m not happy
-                  with the result?
+            <AccordionItem
+              value="item-8"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                  <BadgeCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                  <span>What happens if I'm not happy with the result?</span>
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We offer unlimited revisions until you&apos;re satisfied. If we genuinely can&apos;t deliver what you
-                need, we provide a full refund. Your success is our reputation.
+              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
+                We offer unlimited revisions until you're satisfied. If we genuinely can't deliver what you need, we
+                provide a full refund. Your success is our reputation.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
 
-          {/* CTA after FAQ */}
-          <div className="mt-10 text-center p-6 bg-background rounded-xl border border-primary/20">
-            <p className="text-lg font-medium text-secondary mb-4">Still have questions? Let&apos;s chat.</p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+          {/* CTA Card - Improved */}
+          <div className="mt-12 p-8 bg-gradient-to-br from-[#0F766E] to-[#0D9488] rounded-2xl shadow-xl text-center">
+            <MessageCircle className="h-12 w-12 text-white mx-auto mb-4 opacity-90" />
+            <p className="text-xl md:text-2xl font-bold text-white mb-2">Still have questions?</p>
+            <p className="text-[15px] text-white/90 mb-6 max-w-md mx-auto">
+              We're here to help. Get in touch and we'll respond within a few hours.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-[#0F766E] hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all font-semibold"
+            >
               <Link to="/contact">
-                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+                Get in Touch
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

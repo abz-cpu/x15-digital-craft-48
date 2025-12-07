@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Container } from "@/components/Container";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
@@ -373,6 +374,7 @@ const Services = () => {
       />
 
       <Navigation />
+      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* HERO – Services Hub */}

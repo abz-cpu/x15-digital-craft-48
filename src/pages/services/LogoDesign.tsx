@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Palette, Layers, FileImage, Repeat } from "lucide-react";
@@ -17,6 +18,7 @@ const LogoDesign = () => {
         canonicalUrl="https://x15.digital/services/logo-design"
       />
       <Navigation />
+      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* Hero Section */}

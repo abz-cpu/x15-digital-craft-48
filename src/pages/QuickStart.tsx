@@ -13,6 +13,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 const QuickStart = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [isQuickStartOpen, setIsQuickStartOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -33,35 +34,37 @@ const QuickStart = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  // Close modal with Escape
+  // Close modals with Escape
   useEffect(() => {
-    if (!isQuickStartOpen) return;
+    if (!isQuickStartOpen && !isCalendlyOpen) return;
 
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsQuickStartOpen(false);
+        setIsCalendlyOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isQuickStartOpen]);
+  }, [isQuickStartOpen, isCalendlyOpen]);
 
   const handleQuickStartSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Later: send to backend / Airtable / Make / Zapier, etc.
+    // TODO: send to backend / Airtable / Make / Zapier
     setTimeout(() => {
       setIsSubmitting(false);
       setIsQuickStartOpen(false);
-      // hook toast here if you want
+      // plug toast here if you want
     }, 800);
   };
 
   const handleOverlayClick = (e: ReactMouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       setIsQuickStartOpen(false);
+      setIsCalendlyOpen(false);
     }
   };
 
@@ -101,10 +104,22 @@ const QuickStart = () => {
                 instead.
               </p>
 
-              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsQuickStartOpen(true)}>
+              <Button size="lg" className="w-full mb-3" type="button" onClick={() => setIsQuickStartOpen(true)}>
                 <Zap className="mr-2 h-5 w-5" />
                 Start Your Project Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+
+              <p className="text-center text-xs text-muted-foreground">
+                Prefer to talk it through?{" "}
+                <button
+                  type="button"
+                  onClick={() => setIsCalendlyOpen(true)}
+                  className="text-primary font-medium hover:underline underline-offset-2"
+                >
+                  Book a free 30-minute strategy call
+                </button>
+                .
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -313,6 +328,49 @@ const QuickStart = () => {
                   if needed.
                 </p>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Calendly Modal */}
+      {isCalendlyOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Book a free 30-minute strategy call"
+          onClick={handleOverlayClick}
+        >
+          <div className="relative w-full max-w-3xl rounded-2xl bg-background shadow-2xl border border-border/60 h-[80vh] flex flex-col">
+            <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-border/60">
+              <div>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Free strategy call</p>
+                <h2 className="text-lg md:text-xl font-semibold text-secondary">
+                  Book a 30-minute call with X15 Digital
+                </h2>
+                <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                  We’ll review your goals and advise the best package – no pressure, no obligation.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsCalendlyOpen(false)}
+                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                aria-label="Close call booking"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="flex-1">
+              <iframe
+                src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
+                className="w-full h-full border-0"
+                loading="lazy"
+                title="Book a 30-minute strategy call with X15 Digital"
+              />
             </div>
           </div>
         </div>

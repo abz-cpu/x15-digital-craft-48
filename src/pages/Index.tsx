@@ -1015,11 +1015,11 @@ const Index = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                <strong className="text-[#1F2937]">Entry/Starter websites:</strong> 1–3 days
+                <strong className="text-[#1F2937]">Entry/Starter websites:</strong> 5–10 days
                 <br />
-                <strong className="text-[#1F2937]">Business packages:</strong> 5–10 days
+                <strong className="text-[#1F2937]">Business packages:</strong> 14–21 days
                 <br />
-                <strong className="text-[#1F2937]">AI automation setup:</strong> 2–5 days
+                <strong className="text-[#1F2937]">AI automation setup:</strong> 3–10 days
                 <br />
                 <br />
                 Most projects are delivered faster than agencies that take 4–12 weeks.

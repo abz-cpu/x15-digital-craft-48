@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Shield, RefreshCw, Clock, Headphones } from "lucide-react";
@@ -17,6 +18,7 @@ const MaintenanceSupport = () => {
         canonicalUrl="https://x15.digital/services/maintenance-support"
       />
       <Navigation />
+      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* Hero Section */}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -81,6 +82,7 @@ const WebPackage = () => {
       />
 
       <Navigation />
+      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* 1. HERO */}

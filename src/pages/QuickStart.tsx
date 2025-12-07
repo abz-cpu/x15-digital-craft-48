@@ -1,3 +1,4 @@
+import type { FormEvent, MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle, X } from "lucide-react";
@@ -32,19 +33,36 @@ const QuickStart = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const handleQuickStartSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Close modal with Escape
+  useEffect(() => {
+    if (!isQuickStartOpen) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsQuickStartOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [isQuickStartOpen]);
+
+  const handleQuickStartSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Here you can later:
-    // - send to your backend
-    // - send to a Google Sheet / Make / Zapier webhook
-    // For now we'll just simulate and close the modal.
+    // Later: send to backend / Airtable / Make / Zapier, etc.
     setTimeout(() => {
       setIsSubmitting(false);
       setIsQuickStartOpen(false);
-      // Optionally show a toast if you have one: toast.success("Thanks! We'll be in touch within a few hours.");
+      // hook toast here if you want
     }, 800);
+  };
+
+  const handleOverlayClick = (e: ReactMouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsQuickStartOpen(false);
+    }
   };
 
   return (
@@ -186,12 +204,14 @@ const QuickStart = () => {
       {/* Quick Start Modal */}
       {isQuickStartOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-50 flex items-start justify-center sm:items-center bg-black/60 backdrop-blur-sm px-4 py-8"
           role="dialog"
           aria-modal="true"
           aria-labelledby="quick-start-title"
+          onClick={handleOverlayClick}
         >
-          <div className="w-full max-w-lg rounded-2xl bg-background shadow-2xl border border-border relative">
+          <div className="w-full max-w-lg rounded-2xl bg-background shadow-2xl border border-border relative max-h-[90vh] flex flex-col">
+            {/* Close button */}
             <button
               type="button"
               aria-label="Close quick start form"
@@ -201,7 +221,8 @@ const QuickStart = () => {
               <X className="h-4 w-4 text-muted-foreground" />
             </button>
 
-            <div className="p-6 sm:p-7">
+            {/* Scrollable content */}
+            <div className="p-6 sm:p-7 overflow-y-auto">
               <h3
                 id="quick-start-title"
                 className="text-xl sm:text-2xl font-semibold text-secondary mb-2 flex items-center gap-2"

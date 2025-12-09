@@ -90,6 +90,12 @@ const Navigation = () => {
       category: "ai",
     },
     {
+      name: "Personalised Apps",
+      path: "/services/personalised-apps",
+      desc: "Custom tools, trackers & workflows",
+      category: "web",
+    },
+    {
       name: "SEO Services",
       path: "/services/seo",
       desc: "Get found on Google",
@@ -317,6 +323,18 @@ const Navigation = () => {
                 </PreloadLink>
 
                 {/* Additional Key Services - Mobile Only */}
+                <PreloadLink
+                  to="/services/personalised-apps"
+                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
+                    location.pathname === "/services/personalised-apps" ? "bg-[#F0F9F7]" : ""
+                  }`}
+                >
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-[#1F2937]">Personalised Apps</div>
+                    <div className="text-xs text-[#6B7280] mt-0.5">Custom invoices, order trackers & internal tools</div>
+                  </div>
+                </PreloadLink>
+
                 <PreloadLink
                   to="/services/seo"
                   className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${

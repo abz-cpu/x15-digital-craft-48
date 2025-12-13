@@ -1146,44 +1146,36 @@ const Index = () => {
           {/* CTA Card - Premium */}
           <div className="mt-16 relative animate-fade-in">
             {/* Outer glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#0F766E]/30 to-[#0D9488]/20 rounded-3xl blur-xl opacity-60" />
+            <div className="absolute -inset-1 bg-[#0F766E]/10 rounded-3xl blur-xl" />
             
             {/* Main card */}
-            <div className="relative p-10 md:p-12 rounded-3xl text-center overflow-hidden backdrop-blur-sm border border-white/10 shadow-2xl">
-              {/* Background layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E] via-[#0D9488] to-[#0F766E]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
-              
+            <div className="relative p-10 md:p-12 rounded-3xl text-center overflow-hidden border border-[#0F766E]/20 shadow-xl bg-gradient-to-br from-[#F0FDFA] to-[#E6FAF7]">
               {/* Subtle radial glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-              
-              {/* Noise texture overlay */}
-              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#0F766E]/5 rounded-full blur-3xl pointer-events-none" />
               
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon with glow backdrop */}
                 <div className="relative inline-flex mb-6">
-                  <div className="absolute inset-0 bg-white/20 rounded-full blur-xl scale-150" />
-                  <div className="relative p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                    <MessageCircle className="h-8 w-8 md:h-10 md:w-10 text-white" />
+                  <div className="absolute inset-0 bg-[#0F766E]/10 rounded-full blur-xl scale-150" />
+                  <div className="relative p-4 rounded-full bg-[#0F766E]/10 border border-[#0F766E]/20">
+                    <MessageCircle className="h-8 w-8 md:h-10 md:w-10 text-[#0F766E]" />
                   </div>
                 </div>
                 
-                <p className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+                <p className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-3 tracking-tight">
                   Still have questions?
                 </p>
-                <p className="text-base text-white/85 mb-8 max-w-md mx-auto leading-relaxed">
+                <p className="text-base text-[#4B5563] mb-8 max-w-md mx-auto leading-relaxed">
                   We're here to help. Get in touch and we'll respond within a few hours.
                 </p>
                 
                 <Button
                   asChild
                   size="lg"
-                  className="group relative bg-white text-[#0F766E] hover:bg-white shadow-lg hover:shadow-2xl transition-all duration-300 font-semibold px-8 py-6 text-base hover:-translate-y-0.5"
+                  className="group bg-[#0F766E] text-white hover:bg-[#0D9488] shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-8 py-6 text-base hover:-translate-y-0.5"
                 >
                   <Link to="/contact">
-                    <span className="absolute inset-0 rounded-md bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
                     Get in Touch
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>

@@ -1143,44 +1143,35 @@ const Index = () => {
             </AccordionItem>
           </Accordion>
 
-          {/* CTA Card - Premium */}
-          <div className="mt-16 relative animate-fade-in">
-            {/* Outer glow effect */}
-            <div className="absolute -inset-1 bg-[#0F766E]/10 rounded-3xl blur-xl" />
-            
-            {/* Main card */}
-            <div className="relative p-10 md:p-12 rounded-3xl text-center overflow-hidden border border-[#0F766E]/20 shadow-xl bg-gradient-to-br from-[#F0FDFA] to-[#E6FAF7]">
-              {/* Subtle radial glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#0F766E]/5 rounded-full blur-3xl pointer-events-none" />
+          {/* CTA Card - Compact */}
+          <div className="mt-12 flex justify-center animate-fade-in">
+            <div className="relative inline-flex items-center gap-4 md:gap-6 px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-gradient-to-r from-[#F0FDFA] to-[#E6FAF7] border border-[#0F766E]/15 shadow-md hover:shadow-lg transition-shadow">
+              {/* Icon */}
+              <div className="flex-shrink-0 p-2.5 rounded-full bg-[#0F766E]/10">
+                <MessageCircle className="h-5 w-5 text-[#0F766E]" />
+              </div>
               
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Icon with glow backdrop */}
-                <div className="relative inline-flex mb-6">
-                  <div className="absolute inset-0 bg-[#0F766E]/10 rounded-full blur-xl scale-150" />
-                  <div className="relative p-4 rounded-full bg-[#0F766E]/10 border border-[#0F766E]/20">
-                    <MessageCircle className="h-8 w-8 md:h-10 md:w-10 text-[#0F766E]" />
-                  </div>
-                </div>
-                
-                <p className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-3 tracking-tight">
+              {/* Text */}
+              <div className="text-left">
+                <p className="text-sm md:text-base font-semibold text-[#1F2937]">
                   Still have questions?
                 </p>
-                <p className="text-base text-[#4B5563] mb-8 max-w-md mx-auto leading-relaxed">
-                  We're here to help. Get in touch and we'll respond within a few hours.
+                <p className="text-xs md:text-sm text-[#6B7280]">
+                  We typically respond within a few hours
                 </p>
-                
-                <Button
-                  asChild
-                  size="lg"
-                  className="group bg-[#0F766E] text-white hover:bg-[#0D9488] shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-8 py-6 text-base hover:-translate-y-0.5"
-                >
-                  <Link to="/contact">
-                    Get in Touch
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </Button>
               </div>
+              
+              {/* Button */}
+              <Button
+                asChild
+                size="sm"
+                className="group bg-[#0F766E] text-white hover:bg-[#0D9488] shadow-sm hover:shadow-md transition-all font-medium px-4 py-2 text-sm"
+              >
+                <Link to="/contact">
+                  Get in Touch
+                  <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

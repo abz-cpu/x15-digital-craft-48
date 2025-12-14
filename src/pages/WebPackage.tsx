@@ -122,7 +122,7 @@ const WebPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#0F766E] hover:bg-white/95 font-semibold shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white text-[#0F766E] hover:bg-gray-100 hover:text-[#0F766E] font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   <Link to="/quick-start">
                     Start Your Project
@@ -134,7 +134,7 @@ const WebPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70"
+                  className="border-white text-white bg-transparent hover:bg-white hover:text-[#0F766E] transition-all"
                 >
                   <Link to="/contact">
                     Book Free Call

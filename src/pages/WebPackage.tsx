@@ -86,25 +86,11 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section
-          className="
-    relative overflow-hidden
-    py-16 md:py-20 lg:py-24 
-    px-4 sm:px-6 lg:px-8 
-    bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900
-  "
-        >
+        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F766E] via-[#0D9488] to-[#115E59]">
           {/* Background image overlay */}
           <div
             aria-hidden="true"
-            className="
-      absolute inset-0 
-      bg-cover bg-no-repeat
-      bg-[center_25%] md:bg-[center_35%] lg:bg-center
-      opacity-85
-      mix-blend-overlay
-      pointer-events-none
-    "
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-20 pointer-events-none"
             style={{
               backgroundImage: "url('/website.png')",
             }}
@@ -114,29 +100,29 @@ const WebPackage = () => {
             {/* Keep content above background */}
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Urgency / scarcity badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/30">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                 <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-emerald-100">
                   Currently booking 2–3 weeks out
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Web Development Packages</h1>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Web Development Packages</h1>
 
-              <p className="text-xl text-white/90 mb-4">
+              <p className="text-lg text-white/90 mb-3">
                 Professional websites that attract customers and grow your business.
               </p>
 
-              <p className="text-lg text-white/80">
+              <p className="text-base text-white/75">
                 One-time build fee. You keep your domain &amp; content. No forced monthly platform fees.
               </p>
 
               {/* Hero CTAs */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#0F766E] hover:bg-slate-50 hover:text-[#0F766E] shadow-md hover:shadow-lg"
+                  className="bg-white text-[#0F766E] hover:bg-white/95 font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   <Link to="/quick-start">
                     Start Your Project
@@ -148,7 +134,7 @@ const WebPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/70 text-white hover:bg-white/10 hover:text-white"
+                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70"
                 >
                   <Link to="/contact">
                     Book Free Call

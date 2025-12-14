@@ -122,11 +122,11 @@ const WebPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#0F766E] hover:bg-[#F8FFFE] font-semibold shadow-[0_4px_20px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.9)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.2)] transition-all"
+                  className="!bg-white/15 hover:!bg-white/25 !text-white !opacity-100 font-semibold tracking-tight border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transition-all backdrop-blur-sm"
                 >
                   <Link to="/quick-start">
                     Start Your Project
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4 !text-white/90" />
                   </Link>
                 </Button>
 

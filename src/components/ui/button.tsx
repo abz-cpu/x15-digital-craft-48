@@ -31,11 +31,11 @@ const buttonVariants = cva(
           "hover:translate-y-[-1px] active:translate-y-[0px]",
         ].join(" "),
 
-        // OUTLINE BUTTONS → old green hover using your `success` color
+        // OUTLINE BUTTONS → refined teal hover
         outline: [
           "border border-border/80 bg-transparent text-secondary",
           "hover:bg-accent hover:text-accent-foreground hover:border-accent",
-          "hover:shadow-[0_18px_40px_rgba(245,158,11,0.45)]",
+          "hover:shadow-[0_12px_30px_rgba(15,118,110,0.25)]",
         ].join(" "),
 
         ghost: "bg-transparent hover:bg-muted text-secondary",

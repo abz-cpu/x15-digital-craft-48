@@ -17,42 +17,56 @@ import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import x15pcbuilders from "@/assets/x15pcbuilders-screenshot-new.png";
-const portfolioItems = [{
-  id: "x15-pc-builders",
-  title: "X15 PC Builders",
-  category: "Scale Package • PC Building",
-  type: "Scale",
-  features: ["Custom PC building services showcase", "FAQ section with common questions", "Lead capture forms", "Service pages with pricing"],
-  timeline: "10-14 days",
-  tech: "React, Tailwind CSS, SEO optimised",
-  image: x15pcbuilders,
-  isLive: true,
-  liveUrl: "https://x15pcbuilders.co.uk"
-}, {
-  id: "elite-salon",
-  title: "Elite Salon",
-  category: "Growth Package • Professional Services",
-  type: "Growth",
-  features: ["Online booking integration", "Service gallery", "Staff profiles", "Contact forms"],
-  timeline: "5-7 days",
-  tech: "React, Tailwind CSS, Booking system",
-  image: portfolioSalon,
-  isLive: false
-}, {
-  id: "local-plumber",
-  title: "Local Plumber",
-  category: "Foundation Package • Local Business",
-  type: "Foundation",
-  features: ["Single-page lead generation", "Clear call-to-actions", "Service area map", "Contact form"],
-  timeline: "48 hours",
-  tech: "React, Tailwind CSS, Mobile-first",
-  image: portfolioPlumbing,
-  isLive: false
-}];
+const portfolioItems = [
+  {
+    id: "x15-pc-builders",
+    title: "X15 PC Builders",
+    category: "Scale Package • PC Building",
+    type: "Scale",
+    features: [
+      "Custom PC building services showcase",
+      "FAQ section with common questions",
+      "Lead capture forms",
+      "Service pages with pricing",
+    ],
+    timeline: "10-14 days",
+    tech: "React, Tailwind CSS, SEO optimised",
+    image: x15pcbuilders,
+    isLive: true,
+    liveUrl: "https://x15pcbuilders.co.uk",
+  },
+  {
+    id: "elite-salon",
+    title: "Elite Salon",
+    category: "Growth Package • Professional Services",
+    type: "Growth",
+    features: ["Online booking integration", "Service gallery", "Staff profiles", "Contact forms"],
+    timeline: "5-7 days",
+    tech: "React, Tailwind CSS, Booking system",
+    image: portfolioSalon,
+    isLive: false,
+  },
+  {
+    id: "local-plumber",
+    title: "Local Plumber",
+    category: "Foundation Package • Local Business",
+    type: "Foundation",
+    features: ["Single-page lead generation", "Clear call-to-actions", "Service area map", "Contact form"],
+    timeline: "48 hours",
+    tech: "React, Tailwind CSS, Mobile-first",
+    image: portfolioPlumbing,
+    isLive: false,
+  },
+];
 const WebPackage = () => {
-  const [selectedProject, setSelectedProject] = useState<typeof portfolioItems[0] | null>(null);
-  return <div className="min-h-screen flex flex-col">
-      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything." canonicalUrl="https://x15.digital/web-package" />
+  const [selectedProject, setSelectedProject] = useState<(typeof portfolioItems)[0] | null>(null);
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SEO
+        title="Web Development Packages | X15 Digital"
+        description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything."
+        canonicalUrl="https://x15.digital/web-package"
+      />
 
       <Navigation />
       <BreadcrumbNav />
@@ -61,9 +75,13 @@ const WebPackage = () => {
         {/* 1. HERO */}
         <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F766E] via-[#0D9488] to-[#115E59]">
           {/* Background image overlay */}
-          <div aria-hidden="true" className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-20 pointer-events-none" style={{
-          backgroundImage: "url('/website.png')"
-        }} />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-20 pointer-events-none"
+            style={{
+              backgroundImage: "url('/website.png')",
+            }}
+          />
 
           <Container>
             {/* Keep content above background */}
@@ -88,14 +106,23 @@ const WebPackage = () => {
 
               {/* Hero CTAs */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild size="lg" className="!bg-white/15 hover:!bg-white/25 !text-white !opacity-100 font-semibold tracking-tight border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transition-all backdrop-blur-sm">
+                <Button
+                  asChild
+                  size="lg"
+                  className="!bg-white/15 hover:!bg-white/25 !text-white !opacity-100 font-semibold tracking-tight border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transition-all backdrop-blur-sm"
+                >
                   <Link to="/quick-start">
                     Start Your Project
                     <ArrowRight className="ml-2 h-4 w-4 !text-white/90" />
                   </Link>
                 </Button>
 
-                <Button asChild size="lg" variant="outline" className="border-white/80 text-white bg-white/5 hover:bg-white/15 hover:border-white transition-all duration-300 shadow-none hover:shadow-[0_4px_15px_rgba(255,255,255,0.1)]">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/80 text-white bg-white/5 hover:bg-white/15 hover:border-white transition-all duration-300 shadow-none hover:shadow-[0_4px_15px_rgba(255,255,255,0.1)]"
+                >
                   <Link to="/contact">
                     Book Free Call
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -181,12 +208,14 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card className="
+                <Card
+                  className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  ">
+                  "
+                >
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -497,14 +526,16 @@ const WebPackage = () => {
                 <AnimatedSection staggerIndex={1} animation="scale">
                   <Card className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2">
                     {/* MATCHED BADGE (same style & placement as Hosting + Support) */}
-                    <Badge className="absolute -top-3 left-4
+                    <Badge
+                      className="absolute -top-3 left-4
                  inline-flex items-center gap-1
                  rounded-full bg-white
                  text-[#0F766E]
                  border border-[#0F766E]/30
                  shadow-sm
                  px-3 py-1
-                 text-[11px] font-medium tracking-wide">
+                 text-[11px] font-medium tracking-wide"
+                    >
                       <span className="text-xs">💼</span>
                       STRESS-FREE CHOICE
                     </Badge>
@@ -513,8 +544,8 @@ const WebPackage = () => {
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
                         Support &amp; Maintenance
                       </CardTitle>
-                      <p className="text-3xl font-bold text-secondary mt-1">£25
-/month<span className="block text-xs font-medium text-muted-foreground">/month</span>
+                      <p className="text-3xl font-bold text-secondary mt-1">
+                        £25<span className="block text-xs font-medium text-muted-foreground">/month</span>
                       </p>
                     </CardHeader>
 
@@ -582,8 +613,8 @@ const WebPackage = () => {
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
                         Hosting + Support
                       </CardTitle>
-                      <p className="text-3xl font-bold text-secondary mt-1">£31
-/month all-inclusive<span className="block text-xs font-medium text-muted-foreground">/month all-inclusive</span>
+                      <p className="text-3xl font-bold text-secondary mt-1">
+                        £31<span className="block text-xs font-medium text-muted-foreground">/month all-inclusive</span>
                       </p>
                     </CardHeader>
 
@@ -703,9 +734,18 @@ const WebPackage = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              {portfolioItems.map(item => <button key={item.id} onClick={() => setSelectedProject(item)} className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left">
+              {portfolioItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedProject(item)}
+                  className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left"
+                >
                   <div className="aspect-[4/3] bg-slate-100">
-                    <img src={item.image} alt={`${item.title} Website`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img
+                      src={item.image}
+                      alt={`${item.title} Website`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -715,7 +755,8 @@ const WebPackage = () => {
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-white/80">Click to view details</p>
                   </div>
-                </button>)}
+                </button>
+              ))}
             </div>
 
             <div className="text-center">
@@ -727,7 +768,14 @@ const WebPackage = () => {
             </div>
 
             {/* Portfolio Modal */}
-            {selectedProject && <PortfolioModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} project={selectedProject} imageSrc={selectedProject.image} />}
+            {selectedProject && (
+              <PortfolioModal
+                isOpen={!!selectedProject}
+                onClose={() => setSelectedProject(null)}
+                project={selectedProject}
+                imageSrc={selectedProject.image}
+              />
+            )}
           </Container>
         </section>
 
@@ -754,7 +802,11 @@ const WebPackage = () => {
                   <Link to="/blog/cheap-websites" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img src={blogWebDevHero} alt="Code editor next to website builder showing the hidden costs of cheap websites" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={blogWebDevHero}
+                        alt="Code editor next to website builder showing the hidden costs of cheap websites"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -786,7 +838,11 @@ const WebPackage = () => {
                   <Link to="/blog/offshore-development-risks" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img src={blogOffshoreRisks} alt="Laptop with red warning sign and UK flag representing offshore development risks" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={blogOffshoreRisks}
+                        alt="Laptop with red warning sign and UK flag representing offshore development risks"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -1072,23 +1128,29 @@ const WebPackage = () => {
             {/* Dual CTAs – same UX/UI as AI final CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               {/* Primary: Start Your Project */}
-              <Link to="/quick-start" className="group flex items-center justify-center gap-2
+              <Link
+                to="/quick-start"
+                className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all">
+          transition-all"
+              >
                 Start Your Project
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Secondary: Book Free Consultation */}
-              <Link to="/contact" className="group flex items-center justify-center gap-2
+              <Link
+                to="/contact"
+                className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all">
+          active:scale-[0.97] transition-all"
+              >
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -1103,6 +1165,7 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
 export default WebPackage;

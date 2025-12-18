@@ -73,31 +73,31 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f8fafc] via-white to-[#fafafa]">
+        <section className="relative overflow-hidden py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
           {/* Subtle grid pattern */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 opacity-[0.3] pointer-events-none"
+            className="absolute inset-0 opacity-[0.4] pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, rgb(203 213 225 / 0.3) 1px, transparent 0)`,
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgb(203 213 225 / 0.4) 1px, transparent 0)`,
               backgroundSize: '32px 32px',
             }}
           />
-          {/* Soft gradient accent - muted sage/mint */}
+          {/* Soft gradient accent */}
           <div
             aria-hidden="true"
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-15 pointer-events-none"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-30 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse at center top, rgba(148, 163, 184, 0.12), transparent 70%)",
+              background: "radial-gradient(ellipse at center top, rgba(14, 116, 144, 0.15), transparent 70%)",
             }}
           />
 
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Status badge - understated */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-slate-100/80 border border-slate-200/60">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-400" />
-                <span className="text-[11px] font-medium tracking-wide uppercase text-slate-500">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-slate-100 border border-slate-200/80">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-teal-500" />
+                <span className="text-[11px] font-medium tracking-wide uppercase text-slate-600">
                   Currently booking 2–3 weeks out
                 </span>
               </div>

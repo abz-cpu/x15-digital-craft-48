@@ -73,19 +73,19 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-700">
-          {/* Mesh gradient overlay for depth */}
+        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+          {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 opacity-40 pointer-events-none"
+            className="absolute inset-0 opacity-30 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 219, 226, 0.3), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(56, 189, 248, 0.2), transparent)",
+              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent)",
             }}
           />
           {/* Background image overlay */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-15 pointer-events-none mix-blend-overlay"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-25 pointer-events-none"
             style={{
               backgroundImage: "url('/website.png')",
             }}
@@ -95,22 +95,22 @@ const WebPackage = () => {
             {/* Keep content above background */}
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Urgency / scarcity badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 shadow-lg">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse" />
-                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-cyan-100">
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full bg-emerald-500/90 backdrop-blur-sm border border-emerald-400/50 shadow-lg shadow-emerald-500/25">
+                <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
+                <span className="text-xs font-bold tracking-wide uppercase text-white">
                   Currently booking 2–3 weeks out
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
                 Web Development Packages
               </h1>
 
-              <p className="text-lg text-white/95 mb-3">
+              <p className="text-lg text-white mb-3">
                 Professional websites that attract customers and grow your business.
               </p>
 
-              <p className="text-base text-white/80">
+              <p className="text-base text-slate-200">
                 One-time build fee. You keep your domain &amp; content. No forced monthly platform fees.
               </p>
 
@@ -119,7 +119,7 @@ const WebPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-teal-700 hover:bg-white/95 font-semibold tracking-tight shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all"
+                  className="bg-teal-500 text-white hover:bg-teal-400 font-semibold tracking-tight shadow-[0_8px_30px_rgba(20,184,166,0.3)] hover:shadow-[0_12px_40px_rgba(20,184,166,0.4)] transition-all"
                 >
                   <Link to="/quick-start">
                     Start Your Project
@@ -131,7 +131,7 @@ const WebPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70 backdrop-blur-sm transition-all duration-300 shadow-lg"
+                  className="border-slate-400 text-white bg-white/10 hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all duration-300"
                 >
                   <Link to="/contact">
                     Book Free Call

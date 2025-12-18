@@ -269,44 +269,44 @@ const AiPackage = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-violet-600 via-indigo-600 to-blue-700">
-          {/* Mesh gradient overlay for depth */}
+        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+          {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 opacity-50 pointer-events-none"
+            className="absolute inset-0 opacity-30 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(167, 139, 250, 0.35), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(99, 102, 241, 0.25), transparent)",
+              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.15), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(99, 102, 241, 0.1), transparent)",
             }}
           />
           {/* Background image (AI blueprint) */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-20 mix-blend-overlay pointer-events-none"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-25 pointer-events-none"
             style={{ backgroundImage: "url('/ai.png')" }}
           />
 
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Micro badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 shadow-lg">
-                <span className="w-1.5 h-1.5 rounded-full bg-violet-300 animate-pulse" />
-                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-violet-100">
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full bg-emerald-500/90 backdrop-blur-sm border border-emerald-400/50 shadow-lg shadow-emerald-500/25">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                <span className="text-xs font-bold tracking-wide uppercase text-white">
                   🤖 Live in 48 hours
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
                 AI Automation Solutions
               </h1>
 
-              <p className="text-xl text-white/95 mb-3">
+              <p className="text-xl text-white mb-3">
                 Save 20+ hours every week with AI that answers, books, and follows up 24/7.
               </p>
 
-              <p className="text-lg text-white/85">Works with any website — yours or ours. No IT team required.</p>
+              <p className="text-lg text-slate-200">Works with any website — yours or ours. No IT team required.</p>
 
               {/* Urgency micro-copy */}
-              <p className="mt-4 text-sm text-violet-200/90 font-medium">
+              <p className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-sm text-amber-200 font-semibold">
                 ⏱️ Currently booking AI setups 1–2 weeks in advance
               </p>
 
@@ -315,7 +315,7 @@ const AiPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-indigo-700 hover:bg-white/95 font-semibold shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all"
+                  className="bg-violet-500 text-white hover:bg-violet-400 font-semibold shadow-[0_8px_30px_rgba(139,92,246,0.3)] hover:shadow-[0_12px_40px_rgba(139,92,246,0.4)] transition-all"
                 >
                   <Link to="#ai-solutions">
                     See AI Solutions
@@ -327,7 +327,7 @@ const AiPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70 backdrop-blur-sm transition-all duration-300 shadow-lg"
+                  className="border-slate-400 text-white bg-white/10 hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all duration-300"
                 >
                   <Link to="/contact">
                     Book Free Demo

@@ -73,11 +73,19 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F766E] via-[#0D9488] to-[#115E59]">
+        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-700">
+          {/* Mesh gradient overlay for depth */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-40 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 219, 226, 0.3), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(56, 189, 248, 0.2), transparent)",
+            }}
+          />
           {/* Background image overlay */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-20 pointer-events-none"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-15 pointer-events-none mix-blend-overlay"
             style={{
               backgroundImage: "url('/website.png')",
             }}
@@ -87,20 +95,22 @@ const WebPackage = () => {
             {/* Keep content above background */}
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Urgency / scarcity badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-emerald-100">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 shadow-lg">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse" />
+                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-cyan-100">
                   Currently booking 2–3 weeks out
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Web Development Packages</h1>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
+                Web Development Packages
+              </h1>
 
-              <p className="text-lg text-white/90 mb-3">
+              <p className="text-lg text-white/95 mb-3">
                 Professional websites that attract customers and grow your business.
               </p>
 
-              <p className="text-base text-white/75">
+              <p className="text-base text-white/80">
                 One-time build fee. You keep your domain &amp; content. No forced monthly platform fees.
               </p>
 
@@ -109,11 +119,11 @@ const WebPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="!bg-white/15 hover:!bg-white/25 !text-white !opacity-100 font-semibold tracking-tight border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transition-all backdrop-blur-sm"
+                  className="bg-white text-teal-700 hover:bg-white/95 font-semibold tracking-tight shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all"
                 >
                   <Link to="/quick-start">
                     Start Your Project
-                    <ArrowRight className="ml-2 h-4 w-4 !text-white/90" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
 
@@ -121,7 +131,7 @@ const WebPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/80 text-white bg-white/5 hover:bg-white/15 hover:border-white transition-all duration-300 shadow-none hover:shadow-[0_4px_15px_rgba(255,255,255,0.1)]"
+                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70 backdrop-blur-sm transition-all duration-300 shadow-lg"
                 >
                   <Link to="/contact">
                     Book Free Call

@@ -6,7 +6,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, TrendingUp } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -357,14 +357,14 @@ const WebPackage = () => {
                   to="#support-maintenance" 
                   className="text-sm font-semibold text-teal-700 hover:text-teal-900 underline underline-offset-2"
                 >
-                  Support & Maintenance from £25/month
+                  Support & Maintenance from £25/month ↓
                 </Link>
                 <span className="hidden sm:inline text-muted-foreground">|</span>
                 <Link 
-                  to="/services/seo" 
+                  to="/services/maintenance-support" 
                   className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-2"
                 >
-                  Boost visibility with SEO →
+                  Learn more →
                 </Link>
               </div>
             </div>
@@ -618,11 +618,11 @@ const WebPackage = () => {
                           Works with any hosting provider
                         </p>
                         <Link 
-                          to="/services/seo" 
+                          to="/services/maintenance-support" 
                           className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2"
                         >
-                          <TrendingUp className="h-3.5 w-3.5" />
-                          Add SEO to get found on Google
+                          <ArrowRight className="h-3.5 w-3.5" />
+                          View full maintenance details
                         </Link>
                       </div>
 

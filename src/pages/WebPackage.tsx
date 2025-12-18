@@ -6,7 +6,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -142,6 +142,9 @@ const WebPackage = () => {
               <p className="text-base md:text-lg text-muted-foreground">
                 Pick the website package that matches where your business is today. One clear build price. You keep
                 control of your domain and content.
+              </p>
+              <p className="mt-4 text-sm text-muted-foreground">
+                All prices shown are starting points. Your final quote depends on specific features, content requirements, and integrations needed.
               </p>
             </div>
 
@@ -343,6 +346,29 @@ const WebPackage = () => {
               </AnimatedSection>
             </div>
 
+            {/* Support & Maintenance Strip */}
+            <div className="mt-10 mb-8 p-4 bg-gradient-to-r from-teal-50 to-primary/5 rounded-xl border border-teal-200 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+              <div className="flex items-center gap-2">
+                <Shield className="h-5 w-5 text-teal-600" />
+                <span className="text-sm font-medium text-secondary">Need ongoing support?</span>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                <Link 
+                  to="#support-maintenance" 
+                  className="text-sm font-semibold text-teal-700 hover:text-teal-900 underline underline-offset-2"
+                >
+                  Support & Maintenance from £25/month
+                </Link>
+                <span className="hidden sm:inline text-muted-foreground">|</span>
+                <Link 
+                  to="/services/seo" 
+                  className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-2"
+                >
+                  Boost visibility with SEO →
+                </Link>
+              </div>
+            </div>
+
             {/* Comparison Table */}
             <WebPackagesComparisonTable />
           </Container>
@@ -524,7 +550,7 @@ const WebPackage = () => {
 
                 {/* PACKAGE 2: Support & Maintenance - HIGHLIGHTED MIDDLE OPTION */}
                 <AnimatedSection staggerIndex={1} animation="scale">
-                  <Card className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2">
+                  <Card id="support-maintenance" className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24">
                     {/* MATCHED BADGE (same style & placement as Hosting + Support) */}
                     <Badge
                       className="absolute -top-3 left-4
@@ -591,6 +617,13 @@ const WebPackage = () => {
                           <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
                           Works with any hosting provider
                         </p>
+                        <Link 
+                          to="/services/seo" 
+                          className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2"
+                        >
+                          <TrendingUp className="h-3.5 w-3.5" />
+                          Add SEO to get found on Google
+                        </Link>
                       </div>
 
                       <Button asChild className="w-full bg-primary hover:bg-primary/90">

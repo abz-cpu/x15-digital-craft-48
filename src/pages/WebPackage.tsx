@@ -143,9 +143,6 @@ const WebPackage = () => {
                 Pick the website package that matches where your business is today. One clear build price. You keep
                 control of your domain and content.
               </p>
-              <p className="mt-4 text-sm text-muted-foreground">
-                All prices shown are starting points. Your final quote depends on specific features, content requirements, and integrations needed.
-              </p>
             </div>
 
             {/* Tier cards */}
@@ -346,19 +343,28 @@ const WebPackage = () => {
               </AnimatedSection>
             </div>
 
+            {/* Pricing disclaimer */}
+            <p className="mt-6 text-center text-sm text-muted-foreground">
+              All prices shown are starting points. Your final quote depends on specific features, content requirements, and integrations needed.
+            </p>
+
             {/* Support & Maintenance Strip */}
-            <div className="mt-10 mb-8 p-4 bg-gradient-to-r from-teal-50 to-primary/5 rounded-xl border border-teal-200 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+            <div className="mt-8 mb-8 p-4 bg-gradient-to-r from-teal-50 to-primary/5 rounded-xl border border-teal-200 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-teal-600" />
                 <span className="text-sm font-medium text-secondary">Need ongoing support?</span>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                <Link 
-                  to="#support-maintenance" 
+                <a 
+                  href="#support-maintenance" 
                   className="text-sm font-semibold text-teal-700 hover:text-teal-900 underline underline-offset-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('support-maintenance')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Support & Maintenance from £25/month ↓
-                </Link>
+                </a>
                 <span className="hidden sm:inline text-muted-foreground">|</span>
                 <Link 
                   to="/services/maintenance-support" 

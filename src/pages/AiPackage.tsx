@@ -269,36 +269,44 @@ const AiPackage = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-violet-600 via-indigo-600 to-blue-700">
+          {/* Mesh gradient overlay for depth */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-50 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(167, 139, 250, 0.35), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(99, 102, 241, 0.25), transparent)",
+            }}
+          />
           {/* Background image (AI blueprint) */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-55 mix-blend-overlay pointer-events-none"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_30%] md:bg-center opacity-20 mix-blend-overlay pointer-events-none"
             style={{ backgroundImage: "url('/ai.png')" }}
           />
 
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               {/* Micro badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/5 backdrop-blur-sm border border-white/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-emerald-100">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 shadow-lg">
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-300 animate-pulse" />
+                <span className="text-[11px] font-semibold tracking-[0.16em] uppercase text-violet-100">
                   🤖 Live in 48 hours
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_0_30px_rgba(45,212,191,0.28)]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
                 AI Automation Solutions
               </h1>
 
-              <p className="text-xl text-white/90 mb-3">
+              <p className="text-xl text-white/95 mb-3">
                 Save 20+ hours every week with AI that answers, books, and follows up 24/7.
               </p>
 
-              <p className="text-lg text-white/80">Works with any website — yours or ours. No IT team required.</p>
+              <p className="text-lg text-white/85">Works with any website — yours or ours. No IT team required.</p>
 
               {/* Urgency micro-copy */}
-              <p className="mt-4 text-sm text-emerald-200/80 font-medium">
+              <p className="mt-4 text-sm text-violet-200/90 font-medium">
                 ⏱️ Currently booking AI setups 1–2 weeks in advance
               </p>
 
@@ -307,7 +315,7 @@ const AiPackage = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-slate-900 hover:bg-slate-50 shadow-[0_18px_45px_rgba(15,118,110,0.35)] transition-shadow focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="bg-white text-indigo-700 hover:bg-white/95 font-semibold shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all"
                 >
                   <Link to="#ai-solutions">
                     See AI Solutions
@@ -319,7 +327,7 @@ const AiPackage = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white/60 text-white/90 bg-white/5 hover:bg-white/15 hover:text-white shadow-sm hover:shadow-md focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70 backdrop-blur-sm transition-all duration-300 shadow-lg"
                 >
                   <Link to="/contact">
                     Book Free Demo

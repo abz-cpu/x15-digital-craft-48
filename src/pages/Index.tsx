@@ -189,221 +189,111 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden hero-gradient pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-16 lg:pb-20 xl:pt-24 xl:pb-24 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* soft glows + vignette */}
+        {/* Soft purple/violet gradient blobs */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-60"
+          className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 0% 0%, rgba(82,255,248,0.10) 0, transparent 55%), " + // reduced cyan glow
-              "radial-gradient(circle at 100% 0%, rgba(41,98,255,0.10) 0, transparent 60%), " + // reduced blue glow
-              "radial-gradient(circle at 50% 100%, rgba(15,118,110,0.40) 0, transparent 60%), " + // stronger teal (on-brand)
-              "linear-gradient(to bottom, rgba(3,7,18,0) 0, rgba(3,7,18,0.85) 100%)",
+              "radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%), " +
+              "radial-gradient(ellipse 60% 50% at 90% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 45%), " +
+              "radial-gradient(ellipse 70% 60% at 50% 80%, rgba(196, 181, 253, 0.1) 0%, transparent 50%)",
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-14">
-          {/* LEFT – copy + CTAs */}
-          <div className="flex-1 text-center lg:text-left space-y-6">
-            {/* Badge */}
-            <div className="hero-status-badge inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 px-4 py-2 text-sm font-medium text-white shadow-lg mb-0.5">
-              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                {/* Outer pulsing ring */}
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-90" />
-                {/* Extra burst on hover */}
-                <span className="hero-dot-burst absolute inline-flex h-full w-full rounded-full bg-cyan-400/40" />
-                {/* Middle glow */}
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 blur-sm dot-glow" />
-                {/* Inner solid dot */}
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
-              </span>
-
-              <span>
-                Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
-              </span>
-            </div>
-
-            <div className="space-y-3 lg:space-y-3.5">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.3rem] font-bold tracking-tight text-white leading-tight">
-                Your Business Sleeps. Your Website Shouldn't.
-                <br />
-              </h1>
-
-              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Professional websites and smart AI that answer questions, capture leads, and book clients while
-                you&apos;re offline.
-              </p>
-            </div>
-
-            {/* Small text – trust + speed */}
-            <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto lg:mx-0">
-              Built for UK businesses. Delivered in <span className="font-semibold">1–14 days</span>. Client-Hosted &
-              Managed. Optional support from <span className="font-semibold">£25/month</span>.
-            </p>
-
-            {/* Primary CTA – visible before choice cards */}
-            <div className="mt-3 sm:mt-4 lg:mt-2 mb-1 flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start sm:gap-3 max-w-xl mx-auto lg:mx-0">
-              <Button
-                asChild
-                size="lg"
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white shadow-lg shadow-emerald-500/25 sm:shadow-emerald-500/40"
-              >
-                <Link to="/quick-start">
-                  Book a Free Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-
-            {/* CHOICE CARDS + stats */}
-            <div className="pt-4">
-              {/* CHOICE CARDS */}
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch gap-4 sm:gap-4 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
-                {/* Website Packages card – primary */}
-                <Link
-                  to="/web-package"
-                  aria-label="Explore website packages and pricing"
-                  className="hero-choice-card hero-choice-card-primary flex-1 lg:flex-[1.2] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
-             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-                >
-                  <Globe className="hero-icon-animated hero-icon-spin h-4 w-4 text-white/85" aria-hidden="true" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Explore Website Packages</span>
-                    <span className="text-xs text-emerald-200">
-                      From £200 <span className="hero-arrow">→</span>
-                    </span>
-                  </div>
-                </Link>
-
-                {/* AI Automation card – outcome-focused label */}
-                <Link
-                  to="/ai-package"
-                  aria-label="Automate my sales with AI"
-                  className="hero-choice-card flex-1 lg:flex-[0.9] min-h-[64px] cursor-pointer rounded-xl border border-white/20 bg-white/10 px-4 py-3 flex items-center gap-3 text-left
-             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-                >
-                  <Bot className="hero-icon-animated hero-icon-blink h-4 w-4 text-white/80" aria-hidden="true" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-semibold text-white">Automate My Sales</span>
-                    <span className="text-xs text-cyan-300">
-                      From £50/mo <span className="hero-arrow">→</span>
-                    </span>
-                  </div>
-                </Link>
-              </div>
-
-              {/* quick stats - keep top 3 */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-2 text-[11px] sm:text-xs text-white/70 pt-6">
-                <div className="flex items-center gap-1.5">
-                  <Star className="h-3.5 w-3.5 text-yellow-300" />
-                  <span>
-                    <span className="font-semibold">4.9/5</span> rating
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MessageCircle className="h-3.5 w-3.5 text-cyan-300" />
-                  <span>Quote in 1–3 hours</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Globe className="h-3.5 w-3.5 text-white/80" />
-                  <span>UK-based team</span>
-                </div>
-              </div>
-            </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+            <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            </span>
+            <span>
+              Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
+            </span>
           </div>
 
-          {/* RIGHT – comparison card (Desktop only) */}
-          <div className="flex-1 w-full max-w-md mx-auto lg:mx-0 hidden lg:block">
-            <div className="hero-card p-6 sm:p-7 md:p-8 text-white">
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <div className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.16em] text-white/50 font-semibold">Project snapshot</p>
-                  <p className="text-lg sm:text-xl font-semibold text-white">What working with X15 feels like</p>
-                </div>
-                <Badge
-                  variant="outline"
-                  className="text-[10px] border-emerald-400/60 text-emerald-300 bg-emerald-500/5"
-                >
-                  No agency bloat
-                </Badge>
-              </div>
+          {/* Main heading */}
+          <div className="space-y-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
+              Your Business Sleeps.
+              <br />
+              <span className="text-violet-600">Your Website Shouldn't.</span>
+            </h1>
 
-              <div className="grid grid-cols-2 gap-5 mb-6">
-                <div className="space-y-3 rounded-2xl bg-white/5 p-3 border border-white/8">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-white/55">Typical agency</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/75">
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Vague pricing</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Slow replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Over-designed &amp; over-priced</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <ClipboardCheck className="h-3.5 w-3.5 mt-0.5 text-white/60" />
-                      <span>Locked into long contracts</span>
-                    </li>
-                  </ul>
-                </div>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Professional websites and smart AI that answer questions, capture leads, and book clients while
+              you're offline.
+            </p>
+          </div>
 
-                <div className="space-y-3 rounded-2xl bg-emerald-400/10 p-3 border border-emerald-300/40">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-200">X15 Digital</p>
-                  <ul className="space-y-1.5 text-[11px] text-white/85">
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear packages from £200</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Fast WhatsApp replies</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Built for conversions</span>
-                    </li>
-                    <li className="flex items-start gap-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Clear terms & no long contracts</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          {/* Trust line */}
+          <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto">
+            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>. Client-Hosted &
+            Managed. Optional support from <span className="font-semibold text-slate-700">£25/month</span>.
+          </p>
 
-              <div className="grid grid-cols-3 gap-3 text-center text-[11px] sm:text-xs text-white/75 mb-5">
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">&lt;4 hrs</p>
-                  <p className="text-[10px] text-white/60">quote time</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">1–14d</p>
-                  <p className="text-[10px] text-white/60">delivery</p>
-                </div>
-                <div className="rounded-xl border border-white/12 py-2.5">
-                  <p className="text-sm font-semibold text-white">UK-wide</p>
-                  <p className="text-[10px] text-white/60">service</p>
-                </div>
-              </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-500/25 px-8"
+            >
+              <Link to="/quick-start">
+                Book a Free Consultation
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-slate-50 px-8"
+            >
+              <Link to="/portfolio">
+                View Our Work
+              </Link>
+            </Button>
+          </div>
 
-              <Button
-                asChild
-                size="sm"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
-              >
-                <Link to="/quick-start">
-                  Get Quote (Takes 2 Minutes)
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+          {/* Service pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+              Web Development
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              AI Automation
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              Digital Marketing
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              Branding
+            </span>
+          </div>
+
+          {/* Quick stats */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 pt-2">
+            <div className="flex items-center gap-1.5">
+              <Star className="h-4 w-4 text-yellow-500" />
+              <span><span className="font-semibold text-slate-700">4.9/5</span> rating</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <MessageCircle className="h-4 w-4 text-violet-500" />
+              <span>Quote in 1–3 hours</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Globe className="h-4 w-4 text-slate-400" />
+              <span>UK-based team</span>
             </div>
           </div>
         </div>

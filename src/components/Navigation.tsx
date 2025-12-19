@@ -162,7 +162,7 @@ const Navigation = () => {
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
               aria-label="X15 Digital home"
             >
-              <span className={`text-[22px] font-bold tracking-tight transition-colors ${isScrolled ? "text-[#1F2937]" : "text-white"}`}>X15 DIGITAL</span>
+              <span className="text-[22px] font-bold tracking-tight transition-colors text-[#1F2937]">X15 DIGITAL</span>
             </PreloadLink>
 
             {/* Desktop Navigation */}
@@ -171,7 +171,7 @@ const Navigation = () => {
               <div className="relative">
                 <button
                   ref={servicesButtonRef}
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ${isScrolled ? "text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E]" : "text-white/90 hover:text-white focus:text-white focus:ring-white"}`}
+                  className="flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E]"
                   onMouseEnter={() => {
                     clearCloseTimeout();
                     setShowServicesDropdown(true);
@@ -245,11 +245,7 @@ const Navigation = () => {
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ${
-                    isScrolled 
-                      ? `text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E] ${location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""}`
-                      : `text-white/90 hover:text-white focus:text-white focus:ring-white ${location.pathname === link.path ? "text-white font-semibold" : ""}`
-                  }`}
+                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E] ${location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""}`}
                 >
                   {link.name}
                 </PreloadLink>
@@ -258,7 +254,7 @@ const Navigation = () => {
               {/* Phone Number - Click to call */}
               <a
                 href="tel:+447123456789"
-                className={`flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ml-1 ${isScrolled ? "text-[#4B5563] hover:text-[#0F766E] focus:ring-[#0F766E]" : "text-white/90 hover:text-white focus:ring-white"}`}
+                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ml-1 text-[#4B5563] hover:text-[#0F766E] focus:ring-[#0F766E]"
                 aria-label="Call us on 07123 456789"
               >
                 <Phone className="h-[18px] w-[18px]" aria-hidden="true" />
@@ -276,16 +272,16 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${isScrolled ? "hover:bg-gray-100 focus:ring-[#0F766E]" : "hover:bg-white/10 focus:ring-white"}`}
+              className="lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 focus:ring-[#0F766E]"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
-                <X className={`h-6 w-6 ${isScrolled ? "text-[#1F2937]" : "text-white"}`} aria-hidden="true" />
+                <X className="h-6 w-6 text-[#1F2937]" aria-hidden="true" />
               ) : (
-                <Menu className={`h-6 w-6 ${isScrolled ? "text-[#1F2937]" : "text-white"}`} aria-hidden="true" />
+                <Menu className="h-6 w-6 text-[#1F2937]" aria-hidden="true" />
               )}
             </button>
           </div>

@@ -192,19 +192,13 @@ const Index = () => {
         className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
-          transition: "transform 0.1s ease-out",
-        }}
-      >
-        {/* Bright teal gradient blobs */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 90% 70% at 50% 40%, rgba(20, 184, 166, 0.35) 0%, transparent 60%), " +
-              "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(6, 182, 212, 0.28) 0%, transparent 50%), " +
-              "radial-gradient(ellipse 60% 50% at 80% 60%, rgba(94, 234, 212, 0.22) 0%, transparent 45%)",
-          }}
-        />
+        transition: "transform 0.1s ease-out",
+      }}
+    >
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}

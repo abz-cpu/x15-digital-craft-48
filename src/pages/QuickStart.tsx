@@ -72,7 +72,11 @@ const QuickStart = () => {
     <div className="min-h-screen bg-background">
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
+      
+      {/* Breadcrumb below navbar */}
+      <div className="pt-[88px]">
+        <BreadcrumbNav />
+      </div>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">

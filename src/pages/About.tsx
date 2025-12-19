@@ -54,13 +54,13 @@ const About = () => {
       <ScrollProgressBar />
       <Navigation />
       
-      {/* Breadcrumb above hero */}
-      <div className="pt-[88px]">
+      {/* Breadcrumb above hero with line separator */}
+      <div className="pt-[88px] border-b border-border">
         <BreadcrumbNav />
       </div>
 
       {/* Hero Section */}
-      <section className="pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-12 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <div className="grid md:grid-cols-5 gap-12 items-start">
             {/* Left Column - 60% */}

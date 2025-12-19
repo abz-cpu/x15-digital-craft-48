@@ -248,7 +248,7 @@ const Index = () => {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-slate-50 px-8"
+              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
             >
               <Link to="/portfolio">
                 View Our Work
@@ -259,6 +259,7 @@ const Index = () => {
           {/* Service pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               Web Development
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">

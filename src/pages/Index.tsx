@@ -195,14 +195,14 @@ const Index = () => {
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Soft purple/violet gradient blobs */}
+        {/* Soft teal gradient blobs */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%), " +
-              "radial-gradient(ellipse 60% 50% at 90% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 45%), " +
-              "radial-gradient(ellipse 70% 60% at 50% 80%, rgba(196, 181, 253, 0.1) 0%, transparent 50%)",
+              "radial-gradient(ellipse 80% 60% at 10% 20%, rgba(20, 184, 166, 0.18) 0%, transparent 50%), " +
+              "radial-gradient(ellipse 60% 50% at 90% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 45%), " +
+              "radial-gradient(ellipse 70% 60% at 50% 80%, rgba(94, 234, 212, 0.12) 0%, transparent 50%)",
           }}
         />
 
@@ -223,7 +223,7 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
               Your Business Sleeps.
               <br />
-              <span className="text-violet-600">Your Website Shouldn't.</span>
+              <span className="text-teal-600">Your Website Shouldn't.</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -243,7 +243,7 @@ const Index = () => {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-500/25 px-8"
+              className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
             >
               <Link to="/quick-start">
                 Book a Free Consultation
@@ -268,15 +268,15 @@ const Index = () => {
               Web Development
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               AI Automation
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               Digital Marketing
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               Branding
             </span>
           </div>
@@ -288,7 +288,7 @@ const Index = () => {
               <span><span className="font-semibold text-slate-700">4.9/5</span> rating</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <MessageCircle className="h-4 w-4 text-violet-500" />
+              <MessageCircle className="h-4 w-4 text-teal-500" />
               <span>Quote in 1–3 hours</span>
             </div>
             <div className="flex items-center gap-1.5">

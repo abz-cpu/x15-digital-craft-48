@@ -98,22 +98,24 @@ const Contact = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Get in Touch</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
+      <section className="pt-[72px] pb-12 md:pb-16 bg-[#1F2937]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 text-center fade-in-section">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">Get in Touch</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
             Have a project in mind? Questions about our services? Want a straightforward quote with no sales pitch?
           </p>
-          <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
+          <p className="text-lg text-gray-300 flex items-center justify-center gap-2">
             <Clock className="h-5 w-5 text-primary" />
             We typically respond within 4 hours (usually faster).
           </p>
-          <p className="text-lg font-semibold text-secondary mt-6 mb-8">Choose your preferred way to reach us:</p>
+          <p className="text-lg font-semibold text-white mt-6">Choose your preferred way to reach us:</p>
         </div>
       </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
 
       {/* Contact Options Grid */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-background">

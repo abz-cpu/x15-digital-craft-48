@@ -53,15 +53,27 @@ const About = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Hero Section */}
+      <section className="pt-[72px] pb-12 md:pb-16 bg-[#1F2937]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 fade-in-section text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">About X15 Digital</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Fast, transparent web development & AI automation for UK businesses.
+          </p>
+        </div>
+      </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
+
+      {/* Content Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto fade-in-section">
           <div className="grid md:grid-cols-5 gap-12 items-start">
             {/* Left Column - 60% */}
             <div className="md:col-span-3">
-              <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">About X15 Digital</h1>
+              <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-6">Our Story</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground mb-4">Hi, I'm Abdul M Taher, the founder of X15 Digital.</p>
                 <p className="text-lg text-muted-foreground mb-4">

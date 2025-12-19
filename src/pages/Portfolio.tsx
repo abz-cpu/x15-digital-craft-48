@@ -288,7 +288,7 @@ const Portfolio = () => {
                 className={`text-xs sm:text-sm ${
                   activeFilter === filter.id
                     ? "bg-primary text-primary-foreground"
-                    : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    : "border-primary text-primary hover:bg-amber-500 hover:border-amber-500 hover:text-white"
                 }`}
               >
                 <filter.icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />

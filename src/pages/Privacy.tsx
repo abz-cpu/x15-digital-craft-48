@@ -14,10 +14,10 @@ const Privacy = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-8">Privacy Policy</h1>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-32 md:pb-24">
+        <BreadcrumbNav />
+        <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-8 mt-4">Privacy Policy</h1>
         
         <div className="prose prose-lg max-w-none space-y-6 text-foreground">
           <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString('en-GB')}</p>

@@ -374,11 +374,10 @@ const Services = () => {
       />
 
       <Navigation />
-      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* HERO – Services Hub */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8">
           {/* Soft background accents */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(45,212,191,0.18),transparent_55%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(59,130,246,0.16),transparent_55%)]" />
@@ -431,6 +430,9 @@ const Services = () => {
             </div>
           </Container>
         </section>
+
+        {/* Breadcrumb below hero */}
+        <BreadcrumbNav />
 
         {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         <section

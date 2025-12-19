@@ -705,10 +705,9 @@ Want a site built for the UK market, legally compliant, and actually supported?
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Back Button */}
-      <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="pt-28 pb-4 md:pt-32 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="gap-2">
             <Link to="/blog">

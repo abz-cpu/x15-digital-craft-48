@@ -265,11 +265,10 @@ const AiPackage = () => {
         canonicalUrl="https://x15.digital/ai-package"
       />
       <Navigation />
-      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+        <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
@@ -338,6 +337,9 @@ const AiPackage = () => {
             </div>
           </Container>
         </section>
+
+        {/* Breadcrumb below hero */}
+        <BreadcrumbNav />
 
         {/* Scenario Section */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">

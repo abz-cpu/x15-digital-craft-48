@@ -69,11 +69,10 @@ const WebPackage = () => {
       />
 
       <Navigation />
-      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+        <section className="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
@@ -142,6 +141,9 @@ const WebPackage = () => {
             </div>
           </Container>
         </section>
+
+        {/* Breadcrumb below hero */}
+        <BreadcrumbNav />
 
         {/* 2. MAIN PACKAGES + COMPARISON */}
         <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">

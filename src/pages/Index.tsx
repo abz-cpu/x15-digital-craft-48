@@ -189,7 +189,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden bg-white -mt-[72px] pt-[96px] pb-20 md:pt-[100px] md:pb-24 lg:pt-[104px] lg:pb-28 xl:pt-[108px] xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
         transition: "transform 0.1s ease-out",

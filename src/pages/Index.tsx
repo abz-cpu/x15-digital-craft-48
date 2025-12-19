@@ -195,14 +195,14 @@ const Index = () => {
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Soft teal gradient blobs */}
+        {/* Bright teal gradient blobs */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 10% 20%, rgba(20, 184, 166, 0.18) 0%, transparent 50%), " +
-              "radial-gradient(ellipse 60% 50% at 90% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 45%), " +
-              "radial-gradient(ellipse 70% 60% at 50% 80%, rgba(94, 234, 212, 0.12) 0%, transparent 50%)",
+              "radial-gradient(ellipse 90% 70% at 50% 40%, rgba(20, 184, 166, 0.35) 0%, transparent 60%), " +
+              "radial-gradient(ellipse 70% 60% at 20% 30%, rgba(6, 182, 212, 0.28) 0%, transparent 50%), " +
+              "radial-gradient(ellipse 60% 50% at 80% 60%, rgba(94, 234, 212, 0.22) 0%, transparent 45%)",
           }}
         />
 

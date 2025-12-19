@@ -241,15 +241,22 @@ const Navigation = () => {
               </div>
 
               {/* Nav Links */}
-              {navLinks.map((link) => (
-                <PreloadLink
-                  key={link.path}
-                  to={link.path}
-                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E] ${location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""}`}
-                >
-                  {link.name}
-                </PreloadLink>
-              ))}
+              {navLinks.map((link) => {
+                const isPortfolioOrBlog = link.path === "/portfolio" || link.path === "/blog";
+                return (
+                  <PreloadLink
+                    key={link.path}
+                    to={link.path}
+                    className={`text-[15px] font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ${
+                      isPortfolioOrBlog 
+                        ? "text-[#4B5563] hover:bg-[#F59E0B] hover:text-white focus:bg-[#F59E0B] focus:text-white focus:ring-[#F59E0B]" 
+                        : "text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E]"
+                    } ${location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""}`}
+                  >
+                    {link.name}
+                  </PreloadLink>
+                );
+              })}
 
               {/* Phone Number - Click to call */}
               <a

@@ -18,11 +18,10 @@ const PersonalisedApps = () => {
         canonicalUrl="https://x15.digital/services/personalised-apps"
       />
       <Navigation />
-      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -37,6 +36,9 @@ const PersonalisedApps = () => {
             </div>
           </Container>
         </section>
+
+        {/* Breadcrumb below hero */}
+        <BreadcrumbNav />
 
         {/* Who This Is For */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">

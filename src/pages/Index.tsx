@@ -291,6 +291,14 @@ const Index = () => {
               <span>UK-based team</span>
             </div>
           </div>
+
+          {/* Bouncing scroll indicator */}
+          <div className="flex justify-center pt-8">
+            <div className="animate-bounce flex flex-col items-center text-slate-400">
+              <Smartphone className="h-6 w-6 mb-1" />
+              <div className="h-8 w-[2px] bg-slate-300 rounded-full" />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -195,10 +195,10 @@ const Index = () => {
         transition: "transform 0.1s ease-out",
       }}
     >
-        {/* Background gradient with floating animation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite]" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite_reverse]" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
@@ -248,7 +248,7 @@ const Index = () => {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-teal-300 text-teal-700 hover:bg-teal-50 hover:border-teal-400 px-8"
+              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-slate-50 px-8"
             >
               <Link to="/portfolio">
                 View Our Work
@@ -259,7 +259,6 @@ const Index = () => {
           {/* Service pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               Web Development
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">

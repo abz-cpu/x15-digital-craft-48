@@ -100,10 +100,9 @@ const Blog = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Resources & Insights</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -113,6 +112,9 @@ const Blog = () => {
           </p>
         </div>
       </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
 
       {/* Category Filter Bar */}
       <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border shadow-sm">

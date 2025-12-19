@@ -47,10 +47,9 @@ const Enterprise = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary to-secondary/80 text-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary to-secondary/80 text-white">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">
             Enterprise & Complex Projects
@@ -75,6 +74,9 @@ const Enterprise = () => {
           </Button>
         </div>
       </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
 
       {/* Main Content */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">

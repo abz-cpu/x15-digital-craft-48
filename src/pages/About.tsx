@@ -54,8 +54,8 @@ const About = () => {
       <ScrollProgressBar />
       <Navigation />
       
-      {/* Line separator below navbar - About page only */}
-      <div className="pt-[88px] border-b border-border"></div>
+      {/* Soft line separator below navbar - About page only */}
+      <div className="pt-[88px] border-b border-border/30"></div>
       
       {/* Breadcrumb */}
       <BreadcrumbNav />

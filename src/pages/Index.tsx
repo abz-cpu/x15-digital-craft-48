@@ -13,6 +13,7 @@ import {
   Target,
   CheckCircle2,
   ArrowRight,
+  ChevronDown,
   Smartphone,
   Palette,
   TrendingUp,
@@ -294,9 +295,9 @@ const Index = () => {
 
           {/* Bouncing scroll indicator */}
           <div className="flex justify-center pt-8">
-            <div className="animate-bounce flex flex-col items-center text-slate-400">
-              <Smartphone className="h-6 w-6 mb-1" />
-              <div className="h-8 w-[2px] bg-slate-300 rounded-full" />
+            <div className="animate-bounce flex flex-col items-center text-muted-foreground/60">
+              <ChevronDown className="h-6 w-6" />
+              <ChevronDown className="h-6 w-6 -mt-3" />
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const getCategoryBadgeClass = (category: Category) => {
 };
 
 const Blog = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const [activeCategory, setActiveCategory] = useState<Category>("web-dev");
 
   const blogPosts = [
     {
@@ -84,7 +84,6 @@ const Blog = () => {
     activeCategory === "all" ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory);
 
   const categories = [
-    { id: "all" as Category, label: "All", icon: FileText },
     { id: "web-dev" as Category, label: "Web Development", icon: Globe },
     { id: "ai-automation" as Category, label: "AI Automation", icon: Bot },
     { id: "business" as Category, label: "Business Growth", icon: TrendingUp },
@@ -117,21 +116,22 @@ const Blog = () => {
       <BreadcrumbNav />
 
       {/* Category Filter Bar */}
-      <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border shadow-sm">
+      <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-muted border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 variant={activeCategory === category.id ? "default" : "outline"}
-                className={
+                size="sm"
+                className={`text-xs sm:text-sm ${
                   activeCategory === category.id
                     ? "bg-primary text-primary-foreground"
-                    : "border-primary text-primary hover:bg-primary/10"
-                }
+                    : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                }`}
               >
-                <category.icon className="h-4 w-4 mr-2" />
+                <category.icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 {category.label}
               </Button>
             ))}

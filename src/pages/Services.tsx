@@ -374,17 +374,16 @@ const Services = () => {
       />
 
       <Navigation />
-      <BreadcrumbNav />
 
       <main className="flex-1">
         {/* HERO – Services Hub */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 pt-[72px] pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
           {/* Soft background accents */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(45,212,191,0.18),transparent_55%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(59,130,246,0.16),transparent_55%)]" />
 
           <Container>
-            <div className="relative max-w-3xl mx-auto text-center fade-in-section">
+            <div className="relative max-w-3xl mx-auto text-center fade-in-section pt-12 md:pt-16">
               <Badge className="mb-4 bg-white/5 text-emerald-200 border-emerald-400/30">
                 Websites · Apps · AI Systems
               </Badge>
@@ -431,6 +430,9 @@ const Services = () => {
             </div>
           </Container>
         </section>
+
+        {/* Breadcrumb below hero */}
+        <BreadcrumbNav />
 
         {/* 2. WEB & APP SERVICES – with anchors for hash links */}
         <section

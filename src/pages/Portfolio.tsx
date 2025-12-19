@@ -260,18 +260,20 @@ const Portfolio = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
-      {/* Hero Section */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 bg-background">
-        <Container className="text-center fade-in-section">
-          <h1 className="mb-6">Recent Work & Capabilities</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+      {/* Hero Section with dark background */}
+      <section className="pt-[72px] pb-12 md:pb-16 bg-[#1F2937]">
+        <Container className="text-center fade-in-section pt-12 md:pt-16">
+          <h1 className="mb-6 text-white">Recent Work & Capabilities</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             See what we can build for your business. Most projects are capability examples showing our work - real
             client projects coming soon.
           </p>
         </Container>
       </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
 
       {/* Filter Bar */}
       <section className="sticky top-16 z-40 py-4 bg-muted border-b border-border">

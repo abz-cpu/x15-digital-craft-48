@@ -100,19 +100,21 @@ const Blog = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <BreadcrumbNav />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Resources & Insights</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+      <section className="pt-[72px] pb-12 md:pb-16 bg-[#1F2937]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">Resources & Insights</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Practical tips on web development, AI automation, and growing your business online.
             <br />
             No fluff. No jargon. Just actionable advice.
           </p>
         </div>
       </section>
+
+      {/* Breadcrumb below hero */}
+      <BreadcrumbNav />
 
       {/* Category Filter Bar */}
       <section className="sticky top-16 z-40 py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border shadow-sm">

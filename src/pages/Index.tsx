@@ -193,13 +193,13 @@ const Index = () => {
         className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
-        transition: "transform 0.1s ease-out",
-      }}
-    >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+          transition: "transform 0.1s ease-out",
+        }}
+      >
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
@@ -222,15 +222,16 @@ const Index = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Professional websites and smart AI that answer questions, capture leads, and book clients while
-              you're offline.
+              Professional websites from £200 and smart AI from £50/month that answer questions, capture leads, and book
+              clients 24/7 — even while you sleep.
             </p>
           </div>
 
           {/* Trust line */}
           <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto">
-            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>. Client-Hosted &
-            Managed. Optional support from <span className="font-semibold text-slate-700">£25/month</span>.
+            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
+            Client-Hosted & Managed. Optional support from{" "}
+            <span className="font-semibold text-slate-700">£25/month</span>.
           </p>
 
           {/* CTAs */}
@@ -251,9 +252,7 @@ const Index = () => {
               variant="outline"
               className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
             >
-              <Link to="/portfolio">
-                View Our Work
-              </Link>
+              <Link to="/portfolio">View Our Work</Link>
             </Button>
           </div>
 
@@ -281,7 +280,9 @@ const Index = () => {
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 pt-2">
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 text-yellow-500" />
-              <span><span className="font-semibold text-slate-700">4.9/5</span> rating</span>
+              <span>
+                <span className="font-semibold text-slate-700">4.9/5</span> rating
+              </span>
             </div>
             <div className="flex items-center gap-1.5">
               <MessageCircle className="h-4 w-4 text-teal-500" />
@@ -1044,17 +1045,13 @@ const Index = () => {
               <div className="flex-shrink-0 p-2.5 rounded-full bg-[#0F766E]/10">
                 <MessageCircle className="h-5 w-5 text-[#0F766E]" />
               </div>
-              
+
               {/* Text */}
               <div className="text-left">
-                <p className="text-sm md:text-base font-semibold text-[#1F2937]">
-                  Still have questions?
-                </p>
-                <p className="text-xs md:text-sm text-[#6B7280]">
-                  We typically respond within a few hours
-                </p>
+                <p className="text-sm md:text-base font-semibold text-[#1F2937]">Still have questions?</p>
+                <p className="text-xs md:text-sm text-[#6B7280]">We typically respond within a few hours</p>
               </div>
-              
+
               {/* Button */}
               <Button
                 asChild

@@ -1,6 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { DollarSign, Zap, MessageCircle, Globe, Bot, Lock, Shield, ClipboardCheck, Star, Target, CheckCircle2, ArrowRight, ChevronDown, Smartphone, Palette, TrendingUp, Search, ShoppingBag, Package, MessageSquare, MapPin, Image, Settings, Clock, Receipt, ShieldCheck, BadgeCheck, X } from "lucide-react";
+import {
+  DollarSign,
+  Zap,
+  MessageCircle,
+  Globe,
+  Bot,
+  Lock,
+  Shield,
+  ClipboardCheck,
+  Star,
+  Target,
+  CheckCircle2,
+  ArrowRight,
+  ChevronDown,
+  Smartphone,
+  Palette,
+  TrendingUp,
+  Search,
+  ShoppingBag,
+  Package,
+  MessageSquare,
+  MapPin,
+  Image,
+  Settings,
+  Clock,
+  Receipt,
+  ShieldCheck,
+  BadgeCheck,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonLegacy } from "@/components/ui/button-legacy";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -21,120 +50,156 @@ import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
+
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const parallaxOffset = useParallax({
     speed: 0.5,
-    maxOffset: 50
+    maxOffset: 50,
   });
-  const currentMonth = new Date().toLocaleString("en-GB", {
-    month: "long"
-  });
+
+  const currentMonth = new Date().toLocaleString("en-GB", { month: "long" });
+
   const [expandedService, setExpandedService] = useState<string | null>(null);
+
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
     const sections = document.querySelectorAll(".fade-in-section");
-    sections.forEach(section => observerRef.current?.observe(section));
+    sections.forEach((section) => observerRef.current?.observe(section));
+
     return () => observerRef.current?.disconnect();
   }, []);
-  const testimonials = [{
-    quote: "Got a quote in 2 hours – way faster than other devs.",
-    author: "Sarah, Salon Owner",
-    location: "SE15, London"
-  }, {
-    quote: "Love how transparent the pricing is. No BS.",
-    author: "James, Plumber",
-    location: "Birmingham"
-  }, {
-    quote: "The AI chatbot handles 80% of basic questions now.",
-    author: "Rachel, Consultant",
-    location: "Manchester"
-  }];
+
+  const testimonials = [
+    {
+      quote: "Got a quote in 2 hours – way faster than other devs.",
+      author: "Sarah, Salon Owner",
+      location: "SE15, London",
+    },
+    {
+      quote: "Love how transparent the pricing is. No BS.",
+      author: "James, Plumber",
+      location: "Birmingham",
+    },
+    {
+      quote: "The AI chatbot handles 80% of basic questions now.",
+      author: "Rachel, Consultant",
+      location: "Manchester",
+    },
+  ];
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
-  const services = [{
-    id: "web-app",
-    icon: Globe,
-    title: "Web/App Design",
-    tagline: "Sites that convert visitors into customers",
-    shortDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
-    fullDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action. We focus on layouts that feel clean, modern, and mobile-first—so every page feels fast, logical, and easy to use.",
-    process: ["UX-first layout", "Responsive design", "Conversion-focused structure", "Launch-ready assets"],
-    link: "/services#web"
-  }, {
-    id: "web-dev",
-    icon: Smartphone,
-    title: "Web Development",
-    tagline: "Lightning-fast sites delivered in days",
-    shortDescription: "Modern, responsive websites built with the latest technology and optimised for speed...",
-    fullDescription: "Modern, responsive websites built with the latest technology and optimised for speed. Clean code, SEO-friendly structure, and an editing experience that doesn’t require a developer every time you want a small change.",
-    process: ["Architecture & setup", "Component-based build", "Testing & optimisation", "Launch & handover"],
-    link: "/services#web-development"
-  }, {
-    id: "apps",
-    icon: Smartphone,
-    title: "App Development",
-    tagline: "Apps your customers will love",
-    shortDescription: "Native or cross-platform apps designed for a smooth, modern user experience...",
-    fullDescription: "From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
-    process: ["Strategy & feature planning", "Design & development", "Testing & refinement", "Launch & updates"],
-    link: "/services#app-development"
-  }, {
-    id: "marketing",
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    tagline: "Rank higher, get more customers",
-    shortDescription: "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
-    fullDescription: "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO, PPC ads, content, and social media so your business attracts the right buyers and you see measurable ROI.",
-    process: ["Market & competitor research", "Strategy & budget planning", "SEO/PPC/content launch", "Reporting"],
-    link: "/services#marketing"
-  }, {
-    id: "branding",
-    icon: Image,
-    title: "Graphic Design",
-    tagline: "Branding that makes you memorable",
-    shortDescription: "Professional branding and visual design that communicates your unique value...",
-    fullDescription: "Professional branding and visual design that communicates your unique value and sets you apart. From logos to full brand systems, we create visual identities that people remember.",
-    process: ["Brand discovery", "Concept exploration", "Design refinement", "Guidelines & asset delivery"],
-    link: "/services#branding"
-  }, {
-    id: "ai-automation",
-    icon: Bot,
-    title: "AI Automation",
-    tagline: "24/7 customer service on autopilot",
-    shortDescription: "Intelligent AI solutions that handle customer inquiries, bookings and follow-up...",
-    fullDescription: "Intelligent AI solutions that handle FAQs, bookings, lead capture and simple workflows around the clock. Free your time while giving customers instant responses.",
-    process: ["Workflow mapping", "AI training & configuration", "Integration & testing", "Launch & optimisation"],
-    link: "#ai-preview"
-  }];
-  return <div className="min-h-screen bg-background">
-      <SEO title="X15 Digital - Affordable Web Development & AI Automation for UK Businesses" description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London." keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots" />
+
+  const services = [
+    {
+      id: "web-app",
+      icon: Globe,
+      title: "Web/App Design",
+      tagline: "Sites that convert visitors into customers",
+      shortDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
+      fullDescription:
+        "Beautiful, user-focused designs that capture your brand and guide visitors to take action. We focus on layouts that feel clean, modern, and mobile-first—so every page feels fast, logical, and easy to use.",
+      process: ["UX-first layout", "Responsive design", "Conversion-focused structure", "Launch-ready assets"],
+      link: "/services#web",
+    },
+    {
+      id: "web-dev",
+      icon: Smartphone,
+      title: "Web Development",
+      tagline: "Lightning-fast sites delivered in days",
+      shortDescription: "Modern, responsive websites built with the latest technology and optimised for speed...",
+      fullDescription:
+        "Modern, responsive websites built with the latest technology and optimised for speed. Clean code, SEO-friendly structure, and an editing experience that doesn’t require a developer every time you want a small change.",
+      process: ["Architecture & setup", "Component-based build", "Testing & optimisation", "Launch & handover"],
+      link: "/services#web-development",
+    },
+    {
+      id: "apps",
+      icon: Smartphone,
+      title: "App Development",
+      tagline: "Apps your customers will love",
+      shortDescription: "Native or cross-platform apps designed for a smooth, modern user experience...",
+      fullDescription:
+        "From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
+      process: ["Strategy & feature planning", "Design & development", "Testing & refinement", "Launch & updates"],
+      link: "/services#app-development",
+    },
+    {
+      id: "marketing",
+      icon: TrendingUp,
+      title: "Digital Marketing",
+      tagline: "Rank higher, get more customers",
+      shortDescription: "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
+      fullDescription:
+        "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO, PPC ads, content, and social media so your business attracts the right buyers and you see measurable ROI.",
+      process: ["Market & competitor research", "Strategy & budget planning", "SEO/PPC/content launch", "Reporting"],
+      link: "/services#marketing",
+    },
+    {
+      id: "branding",
+      icon: Image,
+      title: "Graphic Design",
+      tagline: "Branding that makes you memorable",
+      shortDescription: "Professional branding and visual design that communicates your unique value...",
+      fullDescription:
+        "Professional branding and visual design that communicates your unique value and sets you apart. From logos to full brand systems, we create visual identities that people remember.",
+      process: ["Brand discovery", "Concept exploration", "Design refinement", "Guidelines & asset delivery"],
+      link: "/services#branding",
+    },
+    {
+      id: "ai-automation",
+      icon: Bot,
+      title: "AI Automation",
+      tagline: "24/7 customer service on autopilot",
+      shortDescription: "Intelligent AI solutions that handle customer inquiries, bookings and follow-up...",
+      fullDescription:
+        "Intelligent AI solutions that handle FAQs, bookings, lead capture and simple workflows around the clock. Free your time while giving customers instant responses.",
+      process: ["Workflow mapping", "AI training & configuration", "Integration & testing", "Launch & optimisation"],
+      link: "#ai-preview",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="X15 Digital - Affordable Web Development & AI Automation for UK Businesses"
+        description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
+        keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots"
+      />
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
       <ScrollProgressBar />
       <Navigation />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10" style={{
-      transform: `translateY(${parallaxOffset}px)`,
-      transition: "transform 0.1s ease-out"
-    }}>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+      <section
+        className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
+        style={{
+          transform: `translateY(${parallaxOffset}px)`,
+          transition: "transform 0.1s ease-out",
+        }}
+      >
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
@@ -156,28 +221,38 @@ const Index = () => {
               <span className="text-teal-600">Your Website Shouldn't.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep. 
-From £200 for websites, £50/month for AI.</p>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
+              Websites from £200, AI from £50/month.
+            </p>
           </div>
 
           {/* Trust line */}
           <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto">
-            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>. Client-Hosted &
-            Managed. Optional support from <span className="font-semibold text-slate-700">£25/month</span>.
+            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
+            Client-Hosted & Managed. Optional support from{" "}
+            <span className="font-semibold text-slate-700">£25/month</span>.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8">
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
+            >
               <Link to="/quick-start">
                 Book a Free Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8">
-              <Link to="/portfolio">
-                View Our Work
-              </Link>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
+            >
+              <Link to="/portfolio">View Our Work</Link>
             </Button>
           </div>
 
@@ -205,7 +280,9 @@ From £200 for websites, £50/month for AI.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 pt-2">
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 text-yellow-500" />
-              <span><span className="font-semibold text-slate-700">4.9/5</span> rating</span>
+              <span>
+                <span className="font-semibold text-slate-700">4.9/5</span> rating
+              </span>
             </div>
             <div className="flex items-center gap-1.5">
               <MessageCircle className="h-4 w-4 text-teal-500" />
@@ -239,61 +316,112 @@ From £200 for websites, £50/month for AI.</p>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
-            {[{
-            id: "web-dev",
-            icon: Globe,
-            title: "Web Development",
-            tagline: "Lightning-fast sites delivered in days, not weeks",
-            fullDescription: "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
-            process: ["Technical Planning & Architecture", "Development & Integration", "Quality Testing & Optimization", "Launch & Ongoing Support"],
-            link: "#web-preview"
-          }, {
-            id: "maintenance",
-            icon: Settings,
-            title: "Website Maintenance",
-            tagline: "Keep your site secure, fast, and running perfectly",
-            fullDescription: "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business. Every maintenance plan includes proactive monitoring to catch issues before they become problems.",
-            process: ["Security Updates & Monitoring", "Performance Optimization", "Content Updates & Backups", "Priority Support & Emergency Fixes"],
-            link: "/services#maintenance"
-          }, {
-            id: "ai-automation",
-            icon: Bot,
-            title: "AI Automation",
-            tagline: "Work smarter with 24/7 AI assistance",
-            fullDescription: "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
-            process: ["Workflow Analysis & Planning", "AI Training & Configuration", "Integration & Testing", "Launch & Performance Monitoring"],
-            link: "#ai-preview"
-          }, {
-            id: "design",
-            icon: Palette,
-            title: "Web/App Design",
-            tagline: "Sites that convert visitors into customers",
-            fullDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
-            process: ["Discovery & Brand Research", "Design Concepts & Mockups", "User Experience Testing", "Final Design & Handoff"],
-            link: "/services#design"
-          }, {
-            id: "marketing",
-            icon: TrendingUp,
-            title: "Digital Marketing",
-            tagline: "Get found by customers ready to buy",
-            fullDescription: "Strategic digital marketing that puts you in front of high-intent buyers. We combine proven SEO tactics, targeted PPC campaigns, compelling content, and social media management to increase visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
-            process: ["Market & Competitor Analysis", "Strategy & Budget Planning", "Campaign Launch (SEO, PPC & Content)", "Performance Tracking & Optimization"],
-            link: "/services#marketing"
-          }, {
-            id: "branding",
-            icon: Image,
-            title: "Graphic Design",
-            tagline: "Branding that makes you stand out",
-            fullDescription: "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build lasting recognition.",
-            process: ["Brand Discovery & Research", "Concept Creation & Exploration", "Design Development & Refinement", "Brand Guidelines & Assets Delivery"],
-            link: "/services#branding"
-          }].map(service => {
-            const Icon = service.icon;
-            const isExpanded = expandedService === service.id;
-            return <Card key={service.id} className="group cursor-pointer hover-lift
+            {[
+              {
+                id: "web-dev",
+                icon: Globe,
+                title: "Web Development",
+                tagline: "Lightning-fast sites delivered in days, not weeks",
+                fullDescription:
+                  "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
+                process: [
+                  "Technical Planning & Architecture",
+                  "Development & Integration",
+                  "Quality Testing & Optimization",
+                  "Launch & Ongoing Support",
+                ],
+                link: "#web-preview",
+              },
+              {
+                id: "maintenance",
+                icon: Settings,
+                title: "Website Maintenance",
+                tagline: "Keep your site secure, fast, and running perfectly",
+                fullDescription:
+                  "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business. Every maintenance plan includes proactive monitoring to catch issues before they become problems.",
+                process: [
+                  "Security Updates & Monitoring",
+                  "Performance Optimization",
+                  "Content Updates & Backups",
+                  "Priority Support & Emergency Fixes",
+                ],
+                link: "/services#maintenance",
+              },
+              {
+                id: "ai-automation",
+                icon: Bot,
+                title: "AI Automation",
+                tagline: "Work smarter with 24/7 AI assistance",
+                fullDescription:
+                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                process: [
+                  "Workflow Analysis & Planning",
+                  "AI Training & Configuration",
+                  "Integration & Testing",
+                  "Launch & Performance Monitoring",
+                ],
+                link: "#ai-preview",
+              },
+              {
+                id: "design",
+                icon: Palette,
+                title: "Web/App Design",
+                tagline: "Sites that convert visitors into customers",
+                fullDescription:
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                process: [
+                  "Discovery & Brand Research",
+                  "Design Concepts & Mockups",
+                  "User Experience Testing",
+                  "Final Design & Handoff",
+                ],
+                link: "/services#design",
+              },
+              {
+                id: "marketing",
+                icon: TrendingUp,
+                title: "Digital Marketing",
+                tagline: "Get found by customers ready to buy",
+                fullDescription:
+                  "Strategic digital marketing that puts you in front of high-intent buyers. We combine proven SEO tactics, targeted PPC campaigns, compelling content, and social media management to increase visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
+                process: [
+                  "Market & Competitor Analysis",
+                  "Strategy & Budget Planning",
+                  "Campaign Launch (SEO, PPC & Content)",
+                  "Performance Tracking & Optimization",
+                ],
+                link: "/services#marketing",
+              },
+              {
+                id: "branding",
+                icon: Image,
+                title: "Graphic Design",
+                tagline: "Branding that makes you stand out",
+                fullDescription:
+                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build lasting recognition.",
+                process: [
+                  "Brand Discovery & Research",
+                  "Concept Creation & Exploration",
+                  "Design Development & Refinement",
+                  "Brand Guidelines & Assets Delivery",
+                ],
+                link: "/services#branding",
+              },
+            ].map((service) => {
+              const Icon = service.icon;
+              const isExpanded = expandedService === service.id;
+
+              return (
+                <Card
+                  key={service.id}
+                  className="group cursor-pointer hover-lift
              border border-border shadow-lg
              transition-all duration-300
-             hover:border-primary hover:shadow-[0_0_60px_rgba(15,118,110,0.4)]" onClick={() => setExpandedService(isExpanded ? null : service.id)} role="button" tabIndex={0}>
+             hover:border-primary hover:shadow-[0_0_60px_rgba(15,118,110,0.4)]"
+                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                  role="button"
+                  tabIndex={0}
+                >
                   <CardHeader>
                     <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(15,118,110,0.45)]">
                       <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(15,118,110,0.6)]" />
@@ -320,22 +448,30 @@ From £200 for websites, £50/month for AI.</p>
                         <div className="mt-2 border-t border-border/60 pt-2 transition-[max-height,opacity] duration-300 ease-out max-h-0 opacity-0 group-hover:max-h-[260px] group-hover:opacity-100">
                           <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                           <ol className="space-y-1">
-                            {service.process.map((step: string, i: number) => <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                            {service.process.map((step: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
                                 <span className="font-semibold text-secondary">{i + 1}.</span>
                                 <span>{step}</span>
-                              </li>)}
+                              </li>
+                            ))}
                           </ol>
-                          <ButtonLegacy variant="outline" size="sm" className="w-full mt-4" onClick={e => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        if (service.id === "web-dev") {
-                          scrollToSection("web-preview");
-                        } else if (service.id === "ai-automation") {
-                          scrollToSection("ai-preview");
-                        } else if (service.link.startsWith("/services")) {
-                          window.location.href = service.link;
-                        }
-                      }}>
+                          <ButtonLegacy
+                            variant="outline"
+                            size="sm"
+                            className="w-full mt-4"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+
+                              if (service.id === "web-dev") {
+                                scrollToSection("web-preview");
+                              } else if (service.id === "ai-automation") {
+                                scrollToSection("ai-preview");
+                              } else if (service.link.startsWith("/services")) {
+                                window.location.href = service.link;
+                              }
+                            }}
+                          >
                             Learn More <ArrowRight className="ml-2 h-4 w-4" />
                           </ButtonLegacy>
                         </div>
@@ -344,15 +480,18 @@ From £200 for websites, £50/month for AI.</p>
 
                     {/* MOBILE/TABLET: click-to-expand */}
                     <div className="md:hidden">
-                      {!isExpanded && <div>
+                      {!isExpanded && (
+                        <div>
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.tagline}</p>
                           <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </div>
-                        </div>}
+                        </div>
+                      )}
 
-                      {isExpanded && <div className="space-y-4">
+                      {isExpanded && (
+                        <div className="space-y-4">
                           {/* Close indicator */}
                           <div className="flex items-center justify-center gap-2 text-primary font-medium text-sm bg-primary/10 py-2 px-3 rounded-lg -mt-2">
                             <X className="h-4 w-4" />
@@ -362,22 +501,32 @@ From £200 for websites, £50/month for AI.</p>
                           <div>
                             <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
                             <ol className="space-y-1">
-                              {service.process.map((step: string, i: number) => <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              {service.process.map((step: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
                                   <span className="font-semibold text-secondary">{i + 1}.</span>
                                   <span>{step}</span>
-                                </li>)}
+                                </li>
+                              ))}
                             </ol>
                           </div>
-                          <ButtonLegacy asChild variant="outline" size="sm" className="w-full" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                          <ButtonLegacy
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          >
                             <Link to={service.link}>
                               Learn More <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                           </ButtonLegacy>
-                        </div>}
+                        </div>
+                      )}
                     </div>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
 
           <div className="text-center">
@@ -542,9 +691,12 @@ From £200 for websites, £50/month for AI.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
             {/* Timeline connector line - hidden on mobile */}
-            <div className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30" style={{
-            transform: "translateY(-50%)"
-          }}></div>
+            <div
+              className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30"
+              style={{
+                transform: "translateY(-50%)",
+              }}
+            ></div>
 
             {/* Step 1 - Discovery */}
             <div className="text-center relative">
@@ -580,7 +732,10 @@ From £200 for websites, £50/month for AI.</p>
       </section>
 
       {/* Portfolio Preview */}
-      <section id="portfolio-preview" className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted">
+      <section
+        id="portfolio-preview"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted"
+      >
         <div className="max-w-7xl mx-auto fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
             Recent Work &amp; Capabilities
@@ -590,7 +745,12 @@ From £200 for websites, £50/month for AI.</p>
           {/* Promotional Text */}
           <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
             <p className="text-foreground font-medium mb-3">
-              <a href="https://x15pcbuilders.co.uk/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+              <a
+                href="https://x15pcbuilders.co.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-semibold"
+              >
                 X15 PC Builders
               </a>{" "}
               is our sister company - proving we build sites that actually work for real businesses.
@@ -604,26 +764,31 @@ From £200 for websites, £50/month for AI.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {[{
-            title: "X15 PC Builders",
-            features: ["Professional showcase website", "Service packages display", "Build request form"],
-            timeline: "LIVE PROJECT",
-            tech: "React, Tailwind CSS",
-            isLive: true,
-            badge: "Live Client Project"
-          }, {
-            title: "Elite Salon Website",
-            features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
-            timeline: "5–7 days",
-            tech: "React, Stripe, Calendly",
-            badge: "Capability Example"
-          }, {
-            title: "AI Chatbot Integration",
-            features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
-            timeline: "2–4 days",
-            tech: "OpenAI, Custom API",
-            badge: "Capability Example"
-          }].map((project, index) => <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
+            {[
+              {
+                title: "X15 PC Builders",
+                features: ["Professional showcase website", "Service packages display", "Build request form"],
+                timeline: "LIVE PROJECT",
+                tech: "React, Tailwind CSS",
+                isLive: true,
+                badge: "Live Client Project",
+              },
+              {
+                title: "Elite Salon Website",
+                features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
+                timeline: "5–7 days",
+                tech: "React, Stripe, Calendly",
+                badge: "Capability Example",
+              },
+              {
+                title: "AI Chatbot Integration",
+                features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
+                timeline: "2–4 days",
+                tech: "OpenAI, Custom API",
+                badge: "Capability Example",
+              },
+            ].map((project, index) => (
+              <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
                 <Card className="hover-lift">
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
@@ -631,10 +796,12 @@ From £200 for websites, £50/month for AI.</p>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 mb-4">
-                      {project.features.map(feature => <li key={feature} className="flex items-start gap-2">
+                      {project.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2">
                           <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                     <div className="text-sm text-muted-foreground space-y-1 mb-4">
                       <p>
@@ -644,18 +811,23 @@ From £200 for websites, £50/month for AI.</p>
                         <strong>Tech:</strong> {project.tech}
                       </p>
                     </div>
-                    {project.isLive ? <div className="space-y-2">
+                    {project.isLive ? (
+                      <div className="space-y-2">
                         <Button asChild variant="default" className="w-full">
                           <Link to="/portfolio">
                             View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
-                      </div> : <Button asChild variant="outline" className="w-full">
+                      </div>
+                    ) : (
+                      <Button asChild variant="outline" className="w-full">
                         <Link to="/portfolio">View Full Portfolio →</Link>
-                      </Button>}
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
-              </AnimatedSection>)}
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -727,7 +899,10 @@ From £200 for websites, £50/month for AI.</p>
 
           {/* FAQ Accordion */}
           <Accordion type="single" collapsible className="w-full space-y-3">
-            <AccordionItem value="item-1" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-1"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5 group">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <Clock className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -746,7 +921,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-2"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <DollarSign className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -759,7 +937,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-3"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <ShieldCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -776,7 +957,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-4"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <Settings className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -789,7 +973,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-5"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <Globe className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -802,7 +989,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-6"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <Image className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -815,7 +1005,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-7"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <Receipt className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -828,7 +1021,10 @@ From £200 for websites, £50/month for AI.</p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-8" className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200">
+            <AccordionItem
+              value="item-8"
+              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+            >
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
                   <BadgeCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
@@ -849,19 +1045,19 @@ From £200 for websites, £50/month for AI.</p>
               <div className="flex-shrink-0 p-2.5 rounded-full bg-[#0F766E]/10">
                 <MessageCircle className="h-5 w-5 text-[#0F766E]" />
               </div>
-              
+
               {/* Text */}
               <div className="text-left">
-                <p className="text-sm md:text-base font-semibold text-[#1F2937]">
-                  Still have questions?
-                </p>
-                <p className="text-xs md:text-sm text-[#6B7280]">
-                  We typically respond within a few hours
-                </p>
+                <p className="text-sm md:text-base font-semibold text-[#1F2937]">Still have questions?</p>
+                <p className="text-xs md:text-sm text-[#6B7280]">We typically respond within a few hours</p>
               </div>
-              
+
               {/* Button */}
-              <Button asChild size="sm" className="group bg-[#0F766E] text-white hover:bg-[#0D9488] shadow-sm hover:shadow-md transition-all font-medium px-4 py-2 text-sm">
+              <Button
+                asChild
+                size="sm"
+                className="group bg-[#0F766E] text-white hover:bg-[#0D9488] shadow-sm hover:shadow-md transition-all font-medium px-4 py-2 text-sm"
+              >
                 <Link to="/contact">
                   Get in Touch
                   <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -878,6 +1074,8 @@ From £200 for websites, £50/month for AI.</p>
       <Footer />
       <FloatingActionMenu />
       <MobileFloatingCTA />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

@@ -222,8 +222,8 @@ const Index = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Professional websites from £200 and smart AI from £50/month that capture leads and book clients 24/7 —
-              even while you sleep.
+              Professional websites from £200 and smart AI from £50/month that capture leads and book clients 24/7, even
+              while you sleep.
             </p>
           </div>
 

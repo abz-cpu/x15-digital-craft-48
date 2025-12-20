@@ -159,10 +159,63 @@ const Navigation = () => {
             {/* Logo */}
             <PreloadLink
               to="/"
-              className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
-              aria-label="X15 Digital home"
+              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
+              aria-label="L&D Digital home"
             >
-              <span className="text-[22px] font-bold tracking-tight transition-colors text-[#1F2937]">X15 DIGITAL</span>
+              {/* L&D Monogram Icon */}
+              <svg 
+                width="40" 
+                height="40" 
+                viewBox="0 0 100 100" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0"
+              >
+                {/* Outer frame */}
+                <path 
+                  d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
+                  fill="none" 
+                  stroke="#0F766E" 
+                  strokeWidth="6"
+                  strokeLinejoin="round"
+                />
+                {/* L letter */}
+                <path 
+                  d="M28 28 L28 65 L48 65" 
+                  fill="none" 
+                  stroke="#0F766E" 
+                  strokeWidth="6" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+                {/* Ampersand */}
+                <text 
+                  x="42" 
+                  y="58" 
+                  fill="#6B7280" 
+                  fontSize="18" 
+                  fontWeight="500"
+                  fontFamily="system-ui"
+                >
+                  &amp;
+                </text>
+                {/* D letter */}
+                <path 
+                  d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
+                  fill="none" 
+                  stroke="#0F766E" 
+                  strokeWidth="6" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {/* Text */}
+              <div className="flex flex-col leading-none">
+                <span className="text-[18px] font-bold tracking-tight">
+                  <span className="text-[#1F2937]">L&amp;D</span>{" "}
+                  <span className="text-[#0F766E]">DIGITAL</span>
+                </span>
+              </div>
             </PreloadLink>
 
             {/* Desktop Navigation */}
@@ -251,10 +304,13 @@ const Navigation = () => {
                 </PreloadLink>
               ))}
 
+              {/* Separator line */}
+              <div className="h-6 w-px bg-[#E5E7EB] mx-2" aria-hidden="true" />
+
               {/* Phone Number - Click to call */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 ml-1 text-[#4B5563] hover:text-[#0F766E] focus:ring-[#0F766E]"
+                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:ring-[#0F766E]"
                 aria-label="Call us on 07123 456789"
               >
                 <Phone className="h-[18px] w-[18px]" aria-hidden="true" />

@@ -301,11 +301,11 @@ const Index = () => {
             </div>
 
             {/* Right column - Illustration */}
-            <div className="hidden lg:flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
               <img
                 src={heroIllustration}
                 alt="Team collaborating on website design"
-                className="w-full max-w-lg xl:max-w-xl rounded-2xl shadow-2xl shadow-teal-500/10"
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl rounded-2xl shadow-2xl shadow-teal-500/10"
               />
             </div>
           </div>

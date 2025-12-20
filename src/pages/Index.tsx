@@ -222,8 +222,8 @@ const Index = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
-              Websites from £200, AI from £50/month.
+              Professional websites and smart AI that answer questions, capture leads, and book clients while you're
+              offline.
             </p>
           </div>
 
@@ -311,8 +311,7 @@ const Index = () => {
             Everything You Need to Grow Online
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Comprehensive digital services designed to transform your business. Each service is tailored to solve your
-            specific challenges and drive growth.
+            Digital services built to attract customers, increase revenue, and scale your business.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">

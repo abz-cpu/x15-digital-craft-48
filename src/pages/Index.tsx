@@ -222,8 +222,8 @@ const Index = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Professional websites and smart AI that answer questions, capture leads, and book clients while you're
-              offline.
+              Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
+              Websites from £200, AI from £50/month.
             </p>
           </div>
 

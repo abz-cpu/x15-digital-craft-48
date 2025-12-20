@@ -50,6 +50,8 @@ import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
+import heroIllustration from "@/assets/hero-illustration.png";
+import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -190,7 +192,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden bg-white pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden bg-white pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 xl:pt-36 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
@@ -201,101 +203,115 @@ const Index = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
-            <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
-            <span>
-              Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
-            </span>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left column - Content */}
+            <div className="text-center lg:text-left space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                </span>
+                <span>
+                  Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
+                </span>
+              </div>
 
-          {/* Main heading */}
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
-              Your Business Sleeps.
-              <br />
-              <span className="text-teal-600">Your Website Shouldn't.</span>
-            </h1>
+              {/* Main heading */}
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
+                  Your Business Sleeps.
+                  <br />
+                  <span className="text-teal-600">Your Website Shouldn't.</span>
+                </h1>
 
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
-              Websites from £200, AI from £50/month.
-            </p>
-          </div>
+                <p className="text-lg sm:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                  Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
+                  Websites from £200, AI from £50/month.
+                </p>
+              </div>
 
-          {/* Trust line */}
-          <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto">
-            Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
-            Client-Hosted & Managed. Optional support from{" "}
-            <span className="font-semibold text-slate-700">£25/month</span>.
-          </p>
+              {/* Trust line */}
+              <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto lg:mx-0">
+                Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
+                Client-Hosted & Managed. Optional support from{" "}
+                <span className="font-semibold text-slate-700">£25/month</span>.
+              </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
-            >
-              <Link to="/quick-start">
-                Book a Free Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
-            >
-              <Link to="/portfolio">View Our Work</Link>
-            </Button>
-          </div>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
+                >
+                  <Link to="/quick-start">
+                    Book a Free Consultation
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
+                >
+                  <Link to="/portfolio">View Our Work</Link>
+                </Button>
+              </div>
 
-          {/* Service pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              Web Development
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              AI Automation
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              Digital Marketing
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              Branding
-            </span>
-          </div>
+              {/* Service pills */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                  Web Development
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                  AI Automation
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                  Digital Marketing
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                  Branding
+                </span>
+              </div>
 
-          {/* Quick stats */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 pt-2">
-            <div className="flex items-center gap-1.5">
-              <Star className="h-4 w-4 text-yellow-500" />
-              <span>
-                <span className="font-semibold text-slate-700">4.9/5</span> rating
-              </span>
+              {/* Quick stats */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-slate-500 pt-2">
+                <div className="flex items-center gap-1.5">
+                  <Star className="h-4 w-4 text-yellow-500" />
+                  <span>
+                    <span className="font-semibold text-slate-700">4.9/5</span> rating
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MessageCircle className="h-4 w-4 text-teal-500" />
+                  <span>Quote in 1–3 hours</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Globe className="h-4 w-4 text-slate-400" />
+                  <span>UK-based team</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5">
-              <MessageCircle className="h-4 w-4 text-teal-500" />
-              <span>Quote in 1–3 hours</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Globe className="h-4 w-4 text-slate-400" />
-              <span>UK-based team</span>
+
+            {/* Right column - Illustration */}
+            <div className="hidden lg:flex justify-center lg:justify-end">
+              <img
+                src={heroIllustration}
+                alt="Team collaborating on website design"
+                className="w-full max-w-lg xl:max-w-xl rounded-2xl shadow-2xl shadow-teal-500/10"
+              />
             </div>
           </div>
 
           {/* Bouncing scroll indicator */}
-          <div className="flex justify-center pt-8">
+          <div className="flex justify-center pt-12 lg:pt-16">
             <div className="animate-bounce flex flex-col items-center text-muted-foreground/60">
               <ChevronDown className="h-6 w-6" />
               <ChevronDown className="h-6 w-6 -mt-3" />
@@ -644,37 +660,82 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Section - Why Choose X15 Digital */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F9FAFB]">
+      {/* Why Choose Us Section - with illustration */}
+      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-16">Why Choose X15 Digital</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left column - Content */}
+            <div>
+              <span className="inline-block text-sm font-semibold text-teal-600 uppercase tracking-wider mb-4">
+                Why Choose L&D Digital
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+                We Make Digital Simple, Fast, and Transparent
+              </h2>
+              
+              <div className="space-y-6">
+                {/* Checklist item 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
+                    <p className="text-slate-600">Your project delivered in 1–14 days, not months. We move fast without cutting corners.</p>
+                  </div>
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Fast Delivery */}
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <Clock className="h-8 w-8 text-[#F59E0B]" />
+                {/* Checklist item 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">100% Transparent Pricing</h3>
+                    <p className="text-slate-600">No hidden fees, no surprises. You know exactly what you're paying for upfront.</p>
+                  </div>
+                </div>
+
+                {/* Checklist item 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">14-Day Money-Back Guarantee</h3>
+                    <p className="text-slate-600">Not happy with the result? Full refund within 14 days. Zero risk to you.</p>
+                  </div>
+                </div>
+
+                {/* Checklist item 4 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 text-amber-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">UK-Based Support</h3>
+                    <p className="text-slate-600">Real people, same timezone, responsive communication throughout your project.</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Fast Delivery</h3>
-              <p className="text-[#6B7280]">1–14 days, not months</p>
+
+              <div className="mt-10">
+                <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25">
+                  <Link to="/quick-start">
+                    Start Your Project
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
 
-            {/* Transparent Pricing */}
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <Receipt className="h-8 w-8 text-[#F59E0B]" />
-              </div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-3">100% Transparent Pricing</h3>
-              <p className="text-[#6B7280]">No surprises. No hidden fees.</p>
-            </div>
-
-            {/* Money-Back Guarantee */}
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F59E0B]/10 mb-6">
-                <BadgeCheck className="h-8 w-8 text-[#F59E0B]" />
-              </div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-3">Money-Back Guarantee</h3>
-              <p className="text-[#6B7280]">14-day risk-free period on all new projects.</p>
+            {/* Right column - Illustration */}
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src={whyChooseUsIllustration}
+                alt="Professional consultation between team members"
+                className="w-full max-w-md lg:max-w-lg rounded-2xl shadow-xl"
+              />
             </div>
           </div>
         </div>

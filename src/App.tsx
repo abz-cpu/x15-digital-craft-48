@@ -13,7 +13,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import ScrollToTop from "@/components/ScrollToTop";
 
-// Lazy load route components for code splitting
+// Lazy load route components
 const Index = lazy(() => import("./pages/Index"));
 const Services = lazy(() => import("./pages/Services"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
@@ -30,6 +30,8 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const WebPackage = lazy(() => import("./pages/WebPackage"));
 const AiPackage = lazy(() => import("./pages/AiPackage"));
+const Platforms = lazy(() => import("./pages/Platforms"));
+const Sectors = lazy(() => import("./pages/Sectors"));
 
 // Service pages
 const AppDevelopment = lazy(() => import("./pages/services/AppDevelopment"));
@@ -40,64 +42,55 @@ const Branding = lazy(() => import("./pages/services/Branding"));
 const MaintenanceSupport = lazy(() => import("./pages/services/MaintenanceSupport"));
 const ItSupport = lazy(() => import("./pages/services/ItSupport"));
 const Seo = lazy(() => import("./pages/services/Seo"));
+const Ecommerce = lazy(() => import("./pages/services/Ecommerce"));
+const Cro = lazy(() => import("./pages/services/Cro"));
+const DigitalMarketing = lazy(() => import("./pages/services/DigitalMarketing"));
+const Copywriting = lazy(() => import("./pages/services/Copywriting"));
+const ContentMarketing = lazy(() => import("./pages/services/ContentMarketing"));
+const EmailMarketing = lazy(() => import("./pages/services/EmailMarketing"));
+const WebHosting = lazy(() => import("./pages/services/WebHosting"));
+const UxUiDesign = lazy(() => import("./pages/services/UxUiDesign"));
 
-// Register preload functions for route prefetching
+// Register preloads
 registerPreload("/", () => import("./pages/Index"));
 registerPreload("/services", () => import("./pages/Services"));
 registerPreload("/portfolio", () => import("./pages/Portfolio"));
-registerPreload("/enterprise", () => import("./pages/Enterprise"));
-registerPreload("/about", () => import("./pages/About"));
 registerPreload("/contact", () => import("./pages/Contact"));
-registerPreload("/blog", () => import("./pages/Blog"));
-registerPreload("/start", () => import("./pages/Start"));
-registerPreload("/quick-start", () => import("./pages/QuickStart"));
-registerPreload("/install", () => import("./pages/Install"));
-registerPreload("/web-package", () => import("./pages/WebPackage"));
-registerPreload("/ai-package", () => import("./pages/AiPackage"));
-registerPreload("/services/app-development", () => import("./pages/services/AppDevelopment"));
-registerPreload("/services/personalised-apps", () => import("./pages/services/PersonalisedApps"));
-registerPreload("/services/landing-pages", () => import("./pages/services/LandingPages"));
-registerPreload("/services/logo-design", () => import("./pages/services/LogoDesign"));
-registerPreload("/services/branding", () => import("./pages/services/Branding"));
-registerPreload("/services/maintenance-support", () => import("./pages/services/MaintenanceSupport"));
-registerPreload("/services/it-support", () => import("./pages/services/ItSupport"));
-registerPreload("/services/seo", () => import("./pages/services/Seo"));
+registerPreload("/platforms", () => import("./pages/Platforms"));
+registerPreload("/sectors", () => import("./pages/Sectors"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      gcTime: 1000 * 60 * 30, // 30 minutes (formerly cacheTime)
+      staleTime: 1000 * 60 * 5,
+      gcTime: 1000 * 60 * 30,
       retry: 1,
       refetchOnWindowFocus: false,
     },
   },
 });
 
-// Track page views
 const RouteTracker = () => {
   const location = useLocation();
-
   useEffect(() => {
     performanceMonitor.trackPageView(location.pathname);
   }, [location]);
-
   return null;
 };
 
 const App = () => (
   <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <RouteTracker />
-            <BreadcrumbSchema />
-            <CookieConsent />
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <RouteTracker />
+          <BreadcrumbSchema />
+          <CookieConsent />
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
               <Route path="/portfolio" element={<Portfolio />} />
@@ -113,6 +106,9 @@ const App = () => (
               <Route path="/terms" element={<Terms />} />
               <Route path="/web-package" element={<WebPackage />} />
               <Route path="/ai-package" element={<AiPackage />} />
+              <Route path="/platforms" element={<Platforms />} />
+              <Route path="/sectors" element={<Sectors />} />
+              {/* Service pages */}
               <Route path="/services/app-development" element={<AppDevelopment />} />
               <Route path="/services/personalised-apps" element={<PersonalisedApps />} />
               <Route path="/services/landing-pages" element={<LandingPages />} />
@@ -121,7 +117,23 @@ const App = () => (
               <Route path="/services/maintenance-support" element={<MaintenanceSupport />} />
               <Route path="/services/it-support" element={<ItSupport />} />
               <Route path="/services/seo" element={<Seo />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/services/ecommerce" element={<Ecommerce />} />
+              <Route path="/services/cro" element={<Cro />} />
+              <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+              <Route path="/services/copywriting" element={<Copywriting />} />
+              <Route path="/services/content-marketing" element={<ContentMarketing />} />
+              <Route path="/services/email-marketing" element={<EmailMarketing />} />
+              <Route path="/services/web-hosting" element={<WebHosting />} />
+              <Route path="/services/ux-ui-design" element={<UxUiDesign />} />
+              {/* Placeholder routes for platforms and sectors */}
+              <Route path="/platforms/wordpress" element={<Platforms />} />
+              <Route path="/platforms/shopify" element={<Platforms />} />
+              <Route path="/platforms/woocommerce" element={<Platforms />} />
+              <Route path="/platforms/custom-development" element={<Platforms />} />
+              <Route path="/sectors/property" element={<Sectors />} />
+              <Route path="/sectors/charity" element={<Sectors />} />
+              <Route path="/sectors/b2b" element={<Sectors />} />
+              <Route path="/sectors/b2c" element={<Sectors />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

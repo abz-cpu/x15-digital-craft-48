@@ -595,7 +595,7 @@ const Index = () => {
                   <Globe className="h-16 w-16 text-[#0F766E] mb-6" />
                   <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
 
-                  <p className="text-base text-[#6B7280] mb-8">For businesses ready to show up professionally online</p>
+                  <p className="text-base text-[#6B7280] mb-8">For businesses ready to grow online</p>
 
                   <div className="space-y-4 mb-8 flex-1">
                     <div className="flex items-center gap-3">

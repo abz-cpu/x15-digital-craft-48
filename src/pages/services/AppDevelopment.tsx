@@ -17,7 +17,7 @@ const AppDevelopment = () => {
         description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses."
         canonicalUrl="https://x15.digital/services/app-development"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

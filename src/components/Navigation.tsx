@@ -12,6 +12,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [showAnnouncementBar, setShowAnnouncementBar] = useState(true);
 
   const closeTimeoutRef = useRef<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -187,19 +188,42 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         Skip to main content
       </a>
 
+      {/* Announcement Bar - Like LWDA */}
+      {showAnnouncementBar && (
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-[#E84855] text-white py-2.5 px-4 text-center">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 text-sm font-medium">
+            <span className="hidden sm:inline">🚀 INCREASE VISITS & CONVERSIONS</span>
+            <PreloadLink
+              to="/contact"
+              className="inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline font-bold uppercase tracking-wide"
+            >
+              Get a Free Website Audit
+            </PreloadLink>
+            <button
+              onClick={() => setShowAnnouncementBar(false)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
+              aria-label="Close announcement"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
 
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 top-0 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          showAnnouncementBar ? "top-[44px]" : "top-0"
+        } ${
           isScrolled 
-            ? "bg-background/95 backdrop-blur-md shadow-lg py-2" 
-            : "bg-transparent py-4"
+            ? "bg-background/95 backdrop-blur-md shadow-lg py-3" 
+            : "bg-transparent py-5"
         }`}
         role="navigation"
         aria-label="Main navigation"
         ref={dropdownRef}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-[56px]">
+          <div className="flex justify-between items-center">
             {/* Logo */}
             <PreloadLink
               to="/"
@@ -261,11 +285,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             </PreloadLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-6">
               {/* Services Mega Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
                     activeDropdown === "services" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("services")}
@@ -278,7 +302,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 >
                   Services
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -286,7 +310,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 {/* Services Mega Menu - Full Width 4 Columns */}
                 {activeDropdown === "services" && (
                   <div
-                    className={`fixed left-0 right-0 z-50 ${isScrolled ? "top-[72px]" : "top-[88px]"}`}
+                    className={`fixed left-0 right-0 z-50 ${showAnnouncementBar ? (isScrolled ? "top-[100px]" : "top-[112px]") : (isScrolled ? "top-[60px]" : "top-[72px]")}`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
@@ -400,7 +424,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               {/* Platforms Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
                     activeDropdown === "platforms" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("platforms")}
@@ -413,7 +437,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 >
                   Platforms
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -459,7 +483,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               {/* Key Sectors Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
                     activeDropdown === "sectors" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("sectors")}
@@ -472,7 +496,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 >
                   Key Sectors
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -520,8 +544,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
-                    location.pathname === link.path ? "text-primary font-semibold" : ""
+                  className={`text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
+                    location.pathname === link.path ? "text-primary" : ""
                   }`}
                 >
                   {link.name}
@@ -529,22 +553,22 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               ))}
 
               {/* Separator line */}
-              <div className={`h-6 w-px mx-3 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
+              <div className={`h-5 w-px mx-2 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
 
               {/* Phone Number */}
               <a
                 href="tel:+447123456789"
-                className={`flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()}`}
+                className={`flex items-center gap-2 text-[14px] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
                 aria-label="Call us on 07123 456789"
               >
-                <Phone className="h-[18px] w-[18px]" aria-hidden="true" />
+                <Phone className="h-4 w-4" aria-hidden="true" />
                 <span>07123 456789</span>
               </a>
 
               {/* CTA Button - Get In Touch */}
               <Button
                 asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[15px] ml-2"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[13px] uppercase tracking-wide ml-2"
               >
                 <PreloadLink to="/contact">Get In Touch</PreloadLink>
               </Button>

@@ -17,7 +17,7 @@ const Cro = () => {
         description="Turn more visitors into customers with data-driven CRO. A/B testing, UX improvements, and conversion optimization strategies that boost your bottom line."
         canonicalUrl="https://landdigital.co.uk/services/cro"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

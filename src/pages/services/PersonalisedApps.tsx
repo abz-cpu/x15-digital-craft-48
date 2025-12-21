@@ -17,7 +17,7 @@ const PersonalisedApps = () => {
         description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke solutions."
         canonicalUrl="https://x15.digital/services/personalised-apps"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

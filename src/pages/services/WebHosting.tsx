@@ -17,7 +17,7 @@ const WebHosting = () => {
         description="Fast, secure, and reliable web hosting for your business. Managed hosting with 99.9% uptime, SSL, backups, and 24/7 support."
         canonicalUrl="https://landdigital.co.uk/services/web-hosting"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

@@ -17,7 +17,7 @@ const Ecommerce = () => {
         description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management, and beautiful design."
         canonicalUrl="https://landdigital.co.uk/services/ecommerce"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

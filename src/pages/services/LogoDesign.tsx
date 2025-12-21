@@ -17,7 +17,7 @@ const LogoDesign = () => {
         description="Clean, modern brand marks that look professional everywhere. Professional logo design for UK businesses."
         canonicalUrl="https://x15.digital/services/logo-design"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

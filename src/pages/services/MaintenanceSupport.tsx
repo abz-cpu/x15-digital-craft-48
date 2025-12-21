@@ -17,7 +17,7 @@ const MaintenanceSupport = () => {
         description="Ongoing updates, fixes, and protection for your website. Keep your site secure, fast, and up-to-date."
         canonicalUrl="https://x15.digital/services/maintenance-support"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

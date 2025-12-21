@@ -17,7 +17,7 @@ const Seo = () => {
         description="Get found on Google with expert SEO services. We help UK businesses rank higher, attract more traffic, and convert visitors into customers."
         canonicalUrl="https://x15.digital/services/seo"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

@@ -17,7 +17,7 @@ const ContentMarketing = () => {
         description="Strategic content marketing that attracts, engages, and converts. Blog posts, articles, guides, and content strategy for sustainable growth."
         canonicalUrl="https://landdigital.co.uk/services/content-marketing"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

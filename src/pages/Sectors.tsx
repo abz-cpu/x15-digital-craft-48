@@ -18,7 +18,7 @@ const sectors = [
 const Sectors = () => (
   <div className="min-h-screen flex flex-col">
     <SEO title="Key Sectors | L&D Digital" description="We specialize in websites for property, charity, B2B, and B2C sectors. Industry expertise that delivers results." />
-    <Navigation />
+    <Navigation darkHero />
     <main className="flex-1">
       <section className="pt-28 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
         <Container className="text-center">

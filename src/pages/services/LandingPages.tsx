@@ -17,7 +17,7 @@ const LandingPages = () => {
         description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers."
         canonicalUrl="https://x15.digital/services/landing-pages"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

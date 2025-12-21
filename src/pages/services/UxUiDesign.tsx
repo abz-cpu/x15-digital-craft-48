@@ -17,7 +17,7 @@ const UxUiDesign = () => {
         description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices."
         canonicalUrl="https://landdigital.co.uk/services/ux-ui-design"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

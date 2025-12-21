@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap, X } from "lucide-react";
+import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap, X, Globe, Bot, HelpCircle, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -12,11 +12,28 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
+type Goal = "website" | "automation" | "both" | "";
+type Budget = "low" | "mid" | "high" | "";
+type Urgency = "asap" | "soon" | "exploring" | "";
+
+interface QuizResult {
+  title: string;
+  description: string;
+  link: string;
+  linkLabel: string;
+}
+
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [goal, setGoal] = useState<Goal>("");
+  const [budget, setBudget] = useState<Budget>("");
+  const [urgency, setUrgency] = useState<Urgency>("");
+  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
+  const [quizError, setQuizError] = useState<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -39,18 +56,75 @@ const Contact = () => {
 
   // Close modals with Escape key
   useEffect(() => {
-    if (!isInquiryOpen && !isCalendlyOpen) return;
+    if (!isInquiryOpen && !isCalendlyOpen && !isQuizOpen) return;
 
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsInquiryOpen(false);
         setIsCalendlyOpen(false);
+        setIsQuizOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isInquiryOpen, isCalendlyOpen]);
+  }, [isInquiryOpen, isCalendlyOpen, isQuizOpen]);
+
+  const resetQuiz = () => {
+    setGoal("");
+    setBudget("");
+    setUrgency("");
+    setQuizResult(null);
+    setQuizError(null);
+  };
+
+  const openQuiz = () => {
+    resetQuiz();
+    setIsQuizOpen(true);
+  };
+
+  const handleQuizSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!goal || !budget || !urgency) {
+      setQuizError("Please answer all three questions to see your recommendation.");
+      return;
+    }
+
+    setQuizError(null);
+
+    let result: QuizResult;
+
+    if (goal === "website") {
+      result = {
+        title: "You're best suited for a Website Package",
+        description:
+          budget === "low"
+            ? "Based on your answers, our Foundation website package is likely the best fit. It gets you online quickly with a clean, conversion-focused site."
+            : "You're a strong fit for our Growth or Scale website packages with more pages, stronger branding, and room to grow.",
+        link: "/web-package",
+        linkLabel: "View Website Packages",
+      };
+    } else if (goal === "automation") {
+      result = {
+        title: "You're best suited for AI Automation",
+        description:
+          "Your answers point towards chatbots, voice agents, or workflow automation that can save you time and capture more leads automatically.",
+        link: "/ai-package",
+        linkLabel: "View AI Automation Options",
+      };
+    } else {
+      result = {
+        title: "You're a great fit for a Website + AI Bundle",
+        description:
+          "You'll benefit most from a website that's built from day one to work with AI – handling leads, FAQs, and bookings automatically.",
+        link: "/services",
+        linkLabel: "View All Services",
+      };
+    }
+
+    setQuizResult(result);
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText("info@x15digital.co.uk");
@@ -120,71 +194,81 @@ const Contact = () => {
       {/* Contact Options Grid */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Form Card */}
-            <Card className="hover-lift cursor-pointer" onClick={scrollToForm}>
-              <CardHeader className="text-center">
-                <FileText className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle className="text-xl">Fill Out the Form</CardTitle>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Not Sure? Take Quiz Card */}
+            <Card className="hover-lift cursor-pointer bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20" onClick={openQuiz}>
+              <CardHeader className="text-center pb-2">
+                <HelpCircle className="h-10 w-10 text-primary mx-auto mb-3" />
+                <CardTitle className="text-lg">Not Sure Where to Start?</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Most detailed option. We'll reply with a comprehensive quote within 4 hours.
+                <p className="text-muted-foreground text-sm mb-4">
+                  Take our 30-second quiz and we'll recommend the right service for you.
                 </p>
-                <Button variant="outline" className="w-full">
-                  Use Contact Form <ArrowRight className="ml-2 h-4 w-4" />
+                <Button variant="outline" className="w-full" size="sm">
+                  Take the Quiz <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
-
             {/* WhatsApp Card */}
             <Card className="hover-lift border-2 border-primary">
-              <CardHeader className="text-center">
-                <MessageCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle className="text-xl">WhatsApp Us</CardTitle>
+              <CardHeader className="text-center pb-2">
+                <MessageCircle className="h-10 w-10 text-primary mx-auto mb-3" />
+                <CardTitle className="text-lg">WhatsApp Us</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Fastest option. Get instant replies during UK business hours (9am–6pm).
+                <p className="text-muted-foreground text-sm mb-4">
+                  Fastest option. Instant replies during UK business hours.
                 </p>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full" size="sm">
                   <a
                     href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Chat on WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+                    Chat Now <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Form Card */}
+            <Card className="hover-lift cursor-pointer" onClick={scrollToForm}>
+              <CardHeader className="text-center pb-2">
+                <FileText className="h-10 w-10 text-primary mx-auto mb-3" />
+                <CardTitle className="text-lg">Fill Out the Form</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground text-sm mb-4">
+                  Most detailed option. We'll reply with a quote within 4 hours.
+                </p>
+                <Button variant="outline" className="w-full" size="sm">
+                  Use Form <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
 
             {/* Email Card */}
             <Card className="hover-lift">
-              <CardHeader className="text-center">
-                <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle className="text-xl">Email Directly</CardTitle>
+              <CardHeader className="text-center pb-2">
+                <Mail className="h-10 w-10 text-primary mx-auto mb-3" />
+                <CardTitle className="text-lg">Email Directly</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Prefer email? Send us your requirements and we'll respond within 4 hours.
+                <p className="text-muted-foreground text-sm mb-4">
+                  Send your requirements and we'll respond within 4 hours.
                 </p>
-                <div className="space-y-2">
-                  <a href="mailto:info@x15digital.co.uk" className="block text-primary hover:underline font-medium">
-                    info@x15digital.co.uk
-                  </a>
-                  <Button variant="outline" className="w-full" onClick={copyEmail}>
-                    {copied ? (
-                      <>
-                        <Check className="mr-2 h-4 w-4" /> Copied!
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="mr-2 h-4 w-4" /> Copy Email Address
-                      </>
-                    )}
-                  </Button>
-                </div>
+                <Button variant="outline" className="w-full" size="sm" onClick={copyEmail}>
+                  {copied ? (
+                    <>
+                      <Check className="mr-2 h-4 w-4" /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="mr-2 h-4 w-4" /> Copy Email
+                    </>
+                  )}
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -674,6 +758,161 @@ const Contact = () => {
                 title="Book a 30-minute strategy call with X15 Digital"
               />
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* === QUIZ MODAL === */}
+      {isQuizOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Service recommendation quiz"
+          onClick={(e) => { if (e.target === e.currentTarget) setIsQuizOpen(false); }}
+        >
+          <div className="relative w-full max-w-lg rounded-2xl bg-background shadow-2xl border border-border/60 p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+            <button
+              type="button"
+              onClick={() => setIsQuizOpen(false)}
+              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              aria-label="Close quiz"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <div className="mb-6">
+              <p className="text-xs uppercase tracking-[0.16em] text-primary mb-2 font-semibold">30-Second Quiz</p>
+              <h2 className="text-xl md:text-2xl font-bold text-secondary">
+                {quizResult ? quizResult.title : "What do you need help with?"}
+              </h2>
+            </div>
+
+            {!quizResult ? (
+              <form onSubmit={handleQuizSubmit} className="space-y-6">
+                {/* Goal Question */}
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold text-secondary">1. What's your primary goal?</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      { value: "website", label: "I need a website", icon: Globe },
+                      { value: "automation", label: "I need AI automation", icon: Bot },
+                      { value: "both", label: "Both website + AI", icon: Zap },
+                    ].map((option) => (
+                      <label
+                        key={option.value}
+                        className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          goal === option.value
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="goal"
+                          value={option.value}
+                          checked={goal === option.value}
+                          onChange={(e) => setGoal(e.target.value as Goal)}
+                          className="sr-only"
+                        />
+                        <option.icon className={`h-5 w-5 ${goal === option.value ? "text-primary" : "text-muted-foreground"}`} />
+                        <span className="text-sm font-medium">{option.label}</span>
+                        {goal === option.value && <CheckCircle2 className="h-4 w-4 text-primary ml-auto" />}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Budget Question */}
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold text-secondary">2. What's your budget?</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      { value: "low", label: "Under £500" },
+                      { value: "mid", label: "£500 – £1,500" },
+                      { value: "high", label: "£1,500+" },
+                    ].map((option) => (
+                      <label
+                        key={option.value}
+                        className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          budget === option.value
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="budget"
+                          value={option.value}
+                          checked={budget === option.value}
+                          onChange={(e) => setBudget(e.target.value as Budget)}
+                          className="sr-only"
+                        />
+                        <span className="text-sm font-medium">{option.label}</span>
+                        {budget === option.value && <CheckCircle2 className="h-4 w-4 text-primary ml-auto" />}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Urgency Question */}
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold text-secondary">3. How soon do you need it?</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      { value: "asap", label: "ASAP (this week)" },
+                      { value: "soon", label: "Within 2–4 weeks" },
+                      { value: "exploring", label: "Just exploring" },
+                    ].map((option) => (
+                      <label
+                        key={option.value}
+                        className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                          urgency === option.value
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="urgency"
+                          value={option.value}
+                          checked={urgency === option.value}
+                          onChange={(e) => setUrgency(e.target.value as Urgency)}
+                          className="sr-only"
+                        />
+                        <span className="text-sm font-medium">{option.label}</span>
+                        {urgency === option.value && <CheckCircle2 className="h-4 w-4 text-primary ml-auto" />}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {quizError && (
+                  <p className="text-sm text-red-500">{quizError}</p>
+                )}
+
+                <Button type="submit" className="w-full">
+                  See My Recommendation <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </form>
+            ) : (
+              <div className="space-y-6">
+                <p className="text-muted-foreground">{quizResult.description}</p>
+                <div className="flex flex-col gap-3">
+                  <Button asChild className="w-full">
+                    <Link to={quizResult.link}>
+                      {quizResult.linkLabel} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" className="w-full" onClick={() => { setIsQuizOpen(false); scrollToForm(); }}>
+                    Or Fill Out the Contact Form
+                  </Button>
+                  <Button variant="ghost" className="w-full text-muted-foreground" onClick={resetQuiz}>
+                    Retake Quiz
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

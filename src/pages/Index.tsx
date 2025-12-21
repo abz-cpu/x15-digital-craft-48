@@ -301,19 +301,12 @@ const Index = () => {
             </div>
 
             {/* Right column - Illustration */}
-            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0 relative">
-              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-                <img
-                  src={heroIllustration}
-                  alt="Team collaborating on website design"
-                  className="w-full"
-                />
-                {/* Gradient overlays to fade edges */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-transparent" />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/50 via-transparent to-transparent" />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-l from-background/30 via-transparent to-transparent" />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/30 via-transparent to-transparent" />
-              </div>
+            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+              <img
+                src={heroIllustration}
+                alt="Team collaborating on website design"
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl"
+              />
             </div>
           </div>
 

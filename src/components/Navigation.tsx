@@ -215,6 +215,9 @@ const Navigation = () => {
                   <span className="text-[#1F2937]">L&amp;D</span>{" "}
                   <span className="text-[#0F766E]">DIGITAL</span>
                 </span>
+                <span className="text-[10px] font-medium tracking-[0.2em] text-[#6B7280] mt-0.5 uppercase">
+                  Luminus &amp; Deliver —
+                </span>
               </div>
             </PreloadLink>
 

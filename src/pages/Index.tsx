@@ -949,51 +949,41 @@ const Index = () => {
                   </span>
                   Recent Project Inquiries
                 </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
-                      <Palette className="h-4 w-4 text-rose-500" />
+                <ul className="space-y-1">
+                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-rose-100 flex items-center justify-center flex-shrink-0">
+                      <Palette className="h-3 w-3 text-rose-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Salon website + booking system</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£450</span>
-                    </div>
+                    <span className="text-sm">Salon website + booking system</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£450</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <Settings className="h-4 w-4 text-blue-500" />
+                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Settings className="h-3 w-3 text-blue-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Trade business site with quote forms</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£300</span>
-                    </div>
+                    <span className="text-sm">Trade business site with quote forms</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£300</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                      <ShoppingBag className="h-4 w-4 text-amber-500" />
+                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center flex-shrink-0">
+                      <ShoppingBag className="h-3 w-3 text-amber-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">E-commerce site for local retail</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£1,100</span>
-                    </div>
+                    <span className="text-sm">E-commerce site for local retail</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£1,100</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                      <Bot className="h-4 w-4 text-emerald-500" />
+                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <Bot className="h-3 w-3 text-emerald-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">AI chatbot for property management</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£350</span>
-                    </div>
+                    <span className="text-sm">AI chatbot for property management</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£350</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="h-4 w-4 text-violet-500" />
+                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-violet-100 flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="h-3 w-3 text-violet-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Voice agent for clinic</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£600</span>
-                    </div>
+                    <span className="text-sm">Voice agent for clinic</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£600</span>
                   </li>
                 </ul>
                 <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-4">

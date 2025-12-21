@@ -335,6 +335,8 @@ const Index = () => {
               {
                 id: "web-dev",
                 icon: Globe,
+                iconBg: "bg-rose-100",
+                iconColor: "text-rose-600",
                 title: "Web Development",
                 tagline: "Lightning-fast sites delivered in days, not weeks",
                 fullDescription:
@@ -350,6 +352,8 @@ const Index = () => {
               {
                 id: "maintenance",
                 icon: Settings,
+                iconBg: "bg-sky-100",
+                iconColor: "text-sky-600",
                 title: "Website Maintenance",
                 tagline: "Keep your site secure, fast, and running perfectly",
                 fullDescription:
@@ -365,6 +369,8 @@ const Index = () => {
               {
                 id: "ai-automation",
                 icon: Bot,
+                iconBg: "bg-emerald-100",
+                iconColor: "text-emerald-600",
                 title: "AI Automation",
                 tagline: "Work smarter with 24/7 AI assistance",
                 fullDescription:
@@ -380,6 +386,8 @@ const Index = () => {
               {
                 id: "design",
                 icon: Palette,
+                iconBg: "bg-orange-100",
+                iconColor: "text-orange-600",
                 title: "Web/App Design",
                 tagline: "Sites that convert visitors into customers",
                 fullDescription:
@@ -395,6 +403,8 @@ const Index = () => {
               {
                 id: "marketing",
                 icon: TrendingUp,
+                iconBg: "bg-blue-100",
+                iconColor: "text-blue-600",
                 title: "Digital Marketing",
                 tagline: "Get found by customers ready to buy",
                 fullDescription:
@@ -410,6 +420,8 @@ const Index = () => {
               {
                 id: "branding",
                 icon: Image,
+                iconBg: "bg-violet-100",
+                iconColor: "text-violet-600",
                 title: "Graphic Design",
                 tagline: "Branding that makes you stand out",
                 fullDescription:
@@ -429,43 +441,40 @@ const Index = () => {
               return (
                 <Card
                   key={service.id}
-                  className="group cursor-pointer hover-lift
-             border border-border shadow-lg
-             transition-all duration-300
-             hover:border-primary hover:shadow-[0_0_60px_rgba(15,118,110,0.4)]"
+                  className="group cursor-pointer bg-card border border-border/50 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
                   tabIndex={0}
                 >
-                  <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(15,118,110,0.45)]">
-                      <Icon className="h-7 w-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(15,118,110,0.6)]" />
+                  <CardHeader className="pb-3">
+                    <div className={`h-14 w-14 rounded-xl ${service.iconBg} flex items-center justify-center mb-4`}>
+                      <Icon className={`h-7 w-7 ${service.iconColor}`} />
                     </div>
-                    <CardTitle className="text-xl text-secondary">{service.title}</CardTitle>
-                    <p className="text-sm font-semibold text-secondary mt-1">{service.tagline}</p>
+                    <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
+                    <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>
                   </CardHeader>
 
-                  <CardContent>
+                  <CardContent className="pt-0">
                     {/* DESKTOP: smooth expand, same paragraph continues */}
                     <div className="hidden md:block">
                       <div className="overflow-hidden transition-[max-height] duration-300 ease-out max-h-[140px] group-hover:max-h-[420px]">
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2 group-hover:line-clamp-none">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2 group-hover:line-clamp-none leading-relaxed">
                           {service.fullDescription}
                         </p>
 
                         {/* Hover hint - only visible when collapsed */}
-                        <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm transition-[opacity,max-height] duration-200 ease-out max-h-8 opacity-100 group-hover:max-h-0 group-hover:opacity-0">
+                        <div className="flex items-center gap-2 mt-2 text-muted-foreground font-medium text-sm transition-[opacity,max-height] duration-200 ease-out max-h-8 opacity-100 group-hover:max-h-0 group-hover:opacity-0">
                           <span>Hover for details</span>
                           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </div>
 
                         {/* Expanded content - only visible on hover */}
-                        <div className="mt-2 border-t border-border/60 pt-2 transition-[max-height,opacity] duration-300 ease-out max-h-0 opacity-0 group-hover:max-h-[260px] group-hover:opacity-100">
-                          <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                        <div className="mt-2 border-t border-border/60 pt-3 transition-[max-height,opacity] duration-300 ease-out max-h-0 opacity-0 group-hover:max-h-[260px] group-hover:opacity-100">
+                          <p className="text-xs font-semibold mb-2 text-foreground">Our Process:</p>
                           <ol className="space-y-1">
                             {service.process.map((step: string, i: number) => (
                               <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                <span className="font-semibold text-secondary">{i + 1}.</span>
+                                <span className="font-semibold text-foreground">{i + 1}.</span>
                                 <span>{step}</span>
                               </li>
                             ))}
@@ -497,8 +506,8 @@ const Index = () => {
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>
-                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.tagline}</p>
-                          <div className="flex items-center justify-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{service.fullDescription}</p>
+                          <div className="flex items-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </div>
@@ -512,15 +521,15 @@ const Index = () => {
                             <X className="h-4 w-4" />
                             <span>Tap to close</span>
                           </div>
-                          <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{service.fullDescription}</p>
                           <div>
-                            <p className="text-xs font-semibold mb-2 text-secondary">Our Process:</p>
+                            <p className="text-xs font-semibold mb-2 text-foreground">Our Process:</p>
                             <ol className="space-y-1">
                               {service.process.map((step: string, i: number) => (
                                 <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                  <span className="font-semibold text-secondary">{i + 1}.</span>
+                                  <span className="font-semibold text-foreground">{i + 1}.</span>
                                   <span>{step}</span>
-                                </li>
+                              </li>
                               ))}
                             </ol>
                           </div>

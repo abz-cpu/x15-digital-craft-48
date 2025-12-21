@@ -447,15 +447,27 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg transition-all duration-300 group-hover:scale-110 ${
-                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 group-hover:shadow-rose-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 group-hover:shadow-sky-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 group-hover:shadow-emerald-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 group-hover:shadow-orange-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 group-hover:shadow-blue-400/50 group-hover:shadow-xl' :
-                      'bg-gradient-to-br from-violet-400 to-violet-500 group-hover:shadow-violet-400/50 group-hover:shadow-xl'
-                    }`}>
-                      <Icon className="h-7 w-7 text-gray-900" strokeWidth={2.5} />
+                    <div className="relative mb-4">
+                      {/* Reflection/blur effect behind icon */}
+                      <div className={`absolute inset-0 rounded-2xl blur-xl opacity-60 scale-110 ${
+                        service.iconColor === 'text-rose-600' ? 'bg-rose-400' :
+                        service.iconColor === 'text-sky-600' ? 'bg-sky-400' :
+                        service.iconColor === 'text-emerald-600' ? 'bg-emerald-400' :
+                        service.iconColor === 'text-orange-600' ? 'bg-orange-400' :
+                        service.iconColor === 'text-blue-600' ? 'bg-blue-400' :
+                        'bg-violet-400'
+                      }`} />
+                      {/* Main icon container */}
+                      <div className={`relative h-14 w-14 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 ${
+                        service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 group-hover:shadow-rose-400/50 group-hover:shadow-xl' :
+                        service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 group-hover:shadow-sky-400/50 group-hover:shadow-xl' :
+                        service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 group-hover:shadow-emerald-400/50 group-hover:shadow-xl' :
+                        service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 group-hover:shadow-orange-400/50 group-hover:shadow-xl' :
+                        service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 group-hover:shadow-blue-400/50 group-hover:shadow-xl' :
+                        'bg-gradient-to-br from-violet-400 to-violet-500 group-hover:shadow-violet-400/50 group-hover:shadow-xl'
+                      }`}>
+                        <Icon className="h-7 w-7 text-gray-900" strokeWidth={2.5} />
+                      </div>
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
                     <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>

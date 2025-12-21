@@ -721,10 +721,13 @@ const Index = () => {
               </h2>
 
               <div className="space-y-6">
-                {/* Checklist item 1 */}
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                {/* Checklist item 1 - Lightning Fast Delivery */}
+                <div className="flex items-start gap-4 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-50 flex items-center justify-center mt-0.5 shadow-sm border border-rose-200/50 group-hover:scale-105 transition-transform">
+                    <div className="text-center">
+                      <Clock className="h-5 w-5 text-rose-500 mx-auto" />
+                      <span className="text-[10px] font-bold text-rose-600">1-14</span>
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
@@ -734,10 +737,13 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Checklist item 2 */}
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                {/* Checklist item 2 - Transparent Pricing */}
+                <div className="flex items-start gap-4 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-50 flex items-center justify-center mt-0.5 shadow-sm border border-emerald-200/50 group-hover:scale-105 transition-transform">
+                    <div className="text-center">
+                      <Receipt className="h-5 w-5 text-emerald-500 mx-auto" />
+                      <span className="text-[10px] font-bold text-emerald-600">100%</span>
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">100% Transparent Pricing</h3>
@@ -747,10 +753,13 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Checklist item 3 */}
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600" />
+                {/* Checklist item 3 - Money Back Guarantee */}
+                <div className="flex items-start gap-4 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mt-0.5 shadow-sm border border-blue-200/50 group-hover:scale-105 transition-transform">
+                    <div className="text-center">
+                      <ShieldCheck className="h-5 w-5 text-blue-500 mx-auto" />
+                      <span className="text-[10px] font-bold text-blue-600">14 DAY</span>
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">14-Day Money-Back Guarantee</h3>
@@ -760,10 +769,13 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Checklist item 4 */}
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mt-0.5">
-                    <CheckCircle2 className="h-5 w-5 text-amber-600" />
+                {/* Checklist item 4 - UK Based */}
+                <div className="flex items-start gap-4 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mt-0.5 shadow-sm border border-amber-200/50 group-hover:scale-105 transition-transform">
+                    <div className="text-center">
+                      <MapPin className="h-5 w-5 text-amber-500 mx-auto" />
+                      <span className="text-[10px] font-bold text-amber-600">UK</span>
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">UK-Based Support</h3>
@@ -923,38 +935,70 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <TestimonialsCarousel testimonials={testimonials} />
 
-            <Card>
+            <Card className="overflow-hidden">
               <CardContent className="pt-6">
-                <h3 className="font-semibold mb-4">Recent Project Inquiries:</h3>
+                <h3 className="font-semibold mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <ClipboardCheck className="h-4 w-4 text-primary" />
+                  </span>
+                  Recent Project Inquiries
+                </h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Salon website + booking system (£450)</span>
+                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
+                      <Palette className="h-4 w-4 text-rose-500" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm font-medium">Salon website + booking system</span>
+                      <span className="text-sm text-primary font-semibold ml-2">£450</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Trade business site with quote forms (£300)</span>
+                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Settings className="h-4 w-4 text-blue-500" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm font-medium">Trade business site with quote forms</span>
+                      <span className="text-sm text-primary font-semibold ml-2">£300</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">E-commerce site for local retail (£1,100)</span>
+                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                      <ShoppingBag className="h-4 w-4 text-amber-500" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm font-medium">E-commerce site for local retail</span>
+                      <span className="text-sm text-primary font-semibold ml-2">£1,100</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">AI chatbot for property management (£350 setup)</span>
+                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <Bot className="h-4 w-4 text-emerald-500" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm font-medium">AI chatbot for property management</span>
+                      <span className="text-sm text-primary font-semibold ml-2">£350</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Voice agent for clinic (£600 setup)</span>
+                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="h-4 w-4 text-violet-500" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm font-medium">Voice agent for clinic</span>
+                      <span className="text-sm text-primary font-semibold ml-2">£600</span>
+                    </div>
                   </li>
                 </ul>
-                <div className="mt-6 pt-6 border-t border-border">
-                  <p className="text-sm text-muted-foreground">
-                    <strong>Average response time:</strong> 3.2 hours
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>Projects currently booking:</strong> 2–3 weeks out
-                  </p>
+                <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full">
+                    <Clock className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm font-medium text-emerald-700">Avg response: 3.2 hrs</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-full">
+                    <Target className="h-4 w-4 text-blue-600" />
+                    <span className="text-sm font-medium text-blue-700">Booking: 2-3 weeks</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>

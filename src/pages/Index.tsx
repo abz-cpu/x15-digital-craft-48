@@ -447,13 +447,13 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg transition-all duration-300 group-hover:scale-110 ${
-                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 group-hover:shadow-rose-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 group-hover:shadow-sky-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 group-hover:shadow-emerald-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 group-hover:shadow-orange-400/50 group-hover:shadow-xl' :
-                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 group-hover:shadow-blue-400/50 group-hover:shadow-xl' :
-                      'bg-gradient-to-br from-violet-400 to-violet-500 group-hover:shadow-violet-400/50 group-hover:shadow-xl'
+                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 ${
+                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 shadow-[0_8px_25px_rgba(251,113,133,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,113,133,0.7)]' :
+                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 shadow-[0_8px_25px_rgba(56,189,248,0.5)] group-hover:shadow-[0_12px_35px_rgba(56,189,248,0.7)]' :
+                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-[0_8px_25px_rgba(52,211,153,0.5)] group-hover:shadow-[0_12px_35px_rgba(52,211,153,0.7)]' :
+                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 shadow-[0_8px_25px_rgba(251,146,60,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,146,60,0.7)]' :
+                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 shadow-[0_8px_25px_rgba(96,165,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(96,165,250,0.7)]' :
+                      'bg-gradient-to-br from-violet-400 to-violet-500 shadow-[0_8px_25px_rgba(167,139,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(167,139,250,0.7)]'
                     }`}>
                       <Icon className="h-7 w-7 text-gray-900" strokeWidth={2.5} />
                     </div>

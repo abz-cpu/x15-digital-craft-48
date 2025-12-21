@@ -190,14 +190,16 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
       {/* Announcement Bar - Like LWDA */}
       {showAnnouncementBar && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-[#E84855] text-white py-2.5 px-4 text-center">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 text-sm font-medium">
-            <span className="hidden sm:inline">🚀 INCREASE VISITS & CONVERSIONS</span>
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-white py-2.5 px-4 text-center">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
+            <span className="hidden sm:inline">🚀 Get Your Free Website Audit in 24 Hours</span>
+            <span className="sm:hidden">🚀 Free Website Audit</span>
             <PreloadLink
               to="/contact"
-              className="inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline font-bold uppercase tracking-wide"
+              className="inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline font-bold"
             >
-              Get a Free Website Audit
+              Claim Now
+              <ArrowRight className="h-3.5 w-3.5" />
             </PreloadLink>
             <button
               onClick={() => setShowAnnouncementBar(false)}
@@ -227,13 +229,13 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             {/* Logo */}
             <PreloadLink
               to="/"
-              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
+              className="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
               {/* L&D Monogram Icon */}
               <svg 
-                width="40" 
-                height="40" 
+                width="36" 
+                height="36" 
                 viewBox="0 0 100 100" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -273,12 +275,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <div className="flex flex-col leading-none">
-                <span className="text-[18px] font-bold tracking-tight">
+              <div className="flex flex-col leading-none whitespace-nowrap">
+                <span className="text-[16px] font-bold tracking-tight">
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>L&amp;D</span>{" "}
                   <span className="text-primary">DIGITAL</span>
                 </span>
-                <span className={`text-[10px] font-medium tracking-[0.2em] mt-0.5 uppercase ${getMutedTextClass()}`}>
+                <span className={`text-[9px] font-medium tracking-[0.15em] mt-0.5 uppercase ${getMutedTextClass()}`}>
                   Luminus &amp; Deliver —
                 </span>
               </div>

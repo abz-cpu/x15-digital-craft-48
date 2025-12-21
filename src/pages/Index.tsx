@@ -593,7 +593,7 @@ const Index = () => {
               <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <div className="flex flex-col items-center text-center h-full">
                   <Globe className="h-16 w-16 text-[#0F766E] mb-6" />
-                  <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites Built to Convert</h3>
+                  <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
 
                   <p className="text-base text-[#6B7280] mb-8">For businesses ready to show up professionally online</p>
 

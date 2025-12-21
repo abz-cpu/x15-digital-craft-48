@@ -372,9 +372,9 @@ const Index = () => {
                 iconBg: "bg-emerald-100",
                 iconColor: "text-emerald-600",
                 title: "AI Automation",
-                tagline: "Work smarter with 24/7 AI assistance",
+                tagline: "24/7 AI that never misses a lead",
                 fullDescription:
-                  "Intelligent AI solutions that handle customer inquiries, schedule appointments, and manage routine tasks around the clock. Free up your time while delivering instant, professional responses that keep customers happy and your business running smoothly.",
+                  "AI that handles customer inquiries, schedules appointments, and manages routine tasks 24/7. Respond instantly to every customer while freeing up hours in your day.",
                 process: [
                   "Workflow Analysis & Planning",
                   "AI Training & Configuration",
@@ -406,9 +406,9 @@ const Index = () => {
                 iconBg: "bg-blue-100",
                 iconColor: "text-blue-600",
                 title: "Digital Marketing",
-                tagline: "Get found by customers ready to buy",
+                tagline: "Get found by customers actively searching",
                 fullDescription:
-                  "Strategic digital marketing that puts you in front of high-intent buyers. We combine proven SEO tactics, targeted PPC campaigns, compelling content, and social media management to increase visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
+                  "Digital marketing that puts you in front of high-intent buyers. We combine SEO, targeted ads, content strategy, and social media to drive visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
                 process: [
                   "Market & Competitor Analysis",
                   "Strategy & Budget Planning",
@@ -423,7 +423,7 @@ const Index = () => {
                 iconBg: "bg-violet-100",
                 iconColor: "text-violet-600",
                 title: "Graphic Design",
-                tagline: "Branding that makes you stand out",
+                tagline: "Branding that makes you memorable",
                 fullDescription:
                   "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build lasting recognition.",
                 process: [

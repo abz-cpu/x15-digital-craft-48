@@ -605,7 +605,7 @@ const Index = () => {
 
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">Client-hosted (your domain &amp; hosting)</span>
+                      <span className="text-sm text-[#1F2937]">You own your domain & hosting</span>
                     </div>
 
                     <div className="flex items-center gap-3">

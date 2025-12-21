@@ -447,8 +447,8 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`h-16 w-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-4 shadow-lg ${service.iconBg.replace('100', '400')}/30`} style={{ boxShadow: `0 8px 24px ${service.iconColor === 'text-rose-600' ? 'rgba(225, 29, 72, 0.25)' : service.iconColor === 'text-sky-600' ? 'rgba(2, 132, 199, 0.25)' : service.iconColor === 'text-emerald-600' ? 'rgba(5, 150, 105, 0.25)' : service.iconColor === 'text-orange-600' ? 'rgba(234, 88, 12, 0.25)' : service.iconColor === 'text-blue-600' ? 'rgba(37, 99, 235, 0.25)' : 'rgba(124, 58, 237, 0.25)'}` }}>
-                      <Icon className={`h-8 w-8 ${service.iconColor}`} strokeWidth={1.5} />
+                    <div className={`h-14 w-14 rounded-xl ${service.iconBg} flex items-center justify-center mb-4`}>
+                      <Icon className={`h-6 w-6 ${service.iconColor}`} strokeWidth={2} />
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
                     <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>

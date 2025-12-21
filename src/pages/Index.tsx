@@ -1014,7 +1014,7 @@ const Index = () => {
                 <strong className="text-[#1F2937]">AI automation setup:</strong> 3–10 days
                 <br />
                 <br />
-                Most projects are delivered faster than agencies that take 4–12 weeks.
+                Most projects delivered in under 3 weeks.
               </AccordionContent>
             </AccordionItem>
 
@@ -1029,8 +1029,8 @@ const Index = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                We use modern tools and work lean—no expensive offices or account managers. You get agency-quality work
-                without the overhead. Same results, better price.
+                We use modern tools and run lean—no expensive offices or account managers. You get agency-quality work
+                without the overhead.
               </AccordionContent>
             </AccordionItem>
 
@@ -1045,12 +1045,12 @@ const Index = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                You fully own your domain, hosting account, and all of your content. The underlying codebase stays with
-                X15 Digital to ensure quality, security, and long-term maintainability.
+                You own your domain, hosting account, and all content. The codebase remains with X15 Digital to ensure
+                quality, security, and maintainability.
                 <br />
                 <br />
-                If you host the site yourself, it stays online as long as your hosting stays active. If you're on one of
-                our hosting or maintenance plans, the site remains live while the plan is active.
+                If you host the site yourself, it stays online as long as your hosting is active. If you're on our
+                hosting or maintenance plan, the site remains live while your plan is active.
               </AccordionContent>
             </AccordionItem>
 
@@ -1065,8 +1065,8 @@ const Index = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                Unlimited revisions until you're happy. After launch, minor tweaks are free for 30 days. We also offer
-                affordable maintenance if you prefer we handle updates.
+                Unlimited revisions until you're satisfied. After launch, minor tweaks are free for 30 days. We also
+                offer maintenance plans if you prefer we handle ongoing updates.
               </AccordionContent>
             </AccordionItem>
 
@@ -1146,7 +1146,9 @@ const Index = () => {
               {/* Text */}
               <div className="text-left">
                 <p className="text-sm md:text-base font-semibold text-[#1F2937]">Still have questions?</p>
-                <p className="text-xs md:text-sm text-[#6B7280]">We typically respond within a few hours</p>
+                <p className="text-xs md:text-sm text-[#6B7280]">
+                  Still have questions? We typically respond within 3 hours
+                </p>
               </div>
 
               {/* Button */}

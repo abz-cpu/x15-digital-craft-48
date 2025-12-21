@@ -17,7 +17,7 @@ const Branding = () => {
         description="A complete visual identity that matches your business. Professional branding services for UK businesses."
         canonicalUrl="https://x15.digital/services/branding"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

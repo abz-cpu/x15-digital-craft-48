@@ -17,7 +17,7 @@ const DigitalMarketing = () => {
         description="Grow your business with comprehensive digital marketing. PPC, social media, content marketing, and more. Data-driven strategies that deliver results."
         canonicalUrl="https://landdigital.co.uk/services/digital-marketing"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

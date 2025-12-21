@@ -17,7 +17,7 @@ const EmailMarketing = () => {
         description="Email campaigns that nurture leads and drive sales. Automated sequences, newsletters, and email strategy that delivers results."
         canonicalUrl="https://landdigital.co.uk/services/email-marketing"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

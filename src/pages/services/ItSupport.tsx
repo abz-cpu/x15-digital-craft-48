@@ -21,7 +21,7 @@ const ItSupport = () => {
         canonicalUrl="https://x15.digital/services/it-support"
       />
 
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* HERO */}

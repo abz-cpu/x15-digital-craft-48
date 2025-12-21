@@ -17,7 +17,7 @@ const Copywriting = () => {
         description="Compelling website copy that converts visitors into customers. Professional copywriting for websites, landing pages, and marketing materials."
         canonicalUrl="https://landdigital.co.uk/services/copywriting"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

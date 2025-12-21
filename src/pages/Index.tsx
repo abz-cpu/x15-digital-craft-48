@@ -447,24 +447,15 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`relative h-16 w-16 rounded-2xl flex items-center justify-center mb-4 overflow-hidden transition-all duration-300 group-hover:scale-110 ${
-                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-b from-red-300 to-red-400 shadow-[0_8px_20px_rgba(248,113,113,0.3)] group-hover:shadow-[0_12px_28px_rgba(248,113,113,0.5)]' :
-                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-b from-blue-300 to-blue-400 shadow-[0_8px_20px_rgba(96,165,250,0.3)] group-hover:shadow-[0_12px_28px_rgba(96,165,250,0.5)]' :
-                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-b from-emerald-300 to-emerald-400 shadow-[0_8px_20px_rgba(52,211,153,0.3)] group-hover:shadow-[0_12px_28px_rgba(52,211,153,0.5)]' :
-                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-b from-orange-300 to-orange-400 shadow-[0_8px_20px_rgba(251,146,60,0.3)] group-hover:shadow-[0_12px_28px_rgba(251,146,60,0.5)]' :
-                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-b from-blue-300 to-blue-400 shadow-[0_8px_20px_rgba(96,165,250,0.3)] group-hover:shadow-[0_12px_28px_rgba(96,165,250,0.5)]' :
-                      'bg-gradient-to-b from-purple-300 to-purple-400 shadow-[0_8px_20px_rgba(167,139,250,0.3)] group-hover:shadow-[0_12px_28px_rgba(167,139,250,0.5)]'
+                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg transition-all duration-300 group-hover:scale-110 ${
+                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 group-hover:shadow-rose-400/50 group-hover:shadow-xl' :
+                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 group-hover:shadow-sky-400/50 group-hover:shadow-xl' :
+                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 group-hover:shadow-emerald-400/50 group-hover:shadow-xl' :
+                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 group-hover:shadow-orange-400/50 group-hover:shadow-xl' :
+                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 group-hover:shadow-blue-400/50 group-hover:shadow-xl' :
+                      'bg-gradient-to-br from-violet-400 to-violet-500 group-hover:shadow-violet-400/50 group-hover:shadow-xl'
                     }`}>
-                      {/* Bottom reflection/shadow overlay */}
-                      <div className={`absolute bottom-0 left-0 right-0 h-[40%] rounded-b-2xl ${
-                        service.iconColor === 'text-rose-600' ? 'bg-gradient-to-t from-red-500/40 to-transparent' :
-                        service.iconColor === 'text-sky-600' ? 'bg-gradient-to-t from-blue-500/40 to-transparent' :
-                        service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-t from-emerald-500/40 to-transparent' :
-                        service.iconColor === 'text-orange-600' ? 'bg-gradient-to-t from-orange-500/40 to-transparent' :
-                        service.iconColor === 'text-blue-600' ? 'bg-gradient-to-t from-blue-500/40 to-transparent' :
-                        'bg-gradient-to-t from-purple-500/40 to-transparent'
-                      }`} />
-                      <Icon className="h-7 w-7 text-gray-900 relative z-10" strokeWidth={2} />
+                      <Icon className="h-7 w-7 text-gray-900" strokeWidth={2.5} />
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
                     <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>

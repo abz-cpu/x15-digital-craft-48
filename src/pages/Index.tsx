@@ -705,10 +705,8 @@ const Index = () => {
                     <CheckCircle2 className="h-5 w-5 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
-                    <p className="text-slate-600">
-                      Fast Delivery Delivered in 1–14 days. We move fast without cutting corners.
-                    </p>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Fast Delivery</h3>
+                    <p className="text-slate-600">Delivered in 1–14 days. We move fast without cutting corners.</p>
                   </div>
                 </div>
 
@@ -718,9 +716,9 @@ const Index = () => {
                     <CheckCircle2 className="h-5 w-5 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">100% Transparent Pricing</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Transparent Pricing</h3>
                     <p className="text-slate-600">
-                      No hidden fees, no surprises. You know exactly what you're paying for upfront.
+                      No hidden fees, no surprises. You know exactly what you're paying upfront.
                     </p>
                   </div>
                 </div>
@@ -745,9 +743,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">UK-Based Support</h3>
-                    <p className="text-slate-600">
-                      Real people, same timezone, responsive communication throughout your project.
-                    </p>
+                    <p className="text-slate-600">Real people, same timezone, responsive communication throughout.</p>
                   </div>
                 </div>
               </div>

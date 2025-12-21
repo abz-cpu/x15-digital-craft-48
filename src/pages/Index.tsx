@@ -695,7 +695,7 @@ const Index = () => {
                 Why Choose L&D Digital
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-                Simple, Fast, and Transparent Digital Services
+                We Make Digital Simple, Fast, and Transparent
               </h2>
 
               <div className="space-y-6">
@@ -707,7 +707,7 @@ const Index = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
                     <p className="text-slate-600">
-                      Your project delivered in 1–14 days, not months. We move fast without cutting corners.
+                      Fast Delivery Delivered in 1–14 days. We move fast without cutting corners.
                     </p>
                   </div>
                 </div>

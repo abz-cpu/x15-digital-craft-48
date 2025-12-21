@@ -447,8 +447,15 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`h-14 w-14 rounded-xl ${service.iconBg} flex items-center justify-center mb-4`}>
-                      <Icon className={`h-6 w-6 ${service.iconColor}`} strokeWidth={2} />
+                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 ${
+                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-500 to-rose-600' :
+                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-600' :
+                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-600' :
+                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-600' :
+                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-600' :
+                      'bg-gradient-to-br from-violet-400 to-violet-600'
+                    }`}>
+                      <Icon className="h-7 w-7 text-white" strokeWidth={2} />
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
                     <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>

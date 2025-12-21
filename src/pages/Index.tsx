@@ -355,7 +355,7 @@ const Index = () => {
                 iconBg: "bg-sky-100",
                 iconColor: "text-sky-600",
                 title: "Website Maintenance",
-                tagline: "Keep your site secure, fast, and running perfectly",
+                tagline: "Keep your site secure, fast, and always running",
                 fullDescription:
                   "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business. Every maintenance plan includes proactive monitoring to catch issues before they become problems.",
                 process: [

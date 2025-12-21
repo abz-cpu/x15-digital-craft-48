@@ -606,16 +606,19 @@ const Index = () => {
             <AnimatedSection animation="fade" staggerIndex={0}>
               <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <div className="flex flex-col items-center text-center h-full">
-                  {/* Device Mockup instead of just icon */}
-                  <div className="mb-6">
-                    <DeviceMockup type="web" className="scale-90 md:scale-100" />
+                  {/* Image Container - Fixed Height */}
+                  <div className="h-[180px] md:h-[240px] flex items-center justify-center mb-6">
+                    <DeviceMockup type="web" className="scale-100 md:scale-110" />
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
+                  {/* Title - min height to prevent shifting */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4 min-h-[72px] flex items-center">Professional Websites That Win Customers</h3>
 
-                  <p className="text-base text-[#6B7280] mb-6">For businesses ready to grow online</p>
+                  {/* Subtitle */}
+                  <p className="text-base text-[#6B7280] mb-6 min-h-[48px]">For businesses ready to grow online</p>
 
-                  <div className="space-y-3 mb-8 text-left w-full">
+                  {/* Features - grows to fill space */}
+                  <div className="space-y-3 text-left w-full flex-1">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">One-time payment</span>
@@ -637,12 +640,9 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Bottom section pushed to end */}
-                  <div className="mt-auto text-center w-full">
-                    {/* PRICE */}
+                  {/* Bottom section - pushed to bottom */}
+                  <div className="mt-auto pt-6 text-center w-full">
                     <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
-
-                    {/* SUBTLE URGENCY */}
                     <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
 
                     <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
@@ -659,18 +659,21 @@ const Index = () => {
             <AnimatedSection animation="fade" staggerIndex={1}>
               <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <div className="flex flex-col items-center text-center h-full">
-                  {/* Device Mockup instead of just icon */}
-                  <div className="mb-6">
-                    <DeviceMockup type="ai" className="scale-90 md:scale-100" />
+                  {/* Image Container - Fixed Height */}
+                  <div className="h-[180px] md:h-[240px] flex items-center justify-center mb-6">
+                    <DeviceMockup type="ai" className="scale-100 md:scale-110" />
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
+                  {/* Title - min height to prevent shifting */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4 min-h-[72px] flex items-center">AI That Never Misses A Lead</h3>
 
-                  <p className="text-base text-[#6B7280] mb-6">
+                  {/* Subtitle */}
+                  <p className="text-base text-[#6B7280] mb-6 min-h-[48px]">
                     For businesses ready to automate customer service 24/7
                   </p>
 
-                  <div className="space-y-3 mb-8 text-left w-full">
+                  {/* Features - grows to fill space */}
+                  <div className="space-y-3 text-left w-full flex-1">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
@@ -692,12 +695,9 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Bottom section pushed to end */}
-                  <div className="mt-auto text-center w-full">
-                    {/* PRICE */}
+                  {/* Bottom section - pushed to bottom */}
+                  <div className="mt-auto pt-6 text-center w-full">
                     <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £50/month</p>
-
-                    {/* SUBTLE URGENCY */}
                     <p className="text-sm text-[#6B7280] mb-6">Limited onboarding slots each month</p>
 
                     <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">

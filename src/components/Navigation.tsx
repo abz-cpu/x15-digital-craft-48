@@ -4,7 +4,11 @@ import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PreloadLink } from "@/components/PreloadLink";
 
-const Navigation = () => {
+interface NavigationProps {
+  darkHero?: boolean;
+}
+
+const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -153,7 +157,24 @@ const Navigation = () => {
 
   const getActiveClass = (path: string) => {
     const basePath = path.split("#")[0];
-    return location.pathname === basePath ? "text-primary font-semibold" : "";
+    return location.pathname === basePath ? "font-semibold" : "";
+  };
+
+  // Determine text color based on scroll state and dark hero
+  const getNavTextClass = () => {
+    if (isScrolled) {
+      return "text-foreground hover:text-primary";
+    }
+    return darkHero 
+      ? "text-white/90 hover:text-white" 
+      : "text-muted-foreground hover:text-primary";
+  };
+
+  const getMutedTextClass = () => {
+    if (isScrolled) {
+      return "text-muted-foreground";
+    }
+    return darkHero ? "text-white/70" : "text-muted-foreground";
   };
 
   return (
@@ -170,15 +191,15 @@ const Navigation = () => {
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-300 top-0 ${
           isScrolled 
-            ? "bg-background/95 backdrop-blur-sm shadow-lg" 
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-md shadow-lg py-2" 
+            : "bg-transparent py-4"
         }`}
         role="navigation"
         aria-label="Main navigation"
         ref={dropdownRef}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-[72px]">
+          <div className="flex justify-between items-center h-[56px]">
             {/* Logo */}
             <PreloadLink
               to="/"
@@ -230,22 +251,22 @@ const Navigation = () => {
               </svg>
               <div className="flex flex-col leading-none">
                 <span className="text-[18px] font-bold tracking-tight">
-                  <span className="text-foreground">L&amp;D</span>{" "}
+                  <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>L&amp;D</span>{" "}
                   <span className="text-primary">DIGITAL</span>
                 </span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mt-0.5 uppercase">
+                <span className={`text-[10px] font-medium tracking-[0.2em] mt-0.5 uppercase ${getMutedTextClass()}`}>
                   Luminus &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {/* Services Mega Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
-                    activeDropdown === "services" ? "text-primary" : "text-muted-foreground"
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                    activeDropdown === "services" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("services")}
                   onMouseLeave={scheduleDropdownClose}
@@ -265,7 +286,7 @@ const Navigation = () => {
                 {/* Services Mega Menu - Full Width 4 Columns */}
                 {activeDropdown === "services" && (
                   <div
-                    className="fixed left-0 right-0 top-[72px] z-50"
+                    className={`fixed left-0 right-0 z-50 ${isScrolled ? "top-[72px]" : "top-[88px]"}`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
@@ -379,8 +400,8 @@ const Navigation = () => {
               {/* Platforms Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
-                    activeDropdown === "platforms" ? "text-primary" : "text-muted-foreground"
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                    activeDropdown === "platforms" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("platforms")}
                   onMouseLeave={scheduleDropdownClose}
@@ -438,8 +459,8 @@ const Navigation = () => {
               {/* Key Sectors Dropdown */}
               <div className="relative">
                 <button
-                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
-                    activeDropdown === "sectors" ? "text-primary" : "text-muted-foreground"
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
+                    activeDropdown === "sectors" ? "text-primary" : ""
                   }`}
                   onMouseEnter={() => handleDropdownEnter("sectors")}
                   onMouseLeave={scheduleDropdownClose}
@@ -499,7 +520,7 @@ const Navigation = () => {
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-muted-foreground hover:text-primary focus:text-primary focus:ring-primary ${
+                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()} ${
                     location.pathname === link.path ? "text-primary font-semibold" : ""
                   }`}
                 >
@@ -508,12 +529,12 @@ const Navigation = () => {
               ))}
 
               {/* Separator line */}
-              <div className="h-6 w-px bg-border mx-2" aria-hidden="true" />
+              <div className={`h-6 w-px mx-3 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
 
               {/* Phone Number */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-muted-foreground hover:text-primary focus:ring-primary"
+                className={`flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-4 py-2.5 focus:ring-primary ${getNavTextClass()}`}
                 aria-label="Call us on 07123 456789"
               >
                 <Phone className="h-[18px] w-[18px]" aria-hidden="true" />
@@ -531,16 +552,18 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-muted focus:ring-primary"
+              className={`lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
+                isScrolled ? "hover:bg-muted" : darkHero ? "hover:bg-white/10" : "hover:bg-muted"
+              }`}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6 text-foreground" aria-hidden="true" />
+                <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`} aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6 text-foreground" aria-hidden="true" />
+                <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`} aria-hidden="true" />
               )}
             </button>
           </div>

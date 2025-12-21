@@ -68,7 +68,7 @@ const WebPackage = () => {
         canonicalUrl="https://x15.digital/web-package"
       />
 
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* 1. HERO */}

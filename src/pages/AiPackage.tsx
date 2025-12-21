@@ -264,7 +264,7 @@ const AiPackage = () => {
         description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
         canonicalUrl="https://x15.digital/ai-package"
       />
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* Hero Section */}

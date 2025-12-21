@@ -373,7 +373,7 @@ const Services = () => {
         canonicalUrl="https://x15.digital/services"
       />
 
-      <Navigation />
+      <Navigation darkHero />
 
       <main className="flex-1">
         {/* HERO – Services Hub */}

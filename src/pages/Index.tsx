@@ -604,33 +604,30 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto">
             {/* LEFT CARD - WEB PACKAGES */}
             <AnimatedSection animation="fade" staggerIndex={0}>
-              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-                <div className="flex flex-col items-center text-center h-full">
+              <Card className="hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-6 md:p-8 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <div className="flex flex-col items-center text-center">
                   {/* Device Mockup instead of just icon */}
-                  <div className="mb-6">
-                    <DeviceMockup type="web" className="scale-90 md:scale-100" />
+                  <div className="mb-4">
+                    <DeviceMockup type="web" className="scale-75 md:scale-90" />
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-3">Professional Websites That Win Customers</h3>
 
-                  <p className="text-base text-[#6B7280] mb-6">For businesses ready to grow online</p>
+                  <p className="text-base text-[#6B7280] mb-4">For businesses ready to grow online</p>
 
-                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
+                  <div className="space-y-2 mb-6 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">One-time payment</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">You own your domain & hosting</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">1–14 day delivery</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">No forced monthly platform fees</span>
@@ -638,10 +635,10 @@ const Index = () => {
                   </div>
 
                   {/* PRICE */}
-                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
+                  <p className="text-xl font-semibold text-[#0F766E] mb-1">Starting at £200</p>
 
                   {/* SUBTLE URGENCY */}
-                  <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
+                  <p className="text-sm text-[#6B7280] mb-4">Currently booking 2–3 weeks ahead</p>
 
                   <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
                     <Link to="/web-package">
@@ -654,35 +651,32 @@ const Index = () => {
 
             {/* RIGHT CARD - AI AUTOMATION */}
             <AnimatedSection animation="fade" staggerIndex={1}>
-              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-                <div className="flex flex-col items-center text-center h-full">
+              <Card className="hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-6 md:p-8 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <div className="flex flex-col items-center text-center">
                   {/* Device Mockup instead of just icon */}
-                  <div className="mb-6">
-                    <DeviceMockup type="ai" className="scale-90 md:scale-100" />
+                  <div className="mb-4">
+                    <DeviceMockup type="ai" className="scale-75 md:scale-90" />
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-3">AI That Never Misses A Lead</h3>
 
-                  <p className="text-base text-[#6B7280] mb-6">
+                  <p className="text-base text-[#6B7280] mb-4">
                     For businesses ready to automate customer service 24/7
                   </p>
 
-                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
+                  <div className="space-y-2 mb-6 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Books appointments</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Qualifies leads</span>
                     </div>
-
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Works while you sleep</span>
@@ -690,10 +684,10 @@ const Index = () => {
                   </div>
 
                   {/* PRICE */}
-                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £50/month</p>
+                  <p className="text-xl font-semibold text-[#0F766E] mb-1">Starting at £50/month</p>
 
                   {/* SUBTLE URGENCY */}
-                  <p className="text-sm text-[#6B7280] mb-6">Limited onboarding slots each month</p>
+                  <p className="text-sm text-[#6B7280] mb-4">Limited onboarding slots each month</p>
 
                   <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
                     <Link to="/ai-package">
@@ -936,68 +930,58 @@ const Index = () => {
             <TestimonialsCarousel testimonials={testimonials} />
 
             <Card className="overflow-hidden">
-              <CardContent className="pt-6">
-                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <ClipboardCheck className="h-4 w-4 text-primary" />
+              <CardContent className="p-5">
+                <h3 className="font-semibold mb-3 flex items-center gap-2">
+                  <span className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <ClipboardCheck className="h-3.5 w-3.5 text-primary" />
                   </span>
                   Recent Project Inquiries
                 </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
-                      <Palette className="h-4 w-4 text-rose-500" />
+                <ul className="space-y-1.5">
+                  <li className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-rose-100 flex items-center justify-center flex-shrink-0">
+                      <Palette className="h-3 w-3 text-rose-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Salon website + booking system</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£450</span>
-                    </div>
+                    <span className="text-sm">Salon website + booking system</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£450</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <Settings className="h-4 w-4 text-blue-500" />
+                  <li className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Settings className="h-3 w-3 text-blue-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Trade business site with quote forms</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£300</span>
-                    </div>
+                    <span className="text-sm">Trade business site with quote forms</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£300</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                      <ShoppingBag className="h-4 w-4 text-amber-500" />
+                  <li className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center flex-shrink-0">
+                      <ShoppingBag className="h-3 w-3 text-amber-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">E-commerce site for local retail</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£1,100</span>
-                    </div>
+                    <span className="text-sm">E-commerce site for local retail</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£1,100</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                      <Bot className="h-4 w-4 text-emerald-500" />
+                  <li className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <Bot className="h-3 w-3 text-emerald-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">AI chatbot for property management</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£350</span>
-                    </div>
+                    <span className="text-sm">AI chatbot for property management</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£350</span>
                   </li>
-                  <li className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="h-4 w-4 text-violet-500" />
+                  <li className="flex items-center gap-2.5 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
+                    <div className="w-6 h-6 rounded-md bg-violet-100 flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="h-3 w-3 text-violet-500" />
                     </div>
-                    <div className="flex-1">
-                      <span className="text-sm font-medium">Voice agent for clinic</span>
-                      <span className="text-sm text-primary font-semibold ml-2">£600</span>
-                    </div>
+                    <span className="text-sm">Voice agent for clinic</span>
+                    <span className="text-sm text-primary font-semibold ml-auto">£600</span>
                   </li>
                 </ul>
-                <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full">
-                    <Clock className="h-4 w-4 text-emerald-600" />
-                    <span className="text-sm font-medium text-emerald-700">Avg response: 3.2 hrs</span>
+                <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-3">
+                  <div className="flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-full">
+                    <Clock className="h-3.5 w-3.5 text-emerald-600" />
+                    <span className="text-xs font-medium text-emerald-700">Avg response: 3.2 hrs</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-full">
-                    <Target className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm font-medium text-blue-700">Booking: 2-3 weeks</span>
+                  <div className="flex items-center gap-1.5 bg-blue-50 px-2.5 py-1 rounded-full">
+                    <Target className="h-3.5 w-3.5 text-blue-600" />
+                    <span className="text-xs font-medium text-blue-700">Booking: 2-3 weeks</span>
                   </div>
                 </div>
               </CardContent>

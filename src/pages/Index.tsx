@@ -707,7 +707,7 @@ const Index = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
                     <p className="text-slate-600">
-                      Your project delivered in 1–14 days, not months. We move fast without cutting corners.
+                      Fast Delivery 1–14 days average. We move fast without cutting corners.
                     </p>
                   </div>
                 </div>

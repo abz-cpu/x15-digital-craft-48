@@ -615,7 +615,7 @@ const Index = () => {
 
                   <p className="text-base text-[#6B7280] mb-6">For businesses ready to grow online</p>
 
-                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
+                  <div className="space-y-3 mb-8 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">One-time payment</span>
@@ -637,17 +637,20 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* PRICE */}
-                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
+                  {/* Bottom section pushed to end */}
+                  <div className="mt-auto text-center w-full">
+                    {/* PRICE */}
+                    <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
 
-                  {/* SUBTLE URGENCY */}
-                  <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
+                    {/* SUBTLE URGENCY */}
+                    <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
 
-                  <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
-                    <Link to="/web-package">
-                      View Web Packages <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
+                      <Link to="/web-package">
+                        View Web Packages <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </Card>
             </AnimatedSection>
@@ -667,7 +670,7 @@ const Index = () => {
                     For businesses ready to automate customer service 24/7
                   </p>
 
-                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
+                  <div className="space-y-3 mb-8 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
@@ -689,17 +692,20 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* PRICE */}
-                  <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £50/month</p>
+                  {/* Bottom section pushed to end */}
+                  <div className="mt-auto text-center w-full">
+                    {/* PRICE */}
+                    <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £50/month</p>
 
-                  {/* SUBTLE URGENCY */}
-                  <p className="text-sm text-[#6B7280] mb-6">Limited onboarding slots each month</p>
+                    {/* SUBTLE URGENCY */}
+                    <p className="text-sm text-[#6B7280] mb-6">Limited onboarding slots each month</p>
 
-                  <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
-                    <Link to="/ai-package">
-                      View AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
+                      <Link to="/ai-package">
+                        View AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </Card>
             </AnimatedSection>

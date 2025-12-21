@@ -1,17 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PreloadLink } from "@/components/PreloadLink";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [showAnnouncementBar, setShowAnnouncementBar] = useState(true);
 
   const closeTimeoutRef = useRef<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   const location = useLocation();
 
@@ -26,87 +26,104 @@ const Navigation = () => {
   // Close menus when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setShowServicesDropdown(false);
+    setActiveDropdown(null);
   }, [location]);
 
   // Accessibility: Close dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node) &&
-        servicesButtonRef.current &&
-        !servicesButtonRef.current.contains(event.target as Node)
-      ) {
-        setShowServicesDropdown(false);
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
       }
     };
 
-    if (showServicesDropdown) {
+    if (activeDropdown) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showServicesDropdown]);
+  }, [activeDropdown]);
 
   // Accessibility: Close dropdown on Escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && showServicesDropdown) {
-        setShowServicesDropdown(false);
-        servicesButtonRef.current?.focus();
+      if (event.key === "Escape" && activeDropdown) {
+        setActiveDropdown(null);
       }
     };
 
-    if (showServicesDropdown) {
+    if (activeDropdown) {
       document.addEventListener("keydown", handleEscape);
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
     };
-  }, [showServicesDropdown]);
+  }, [activeDropdown]);
 
-  const navLinks = [
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "About", path: "/about" },
-    { name: "Blog", path: "/blog" },
+  // Services mega menu structure - 4 columns
+  const servicesMenu = {
+    webDesign: {
+      title: "Web & Design",
+      items: [
+        { name: "Web Design", path: "/web-package", desc: "Beautiful, responsive websites" },
+        { name: "Web Development", path: "/services/app-development", desc: "Custom web applications" },
+        { name: "Landing Pages", path: "/services/landing-pages", desc: "High-converting pages" },
+        { name: "UX/UI Design", path: "/services/ux-ui-design", desc: "User-centered design" },
+        { name: "Personalised Apps", path: "/services/personalised-apps", desc: "Custom business tools" },
+      ],
+    },
+    ecommerce: {
+      title: "E-Commerce & Optimization",
+      items: [
+        { name: "E-Commerce", path: "/services/ecommerce", desc: "Online store solutions" },
+        { name: "CRO", path: "/services/cro", desc: "Conversion rate optimization" },
+        { name: "SEO", path: "/services/seo", desc: "Search engine optimization" },
+      ],
+    },
+    branding: {
+      title: "Brand & Marketing",
+      items: [
+        { name: "Brand Strategy", path: "/services/branding", desc: "Strategic brand development" },
+        { name: "Brand Identity Design", path: "/services/logo-design", desc: "Visual identity & logos" },
+        { name: "Digital Marketing", path: "/services/digital-marketing", desc: "Online marketing campaigns" },
+        { name: "Copywriting", path: "/services/copywriting", desc: "Compelling website copy" },
+        { name: "Content Marketing", path: "/services/content-marketing", desc: "Blog & content strategy" },
+        { name: "Email Marketing", path: "/services/email-marketing", desc: "Email campaigns & automation" },
+      ],
+    },
+    support: {
+      title: "Support & Hosting",
+      items: [
+        { name: "Web Hosting", path: "/services/web-hosting", desc: "Fast, secure hosting" },
+        { name: "Maintenance & Support", path: "/services/maintenance-support", desc: "Ongoing website care" },
+        { name: "IT Support", path: "/services/it-support", desc: "Technical assistance" },
+      ],
+    },
+  };
+
+  // Platforms dropdown
+  const platformsMenu = [
+    { name: "WordPress", path: "/platforms/wordpress", desc: "World's most popular CMS" },
+    { name: "Shopify", path: "/platforms/shopify", desc: "Leading e-commerce platform" },
+    { name: "WooCommerce", path: "/platforms/woocommerce", desc: "WordPress e-commerce" },
+    { name: "Custom Development", path: "/platforms/custom-development", desc: "Bespoke React/Next.js solutions" },
   ];
 
-  // Simplified featured services for dropdown - most important only
-  const featuredServices = [
-    {
-      name: "Web Packages",
-      path: "/web-package",
-      desc: "Complete website solutions",
-      category: "web",
-    },
-    {
-      name: "AI Packages",
-      path: "/ai-package",
-      desc: "Complete AI solutions",
-      category: "ai",
-    },
-    {
-      name: "Personalised Apps",
-      path: "/services/personalised-apps",
-      desc: "Custom tools, trackers & workflows",
-      category: "web",
-    },
-    {
-      name: "SEO Services",
-      path: "/services/seo",
-      desc: "Get found on Google",
-      category: "web",
-    },
-    {
-      name: "Maintenance & Support",
-      path: "/services/maintenance-support",
-      desc: "Ongoing website care",
-      category: "web",
-    },
+  // Key Sectors dropdown - exactly like LWDA
+  const sectorsMenu = [
+    { name: "Property Websites", path: "/sectors/property", desc: "Estate agents & property developers" },
+    { name: "Charity Websites", path: "/sectors/charity", desc: "Non-profits & charities" },
+    { name: "B2B Websites", path: "/sectors/b2b", desc: "Business-to-business solutions" },
+    { name: "B2C Websites", path: "/sectors/b2c", desc: "Consumer-focused websites" },
+  ];
+
+  const navLinks = [
+    { name: "Case Studies", path: "/portfolio" },
+    { name: "Blog", path: "/blog" },
+    { name: "About", path: "/about" },
   ];
 
   const clearCloseTimeout = () => {
@@ -119,20 +136,25 @@ const Navigation = () => {
   const scheduleDropdownClose = () => {
     clearCloseTimeout();
     closeTimeoutRef.current = window.setTimeout(() => {
-      setShowServicesDropdown(false);
-    }, 200);
+      setActiveDropdown(null);
+    }, 150);
   };
 
-  const getServiceActiveClass = (path: string) => {
-    const basePath = path.split("#")[0];
-    return location.pathname === basePath ? "bg-[#F0F9F7] text-[#0F766E]" : "";
+  const handleDropdownEnter = (dropdown: string) => {
+    clearCloseTimeout();
+    setActiveDropdown(dropdown);
   };
 
-  const handleServicesKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent, dropdown: string) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      setShowServicesDropdown((prev) => !prev);
+      setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
     }
+  };
+
+  const getActiveClass = (path: string) => {
+    const basePath = path.split("#")[0];
+    return location.pathname === basePath ? "text-primary font-semibold" : "";
   };
 
   return (
@@ -140,26 +162,52 @@ const Navigation = () => {
       {/* Accessibility: Skip link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-[#0F766E] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
       >
         Skip to main content
       </a>
 
+      {/* Announcement Bar */}
+      {showAnnouncementBar && (
+        <div className="bg-primary text-primary-foreground py-2.5 px-4 text-center relative z-[51]">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 text-sm font-medium">
+            <span>🚀 Get Your Free Website Audit in 24 Hours</span>
+            <PreloadLink
+              to="/contact"
+              className="inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline font-semibold"
+            >
+              Claim Now
+              <ArrowRight className="h-3.5 w-3.5" />
+            </PreloadLink>
+            <button
+              onClick={() => setShowAnnouncementBar(false)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
+              aria-label="Close announcement"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          showAnnouncementBar ? "top-[44px]" : "top-0"
+        } ${
           isScrolled 
-            ? "bg-white/95 backdrop-blur-sm shadow-lg" 
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-sm shadow-lg" 
+            : "bg-background"
         }`}
         role="navigation"
         aria-label="Main navigation"
+        ref={dropdownRef}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-[72px]">
             {/* Logo */}
             <PreloadLink
               to="/"
-              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
+              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all px-2 py-1.5"
               aria-label="L&D Digital home"
             >
               {/* L&D Monogram Icon */}
@@ -171,124 +219,299 @@ const Navigation = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0"
               >
-                {/* Outer frame */}
                 <path 
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
                   fill="none" 
-                  stroke="#0F766E" 
+                  stroke="hsl(var(--primary))" 
                   strokeWidth="6"
                   strokeLinejoin="round"
                 />
-                {/* L letter */}
                 <path 
                   d="M28 28 L28 65 L48 65" 
                   fill="none" 
-                  stroke="#0F766E" 
+                  stroke="hsl(var(--primary))" 
                   strokeWidth="6" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
-                {/* Ampersand */}
                 <text 
                   x="42" 
                   y="58" 
-                  fill="#6B7280" 
+                  fill="hsl(var(--muted-foreground))" 
                   fontSize="18" 
                   fontWeight="500"
                   fontFamily="system-ui"
                 >
                   &amp;
                 </text>
-                {/* D letter */}
                 <path 
                   d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
                   fill="none" 
-                  stroke="#0F766E" 
+                  stroke="hsl(var(--primary))" 
                   strokeWidth="6" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
               </svg>
-              {/* Text */}
               <div className="flex flex-col leading-none">
                 <span className="text-[18px] font-bold tracking-tight">
-                  <span className="text-[#1F2937]">L&amp;D</span>{" "}
-                  <span className="text-[#0F766E]">DIGITAL</span>
+                  <span className="text-foreground">L&amp;D</span>{" "}
+                  <span className="text-primary">DIGITAL</span>
                 </span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-[#6B7280] mt-0.5 uppercase">
+                <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mt-0.5 uppercase">
                   Luminus &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1.5">
-              {/* Services Dropdown */}
+            <div className="hidden lg:flex items-center gap-1">
+              {/* Services Mega Dropdown */}
               <div className="relative">
                 <button
-                  ref={servicesButtonRef}
-                  className="flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E]"
-                  onMouseEnter={() => {
-                    clearCloseTimeout();
-                    setShowServicesDropdown(true);
-                  }}
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
+                    activeDropdown === "services" ? "text-primary" : "text-muted-foreground"
+                  }`}
+                  onMouseEnter={() => handleDropdownEnter("services")}
                   onMouseLeave={scheduleDropdownClose}
-                  onClick={() => setShowServicesDropdown((prev) => !prev)}
-                  onKeyDown={handleServicesKeyDown}
-                  aria-expanded={showServicesDropdown}
+                  onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
+                  onKeyDown={(e) => handleKeyDown(e, "services")}
+                  aria-expanded={activeDropdown === "services"}
                   aria-haspopup="menu"
                   aria-label="Services menu"
                 >
                   Services
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${showServicesDropdown ? "rotate-180" : ""}`}
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
 
-                {/* Simplified Dropdown - Featured Services Only */}
-                {showServicesDropdown && (
+                {/* Services Mega Menu - Full Width 4 Columns */}
+                {activeDropdown === "services" && (
                   <div
-                    ref={dropdownRef}
-                    className="absolute left-0 top-full pt-3"
-                    onMouseEnter={() => {
-                      clearCloseTimeout();
-                      setShowServicesDropdown(true);
-                    }}
+                    className="fixed left-0 right-0 top-full pt-2"
+                    onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
                     aria-label="Services submenu"
                   >
-                    <div className="w-[400px] bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E5E7EB] p-4 animate-fade-in">
-                      {/* Featured Services in Single Column */}
-                      <div className="space-y-1">
-                        {featuredServices.map((service) => (
-                          <PreloadLink
-                            key={service.path}
-                            to={service.path}
-                            role="menuitem"
-                            className={`block py-3 px-3.5 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:bg-[#F0F9F7] focus:ring-2 focus:ring-[#0F766E] ${getServiceActiveClass(
-                              service.path,
-                            )}`}
-                          >
-                            <div className="text-[15px] font-semibold text-[#1F2937]">{service.name}</div>
-                            <div className="text-[13px] text-[#6B7280] mt-0.5">{service.desc}</div>
-                          </PreloadLink>
-                        ))}
-                      </div>
+                    <div className="bg-background border-t border-border shadow-2xl">
+                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div className="grid grid-cols-4 gap-8">
+                          {/* Column 1: Web & Design */}
+                          <div>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                              {servicesMenu.webDesign.title}
+                            </h3>
+                            <ul className="space-y-1">
+                              {servicesMenu.webDesign.items.map((item) => (
+                                <li key={item.path}>
+                                  <PreloadLink
+                                    to={item.path}
+                                    role="menuitem"
+                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                  >
+                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                  </PreloadLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
 
-                      {/* View All Services CTA */}
-                      <div className="mt-3 pt-3 border-t border-[#E5E7EB]">
+                          {/* Column 2: E-Commerce & Optimization */}
+                          <div>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                              {servicesMenu.ecommerce.title}
+                            </h3>
+                            <ul className="space-y-1">
+                              {servicesMenu.ecommerce.items.map((item) => (
+                                <li key={item.path}>
+                                  <PreloadLink
+                                    to={item.path}
+                                    role="menuitem"
+                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                  >
+                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                  </PreloadLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Column 3: Brand & Marketing */}
+                          <div>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                              {servicesMenu.branding.title}
+                            </h3>
+                            <ul className="space-y-1">
+                              {servicesMenu.branding.items.map((item) => (
+                                <li key={item.path}>
+                                  <PreloadLink
+                                    to={item.path}
+                                    role="menuitem"
+                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                  >
+                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                  </PreloadLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Column 4: Support & Hosting */}
+                          <div>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                              {servicesMenu.support.title}
+                            </h3>
+                            <ul className="space-y-1">
+                              {servicesMenu.support.items.map((item) => (
+                                <li key={item.path}>
+                                  <PreloadLink
+                                    to={item.path}
+                                    role="menuitem"
+                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                  >
+                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                  </PreloadLink>
+                                </li>
+                              ))}
+                            </ul>
+
+                            {/* View All Services CTA */}
+                            <div className="mt-6 pt-4 border-t border-border">
+                              <PreloadLink
+                                to="/services"
+                                role="menuitem"
+                                className="flex items-center gap-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                              >
+                                View All Services
+                                <ArrowRight className="h-4 w-4" />
+                              </PreloadLink>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Platforms Dropdown */}
+              <div className="relative">
+                <button
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
+                    activeDropdown === "platforms" ? "text-primary" : "text-muted-foreground"
+                  }`}
+                  onMouseEnter={() => handleDropdownEnter("platforms")}
+                  onMouseLeave={scheduleDropdownClose}
+                  onClick={() => setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")}
+                  onKeyDown={(e) => handleKeyDown(e, "platforms")}
+                  aria-expanded={activeDropdown === "platforms"}
+                  aria-haspopup="menu"
+                  aria-label="Platforms menu"
+                >
+                  Platforms
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {activeDropdown === "platforms" && (
+                  <div
+                    className="absolute left-0 top-full pt-3"
+                    onMouseEnter={() => handleDropdownEnter("platforms")}
+                    onMouseLeave={scheduleDropdownClose}
+                    role="menu"
+                    aria-label="Platforms submenu"
+                  >
+                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
+                      <ul className="space-y-1">
+                        {platformsMenu.map((item) => (
+                          <li key={item.path}>
+                            <PreloadLink
+                              to={item.path}
+                              role="menuitem"
+                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                            >
+                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                            </PreloadLink>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-3 pt-3 border-t border-border">
                         <PreloadLink
-                          to="/services"
+                          to="/platforms"
                           role="menuitem"
-                          className="flex items-center justify-between py-3 px-3.5 rounded-lg bg-[#F9FAFB] hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] group"
+                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
                         >
-                          <span className="text-[15px] font-medium text-[#1F2937]">View All Services</span>
-                          <ChevronDown
-                            className="h-4 w-4 -rotate-90 text-[#0F766E] group-hover:translate-x-1 transition-transform"
-                            aria-hidden="true"
-                          />
+                          View All Platforms
+                          <ArrowRight className="h-4 w-4" />
+                        </PreloadLink>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Key Sectors Dropdown */}
+              <div className="relative">
+                <button
+                  className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 hover:text-primary focus:text-primary focus:ring-primary ${
+                    activeDropdown === "sectors" ? "text-primary" : "text-muted-foreground"
+                  }`}
+                  onMouseEnter={() => handleDropdownEnter("sectors")}
+                  onMouseLeave={scheduleDropdownClose}
+                  onClick={() => setActiveDropdown(activeDropdown === "sectors" ? null : "sectors")}
+                  onKeyDown={(e) => handleKeyDown(e, "sectors")}
+                  aria-expanded={activeDropdown === "sectors"}
+                  aria-haspopup="menu"
+                  aria-label="Key Sectors menu"
+                >
+                  Key Sectors
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {activeDropdown === "sectors" && (
+                  <div
+                    className="absolute left-0 top-full pt-3"
+                    onMouseEnter={() => handleDropdownEnter("sectors")}
+                    onMouseLeave={scheduleDropdownClose}
+                    role="menu"
+                    aria-label="Key Sectors submenu"
+                  >
+                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
+                      <ul className="space-y-1">
+                        {sectorsMenu.map((item) => (
+                          <li key={item.path}>
+                            <PreloadLink
+                              to={item.path}
+                              role="menuitem"
+                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                            >
+                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
+                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                            </PreloadLink>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-3 pt-3 border-t border-border">
+                        <PreloadLink
+                          to="/sectors"
+                          role="menuitem"
+                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                        >
+                          View All Sectors
+                          <ArrowRight className="h-4 w-4" />
                         </PreloadLink>
                       </div>
                     </div>
@@ -301,162 +524,162 @@ const Navigation = () => {
                 <PreloadLink
                   key={link.path}
                   to={link.path}
-                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:text-[#0F766E] focus:ring-[#0F766E] ${location.pathname === link.path ? "text-[#0F766E] font-semibold" : ""}`}
+                  className={`text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-muted-foreground hover:text-primary focus:text-primary focus:ring-primary ${
+                    location.pathname === link.path ? "text-primary font-semibold" : ""
+                  }`}
                 >
                   {link.name}
                 </PreloadLink>
               ))}
 
               {/* Separator line */}
-              <div className="h-6 w-px bg-[#E5E7EB] mx-2" aria-hidden="true" />
+              <div className="h-6 w-px bg-border mx-2" aria-hidden="true" />
 
-              {/* Phone Number - Click to call */}
+              {/* Phone Number */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-[#4B5563] hover:text-[#0F766E] focus:ring-[#0F766E]"
+                className="flex items-center gap-2 text-[15px] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-3.5 py-2 text-muted-foreground hover:text-primary focus:ring-primary"
                 aria-label="Call us on 07123 456789"
               >
                 <Phone className="h-[18px] w-[18px]" aria-hidden="true" />
                 <span>07123 456789</span>
               </a>
 
-              {/* CTA Button */}
+              {/* CTA Button - Get In Touch */}
               <Button
                 asChild
-                className="bg-[#0F766E] text-white hover:bg-[#0D9488] px-6 py-2.5 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#0F766E] focus:ring-offset-2 font-semibold text-[15px] ml-2"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[15px] ml-2"
               >
-                <PreloadLink to="/contact">Start Your Project</PreloadLink>
+                <PreloadLink to="/contact">Get In Touch</PreloadLink>
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 focus:ring-[#0F766E]"
+              className="lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-muted focus:ring-primary"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6 text-[#1F2937]" aria-hidden="true" />
+                <X className="h-6 w-6 text-foreground" aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6 text-[#1F2937]" aria-hidden="true" />
+                <Menu className="h-6 w-6 text-foreground" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu - Simplified with key services shown */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden bg-white border-t border-[#E5E7EB] animate-slide-in-right"
+            className="lg:hidden bg-background border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto"
             role="dialog"
             aria-label="Mobile menu"
           >
-            <div className="px-4 py-5 space-y-2">
-              {/* Highlighted Package Links */}
-              <div className="space-y-2 pb-3 mb-3 border-b border-[#E5E7EB]">
-                <PreloadLink
-                  to="/web-package"
-                  className={`flex items-start gap-3 py-3 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/web-package" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-base font-semibold text-[#1F2937]">Web Packages</div>
-                    <div className="text-sm text-[#6B7280] mt-0.5">Complete website solutions</div>
+            <div className="px-4 py-5 space-y-4">
+              {/* Services Accordion */}
+              <MobileAccordion title="Services">
+                <div className="space-y-4 pl-2">
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.webDesign.title}</h4>
+                    {servicesMenu.webDesign.items.map((item) => (
+                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                        {item.name}
+                      </PreloadLink>
+                    ))}
                   </div>
-                </PreloadLink>
-
-                <PreloadLink
-                  to="/ai-package"
-                  className={`flex items-start gap-3 py-3 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/ai-package" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-base font-semibold text-[#1F2937]">AI Packages</div>
-                    <div className="text-sm text-[#6B7280] mt-0.5">AI-powered business automation</div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.ecommerce.title}</h4>
+                    {servicesMenu.ecommerce.items.map((item) => (
+                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                        {item.name}
+                      </PreloadLink>
+                    ))}
                   </div>
-                </PreloadLink>
-
-                {/* Additional Key Services - Mobile Only */}
-                <PreloadLink
-                  to="/services/personalised-apps"
-                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/services/personalised-apps" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-[#1F2937]">Personalised Apps</div>
-                    <div className="text-xs text-[#6B7280] mt-0.5">Custom invoices, order trackers & internal tools</div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.branding.title}</h4>
+                    {servicesMenu.branding.items.map((item) => (
+                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                        {item.name}
+                      </PreloadLink>
+                    ))}
                   </div>
-                </PreloadLink>
-
-                <PreloadLink
-                  to="/services/seo"
-                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/services/seo" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-[#1F2937]">SEO Services</div>
-                    <div className="text-xs text-[#6B7280] mt-0.5">Get found on Google</div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.support.title}</h4>
+                    {servicesMenu.support.items.map((item) => (
+                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                        {item.name}
+                      </PreloadLink>
+                    ))}
                   </div>
-                </PreloadLink>
+                  <PreloadLink to="/services" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                    View All Services <ArrowRight className="h-4 w-4" />
+                  </PreloadLink>
+                </div>
+              </MobileAccordion>
 
-                <PreloadLink
-                  to="/services/maintenance-support"
-                  className={`flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-[#F0F9F7] transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === "/services/maintenance-support" ? "bg-[#F0F9F7]" : ""
-                  }`}
-                >
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-[#1F2937]">Maintenance & Support</div>
-                    <div className="text-xs text-[#6B7280] mt-0.5">Ongoing website care</div>
-                  </div>
-                </PreloadLink>
+              {/* Platforms Accordion */}
+              <MobileAccordion title="Platforms">
+                <div className="pl-2">
+                  {platformsMenu.map((item) => (
+                    <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      {item.name}
+                    </PreloadLink>
+                  ))}
+                  <PreloadLink to="/platforms" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                    View All Platforms <ArrowRight className="h-4 w-4" />
+                  </PreloadLink>
+                </div>
+              </MobileAccordion>
 
-                {/* View All Services Link */}
-                <PreloadLink
-                  to="/services"
-                  className="flex items-center justify-center gap-2 py-2.5 px-3 text-sm font-medium text-[#0F766E] hover:bg-[#F0F9F7] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
-                >
-                  <span>View All Services</span>
-                  <ChevronDown className="h-3.5 w-3.5 -rotate-90" aria-hidden="true" />
-                </PreloadLink>
+              {/* Key Sectors Accordion */}
+              <MobileAccordion title="Key Sectors">
+                <div className="pl-2">
+                  {sectorsMenu.map((item) => (
+                    <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      {item.name}
+                    </PreloadLink>
+                  ))}
+                  <PreloadLink to="/sectors" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                    View All Sectors <ArrowRight className="h-4 w-4" />
+                  </PreloadLink>
+                </div>
+              </MobileAccordion>
+
+              {/* Nav Links */}
+              <div className="border-t border-border pt-4 space-y-1">
+                {navLinks.map((link) => (
+                  <PreloadLink
+                    key={link.path}
+                    to={link.path}
+                    className={`block py-3 px-3 text-base font-medium rounded-lg hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                      location.pathname === link.path ? "text-primary font-semibold bg-muted" : "text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </PreloadLink>
+                ))}
               </div>
 
-              {/* Main nav links */}
-              {navLinks.map((link) => (
-                <PreloadLink
-                  key={link.path}
-                  to={link.path}
-                  className={`block py-3 px-3 text-base font-medium rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E] ${
-                    location.pathname === link.path ? "text-[#0F766E] font-semibold bg-[#F0F9F7]" : "text-[#1F2937]"
-                  }`}
-                >
-                  {link.name}
-                </PreloadLink>
-              ))}
-
-              {/* Phone Number - Mobile */}
+              {/* Phone Number */}
               <a
                 href="tel:+447123456789"
-                className="flex items-center gap-3 py-3 px-3 text-base font-medium text-[#1F2937] hover:bg-gray-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F766E]"
+                className="flex items-center gap-3 py-3 px-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <Phone className="h-5 w-5 text-[#0F766E]" aria-hidden="true" />
+                <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
                 <span>07123 456789</span>
               </a>
 
               {/* Mobile CTA */}
-              <div className="pt-3 mt-3 border-t border-[#E5E7EB]">
+              <div className="pt-3 border-t border-border">
                 <Button
-                  className="w-full bg-[#0F766E] text-white hover:bg-[#F59E0B] py-4 text-base font-semibold shadow-[0_4px_12px_rgba(15,118,110,0.25)] focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:ring-offset-2 transition-all"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-4 text-base font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all"
                   asChild
                 >
-                  <PreloadLink to="/contact">Start Your Project</PreloadLink>
+                  <PreloadLink to="/contact">Get In Touch</PreloadLink>
                 </Button>
               </div>
             </div>
@@ -464,6 +687,25 @@ const Navigation = () => {
         )}
       </nav>
     </>
+  );
+};
+
+// Mobile Accordion Component
+const MobileAccordion = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-border pb-2">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+        aria-expanded={isOpen}
+      >
+        {title}
+        <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      {isOpen && <div className="py-2 animate-fade-in">{children}</div>}
+    </div>
   );
 };
 

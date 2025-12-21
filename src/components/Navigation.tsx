@@ -8,7 +8,6 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [showAnnouncementBar, setShowAnnouncementBar] = useState(true);
 
   const closeTimeoutRef = useRef<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -167,36 +166,12 @@ const Navigation = () => {
         Skip to main content
       </a>
 
-      {/* Announcement Bar */}
-      {showAnnouncementBar && (
-        <div className="bg-primary text-primary-foreground py-2.5 px-4 text-center relative z-[51]">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 text-sm font-medium">
-            <span>🚀 Get Your Free Website Audit in 24 Hours</span>
-            <PreloadLink
-              to="/contact"
-              className="inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline font-semibold"
-            >
-              Claim Now
-              <ArrowRight className="h-3.5 w-3.5" />
-            </PreloadLink>
-            <button
-              onClick={() => setShowAnnouncementBar(false)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
-              aria-label="Close announcement"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      )}
 
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          showAnnouncementBar ? "top-[44px]" : "top-0"
-        } ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 top-0 ${
           isScrolled 
             ? "bg-background/95 backdrop-blur-sm shadow-lg" 
-            : "bg-background"
+            : "bg-transparent"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -290,7 +265,7 @@ const Navigation = () => {
                 {/* Services Mega Menu - Full Width 4 Columns */}
                 {activeDropdown === "services" && (
                   <div
-                    className="fixed left-0 right-0 top-full pt-2"
+                    className="fixed left-0 right-0 top-[72px] z-50"
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
@@ -424,7 +399,7 @@ const Navigation = () => {
 
                 {activeDropdown === "platforms" && (
                   <div
-                    className="absolute left-0 top-full pt-3"
+                    className="absolute left-0 top-[calc(100%+4px)] z-50"
                     onMouseEnter={() => handleDropdownEnter("platforms")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
@@ -483,7 +458,7 @@ const Navigation = () => {
 
                 {activeDropdown === "sectors" && (
                   <div
-                    className="absolute left-0 top-full pt-3"
+                    className="absolute left-0 top-[calc(100%+4px)] z-50"
                     onMouseEnter={() => handleDropdownEnter("sectors")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"

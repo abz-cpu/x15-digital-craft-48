@@ -9,16 +9,43 @@ export const DeviceMockup: React.FC<DeviceMockupProps> = ({ type, className = ""
   if (type === "web") {
     return (
       <div className={`relative ${className}`}>
-        {/* Multi-device mockup - Laptop, tablet, phone */}
-        <div className="flex items-end justify-center gap-2">
+        {/* Multi-device mockup - Laptop, tablet, phone - taller to match AI card */}
+        <div className="flex items-end justify-center gap-3 min-h-[140px]">
           {/* Laptop */}
           <div className="relative">
-            <div className="w-32 sm:w-40 h-20 sm:h-24 bg-slate-800 rounded-t-lg p-1.5 shadow-lg">
+            <div className="w-36 sm:w-44 h-24 sm:h-28 bg-slate-800 rounded-t-lg p-2 shadow-lg">
               <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 rounded-sm overflow-hidden">
                 {/* Mini website preview */}
+                <div className="p-2">
+                  {/* Header bar */}
+                  <div className="flex items-center gap-1 mb-2">
+                    <div className="w-10 h-2 bg-primary/40 rounded" />
+                    <div className="flex-1" />
+                    <div className="w-4 h-1.5 bg-slate-300 rounded" />
+                    <div className="w-4 h-1.5 bg-slate-300 rounded" />
+                  </div>
+                  {/* Hero section */}
+                  <div className="w-full h-6 bg-primary/15 rounded mb-2" />
+                  {/* Content blocks */}
+                  <div className="flex gap-1.5">
+                    <div className="flex-1 h-4 bg-slate-200 rounded" />
+                    <div className="flex-1 h-4 bg-slate-200 rounded" />
+                    <div className="flex-1 h-4 bg-slate-200 rounded" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Laptop base */}
+            <div className="w-40 sm:w-48 h-2.5 bg-slate-700 rounded-b-xl mx-auto shadow-md" />
+          </div>
+
+          {/* Tablet - hidden on very small screens */}
+          <div className="hidden sm:block relative -mb-2">
+            <div className="w-20 h-28 bg-slate-800 rounded-lg p-1.5 shadow-lg">
+              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 rounded-sm">
                 <div className="p-1.5">
-                  <div className="w-8 h-1.5 bg-primary/30 rounded mb-1" />
-                  <div className="w-full h-4 bg-primary/10 rounded mb-1" />
+                  <div className="w-6 h-1.5 bg-primary/40 rounded mb-1.5" />
+                  <div className="w-full h-5 bg-primary/15 rounded mb-1.5" />
                   <div className="flex gap-1">
                     <div className="flex-1 h-3 bg-slate-200 rounded" />
                     <div className="flex-1 h-3 bg-slate-200 rounded" />
@@ -26,33 +53,20 @@ export const DeviceMockup: React.FC<DeviceMockupProps> = ({ type, className = ""
                 </div>
               </div>
             </div>
-            {/* Laptop base */}
-            <div className="w-36 sm:w-44 h-2 bg-slate-700 rounded-b-xl mx-auto shadow-md" />
-          </div>
-
-          {/* Tablet - hidden on very small screens */}
-          <div className="hidden sm:block relative -mb-2">
-            <div className="w-16 h-20 bg-slate-800 rounded-lg p-1 shadow-lg">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 rounded-sm">
-                <div className="p-1">
-                  <div className="w-4 h-1 bg-primary/30 rounded mb-1" />
-                  <div className="w-full h-3 bg-primary/10 rounded" />
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Phone */}
           <div className="relative -mb-1">
-            <div className="w-8 sm:w-10 h-16 sm:h-18 bg-slate-800 rounded-xl p-0.5 shadow-lg">
+            <div className="w-10 sm:w-12 h-20 sm:h-24 bg-slate-800 rounded-xl p-1 shadow-lg">
               <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg">
                 <div className="p-1">
-                  <div className="w-3 h-0.5 bg-primary/30 rounded mb-0.5" />
-                  <div className="w-full h-2 bg-primary/10 rounded" />
+                  <div className="w-4 h-1 bg-primary/40 rounded mb-1" />
+                  <div className="w-full h-3 bg-primary/15 rounded mb-1" />
+                  <div className="w-full h-2 bg-slate-200 rounded" />
                 </div>
               </div>
               {/* Home indicator */}
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-slate-600 rounded-full" />
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-slate-600 rounded-full" />
             </div>
           </div>
         </div>

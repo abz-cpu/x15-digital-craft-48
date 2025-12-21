@@ -227,8 +227,8 @@ const Index = () => {
                 </h1>
 
                 <p className="text-lg sm:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep.
-                  Websites from £200, AI from £50/month.
+                  Professional websites and AI automation that capture leads and book clients 24/7— even while you
+                  sleep. Websites from £200, AI from £50/month.
                 </p>
               </div>
 
@@ -338,9 +338,9 @@ const Index = () => {
                 iconBg: "bg-rose-100",
                 iconColor: "text-rose-600",
                 title: "Web Development",
-                tagline: "Lightning-fast sites delivered in days, not weeks",
+                tagline: "Fast, modern sites delivered in days",
                 fullDescription:
-                  "Modern, responsive websites built with the latest technology and optimized for speed. From simple business sites to complex web applications, we create platforms that perform flawlessly across all devices and grow with your business.",
+                  "Modern, responsive websites built for speed and performance. From simple business sites to complex web applications, we create platforms that work flawlessly on every device and scale as you grow.",
                 process: [
                   "Technical Planning & Architecture",
                   "Development & Integration",
@@ -447,14 +447,21 @@ const Index = () => {
                   tabIndex={0}
                 >
                   <CardHeader className="pb-3">
-                    <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 ${
-                      service.iconColor === 'text-rose-600' ? 'bg-gradient-to-br from-rose-400 to-rose-500 shadow-[0_8px_25px_rgba(251,113,133,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,113,133,0.7)]' :
-                      service.iconColor === 'text-sky-600' ? 'bg-gradient-to-br from-sky-400 to-sky-500 shadow-[0_8px_25px_rgba(56,189,248,0.5)] group-hover:shadow-[0_12px_35px_rgba(56,189,248,0.7)]' :
-                      service.iconColor === 'text-emerald-600' ? 'bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-[0_8px_25px_rgba(52,211,153,0.5)] group-hover:shadow-[0_12px_35px_rgba(52,211,153,0.7)]' :
-                      service.iconColor === 'text-orange-600' ? 'bg-gradient-to-br from-orange-400 to-orange-500 shadow-[0_8px_25px_rgba(251,146,60,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,146,60,0.7)]' :
-                      service.iconColor === 'text-blue-600' ? 'bg-gradient-to-br from-blue-400 to-blue-500 shadow-[0_8px_25px_rgba(96,165,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(96,165,250,0.7)]' :
-                      'bg-gradient-to-br from-violet-400 to-violet-500 shadow-[0_8px_25px_rgba(167,139,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(167,139,250,0.7)]'
-                    }`}>
+                    <div
+                      className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 ${
+                        service.iconColor === "text-rose-600"
+                          ? "bg-gradient-to-br from-rose-400 to-rose-500 shadow-[0_8px_25px_rgba(251,113,133,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,113,133,0.7)]"
+                          : service.iconColor === "text-sky-600"
+                            ? "bg-gradient-to-br from-sky-400 to-sky-500 shadow-[0_8px_25px_rgba(56,189,248,0.5)] group-hover:shadow-[0_12px_35px_rgba(56,189,248,0.7)]"
+                            : service.iconColor === "text-emerald-600"
+                              ? "bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-[0_8px_25px_rgba(52,211,153,0.5)] group-hover:shadow-[0_12px_35px_rgba(52,211,153,0.7)]"
+                              : service.iconColor === "text-orange-600"
+                                ? "bg-gradient-to-br from-orange-400 to-orange-500 shadow-[0_8px_25px_rgba(251,146,60,0.5)] group-hover:shadow-[0_12px_35px_rgba(251,146,60,0.7)]"
+                                : service.iconColor === "text-blue-600"
+                                  ? "bg-gradient-to-br from-blue-400 to-blue-500 shadow-[0_8px_25px_rgba(96,165,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(96,165,250,0.7)]"
+                                  : "bg-gradient-to-br from-violet-400 to-violet-500 shadow-[0_8px_25px_rgba(167,139,250,0.5)] group-hover:shadow-[0_12px_35px_rgba(167,139,250,0.7)]"
+                      }`}
+                    >
                       <Icon className="h-7 w-7 text-gray-900" strokeWidth={2.5} />
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
@@ -513,7 +520,9 @@ const Index = () => {
                     <div className="md:hidden">
                       {!isExpanded && (
                         <div>
-                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{service.fullDescription}</p>
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
+                            {service.fullDescription}
+                          </p>
                           <div className="flex items-center gap-2 mt-2 text-muted-foreground font-medium text-sm">
                             <span>Tap for details</span>
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -536,7 +545,7 @@ const Index = () => {
                                 <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
                                   <span className="font-semibold text-foreground">{i + 1}.</span>
                                   <span>{step}</span>
-                              </li>
+                                </li>
                               ))}
                             </ol>
                           </div>
@@ -688,7 +697,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
                 We Make Digital Simple, Fast, and Transparent
               </h2>
-              
+
               <div className="space-y-6">
                 {/* Checklist item 1 */}
                 <div className="flex items-start gap-4">
@@ -697,7 +706,9 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Lightning-Fast Delivery</h3>
-                    <p className="text-slate-600">Your project delivered in 1–14 days, not months. We move fast without cutting corners.</p>
+                    <p className="text-slate-600">
+                      Your project delivered in 1–14 days, not months. We move fast without cutting corners.
+                    </p>
                   </div>
                 </div>
 
@@ -708,7 +719,9 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">100% Transparent Pricing</h3>
-                    <p className="text-slate-600">No hidden fees, no surprises. You know exactly what you're paying for upfront.</p>
+                    <p className="text-slate-600">
+                      No hidden fees, no surprises. You know exactly what you're paying for upfront.
+                    </p>
                   </div>
                 </div>
 
@@ -719,7 +732,9 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">14-Day Money-Back Guarantee</h3>
-                    <p className="text-slate-600">Not happy with the result? Full refund within 14 days. Zero risk to you.</p>
+                    <p className="text-slate-600">
+                      Not happy with the result? Full refund within 14 days. Zero risk to you.
+                    </p>
                   </div>
                 </div>
 
@@ -730,13 +745,19 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">UK-Based Support</h3>
-                    <p className="text-slate-600">Real people, same timezone, responsive communication throughout your project.</p>
+                    <p className="text-slate-600">
+                      Real people, same timezone, responsive communication throughout your project.
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-10">
-                <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25"
+                >
                   <Link to="/quick-start">
                     Start Your Project
                     <ArrowRight className="ml-2 h-4 w-4" />

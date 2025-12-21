@@ -50,6 +50,9 @@ import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
+import { ServiceMockup } from "@/components/ServiceMockup";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { DeviceMockup } from "@/components/DeviceMockup";
 import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 
@@ -348,6 +351,7 @@ const Index = () => {
                   "Launch & Ongoing Support",
                 ],
                 link: "#web-preview",
+                mockupType: "web-dev" as const,
               },
               {
                 id: "maintenance",
@@ -357,7 +361,7 @@ const Index = () => {
                 title: "Website Maintenance",
                 tagline: "Keep your site secure, fast, and always running",
                 fullDescription:
-                  "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business. Every maintenance plan includes proactive monitoring to catch issues before they become problems.",
+                  "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business.",
                 process: [
                   "Security Updates & Monitoring",
                   "Performance Optimization",
@@ -365,6 +369,7 @@ const Index = () => {
                   "Priority Support & Emergency Fixes",
                 ],
                 link: "/services#maintenance",
+                mockupType: "maintenance" as const,
               },
               {
                 id: "ai-automation",
@@ -382,6 +387,7 @@ const Index = () => {
                   "Launch & Performance Monitoring",
                 ],
                 link: "#ai-preview",
+                mockupType: "ai-automation" as const,
               },
               {
                 id: "design",
@@ -391,7 +397,7 @@ const Index = () => {
                 title: "Web/App Design",
                 tagline: "Sites that convert visitors into customers",
                 fullDescription:
-                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers and builds lasting impressions.",
+                  "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers.",
                 process: [
                   "Discovery & Brand Research",
                   "Design Concepts & Mockups",
@@ -399,6 +405,7 @@ const Index = () => {
                   "Final Design & Handoff",
                 ],
                 link: "/services#design",
+                mockupType: "design" as const,
               },
               {
                 id: "marketing",
@@ -408,7 +415,7 @@ const Index = () => {
                 title: "Digital Marketing",
                 tagline: "Get found by customers actively searching",
                 fullDescription:
-                  "Digital marketing that puts you in front of high-intent buyers. We combine SEO, targeted ads, content strategy, and social media to drive visibility where it matters. Every campaign includes transparent reporting and continuous optimization for measurable ROI.",
+                  "Digital marketing that puts you in front of high-intent buyers. We combine SEO, targeted ads, content strategy, and social media to drive visibility where it matters.",
                 process: [
                   "Market & Competitor Analysis",
                   "Strategy & Budget Planning",
@@ -416,6 +423,7 @@ const Index = () => {
                   "Performance Tracking & Optimization",
                 ],
                 link: "/services#marketing",
+                mockupType: "marketing" as const,
               },
               {
                 id: "branding",
@@ -425,7 +433,7 @@ const Index = () => {
                 title: "Graphic Design",
                 tagline: "Branding that makes you memorable",
                 fullDescription:
-                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems that resonate with your audience and build lasting recognition.",
+                  "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems.",
                 process: [
                   "Brand Discovery & Research",
                   "Concept Creation & Exploration",
@@ -433,6 +441,7 @@ const Index = () => {
                   "Brand Guidelines & Assets Delivery",
                 ],
                 link: "/services#branding",
+                mockupType: "branding" as const,
               },
             ].map((service) => {
               const Icon = service.icon;
@@ -466,6 +475,11 @@ const Index = () => {
                     </div>
                     <CardTitle className="text-lg font-bold text-foreground">{service.title}</CardTitle>
                     <p className="text-sm font-medium text-muted-foreground mt-1">{service.tagline}</p>
+                    
+                    {/* Service Mockup Preview */}
+                    <div className="mt-4 transition-all duration-300 opacity-80 group-hover:opacity-100">
+                      <ServiceMockup type={service.mockupType} />
+                    </div>
                   </CardHeader>
 
                   <CardContent className="pt-0">
@@ -590,14 +604,18 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto">
             {/* LEFT CARD - WEB PACKAGES */}
             <AnimatedSection animation="fade" staggerIndex={0}>
-              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <div className="flex flex-col items-center text-center h-full">
-                  <Globe className="h-16 w-16 text-[#0F766E] mb-6" />
-                  <h3 className="text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
+                  {/* Device Mockup instead of just icon */}
+                  <div className="mb-6">
+                    <DeviceMockup type="web" className="scale-90 md:scale-100" />
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">Professional Websites That Win Customers</h3>
 
-                  <p className="text-base text-[#6B7280] mb-8">For businesses ready to grow online</p>
+                  <p className="text-base text-[#6B7280] mb-6">For businesses ready to grow online</p>
 
-                  <div className="space-y-4 mb-8 flex-1">
+                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">One-time payment</span>
@@ -636,16 +654,20 @@ const Index = () => {
 
             {/* RIGHT CARD - AI AUTOMATION */}
             <AnimatedSection animation="fade" staggerIndex={1}>
-              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <Card className="h-full hover:border-[#F59E0B] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 p-8 md:p-12 border-2 border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <div className="flex flex-col items-center text-center h-full">
-                  <Bot className="h-16 w-16 text-[#0F766E] mb-6" />
-                  <h3 className="text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
+                  {/* Device Mockup instead of just icon */}
+                  <div className="mb-6">
+                    <DeviceMockup type="ai" className="scale-90 md:scale-100" />
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
 
-                  <p className="text-base text-[#6B7280] mb-8">
+                  <p className="text-base text-[#6B7280] mb-6">
                     For businesses ready to automate customer service 24/7
                   </p>
 
-                  <div className="space-y-4 mb-8 flex-1">
+                  <div className="space-y-3 mb-6 flex-1 text-left w-full">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
                       <span className="text-sm text-[#1F2937]">Handles calls &amp; messages</span>
@@ -786,45 +808,7 @@ const Index = () => {
             <p className="text-lg text-[#6B7280]">Simple Process. Professional Results.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
-            {/* Timeline connector line - hidden on mobile */}
-            <div
-              className="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-[#F59E0B]/30"
-              style={{
-                transform: "translateY(-50%)",
-              }}
-            ></div>
-
-            {/* Step 1 - Discovery */}
-            <div className="text-center relative">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
-                1
-              </div>
-              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">DISCOVERY</h3>
-              <p className="text-[#6B7280] mb-2">15-minute chat</p>
-              <p className="text-[#6B7280]">Book a quick call</p>
-            </div>
-
-            {/* Step 2 - Build */}
-            <div className="text-center relative">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
-                2
-              </div>
-              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">BUILD</h3>
-              <p className="text-[#6B7280] mb-2">We create &amp; optimize</p>
-              <p className="text-[#6B7280]">1-14 days depending on your package</p>
-            </div>
-
-            {/* Step 3 - Launch */}
-            <div className="text-center relative">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0F766E] text-white text-2xl font-bold mb-6 relative z-10">
-                3
-              </div>
-              <h3 className="text-2xl font-bold text-[#1F2937] mb-3">LAUNCH</h3>
-              <p className="text-[#6B7280] mb-2">Go live + optional support</p>
-              <p className="text-[#6B7280]">No monthly platform rental fees</p>
-            </div>
-          </div>
+          <ProcessTimeline />
         </div>
       </section>
 

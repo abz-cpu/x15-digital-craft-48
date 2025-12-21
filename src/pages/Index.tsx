@@ -642,7 +642,7 @@ const Index = () => {
                   <h3 className="text-3xl font-bold text-[#1F2937] mb-4">AI That Never Misses A Lead</h3>
 
                   <p className="text-base text-[#6B7280] mb-8">
-                    For businesses ready to automate customer interactions 24/7
+                    For businesses ready to automate customer service 24/7
                   </p>
 
                   <div className="space-y-4 mb-8 flex-1">

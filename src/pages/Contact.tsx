@@ -1,10 +1,7 @@
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Mail, MessageCircle, ArrowRight, Clock, Copy, Check, X, Globe, Bot, Zap, 
-  CheckCircle2, Phone, MapPin, Building2, Calendar, User, Briefcase
-} from "lucide-react";
+import { Mail, MessageCircle, ArrowRight, Clock, Copy, Check, X, Globe, Bot, Zap, CheckCircle2, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -14,24 +11,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { z } from "zod";
-
-// ============================================================================
-// Zod validation schema for the inquiry form
-// ============================================================================
-const inquirySchema = z.object({
-  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
-  email: z.string().trim().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
-  phone: z.string().trim().max(20, "Phone number is too long").optional().or(z.literal("")),
-  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional().or(z.literal("")),
-  projectType: z.string().min(1, "Please select a project type"),
-  budget: z.string().optional(),
-  deadline: z.string().optional(),
-  message: z.string().trim().min(10, "Please tell us a bit more about your project (at least 10 characters)").max(2000, "Message must be less than 2000 characters"),
-});
-
-type InquiryFormData = z.infer<typeof inquirySchema>;
-type FormErrors = Partial<Record<keyof InquiryFormData, string>>;
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // ============================================================================
 // Types for quiz functionality (preserved for future backend integration)
@@ -50,12 +30,6 @@ interface QuizResult {
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
-  
-  // ============================================================================
-  // Form state with validation
-  // ============================================================================
-  const [formErrors, setFormErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
   // ============================================================================
   // State preserved for future backend integration
@@ -175,51 +149,16 @@ const Contact = () => {
 
   const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setFormErrors({});
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      company: formData.get("company") as string,
-      projectType: formData.get("projectType") as string,
-      budget: formData.get("budget") as string,
-      deadline: formData.get("deadline") as string,
-      message: formData.get("message") as string,
-    };
-
-    // Validate with Zod
-    const result = inquirySchema.safeParse(data);
-
-    if (!result.success) {
-      const errors: FormErrors = {};
-      result.error.errors.forEach((err) => {
-        const field = err.path[0] as keyof InquiryFormData;
-        errors[field] = err.message;
-      });
-      setFormErrors(errors);
-      setIsSubmitting(false);
-      
-      toast({
-        title: "Please check your form",
-        description: "Some fields need attention.",
-        variant: "destructive",
-      });
-      return;
-    }
 
     // Later you can send this to Airtable / backend / email
-    // const validatedData = result.data;
+    // const formData = new FormData(e.currentTarget);
 
     toast({
-      title: "Inquiry sent!",
+      title: "Inquiry sent",
       description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
     });
 
     (e.currentTarget as HTMLFormElement).reset();
-    setIsSubmitting(false);
     setIsInquiryOpen(false);
   };
 
@@ -242,399 +181,301 @@ const Contact = () => {
       <Navigation />
 
       {/* ====================================================================
-          HERO: Generous spacing, clear hierarchy
+          HERO: Simple, clear headline with trust signal
       ==================================================================== */}
-      <section className="pt-32 pb-6 md:pt-40 md:pb-10 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-28 pb-8 md:pt-32 md:pb-12 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">
             Let's Talk About Your Project
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-2">
             Tell us what you need and we'll send you a clear quote — no sales pitch.
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/20">
+          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-4 w-4 text-primary" />
-            <span className="text-sm text-muted-foreground">We reply within 4 hours (usually faster)</span>
-          </div>
+            We reply within 4 hours (usually faster)
+          </p>
         </div>
       </section>
 
       <BreadcrumbNav />
 
       {/* ====================================================================
-          MAIN CONTENT: Two-column layout - Contact Info + Form
+          MAIN INQUIRY FORM (Hero of the page - inline, not modal)
       ==================================================================== */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-            
-            {/* LEFT COLUMN: Contact Information */}
-            <div className="lg:col-span-2 space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-secondary mb-2">Contact Information</h2>
-                <p className="text-muted-foreground">
-                  Have a question? We're here to help. Reach out through any of the following channels.
-                </p>
-              </div>
-
-              {/* Contact Cards */}
-              <div className="space-y-3">
-                {/* Email */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/60 hover:border-primary/30 transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-primary" />
+      <section className="py-8 md:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <Card className="border-2 border-primary/20 shadow-lg">
+            <CardContent className="p-6 md:p-8">
+              <form onSubmit={handleInquirySubmit} className="space-y-5">
+                {/* Name + Email */}
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="text-sm font-medium text-secondary">
+                      Your name *
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                      placeholder="e.g. Sarah Ahmed"
+                    />
                   </div>
-                  <div>
-                    <p className="font-semibold text-secondary">Email Us</p>
-                    <button onClick={copyEmail} className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                      {copied ? "Copied!" : "info@x15digital.co.uk"}
-                    </button>
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="text-sm font-medium text-secondary">
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                      placeholder="you@company.com"
+                    />
                   </div>
                 </div>
 
-                {/* Phone */}
-                <a 
-                  href="tel:+447424062513"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/60 hover:border-primary/30 transition-colors"
+                {/* What do you need? */}
+                <div className="space-y-1.5">
+                  <label htmlFor="projectType" className="text-sm font-medium text-secondary">
+                    What do you need?
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    defaultValue="website"
+                  >
+                    <option value="website">New website</option>
+                    <option value="redesign">Redesign existing site</option>
+                    <option value="ai">AI automation / chatbot</option>
+                    <option value="both">Website + AI</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div className="space-y-1.5">
+                  <label htmlFor="message" className="text-sm font-medium text-secondary">
+                    Tell us about your project
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="What are you trying to achieve? Any examples you like? Budget range?"
+                  />
+                </div>
+
+                {/* Submit */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary">Call Us</p>
-                    <p className="text-muted-foreground text-sm">Available on request</p>
-                  </div>
-                </a>
+                  Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
 
-                {/* Location */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/60">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary">Location</p>
-                    <p className="text-muted-foreground text-sm">United Kingdom</p>
-                  </div>
-                </div>
-
-                {/* Business Hours */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/60">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Clock className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary">Business Hours</p>
-                    <p className="text-muted-foreground text-sm">Mon-Fri: 9AM-6PM GMT</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Response Badge */}
-              <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40">
-                <p className="font-semibold text-amber-800 dark:text-amber-200 mb-1">Quick Response</p>
-                <p className="text-amber-700 dark:text-amber-300 text-sm">
-                  We typically respond to all inquiries within 24 hours during business days. For urgent matters, please indicate in your message.
+                <p className="text-xs text-muted-foreground text-center">
+                  No spam. No pressure. Just a clear quote and honest advice.
                 </p>
-              </div>
-
-              {/* WhatsApp CTA */}
-              <Button asChild size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white">
-                <a
-                  href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Chat on WhatsApp
-                </a>
-              </Button>
-            </div>
-
-            {/* RIGHT COLUMN: Request a Quote Form */}
-            <div className="lg:col-span-3">
-              <Card className="border-2 border-border/60 shadow-xl">
-                <CardContent className="p-6 md:p-8">
-                  <h2 className="text-2xl font-bold text-secondary mb-6">Request a Quote</h2>
-                  
-                  <form onSubmit={handleInquirySubmit} className="space-y-5">
-                    {/* Row 1: Name + Email */}
-                    <div className="grid gap-5 md:grid-cols-2">
-                      <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-medium text-secondary flex items-center gap-1">
-                          <User className="h-3.5 w-3.5 text-muted-foreground" />
-                          Full Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="name"
-                          name="name"
-                          required
-                          autoComplete="name"
-                          className={`w-full rounded-lg border ${formErrors.name ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors`}
-                          placeholder="John Smith"
-                        />
-                        {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-medium text-secondary flex items-center gap-1">
-                          <Mail className="h-3.5 w-3.5 text-muted-foreground" />
-                          Email Address <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          required
-                          autoComplete="email"
-                          className={`w-full rounded-lg border ${formErrors.email ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors`}
-                          placeholder="john@example.com"
-                        />
-                        {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
-                      </div>
-                    </div>
-
-                    {/* Row 2: Phone + Company */}
-                    <div className="grid gap-5 md:grid-cols-2">
-                      <div className="space-y-2">
-                        <label htmlFor="phone" className="text-sm font-medium text-secondary flex items-center gap-1">
-                          <Phone className="h-3.5 w-3.5 text-muted-foreground" />
-                          Phone Number
-                        </label>
-                        <input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          autoComplete="tel"
-                          className={`w-full rounded-lg border ${formErrors.phone ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors`}
-                          placeholder="+44 123 456 7890"
-                        />
-                        {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="company" className="text-sm font-medium text-secondary flex items-center gap-1">
-                          <Building2 className="h-3.5 w-3.5 text-muted-foreground" />
-                          Business Name
-                        </label>
-                        <input
-                          id="company"
-                          name="company"
-                          autoComplete="organization"
-                          className={`w-full rounded-lg border ${formErrors.company ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors`}
-                          placeholder="Your Company Ltd"
-                        />
-                        {formErrors.company && <p className="text-xs text-red-500">{formErrors.company}</p>}
-                      </div>
-                    </div>
-
-                    {/* Row 3: Budget + Project Type */}
-                    <div className="grid gap-5 md:grid-cols-2">
-                      <div className="space-y-2">
-                        <label htmlFor="budget" className="text-sm font-medium text-secondary">
-                          Budget Range
-                        </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          className="w-full rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors"
-                          defaultValue=""
-                        >
-                          <option value="">Select budget range</option>
-                          <option value="under-500">Under £500</option>
-                          <option value="500-1000">£500 – £1,000</option>
-                          <option value="1000-2500">£1,000 – £2,500</option>
-                          <option value="2500-5000">£2,500 – £5,000</option>
-                          <option value="5000+">£5,000+</option>
-                        </select>
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="projectType" className="text-sm font-medium text-secondary flex items-center gap-1">
-                          <Briefcase className="h-3.5 w-3.5 text-muted-foreground" />
-                          Project Type <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          required
-                          className={`w-full rounded-lg border ${formErrors.projectType ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors`}
-                          defaultValue=""
-                        >
-                          <option value="">Select project type</option>
-                          <option value="new-website">New Website</option>
-                          <option value="redesign">Website Redesign</option>
-                          <option value="ecommerce">E-commerce Store</option>
-                          <option value="ai-chatbot">AI Chatbot</option>
-                          <option value="ai-automation">AI Automation</option>
-                          <option value="website-ai">Website + AI Bundle</option>
-                          <option value="branding">Branding / Logo Design</option>
-                          <option value="seo">SEO / Marketing</option>
-                          <option value="other">Other</option>
-                        </select>
-                        {formErrors.projectType && <p className="text-xs text-red-500">{formErrors.projectType}</p>}
-                      </div>
-                    </div>
-
-                    {/* Row 4: Deadline */}
-                    <div className="space-y-2">
-                      <label htmlFor="deadline" className="text-sm font-medium text-secondary flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-                        Desired Deadline
-                      </label>
-                      <input
-                        id="deadline"
-                        name="deadline"
-                        type="date"
-                        className="w-full rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors"
-                      />
-                    </div>
-
-                    {/* Row 5: Message */}
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium text-secondary">
-                        Project Details <span className="text-red-500">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        required
-                        className={`w-full rounded-lg border ${formErrors.message ? 'border-red-500' : 'border-border'} bg-muted/30 px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition-colors resize-none`}
-                        placeholder="Tell us about your project, goals, and any specific requirements..."
-                      />
-                      {formErrors.message && <p className="text-xs text-red-500">{formErrors.message}</p>}
-                    </div>
-
-                    {/* Submit Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                      <Button
-                        type="submit"
-                        size="lg"
-                        disabled={isSubmitting}
-                        className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg text-base py-6"
-                      >
-                        {isSubmitting ? "Sending..." : "Get a Quote"} 
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="lg"
-                        onClick={() => setIsCalendlyOpen(true)}
-                        className="flex-1 py-6"
-                      >
-                        Talk to Us
-                      </Button>
-                    </div>
-
-                    <p className="text-xs text-muted-foreground text-center pt-2">
-                      No spam. No pressure. Just a clear quote and honest advice.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* ====================================================================
-          LOCATION + RESPONSE TIMES (Improved layout like reference Image 4)
+          SECONDARY OPTIONS: WhatsApp + Email/Phone (compact strip)
       ==================================================================== */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-6 px-4 sm:px-6 lg:px-8 bg-muted/50">
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <p className="text-center text-sm text-muted-foreground mb-4">Or reach us directly:</p>
+          
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            {/* WhatsApp - Primary secondary option */}
+            <Button asChild size="lg" variant="outline" className="border-green-500/30 hover:bg-green-50 hover:border-green-500">
+              <a
+                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <MessageCircle className="h-5 w-5 text-green-600" />
+                WhatsApp Us
+              </a>
+            </Button>
+
+            {/* Email */}
+            <Button variant="outline" size="lg" onClick={copyEmail}>
+              <Mail className="h-5 w-5 mr-2 text-muted-foreground" />
+              {copied ? (
+                <>
+                  <Check className="h-4 w-4 mr-1 text-green-600" /> Copied!
+                </>
+              ) : (
+                "info@x15digital.co.uk"
+              )}
+            </Button>
+          </div>
+
+          {/* Not sure? Quiz link */}
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Not sure what you need?{" "}
+            <button
+              type="button"
+              onClick={openQuiz}
+              className="text-primary hover:underline font-medium"
+            >
+              Take our 30-second quiz
+            </button>
+            {" "}or{" "}
+            <button
+              type="button"
+              onClick={() => setIsCalendlyOpen(true)}
+              className="text-primary hover:underline font-medium"
+            >
+              book a free call
+            </button>
+          </p>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          COMMON QUESTIONS SECTION (Expanded with cards below)
+      ==================================================================== */}
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-4xl mx-auto fade-in-section">
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3 text-center">
+            Common Questions Before You Contact Us
+          </h2>
+          <p className="text-muted-foreground text-center mb-10">Quick answers to save you time:</p>
+          
+          {/* FAQ Cards */}
+          <div className="space-y-4 mb-8">
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: How long will my project take?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Most websites: 1–7 days. AI automation: 3–10 days.</p>
+                <Link to="/services#faq" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See full timeline FAQ <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: What if I don't like the result?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Free revisions until you're happy, or money-back guarantee.</p>
+                <Link to="/terms" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See our guarantee <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: Do I need to know technical stuff?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Not at all. We handle everything and explain it in plain English.</p>
+                <Link to="/services" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See how it works <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mb-16">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/services#faq">
+                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Location + Response Times Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Location Card */}
-            <Card className="border border-border/60 shadow-lg overflow-hidden">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-6">
+            <Card className="border border-border/60">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <MapPin className="h-5 w-5 text-primary" />
+                    <Globe className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-secondary">Location</h3>
+                  <h3 className="font-semibold text-secondary">Location</h3>
                 </div>
-                
-                <p className="font-semibold text-secondary text-lg mb-3">Based in Stratford, London (E15 3JZ)</p>
-                <p className="text-primary mb-4">
+                <p className="font-medium text-secondary mb-2">Based in Stratford, London (E15 3JZ)</p>
+                <p className="text-muted-foreground text-sm mb-3">
                   Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
                 </p>
-                <p className="text-muted-foreground text-sm italic mb-6">
+                <p className="text-muted-foreground text-xs italic mb-4">
                   Remote-first business – all meetings via video call unless otherwise arranged.
                 </p>
-                
-                {/* Improved Map Container */}
-                <div className="rounded-xl overflow-hidden border border-border/60 shadow-md bg-background">
-                  <div className="relative">
-                    <div className="absolute top-3 left-3 z-10 bg-background/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md border border-border/60">
-                      <p className="text-sm font-semibold text-secondary">Abbey Road</p>
-                      <a 
-                        href="https://maps.google.com/?q=Abbey+Road+London+E15"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-primary hover:underline"
-                      >
-                        View larger map
-                      </a>
-                    </div>
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.6395!2d0.0035!3d51.5315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7c3e9f8c8c9%3A0x1234567890!2sAbbey%20Road%2C%20London%20E15!5e0!3m2!1sen!2suk!4v1234567890"
-                      width="100%"
-                      height="220"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="X15 Digital Location"
-                      className="w-full"
-                    />
-                  </div>
+                {/* Google Maps Embed */}
+                <div className="rounded-lg overflow-hidden border border-border/40">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.6395!2d0.0035!3d51.5315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7c3e9f8c8c9%3A0x1234567890!2sAbbey%20Road%2C%20London%20E15!5e0!3m2!1sen!2suk!4v1234567890"
+                    width="100%"
+                    height="150"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="X15 Digital Location"
+                  />
                 </div>
               </CardContent>
             </Card>
 
             {/* Response Times Card */}
-            <Card className="border border-border/60 shadow-lg">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-6">
+            <Card className="border border-border/60">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Clock className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-secondary">Response Times & Process</h3>
+                  <h3 className="font-semibold text-secondary">Response Times & Process</h3>
                 </div>
                 
-                <div className="space-y-3 mb-5">
-                  <div className="flex items-center gap-3 text-sm">
-                    <Clock className="h-4 w-4 text-muted-foreground shrink-0" />
-                    <span className="font-semibold text-secondary">Monday–Friday:</span>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Monday–Friday:</span>
                     <span className="text-muted-foreground">Within 2–4 hours</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Clock className="h-4 w-4 text-muted-foreground shrink-0" />
-                    <span className="font-semibold text-secondary">Weekends:</span>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Weekends:</span>
                     <span className="text-muted-foreground">Within 24 hours</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Clock className="h-4 w-4 text-muted-foreground shrink-0" />
-                    <span className="font-semibold text-secondary">Bank Holidays:</span>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Bank Holidays:</span>
                     <span className="text-muted-foreground">Within 48 hours</span>
                   </div>
                 </div>
 
-                <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800/40 rounded-xl px-4 py-3 mb-6">
-                  <p className="text-green-700 dark:text-green-300 text-sm font-medium flex items-center gap-2">
+                <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2 mb-5">
+                  <p className="text-green-700 text-sm font-medium flex items-center gap-2">
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp: Instant during business hours (9am–6pm GMT)
                   </p>
                 </div>
 
-                <p className="font-semibold text-secondary text-sm mb-4">What happens after you contact us:</p>
-                <div className="space-y-4">
+                <p className="font-medium text-secondary text-sm mb-3">What happens after you contact us:</p>
+                <div className="space-y-3">
                   {[
                     { num: "1", title: "We review your requirements", desc: "Usually within 2 hours on weekdays" },
                     { num: "2", title: "You get a detailed quote + timeline", desc: "Transparent pricing, no hidden costs" },
-                    { num: "3", title: "Quick call to clarify any questions", desc: "Optional - only if you need it" },
+                    { num: "3", title: "Quick call to clarify any questions", desc: "Optional – only if you need it" },
                     { num: "4", title: "Project starts immediately upon approval", desc: "No delays, no bureaucracy" },
                   ].map((step) => (
                     <div key={step.num} className="flex gap-3">
-                      <div className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">
                         {step.num}
                       </div>
                       <div>
@@ -645,12 +486,12 @@ const Contact = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between mt-6 pt-5 border-t border-border/40 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> No obligation quotes
+                <div className="flex items-center justify-between mt-5 pt-4 border-t border-border/40 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="h-3 w-3 text-primary" /> No obligation quotes
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-4 w-4 text-primary" /> No sales pressure
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="h-3 w-3 text-primary" /> No sales pressure
                   </span>
                 </div>
               </CardContent>
@@ -662,13 +503,13 @@ const Contact = () => {
       {/* ====================================================================
           STILL DECIDING SECTION
       ==================================================================== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-2xl mx-auto text-center fade-in-section">
-          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-4">Still deciding?</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-secondary mb-3">Still deciding?</h2>
+          <p className="text-muted-foreground mb-6">
             No stress. Browse our packages or take a quick quiz to see what fits your needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild variant="outline" size="lg">
               <Link to="/services">
                 View Packages <ArrowRight className="ml-2 h-4 w-4" />

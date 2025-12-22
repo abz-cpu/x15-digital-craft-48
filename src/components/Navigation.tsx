@@ -213,12 +213,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       )}
 
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           showAnnouncementBar ? "top-[44px]" : "top-0"
         } ${
           isScrolled 
-            ? "bg-background/95 backdrop-blur-md shadow-lg py-3" 
-            : "bg-transparent py-5"
+            ? "bg-background/95 backdrop-blur-md shadow-lg py-2" 
+            : "bg-transparent py-6"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -287,7 +287,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             </PreloadLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-5">
               {/* Services Mega Dropdown */}
               <div className="relative">
                 <button
@@ -312,30 +312,29 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 {/* Services Mega Menu - Full Width 4 Columns */}
                 {activeDropdown === "services" && (
                   <div
-                    className={`fixed left-0 right-0 z-50 ${showAnnouncementBar ? (isScrolled ? "top-[100px]" : "top-[112px]") : (isScrolled ? "top-[60px]" : "top-[72px]")}`}
+                    className={`fixed left-0 right-0 z-50 ${showAnnouncementBar ? (isScrolled ? "top-[60px]" : "top-[92px]") : (isScrolled ? "top-[52px]" : "top-[80px]")}`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
                     aria-label="Services submenu"
                   >
                     <div className="bg-background border-t border-border shadow-2xl">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                        <div className="grid grid-cols-4 gap-8">
+                      <div className="max-w-5xl mx-auto px-6 py-5">
+                        <div className="grid grid-cols-4 gap-6">
                           {/* Column 1: Web & Design */}
                           <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">
                               {servicesMenu.webDesign.title}
                             </h3>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {servicesMenu.webDesign.items.map((item) => (
                                 <li key={item.path}>
                                   <PreloadLink
                                     to={item.path}
                                     role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                                   >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                    <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                   </PreloadLink>
                                 </li>
                               ))}
@@ -344,19 +343,18 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                           {/* Column 2: E-Commerce & Optimization */}
                           <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">
                               {servicesMenu.ecommerce.title}
                             </h3>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {servicesMenu.ecommerce.items.map((item) => (
                                 <li key={item.path}>
                                   <PreloadLink
                                     to={item.path}
                                     role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                                   >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                    <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                   </PreloadLink>
                                 </li>
                               ))}
@@ -365,19 +363,18 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                           {/* Column 3: Brand & Marketing */}
                           <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">
                               {servicesMenu.branding.title}
                             </h3>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {servicesMenu.branding.items.map((item) => (
                                 <li key={item.path}>
                                   <PreloadLink
                                     to={item.path}
                                     role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                                   >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                    <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                   </PreloadLink>
                                 </li>
                               ))}
@@ -386,33 +383,32 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                           {/* Column 4: Support & Hosting */}
                           <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">
                               {servicesMenu.support.title}
                             </h3>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {servicesMenu.support.items.map((item) => (
                                 <li key={item.path}>
                                   <PreloadLink
                                     to={item.path}
                                     role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                                   >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                                    <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                   </PreloadLink>
                                 </li>
                               ))}
                             </ul>
 
                             {/* View All Services CTA */}
-                            <div className="mt-6 pt-4 border-t border-border">
+                            <div className="mt-4 pt-3 border-t border-border">
                               <PreloadLink
                                 to="/services"
                                 role="menuitem"
-                                className="flex items-center gap-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                                className="flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
                               >
                                 View All Services
-                                <ArrowRight className="h-4 w-4" />
+                                <ArrowRight className="h-3.5 w-3.5" />
                               </PreloadLink>
                             </div>
                           </div>
@@ -446,35 +442,34 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                 {activeDropdown === "platforms" && (
                   <div
-                    className="absolute left-0 top-[calc(100%+4px)] z-50"
+                    className="absolute left-0 top-full z-50 pt-1"
                     onMouseEnter={() => handleDropdownEnter("platforms")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
                     aria-label="Platforms submenu"
                   >
-                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
-                      <ul className="space-y-1">
+                    <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-2 animate-fade-in">
+                      <ul className="space-y-0.5">
                         {platformsMenu.map((item) => (
                           <li key={item.path}>
                             <PreloadLink
                               to={item.path}
                               role="menuitem"
-                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                              className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                             >
-                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                              <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                             </PreloadLink>
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-3 pt-3 border-t border-border">
+                      <div className="mt-2 pt-2 border-t border-border">
                         <PreloadLink
                           to="/platforms"
                           role="menuitem"
-                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                          className="flex items-center gap-1.5 px-2 py-1.5 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
                         >
                           View All Platforms
-                          <ArrowRight className="h-4 w-4" />
+                          <ArrowRight className="h-3.5 w-3.5" />
                         </PreloadLink>
                       </div>
                     </div>
@@ -505,35 +500,34 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                 {activeDropdown === "sectors" && (
                   <div
-                    className="absolute left-0 top-[calc(100%+4px)] z-50"
+                    className="absolute left-0 top-full z-50 pt-1"
                     onMouseEnter={() => handleDropdownEnter("sectors")}
                     onMouseLeave={scheduleDropdownClose}
                     role="menu"
                     aria-label="Key Sectors submenu"
                   >
-                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
-                      <ul className="space-y-1">
+                    <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-2 animate-fade-in">
+                      <ul className="space-y-0.5">
                         {sectorsMenu.map((item) => (
                           <li key={item.path}>
                             <PreloadLink
                               to={item.path}
                               role="menuitem"
-                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                              className={`block py-1.5 px-2 rounded hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
                             >
-                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
+                              <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                             </PreloadLink>
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-3 pt-3 border-t border-border">
+                      <div className="mt-2 pt-2 border-t border-border">
                         <PreloadLink
                           to="/sectors"
                           role="menuitem"
-                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                          className="flex items-center gap-1.5 px-2 py-1.5 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
                         >
                           View All Sectors
-                          <ArrowRight className="h-4 w-4" />
+                          <ArrowRight className="h-3.5 w-3.5" />
                         </PreloadLink>
                       </div>
                     </div>
@@ -555,7 +549,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               ))}
 
               {/* Separator line */}
-              <div className={`h-5 w-px mx-2 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
+              <div className={`h-4 w-px mx-1 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
 
               {/* Phone Number */}
               <a
@@ -570,7 +564,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               {/* CTA Button - Get In Touch */}
               <Button
                 asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[13px] uppercase tracking-wide ml-2"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-1.5 h-auto rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[12px] uppercase tracking-wide ml-1"
               >
                 <PreloadLink to="/contact">Get In Touch</PreloadLink>
               </Button>

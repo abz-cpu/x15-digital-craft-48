@@ -249,7 +249,7 @@ const Index = () => {
                   size="lg"
                   className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
                 >
-                  <Link to="/quick-start">
+                  <Link to="/contact">
                     Book a Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>

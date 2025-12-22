@@ -347,44 +347,178 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          COMPACT FAQ ACCORDION
+          COMMON QUESTIONS SECTION (Expanded with cards below)
       ==================================================================== */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-2xl mx-auto fade-in-section">
-          <h2 className="text-xl font-semibold text-secondary mb-6 text-center">Common Questions</h2>
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-4xl mx-auto fade-in-section">
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3 text-center">
+            Common Questions Before You Contact Us
+          </h2>
+          <p className="text-muted-foreground text-center mb-10">Quick answers to save you time:</p>
           
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="timeline">
-              <AccordionTrigger className="text-left">How long will my project take?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Most websites: 1–7 days. AI automation: 3–10 days. We'll give you an exact timeline in your quote.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="guarantee">
-              <AccordionTrigger className="text-left">What if I don't like the result?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Free revisions until you're happy, or money-back guarantee. We don't consider a project done until you're satisfied.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="technical">
-              <AccordionTrigger className="text-left">Do I need technical knowledge?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Not at all. We handle everything and explain it in plain English. You focus on your business.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="location">
-              <AccordionTrigger className="text-left">Where are you based?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Stratford, London (E15). We work remotely with clients across the UK and worldwide. All meetings via video call.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          {/* FAQ Cards */}
+          <div className="space-y-4 mb-8">
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: How long will my project take?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Most websites: 1–7 days. AI automation: 3–10 days.</p>
+                <Link to="/services#faq" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See full timeline FAQ <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: What if I don't like the result?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Free revisions until you're happy, or money-back guarantee.</p>
+                <Link to="/terms" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See our guarantee <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-border/60">
+              <CardContent className="p-5">
+                <p className="font-semibold text-secondary mb-1">Q: Do I need to know technical stuff?</p>
+                <p className="text-muted-foreground text-sm mb-2">A: Not at all. We handle everything and explain it in plain English.</p>
+                <Link to="/services" className="text-primary text-sm hover:underline inline-flex items-center gap-1">
+                  See how it works <ArrowRight className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
 
-          <p className="text-center mt-6">
-            <Link to="/services#faq" className="text-sm text-primary hover:underline">
-              View all FAQs <ArrowRight className="inline h-3 w-3" />
-            </Link>
+          <div className="text-center mb-16">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/services#faq">
+                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Location + Response Times Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Location Card */}
+            <Card className="border border-border/60">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Globe className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-secondary">Location</h3>
+                </div>
+                <p className="font-medium text-secondary mb-2">Based in Stratford, London (E15 3JZ)</p>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+                </p>
+                <p className="text-muted-foreground text-xs italic mb-4">
+                  Remote-first business – all meetings via video call unless otherwise arranged.
+                </p>
+                {/* Google Maps Embed */}
+                <div className="rounded-lg overflow-hidden border border-border/40">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.6395!2d0.0035!3d51.5315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7c3e9f8c8c9%3A0x1234567890!2sAbbey%20Road%2C%20London%20E15!5e0!3m2!1sen!2suk!4v1234567890"
+                    width="100%"
+                    height="150"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="X15 Digital Location"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Response Times Card */}
+            <Card className="border border-border/60">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-secondary">Response Times & Process</h3>
+                </div>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Monday–Friday:</span>
+                    <span className="text-muted-foreground">Within 2–4 hours</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Weekends:</span>
+                    <span className="text-muted-foreground">Within 24 hours</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-secondary">Bank Holidays:</span>
+                    <span className="text-muted-foreground">Within 48 hours</span>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2 mb-5">
+                  <p className="text-green-700 text-sm font-medium flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4" />
+                    WhatsApp: Instant during business hours (9am–6pm GMT)
+                  </p>
+                </div>
+
+                <p className="font-medium text-secondary text-sm mb-3">What happens after you contact us:</p>
+                <div className="space-y-3">
+                  {[
+                    { num: "1", title: "We review your requirements", desc: "Usually within 2 hours on weekdays" },
+                    { num: "2", title: "You get a detailed quote + timeline", desc: "Transparent pricing, no hidden costs" },
+                    { num: "3", title: "Quick call to clarify any questions", desc: "Optional – only if you need it" },
+                    { num: "4", title: "Project starts immediately upon approval", desc: "No delays, no bureaucracy" },
+                  ].map((step) => (
+                    <div key={step.num} className="flex gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">
+                        {step.num}
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-secondary">{step.title}</p>
+                        <p className="text-xs text-muted-foreground">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between mt-5 pt-4 border-t border-border/40 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="h-3 w-3 text-primary" /> No obligation quotes
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="h-3 w-3 text-primary" /> No sales pressure
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          STILL DECIDING SECTION
+      ==================================================================== */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-2xl mx-auto text-center fade-in-section">
+          <h2 className="text-xl md:text-2xl font-bold text-secondary mb-3">Still deciding?</h2>
+          <p className="text-muted-foreground mb-6">
+            No stress. Browse our packages or take a quick quiz to see what fits your needs.
           </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/services">
+                View Packages <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" onClick={openQuiz} className="bg-primary hover:bg-primary/90">
+              Take 30s Quiz <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </section>
 

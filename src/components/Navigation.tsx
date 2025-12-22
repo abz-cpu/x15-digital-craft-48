@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,10 @@ interface NavigationProps {
   darkHero?: boolean;
 }
 
+const ANNOUNCEMENT_BAR_HEIGHT = 44;
+const NAV_HEIGHT_EXPANDED = 88;
+const NAV_HEIGHT_COMPACT = 64;
+
 const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +19,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [showAnnouncementBar, setShowAnnouncementBar] = useState(true);
 
   const closeTimeoutRef = useRef<number | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
+  const platformsButtonRef = useRef<HTMLButtonElement>(null);
+  const sectorsButtonRef = useRef<HTMLButtonElement>(null);
 
   const location = useLocation();
 
@@ -36,7 +43,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   // Accessibility: Close dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
       }
     };
@@ -80,7 +87,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       ],
     },
     ecommerce: {
-      title: "E-Commerce & Optimization",
+      title: "E-Commerce & CRO",
       items: [
         { name: "E-Commerce", path: "/services/ecommerce", desc: "Online store solutions" },
         { name: "CRO", path: "/services/cro", desc: "Conversion rate optimization" },
@@ -130,24 +137,24 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     { name: "About", path: "/about" },
   ];
 
-  const clearCloseTimeout = () => {
+  const clearCloseTimeout = useCallback(() => {
     if (closeTimeoutRef.current !== null) {
       window.clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
-  };
+  }, []);
 
-  const scheduleDropdownClose = () => {
+  const scheduleDropdownClose = useCallback(() => {
     clearCloseTimeout();
     closeTimeoutRef.current = window.setTimeout(() => {
       setActiveDropdown(null);
-    }, 150);
-  };
+    }, 200);
+  }, [clearCloseTimeout]);
 
-  const handleDropdownEnter = (dropdown: string) => {
+  const handleDropdownEnter = useCallback((dropdown: string) => {
     clearCloseTimeout();
     setActiveDropdown(dropdown);
-  };
+  }, [clearCloseTimeout]);
 
   const handleKeyDown = (e: React.KeyboardEvent, dropdown: string) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -168,7 +175,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     }
     return darkHero 
       ? "text-white/90 hover:text-white" 
-      : "text-muted-foreground hover:text-primary";
+      : "text-foreground hover:text-primary";
   };
 
   const getMutedTextClass = () => {
@@ -176,6 +183,13 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       return "text-muted-foreground";
     }
     return darkHero ? "text-white/70" : "text-muted-foreground";
+  };
+
+  // Calculate dropdown position dynamically
+  const getDropdownTop = () => {
+    const navHeight = isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED;
+    const announcementHeight = showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT : 0;
+    return navHeight + announcementHeight;
   };
 
   return (
@@ -190,8 +204,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
       {/* Announcement Bar - Like LWDA */}
       {showAnnouncementBar && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-white py-2.5 px-4 text-center">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
+        <div 
+          className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-white px-4 text-center"
+          style={{ height: `${ANNOUNCEMENT_BAR_HEIGHT}px` }}
+        >
+          <div className="max-w-7xl mx-auto h-full flex items-center justify-center gap-3 text-sm font-medium">
             <span className="hidden sm:inline">🚀 Get Your Free Website Audit in 24 Hours</span>
             <span className="sm:hidden">🚀 Free Website Audit</span>
             <PreloadLink
@@ -213,33 +230,37 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       )}
 
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          showAnnouncementBar ? "top-[44px]" : "top-0"
+        ref={navRef}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
+          showAnnouncementBar ? `top-[${ANNOUNCEMENT_BAR_HEIGHT}px]` : "top-0"
         } ${
           isScrolled 
-            ? "bg-background/95 backdrop-blur-md shadow-lg py-3" 
-            : "bg-transparent py-5"
+            ? "bg-background/95 backdrop-blur-md shadow-lg" 
+            : "bg-transparent"
         }`}
+        style={{ 
+          top: showAnnouncementBar ? `${ANNOUNCEMENT_BAR_HEIGHT}px` : 0,
+          height: isScrolled ? `${NAV_HEIGHT_COMPACT}px` : `${NAV_HEIGHT_EXPANDED}px`
+        }}
         role="navigation"
         aria-label="Main navigation"
-        ref={dropdownRef}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex justify-between items-center h-full">
+            {/* Logo - scales with scroll */}
             <PreloadLink
               to="/"
-              className="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
+              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
               {/* L&D Monogram Icon */}
               <svg 
-                width="36" 
-                height="36" 
+                width={isScrolled ? 32 : 40} 
+                height={isScrolled ? 32 : 40} 
                 viewBox="0 0 100 100" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
-                className="flex-shrink-0"
+                className="flex-shrink-0 transition-all duration-300"
               >
                 <path 
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
@@ -276,304 +297,330 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
-                <span className="text-[16px] font-bold tracking-tight">
+                <span className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-[15px]" : "text-[18px]"}`}>
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>L&amp;D</span>{" "}
                   <span className="text-primary">DIGITAL</span>
                 </span>
-                <span className={`text-[9px] font-medium tracking-[0.15em] mt-0.5 uppercase ${getMutedTextClass()}`}>
+                <span className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[8px]" : "text-[10px]"}`}>
                   Luminus &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
-              {/* Services Mega Dropdown */}
-              <div className="relative">
-                <button
-                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
-                    activeDropdown === "services" ? "text-primary" : ""
-                  }`}
-                  onMouseEnter={() => handleDropdownEnter("services")}
-                  onMouseLeave={scheduleDropdownClose}
-                  onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
-                  onKeyDown={(e) => handleKeyDown(e, "services")}
-                  aria-expanded={activeDropdown === "services"}
-                  aria-haspopup="menu"
-                  aria-label="Services menu"
-                >
-                  Services
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
-
-                {/* Services Mega Menu - Full Width 4 Columns */}
-                {activeDropdown === "services" && (
-                  <div
-                    className={`fixed left-0 right-0 z-50 ${showAnnouncementBar ? (isScrolled ? "top-[100px]" : "top-[112px]") : (isScrolled ? "top-[60px]" : "top-[72px]")}`}
+            {/* Desktop Navigation - More breathing room like LWDA */}
+            <div className="hidden lg:flex items-center">
+              {/* Nav Items Container - with generous spacing */}
+              <div className="flex items-center gap-8 xl:gap-10">
+                {/* Services Dropdown - Anchored, not full-width */}
+                <div className="relative">
+                  <button
+                    ref={servicesButtonRef}
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                      activeDropdown === "services" ? "text-primary" : ""
+                    }`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
-                    role="menu"
-                    aria-label="Services submenu"
+                    onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
+                    onKeyDown={(e) => handleKeyDown(e, "services")}
+                    aria-expanded={activeDropdown === "services"}
+                    aria-haspopup="menu"
+                    aria-label="Services menu"
                   >
-                    <div className="bg-background border-t border-border shadow-2xl">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                        <div className="grid grid-cols-4 gap-8">
-                          {/* Column 1: Web & Design */}
-                          <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                              {servicesMenu.webDesign.title}
-                            </h3>
-                            <ul className="space-y-1">
-                              {servicesMenu.webDesign.items.map((item) => (
-                                <li key={item.path}>
-                                  <PreloadLink
-                                    to={item.path}
-                                    role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                                  >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                                  </PreloadLink>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                    Services
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
 
-                          {/* Column 2: E-Commerce & Optimization */}
-                          <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                              {servicesMenu.ecommerce.title}
-                            </h3>
-                            <ul className="space-y-1">
-                              {servicesMenu.ecommerce.items.map((item) => (
-                                <li key={item.path}>
-                                  <PreloadLink
-                                    to={item.path}
-                                    role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                                  >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                                  </PreloadLink>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                  {/* Services Mega Menu - Anchored under Services, ~1000px wide */}
+                  {activeDropdown === "services" && (
+                    <div
+                      className="fixed z-50"
+                      style={{ 
+                        top: `${getDropdownTop()}px`,
+                        left: '50%',
+                        transform: 'translateX(-50%)'
+                      }}
+                      onMouseEnter={() => handleDropdownEnter("services")}
+                      onMouseLeave={scheduleDropdownClose}
+                      role="menu"
+                      aria-label="Services submenu"
+                    >
+                      {/* Hover bridge - invisible area to prevent close when moving mouse */}
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
+                      
+                      <div className="w-[1000px] max-w-[95vw] bg-background rounded-lg shadow-2xl border border-border animate-fade-in">
+                        <div className="p-6">
+                          <div className="grid grid-cols-4 gap-6">
+                            {/* Column 1: Web & Design */}
+                            <div>
+                              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 pb-2 border-b border-border">
+                                {servicesMenu.webDesign.title}
+                              </h3>
+                              <ul className="space-y-0.5">
+                                {servicesMenu.webDesign.items.map((item) => (
+                                  <li key={item.path}>
+                                    <PreloadLink
+                                      to={item.path}
+                                      role="menuitem"
+                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    >
+                                      <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                    </PreloadLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
 
-                          {/* Column 3: Brand & Marketing */}
-                          <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                              {servicesMenu.branding.title}
-                            </h3>
-                            <ul className="space-y-1">
-                              {servicesMenu.branding.items.map((item) => (
-                                <li key={item.path}>
-                                  <PreloadLink
-                                    to={item.path}
-                                    role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                                  >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                                  </PreloadLink>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                            {/* Column 2: E-Commerce & CRO */}
+                            <div>
+                              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 pb-2 border-b border-border">
+                                {servicesMenu.ecommerce.title}
+                              </h3>
+                              <ul className="space-y-0.5">
+                                {servicesMenu.ecommerce.items.map((item) => (
+                                  <li key={item.path}>
+                                    <PreloadLink
+                                      to={item.path}
+                                      role="menuitem"
+                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    >
+                                      <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                    </PreloadLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
 
-                          {/* Column 4: Support & Hosting */}
-                          <div>
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                              {servicesMenu.support.title}
-                            </h3>
-                            <ul className="space-y-1">
-                              {servicesMenu.support.items.map((item) => (
-                                <li key={item.path}>
-                                  <PreloadLink
-                                    to={item.path}
-                                    role="menuitem"
-                                    className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                                  >
-                                    <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                                    <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                                  </PreloadLink>
-                                </li>
-                              ))}
-                            </ul>
+                            {/* Column 3: Brand & Marketing */}
+                            <div>
+                              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 pb-2 border-b border-border">
+                                {servicesMenu.branding.title}
+                              </h3>
+                              <ul className="space-y-0.5">
+                                {servicesMenu.branding.items.map((item) => (
+                                  <li key={item.path}>
+                                    <PreloadLink
+                                      to={item.path}
+                                      role="menuitem"
+                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    >
+                                      <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                    </PreloadLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
 
-                            {/* View All Services CTA */}
-                            <div className="mt-6 pt-4 border-t border-border">
-                              <PreloadLink
-                                to="/services"
-                                role="menuitem"
-                                className="flex items-center gap-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                              >
-                                View All Services
-                                <ArrowRight className="h-4 w-4" />
-                              </PreloadLink>
+                            {/* Column 4: Support & Hosting */}
+                            <div>
+                              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 pb-2 border-b border-border">
+                                {servicesMenu.support.title}
+                              </h3>
+                              <ul className="space-y-0.5">
+                                {servicesMenu.support.items.map((item) => (
+                                  <li key={item.path}>
+                                    <PreloadLink
+                                      to={item.path}
+                                      role="menuitem"
+                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                    >
+                                      <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                    </PreloadLink>
+                                  </li>
+                                ))}
+                              </ul>
+
+                              {/* View All Services CTA */}
+                              <div className="mt-4 pt-3 border-t border-border">
+                                <PreloadLink
+                                  to="/services"
+                                  role="menuitem"
+                                  className="flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                                >
+                                  View All Services
+                                  <ArrowRight className="h-3.5 w-3.5" />
+                                </PreloadLink>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
 
-              {/* Platforms Dropdown */}
-              <div className="relative">
-                <button
-                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
-                    activeDropdown === "platforms" ? "text-primary" : ""
-                  }`}
-                  onMouseEnter={() => handleDropdownEnter("platforms")}
-                  onMouseLeave={scheduleDropdownClose}
-                  onClick={() => setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")}
-                  onKeyDown={(e) => handleKeyDown(e, "platforms")}
-                  aria-expanded={activeDropdown === "platforms"}
-                  aria-haspopup="menu"
-                  aria-label="Platforms menu"
-                >
-                  Platforms
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
-
-                {activeDropdown === "platforms" && (
-                  <div
-                    className="absolute left-0 top-[calc(100%+4px)] z-50"
+                {/* Platforms Dropdown */}
+                <div className="relative">
+                  <button
+                    ref={platformsButtonRef}
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                      activeDropdown === "platforms" ? "text-primary" : ""
+                    }`}
                     onMouseEnter={() => handleDropdownEnter("platforms")}
                     onMouseLeave={scheduleDropdownClose}
-                    role="menu"
-                    aria-label="Platforms submenu"
+                    onClick={() => setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")}
+                    onKeyDown={(e) => handleKeyDown(e, "platforms")}
+                    aria-expanded={activeDropdown === "platforms"}
+                    aria-haspopup="menu"
+                    aria-label="Platforms menu"
                   >
-                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
-                      <ul className="space-y-1">
-                        {platformsMenu.map((item) => (
-                          <li key={item.path}>
-                            <PreloadLink
-                              to={item.path}
-                              role="menuitem"
-                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                            >
-                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                            </PreloadLink>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-3 pt-3 border-t border-border">
-                        <PreloadLink
-                          to="/platforms"
-                          role="menuitem"
-                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                        >
-                          View All Platforms
-                          <ArrowRight className="h-4 w-4" />
-                        </PreloadLink>
+                    Platforms
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  {activeDropdown === "platforms" && (
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 z-50"
+                      style={{ top: 'calc(100% + 8px)' }}
+                      onMouseEnter={() => handleDropdownEnter("platforms")}
+                      onMouseLeave={scheduleDropdownClose}
+                      role="menu"
+                      aria-label="Platforms submenu"
+                    >
+                      {/* Hover bridge */}
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
+                      
+                      <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
+                        <ul className="space-y-0.5">
+                          {platformsMenu.map((item) => (
+                            <li key={item.path}>
+                              <PreloadLink
+                                to={item.path}
+                                role="menuitem"
+                                className={`block py-2 px-3 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                              >
+                                <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
+                              </PreloadLink>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-2 pt-2 border-t border-border">
+                          <PreloadLink
+                            to="/platforms"
+                            role="menuitem"
+                            className="flex items-center gap-1.5 px-3 py-2 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                          >
+                            View All Platforms
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </PreloadLink>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
 
-              {/* Key Sectors Dropdown */}
-              <div className="relative">
-                <button
-                  className={`flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
-                    activeDropdown === "sectors" ? "text-primary" : ""
-                  }`}
-                  onMouseEnter={() => handleDropdownEnter("sectors")}
-                  onMouseLeave={scheduleDropdownClose}
-                  onClick={() => setActiveDropdown(activeDropdown === "sectors" ? null : "sectors")}
-                  onKeyDown={(e) => handleKeyDown(e, "sectors")}
-                  aria-expanded={activeDropdown === "sectors"}
-                  aria-haspopup="menu"
-                  aria-label="Key Sectors menu"
-                >
-                  Key Sectors
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
-
-                {activeDropdown === "sectors" && (
-                  <div
-                    className="absolute left-0 top-[calc(100%+4px)] z-50"
+                {/* Key Sectors Dropdown */}
+                <div className="relative">
+                  <button
+                    ref={sectorsButtonRef}
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                      activeDropdown === "sectors" ? "text-primary" : ""
+                    }`}
                     onMouseEnter={() => handleDropdownEnter("sectors")}
                     onMouseLeave={scheduleDropdownClose}
-                    role="menu"
-                    aria-label="Key Sectors submenu"
+                    onClick={() => setActiveDropdown(activeDropdown === "sectors" ? null : "sectors")}
+                    onKeyDown={(e) => handleKeyDown(e, "sectors")}
+                    aria-expanded={activeDropdown === "sectors"}
+                    aria-haspopup="menu"
+                    aria-label="Key Sectors menu"
                   >
-                    <div className="w-[320px] bg-background rounded-xl shadow-xl border border-border p-3 animate-fade-in">
-                      <ul className="space-y-1">
-                        {sectorsMenu.map((item) => (
-                          <li key={item.path}>
-                            <PreloadLink
-                              to={item.path}
-                              role="menuitem"
-                              className={`block py-2.5 px-3 rounded-lg hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
-                            >
-                              <div className="text-[14px] font-semibold text-foreground">{item.name}</div>
-                              <div className="text-[12px] text-muted-foreground mt-0.5">{item.desc}</div>
-                            </PreloadLink>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-3 pt-3 border-t border-border">
-                        <PreloadLink
-                          to="/sectors"
-                          role="menuitem"
-                          className="flex items-center gap-2 px-3 py-2 text-[14px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                        >
-                          View All Sectors
-                          <ArrowRight className="h-4 w-4" />
-                        </PreloadLink>
+                    Key Sectors
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  {activeDropdown === "sectors" && (
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 z-50"
+                      style={{ top: 'calc(100% + 8px)' }}
+                      onMouseEnter={() => handleDropdownEnter("sectors")}
+                      onMouseLeave={scheduleDropdownClose}
+                      role="menu"
+                      aria-label="Key Sectors submenu"
+                    >
+                      {/* Hover bridge */}
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
+                      
+                      <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
+                        <ul className="space-y-0.5">
+                          {sectorsMenu.map((item) => (
+                            <li key={item.path}>
+                              <PreloadLink
+                                to={item.path}
+                                role="menuitem"
+                                className={`block py-2 px-3 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                              >
+                                <div className="text-[13px] font-medium text-foreground">{item.name}</div>
+                                <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
+                              </PreloadLink>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-2 pt-2 border-t border-border">
+                          <PreloadLink
+                            to="/sectors"
+                            role="menuitem"
+                            className="flex items-center gap-1.5 px-3 py-2 text-[13px] font-semibold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                          >
+                            View All Sectors
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </PreloadLink>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
+
+                {/* Nav Links - with more spacing */}
+                {navLinks.map((link) => (
+                  <PreloadLink
+                    key={link.path}
+                    to={link.path}
+                    className={`text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                      location.pathname === link.path ? "text-primary" : ""
+                    }`}
+                  >
+                    {link.name}
+                  </PreloadLink>
+                ))}
               </div>
 
-              {/* Nav Links */}
-              {navLinks.map((link) => (
-                <PreloadLink
-                  key={link.path}
-                  to={link.path}
-                  className={`text-[14px] font-semibold uppercase tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()} ${
-                    location.pathname === link.path ? "text-primary" : ""
-                  }`}
+              {/* Right side: Separator + Phone + CTA */}
+              <div className="flex items-center gap-5 ml-8">
+                {/* Separator line */}
+                <div className={`h-6 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
+
+                {/* Phone Number */}
+                <a
+                  href="tel:+447123456789"
+                  className={`flex items-center gap-2 text-[13px] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
+                  aria-label="Call us on 07123 456789"
                 >
-                  {link.name}
-                </PreloadLink>
-              ))}
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  <span>07123 456789</span>
+                </a>
 
-              {/* Separator line */}
-              <div className={`h-5 w-px mx-2 ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
-
-              {/* Phone Number */}
-              <a
-                href="tel:+447123456789"
-                className={`flex items-center gap-2 text-[14px] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
-                aria-label="Call us on 07123 456789"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span>07123 456789</span>
-              </a>
-
-              {/* CTA Button - Get In Touch */}
-              <Button
-                asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 h-auto rounded-lg shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[13px] uppercase tracking-wide ml-2"
-              >
-                <PreloadLink to="/contact">Get In Touch</PreloadLink>
-              </Button>
+                {/* CTA Button - Get In Touch */}
+                <Button
+                  asChild
+                  size="sm"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-9 rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[12px] uppercase tracking-wider"
+                >
+                  <PreloadLink to="/contact">Get In Touch</PreloadLink>
+                </Button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}

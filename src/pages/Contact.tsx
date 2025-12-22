@@ -1,9 +1,9 @@
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, MessageCircle, FileText, ArrowRight, MapPin, Clock, Copy, Check, Zap, X, Globe, Bot, HelpCircle, CheckCircle2 } from "lucide-react";
+import { Mail, MessageCircle, ArrowRight, Clock, Copy, Check, X, Globe, Bot, Zap, CheckCircle2, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -11,7 +11,11 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+// ============================================================================
+// Types for quiz functionality (preserved for future backend integration)
+// ============================================================================
 type Goal = "website" | "automation" | "both" | "";
 type Budget = "low" | "mid" | "high" | "";
 type Urgency = "asap" | "soon" | "exploring" | "";
@@ -26,6 +30,10 @@ interface QuizResult {
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
+  
+  // ============================================================================
+  // State preserved for future backend integration
+  // ============================================================================
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -70,6 +78,9 @@ const Contact = () => {
     return () => window.removeEventListener("keydown", handleKey);
   }, [isInquiryOpen, isCalendlyOpen, isQuizOpen]);
 
+  // ============================================================================
+  // Handlers preserved for future backend integration
+  // ============================================================================
   const resetQuiz = () => {
     setGoal("");
     setBudget("");
@@ -136,11 +147,6 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const scrollToForm = () => {
-    const formSection = document.getElementById("contact-form");
-    formSection?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -148,8 +154,8 @@ const Contact = () => {
     // const formData = new FormData(e.currentTarget);
 
     toast({
-      title: "Inquiry sent 🚀",
-      description: "We’ll reply within 2–4 hours with a detailed quote and next steps.",
+      title: "Inquiry sent",
+      description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
     });
 
     (e.currentTarget as HTMLFormElement).reset();
@@ -160,6 +166,7 @@ const Contact = () => {
     if (e.target === e.currentTarget) {
       setIsInquiryOpen(false);
       setIsCalendlyOpen(false);
+      setIsQuizOpen(false);
     }
   };
 
@@ -173,553 +180,222 @@ const Contact = () => {
       <ScrollProgressBar />
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-28 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Get in Touch</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            Have a project in mind? Questions about our services? Want a straightforward quote with no sales pitch?
+      {/* ====================================================================
+          HERO: Simple, clear headline with trust signal
+      ==================================================================== */}
+      <section className="pt-28 pb-8 md:pt-32 md:pb-12 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-3xl mx-auto text-center fade-in-section">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">
+            Let's Talk About Your Project
+          </h1>
+          <p className="text-lg text-muted-foreground mb-2">
+            Tell us what you need and we'll send you a clear quote — no sales pitch.
           </p>
-          <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
-            <Clock className="h-5 w-5 text-primary" />
-            We typically respond within 4 hours (usually faster).
+          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+            <Clock className="h-4 w-4 text-primary" />
+            We reply within 4 hours (usually faster)
           </p>
-          <p className="text-lg font-semibold text-secondary mt-6 mb-8">Choose your preferred way to reach us:</p>
         </div>
       </section>
 
-      {/* Breadcrumb below hero */}
       <BreadcrumbNav />
 
-      {/* Contact Options Grid */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Not Sure? Take Quiz Card */}
-            <Card className="hover-lift cursor-pointer bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20" onClick={openQuiz}>
-              <CardHeader className="text-center pb-2">
-                <HelpCircle className="h-10 w-10 text-primary mx-auto mb-3" />
-                <CardTitle className="text-lg">Not Sure Where to Start?</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm mb-4">
-                  Take our 30-second quiz and we'll recommend the right service for you.
-                </p>
-                <Button variant="outline" className="w-full" size="sm">
-                  Take the Quiz <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-            {/* WhatsApp Card */}
-            <Card className="hover-lift border-2 border-primary">
-              <CardHeader className="text-center pb-2">
-                <MessageCircle className="h-10 w-10 text-primary mx-auto mb-3" />
-                <CardTitle className="text-lg">WhatsApp Us</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm mb-4">
-                  Fastest option. Instant replies during UK business hours.
-                </p>
-                <Button asChild className="w-full" size="sm">
-                  <a
-                    href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
-                    target="_blank"
-                    rel="noopener noreferrer"
+      {/* ====================================================================
+          MAIN INQUIRY FORM (Hero of the page - inline, not modal)
+      ==================================================================== */}
+      <section className="py-8 md:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <Card className="border-2 border-primary/20 shadow-lg">
+            <CardContent className="p-6 md:p-8">
+              <form onSubmit={handleInquirySubmit} className="space-y-5">
+                {/* Name + Email */}
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="text-sm font-medium text-secondary">
+                      Your name *
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                      placeholder="e.g. Sarah Ahmed"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="text-sm font-medium text-secondary">
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                </div>
+
+                {/* What do you need? */}
+                <div className="space-y-1.5">
+                  <label htmlFor="projectType" className="text-sm font-medium text-secondary">
+                    What do you need?
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    defaultValue="website"
                   >
-                    Chat Now <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+                    <option value="website">New website</option>
+                    <option value="redesign">Redesign existing site</option>
+                    <option value="ai">AI automation / chatbot</option>
+                    <option value="both">Website + AI</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
 
-            {/* Form Card */}
-            <Card className="hover-lift cursor-pointer" onClick={scrollToForm}>
-              <CardHeader className="text-center pb-2">
-                <FileText className="h-10 w-10 text-primary mx-auto mb-3" />
-                <CardTitle className="text-lg">Fill Out the Form</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm mb-4">
-                  Most detailed option. We'll reply with a quote within 4 hours.
-                </p>
-                <Button variant="outline" className="w-full" size="sm">
-                  Use Form <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
+                {/* Message */}
+                <div className="space-y-1.5">
+                  <label htmlFor="message" className="text-sm font-medium text-secondary">
+                    Tell us about your project
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    placeholder="What are you trying to achieve? Any examples you like? Budget range?"
+                  />
+                </div>
 
-            {/* Email Card */}
-            <Card className="hover-lift">
-              <CardHeader className="text-center pb-2">
-                <Mail className="h-10 w-10 text-primary mx-auto mb-3" />
-                <CardTitle className="text-lg">Email Directly</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm mb-4">
-                  Send your requirements and we'll respond within 4 hours.
-                </p>
-                <Button variant="outline" className="w-full" size="sm" onClick={copyEmail}>
-                  {copied ? (
-                    <>
-                      <Check className="mr-2 h-4 w-4" /> Copied!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="mr-2 h-4 w-4" /> Copy Email
-                    </>
-                  )}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section id="contact-form" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-3xl mx-auto fade-in-section">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Project Inquiry Form</h2>
-            <p className="text-lg text-muted-foreground mb-2">
-              Tell us about your project and we'll send you a detailed quote with timeline and next steps.
-            </p>
-            <p className="text-muted-foreground flex items-center justify-center gap-2">
-              <Clock className="h-5 w-5 text-primary" />
-              We typically respond within 4 hours (usually faster)
-            </p>
-          </div>
-
-          <Card>
-            <CardContent className="pt-8">
-              {/* OPEN PROJECT INQUIRY POPUP */}
-              <Button size="lg" className="w-full mb-4" type="button" onClick={() => setIsInquiryOpen(true)}>
-                Start Your Project Inquiry <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-
-              <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2 mb-2">
-                <Zap className="h-4 w-4 text-primary" />
-                Not sure what you need?{" "}
-                <Link to="/start" className="text-primary hover:underline">
-                  Take our 30-second quiz
-                </Link>{" "}
-                or{" "}
-                <Link to="/services" className="text-primary hover:underline">
-                  Browse packages first
-                </Link>
-              </p>
-
-              <p className="text-center text-xs text-muted-foreground">
-                Prefer to talk it through?{" "}
-                <button
-                  type="button"
-                  onClick={() => setIsCalendlyOpen(true)}
-                  className="text-primary font-medium hover:underline underline-offset-2"
+                {/* Submit */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                 >
-                  Book a free 30-minute strategy call
-                </button>
-                .
-              </p>
+                  Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+
+                <p className="text-xs text-muted-foreground text-center">
+                  No spam. No pressure. Just a clear quote and honest advice.
+                </p>
+              </form>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* FAQ Shortcut Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-4xl mx-auto fade-in-section">
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-secondary mb-8">
-            Common Questions Before You Contact Us
-          </h3>
-          <p className="text-center text-muted-foreground mb-12">Quick answers to save you time:</p>
-
-          <div className="space-y-6">
-            {[
-              {
-                q: "How long will my project take?",
-                a: "Most websites: 1–7 days. AI automation: 3–10 days.",
-                link: "/services#faq",
-                linkText: "See full timeline FAQ",
-              },
-              {
-                q: "What if I don't like the result?",
-                a: "Free revisions until you're happy, or money-back guarantee.",
-                link: "/services#faq",
-                linkText: "See our guarantee",
-              },
-              {
-                q: "Do I need to know technical stuff?",
-                a: "Not at all. We handle everything and explain it in plain English.",
-                link: "/services",
-                linkText: "See how it works",
-              },
-            ].map((faq, i) => (
-              <Card key={i}>
-                <CardContent className="pt-6">
-                  <p className="font-semibold text-lg mb-2">Q: {faq.q}</p>
-                  <p className="text-muted-foreground mb-2">A: {faq.a}</p>
-                  <Link to={faq.link} className="text-primary hover:underline inline-flex items-center gap-1 text-sm">
-                    {faq.linkText} <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/services#faq">
-                View All FAQs <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Location & Hours Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-6xl mx-auto fade-in-section">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Location */}
-            <Card>
-              <CardHeader>
-                <MapPin className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Location</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="font-semibold">Based in Stratford, London (E15 3JZ)</p>
-                <p className="text-muted-foreground">
-                  Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
-                </p>
-                <p className="text-sm text-muted-foreground italic mt-4">
-                  Remote-first business – all meetings via video call unless otherwise arranged.
-                </p>
-
-                {/* Google Map */}
-                <div className="mt-4 rounded-lg overflow-hidden h-[260px] border border-border/60">
-                  <iframe
-                    src="https://www.google.com/maps?q=Stratford%20E15%203JZ%20Abbey%20Road%20Station&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
-                    allowFullScreen
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Response Times & Process */}
-            <Card>
-              <CardHeader>
-                <Clock className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Response Times & Process</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {/* Response Times */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <p className="text-sm">
-                      <strong>Monday–Friday:</strong> <span className="text-muted-foreground">Within 2–4 hours</span>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <p className="text-sm">
-                      <strong>Weekends:</strong> <span className="text-muted-foreground">Within 24 hours</span>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <p className="text-sm">
-                      <strong>Bank Holidays:</strong> <span className="text-muted-foreground">Within 48 hours</span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* WhatsApp Callout */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                  <p className="text-sm font-medium flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-green-600" />
-                    <span className="text-green-700">WhatsApp: Instant during business hours (9am–6pm GMT)</span>
-                  </p>
-                </div>
-
-                {/* Process Steps */}
-                <div className="pt-2">
-                  <p className="font-semibold text-sm mb-3">What happens after you contact us:</p>
-                  <div className="space-y-3">
-                    <div className="flex gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
-                        1
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium">We review your requirements</p>
-                        <p className="text-xs text-muted-foreground">Usually within 2 hours on weekdays</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
-                        2
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium">You get a detailed quote + timeline</p>
-                        <p className="text-xs text-muted-foreground">Transparent pricing, no hidden costs</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
-                        3
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium">Quick call to clarify any questions</p>
-                        <p className="text-xs text-muted-foreground">Optional - only if you need it</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">
-                        4
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium">Project starts immediately upon approval</p>
-                        <p className="text-xs text-muted-foreground">No delays, no bureaucracy</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Trust Badge */}
-                <div className="pt-3 border-t">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Check className="h-3 w-3 text-green-600" />
-                      No obligation quotes
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Check className="h-3 w-3 text-green-600" />
-                      No sales pressure
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Final soft CTA */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h3 className="text-2xl font-bold text-secondary mb-3">Still deciding?</h3>
-          <p className="text-muted-foreground mb-6">
-            No stress. Browse our packages or take a quick quiz to see what fits your needs.
-          </p>
-
+      {/* ====================================================================
+          SECONDARY OPTIONS: WhatsApp + Email/Phone (compact strip)
+      ==================================================================== */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8 bg-muted/50">
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <p className="text-center text-sm text-muted-foreground mb-4">Or reach us directly:</p>
+          
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/services">
-                View Packages <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            {/* WhatsApp - Primary secondary option */}
+            <Button asChild size="lg" variant="outline" className="border-green-500/30 hover:bg-green-50 hover:border-green-500">
+              <a
+                href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <MessageCircle className="h-5 w-5 text-green-600" />
+                WhatsApp Us
+              </a>
             </Button>
 
-            <Button asChild size="lg">
-              <Link to="/start">
-                Take 30s Quiz <Zap className="ml-2 h-4 w-4" />
-              </Link>
+            {/* Email */}
+            <Button variant="outline" size="lg" onClick={copyEmail}>
+              <Mail className="h-5 w-5 mr-2 text-muted-foreground" />
+              {copied ? (
+                <>
+                  <Check className="h-4 w-4 mr-1 text-green-600" /> Copied!
+                </>
+              ) : (
+                "info@x15digital.co.uk"
+              )}
             </Button>
           </div>
+
+          {/* Not sure? Quiz link */}
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Not sure what you need?{" "}
+            <button
+              type="button"
+              onClick={openQuiz}
+              className="text-primary hover:underline font-medium"
+            >
+              Take our 30-second quiz
+            </button>
+            {" "}or{" "}
+            <button
+              type="button"
+              onClick={() => setIsCalendlyOpen(true)}
+              className="text-primary hover:underline font-medium"
+            >
+              book a free call
+            </button>
+          </p>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          COMPACT FAQ ACCORDION
+      ==================================================================== */}
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <h2 className="text-xl font-semibold text-secondary mb-6 text-center">Common Questions</h2>
+          
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="timeline">
+              <AccordionTrigger className="text-left">How long will my project take?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Most websites: 1–7 days. AI automation: 3–10 days. We'll give you an exact timeline in your quote.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="guarantee">
+              <AccordionTrigger className="text-left">What if I don't like the result?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Free revisions until you're happy, or money-back guarantee. We don't consider a project done until you're satisfied.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="technical">
+              <AccordionTrigger className="text-left">Do I need technical knowledge?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Not at all. We handle everything and explain it in plain English. You focus on your business.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="location">
+              <AccordionTrigger className="text-left">Where are you based?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Stratford, London (E15). We work remotely with clients across the UK and worldwide. All meetings via video call.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          <p className="text-center mt-6">
+            <Link to="/services#faq" className="text-sm text-primary hover:underline">
+              View all FAQs <ArrowRight className="inline h-3 w-3" />
+            </Link>
+          </p>
         </div>
       </section>
 
       <Footer />
       <WhatsAppWidget />
 
-      {/* === PROJECT INQUIRY POPUP MODAL === */}
-      {isInquiryOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Project inquiry form"
-          onClick={handleOverlayClick}
-        >
-          <div className="relative w-full max-w-xl rounded-2xl bg-background shadow-2xl border border-border/60">
-            <div className="flex items-start justify-between px-6 pt-6">
-              <div>
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Project snapshot</p>
-                <h2 className="text-xl md:text-2xl font-semibold text-secondary">
-                  Tell us the essentials (30 seconds)
-                </h2>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1 flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5 text-primary" />
-                  We’ll reply within <span className="font-medium">2–4 hours</span> with a clear quote.
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setIsInquiryOpen(false)}
-                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                aria-label="Close inquiry form"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleInquirySubmit} className="px-6 pb-6 pt-4 space-y-4">
-              {/* Name + Email */}
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-1.5">
-                  <label htmlFor="name" className="text-sm font-medium text-secondary">
-                    Your name *
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    autoComplete="name"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    placeholder="e.g. Sarah Ahmed"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="email" className="text-sm font-medium text-secondary">
-                    Email *
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    placeholder="you@company.com"
-                  />
-                </div>
-              </div>
-
-              {/* Business + Website */}
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-1.5">
-                  <label htmlFor="business" className="text-sm font-medium text-secondary">
-                    Business / brand name
-                    <span className="text-xs text-muted-foreground"> (optional)</span>
-                  </label>
-                  <input
-                    id="business"
-                    name="business"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    placeholder="X15 Digital"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="website" className="text-sm font-medium text-secondary">
-                    Current website
-                    <span className="text-xs text-muted-foreground"> (optional)</span>
-                  </label>
-                  <input
-                    id="website"
-                    name="website"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    placeholder="https://your-site.com"
-                  />
-                </div>
-              </div>
-
-              {/* Project type + Budget */}
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-1.5">
-                  <label htmlFor="projectType" className="text-sm font-medium text-secondary">
-                    What do you need most?
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    defaultValue="website"
-                  >
-                    <option value="website">New website</option>
-                    <option value="redesign">Redesign my existing site</option>
-                    <option value="ai">AI automation / chatbot</option>
-                    <option value="both">Website + AI automation</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="budget" className="text-sm font-medium text-secondary">
-                    Rough budget
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                    defaultValue="not-sure"
-                  >
-                    <option value="under-300">Under £300</option>
-                    <option value="300-600">£300 – £600</option>
-                    <option value="600-1200">£600 – £1,200</option>
-                    <option value="1200-plus">£1,200+</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Timeline */}
-              <div className="space-y-1.5">
-                <label htmlFor="timeline" className="text-sm font-medium text-secondary">
-                  Ideal timeline
-                </label>
-                <select
-                  id="timeline"
-                  name="timeline"
-                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                  defaultValue="2-4-weeks"
-                >
-                  <option value="asap">ASAP (this week)</option>
-                  <option value="1-2-weeks">Within 1–2 weeks</option>
-                  <option value="2-4-weeks">Within 2–4 weeks</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-
-              {/* Goals / Message */}
-              <div className="space-y-1.5">
-                <label htmlFor="message" className="text-sm font-medium text-secondary">
-                  What are you trying to achieve?
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                  placeholder="Tell us about your project, goals, and any examples you like."
-                />
-                <p className="text-[11px] text-muted-foreground">
-                  Keep it simple – bullet points are fine. We’ll ask follow-up questions if needed.
-                </p>
-              </div>
-
-              {/* Actions */}
-              <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <Button
-                  type="submit"
-                  className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-primary-foreground shadow-lg shadow-primary/40"
-                >
-                  Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-
-                <p className="text-[11px] text-muted-foreground text-center sm:text-right">
-                  No spam. No pressure. Just a clear quote and honest advice based on your goals.
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* === CALENDLY POPUP MODAL === */}
+      {/* ====================================================================
+          MODALS (Preserved for future use - Calendly + Quiz)
+      ==================================================================== */}
+      
+      {/* Calendly Modal */}
       {isCalendlyOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
@@ -731,20 +407,19 @@ const Contact = () => {
           <div className="relative w-full max-w-3xl rounded-2xl bg-background shadow-2xl border border-border/60 h-[80vh] flex flex-col">
             <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-border/60">
               <div>
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Free strategy call</p>
                 <h2 className="text-lg md:text-xl font-semibold text-secondary">
-                  Book a 30-minute call with X15 Digital
+                  Book a Free 30-Minute Call
                 </h2>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                  We’ll review your goals and advise the best package – no pressure, no obligation.
+                <p className="text-sm text-muted-foreground mt-1">
+                  We'll review your goals and advise the best approach — no pressure.
                 </p>
               </div>
 
               <button
                 type="button"
                 onClick={() => setIsCalendlyOpen(false)}
-                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                aria-label="Close call booking"
+                className="ml-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground"
+                aria-label="Close"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -762,20 +437,20 @@ const Contact = () => {
         </div>
       )}
 
-      {/* === QUIZ MODAL === */}
+      {/* Quiz Modal */}
       {isQuizOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
           role="dialog"
           aria-modal="true"
           aria-label="Service recommendation quiz"
-          onClick={(e) => { if (e.target === e.currentTarget) setIsQuizOpen(false); }}
+          onClick={handleOverlayClick}
         >
           <div className="relative w-full max-w-lg rounded-2xl bg-background shadow-2xl border border-border/60 p-6 md:p-8 max-h-[90vh] overflow-y-auto">
             <button
               type="button"
               onClick={() => setIsQuizOpen(false)}
-              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground"
               aria-label="Close quiz"
             >
               <X className="h-4 w-4" />
@@ -904,8 +579,8 @@ const Contact = () => {
                       {quizResult.linkLabel} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button variant="outline" className="w-full" onClick={() => { setIsQuizOpen(false); scrollToForm(); }}>
-                    Or Fill Out the Contact Form
+                  <Button variant="outline" className="w-full" onClick={() => setIsQuizOpen(false)}>
+                    Close
                   </Button>
                   <Button variant="ghost" className="w-full text-muted-foreground" onClick={resetQuiz}>
                     Retake Quiz
@@ -913,6 +588,29 @@ const Contact = () => {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Inquiry Modal - preserved but currently replaced by inline form */}
+      {isInquiryOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project inquiry form"
+          onClick={handleOverlayClick}
+        >
+          <div className="relative w-full max-w-xl rounded-2xl bg-background shadow-2xl border border-border/60 p-6">
+            <button
+              type="button"
+              onClick={() => setIsInquiryOpen(false)}
+              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground"
+              aria-label="Close"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <p className="text-center text-muted-foreground">Form submitted successfully. Modal preserved for backend integration.</p>
           </div>
         </div>
       )}

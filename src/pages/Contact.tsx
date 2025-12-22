@@ -14,6 +14,7 @@ import {
   Zap,
   CheckCircle2,
   Phone,
+  ChevronDown, // ✅ added
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,7 +25,6 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // ============================================================================
 // Types for quiz functionality (preserved for future backend integration)
@@ -43,6 +43,9 @@ interface QuizResult {
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
+
+  // ✅ FAQ state (requested)
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   // ============================================================================
   // State preserved for future backend integration
@@ -162,9 +165,6 @@ const Contact = () => {
 
   const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Later you can send this to Airtable / backend / email
-    // const formData = new FormData(e.currentTarget);
 
     toast({
       title: "Inquiry sent",
@@ -471,7 +471,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Response times + mini process card (fix “structure” + adds trust) */}
+            {/* Response times + mini process card */}
             <Card className="border border-border/70 shadow-sm">
               <CardContent className="p-6 md:p-7">
                 <h3 className="text-lg font-semibold text-secondary">Response times & process</h3>
@@ -505,26 +505,14 @@ const Contact = () => {
                   <p className="text-sm font-semibold text-secondary mb-3">What happens next</p>
                   <div className="space-y-3">
                     {[
-                      {
-                        n: "1",
-                        title: "We review your requirements",
-                        sub: "Usually within 2 hours on weekdays",
-                      },
+                      { n: "1", title: "We review your requirements", sub: "Usually within 2 hours on weekdays" },
                       {
                         n: "2",
                         title: "You get a detailed quote + timeline",
                         sub: "Transparent pricing, no hidden costs",
                       },
-                      {
-                        n: "3",
-                        title: "Quick call to clarify (optional)",
-                        sub: "Only if you need it",
-                      },
-                      {
-                        n: "4",
-                        title: "Project starts upon approval",
-                        sub: "No delays, no bureaucracy",
-                      },
+                      { n: "3", title: "Quick call to clarify (optional)", sub: "Only if you need it" },
+                      { n: "4", title: "Project starts upon approval", sub: "No delays, no bureaucracy" },
                     ].map((item) => (
                       <div key={item.n} className="flex gap-3">
                         <div className="h-7 w-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center text-xs font-bold text-primary shrink-0">
@@ -554,7 +542,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          LOCATION + MAP (fixed to look intentional, not “weak”)
+          LOCATION + MAP
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 fade-in-section">
@@ -584,7 +572,6 @@ const Contact = () => {
                     className="absolute inset-0 w-full h-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    // Abbey Road DLR / Stratford area query
                     src="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London&output=embed"
                   />
                 </div>
@@ -613,7 +600,6 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Extra trust card: simple, premium, not your friend’s copy-paste */}
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">
               <h3 className="text-lg font-semibold text-secondary">Why clients like this process</h3>
@@ -661,46 +647,97 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          COMPACT FAQ ACCORDION
+          FAQ - Clean Custom Accordion ✅ replaced
       ==================================================================== */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-2xl mx-auto fade-in-section">
-          <h2 className="text-xl font-semibold text-secondary mb-6 text-center">Common Questions</h2>
+      <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-3xl mx-auto fade-in-section">
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2 text-center">Common Questions</h2>
+          <p className="text-sm md:text-base text-muted-foreground text-center mb-8">
+            Quick answers before you message — keeps things fast and clear.
+          </p>
 
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="timeline">
-              <AccordionTrigger className="text-left">How long will my project take?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Most websites: 1–7 days. AI automation: 3–10 days. We'll give you an exact timeline in your quote.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="guarantee">
-              <AccordionTrigger className="text-left">What if I don't like the result?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Free revisions until you're happy, or money-back guarantee. We don't consider a project done until
-                you're satisfied.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="technical">
-              <AccordionTrigger className="text-left">Do I need technical knowledge?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Not at all. We handle everything and explain it in plain English. You focus on your business.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="location">
-              <AccordionTrigger className="text-left">Where are you based?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Stratford, London (E15). We work remotely with clients across the UK and worldwide. All meetings via
-                video call.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <div className="space-y-2">
+            {[
+              {
+                id: "timeline",
+                question: "How long will my project take?",
+                answer:
+                  "Most websites: 1–7 days. AI automation: 3–10 days. We'll give you an exact timeline in your quote.",
+              },
+              {
+                id: "revisions",
+                question: "Do you offer revisions?",
+                answer:
+                  "Yes. We iterate until it's right. We'll confirm revision scope in the quote so expectations are clear.",
+              },
+              {
+                id: "technical",
+                question: "Do I need technical knowledge?",
+                answer: "Not at all. We handle everything and explain it in plain English. You focus on your business.",
+              },
+              {
+                id: "pricing",
+                question: "How do pricing and quotes work?",
+                answer: "You'll receive a clear quote with scope + timeline. No pressure — decide when you're ready.",
+              },
+              {
+                id: "location",
+                question: "Where are you based?",
+                answer:
+                  "Stratford, London (E15). We work remotely with clients across the UK and worldwide. All meetings via video call.",
+              },
+            ].map((faq) => (
+              <div key={faq.id} className="border border-border rounded-lg overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
+                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/50 transition-colors"
+                  aria-expanded={openFaq === faq.id}
+                >
+                  <span className="text-base font-medium text-secondary pr-4">{faq.question}</span>
+                  <ChevronDown
+                    className={`h-5 w-5 text-muted-foreground shrink-0 transition-transform duration-200 ${
+                      openFaq === faq.id ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {openFaq === faq.id && (
+                  <div className="px-5 pb-4 pt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
           <p className="text-center mt-6">
-            <Link to="/services#faq" className="text-sm text-primary hover:underline">
-              View all FAQs <ArrowRight className="inline h-3 w-3" />
+            <Link to="/services#faq" className="text-sm text-primary hover:underline font-medium">
+              View all FAQs <ArrowRight className="inline h-3.5 w-3.5" />
             </Link>
           </p>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          STILL DECIDING CTA ✅ added (before Footer)
+      ==================================================================== */}
+      <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-4xl mx-auto text-center fade-in-section">
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Still deciding?</h2>
+          <p className="text-base md:text-lg text-muted-foreground mb-6">
+            No stress. Browse our packages or take a quick quiz to see what fits your needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Button asChild size="lg" variant="outline" className="min-w-[180px]">
+              <Link to="/services">
+                View Packages <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" className="min-w-[180px] bg-primary hover:bg-primary/90" onClick={openQuiz}>
+              Take 30s Quiz <Zap className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -779,7 +816,6 @@ const Contact = () => {
 
             {!quizResult ? (
               <form onSubmit={handleQuizSubmit} className="space-y-6">
-                {/* Goal Question */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">1. What's your primary goal?</p>
                   <div className="grid grid-cols-1 gap-2">
@@ -814,7 +850,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Budget Question */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">2. What's your budget?</p>
                   <div className="grid grid-cols-1 gap-2">
@@ -846,7 +881,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Urgency Question */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">3. How soon do you need it?</p>
                   <div className="grid grid-cols-1 gap-2">

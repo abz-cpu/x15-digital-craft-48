@@ -661,14 +661,11 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          FAQ (kept)
+          COMPACT FAQ ACCORDION
       ==================================================================== */}
       <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-3xl mx-auto fade-in-section">
-          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3 text-center">Common Questions</h2>
-          <p className="text-sm md:text-base text-muted-foreground text-center mb-8">
-            Quick answers before you message — keeps things fast and clear.
-          </p>
+        <div className="max-w-2xl mx-auto fade-in-section">
+          <h2 className="text-xl font-semibold text-secondary mb-6 text-center">Common Questions</h2>
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="timeline">
@@ -677,28 +674,19 @@ const Contact = () => {
                 Most websites: 1–7 days. AI automation: 3–10 days. We'll give you an exact timeline in your quote.
               </AccordionContent>
             </AccordionItem>
-
-            <AccordionItem value="revisions">
-              <AccordionTrigger className="text-left">Do you offer revisions?</AccordionTrigger>
+            <AccordionItem value="guarantee">
+              <AccordionTrigger className="text-left">What if I don't like the result?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes. We iterate until it’s right. We’ll confirm revision scope in the quote so expectations are clear.
+                Free revisions until you're happy, or money-back guarantee. We don't consider a project done until
+                you're satisfied.
               </AccordionContent>
             </AccordionItem>
-
             <AccordionItem value="technical">
               <AccordionTrigger className="text-left">Do I need technical knowledge?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Not at all. We handle everything and explain it in plain English. You focus on your business.
               </AccordionContent>
             </AccordionItem>
-
-            <AccordionItem value="pricing">
-              <AccordionTrigger className="text-left">How do pricing and quotes work?</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                You’ll receive a clear quote with scope + timeline. No pressure — decide when you’re ready.
-              </AccordionContent>
-            </AccordionItem>
-
             <AccordionItem value="location">
               <AccordionTrigger className="text-left">Where are you based?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
@@ -708,7 +696,7 @@ const Contact = () => {
             </AccordionItem>
           </Accordion>
 
-          <p className="text-center mt-7">
+          <p className="text-center mt-6">
             <Link to="/services#faq" className="text-sm text-primary hover:underline">
               View all FAQs <ArrowRight className="inline h-3 w-3" />
             </Link>

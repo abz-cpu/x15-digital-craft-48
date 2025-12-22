@@ -235,7 +235,6 @@ const Contact = () => {
 
       {/* ====================================================================
           PRIMARY GRID: Form + Sidebar
-          (FIXED: Added a left-column section under the form to fill the empty gap)
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start fade-in-section">
@@ -499,7 +498,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDEBAR (kept): Reach + Response/Process */}
+          {/* RIGHT SIDEBAR (kept): Reach + Response/Process + (NEW) Quick Brief card */}
           <div className="lg:col-span-5 space-y-6">
             {/* Direct reach card */}
             <Card className="border border-border/70 shadow-sm">
@@ -644,14 +643,58 @@ const Contact = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* ✅ NEW: Send a quick brief (optional) - correctly placed INSIDE sidebar */}
+            <Card className="border border-border/70 shadow-sm">
+              <CardContent className="p-5 md:p-6">
+                <h3 className="text-base font-semibold text-secondary">Send a quick brief (optional)</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Want the fastest quote? Paste this into your message:
+                </p>
+
+                <div className="mt-4 rounded-xl border border-border/70 bg-muted/30 p-4">
+                  <div className="space-y-2 text-sm">
+                    {[
+                      "Business type + what you sell",
+                      "Main goal (leads, bookings, sales)",
+                      "Pages needed + any examples you like",
+                      "Any integrations (Calendly, payments, CRM)",
+                    ].map((line) => (
+                      <div key={line} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-emerald-600 mt-0.5 shrink-0" />
+                        <span className="text-muted-foreground">{line}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                  <Button asChild variant="outline" className="w-full">
+                    <a href="mailto:info@x15digital.co.uk?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
+                      Email brief <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+
+                  <Button asChild className="w-full">
+                    <a
+                      href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20here%E2%80%99s%20my%20quick%20brief%3A%0A%0ABusiness%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      WhatsApp brief <MessageCircle className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          LOCATION (Full-width, no empty space) ✅ restructured
+          LOCATION (Full-width, no empty space)
       ==================================================================== */}
-      <section className="pt-6 pb-10 md:pt-8 md:pb-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto fade-in-section">
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">
@@ -723,7 +766,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          WHY CLIENTS LIKE THIS PROCESS (Full width) ✅ restructured
+          WHY CLIENTS LIKE THIS PROCESS
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-6xl mx-auto fade-in-section">
@@ -780,7 +823,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          FAQ - Clean Custom Accordion ✅ unchanged
+          FAQ - Clean Custom Accordion
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto fade-in-section">
@@ -853,7 +896,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          STILL DECIDING CTA ✅ unchanged
+          STILL DECIDING CTA
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
@@ -878,7 +921,7 @@ const Contact = () => {
       <WhatsAppWidget />
 
       {/* ====================================================================
-          MODALS (Preserved for future use - Calendly + Quiz)
+          MODALS (Calendly + Quiz)
       ==================================================================== */}
 
       {/* Calendly Modal */}
@@ -913,16 +956,7 @@ const Contact = () => {
               <iframe
                 src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
                 className="w-full h-full border-0"
-                loading
-                is
-                could
-                just
-                alert
-                me
-                if
-                this
-                is
-                best
+                loading="lazy"
                 title="Book a 30-minute strategy call with X15 Digital"
               />
             </div>

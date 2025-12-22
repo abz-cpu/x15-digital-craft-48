@@ -15,7 +15,6 @@ import {
   CheckCircle2,
   Phone,
   ChevronDown,
-  // ✅ NEW (gap filler icons)
   FileText,
   ListChecks,
   ShieldCheck,
@@ -198,7 +197,7 @@ const Contact = () => {
       <Navigation />
 
       {/* ====================================================================
-          HERO: More breathing room + clearer hierarchy (fix “tight” issue)
+          HERO
       ==================================================================== */}
       <section className="pt-28 pb-10 md:pt-32 md:pb-14 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
@@ -235,13 +234,14 @@ const Contact = () => {
       <BreadcrumbNav />
 
       {/* ====================================================================
-          PRIMARY GRID: Form + “Direct Reach” + mini process (keeps your sections)
+          PRIMARY GRID: Form + Sidebar
+          (FIXED: Added a left-column section under the form to fill the empty gap)
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start fade-in-section">
-          {/* LEFT: FORM + ✅ GAP-FILLER BLOCK (this fixes the empty space under the form) */}
+          {/* LEFT: FORM + NEW "What you'll receive" (fills empty space under form) */}
           <div className="lg:col-span-7 space-y-6" id="contact-form">
-            {/* FORM */}
+            {/* FORM (unchanged) */}
             <Card className="border-2 border-primary/20 shadow-lg">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6">
@@ -396,7 +396,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* ✅ GAP-FILLER: "What we need" + "What you get" (fills the empty space under the form) */}
+            {/* NEW SECTION (fills the empty white space under the form) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* What we need from you */}
               <Card className="border border-border/70 shadow-sm">
@@ -414,7 +414,7 @@ const Contact = () => {
                   <ul className="space-y-3 text-sm">
                     {[
                       { title: "Goal + target audience", desc: "What success looks like (leads, bookings, sales)." },
-                      { title: "Example sites you like", desc: "2–3 links so we match your taste fast." },
+                      { title: "Example sites you like", desc: "2–3 links so we match your taste quickly." },
                       { title: "Pages needed", desc: "Home, Services, Pricing, Contact, etc." },
                       { title: "Any integrations", desc: "Calendly, forms, payments, CRM, WhatsApp." },
                     ].map((x) => (
@@ -447,14 +447,14 @@ const Contact = () => {
                       <FileText className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-secondary">What you get</h3>
+                      <h3 className="text-lg font-semibold text-secondary">What you’ll receive</h3>
                       <p className="text-sm text-muted-foreground">Clear, written, no-surprises quote.</p>
                     </div>
                   </div>
 
                   <div className="space-y-3 text-sm">
                     {[
-                      { title: "Fixed scope summary", desc: "So both sides agree on what’s included." },
+                      { title: "Scope summary", desc: "So both sides agree on what’s included." },
                       { title: "Timeline + milestones", desc: "You’ll know exactly what happens when." },
                       { title: "Transparent pricing", desc: "No hidden add-ons or vague “from” pricing." },
                     ].map((x) => (
@@ -499,7 +499,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT: DIRECT REACH (kept, improved) */}
+          {/* RIGHT SIDEBAR (kept): Reach + Response/Process */}
           <div className="lg:col-span-5 space-y-6">
             {/* Direct reach card */}
             <Card className="border border-border/70 shadow-sm">
@@ -649,104 +649,73 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          LOCATION + MAP
+          LOCATION (Full-width, no empty space) ✅ restructured
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 fade-in-section">
+        <div className="max-w-6xl mx-auto fade-in-section">
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center">
                   <Globe className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-secondary">Location</h3>
-                  <p className="text-sm text-muted-foreground">Based in Stratford, London (E15)</p>
+                  <p className="text-sm text-muted-foreground">Stratford, London (E15)</p>
                 </div>
               </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
-              </p>
-              <p className="text-sm text-muted-foreground mt-3 italic">
-                Remote-first business — all meetings via video call unless otherwise arranged.
-              </p>
-
-              <div className="mt-5 overflow-hidden rounded-xl border border-border/70 shadow-sm">
-                <div className="relative w-full h-[240px] md:h-[280px] bg-muted">
-                  <iframe
-                    title="X15 Digital location map"
-                    className="absolute inset-0 w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London&output=embed"
-                  />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                {/* Map (bigger) */}
+                <div className="lg:col-span-7 overflow-hidden rounded-xl border border-border/70 shadow-sm">
+                  <div className="relative w-full h-[260px] md:h-[320px] bg-muted">
+                    <iframe
+                      title="X15 Digital location map"
+                      className="absolute inset-0 w-full h-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London&output=embed"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                <Button asChild variant="outline" className="w-full">
-                  <a
-                    href="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View larger map <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild className="w-full">
-                  <a
-                    href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Message on WhatsApp <MessageCircle className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+                {/* Details */}
+                <div className="lg:col-span-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-3 italic">
+                    Remote-first business — all meetings via video call unless otherwise arranged.
+                  </p>
 
-          <Card className="border border-border/70 shadow-sm">
-            <CardContent className="p-6 md:p-7">
-              <h3 className="text-lg font-semibold text-secondary">Why clients like this process</h3>
-              <p className="text-sm text-muted-foreground mt-1">It’s structured, fast, and doesn’t waste your time.</p>
-
-              <div className="mt-6 space-y-4">
-                {[
-                  {
-                    title: "Clear scope before build",
-                    desc: "We confirm the goal, pages, and key actions so nothing is missed.",
-                  },
-                  {
-                    title: "Conversion-focused structure",
-                    desc: "We prioritise clarity, trust, and user flow — not random visuals.",
-                  },
-                  {
-                    title: "Simple handover + next steps",
-                    desc: "You get a clear plan, timeline, and what we need from you.",
-                  },
-                ].map((x) => (
-                  <div key={x.title} className="flex gap-3">
-                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <div className="mt-5 space-y-3">
+                    <div className="rounded-xl border border-border/70 bg-background p-4">
+                      <p className="text-sm font-semibold text-secondary">Best way to reach us</p>
+                      <p className="text-sm text-muted-foreground mt-1">WhatsApp is fastest during business hours.</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-secondary">{x.title}</p>
-                      <p className="text-sm text-muted-foreground">{x.desc}</p>
+
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <Button asChild variant="outline" className="w-full">
+                        <a
+                          href="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View larger map <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                      <Button asChild className="w-full">
+                        <a
+                          href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Message on WhatsApp <MessageCircle className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-xl border border-border/70 bg-background p-4">
-                <p className="text-sm font-semibold text-secondary mb-1">Want a recommendation?</p>
-                <p className="text-sm text-muted-foreground">
-                  If you’re unsure whether you need a website, AI automation, or both — take the quiz.
-                </p>
-                <Button variant="outline" className="mt-3 w-full" onClick={openQuiz}>
-                  Take the 30-second quiz <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -754,7 +723,64 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          FAQ - Clean Custom Accordion ✅ replaced
+          WHY CLIENTS LIKE THIS PROCESS (Full width) ✅ restructured
+      ==================================================================== */}
+      <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-6xl mx-auto fade-in-section">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-secondary">Why clients like this process</h2>
+            <p className="text-sm md:text-base text-muted-foreground mt-2">
+              It’s structured, fast, and doesn’t waste your time.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Clear scope before build",
+                desc: "We confirm the goal, pages, and key actions so nothing is missed.",
+              },
+              {
+                title: "Conversion-focused structure",
+                desc: "We prioritise clarity, trust, and user flow — not random visuals.",
+              },
+              {
+                title: "Simple handover + next steps",
+                desc: "You get a clear plan, timeline, and what we need from you.",
+              },
+            ].map((x) => (
+              <Card key={x.title} className="border border-border/70 shadow-sm">
+                <CardContent className="p-6 md:p-7">
+                  <div className="flex gap-3">
+                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-secondary">{x.title}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{x.desc}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-6 max-w-2xl mx-auto">
+            <div className="rounded-xl border border-border/70 bg-muted/30 p-5 text-center">
+              <p className="text-sm font-semibold text-secondary">Want a recommendation?</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                If you’re unsure whether you need a website, AI automation, or both — take the quiz.
+              </p>
+              <Button variant="outline" className="mt-4" onClick={openQuiz}>
+                Take the 30-second quiz <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          FAQ - Clean Custom Accordion ✅ unchanged
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto fade-in-section">
@@ -827,7 +853,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          STILL DECIDING CTA ✅ added (before Footer)
+          STILL DECIDING CTA ✅ unchanged
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
@@ -887,7 +913,16 @@ const Contact = () => {
               <iframe
                 src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
                 className="w-full h-full border-0"
-                loading="lazy"
+                loading
+                is
+                could
+                just
+                alert
+                me
+                if
+                this
+                is
+                best
                 title="Book a 30-minute strategy call with X15 Digital"
               />
             </div>

@@ -14,7 +14,7 @@ import {
   Zap,
   CheckCircle2,
   Phone,
-  ChevronDown, // ✅ added
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -44,7 +44,7 @@ const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
 
-  // ✅ FAQ state (requested)
+  // FAQ state
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   // ============================================================================
@@ -183,6 +183,63 @@ const Contact = () => {
     }
   };
 
+  // Location card (moved into right sidebar to remove awkward gap)
+  const LocationCard = (
+    <Card className="border border-border/70 shadow-sm">
+      <CardContent className="p-6 md:p-7">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center">
+            <Globe className="h-5 w-5 text-primary" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-secondary">Location</h3>
+            <p className="text-sm text-muted-foreground">Based in Stratford, London (E15)</p>
+          </div>
+        </div>
+
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+        </p>
+        <p className="text-sm text-muted-foreground mt-3 italic">
+          Remote-first business — all meetings via video call unless otherwise arranged.
+        </p>
+
+        <div className="mt-5 overflow-hidden rounded-xl border border-border/70 shadow-sm">
+          <div className="relative w-full h-[240px] md:h-[280px] bg-muted">
+            <iframe
+              title="L&D Digital location map"
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London&output=embed"
+            />
+          </div>
+        </div>
+
+        <div className="mt-4 flex flex-col sm:flex-row gap-2">
+          <Button asChild variant="outline" className="w-full">
+            <a
+              href="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View larger map <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+          <Button asChild className="w-full">
+            <a
+              href="https://wa.me/447424062513?text=Hi%20L%26D%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Message on WhatsApp <MessageCircle className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -194,7 +251,7 @@ const Contact = () => {
       <Navigation />
 
       {/* ====================================================================
-          HERO: More breathing room + clearer hierarchy (fix “tight” issue)
+          HERO
       ==================================================================== */}
       <section className="pt-28 pb-10 md:pt-32 md:pb-14 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
@@ -231,11 +288,11 @@ const Contact = () => {
       <BreadcrumbNav />
 
       {/* ====================================================================
-          PRIMARY GRID: Form + “Direct Reach” + mini process (keeps your sections)
+          PRIMARY GRID: Form + Sidebar (Location moved into sidebar)
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start fade-in-section">
-          {/* LEFT: FORM (kept + made more functional) */}
+          {/* LEFT: FORM */}
           <div className="lg:col-span-7" id="contact-form">
             <Card className="border-2 border-primary/20 shadow-lg">
               <CardContent className="p-6 md:p-8">
@@ -392,9 +449,9 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* RIGHT: DIRECT REACH (kept, improved) */}
+          {/* RIGHT: SIDEBAR */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Direct reach card */}
+            {/* Reach us directly */}
             <Card className="border border-border/70 shadow-sm">
               <CardContent className="p-6 md:p-7">
                 <div className="flex items-start justify-between gap-4">
@@ -409,10 +466,9 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  {/* WhatsApp */}
                   <Button asChild size="lg" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm">
                     <a
-                      href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
+                      href="https://wa.me/447424062513?text=Hi%20L%26D%20Digital%2C%20I%27m%20interested%20in%20your%20services"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
@@ -423,7 +479,6 @@ const Contact = () => {
                     </a>
                   </Button>
 
-                  {/* Email (copy) */}
                   <Button variant="outline" size="lg" onClick={copyEmail} className="w-full justify-between">
                     <span className="flex items-center gap-2">
                       <Mail className="h-5 w-5 text-muted-foreground" />
@@ -442,7 +497,6 @@ const Contact = () => {
                     </span>
                   </Button>
 
-                  {/* Phone */}
                   <Button asChild variant="outline" size="lg" className="w-full justify-between">
                     <a href="tel:+447123456789">
                       <span className="flex items-center gap-2">
@@ -471,7 +525,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Response times + mini process card */}
+            {/* Response times & process */}
             <Card className="border border-border/70 shadow-sm">
               <CardContent className="p-6 md:p-7">
                 <h3 className="text-lg font-semibold text-secondary">Response times & process</h3>
@@ -537,117 +591,70 @@ const Contact = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Location moved here to fill right column */}
+            {LocationCard}
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          LOCATION + MAP
+          WHY CLIENTS LIKE THIS PROCESS (Location removed from here)
       ==================================================================== */}
       <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 fade-in-section">
-          <Card className="border border-border/70 shadow-sm">
-            <CardContent className="p-6 md:p-7">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center">
-                  <Globe className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-secondary">Location</h3>
-                  <p className="text-sm text-muted-foreground">Based in Stratford, London (E15)</p>
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
-              </p>
-              <p className="text-sm text-muted-foreground mt-3 italic">
-                Remote-first business — all meetings via video call unless otherwise arranged.
-              </p>
-
-              <div className="mt-5 overflow-hidden rounded-xl border border-border/70 shadow-sm">
-                <div className="relative w-full h-[240px] md:h-[280px] bg-muted">
-                  <iframe
-                    title="X15 Digital location map"
-                    className="absolute inset-0 w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London&output=embed"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                <Button asChild variant="outline" className="w-full">
-                  <a
-                    href="https://www.google.com/maps?q=Abbey%20Road%20DLR%20London"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View larger map <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild className="w-full">
-                  <a
-                    href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Message on WhatsApp <MessageCircle className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border border-border/70 shadow-sm">
-            <CardContent className="p-6 md:p-7">
-              <h3 className="text-lg font-semibold text-secondary">Why clients like this process</h3>
-              <p className="text-sm text-muted-foreground mt-1">It’s structured, fast, and doesn’t waste your time.</p>
-
-              <div className="mt-6 space-y-4">
-                {[
-                  {
-                    title: "Clear scope before build",
-                    desc: "We confirm the goal, pages, and key actions so nothing is missed.",
-                  },
-                  {
-                    title: "Conversion-focused structure",
-                    desc: "We prioritise clarity, trust, and user flow — not random visuals.",
-                  },
-                  {
-                    title: "Simple handover + next steps",
-                    desc: "You get a clear plan, timeline, and what we need from you.",
-                  },
-                ].map((x) => (
-                  <div key={x.title} className="flex gap-3">
-                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-secondary">{x.title}</p>
-                      <p className="text-sm text-muted-foreground">{x.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-xl border border-border/70 bg-background p-4">
-                <p className="text-sm font-semibold text-secondary mb-1">Want a recommendation?</p>
-                <p className="text-sm text-muted-foreground">
-                  If you’re unsure whether you need a website, AI automation, or both — take the quiz.
+        <div className="max-w-6xl mx-auto fade-in-section">
+          <div className="max-w-3xl mx-auto">
+            <Card className="border border-border/70 shadow-sm">
+              <CardContent className="p-6 md:p-7">
+                <h3 className="text-lg font-semibold text-secondary">Why clients like this process</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  It’s structured, fast, and doesn’t waste your time.
                 </p>
-                <Button variant="outline" className="mt-3 w-full" onClick={openQuiz}>
-                  Take the 30-second quiz <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+
+                <div className="mt-6 space-y-4">
+                  {[
+                    {
+                      title: "Clear scope before build",
+                      desc: "We confirm the goal, pages, and key actions so nothing is missed.",
+                    },
+                    {
+                      title: "Conversion-focused structure",
+                      desc: "We prioritise clarity, trust, and user flow — not random visuals.",
+                    },
+                    {
+                      title: "Simple handover + next steps",
+                      desc: "You get a clear plan, timeline, and what we need from you.",
+                    },
+                  ].map((x) => (
+                    <div key={x.title} className="flex gap-3">
+                      <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-secondary">{x.title}</p>
+                        <p className="text-sm text-muted-foreground">{x.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 rounded-xl border border-border/70 bg-background p-4">
+                  <p className="text-sm font-semibold text-secondary mb-1">Want a recommendation?</p>
+                  <p className="text-sm text-muted-foreground">
+                    If you’re unsure whether you need a website, AI automation, or both — take the quiz.
+                  </p>
+                  <Button variant="outline" className="mt-3 w-full" onClick={openQuiz}>
+                    Take the 30-second quiz <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* ====================================================================
-          FAQ - Clean Custom Accordion ✅ replaced
+          FAQ - Clean Custom Accordion
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto fade-in-section">
@@ -720,7 +727,7 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          STILL DECIDING CTA ✅ added (before Footer)
+          STILL DECIDING CTA
       ==================================================================== */}
       <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
@@ -745,7 +752,7 @@ const Contact = () => {
       <WhatsAppWidget />
 
       {/* ====================================================================
-          MODALS (Preserved for future use - Calendly + Quiz)
+          MODALS (Calendly + Quiz)
       ==================================================================== */}
 
       {/* Calendly Modal */}
@@ -781,7 +788,7 @@ const Contact = () => {
                 src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
                 className="w-full h-full border-0"
                 loading="lazy"
-                title="Book a 30-minute strategy call with X15 Digital"
+                title="Book a 30-minute strategy call"
               />
             </div>
           </div>
@@ -816,6 +823,7 @@ const Contact = () => {
 
             {!quizResult ? (
               <form onSubmit={handleQuizSubmit} className="space-y-6">
+                {/* Goal */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">1. What's your primary goal?</p>
                   <div className="grid grid-cols-1 gap-2">
@@ -850,6 +858,7 @@ const Contact = () => {
                   </div>
                 </div>
 
+                {/* Budget */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">2. What's your budget?</p>
                   <div className="grid grid-cols-1 gap-2">
@@ -881,6 +890,7 @@ const Contact = () => {
                   </div>
                 </div>
 
+                {/* Urgency */}
                 <div className="space-y-3">
                   <p className="text-sm font-semibold text-secondary">3. How soon do you need it?</p>
                   <div className="grid grid-cols-1 gap-2">
@@ -923,49 +933,3 @@ const Contact = () => {
                 <p className="text-muted-foreground">{quizResult.description}</p>
                 <div className="flex flex-col gap-3">
                   <Button asChild className="w-full">
-                    <Link to={quizResult.link}>
-                      {quizResult.linkLabel} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" className="w-full" onClick={() => setIsQuizOpen(false)}>
-                    Close
-                  </Button>
-                  <Button variant="ghost" className="w-full text-muted-foreground" onClick={resetQuiz}>
-                    Retake Quiz
-                  </Button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Inquiry Modal - preserved but currently replaced by inline form */}
-      {isInquiryOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Project inquiry form"
-          onClick={handleOverlayClick}
-        >
-          <div className="relative w-full max-w-xl rounded-2xl bg-background shadow-2xl border border-border/60 p-6">
-            <button
-              type="button"
-              onClick={() => setIsInquiryOpen(false)}
-              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground"
-              aria-label="Close"
-            >
-              <X className="h-4 w-4" />
-            </button>
-            <p className="text-center text-muted-foreground">
-              Form submitted successfully. Modal preserved for backend integration.
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Contact;

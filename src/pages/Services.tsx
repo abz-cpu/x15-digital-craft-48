@@ -810,7 +810,7 @@ const Services = () => {
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-amber-500/10 items-center justify-center mb-2">
-                      <Zap className="h-5 w-5 text-amber-600" />
+                      <Activity className="h-5 w-5 text-amber-600" />
                     </div>
                     <CardTitle className="text-lg font-semibold text-secondary">PC Repairs</CardTitle>
                     <p className="text-lg font-bold text-primary">From £40</p>

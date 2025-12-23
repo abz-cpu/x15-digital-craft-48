@@ -492,9 +492,9 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="mt-5 w-full text-sm py-3 h-auto whitespace-normal leading-snug" 
+                  <Button
+                    variant="outline"
+                    className="mt-5 w-full text-sm py-3 h-auto whitespace-normal leading-snug"
                     onClick={() => setIsCalendlyOpen(true)}
                   >
                     <span className="flex items-center justify-center gap-2 flex-wrap">

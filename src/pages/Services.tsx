@@ -39,6 +39,8 @@ import {
   Server,
   CheckCircle2,
   Mic,
+  HardDrive,
+  Activity,
 } from "lucide-react";
 
 const Services = () => {

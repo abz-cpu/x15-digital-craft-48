@@ -33,7 +33,7 @@ const getCategoryBadgeClass = (category: Category) => {
 };
 
 const Blog = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("web-dev");
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
 
   const blogPosts = [
     {
@@ -84,6 +84,7 @@ const Blog = () => {
     activeCategory === "all" ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory);
 
   const categories = [
+    { id: "all" as Category, label: "All", icon: Globe },
     { id: "web-dev" as Category, label: "Web Development", icon: Globe },
     { id: "ai-automation" as Category, label: "AI Automation", icon: Bot },
     { id: "business" as Category, label: "Business Growth", icon: TrendingUp },
@@ -144,7 +145,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto">
           <div key={activeCategory} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
-              <AnimatedSection key={post.id} staggerIndex={index}>
+              <div key={post.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <Card className="hover-lift h-full">
                   <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
@@ -175,7 +176,7 @@ const Blog = () => {
                     </Button>
                   </CardContent>
                 </Card>
-              </AnimatedSection>
+              </div>
             ))}
           </div>
 

@@ -826,7 +826,7 @@ const Contact = () => {
       {/* ====================================================================
           FAQ - Clean Custom Accordion
       ==================================================================== */}
-      <section className="py-6 bg-gradient-to-b from-[#0B1220]/90 to-transparent">
+      <section className="py-16 md:py-20 bg-slate-50">
         <div className="max-w-3xl mx-auto fade-in-section">
           <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2 text-center">Common Questions</h2>
           <p className="text-sm md:text-base text-muted-foreground text-center mb-8">

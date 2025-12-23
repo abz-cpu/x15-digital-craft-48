@@ -636,39 +636,165 @@ const Services = () => {
         </section>
 
         {/* ================================================================
-            FINAL CTA
+            SISTER BRAND: X15 PC BUILDERS
         ================================================================ */}
-        <section className="relative py-16 md:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/60">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
+          <Container>
+            <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
+              <Badge className="mb-3 bg-secondary/10 text-secondary border-secondary/20">Sister Brand</Badge>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                X15 PC Builders
+              </h2>
+              <p className="text-muted-foreground">
+                Custom PC builds, repairs, and maintenance services in the UK
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
+              {/* Custom PC Builds */}
+              <AnimatedSection staggerIndex={0} animation="scale">
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-10 h-10 rounded-lg bg-primary/10 items-center justify-center mb-2">
+                      <Server className="h-5 w-5 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">Custom PC Builds</CardTitle>
+                    <p className="text-lg font-bold text-primary">From £500</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p className="font-medium text-secondary">What's Included:</p>
+                    <ul className="space-y-1">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Custom component selection</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Professional assembly</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Cable management</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Initial setup & testing</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Windows installation</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> 1-year parts warranty</li>
+                    </ul>
+                    <p className="text-xs text-muted-foreground italic">
+                      Perfect for: Gaming, video editing, 3D rendering, or general use
+                    </p>
+                    <Button asChild size="sm" className="w-full mt-2">
+                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                        View PC Builds <ArrowRight className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* PC Repairs */}
+              <AnimatedSection staggerIndex={1} animation="scale">
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-10 h-10 rounded-lg bg-amber-500/10 items-center justify-center mb-2">
+                      <Zap className="h-5 w-5 text-amber-600" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">PC Repairs</CardTitle>
+                    <p className="text-lg font-bold text-primary">From £40</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p className="font-medium text-secondary">What We Fix:</p>
+                    <ul className="space-y-1">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Hardware diagnostics</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Component replacement</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Software troubleshooting</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Virus & malware removal</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Performance upgrades</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Data recovery assistance</li>
+                    </ul>
+                    <p className="text-xs text-muted-foreground italic">
+                      Perfect for: When your PC isn't running right or won't start
+                    </p>
+                    <Button asChild size="sm" variant="outline" className="w-full mt-2">
+                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                        Get a Repair Quote <ArrowRight className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* Maintenance & Cleaning */}
+              <AnimatedSection staggerIndex={2} animation="scale">
+                <Card className="h-full hover-lift">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-10 h-10 rounded-lg bg-teal-500/10 items-center justify-center mb-2">
+                      <Wrench className="h-5 w-5 text-teal-600" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">Maintenance & Cleaning</CardTitle>
+                    <p className="text-lg font-bold text-primary">From £50</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p className="font-medium text-secondary">What's Included:</p>
+                    <ul className="space-y-1">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Deep dust cleaning</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Thermal paste replacement</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Fan optimization</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Software updates</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Performance testing</li>
+                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Health check report</li>
+                    </ul>
+                    <p className="text-xs text-muted-foreground italic">
+                      Perfect for: Keeping your PC running smoothly and quietly
+                    </p>
+                    <Button asChild size="sm" variant="outline" className="w-full mt-2">
+                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                        Book Maintenance <ArrowRight className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+
+            <div className="text-center mt-8 fade-in-section">
+              <p className="text-muted-foreground mb-4">
+                X15 PC Builders is our sister brand specializing in custom PC solutions
+              </p>
+              <Button asChild>
+                <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </Container>
+        </section>
+
+        {/* ================================================================
+            NOT SURE WHICH SERVICE CTA
+        ================================================================ */}
+        <section className="relative py-16 md:py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border-t border-border/60">
           <Container size="narrow" className="fade-in-section">
             <div className="text-center space-y-6">
+              <Badge className="bg-primary/20 text-primary border-primary/30">
+                Quick Plan in Under 24 Hours
+              </Badge>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary">
-                Not Sure Where to Start?
+                Not sure which <span className="text-primary">service</span> you actually need?
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Tell us about your business and we'll recommend the right services — no pressure, no jargon.
+                Tell me where your business is now, and I'll recommend a simple path — 
+                website, AI, or both — with a clear price and timeline.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link to="/contact">
-                    Get a Free Quote
+                  <Link to="/start">
+                    Take 30-second Project Quiz
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <a
-                    href="https://wa.me/447424062513?text=Hi%2C%20I%27d%20like%20to%20discuss%20my%20project"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    WhatsApp Us
-                  </a>
+                  <Link to="/contact">
+                    Book Free Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
 
               <p className="text-sm text-muted-foreground">
-                We reply within 4 hours · No obligation · No sales pressure
+                No pressure, no hard sell — just a clear plan for your website, app, or AI system.
               </p>
             </div>
           </Container>

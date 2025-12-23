@@ -693,9 +693,9 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          LOCATION (Full-width, no empty space)
+          LOCATION (Full-width, reduced top spacing)
       ==================================================================== */}
-      <section className="pt-16 pb-12 md:pt-20 md:pb-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="pt-6 pb-12 md:pt-8 md:pb-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto fade-in-section">
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">

@@ -54,10 +54,11 @@ const About = () => {
       <ScrollProgressBar />
       <Navigation />
       
-      {/* Breadcrumb with proper spacing below navbar */}
-      <div className="pt-24 md:pt-28">
-        <BreadcrumbNav />
-      </div>
+      {/* Soft line separator below navbar - About page only */}
+      <div className="pt-[88px] border-b border-border/30"></div>
+      
+      {/* Breadcrumb */}
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="pt-10 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">

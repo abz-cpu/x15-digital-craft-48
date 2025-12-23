@@ -8,19 +8,9 @@ interface NavigationProps {
   darkHero?: boolean;
 }
 
-/* ===== LAYOUT STRATEGY =====
- * LWDA-style spacing:
- * - Expanded (on load): 100px tall, logo 44px, generous padding
- * - Compact (on scroll): 68px tall, logo 36px, tighter but not cramped
- * - Use a 3-zone layout: logo (left), nav links (center-ish), actions (right)
- * - Smaller font sizes (12px uppercase) with generous letter-spacing
- * - Increased gaps between nav items (gap-10 to gap-12)
- * - Actions section spaced away from nav links with ml-auto for natural distribution
- */
-
 const ANNOUNCEMENT_BAR_HEIGHT = 44;
-const NAV_HEIGHT_EXPANDED = 100;  // Taller for premium feel
-const NAV_HEIGHT_COMPACT = 68;    // Still roomy when compact
+const NAV_HEIGHT_EXPANDED = 88;
+const NAV_HEIGHT_COMPACT = 64;
 
 const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -142,7 +132,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   ];
 
   const navLinks = [
-    { name: "Portfolio", path: "/portfolio" },
+    { name: "Case Studies", path: "/portfolio" },
     { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
   ];
@@ -202,13 +192,6 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     return navHeight + announcementHeight;
   };
 
-  /* ===== SIZING RULES =====
-   * Logo: 44px expanded → 36px compact (smooth transition)
-   * Font: 12px uppercase with tracking-[0.15em] for LWDA-style spacing
-   * Gaps: gap-10 xl:gap-12 between nav items for breathing room
-   * Actions: use ml-auto to push to far right, with gap-6 between items
-   */
-
   return (
     <>
       {/* Accessibility: Skip link */}
@@ -249,6 +232,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       <nav
         ref={navRef}
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
+          showAnnouncementBar ? `top-[${ANNOUNCEMENT_BAR_HEIGHT}px]` : "top-0"
+        } ${
           isScrolled 
             ? "bg-background/95 backdrop-blur-md shadow-lg" 
             : "bg-transparent"
@@ -260,21 +245,18 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         role="navigation"
         aria-label="Main navigation"
       >
-        {/* Container: max-w-[1400px] for wider feel, generous horizontal padding */}
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-full">
-          {/* Main flex row: logo left, everything else right-aligned with spacing */}
-          <div className="flex items-center h-full">
-            
-            {/* === ZONE 1: Logo === */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex justify-between items-center h-full">
+            {/* Logo - scales with scroll */}
             <PreloadLink
               to="/"
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* L&D Monogram Icon - scales with scroll */}
+              {/* L&D Monogram Icon */}
               <svg 
-                width={isScrolled ? 36 : 44} 
-                height={isScrolled ? 36 : 44} 
+                width={isScrolled ? 32 : 40} 
+                height={isScrolled ? 32 : 40} 
                 viewBox="0 0 100 100" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -315,28 +297,25 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
-                <span className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}>
+                <span className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-[15px]" : "text-[18px]"}`}>
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>L&amp;D</span>{" "}
                   <span className="text-primary">DIGITAL</span>
                 </span>
-                {/* Tagline: hide on compact to reduce clutter */}
-                <span className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}>
+                <span className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[8px]" : "text-[10px]"}`}>
                   Luminus &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>
 
-            {/* === ZONE 2 + 3: Nav Links + Actions (pushed to the right) === */}
-            <div className="hidden lg:flex items-center flex-1 justify-end">
-              
-              {/* Nav Items Container - generous gap for LWDA-style spacing */}
-              <div className="flex items-center gap-10 xl:gap-12">
-                
-                {/* Services Dropdown */}
+            {/* Desktop Navigation - More breathing room like LWDA */}
+            <div className="hidden lg:flex items-center">
+              {/* Nav Items Container - with generous spacing */}
+              <div className="flex items-center gap-8 xl:gap-10">
+                {/* Services Dropdown - Anchored, not full-width */}
                 <div className="relative">
                   <button
                     ref={servicesButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
                       activeDropdown === "services" ? "text-primary" : ""
                     }`}
                     onMouseEnter={() => handleDropdownEnter("services")}
@@ -349,7 +328,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   >
                     Services
                     <ChevronDown
-                      className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
                       aria-hidden="true"
                     />
                   </button>
@@ -369,7 +348,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                       aria-label="Services submenu"
                     >
                       {/* Hover bridge - invisible area to prevent close when moving mouse */}
-                      <div className="absolute -top-4 left-0 right-0 h-5" />
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
                       
                       <div className="w-[1000px] max-w-[95vw] bg-background rounded-lg shadow-2xl border border-border animate-fade-in">
                         <div className="p-6">
@@ -480,7 +459,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <div className="relative">
                   <button
                     ref={platformsButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
                       activeDropdown === "platforms" ? "text-primary" : ""
                     }`}
                     onMouseEnter={() => handleDropdownEnter("platforms")}
@@ -493,7 +472,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   >
                     Platforms
                     <ChevronDown
-                      className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "platforms" ? "rotate-180" : ""}`}
                       aria-hidden="true"
                     />
                   </button>
@@ -501,14 +480,14 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   {activeDropdown === "platforms" && (
                     <div
                       className="absolute left-1/2 -translate-x-1/2 z-50"
-                      style={{ top: 'calc(100% + 12px)' }}
+                      style={{ top: 'calc(100% + 8px)' }}
                       onMouseEnter={() => handleDropdownEnter("platforms")}
                       onMouseLeave={scheduleDropdownClose}
                       role="menu"
                       aria-label="Platforms submenu"
                     >
                       {/* Hover bridge */}
-                      <div className="absolute -top-4 left-0 right-0 h-5" />
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
                       
                       <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
                         <ul className="space-y-0.5">
@@ -544,7 +523,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <div className="relative">
                   <button
                     ref={sectorsButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
                       activeDropdown === "sectors" ? "text-primary" : ""
                     }`}
                     onMouseEnter={() => handleDropdownEnter("sectors")}
@@ -557,7 +536,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   >
                     Key Sectors
                     <ChevronDown
-                      className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === "sectors" ? "rotate-180" : ""}`}
                       aria-hidden="true"
                     />
                   </button>
@@ -565,14 +544,14 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   {activeDropdown === "sectors" && (
                     <div
                       className="absolute left-1/2 -translate-x-1/2 z-50"
-                      style={{ top: 'calc(100% + 12px)' }}
+                      style={{ top: 'calc(100% + 8px)' }}
                       onMouseEnter={() => handleDropdownEnter("sectors")}
                       onMouseLeave={scheduleDropdownClose}
                       role="menu"
                       aria-label="Key Sectors submenu"
                     >
                       {/* Hover bridge */}
-                      <div className="absolute -top-4 left-0 right-0 h-5" />
+                      <div className="absolute -top-3 left-0 right-0 h-4" />
                       
                       <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
                         <ul className="space-y-0.5">
@@ -604,12 +583,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   )}
                 </div>
 
-                {/* Nav Links - same styling */}
+                {/* Nav Links - with more spacing */}
                 {navLinks.map((link) => (
                   <PreloadLink
                     key={link.path}
                     to={link.path}
-                    className={`text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`text-[13px] font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
                       location.pathname === link.path ? "text-primary" : ""
                     }`}
                   >
@@ -618,26 +597,26 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 ))}
               </div>
 
-              {/* === Actions Zone: Phone + CTA (separated with margin) === */}
-              <div className="flex items-center gap-6 ml-10 xl:ml-14">
+              {/* Right side: Separator + Phone + CTA */}
+              <div className="flex items-center gap-5 ml-8">
                 {/* Separator line */}
-                <div className={`h-5 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
+                <div className={`h-6 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
 
-                {/* Phone Number - smaller, cleaner */}
+                {/* Phone Number */}
                 <a
                   href="tel:+447123456789"
-                  className={`flex items-center gap-2 text-[12px] font-semibold tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
+                  className={`flex items-center gap-2 text-[13px] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
                   aria-label="Call us on 07123 456789"
                 >
-                  <Phone className="h-3.5 w-3.5" aria-hidden="true" />
+                  <Phone className="h-4 w-4" aria-hidden="true" />
                   <span>07123 456789</span>
                 </a>
 
-                {/* CTA Button - slightly smaller for balance */}
+                {/* CTA Button - Get In Touch */}
                 <Button
                   asChild
                   size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-8 rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[11px] uppercase tracking-wider"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-9 rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[12px] uppercase tracking-wider"
                 >
                   <PreloadLink to="/contact">Get In Touch</PreloadLink>
                 </Button>
@@ -646,7 +625,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-auto ${
+              className={`lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                 isScrolled ? "hover:bg-muted" : darkHero ? "hover:bg-white/10" : "hover:bg-muted"
               }`}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}

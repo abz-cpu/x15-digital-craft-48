@@ -94,8 +94,8 @@ const Services = () => {
               </h1>
 
               <p className="text-base md:text-lg text-slate-200/90 mb-6">
-                From your first website to AI-powered automation and full digital marketing — 
-                we handle everything so you can focus on your business.
+                From your first website to AI-powered automation and full digital marketing — we handle everything so
+                you can focus on your business.
               </p>
 
               <p className="text-xs md:text-sm text-emerald-200/90 mb-8">
@@ -143,8 +143,8 @@ const Services = () => {
                 Professional Websites Built to Convert
               </h2>
               <p className="text-muted-foreground">
-                Whether you need a simple landing page or a full web application, 
-                we build fast, mobile-friendly sites that turn visitors into customers.
+                Whether you need a simple landing page or a full web application, we build fast, mobile-friendly sites
+                that turn visitors into customers.
               </p>
             </div>
 
@@ -160,14 +160,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £299</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Complete websites with hosting, SEO, and ongoing support. Choose from Foundation, Growth, or Scale packages.</p>
+                    <p>
+                      Complete websites with hosting, SEO, and ongoing support. Choose from Foundation, Growth, or Scale
+                      packages.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Mobile-responsive design</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> SEO optimised</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> 1–7 day delivery</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Mobile-responsive design
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> SEO optimised
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> 1–7 day delivery
+                      </li>
                     </ul>
                     <Button asChild size="sm" className="w-full mt-2">
-                      <Link to="/web-package">View Packages <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/web-package">
+                        View Packages <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -184,14 +195,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £599</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Sell products online with Shopify, WooCommerce, or custom solutions. Secure payments, inventory management, and order tracking.</p>
+                    <p>
+                      Sell products online with Shopify, WooCommerce, or custom solutions. Secure payments, inventory
+                      management, and order tracking.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Secure checkout</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Product management</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Payment integration</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Secure checkout
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Product management
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Payment integration
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/ecommerce">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/ecommerce">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -208,14 +230,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £199</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>High-converting single pages for campaigns, product launches, or lead generation. Perfect for paid ads.</p>
+                    <p>
+                      High-converting single pages for campaigns, product launches, or lead generation. Perfect for paid
+                      ads.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Conversion-focused</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Fast load times</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> A/B testing ready</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Conversion-focused
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Fast load times
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> A/B testing ready
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/landing-pages">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/landing-pages">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -232,14 +265,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">Custom quote</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Web and mobile applications for your unique business needs. From simple tools to complex platforms.</p>
+                    <p>
+                      Web and mobile applications for your unique business needs. From simple tools to complex
+                      platforms.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Web & mobile apps</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Custom functionality</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Scalable architecture</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Web & mobile apps
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Custom functionality
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Scalable architecture
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/app-development">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/app-development">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -256,14 +300,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £299</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>User-centred design that looks beautiful and works intuitively. Wireframes, prototypes, and final designs.</p>
+                    <p>
+                      User-centred design that looks beautiful and works intuitively. Wireframes, prototypes, and final
+                      designs.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> User research</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Interactive prototypes</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Design systems</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> User research
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Interactive prototypes
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Design systems
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/ux-ui-design">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/ux-ui-design">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -282,12 +337,20 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>Calculators, trackers, CRMs, and internal tools built around how you actually work.</p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Tailored to your workflow</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Data dashboards</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Automation-ready</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Tailored to your workflow
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Data dashboards
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Automation-ready
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/personalised-apps">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/personalised-apps">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -303,12 +366,10 @@ const Services = () => {
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-violet-500/10 text-violet-700 border-violet-500/20">AI & Automation</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                AI That Works While You Sleep
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">AI That Works While You Sleep</h2>
               <p className="text-muted-foreground">
-                Chatbots, voice agents, and workflow automation that handle repetitive tasks, 
-                answer customer questions, and capture leads 24/7.
+                Chatbots, voice agents, and workflow automation that handle repetitive tasks, answer customer questions,
+                and capture leads 24/7.
               </p>
             </div>
 
@@ -324,14 +385,25 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £299</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Smart chatbots that answer FAQs, qualify leads, and book appointments automatically. Trained on your business.</p>
+                    <p>
+                      Smart chatbots that answer FAQs, qualify leads, and book appointments automatically. Trained on
+                      your business.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-violet-600" /> 24/7 availability</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-violet-600" /> Lead qualification</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-violet-600" /> CRM integration</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-violet-600" /> 24/7 availability
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-violet-600" /> Lead qualification
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-violet-600" /> CRM integration
+                      </li>
                     </ul>
                     <Button asChild size="sm" className="w-full mt-2 bg-violet-600 hover:bg-violet-700">
-                      <Link to="/ai-package">View AI Packages <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/ai-package">
+                        View AI Packages <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -348,14 +420,24 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £499</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Phone agents that handle calls, take bookings, and answer questions with natural conversation.</p>
+                    <p>
+                      Phone agents that handle calls, take bookings, and answer questions with natural conversation.
+                    </p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Natural speech</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Appointment booking</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Call transcripts</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Natural speech
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Appointment booking
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Call transcripts
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/ai-package">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/ai-package">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -374,12 +456,20 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>Automate repetitive tasks like data entry, email follow-ups, and report generation.</p>
                     <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Save hours weekly</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Reduce errors</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Connect your tools</li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Save hours weekly
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Reduce errors
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" /> Connect your tools
+                      </li>
                     </ul>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/ai-package">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/ai-package">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -395,9 +485,7 @@ const Services = () => {
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-amber-500/10 text-amber-700 border-amber-500/20">Branding & Design</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                Look Professional, Be Memorable
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Look Professional, Be Memorable</h2>
               <p className="text-muted-foreground">
                 From logos to complete brand identities — visual design that makes your business stand out.
               </p>
@@ -417,7 +505,9 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>Clean, memorable logos with 2–3 concepts and unlimited revisions until you're happy.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/logo-design">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/logo-design">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -434,9 +524,13 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £299</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Logo, colours, typography, and brand guidelines for a consistent, professional look everywhere.</p>
+                    <p>
+                      Logo, colours, typography, and brand guidelines for a consistent, professional look everywhere.
+                    </p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/branding">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/branding">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -455,7 +549,9 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>Professional website copy that sounds like you and converts visitors into customers.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/copywriting">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/copywriting">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -471,9 +567,7 @@ const Services = () => {
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-green-500/10 text-green-700 border-green-500/20">Digital Marketing</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                Get Found, Get Leads, Get Sales
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Get Found, Get Leads, Get Sales</h2>
               <p className="text-muted-foreground">
                 SEO, Google Ads, email marketing, and content that brings customers to your door.
               </p>
@@ -493,7 +587,9 @@ const Services = () => {
                   <CardContent className="text-sm text-muted-foreground">
                     <p>Rank higher on Google with keyword research, on-page optimisation, and local SEO.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-3">
-                      <Link to="/services/seo">Details <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/seo">
+                        Details <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -512,7 +608,9 @@ const Services = () => {
                   <CardContent className="text-sm text-muted-foreground">
                     <p>Paid advertising that brings immediate traffic and leads. Campaign setup and management.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-3">
-                      <Link to="/services/digital-marketing">Details <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/digital-marketing">
+                        Details <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -531,7 +629,9 @@ const Services = () => {
                   <CardContent className="text-sm text-muted-foreground">
                     <p>Newsletters, automation sequences, and email campaigns that nurture leads into customers.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-3">
-                      <Link to="/services/email-marketing">Details <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/email-marketing">
+                        Details <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -548,9 +648,14 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £199</p>
                   </CardHeader>
                   <CardContent className="text-sm text-muted-foreground">
-                    <p>Blog posts, articles, and content that establishes you as an authority and attracts organic traffic.</p>
+                    <p>
+                      Blog posts, articles, and content that establishes you as an authority and attracts organic
+                      traffic.
+                    </p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-3">
-                      <Link to="/services/content-marketing">Details <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/content-marketing">
+                        Details <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -566,9 +671,7 @@ const Services = () => {
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-slate-500/10 text-slate-700 border-slate-500/20">Support & Hosting</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                Keep Everything Running Smoothly
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Keep Everything Running Smoothly</h2>
               <p className="text-muted-foreground">
                 Hosting, maintenance, security updates, and ongoing support so you can focus on your business.
               </p>
@@ -586,9 +689,14 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £25/month</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>Regular updates, security patches, backups, and content changes. Priority support when you need it.</p>
+                    <p>
+                      Regular updates, security patches, backups, and content changes. Priority support when you need
+                      it.
+                    </p>
                     <Button asChild size="sm" className="w-full mt-2">
-                      <Link to="/services/maintenance-support">View Plans <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/maintenance-support">
+                        View Plans <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -607,7 +715,9 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>Fast, secure hosting with 99.9% uptime, SSL certificates, and daily backups included.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/web-hosting">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/web-hosting">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -626,7 +736,9 @@ const Services = () => {
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
                     <p>General tech support for small businesses — email setup, domain management, troubleshooting.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <Link to="/services/it-support">Learn More <ArrowRight className="ml-2 h-3 w-3" /></Link>
+                      <Link to="/services/it-support">
+                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -636,165 +748,37 @@ const Services = () => {
         </section>
 
         {/* ================================================================
-            SISTER BRAND: X15 PC BUILDERS
+            FINAL CTA
         ================================================================ */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
-          <Container>
-            <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
-              <Badge className="mb-3 bg-secondary/10 text-secondary border-secondary/20">Sister Brand</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
-                X15 PC Builders
-              </h2>
-              <p className="text-muted-foreground">
-                Custom PC builds, repairs, and maintenance services in the UK
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto fade-in-section">
-              {/* Custom PC Builds */}
-              <AnimatedSection staggerIndex={0} animation="scale">
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-10 h-10 rounded-lg bg-primary/10 items-center justify-center mb-2">
-                      <Server className="h-5 w-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">Custom PC Builds</CardTitle>
-                    <p className="text-lg font-bold text-primary">From £500</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p className="font-medium text-secondary">What's Included:</p>
-                    <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Custom component selection</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Professional assembly</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Cable management</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Initial setup & testing</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Windows installation</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> 1-year parts warranty</li>
-                    </ul>
-                    <p className="text-xs text-muted-foreground italic">
-                      Perfect for: Gaming, video editing, 3D rendering, or general use
-                    </p>
-                    <Button asChild size="sm" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                        View PC Builds <ArrowRight className="ml-2 h-3 w-3" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* PC Repairs */}
-              <AnimatedSection staggerIndex={1} animation="scale">
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-10 h-10 rounded-lg bg-amber-500/10 items-center justify-center mb-2">
-                      <Zap className="h-5 w-5 text-amber-600" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">PC Repairs</CardTitle>
-                    <p className="text-lg font-bold text-primary">From £40</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p className="font-medium text-secondary">What We Fix:</p>
-                    <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Hardware diagnostics</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Component replacement</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Software troubleshooting</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Virus & malware removal</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Performance upgrades</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Data recovery assistance</li>
-                    </ul>
-                    <p className="text-xs text-muted-foreground italic">
-                      Perfect for: When your PC isn't running right or won't start
-                    </p>
-                    <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                        Get a Repair Quote <ArrowRight className="ml-2 h-3 w-3" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              {/* Maintenance & Cleaning */}
-              <AnimatedSection staggerIndex={2} animation="scale">
-                <Card className="h-full hover-lift">
-                  <CardHeader className="pb-3">
-                    <div className="inline-flex w-10 h-10 rounded-lg bg-teal-500/10 items-center justify-center mb-2">
-                      <Wrench className="h-5 w-5 text-teal-600" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-secondary">Maintenance & Cleaning</CardTitle>
-                    <p className="text-lg font-bold text-primary">From £50</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p className="font-medium text-secondary">What's Included:</p>
-                    <ul className="space-y-1">
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Deep dust cleaning</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Thermal paste replacement</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Fan optimization</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Software updates</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Performance testing</li>
-                      <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Health check report</li>
-                    </ul>
-                    <p className="text-xs text-muted-foreground italic">
-                      Perfect for: Keeping your PC running smoothly and quietly
-                    </p>
-                    <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                        Book Maintenance <ArrowRight className="ml-2 h-3 w-3" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            </div>
-
-            <div className="text-center mt-8 fade-in-section">
-              <p className="text-muted-foreground mb-4">
-                X15 PC Builders is our sister brand specializing in custom PC solutions
-              </p>
-              <Button asChild>
-                <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </Container>
-        </section>
-
-        {/* ================================================================
-            NOT SURE WHICH SERVICE CTA
-        ================================================================ */}
-        <section className="relative py-16 md:py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border-t border-border/60">
+        <section className="relative py-16 md:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/60">
           <Container size="narrow" className="fade-in-section">
             <div className="text-center space-y-6">
-              <Badge className="bg-primary/20 text-primary border-primary/30">
-                Quick Plan in Under 24 Hours
-              </Badge>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary">
-                Not sure which <span className="text-primary">service</span> you actually need?
-              </h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary">Not Sure Where to Start?</h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Tell me where your business is now, and I'll recommend a simple path — 
-                website, AI, or both — with a clear price and timeline.
+                Tell us about your business and we'll recommend the right services — no pressure, no jargon.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link to="/start">
-                    Take 30-second Project Quiz
+                  <Link to="/contact">
+                    Get a Free Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/contact">
-                    Book Free Call
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  <a
+                    href="https://wa.me/447424062513?text=Hi%2C%20I%27d%20like%20to%20discuss%20my%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    WhatsApp Us
+                  </a>
                 </Button>
               </div>
 
               <p className="text-sm text-muted-foreground">
-                No pressure, no hard sell — just a clear plan for your website, app, or AI system.
+                We reply within 4 hours · No obligation · No sales pressure
               </p>
             </div>
           </Container>

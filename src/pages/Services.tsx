@@ -766,7 +766,7 @@ const Services = () => {
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-primary/10 items-center justify-center mb-2">
-                      <Server className="h-5 w-5 text-primary" />
+                      <HardDrive className="h-5 w-5 text-primary" />
                     </div>
                     <CardTitle className="text-lg font-semibold text-secondary">Custom PC Builds</CardTitle>
                     <p className="text-lg font-bold text-primary">From £500</p>

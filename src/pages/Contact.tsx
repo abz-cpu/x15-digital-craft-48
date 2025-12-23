@@ -199,7 +199,7 @@ const Contact = () => {
       {/* ====================================================================
           HERO
       ==================================================================== */}
-      <section className="pt-28 pb-10 md:pt-32 md:pb-14 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-36 pb-12 md:pt-44 md:pb-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-5 leading-tight">
             Let's Talk About Your Project
@@ -559,16 +559,17 @@ const Contact = () => {
                     </a>
                   </Button>
 
-                  <div className="mt-4 rounded-xl border border-border/70 bg-muted/30 p-4">
-                    <p className="text-sm font-medium text-secondary mb-1">Not sure what you need?</p>
+                  <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4">
+                    <p className="text-sm font-medium text-secondary mb-1">Prefer to explain it on a call?</p>
                     <p className="text-sm text-muted-foreground">
-                      Use our quiz for a quick recommendation, or book a free call.
+                      Book a free 15-min call and we'll discuss your project together.
                     </p>
                     <div className="mt-3 flex flex-col sm:flex-row gap-2">
-                      <Button variant="outline" className="w-full" onClick={openQuiz}>
+                      <Button variant="outline" className="flex-1" onClick={openQuiz}>
                         Take 30-sec quiz
                       </Button>
-                      <Button className="w-full" onClick={() => setIsCalendlyOpen(true)}>
+                      <Button className="flex-1" onClick={() => setIsCalendlyOpen(true)}>
+                        <Phone className="h-4 w-4 mr-2" />
                         Book free call
                       </Button>
                     </div>
@@ -694,7 +695,7 @@ const Contact = () => {
       {/* ====================================================================
           LOCATION (Full-width, no empty space)
       ==================================================================== */}
-      <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="pt-16 pb-12 md:pt-20 md:pb-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto fade-in-section">
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">

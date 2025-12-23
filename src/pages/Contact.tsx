@@ -18,6 +18,7 @@ import {
   FileText,
   ListChecks,
   ShieldCheck,
+  Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -225,6 +226,7 @@ const Contact = () => {
             </Button>
 
             <Button size="lg" variant="outline" onClick={() => setIsCalendlyOpen(true)} className="shadow-sm">
+              <Calendar className="h-4 w-4 mr-2" />
               Book a Free Call
             </Button>
           </div>
@@ -490,8 +492,18 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <Button variant="outline" className="mt-5 w-full" onClick={() => setIsCalendlyOpen(true)}>
-                    Prefer to explain it on a call? Book free call <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button 
+                    variant="outline" 
+                    className="mt-5 w-full text-sm py-3 h-auto whitespace-normal leading-snug" 
+                    onClick={() => setIsCalendlyOpen(true)}
+                  >
+                    <span className="flex items-center justify-center gap-2 flex-wrap">
+                      <span>Prefer to explain it on a call?</span>
+                      <span className="font-semibold flex items-center gap-1">
+                        <Calendar className="h-4 w-4" />
+                        Book free call
+                      </span>
+                    </span>
                   </Button>
                 </CardContent>
               </Card>
@@ -693,9 +705,9 @@ const Contact = () => {
       </section>
 
       {/* ====================================================================
-          LOCATION (Full-width, reduced top spacing)
+          LOCATION (Full-width, balanced spacing)
       ==================================================================== */}
-      <section className="pt-6 pb-12 md:pt-8 md:pb-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="pt-10 pb-12 md:pt-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto fade-in-section">
           <Card className="border border-border/70 shadow-sm">
             <CardContent className="p-6 md:p-7">

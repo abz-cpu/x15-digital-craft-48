@@ -142,7 +142,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   ];
 
   const navLinks = [
-    { name: "Portfolio", path: "/portfolio" },
+    { name: "Case Studies", path: "/portfolio" },
     { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
   ];

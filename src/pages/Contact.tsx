@@ -899,20 +899,24 @@ const Contact = () => {
       {/* ====================================================================
           STILL DECIDING CTA
       ==================================================================== */}
-      <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
-          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Still deciding?</h2>
-          <p className="text-base md:text-lg text-muted-foreground mb-6">
+          <h3 className="text-2xl font-bold text-secondary mb-3">Still deciding?</h3>
+          <p className="text-muted-foreground mb-6">
             No stress. Browse our packages or take a quick quiz to see what fits your needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <Button asChild size="lg" variant="outline" className="min-w-[180px]">
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild variant="outline" size="lg">
               <Link to="/services">
                 View Packages <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" className="min-w-[180px] bg-primary hover:bg-primary/90" onClick={openQuiz}>
-              Take 30s Quiz <Zap className="ml-2 h-4 w-4" />
+
+            <Button asChild size="lg">
+              <Link to="/start">
+                Take 30s Quiz <Zap className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

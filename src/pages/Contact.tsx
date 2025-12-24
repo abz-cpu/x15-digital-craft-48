@@ -514,7 +514,7 @@ const Contact = () => {
           <div className="lg:col-span-5 space-y-6">
             {/* Direct reach card */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 md:p-9">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-semibold text-secondary">Reach us directly</h3>
@@ -592,7 +592,7 @@ const Contact = () => {
 
             {/* Response times + mini process card */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 md:p-9">
                 <h3 className="text-lg font-semibold text-secondary">Response times & process</h3>
 
                 <div className="mt-5 space-y-3">
@@ -659,14 +659,14 @@ const Contact = () => {
 
             {/* ✅ Send a quick brief (optional) */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 md:p-9">
                 <h3 className="text-base font-semibold text-secondary">Send a quick brief (optional)</h3>
                 <p className="text-sm text-muted-foreground mt-1">
                   Want the fastest quote? Paste this into your message:
                 </p>
 
-                <div className="mt-5 rounded-xl border border-border/70 bg-muted/30 p-4">
-                  <div className="space-y-2 text-sm">
+                <div className="mt-5 rounded-xl border border-border/70 bg-muted/30 p-5">
+                  <div className="space-y-3 text-sm">
                     {[
                       "Business type + what you sell",
                       "Main goal (leads, bookings, sales)",
@@ -681,13 +681,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-5 rounded-xl border border-primary/10 bg-primary/5 p-4">
+                <div className="mt-5 rounded-xl border border-primary/10 bg-primary/5 p-5">
                   <p className="text-sm text-muted-foreground">
                     <span className="font-medium text-secondary">Tip:</span> If you paste even rough notes, we'll reply with the cleanest next steps.
                   </p>
                 </div>
 
-                <div className="mt-5 flex flex-col sm:flex-row gap-2">
+                <div className="mt-6 flex flex-col sm:flex-row gap-2">
                   <Button asChild variant="outline" className="w-full">
                     <a href="mailto:info@x15digital.co.uk?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
                       Email brief <ArrowRight className="ml-2 h-4 w-4" />

@@ -17,56 +17,42 @@ import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import x15pcbuilders from "@/assets/x15pcbuilders-screenshot-new.png";
-const portfolioItems = [
-  {
-    id: "x15-pc-builders",
-    title: "X15 PC Builders",
-    category: "Scale Package • PC Building",
-    type: "Scale",
-    features: [
-      "Custom PC building services showcase",
-      "FAQ section with common questions",
-      "Lead capture forms",
-      "Service pages with pricing",
-    ],
-    timeline: "10-14 days",
-    tech: "React, Tailwind CSS, SEO optimised",
-    image: x15pcbuilders,
-    isLive: true,
-    liveUrl: "https://x15pcbuilders.co.uk",
-  },
-  {
-    id: "elite-salon",
-    title: "Elite Salon",
-    category: "Growth Package • Professional Services",
-    type: "Growth",
-    features: ["Online booking integration", "Service gallery", "Staff profiles", "Contact forms"],
-    timeline: "5-7 days",
-    tech: "React, Tailwind CSS, Booking system",
-    image: portfolioSalon,
-    isLive: false,
-  },
-  {
-    id: "local-plumber",
-    title: "Local Plumber",
-    category: "Foundation Package • Local Business",
-    type: "Foundation",
-    features: ["Single-page lead generation", "Clear call-to-actions", "Service area map", "Contact form"],
-    timeline: "48 hours",
-    tech: "React, Tailwind CSS, Mobile-first",
-    image: portfolioPlumbing,
-    isLive: false,
-  },
-];
+const portfolioItems = [{
+  id: "x15-pc-builders",
+  title: "X15 PC Builders",
+  category: "Scale Package • PC Building",
+  type: "Scale",
+  features: ["Custom PC building services showcase", "FAQ section with common questions", "Lead capture forms", "Service pages with pricing"],
+  timeline: "10-14 days",
+  tech: "React, Tailwind CSS, SEO optimised",
+  image: x15pcbuilders,
+  isLive: true,
+  liveUrl: "https://x15pcbuilders.co.uk"
+}, {
+  id: "elite-salon",
+  title: "Elite Salon",
+  category: "Growth Package • Professional Services",
+  type: "Growth",
+  features: ["Online booking integration", "Service gallery", "Staff profiles", "Contact forms"],
+  timeline: "5-7 days",
+  tech: "React, Tailwind CSS, Booking system",
+  image: portfolioSalon,
+  isLive: false
+}, {
+  id: "local-plumber",
+  title: "Local Plumber",
+  category: "Foundation Package • Local Business",
+  type: "Foundation",
+  features: ["Single-page lead generation", "Clear call-to-actions", "Service area map", "Contact form"],
+  timeline: "48 hours",
+  tech: "React, Tailwind CSS, Mobile-first",
+  image: portfolioPlumbing,
+  isLive: false
+}];
 const WebPackage = () => {
   const [selectedProject, setSelectedProject] = useState<(typeof portfolioItems)[0] | null>(null);
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SEO
-        title="Web Development Packages | X15 Digital"
-        description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything."
-        canonicalUrl="https://x15.digital/web-package"
-      />
+  return <div className="min-h-screen flex flex-col">
+      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything." canonicalUrl="https://x15.digital/web-package" />
 
       <Navigation darkHero />
 
@@ -74,21 +60,13 @@ const WebPackage = () => {
         {/* 1. HERO */}
         <section className="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           {/* Subtle gradient overlay */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 opacity-30 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent)",
-            }}
-          />
+          <div aria-hidden="true" className="absolute inset-0 opacity-30 pointer-events-none" style={{
+          background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent)"
+        }} />
           {/* Background image overlay */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-25 pointer-events-none"
-            style={{
-              backgroundImage: "url('/website.png')",
-            }}
-          />
+          <div aria-hidden="true" className="absolute inset-0 bg-cover bg-no-repeat bg-[center_25%] md:bg-[center_35%] lg:bg-center opacity-25 pointer-events-none" style={{
+          backgroundImage: "url('/website.png')"
+        }} />
 
           <Container>
             {/* Keep content above background */}
@@ -115,23 +93,14 @@ const WebPackage = () => {
 
               {/* Hero CTAs */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-teal-500 text-white hover:bg-teal-400 font-semibold tracking-tight shadow-[0_8px_30px_rgba(20,184,166,0.3)] hover:shadow-[0_12px_40px_rgba(20,184,166,0.4)] transition-all"
-                >
+                <Button asChild size="lg" className="bg-teal-500 text-white hover:bg-teal-400 font-semibold tracking-tight shadow-[0_8px_30px_rgba(20,184,166,0.3)] hover:shadow-[0_12px_40px_rgba(20,184,166,0.4)] transition-all">
                   <Link to="/quick-start">
                     Start Your Project
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
 
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-slate-400 text-white bg-white/10 hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all duration-300"
-                >
+                <Button asChild size="lg" variant="outline" className="border-slate-400 text-white bg-white/10 hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all duration-300">
                   <Link to="/contact">
                     Book Free Call
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -220,14 +189,12 @@ const WebPackage = () => {
 
               {/* GROWTH TIER (MOST POPULAR) */}
               <AnimatedSection staggerIndex={1} animation="scale">
-                <Card
-                  className="
+                <Card className="
                     hover-lift relative h-full bg-white border border-primary/40
                     shadow-md shadow-primary/20 lg:-mt-2
                     transition-all duration-200
                     hover:border-[#F59E0B] hover:shadow-lg hover:shadow-[#F59E0B]/30
-                  "
-                >
+                  ">
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F59E0B] text-black font-semibold px-3 py-1 text-[11px] tracking-wide">
                     ⭐ MOST POPULAR
                   </Badge>
@@ -367,21 +334,16 @@ const WebPackage = () => {
                 <span className="text-sm font-medium text-secondary">Need ongoing support?</span>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                <a 
-                  href="#support-maintenance" 
-                  className="text-sm font-semibold text-teal-700 hover:text-teal-900 underline underline-offset-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('support-maintenance')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
+                <a href="#support-maintenance" className="text-sm font-semibold text-teal-700 hover:text-teal-900 underline underline-offset-2" onClick={e => {
+                e.preventDefault();
+                document.getElementById('support-maintenance')?.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }}>
                   Support & Maintenance from £25/month ↓
                 </a>
                 <span className="hidden sm:inline text-muted-foreground">|</span>
-                <Link 
-                  to="/services/maintenance-support" 
-                  className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-2"
-                >
+                <Link to="/services/maintenance-support" className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-2">
                   Learn more →
                 </Link>
               </div>
@@ -570,16 +532,14 @@ const WebPackage = () => {
                 <AnimatedSection staggerIndex={1} animation="scale">
                   <Card id="support-maintenance" className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24">
                     {/* MATCHED BADGE (same style & placement as Hosting + Support) */}
-                    <Badge
-                      className="absolute -top-3 left-4
+                    <Badge className="absolute -top-3 left-4
                  inline-flex items-center gap-1
                  rounded-full bg-white
                  text-[#0F766E]
                  border border-[#0F766E]/30
                  shadow-sm
                  px-3 py-1
-                 text-[11px] font-medium tracking-wide"
-                    >
+                 text-[11px] font-medium tracking-wide">
                       <span className="text-xs">💼</span>
                       STRESS-FREE CHOICE
                     </Badge>
@@ -635,10 +595,7 @@ const WebPackage = () => {
                           <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
                           Works with any hosting provider
                         </p>
-                        <Link 
-                          to="/services/maintenance-support" 
-                          className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2"
-                        >
+                        <Link to="/services/maintenance-support" className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2">
                           <ArrowRight className="h-3.5 w-3.5" />
                           View full maintenance details
                         </Link>
@@ -785,18 +742,9 @@ const WebPackage = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              {portfolioItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setSelectedProject(item)}
-                  className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left"
-                >
+              {portfolioItems.map(item => <button key={item.id} onClick={() => setSelectedProject(item)} className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left">
                   <div className="aspect-[4/3] bg-slate-100">
-                    <img
-                      src={item.image}
-                      alt={`${item.title} Website`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                    <img src={item.image} alt={`${item.title} Website`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -806,8 +754,7 @@ const WebPackage = () => {
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-white/80">Click to view details</p>
                   </div>
-                </button>
-              ))}
+                </button>)}
             </div>
 
             <div className="text-center">
@@ -819,14 +766,7 @@ const WebPackage = () => {
             </div>
 
             {/* Portfolio Modal */}
-            {selectedProject && (
-              <PortfolioModal
-                isOpen={!!selectedProject}
-                onClose={() => setSelectedProject(null)}
-                project={selectedProject}
-                imageSrc={selectedProject.image}
-              />
-            )}
+            {selectedProject && <PortfolioModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} project={selectedProject} imageSrc={selectedProject.image} />}
           </Container>
         </section>
 
@@ -853,11 +793,7 @@ const WebPackage = () => {
                   <Link to="/blog/cheap-websites" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={blogWebDevHero}
-                        alt="Code editor next to website builder showing the hidden costs of cheap websites"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <img src={blogWebDevHero} alt="Code editor next to website builder showing the hidden costs of cheap websites" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -889,11 +825,7 @@ const WebPackage = () => {
                   <Link to="/blog/offshore-development-risks" className="flex flex-col h-full">
                     {/* Image */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <img
-                        src={blogOffshoreRisks}
-                        alt="Laptop with red warning sign and UK flag representing offshore development risks"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <img src={blogOffshoreRisks} alt="Laptop with red warning sign and UK flag representing offshore development risks" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         Web Development
@@ -959,9 +891,7 @@ const WebPackage = () => {
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">From £50/month</p>
                   <Button asChild variant="outline" className="w-full">
-                    <Link to="/ai-package">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    
                   </Button>
                 </CardContent>
               </Card>
@@ -978,9 +908,7 @@ const WebPackage = () => {
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">From £100/month</p>
                   <Button asChild variant="outline" className="w-full">
-                    <Link to="/ai-package">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    
                   </Button>
                 </CardContent>
               </Card>
@@ -997,9 +925,7 @@ const WebPackage = () => {
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">Custom pricing</p>
                   <Button asChild variant="outline" className="w-full">
-                    <Link to="/ai-package">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    
                   </Button>
                 </CardContent>
               </Card>
@@ -1179,29 +1105,23 @@ const WebPackage = () => {
             {/* Dual CTAs – same UX/UI as AI final CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               {/* Primary: Start Your Project */}
-              <Link
-                to="/quick-start"
-                className="group flex items-center justify-center gap-2
+              <Link to="/quick-start" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           bg-gradient-to-r from-primary via-teal-500 to-primary
           text-primary-foreground shadow-md hover:shadow-lg
           hover:scale-[1.015] active:scale-[0.97]
-          transition-all"
-              >
+          transition-all">
                 Start Your Project
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Secondary: Book Free Consultation */}
-              <Link
-                to="/contact"
-                className="group flex items-center justify-center gap-2
+              <Link to="/contact" className="group flex items-center justify-center gap-2
           h-12 px-6 text-sm font-semibold rounded-xl
           border border-border bg-background/70
           text-ink hover:border-primary hover:bg-primary/5 hover:text-primary
           shadow-sm hover:shadow-md hover:scale-[1.015]
-          active:scale-[0.97] transition-all"
-              >
+          active:scale-[0.97] transition-all">
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -1216,7 +1136,6 @@ const WebPackage = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default WebPackage;

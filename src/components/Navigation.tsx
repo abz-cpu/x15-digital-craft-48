@@ -116,11 +116,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       ],
     },
     support: {
-      title: "Support & Hosting",
+      title: "Support & AI",
       items: [
         { name: "Web Hosting", path: "/services/web-hosting", desc: "Fast, secure hosting" },
         { name: "Maintenance & Support", path: "/services/maintenance-support", desc: "Ongoing website care" },
         { name: "IT Support", path: "/services/it-support", desc: "Technical assistance" },
+        { name: "AI Solutions", path: "/ai-package", desc: "Smart automation tools" },
       ],
     },
   };

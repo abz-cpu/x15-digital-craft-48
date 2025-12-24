@@ -830,6 +830,28 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Personalised Apps Promo - Subtle Banner */}
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-teal-50/30 to-slate-50 border-y border-border/40">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-xl bg-teal-100 flex items-center justify-center shrink-0">
+                <Smartphone className="h-6 w-6 text-teal-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">Need a Custom Business Tool?</h3>
+                <p className="text-sm text-slate-600">Invoice trackers, finance managers, booking systems — built just for you.</p>
+              </div>
+            </div>
+            <Button asChild variant="outline" className="shrink-0 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-800">
+              <Link to="/services/personalised-apps">
+                Explore Personalised Apps <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"

@@ -514,7 +514,7 @@ const Contact = () => {
           <div className="lg:col-span-5 space-y-6">
             {/* Direct reach card */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-6 md:p-7">
+              <CardContent className="p-6 md:p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-semibold text-secondary">Reach us directly</h3>
@@ -526,7 +526,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-5 space-y-3">
+                <div className="mt-6 space-y-3">
                   {/* WhatsApp */}
                   <Button asChild size="lg" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm">
                     <a
@@ -571,7 +571,7 @@ const Contact = () => {
                     </a>
                   </Button>
 
-                  <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4">
+                  <div className="mt-5 rounded-xl border border-primary/20 bg-primary/5 p-4">
                     <p className="text-sm font-medium text-secondary mb-1">Prefer to explain it on a call?</p>
                     <p className="text-sm text-muted-foreground">
                       Book a free 15-min call and we'll discuss your project together.
@@ -592,10 +592,10 @@ const Contact = () => {
 
             {/* Response times + mini process card */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-6 md:p-7">
+              <CardContent className="p-6 md:p-8">
                 <h3 className="text-lg font-semibold text-secondary">Response times & process</h3>
 
-                <div className="mt-4 space-y-3">
+                <div className="mt-5 space-y-3">
                   <div className="flex items-center gap-3 text-sm">
                     <Clock className="h-4 w-4 text-primary" />
                     <span className="text-secondary font-medium">Mon–Fri:</span>
@@ -613,14 +613,14 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+                <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
                   <p className="text-sm font-semibold text-secondary flex items-center gap-2">
                     <MessageCircle className="h-4 w-4 text-emerald-700" />
                     WhatsApp: instant during business hours (9am–6pm GMT)
                   </p>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-7">
                   <p className="text-sm font-semibold text-secondary mb-3">What happens next</p>
                   <div className="space-y-3">
                     {[
@@ -646,7 +646,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+                <div className="mt-7 pt-5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
                   <span className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-emerald-600" /> No obligation quotes
                   </span>
@@ -657,15 +657,15 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* ✅ NEW: Send a quick brief (optional) - correctly placed INSIDE sidebar */}
+            {/* ✅ Send a quick brief (optional) */}
             <Card className="border border-border/70 shadow-sm">
-              <CardContent className="p-5 md:p-6">
+              <CardContent className="p-6 md:p-8">
                 <h3 className="text-base font-semibold text-secondary">Send a quick brief (optional)</h3>
                 <p className="text-sm text-muted-foreground mt-1">
                   Want the fastest quote? Paste this into your message:
                 </p>
 
-                <div className="mt-4 rounded-xl border border-border/70 bg-muted/30 p-4">
+                <div className="mt-5 rounded-xl border border-border/70 bg-muted/30 p-4">
                   <div className="space-y-2 text-sm">
                     {[
                       "Business type + what you sell",
@@ -681,7 +681,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                <div className="mt-5 rounded-xl border border-primary/10 bg-primary/5 p-4">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-medium text-secondary">Tip:</span> If you paste even rough notes, we'll reply with the cleanest next steps.
+                  </p>
+                </div>
+
+                <div className="mt-5 flex flex-col sm:flex-row gap-2">
                   <Button asChild variant="outline" className="w-full">
                     <a href="mailto:info@x15digital.co.uk?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
                       Email brief <ArrowRight className="ml-2 h-4 w-4" />
@@ -698,6 +704,10 @@ const Contact = () => {
                     </a>
                   </Button>
                 </div>
+
+                <p className="mt-4 text-xs text-muted-foreground text-center">
+                  Prefer a call? <button onClick={() => setIsCalendlyOpen(true)} className="text-primary hover:underline font-medium">Book 15-min free call</button>
+                </p>
               </CardContent>
             </Card>
           </div>

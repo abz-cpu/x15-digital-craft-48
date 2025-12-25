@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
-import { PortfolioModal } from "@/components/PortfolioModal";
+import { DeviceMockupModal } from "@/components/DeviceMockupModal";
+import { LaptopMockup } from "@/components/LaptopMockup";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
@@ -741,18 +742,23 @@ const WebPackage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-10">
-              {portfolioItems.map(item => <button key={item.id} onClick={() => setSelectedProject(item)} className="group relative overflow-hidden rounded-xl border border-border hover:shadow-2xl transition-all duration-300 text-left">
-                  <div className="aspect-[4/3] bg-slate-100">
-                    <img src={item.image} alt={`${item.title} Website`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div className="grid md:grid-cols-3 gap-8 mb-10">
+              {portfolioItems.map(item => <button key={item.id} onClick={() => setSelectedProject(item)} className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 via-slate-50 to-white p-6 border border-border hover:shadow-2xl hover:border-primary/30 transition-all duration-300 text-left">
+                  {/* Laptop Mockup */}
+                  <div className="mb-4">
+                    <LaptopMockup 
+                      imageSrc={item.image} 
+                      alt={`${item.title} Website`}
+                      className="transform group-hover:scale-[1.02] transition-transform duration-300"
+                    />
                   </div>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <p className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold mb-2">
+                  {/* Title & Info */}
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-wider text-primary font-semibold">
                       {item.category}
                     </p>
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-sm text-white/80">Click to view details</p>
+                    <h3 className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">Click to view details →</p>
                   </div>
                 </button>)}
             </div>
@@ -766,7 +772,7 @@ const WebPackage = () => {
             </div>
 
             {/* Portfolio Modal */}
-            {selectedProject && <PortfolioModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} project={selectedProject} imageSrc={selectedProject.image} />}
+            {selectedProject && <DeviceMockupModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} project={selectedProject} imageSrc={selectedProject.image} />}
           </Container>
         </section>
 

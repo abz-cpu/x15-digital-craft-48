@@ -176,7 +176,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
   const getActiveClass = (path: string) => {
     const basePath = path.split("#")[0];
-    return location.pathname === basePath ? "font-semibold" : "";
+    const isActive = location.pathname === basePath || 
+      (basePath !== "/" && location.pathname.startsWith(basePath));
+    return isActive ? "font-semibold text-primary" : "";
   };
 
   // Determine text color based on scroll state and dark hero

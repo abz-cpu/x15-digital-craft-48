@@ -53,8 +53,13 @@ import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 import { ServiceMockup } from "@/components/ServiceMockup";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { DeviceMockup } from "@/components/DeviceMockup";
+import { LaptopMockup } from "@/components/LaptopMockup";
+import { DeviceMockupModal } from "@/components/DeviceMockupModal";
 import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
+import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
+import portfolioSalon from "@/assets/portfolio-salon.png";
+import portfolioChatbot from "@/assets/portfolio-chatbot.png";
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -66,6 +71,7 @@ const Index = () => {
   const currentMonth = new Date().toLocaleString("en-GB", { month: "long" });
 
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [selectedPortfolioProject, setSelectedPortfolioProject] = useState<any | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -884,72 +890,103 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {[
+          {/* Portfolio items with mockups */}
+          {(() => {
+            const portfolioProjects = [
               {
+                id: "x15-pc",
                 title: "X15 PC Builders",
-                features: ["Professional showcase website", "Service packages display", "Build request form"],
+                category: "Web Development",
+                type: "Scale Package",
+                features: ["Professional showcase website", "Service packages display", "Build request form", "SEO optimization", "Fast loading performance"],
                 timeline: "LIVE PROJECT",
                 tech: "React, Tailwind CSS",
                 isLive: true,
+                liveUrl: "https://x15pcbuilders.co.uk",
+                image: x15Screenshot,
                 badge: "Live Client Project",
               },
               {
+                id: "elite-salon",
                 title: "Elite Salon Website",
-                features: ["Professional booking system", "Mobile-responsive design", "Payment integration"],
+                category: "Web Development",
+                type: "Growth Package",
+                features: ["Professional booking system", "Mobile-responsive design", "Payment integration", "Service gallery", "Contact forms"],
                 timeline: "5–7 days",
                 tech: "React, Stripe, Calendly",
+                image: portfolioSalon,
                 badge: "Capability Example",
               },
               {
+                id: "ai-chatbot",
                 title: "AI Chatbot Integration",
-                features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)"],
+                category: "AI Automation",
+                type: "AI Solution",
+                features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)", "Custom training", "Analytics dashboard"],
                 timeline: "2–4 days",
                 tech: "OpenAI, Custom API",
+                image: portfolioChatbot,
                 badge: "Capability Example",
               },
-            ].map((project, index) => (
-              <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-                <Card className="hover-lift">
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 mb-4">
-                      {project.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="text-sm text-muted-foreground space-y-1 mb-4">
-                      <p>
-                        <strong>Timeline:</strong> {project.timeline}
-                      </p>
-                      <p>
-                        <strong>Tech:</strong> {project.tech}
-                      </p>
-                    </div>
-                    {project.isLive ? (
-                      <div className="space-y-2">
-                        <Button asChild variant="default" className="w-full">
-                          <Link to="/portfolio">
-                            View Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    ) : (
-                      <Button asChild variant="outline" className="w-full">
-                        <Link to="/portfolio">View Full Portfolio →</Link>
-                      </Button>
-                    )}
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
+            ];
+
+            return (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                  {portfolioProjects.map((project, index) => (
+                    <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
+                      <Card 
+                        className="hover-lift cursor-pointer overflow-hidden group"
+                        onClick={() => setSelectedPortfolioProject(project)}
+                      >
+                        {/* Laptop Mockup */}
+                        <div className="p-4 bg-gradient-to-br from-slate-100 via-slate-50 to-white">
+                          <LaptopMockup 
+                            imageSrc={project.image} 
+                            alt={`${project.title} Website`}
+                            className="transform group-hover:scale-[1.02] transition-transform duration-300"
+                          />
+                        </div>
+                        <CardHeader className="pt-4">
+                          <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                          <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2 mb-4">
+                            {project.features.slice(0, 3).map((feature) => (
+                              <li key={feature} className="flex items-start gap-2">
+                                <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                                <span className="text-sm">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="text-sm text-muted-foreground space-y-1 mb-4">
+                            <p>
+                              <strong>Timeline:</strong> {project.timeline}
+                            </p>
+                            <p>
+                              <strong>Tech:</strong> {project.tech}
+                            </p>
+                          </div>
+                          <p className="text-sm text-primary font-medium">Click to view details →</p>
+                        </CardContent>
+                      </Card>
+                    </AnimatedSection>
+                  ))}
+                </div>
+
+                {/* Device Mockup Modal */}
+                {selectedPortfolioProject && (
+                  <DeviceMockupModal
+                    isOpen={!!selectedPortfolioProject}
+                    onClose={() => setSelectedPortfolioProject(null)}
+                    project={selectedPortfolioProject}
+                    imageSrc={selectedPortfolioProject.image}
+                  />
+                )}
+              </>
+            );
+          })()}
         </div>
       </section>
 

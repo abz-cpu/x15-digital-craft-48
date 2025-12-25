@@ -12,7 +12,7 @@ import voiceImage from "@/assets/portfolio-voice.png";
 import restaurantImage from "@/assets/portfolio-restaurant.png";
 import salesImage from "@/assets/portfolio-sales.png";
 import { Button } from "@/components/ui/button";
-import { PortfolioModal } from "@/components/PortfolioModal";
+import { DeviceMockupModal } from "@/components/DeviceMockupModal";
 import { X15CaseStudyModal } from "@/components/X15CaseStudyModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +25,7 @@ import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
+import { LaptopMockup } from "@/components/LaptopMockup";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
 
@@ -304,31 +305,39 @@ const Portfolio = () => {
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item) => (
-              <Card key={item.id} className="hover-lift fade-in-section">
+              <Card key={item.id} className="hover-lift fade-in-section overflow-hidden">
                 <div 
-                  className="h-48 bg-muted rounded-t-lg flex items-center justify-center relative overflow-hidden group cursor-pointer"
+                  className="relative p-4 bg-gradient-to-br from-slate-100 via-slate-50 to-white cursor-pointer group"
                   onClick={() => item.id === 0 ? setShowX15CaseStudy(true) : setSelectedProject(item)}
                 >
                   {item.isLive && (
                     <Badge className="absolute top-3 right-3 bg-green-500 text-white z-10">LIVE</Badge>
                   )}
                   {item.image && portfolioImages[item.image] ? (
-                    <LazyImage 
-                      src={portfolioImages[item.image]} 
-                      alt={`${item.title} Website Mockup`} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    <LaptopMockup 
+                      imageSrc={portfolioImages[item.image]} 
+                      alt={`${item.title} Website Mockup`}
+                      className="transform group-hover:scale-[1.02] transition-transform duration-300"
                     />
                   ) : item.category === "ai" ? (
-                    <Bot className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    <div className="h-48 flex items-center justify-center">
+                      <Bot className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    </div>
                   ) : item.category === "ecommerce" ? (
-                    <ShoppingBag className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    <div className="h-48 flex items-center justify-center">
+                      <ShoppingBag className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    </div>
                   ) : item.category === "webapp" ? (
-                    <Code className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    <div className="h-48 flex items-center justify-center">
+                      <Code className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    </div>
                   ) : (
-                    <Globe className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    <div className="h-48 flex items-center justify-center">
+                      <Globe className="h-24 w-24 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    </div>
                   )}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center rounded-t-lg">
+                    <span className="text-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold bg-white/90 px-3 py-1 rounded-full text-sm">
                       Click to view details
                     </span>
                   </div>
@@ -413,7 +422,7 @@ const Portfolio = () => {
       
       {/* Modals */}
       {selectedProject && (
-        <PortfolioModal
+        <DeviceMockupModal
           isOpen={!!selectedProject}
           onClose={() => setSelectedProject(null)}
           project={selectedProject}

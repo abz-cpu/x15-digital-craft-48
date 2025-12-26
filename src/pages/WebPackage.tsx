@@ -886,51 +886,51 @@ const WebPackage = () => {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
               {/* AI Chatbot */}
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+              <Card className="text-center hover:shadow-lg transition-shadow h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4 self-center">
                     <MessageSquare className="h-8 w-8 text-[#0F766E]" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">AI Website Chatbot</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 flex-grow">
                     Answers questions 24/7 and captures leads while you sleep.
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">From £50/month</p>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full mt-auto">
                     
                   </Button>
                 </CardContent>
               </Card>
 
               {/* AI Receptionist */}
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+              <Card className="text-center hover:shadow-lg transition-shadow h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4 self-center">
                     <Phone className="h-8 w-8 text-[#0F766E]" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">AI Phone Receptionist</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 flex-grow">
                     Never miss a call again — bookings and enquiries handled for you.
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">From £100/month</p>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full mt-auto">
                     
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Custom Automation */}
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4">
+              <Card className="text-center hover:shadow-lg transition-shadow h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="inline-flex p-3 rounded-lg bg-[#0F766E]/10 mb-4 self-center">
                     <Briefcase className="h-8 w-8 text-[#0F766E]" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Custom AI Solution</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 flex-grow">
                     Built around your workflows — from inbox to operations.
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">Custom pricing</p>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full mt-auto">
                     
                   </Button>
                 </CardContent>

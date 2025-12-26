@@ -181,6 +181,23 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     return isActive ? "font-semibold text-primary" : "";
   };
 
+  // Check if any item in a dropdown is active (for parent menu highlighting)
+  const isDropdownActive = (items: Array<{ path: string }>) => {
+    return items.some(item => {
+      const basePath = item.path.split("#")[0];
+      return location.pathname === basePath || 
+        (basePath !== "/" && location.pathname.startsWith(basePath));
+    });
+  };
+
+  // Get all services paths for parent highlighting
+  const allServicesPaths = [
+    ...servicesMenu.webDesign.items,
+    ...servicesMenu.ecommerce.items,
+    ...servicesMenu.branding.items,
+    ...servicesMenu.support.items,
+  ];
+
   // Determine text color based on scroll state and dark hero
   const getNavTextClass = () => {
     if (isScrolled) {
@@ -337,11 +354,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 
                 {/* Services Dropdown */}
                 <div className="relative">
-                  <button
+                <button
                     ref={servicesButtonRef}
                     className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
-                      activeDropdown === "services" ? "text-primary" : ""
-                    }`}
+                      activeDropdown === "services" || isDropdownActive(allServicesPaths) ? "text-primary" : ""
+                    } ${isDropdownActive(allServicesPaths) ? "border-b-2 border-primary pb-1" : ""}`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
@@ -484,8 +501,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <button
                     ref={platformsButtonRef}
                     className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
-                      activeDropdown === "platforms" ? "text-primary" : ""
-                    }`}
+                      activeDropdown === "platforms" || isDropdownActive(platformsMenu) ? "text-primary" : ""
+                    } ${isDropdownActive(platformsMenu) ? "border-b-2 border-primary pb-1" : ""}`}
                     onMouseEnter={() => handleDropdownEnter("platforms")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")}
@@ -548,8 +565,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <button
                     ref={sectorsButtonRef}
                     className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
-                      activeDropdown === "sectors" ? "text-primary" : ""
-                    }`}
+                      activeDropdown === "sectors" || isDropdownActive(sectorsMenu) ? "text-primary" : ""
+                    } ${isDropdownActive(sectorsMenu) ? "border-b-2 border-primary pb-1" : ""}`}
                     onMouseEnter={() => handleDropdownEnter("sectors")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "sectors" ? null : "sectors")}

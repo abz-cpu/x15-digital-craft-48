@@ -292,50 +292,197 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* L&D Monogram Icon - Modern interlocking design with paint splash */}
+              {/* L&D Monogram Icon — matched to your logo (interlocking L + D + paint stroke) */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
-                viewBox="0 0 200 200"
+                viewBox="0 0 256 256"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
+                aria-hidden="true"
               >
-                {/* Paint splash effect - top left */}
-                <g opacity="0.9">
-                  <path d="M45 35 Q40 30 38 25 L42 20 L48 18 L52 22 Q50 28 45 35 Z" fill="hsl(var(--primary))" />
-                  <path d="M50 40 L45 38 L42 42 L46 45 Z" fill="hsl(var(--primary))" />
-                  <circle cx="55" cy="30" r="3" fill="hsl(var(--primary))" />
-                  <circle cx="40" cy="45" r="2" fill="hsl(var(--primary))" />
-                  <path d="M48 25 L52 22 L55 25 L53 30 L48 28 Z" fill="hsl(var(--primary))" />
-                  {/* Brush stroke connecting to L */}
-                  <path d="M45 40 Q50 45 55 50 L60 55 L50 60 L40 50 Z" fill="hsl(var(--primary))" opacity="0.7" />
-                  <path d="M55 50 Q60 52 65 55 L70 60 Q68 65 65 68 L58 62 Z" fill="hsl(var(--primary))" opacity="0.5" />
+                {/* ============ Paint splash / brush stroke (top-left) ============ */}
+                <g opacity="0.95">
+                  {/* Main brush stroke across the top */}
+                  <path
+                    d="M66 56
+         C78 48, 92 46, 108 46
+         H160
+         C166 46, 170 50, 170 55
+         C170 60, 166 64, 160 64
+         H106
+         C96 64, 86 66, 76 69
+         L58 74
+         C52 76, 46 73, 45 67
+         C44 62, 48 58, 54 57
+         L66 56 Z"
+                    fill="hsl(var(--primary))"
+                  />
+
+                  {/* Splash spikes on the far left */}
+                  <path
+                    d="M56 44
+         C52 36, 50 30, 49 24
+         C49 18, 53 14, 58 14
+         C63 14, 66 18, 66 24
+         C66 34, 64 44, 61 54
+         C60 58, 56 58, 54 55
+         C52 52, 52 48, 56 44 Z"
+                    fill="hsl(var(--primary))"
+                    opacity="0.9"
+                  />
+                  <path
+                    d="M44 52
+         C41 46, 39 41, 38 36
+         C38 32, 41 29, 45 29
+         C49 29, 51 32, 51 36
+         C51 42, 50 48, 48 54
+         C47 57, 44 56, 44 52 Z"
+                    fill="hsl(var(--primary))"
+                    opacity="0.75"
+                  />
+
+                  {/* Splatter dots */}
+                  <circle cx="72" cy="34" r="3" fill="hsl(var(--primary))" opacity="0.85" />
+                  <circle cx="40" cy="66" r="2.4" fill="hsl(var(--primary))" opacity="0.8" />
+                  <circle cx="82" cy="60" r="2.2" fill="hsl(var(--primary))" opacity="0.7" />
+                  <circle cx="58" cy="84" r="1.9" fill="hsl(var(--primary))" opacity="0.65" />
                 </g>
 
-                {/* L shape - bold and rounded */}
-                <path
-                  d="M45 55 Q40 55 40 60 L40 160 Q40 165 45 165 L95 165 Q100 165 100 160 Q100 155 95 155 L55 155 Q50 155 50 150 L50 60 Q50 55 45 55 Z"
-                  fill={isScrolled ? "hsl(var(--foreground))" : darkHero ? "#1e3a5f" : "hsl(var(--foreground))"}
-                  className="transition-all duration-300"
-                />
+                {/* ============ Monogram fill color ============ */}
+                {/* Keep your existing logic */}
+                {/*
+    Use:
+    const mono = isScrolled ? "hsl(var(--foreground))" : darkHero ? "#1e3a5f" : "hsl(var(--foreground))";
+  */}
+                <g>
+                  {/* Outer “D” (rounded, thick stroke look) */}
+                  <path
+                    d="M80 72
+         C80 62, 88 54, 98 54
+         H162
+         C190 54, 214 76, 214 104
+         V152
+         C214 180, 190 202, 162 202
+         H98
+         C88 202, 80 194, 80 184
+         V160
+         C80 154, 84 150, 90 150
+         C96 150, 100 154, 100 160
+         V178
+         H160
+         C178 178, 194 164, 194 146
+         V110
+         C194 92, 178 78, 160 78
+         H106
+         V184
+         C106 194, 98 202, 88 202
+         C78 202, 70 194, 70 184
+         V72
+         C70 62, 78 54, 88 54
+         C98 54, 106 62, 106 72
+         V78
+         H100
+         C90 78, 80 82, 80 72 Z"
+                    fill={isScrolled ? "hsl(var(--foreground))" : darkHero ? "#1e3a5f" : "hsl(var(--foreground))"}
+                    className="transition-all duration-300"
+                  />
 
-                {/* D shape - interlocking with L */}
-                <path
-                  d="M105 55 Q100 55 100 60 L100 160 Q100 165 105 165 L140 165 Q170 165 170 135 L170 85 Q170 55 140 55 L105 55 Z M115 70 L140 70 Q155 70 155 85 L155 135 Q155 150 140 150 L115 150 Q110 150 110 145 L110 75 Q110 70 115 70 Z"
-                  fill={isScrolled ? "hsl(var(--foreground))" : darkHero ? "#1e3a5f" : "hsl(var(--foreground))"}
-                  className="transition-all duration-300"
-                />
+                  {/* Inner “D” cutout (white/transparent via mask) */}
+                  <mask id="innerCut" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+                    <rect x="0" y="0" width="256" height="256" fill="white" />
+                    {/* Punch hole */}
+                    <path
+                      d="M124 96
+           H160
+           C170 96, 178 104, 178 114
+           V142
+           C178 152, 170 160, 160 160
+           H124
+           C118 160, 114 156, 114 150
+           V106
+           C114 100, 118 96, 124 96 Z"
+                      fill="black"
+                    />
+                    {/* Punch vertical center gap (between L and D) */}
+                    <path
+                      d="M118 84
+           H136
+           V202
+           H118 Z"
+                      fill="black"
+                    />
+                  </mask>
 
-                {/* Gradient overlay for depth */}
+                  {/* Repaint the D with the mask applied so the cutouts show through */}
+                  <path
+                    mask="url(#innerCut)"
+                    d="M80 72
+         C80 62, 88 54, 98 54
+         H162
+         C190 54, 214 76, 214 104
+         V152
+         C214 180, 190 202, 162 202
+         H98
+         C88 202, 80 194, 80 184
+         V160
+         C80 154, 84 150, 90 150
+         C96 150, 100 154, 100 160
+         V178
+         H160
+         C178 178, 194 164, 194 146
+         V110
+         C194 92, 178 78, 160 78
+         H106
+         V184
+         C106 194, 98 202, 88 202
+         C78 202, 70 194, 70 184
+         V72
+         C70 62, 78 54, 88 54
+         C98 54, 106 62, 106 72
+         V78
+         H100
+         C90 78, 80 82, 80 72 Z"
+                    fill={isScrolled ? "hsl(var(--foreground))" : darkHero ? "#1e3a5f" : "hsl(var(--foreground))"}
+                    className="transition-all duration-300"
+                  />
+
+                  {/* Center wedge (the little “fold” triangle inside) */}
+                  <path
+                    d="M128 112
+         L156 132
+         L128 152
+         Z"
+                    fill="url(#foldGradient)"
+                    opacity="0.95"
+                  />
+                  <path
+                    d="M128 112
+         L128 200
+         L114 200
+         L114 126
+         C114 120, 118 116, 124 116
+         Z"
+                    fill="url(#sideGradient)"
+                    opacity="0.9"
+                  />
+                </g>
+
+                {/* Subtle depth like your original */}
                 <defs>
-                  <linearGradient id="depthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                  <linearGradient id="foldGradient" x1="120" y1="112" x2="164" y2="156" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
+                    <stop offset="1" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                  </linearGradient>
+
+                  <linearGradient id="sideGradient" x1="112" y1="120" x2="140" y2="220" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="hsl(var(--primary))" stopOpacity="0.12" />
+                    <stop offset="1" stopColor="hsl(var(--primary))" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-                <rect x="40" y="55" width="130" height="110" fill="url(#depthGradient)" />
               </svg>
+
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span
                   className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}

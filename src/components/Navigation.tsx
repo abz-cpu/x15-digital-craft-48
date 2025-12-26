@@ -19,8 +19,8 @@ interface NavigationProps {
  */
 
 const ANNOUNCEMENT_BAR_HEIGHT = 44;
-const NAV_HEIGHT_EXPANDED = 100;  // Taller for premium feel
-const NAV_HEIGHT_COMPACT = 68;    // Still roomy when compact
+const NAV_HEIGHT_EXPANDED = 100; // Taller for premium feel
+const NAV_HEIGHT_COMPACT = 68; // Still roomy when compact
 
 const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -162,10 +162,13 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     }, 200);
   }, [clearCloseTimeout]);
 
-  const handleDropdownEnter = useCallback((dropdown: string) => {
-    clearCloseTimeout();
-    setActiveDropdown(dropdown);
-  }, [clearCloseTimeout]);
+  const handleDropdownEnter = useCallback(
+    (dropdown: string) => {
+      clearCloseTimeout();
+      setActiveDropdown(dropdown);
+    },
+    [clearCloseTimeout],
+  );
 
   const handleKeyDown = (e: React.KeyboardEvent, dropdown: string) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -176,23 +179,20 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
   const getActiveClass = (path: string) => {
     const basePath = path.split("#")[0];
-    const isActive = location.pathname === basePath || 
-      (basePath !== "/" && location.pathname.startsWith(basePath));
+    const isActive = location.pathname === basePath || (basePath !== "/" && location.pathname.startsWith(basePath));
     return isActive ? "font-semibold text-primary bg-primary/10" : "";
   };
 
   const isPathActive = (path: string) => {
     const basePath = path.split("#")[0];
-    return location.pathname === basePath || 
-      (basePath !== "/" && location.pathname.startsWith(basePath));
+    return location.pathname === basePath || (basePath !== "/" && location.pathname.startsWith(basePath));
   };
 
   // Check if any item in a dropdown is active (for parent menu highlighting)
   const isDropdownActive = (items: Array<{ path: string }>) => {
-    return items.some(item => {
+    return items.some((item) => {
       const basePath = item.path.split("#")[0];
-      return location.pathname === basePath || 
-        (basePath !== "/" && location.pathname.startsWith(basePath));
+      return location.pathname === basePath || (basePath !== "/" && location.pathname.startsWith(basePath));
     });
   };
 
@@ -209,9 +209,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     if (isScrolled) {
       return "text-foreground hover:text-primary";
     }
-    return darkHero 
-      ? "text-white/90 hover:text-white" 
-      : "text-foreground hover:text-primary";
+    return darkHero ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary";
   };
 
   const getMutedTextClass = () => {
@@ -247,7 +245,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
       {/* Announcement Bar - Like LWDA */}
       {showAnnouncementBar && (
-        <div 
+        <div
           className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-white px-4 text-center"
           style={{ height: `${ANNOUNCEMENT_BAR_HEIGHT}px` }}
         >
@@ -275,13 +273,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       <nav
         ref={navRef}
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
-          isScrolled 
-            ? "bg-background/95 backdrop-blur-md shadow-lg" 
-            : "bg-transparent"
+          isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
         }`}
-        style={{ 
+        style={{
           top: showAnnouncementBar ? `${ANNOUNCEMENT_BAR_HEIGHT}px` : 0,
-          height: isScrolled ? `${NAV_HEIGHT_COMPACT}px` : `${NAV_HEIGHT_EXPANDED}px`
+          height: isScrolled ? `${NAV_HEIGHT_COMPACT}px` : `${NAV_HEIGHT_EXPANDED}px`,
         }}
         role="navigation"
         aria-label="Main navigation"
@@ -290,63 +286,62 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-full">
           {/* Main flex row: logo left, everything else right-aligned with spacing */}
           <div className="flex items-center h-full">
-            
             {/* === ZONE 1: Logo === */}
             <PreloadLink
               to="/"
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* L&D Monogram Icon - scales with scroll */}
-              <svg 
-                width={isScrolled ? 36 : 44} 
-                height={isScrolled ? 36 : 44} 
-                viewBox="0 0 100 100" 
-                fill="none" 
+              {/* L&D Monogram Icon - Clean, modern design */}
+              <svg
+                width={isScrolled ? 36 : 44}
+                height={isScrolled ? 36 : 44}
+                viewBox="0 0 100 100"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                <path 
-                  d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
-                  fill="none" 
-                  stroke="hsl(var(--primary))" 
-                  strokeWidth="6"
-                  strokeLinejoin="round"
+                <defs>
+                  <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.7" />
+                  </linearGradient>
+                </defs>
+
+                {/* Rounded container */}
+                <rect x="8" y="8" width="84" height="84" rx="18" fill="url(#brandGradient)" />
+
+                {/* L letter */}
+                <path
+                  d="M25 28 L25 65 L25 68 Q25 72 29 72 L48 72 Q50 72 50 70 Q50 68 48 68 L30 68 Q28 68 28 66 L28 28 Q28 26 25 26 Q25 26 25 28 Z"
+                  fill="white"
                 />
-                <path 
-                  d="M28 28 L28 65 L48 65" 
-                  fill="none" 
-                  stroke="hsl(var(--primary))" 
-                  strokeWidth="6" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
+
+                {/* Ampersand - smaller and cleaner */}
+                <circle cx="50" cy="50" r="2.5" fill="white" opacity="0.6" />
+
+                {/* D letter */}
+                <path
+                  d="M55 28 Q55 26 58 26 L68 26 Q77 26 77 35 L77 60 Q77 68 68 68 L58 68 Q55 68 55 65 L55 28 Z M60 30 L60 64 L68 64 Q73 64 73 60 L73 35 Q73 30 68 30 L60 30 Z"
+                  fill="white"
                 />
-                <text 
-                  x="42" 
-                  y="58" 
-                  fill="hsl(var(--muted-foreground))" 
-                  fontSize="18" 
-                  fontWeight="500"
-                  fontFamily="system-ui"
-                >
-                  &amp;
-                </text>
-                <path 
-                  d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
-                  fill="none" 
-                  stroke="hsl(var(--primary))" 
-                  strokeWidth="6" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
+
+                {/* Subtle light beam effect */}
+                <path d="M15 15 L30 15 L35 25 L20 25 Z" fill="white" opacity="0.2" />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
-                <span className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}>
-                  <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>L&amp;D</span>{" "}
+                <span
+                  className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}
+                >
+                  <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>
+                    L&amp;D
+                  </span>{" "}
                   <span className="text-primary">DIGITAL</span>
                 </span>
                 {/* Tagline: hide on compact to reduce clutter */}
-                <span className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}>
+                <span
+                  className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}
+                >
                   Luminus &amp; Deliver —
                 </span>
               </div>
@@ -354,13 +349,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
             {/* === ZONE 2 + 3: Nav Links + Actions (pushed to the right) === */}
             <div className="hidden lg:flex items-center flex-1 justify-end">
-              
               {/* Nav Items Container - generous gap for LWDA-style spacing */}
               <div className="flex items-center gap-10 xl:gap-12">
-                
                 {/* Services Dropdown */}
                 <div className="relative">
-                <button
+                  <button
                     ref={servicesButtonRef}
                     className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 ${getNavTextClass()} ${
                       activeDropdown === "services" || isDropdownActive(allServicesPaths) ? "text-primary" : ""
@@ -384,10 +377,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   {activeDropdown === "services" && (
                     <div
                       className="fixed z-50"
-                      style={{ 
+                      style={{
                         top: `${getDropdownTop()}px`,
-                        left: '50%',
-                        transform: 'translateX(-50%)'
+                        left: "50%",
+                        transform: "translateX(-50%)",
                       }}
                       onMouseEnter={() => handleDropdownEnter("services")}
                       onMouseLeave={scheduleDropdownClose}
@@ -396,7 +389,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     >
                       {/* Hover bridge - invisible area to prevent close when moving mouse */}
                       <div className="absolute -top-4 left-0 right-0 h-5" />
-                      
+
                       <div className="w-[1000px] max-w-[95vw] bg-background rounded-lg shadow-2xl border border-border animate-fade-in">
                         <div className="p-6">
                           <div className="grid grid-cols-4 gap-6">
@@ -414,7 +407,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                       className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
-                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">
+                                        {item.desc}
+                                      </div>
                                     </PreloadLink>
                                   </li>
                                 ))}
@@ -435,7 +430,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                       className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
-                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">
+                                        {item.desc}
+                                      </div>
                                     </PreloadLink>
                                   </li>
                                 ))}
@@ -456,7 +453,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                       className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
-                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">
+                                        {item.desc}
+                                      </div>
                                     </PreloadLink>
                                   </li>
                                 ))}
@@ -477,7 +476,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                       className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
-                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
+                                      <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">
+                                        {item.desc}
+                                      </div>
                                     </PreloadLink>
                                   </li>
                                 ))}
@@ -527,7 +528,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   {activeDropdown === "platforms" && (
                     <div
                       className="absolute left-1/2 -translate-x-1/2 z-50"
-                      style={{ top: 'calc(100% + 12px)' }}
+                      style={{ top: "calc(100% + 12px)" }}
                       onMouseEnter={() => handleDropdownEnter("platforms")}
                       onMouseLeave={scheduleDropdownClose}
                       role="menu"
@@ -535,7 +536,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     >
                       {/* Hover bridge */}
                       <div className="absolute -top-4 left-0 right-0 h-5" />
-                      
+
                       <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
                         <ul className="space-y-0.5">
                           {platformsMenu.map((item) => (
@@ -591,7 +592,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   {activeDropdown === "sectors" && (
                     <div
                       className="absolute left-1/2 -translate-x-1/2 z-50"
-                      style={{ top: 'calc(100% + 12px)' }}
+                      style={{ top: "calc(100% + 12px)" }}
                       onMouseEnter={() => handleDropdownEnter("sectors")}
                       onMouseLeave={scheduleDropdownClose}
                       role="menu"
@@ -599,7 +600,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     >
                       {/* Hover bridge */}
                       <div className="absolute -top-4 left-0 right-0 h-5" />
-                      
+
                       <div className="w-[280px] bg-background rounded-lg shadow-xl border border-border p-3 animate-fade-in">
                         <ul className="space-y-0.5">
                           {sectorsMenu.map((item) => (
@@ -647,7 +648,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               {/* === Actions Zone: Phone + CTA (separated with margin) === */}
               <div className="flex items-center gap-6 ml-10 xl:ml-14">
                 {/* Separator line */}
-                <div className={`h-5 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
+                <div
+                  className={`h-5 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`}
+                  aria-hidden="true"
+                />
 
                 {/* Phone Number - smaller, cleaner */}
                 <a
@@ -681,9 +685,15 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? (
-                <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`} aria-hidden="true" />
+                <X
+                  className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`}
+                  aria-hidden="true"
+                />
               ) : (
-                <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`} aria-hidden="true" />
+                <Menu
+                  className={`h-6 w-6 ${isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}`}
+                  aria-hidden="true"
+                />
               )}
             </button>
           </div>
@@ -694,30 +704,32 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
           <div
             id="mobile-menu"
             className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border shadow-xl animate-fade-in overflow-y-auto"
-            style={{ 
-              maxHeight: `calc(100vh - ${showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED) : (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px)`,
-              marginTop: '0px'
+            style={{
+              maxHeight: `calc(100vh - ${showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED) : isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED}px)`,
+              marginTop: "0px",
             }}
             role="dialog"
             aria-label="Mobile menu"
           >
             <div className="px-5 py-6 space-y-2">
               {/* Services Accordion */}
-              <MobileAccordion 
-                title="Services" 
+              <MobileAccordion
+                title="Services"
                 isActive={isDropdownActive(allServicesPaths)}
                 isPathActive={isPathActive}
               >
                 <div className="space-y-4 pl-1 pt-2">
                   <div className="space-y-1">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.webDesign.title}</h4>
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">
+                      {servicesMenu.webDesign.title}
+                    </h4>
                     {servicesMenu.webDesign.items.map((item) => (
-                      <PreloadLink 
-                        key={item.path} 
-                        to={item.path} 
+                      <PreloadLink
+                        key={item.path}
+                        to={item.path}
                         className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                          isPathActive(item.path) 
-                            ? "text-primary font-semibold bg-primary/10" 
+                          isPathActive(item.path)
+                            ? "text-primary font-semibold bg-primary/10"
                             : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                         }`}
                       >
@@ -726,14 +738,16 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     ))}
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.ecommerce.title}</h4>
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">
+                      {servicesMenu.ecommerce.title}
+                    </h4>
                     {servicesMenu.ecommerce.items.map((item) => (
-                      <PreloadLink 
-                        key={item.path} 
-                        to={item.path} 
+                      <PreloadLink
+                        key={item.path}
+                        to={item.path}
                         className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                          isPathActive(item.path) 
-                            ? "text-primary font-semibold bg-primary/10" 
+                          isPathActive(item.path)
+                            ? "text-primary font-semibold bg-primary/10"
                             : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                         }`}
                       >
@@ -742,14 +756,16 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     ))}
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.branding.title}</h4>
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">
+                      {servicesMenu.branding.title}
+                    </h4>
                     {servicesMenu.branding.items.map((item) => (
-                      <PreloadLink 
-                        key={item.path} 
-                        to={item.path} 
+                      <PreloadLink
+                        key={item.path}
+                        to={item.path}
                         className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                          isPathActive(item.path) 
-                            ? "text-primary font-semibold bg-primary/10" 
+                          isPathActive(item.path)
+                            ? "text-primary font-semibold bg-primary/10"
                             : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                         }`}
                       >
@@ -758,14 +774,16 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     ))}
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.support.title}</h4>
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">
+                      {servicesMenu.support.title}
+                    </h4>
                     {servicesMenu.support.items.map((item) => (
-                      <PreloadLink 
-                        key={item.path} 
-                        to={item.path} 
+                      <PreloadLink
+                        key={item.path}
+                        to={item.path}
                         className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                          isPathActive(item.path) 
-                            ? "text-primary font-semibold bg-primary/10" 
+                          isPathActive(item.path)
+                            ? "text-primary font-semibold bg-primary/10"
                             : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                         }`}
                       >
@@ -773,59 +791,60 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                       </PreloadLink>
                     ))}
                   </div>
-                  <PreloadLink to="/services" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
+                  <PreloadLink
+                    to="/services"
+                    className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all"
+                  >
                     View All Services <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
               </MobileAccordion>
 
               {/* Platforms Accordion */}
-              <MobileAccordion 
-                title="Platforms" 
-                isActive={isDropdownActive(platformsMenu)}
-                isPathActive={isPathActive}
-              >
+              <MobileAccordion title="Platforms" isActive={isDropdownActive(platformsMenu)} isPathActive={isPathActive}>
                 <div className="pl-1 pt-2 space-y-1">
                   {platformsMenu.map((item) => (
-                    <PreloadLink 
-                      key={item.path} 
-                      to={item.path} 
+                    <PreloadLink
+                      key={item.path}
+                      to={item.path}
                       className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                        isPathActive(item.path) 
-                          ? "text-primary font-semibold bg-primary/10" 
+                        isPathActive(item.path)
+                          ? "text-primary font-semibold bg-primary/10"
                           : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                       }`}
                     >
                       {item.name}
                     </PreloadLink>
                   ))}
-                  <PreloadLink to="/platforms" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
+                  <PreloadLink
+                    to="/platforms"
+                    className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all"
+                  >
                     View All Platforms <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
               </MobileAccordion>
 
               {/* Key Sectors Accordion */}
-              <MobileAccordion 
-                title="Key Sectors" 
-                isActive={isDropdownActive(sectorsMenu)}
-                isPathActive={isPathActive}
-              >
+              <MobileAccordion title="Key Sectors" isActive={isDropdownActive(sectorsMenu)} isPathActive={isPathActive}>
                 <div className="pl-1 pt-2 space-y-1">
                   {sectorsMenu.map((item) => (
-                    <PreloadLink 
-                      key={item.path} 
-                      to={item.path} 
+                    <PreloadLink
+                      key={item.path}
+                      to={item.path}
                       className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
-                        isPathActive(item.path) 
-                          ? "text-primary font-semibold bg-primary/10" 
+                        isPathActive(item.path)
+                          ? "text-primary font-semibold bg-primary/10"
                           : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                       }`}
                     >
                       {item.name}
                     </PreloadLink>
                   ))}
-                  <PreloadLink to="/sectors" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
+                  <PreloadLink
+                    to="/sectors"
+                    className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all"
+                  >
                     View All Sectors <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
@@ -841,8 +860,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                     key={link.path}
                     to={link.path}
                     className={`block py-3 px-4 text-base font-medium rounded-xl transition-all ${
-                      location.pathname === link.path 
-                        ? "text-primary font-semibold bg-primary/10" 
+                      location.pathname === link.path
+                        ? "text-primary font-semibold bg-primary/10"
                         : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                     }`}
                   >
@@ -890,12 +909,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 };
 
 // Mobile Accordion Component
-const MobileAccordion = ({ 
-  title, 
-  children, 
+const MobileAccordion = ({
+  title,
+  children,
   isActive = false,
-}: { 
-  title: string; 
+}: {
+  title: string;
   children: React.ReactNode;
   isActive?: boolean;
   isPathActive?: (path: string) => boolean;
@@ -907,9 +926,7 @@ const MobileAccordion = ({
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center justify-between w-full py-3.5 px-4 text-base font-semibold rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-primary ${
-          isActive 
-            ? "text-primary bg-primary/5" 
-            : "text-foreground hover:bg-primary/5"
+          isActive ? "text-primary bg-primary/5" : "text-foreground hover:bg-primary/5"
         } ${isOpen ? "bg-primary/5" : ""}`}
         aria-expanded={isOpen}
       >
@@ -917,9 +934,11 @@ const MobileAccordion = ({
           {title}
           {isActive && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
         </span>
-        <ChevronDown className={`h-5 w-5 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-5 w-5 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
-      <div 
+      <div
         className={`overflow-hidden transition-all duration-300 ease-out ${
           isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
         }`}

@@ -178,7 +178,13 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     const basePath = path.split("#")[0];
     const isActive = location.pathname === basePath || 
       (basePath !== "/" && location.pathname.startsWith(basePath));
-    return isActive ? "font-semibold text-primary" : "";
+    return isActive ? "font-semibold text-primary bg-primary/10" : "";
+  };
+
+  const isPathActive = (path: string) => {
+    const basePath = path.split("#")[0];
+    return location.pathname === basePath || 
+      (basePath !== "/" && location.pathname.startsWith(basePath));
   };
 
   // Check if any item in a dropdown is active (for parent menu highlighting)
@@ -356,9 +362,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <div className="relative">
                 <button
                     ref={servicesButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 ${getNavTextClass()} ${
                       activeDropdown === "services" || isDropdownActive(allServicesPaths) ? "text-primary" : ""
-                    } ${isDropdownActive(allServicesPaths) ? "border-b-2 border-primary pb-1" : ""}`}
+                    } hover:bg-primary/10`}
                     onMouseEnter={() => handleDropdownEnter("services")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "services" ? null : "services")}
@@ -405,7 +411,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                     <PreloadLink
                                       to={item.path}
                                       role="menuitem"
-                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                      className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                       <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
@@ -426,7 +432,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                     <PreloadLink
                                       to={item.path}
                                       role="menuitem"
-                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                      className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                       <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
@@ -447,7 +453,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                     <PreloadLink
                                       to={item.path}
                                       role="menuitem"
-                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                      className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                       <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
@@ -468,7 +474,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                                     <PreloadLink
                                       to={item.path}
                                       role="menuitem"
-                                      className={`block py-2 px-2 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                      className={`block py-2 px-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                                     >
                                       <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                       <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.desc}</div>
@@ -500,9 +506,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <div className="relative">
                   <button
                     ref={platformsButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 ${getNavTextClass()} ${
                       activeDropdown === "platforms" || isDropdownActive(platformsMenu) ? "text-primary" : ""
-                    } ${isDropdownActive(platformsMenu) ? "border-b-2 border-primary pb-1" : ""}`}
+                    } hover:bg-primary/10`}
                     onMouseEnter={() => handleDropdownEnter("platforms")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")}
@@ -537,7 +543,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                               <PreloadLink
                                 to={item.path}
                                 role="menuitem"
-                                className={`block py-2 px-3 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                className={`block py-2 px-3 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                               >
                                 <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                 <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
@@ -564,9 +570,9 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <div className="relative">
                   <button
                     ref={sectorsButtonRef}
-                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 ${getNavTextClass()} ${
                       activeDropdown === "sectors" || isDropdownActive(sectorsMenu) ? "text-primary" : ""
-                    } ${isDropdownActive(sectorsMenu) ? "border-b-2 border-primary pb-1" : ""}`}
+                    } hover:bg-primary/10`}
                     onMouseEnter={() => handleDropdownEnter("sectors")}
                     onMouseLeave={scheduleDropdownClose}
                     onClick={() => setActiveDropdown(activeDropdown === "sectors" ? null : "sectors")}
@@ -601,7 +607,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                               <PreloadLink
                                 to={item.path}
                                 role="menuitem"
-                                className={`block py-2 px-3 rounded-md hover:bg-muted transition-colors focus:outline-none focus:bg-muted focus:ring-2 focus:ring-primary ${getActiveClass(item.path)}`}
+                                className={`block py-2 px-3 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary hover:bg-primary/10 ${getActiveClass(item.path)}`}
                               >
                                 <div className="text-[13px] font-medium text-foreground">{item.name}</div>
                                 <div className="text-[11px] text-muted-foreground mt-0.5">{item.desc}</div>
@@ -629,7 +635,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <PreloadLink
                     key={link.path}
                     to={link.path}
-                    className={`text-[12px] font-semibold uppercase tracking-[0.15em] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 ${getNavTextClass()} ${
+                    className={`text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 hover:bg-primary/10 ${getNavTextClass()} ${
                       location.pathname === link.path ? "text-primary" : ""
                     }`}
                   >
@@ -687,88 +693,157 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden bg-background border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto"
+            className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border shadow-xl animate-fade-in overflow-y-auto"
+            style={{ 
+              maxHeight: `calc(100vh - ${showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED) : (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px)`,
+              marginTop: '0px'
+            }}
             role="dialog"
             aria-label="Mobile menu"
           >
-            <div className="px-4 py-5 space-y-4">
+            <div className="px-5 py-6 space-y-2">
               {/* Services Accordion */}
-              <MobileAccordion title="Services">
-                <div className="space-y-4 pl-2">
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.webDesign.title}</h4>
+              <MobileAccordion 
+                title="Services" 
+                isActive={isDropdownActive(allServicesPaths)}
+                isPathActive={isPathActive}
+              >
+                <div className="space-y-4 pl-1 pt-2">
+                  <div className="space-y-1">
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.webDesign.title}</h4>
                     {servicesMenu.webDesign.items.map((item) => (
-                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      <PreloadLink 
+                        key={item.path} 
+                        to={item.path} 
+                        className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                          isPathActive(item.path) 
+                            ? "text-primary font-semibold bg-primary/10" 
+                            : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                        }`}
+                      >
                         {item.name}
                       </PreloadLink>
                     ))}
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.ecommerce.title}</h4>
+                  <div className="space-y-1">
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.ecommerce.title}</h4>
                     {servicesMenu.ecommerce.items.map((item) => (
-                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      <PreloadLink 
+                        key={item.path} 
+                        to={item.path} 
+                        className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                          isPathActive(item.path) 
+                            ? "text-primary font-semibold bg-primary/10" 
+                            : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                        }`}
+                      >
                         {item.name}
                       </PreloadLink>
                     ))}
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.branding.title}</h4>
+                  <div className="space-y-1">
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.branding.title}</h4>
                     {servicesMenu.branding.items.map((item) => (
-                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      <PreloadLink 
+                        key={item.path} 
+                        to={item.path} 
+                        className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                          isPathActive(item.path) 
+                            ? "text-primary font-semibold bg-primary/10" 
+                            : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                        }`}
+                      >
                         {item.name}
                       </PreloadLink>
                     ))}
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{servicesMenu.support.title}</h4>
+                  <div className="space-y-1">
+                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-primary/70 mb-2 px-3">{servicesMenu.support.title}</h4>
                     {servicesMenu.support.items.map((item) => (
-                      <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                      <PreloadLink 
+                        key={item.path} 
+                        to={item.path} 
+                        className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                          isPathActive(item.path) 
+                            ? "text-primary font-semibold bg-primary/10" 
+                            : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                        }`}
+                      >
                         {item.name}
                       </PreloadLink>
                     ))}
                   </div>
-                  <PreloadLink to="/services" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                  <PreloadLink to="/services" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
                     View All Services <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
               </MobileAccordion>
 
               {/* Platforms Accordion */}
-              <MobileAccordion title="Platforms">
-                <div className="pl-2">
+              <MobileAccordion 
+                title="Platforms" 
+                isActive={isDropdownActive(platformsMenu)}
+                isPathActive={isPathActive}
+              >
+                <div className="pl-1 pt-2 space-y-1">
                   {platformsMenu.map((item) => (
-                    <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                    <PreloadLink 
+                      key={item.path} 
+                      to={item.path} 
+                      className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                        isPathActive(item.path) 
+                          ? "text-primary font-semibold bg-primary/10" 
+                          : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                      }`}
+                    >
                       {item.name}
                     </PreloadLink>
                   ))}
-                  <PreloadLink to="/platforms" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                  <PreloadLink to="/platforms" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
                     View All Platforms <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
               </MobileAccordion>
 
               {/* Key Sectors Accordion */}
-              <MobileAccordion title="Key Sectors">
-                <div className="pl-2">
+              <MobileAccordion 
+                title="Key Sectors" 
+                isActive={isDropdownActive(sectorsMenu)}
+                isPathActive={isPathActive}
+              >
+                <div className="pl-1 pt-2 space-y-1">
                   {sectorsMenu.map((item) => (
-                    <PreloadLink key={item.path} to={item.path} className="block py-2 text-sm text-foreground hover:text-primary">
+                    <PreloadLink 
+                      key={item.path} 
+                      to={item.path} 
+                      className={`block py-2.5 px-3 text-sm rounded-lg transition-all ${
+                        isPathActive(item.path) 
+                          ? "text-primary font-semibold bg-primary/10" 
+                          : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                      }`}
+                    >
                       {item.name}
                     </PreloadLink>
                   ))}
-                  <PreloadLink to="/sectors" className="flex items-center gap-2 py-2 text-sm font-semibold text-primary">
+                  <PreloadLink to="/sectors" className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all">
                     View All Sectors <ArrowRight className="h-4 w-4" />
                   </PreloadLink>
                 </div>
               </MobileAccordion>
 
+              {/* Divider */}
+              <div className="h-px bg-border my-3" />
+
               {/* Nav Links */}
-              <div className="border-t border-border pt-4 space-y-1">
+              <div className="space-y-1">
                 {navLinks.map((link) => (
                   <PreloadLink
                     key={link.path}
                     to={link.path}
-                    className={`block py-3 px-3 text-base font-medium rounded-lg hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                      location.pathname === link.path ? "text-primary font-semibold bg-muted" : "text-foreground"
+                    className={`block py-3 px-4 text-base font-medium rounded-xl transition-all ${
+                      location.pathname === link.path 
+                        ? "text-primary font-semibold bg-primary/10" 
+                        : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
                     }`}
                   >
                     {link.name}
@@ -776,22 +851,34 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 ))}
               </div>
 
-              {/* Phone Number */}
-              <a
-                href="tel:+447123456789"
-                className="flex items-center gap-3 py-3 px-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span>07123 456789</span>
-              </a>
+              {/* Divider */}
+              <div className="h-px bg-border my-3" />
 
-              {/* Mobile CTA */}
-              <div className="pt-3 border-t border-border">
+              {/* CTA Section */}
+              <div className="bg-muted/50 rounded-2xl p-4 space-y-4">
+                {/* Phone Number */}
+                <a
+                  href="tel:+447123456789"
+                  className="flex items-center gap-3 py-3 px-4 text-base font-medium text-foreground bg-background hover:bg-primary/5 rounded-xl transition-all border border-border"
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Call us now</p>
+                    <p className="font-semibold">07123 456789</p>
+                  </div>
+                </a>
+
+                {/* Mobile CTA */}
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-4 text-base font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-base font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all rounded-xl"
                   asChild
                 >
-                  <PreloadLink to="/contact">Get In Touch</PreloadLink>
+                  <PreloadLink to="/contact">
+                    Get In Touch
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </PreloadLink>
                 </Button>
               </div>
             </div>
@@ -803,20 +890,42 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 };
 
 // Mobile Accordion Component
-const MobileAccordion = ({ title, children }: { title: string; children: React.ReactNode }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const MobileAccordion = ({ 
+  title, 
+  children, 
+  isActive = false,
+}: { 
+  title: string; 
+  children: React.ReactNode;
+  isActive?: boolean;
+  isPathActive?: (path: string) => boolean;
+}) => {
+  const [isOpen, setIsOpen] = useState(isActive);
 
   return (
-    <div className="border-b border-border pb-2">
+    <div className="rounded-xl overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+        className={`flex items-center justify-between w-full py-3.5 px-4 text-base font-semibold rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-primary ${
+          isActive 
+            ? "text-primary bg-primary/5" 
+            : "text-foreground hover:bg-primary/5"
+        } ${isOpen ? "bg-primary/5" : ""}`}
         aria-expanded={isOpen}
       >
-        {title}
-        <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+        <span className="flex items-center gap-2">
+          {title}
+          {isActive && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+        </span>
+        <ChevronDown className={`h-5 w-5 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
       </button>
-      {isOpen && <div className="py-2 animate-fade-in">{children}</div>}
+      <div 
+        className={`overflow-hidden transition-all duration-300 ease-out ${
+          isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pb-2">{children}</div>
+      </div>
     </div>
   );
 };

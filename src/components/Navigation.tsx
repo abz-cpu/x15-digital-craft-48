@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Bold Block L&D */}
+              {/* Connected L&D Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,28 +301,34 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Clean container frame */}
-                <rect
-                  x="20"
-                  y="20"
-                  width="60"
-                  height="60"
-                  rx="4"
+                {/* Connected L shape */}
+                <path
+                  d="M25 25 L25 75 L50 75"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="2.5"
-                  opacity="0.15"
+                  strokeWidth="9"
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
                 />
 
-                {/* Bold L shape */}
-                <rect x="25" y="25" width="10" height="40" fill="hsl(var(--primary))" />
-                <rect x="25" y="60" width="20" height="10" fill="hsl(var(--primary))" />
+                {/* Connected D shape */}
+                <path
+                  d="M50 25 L75 25 L75 75 L50 75"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="9"
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
+                />
 
-                {/* Bold D shape */}
-                <path d="M55 25 L70 25 L70 65 L55 65 Q45 65 45 45 Q45 25 55 25Z" fill="hsl(var(--primary))" />
-
-                {/* Ampersand as negative space */}
-                <path d="M38 40 L43 35 L48 40 L43 45 Z" fill="hsl(var(--muted-foreground))" opacity="0.8" />
+                {/* Circular cutout in D */}
+                <path
+                  d="M55 30 L70 30 Q80 30 80 50 Q80 70 70 70 L55 70"
+                  fill="none"
+                  stroke="hsl(var(--muted-foreground))"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span

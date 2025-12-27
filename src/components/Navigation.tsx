@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Abstract Digital Flow Monogram */}
+              {/* Digital Pixel Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,24 +301,17 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Fluid digital wave */}
+                {/* Pixel-inspired shape */}
                 <path
-                  d="M20 50 Q35 30 50 50 Q65 70 80 50"
+                  d="M30 30 L70 30 L70 50 L50 50 L50 70 L30 70 Z"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="6"
-                  strokeLinecap="round"
+                  strokeWidth="5"
+                  strokeLinejoin="round"
                 />
-                {/* Connecting dot */}
-                <circle cx="50" cy="50" r="5" fill="hsl(var(--primary))" />
-                {/* Secondary accent */}
-                <path
-                  d="M30 40 L40 60 M60 40 L70 60"
-                  stroke="hsl(var(--muted-foreground))"
-                  strokeWidth="3"
-                  strokeOpacity="0.6"
-                  strokeLinecap="round"
-                />
+                {/* Accent pixels */}
+                <rect x="35" y="35" width="10" height="10" fill="hsl(var(--primary))" fillOpacity="0.3" />
+                <rect x="55" y="55" width="10" height="10" fill="hsl(var(--primary))" fillOpacity="0.3" />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span

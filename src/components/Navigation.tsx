@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Elegant Connected L&D Monogram */}
+              {/* Geometric Bold L&D Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,43 +301,44 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Hexagonal container */}
-                <path
-                  d="M25 30 L50 20 L75 30 L75 70 L50 80 L25 70 Z"
+                {/* Square background container */}
+                <rect
+                  x="20"
+                  y="20"
+                  width="60"
+                  height="60"
+                  rx="8"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="2"
-                  strokeOpacity="0.2"
+                  strokeWidth="2.5"
+                  strokeOpacity="0.15"
                 />
 
-                {/* Connected L&D design */}
+                {/* L with diagonal accent */}
                 <path
-                  d="M30 35 L30 65 L50 65"
+                  d="M30 30 L30 70 L70 70"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="6.5"
+                  strokeWidth="7"
+                  strokeLinecap="square"
+                />
+
+                {/* D with sharp corners */}
+                <path
+                  d="M55 30 L70 30 L70 70 L55 70 Q45 70 45 50 Q45 30 55 30Z"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="7"
+                  strokeLinejoin="miter"
+                />
+
+                {/* Plus symbol connecting them */}
+                <path
+                  d="M48 50 L52 50 M50 48 L50 52"
+                  stroke="hsl(var(--muted-foreground))"
+                  strokeWidth="3"
                   strokeLinecap="round"
                 />
-
-                {/* Elegant ampersand as connector */}
-                <path
-                  d="M45 48 C47 45 52 45 55 48 C58 51 58 55 55 58 C52 61 47 61 45 58"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-
-                <path
-                  d="M55 35 L70 35 Q80 35 80 50 Q80 65 70 65 L55 65"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="6.5"
-                  strokeLinecap="round"
-                />
-
-                {/* Dot accent */}
-                <circle cx="48" cy="53" r="2" fill="hsl(var(--muted-foreground))" fillOpacity="0.8" />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span

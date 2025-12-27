@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Modern Minimal L&D Monogram */}
+              {/* Elegant Connected L&D Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,44 +301,43 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Circular container with subtle glow */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
+                {/* Hexagonal container */}
+                <path
+                  d="M25 30 L50 20 L75 30 L75 70 L50 80 L25 70 Z"
                   fill="none"
                   stroke="hsl(var(--primary))"
                   strokeWidth="2"
                   strokeOpacity="0.2"
                 />
 
-                {/* L shape - elegant and clean */}
+                {/* Connected L&D design */}
                 <path
-                  d="M30 30 L30 70 L55 70"
+                  d="M30 35 L30 65 L50 65"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-
-                {/* D shape - modern curve */}
-                <path
-                  d="M55 30 L55 70 Q70 70 70 50 Q70 30 55 30"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="6"
+                  strokeWidth="6.5"
                   strokeLinecap="round"
                 />
 
-                {/* Subtle ampersand in the center */}
+                {/* Elegant ampersand as connector */}
                 <path
-                  d="M45 50 Q48 48 50 50 Q52 52 50 54 Q48 56 45 54"
+                  d="M45 48 C47 45 52 45 55 48 C58 51 58 55 55 58 C52 61 47 61 45 58"
                   fill="none"
-                  stroke="hsl(var(--muted-foreground))"
-                  strokeWidth="2.5"
-                  strokeOpacity="0.7"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
                 />
+
+                <path
+                  d="M55 35 L70 35 Q80 35 80 50 Q80 65 70 65 L55 65"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="6.5"
+                  strokeLinecap="round"
+                />
+
+                {/* Dot accent */}
+                <circle cx="48" cy="53" r="2" fill="hsl(var(--muted-foreground))" fillOpacity="0.8" />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span

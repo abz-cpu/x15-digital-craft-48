@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Connected L&D Monogram */}
+              {/* Fixed Original - Clean Version */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,32 +301,40 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Connected L shape */}
+                {/* Cleaner container - just a subtle outline */}
                 <path
-                  d="M25 25 L25 75 L50 75"
+                  d="M20 25 L20 70 L45 85 L80 85 L80 40 L60 25 L20 25"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="9"
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
+                  strokeWidth="3"
+                  strokeLinejoin="round"
+                  opacity="0.3"
                 />
 
-                {/* Connected D shape */}
+                {/* Better proportioned L */}
                 <path
-                  d="M50 25 L75 25 L75 75 L50 75"
+                  d="M30 35 L30 65 L48 65"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="9"
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
+                  strokeWidth="7"
+                  strokeLinecap="round"
                 />
 
-                {/* Circular cutout in D */}
+                {/* Better proportioned D */}
                 <path
-                  d="M55 30 L70 30 Q80 30 80 50 Q80 70 70 70 L55 70"
+                  d="M55 35 L68 35 Q82 35 82 50 Q82 65 68 65 L55 65"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                />
+
+                {/* Remove the ugly text - use a proper ampersand */}
+                <path
+                  d="M45 50 Q48 47 52 50 Q48 53 45 50"
                   fill="none"
                   stroke="hsl(var(--muted-foreground))"
-                  strokeWidth="4"
+                  strokeWidth="3"
                   strokeLinecap="round"
                 />
               </svg>

@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Geometric Bold L&D Monogram */}
+              {/* Abstract Digital Flow Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,42 +301,22 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Square background container */}
-                <rect
-                  x="20"
-                  y="20"
-                  width="60"
-                  height="60"
-                  rx="8"
+                {/* Fluid digital wave */}
+                <path
+                  d="M20 50 Q35 30 50 50 Q65 70 80 50"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="2.5"
-                  strokeOpacity="0.15"
+                  strokeWidth="6"
+                  strokeLinecap="round"
                 />
-
-                {/* L with diagonal accent */}
+                {/* Connecting dot */}
+                <circle cx="50" cy="50" r="5" fill="hsl(var(--primary))" />
+                {/* Secondary accent */}
                 <path
-                  d="M30 30 L30 70 L70 70"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="7"
-                  strokeLinecap="square"
-                />
-
-                {/* D with sharp corners */}
-                <path
-                  d="M55 30 L70 30 L70 70 L55 70 Q45 70 45 50 Q45 30 55 30Z"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="7"
-                  strokeLinejoin="miter"
-                />
-
-                {/* Plus symbol connecting them */}
-                <path
-                  d="M48 50 L52 50 M50 48 L50 52"
+                  d="M30 40 L40 60 M60 40 L70 60"
                   stroke="hsl(var(--muted-foreground))"
                   strokeWidth="3"
+                  strokeOpacity="0.6"
                   strokeLinecap="round"
                 />
               </svg>

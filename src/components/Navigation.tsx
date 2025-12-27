@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Cleaner Version of Your Original */}
+              {/* Light & Delivery Monogram */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,39 +301,33 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Simplified container - just bottom curve */}
+                {/* Light beam */}
+                <path d="M50 20 L50 40" stroke="hsl(var(--primary))" strokeWidth="6" strokeLinecap="round" />
+
+                {/* Light rays */}
                 <path
-                  d="M20 30 L20 70 L40 85 L80 85 L80 40 L60 30 L20 30"
-                  fill="none"
+                  d="M50 20 L30 35 M50 20 L70 35"
                   stroke="hsl(var(--primary))"
                   strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeOpacity="0.7"
+                />
+
+                {/* Delivery arrow */}
+                <path
+                  d="M30 60 L70 60 L50 80 L30 60"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="6"
                   strokeLinejoin="round"
                 />
 
-                {/* Clean L shape */}
+                {/* Connecting line */}
                 <path
-                  d="M30 35 L30 65 L45 65"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                />
-
-                {/* Simple ampersand */}
-                <path
-                  d="M48 50 Q50 45 55 50 Q50 55 48 50"
-                  fill="none"
+                  d="M50 40 L50 60"
                   stroke="hsl(var(--muted-foreground))"
                   strokeWidth="3"
-                  strokeOpacity="0.8"
-                />
-
-                {/* Clean D shape */}
-                <path
-                  d="M60 35 L70 35 Q80 35 80 50 Q80 65 70 65 L60 65"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="6"
+                  strokeOpacity="0.6"
                   strokeLinecap="round"
                 />
               </svg>

@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Digital Pixel Monogram */}
+              {/* Cleaner Version of Your Original */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,17 +301,41 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Pixel-inspired shape */}
+                {/* Simplified container - just bottom curve */}
                 <path
-                  d="M30 30 L70 30 L70 50 L50 50 L50 70 L30 70 Z"
+                  d="M20 30 L20 70 L40 85 L80 85 L80 40 L60 30 L20 30"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="5"
+                  strokeWidth="4"
                   strokeLinejoin="round"
                 />
-                {/* Accent pixels */}
-                <rect x="35" y="35" width="10" height="10" fill="hsl(var(--primary))" fillOpacity="0.3" />
-                <rect x="55" y="55" width="10" height="10" fill="hsl(var(--primary))" fillOpacity="0.3" />
+
+                {/* Clean L shape */}
+                <path
+                  d="M30 35 L30 65 L45 65"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+
+                {/* Simple ampersand */}
+                <path
+                  d="M48 50 Q50 45 55 50 Q50 55 48 50"
+                  fill="none"
+                  stroke="hsl(var(--muted-foreground))"
+                  strokeWidth="3"
+                  strokeOpacity="0.8"
+                />
+
+                {/* Clean D shape */}
+                <path
+                  d="M60 35 L70 35 Q80 35 80 50 Q80 65 70 65 L60 65"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span

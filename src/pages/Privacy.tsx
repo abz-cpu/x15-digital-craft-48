@@ -15,7 +15,7 @@ const Privacy = () => {
       <ScrollProgressBar />
       <Navigation />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-32 md:pb-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-16 md:pt-44 md:pb-24">
         <BreadcrumbNav />
         <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-8 mt-4">Privacy Policy</h1>
         

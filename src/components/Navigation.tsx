@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Digital Light Beam */}
+              {/* Sunrise & Delivery Mountain */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,25 +301,25 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Light source */}
-                <circle cx="50" cy="30" r="8" fill="none" stroke="hsl(var(--primary))" strokeWidth="4" />
+                {/* Sunrise/sun */}
+                <circle cx="50" cy="35" r="12" fill="none" stroke="hsl(var(--primary))" strokeWidth="4" />
 
-                {/* Beam of light */}
+                {/* Mountain peaks (delivery/achievement) */}
                 <path
-                  d="M50 38 L30 60 L70 60 Z"
+                  d="M20 70 L50 40 L80 70"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="5"
-                  strokeLinejoin="round"
+                  strokeWidth="6"
+                  strokeLinecap="round"
                 />
 
-                {/* Digital lines inside beam */}
+                {/* Sun rays */}
                 <path
-                  d="M45 45 L55 55 M55 45 L45 55"
-                  stroke="hsl(var(--muted-foreground))"
+                  d="M50 23 L50 15 M40 30 L35 35 M60 30 L65 35"
+                  stroke="hsl(var(--primary))"
                   strokeWidth="3"
                   strokeLinecap="round"
-                  strokeOpacity="0.7"
+                  strokeOpacity="0.6"
                 />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">

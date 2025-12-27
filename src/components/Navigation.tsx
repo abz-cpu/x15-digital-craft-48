@@ -292,7 +292,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* Light & Delivery Monogram */}
+              {/* Digital Light Beam */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
@@ -301,34 +301,25 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Light beam */}
-                <path d="M50 20 L50 40" stroke="hsl(var(--primary))" strokeWidth="6" strokeLinecap="round" />
+                {/* Light source */}
+                <circle cx="50" cy="30" r="8" fill="none" stroke="hsl(var(--primary))" strokeWidth="4" />
 
-                {/* Light rays */}
+                {/* Beam of light */}
                 <path
-                  d="M50 20 L30 35 M50 20 L70 35"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeOpacity="0.7"
-                />
-
-                {/* Delivery arrow */}
-                <path
-                  d="M30 60 L70 60 L50 80 L30 60"
+                  d="M50 38 L30 60 L70 60 Z"
                   fill="none"
                   stroke="hsl(var(--primary))"
-                  strokeWidth="6"
+                  strokeWidth="5"
                   strokeLinejoin="round"
                 />
 
-                {/* Connecting line */}
+                {/* Digital lines inside beam */}
                 <path
-                  d="M50 40 L50 60"
+                  d="M45 45 L55 55 M55 45 L45 55"
                   stroke="hsl(var(--muted-foreground))"
                   strokeWidth="3"
-                  strokeOpacity="0.6"
                   strokeLinecap="round"
+                  strokeOpacity="0.7"
                 />
               </svg>
               <div className="flex flex-col leading-none whitespace-nowrap">

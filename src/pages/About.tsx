@@ -55,7 +55,7 @@ const About = () => {
       <Navigation />
       
       {/* Breadcrumb with proper spacing below navbar */}
-      <div className="pt-24 md:pt-28">
+      <div className="pt-40 md:pt-44">
         <BreadcrumbNav />
       </div>
 

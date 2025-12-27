@@ -263,7 +263,7 @@ const Portfolio = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20 xl:pb-24 bg-background">
+      <section className="pt-40 pb-12 md:pt-44 md:pb-16 lg:pt-48 lg:pb-20 xl:pb-24 bg-background">
         <Container className="text-center fade-in-section">
           <h1 className="mb-6">Recent Work & Capabilities</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

@@ -20,7 +20,7 @@ const Platforms = () => (
     <SEO title="Platforms We Work With | L&D Digital" description="We build on WordPress, Shopify, WooCommerce, and custom React/Next.js. Choose the right platform for your business." />
     <Navigation darkHero />
     <main className="flex-1">
-      <section className="pt-28 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+      <section className="pt-40 pb-16 md:pt-44 md:pb-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
         <Container className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">Platforms We Work With</h1>
           <p className="text-xl text-primary-foreground/90">Choose the right technology for your project.</p>

@@ -102,7 +102,7 @@ const Blog = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-40 pb-16 md:pt-44 md:pb-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">Resources & Insights</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

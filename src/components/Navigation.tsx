@@ -355,8 +355,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             {/* === ZONE 2 + 3: Nav Links + Actions (pushed to the right) === */}
             <div className="hidden lg:flex items-center flex-1 justify-end">
               
-              {/* Nav Items Container - generous gap for LWDA-style spacing */}
-              <div className="flex items-center gap-10 xl:gap-12">
+              {/* Nav Items Container - tighter gap to fit all items */}
+              <div className="flex items-center gap-6 xl:gap-8">
                 
                 {/* Services Dropdown */}
                 <div className="relative">
@@ -645,7 +645,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               </div>
 
               {/* === Actions Zone: Phone + CTA (separated with margin) === */}
-              <div className="flex items-center gap-6 ml-10 xl:ml-14">
+              <div className="flex items-center gap-4 ml-6 xl:ml-8 shrink-0">
                 {/* Separator line */}
                 <div className={`h-5 w-px ${isScrolled ? "bg-border" : darkHero ? "bg-white/30" : "bg-border"}`} aria-hidden="true" />
 
@@ -693,10 +693,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border shadow-xl animate-fade-in overflow-y-auto"
+            className="lg:hidden fixed left-0 right-0 bg-background border-t border-border shadow-xl animate-fade-in overflow-y-auto"
             style={{ 
-              maxHeight: `calc(100vh - ${showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED) : (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px)`,
-              marginTop: '0px'
+              top: `${(showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT : 0) + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px`,
+              maxHeight: `calc(100vh - ${(showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT : 0) + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px)`,
             }}
             role="dialog"
             aria-label="Mobile menu"

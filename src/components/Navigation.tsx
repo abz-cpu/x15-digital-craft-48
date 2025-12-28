@@ -353,7 +353,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             </PreloadLink>
 
             {/* === ZONE 2 + 3: Nav Links + Actions (pushed to the right) === */}
-            <div className="hidden lg:flex items-center flex-1 justify-end">
+            <div className="hidden xl:flex items-center flex-1 justify-end">
               
               {/* Nav Items Container - tighter gap to fit all items */}
               <div className="flex items-center gap-6 xl:gap-8">
@@ -672,7 +672,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`lg:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-auto ${
+              className={`xl:hidden p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-auto ${
                 isScrolled ? "hover:bg-muted" : darkHero ? "hover:bg-white/10" : "hover:bg-muted"
               }`}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -693,7 +693,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
         {isMobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden fixed left-0 right-0 bg-background border-t border-border shadow-xl animate-fade-in overflow-y-auto"
+            className="xl:hidden fixed left-0 right-0 bg-background border-t border-border shadow-xl animate-fade-in overflow-y-auto"
             style={{ 
               top: `${(showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT : 0) + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px`,
               maxHeight: `calc(100vh - ${(showAnnouncementBar ? ANNOUNCEMENT_BAR_HEIGHT : 0) + (isScrolled ? NAV_HEIGHT_COMPACT : NAV_HEIGHT_EXPANDED)}px)`,

@@ -55,6 +55,7 @@ import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { DeviceMockup } from "@/components/DeviceMockup";
 import { LaptopMockup } from "@/components/LaptopMockup";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
+import { AIEstimator } from "@/components/AIEstimator";
 import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
@@ -857,6 +858,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* AI Estimator Section */}
+      <AIEstimator />
 
       {/* Portfolio Preview */}
       <section

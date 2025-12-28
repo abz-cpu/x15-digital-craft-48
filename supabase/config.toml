@@ -1,0 +1,4 @@
+project_id = "psnsqzcjyjeeuyuqkzik"
+
+[functions.ai-estimator]
+verify_jwt = false

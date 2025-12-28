@@ -60,7 +60,7 @@ const CtaCard: React.FC = () => {
             {/* Main Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight text-center lg:text-left mb-6">
               Let's Build Something{" "}
-              <span className="bg-gradient-to-r from-primary via-teal-400 to-emerald-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-teal-500 via-teal-400 to-amber-400 bg-clip-text text-transparent">
                 Amazing
               </span>
             </h2>

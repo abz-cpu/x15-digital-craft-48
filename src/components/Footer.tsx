@@ -41,7 +41,20 @@ export default function Footer() {
           {/* Left Column - Company Info & Contact */}
           <div className="space-y-5">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">L&D DIGITAL</h3>
+              <div className="flex items-center gap-3 mb-3">
+                {/* L&D Monogram */}
+                <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 shadow-lg shadow-primary/10">
+                  <span className="text-2xl font-serif font-bold text-primary tracking-tighter">
+                    L<span className="text-lg">&</span>D
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
+                    <span className="text-primary">L&D</span> DIGITAL
+                  </h3>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/50">Luminus & Deliver</p>
+                </div>
+              </div>
               <p className="text-[11px] md:text-sm text-white/70 leading-relaxed">
                 Web design, development, and AI automation for UK businesses and creators.
               </p>

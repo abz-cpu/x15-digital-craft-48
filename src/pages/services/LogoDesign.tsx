@@ -15,7 +15,7 @@ const LogoDesign = () => {
       <SEO
         title="Logo Design | L&D Digital"
         description="Clean, modern brand marks that look professional everywhere. Professional logo design for UK businesses."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/logo-design"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/logo-design"
       />
       <Navigation darkHero />
 

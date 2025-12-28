@@ -255,7 +255,7 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Portfolio - Our Recent Work | X15 Digital"
+        title="Portfolio - Our Recent Work | L&D Digital"
         description="View our portfolio of web development projects, e-commerce sites, web apps, and AI automation implementations. Real examples of websites and AI solutions for UK businesses."
         keywords="web development portfolio, AI automation examples, website showcase, web design examples UK"
       />
@@ -373,7 +373,7 @@ const Portfolio = () => {
                       <div className="bg-primary/10 p-3 rounded-lg mb-4">
                         <p className="text-xs text-foreground flex items-start gap-2">
                           <Globe className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                          Live client project - built and deployed by X15 Digital
+                          Live client project - built and deployed by L&D Digital
                         </p>
                       </div>
                       <div className="flex gap-2">

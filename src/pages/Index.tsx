@@ -193,7 +193,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="X15 Digital - Affordable Web Development & AI Automation for UK Businesses"
+        title="L&D Digital - Affordable Web Development & AI Automation for UK Businesses"
         description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
         keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots"
       />
@@ -1120,7 +1120,7 @@ const Index = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                You own your domain, hosting account, and all content. The codebase remains with X15 Digital to ensure
+                You own your domain, hosting account, and all content. The codebase remains with L&D Digital to ensure
                 quality, security, and maintainability.
                 <br />
                 <br />

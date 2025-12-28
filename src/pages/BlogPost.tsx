@@ -78,7 +78,7 @@ const BlogPost = () => {
       date: "2024-03-15",
       readTime: 5,
       author: "Abdul M Taher",
-      seoTitle: "Why Cheap Websites Cost More in the Long Run | X15 Digital",
+      seoTitle: "Why Cheap Websites Cost More in the Long Run | L&D Digital",
       seoDescription:
         "That £50 website builder might seem like a bargain, but hidden platform fees, lost time, SEO issues and migration costs quickly turn it into a £2,000+ problem.",
       seoKeywords:
@@ -163,7 +163,7 @@ Let's do the math:
 - Migration costs (later): £1,000
 - **Total: £2,500-3,000**
 
-**Professional Website from X15 Digital:**
+**Professional Website from L&D Digital:**
 - One-time payment: £300-600
 - Monthly fees: £0
 - Your time: 2 hours
@@ -193,7 +193,7 @@ Want to do it right the first time? [See our packages](/services) or [get a free
       date: "2024-03-10",
       readTime: 7,
       author: "Abdul M Taher",
-      seoTitle: "How Small Businesses Can Use AI Without Being Techy | X15 Digital",
+      seoTitle: "How Small Businesses Can Use AI Without Being Techy | L&D Digital",
       seoDescription:
         "AI automation isn't just for tech giants. Learn how UK small businesses use chatbots, voice agents and automation to save 10–20 hours per week without any technical skills.",
       seoKeywords:
@@ -351,7 +351,7 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
       date: "2024-03-20",
       readTime: 6,
       author: "Abdul M Taher",
-      seoTitle: "The Hidden Dangers of Hiring Offshore Web Developers | X15 Digital",
+      seoTitle: "The Hidden Dangers of Hiring Offshore Web Developers | L&D Digital",
       seoDescription:
         "That £200 offshore developer might look cheap, but GDPR fines up to £17.5M, poor quality, and zero legal protection make it an expensive gamble for UK businesses.",
       seoKeywords:

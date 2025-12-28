@@ -158,11 +158,11 @@ const Contact = () => {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("luminusanddeliver@gmail.com");
+    navigator.clipboard.writeText("contact.luminousanddeliver@gmail.com");
     setCopied(true);
     toast({
       title: "Email copied!",
-      description: "luminusanddeliver@gmail.com copied to clipboard",
+      description: "contact.luminousanddeliver@gmail.com copied to clipboard",
     });
     setTimeout(() => setCopied(false), 2000);
   };
@@ -545,7 +545,7 @@ const Contact = () => {
                   <Button variant="outline" size="lg" onClick={copyEmail} className="w-full justify-between">
                     <span className="flex items-center gap-2">
                       <Mail className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-sm">luminusanddeliver@gmail.com</span>
+                      <span className="text-sm">contact.luminousanddeliver@gmail.com</span>
                     </span>
                     <span className="flex items-center gap-2 text-xs text-muted-foreground">
                       {copied ? (
@@ -562,10 +562,10 @@ const Contact = () => {
 
                   {/* Phone */}
                   <Button asChild variant="outline" size="lg" className="w-full justify-between">
-                    <a href="tel:+447123456789">
+                    <a href="tel:+447356260648">
                       <span className="flex items-center gap-2">
                         <Phone className="h-5 w-5 text-muted-foreground" />
-                        <span className="text-sm">07123 456789</span>
+                        <span className="text-sm">+44 7356 260648</span>
                       </span>
                       <span className="text-xs text-muted-foreground">Call</span>
                     </a>
@@ -689,7 +689,7 @@ const Contact = () => {
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-2">
                   <Button asChild variant="outline" className="w-full">
-                    <a href="mailto:luminusanddeliver@gmail.com?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
+                    <a href="mailto:contact.luminousanddeliver@gmail.com?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
                       Email brief <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -736,7 +736,7 @@ const Contact = () => {
                 <div className="lg:col-span-7 overflow-hidden rounded-xl border border-border/70 shadow-sm">
                   <div className="relative w-full h-[260px] md:h-[320px] bg-muted">
                     <iframe
-                      title="X15 Digital location map"
+                      title="L&D Digital location map"
                       className="absolute inset-0 w-full h-full border-0"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
@@ -984,7 +984,7 @@ const Contact = () => {
                 src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
                 className="w-full h-full border-0"
                 loading="lazy"
-                title="Book a 30-minute strategy call with X15 Digital"
+                title="Book a 30-minute strategy call with L&D Digital"
               />
             </div>
           </div>

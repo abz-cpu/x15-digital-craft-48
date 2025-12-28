@@ -1,9 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, Sparkles, CheckCircle2, Globe, Smartphone, Monitor } from "lucide-react";
+import React, { useState } from "react";
+import { Send, CheckCircle2, Globe, Sparkles } from "lucide-react";
 import { Container } from "./Container";
+import { toast } from "@/hooks/use-toast";
 
 const CtaCard: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 3 hours.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <section className="relative py-14 md:py-20 overflow-hidden bg-[#D9F7F4]">
       {/* Premium soft radial background */}
@@ -89,13 +111,13 @@ const CtaCard: React.FC = () => {
             <div className="text-center lg:text-left mb-6 space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold animate-fade-in">
                 <Sparkles className="h-3.5 w-3.5" />
-                <span>Let&apos;s Build Something Amazing</span>
+                <span>Ready to Grow Your Business?</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ink leading-tight">
-                Ready to Grow Your{" "}
+                Let&apos;s Build Something{" "}
                 <span className="bg-gradient-to-r from-primary via-teal-400 to-accent bg-clip-text text-transparent">
-                  Business?
+                  Amazing
                 </span>
               </h2>
 
@@ -104,7 +126,7 @@ const CtaCard: React.FC = () => {
               </p>
             </div>
 
-            {/* Social proof avatars - abstract circles with initials */}
+            {/* Social proof avatars */}
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-rose-400 to-rose-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-sm">S</div>
@@ -116,62 +138,44 @@ const CtaCard: React.FC = () => {
               <span className="text-sm text-ink-light">Join 50+ UK businesses</span>
             </div>
 
-            {/* Main Card */}
-            <div className="rounded-2xl bg-card/90 backdrop-blur-sm border border-border shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500">
-              <div className="px-5 sm:px-6 py-5 space-y-4">
-                <div className="text-center lg:text-left space-y-1.5">
-                  <p className="text-sm text-muted-foreground">
-                    Tell us what you need in about 2 minutes. We'll map out your website + automation plan and send a clear
-                    quote.
-                  </p>
-                </div>
-
-                {/* Primary CTA */}
-                <Link
-                  to="/contact"
-                  className="group w-full flex items-center justify-center gap-2
-                    h-12 px-5 text-sm font-semibold rounded-xl
-                    bg-gradient-to-r from-primary via-teal-500 to-primary
-                    text-primary-foreground shadow-md
-                    hover:shadow-lg hover:scale-[1.015]
-                    active:scale-[0.98] transition-all"
+            {/* Form Card */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input 
+                  type="text" 
+                  placeholder="Your Name" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all text-slate-900 placeholder:text-slate-400" 
+                />
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all text-slate-900 placeholder:text-slate-400" 
+                />
+                <textarea 
+                  placeholder="Tell us about your project..." 
+                  rows={3} 
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  className="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all text-slate-900 placeholder:text-slate-400 resize-none"
+                />
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 disabled:opacity-70"
                 >
-                  Get Your Free Quote
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-
-                {/* WhatsApp */}
-                <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">Prefer to ask a few questions first?</p>
-
-                  <a
-                    href="https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-primary hover:border-[#25D366] hover:text-[#25D366] transition-all"
-                  >
-                    <span className="inline-flex items-center justify-center rounded-full bg-primary/10 p-1.5">
-                      <MessageCircle className="h-4 w-4" />
-                    </span>
-                    Let&apos;s chat on WhatsApp
-                  </a>
-                </div>
-
-                {/* Trust badges */}
-                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                    <span>Free quote in 3 hrs</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                    <span>No pushy sales</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                    <span>You own everything</span>
-                  </div>
-                </div>
+                  {isSubmitting ? "Sending..." : "Get Your Free Quote"} 
+                  <Send size={20} />
+                </button>
+              </form>
+              <div className="text-center mt-5 text-sm text-slate-400">
+                Free quote in 3 hrs • No pushy sales • You own everything
               </div>
             </div>
           </div>

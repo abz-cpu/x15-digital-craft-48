@@ -56,6 +56,7 @@ import { DeviceMockup } from "@/components/DeviceMockup";
 import { LaptopMockup } from "@/components/LaptopMockup";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
 import { AIEstimator } from "@/components/AIEstimator";
+import { LifestyleMockup } from "@/components/LifestyleMockup";
 import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
@@ -936,47 +937,34 @@ const Index = () => {
 
             return (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-                  {portfolioProjects.map((project, index) => (
-                    <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-                      <Card 
-                        className="hover-lift cursor-pointer overflow-hidden group"
-                        onClick={() => setSelectedPortfolioProject(project)}
-                      >
-                        {/* Laptop Mockup */}
-                        <div className="p-4 bg-gradient-to-br from-slate-100 via-slate-50 to-white">
-                          <LaptopMockup 
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+                  {portfolioProjects.map((project, index) => {
+                    const variants: Array<'desk-plant' | 'minimal-desk' | 'cozy-vase'> = ['desk-plant', 'minimal-desk', 'cozy-vase'];
+                    return (
+                      <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
+                        <div 
+                          className="cursor-pointer group"
+                          onClick={() => setSelectedPortfolioProject(project)}
+                        >
+                          {/* Lifestyle Mockup */}
+                          <LifestyleMockup 
                             imageSrc={project.image} 
                             alt={`${project.title} Website`}
-                            className="transform group-hover:scale-[1.02] transition-transform duration-300"
+                            variant={variants[index % 3]}
+                            className="transform group-hover:scale-[1.02] transition-transform duration-500 mb-5"
                           />
-                        </div>
-                        <CardHeader className="pt-4">
-                          <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                          <Badge variant={project.isLive ? "default" : "secondary"}>{project.badge}</Badge>
-                        </CardHeader>
-                        <CardContent>
-                          <ul className="space-y-2 mb-4">
-                            {project.features.slice(0, 3).map((feature) => (
-                              <li key={feature} className="flex items-start gap-2">
-                                <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                                <span className="text-sm">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          <div className="text-sm text-muted-foreground space-y-1 mb-4">
-                            <p>
-                              <strong>Timeline:</strong> {project.timeline}
-                            </p>
-                            <p>
-                              <strong>Tech:</strong> {project.tech}
-                            </p>
+                          
+                          {/* Title and info below */}
+                          <div className="text-center space-y-2">
+                            <Badge variant={project.isLive ? "default" : "secondary"} className="mb-2">{project.badge}</Badge>
+                            <h3 className="text-xl font-bold text-secondary group-hover:text-primary transition-colors">{project.title}</h3>
+                            <p className="text-sm text-muted-foreground">{project.category}</p>
+                            <p className="text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
                           </div>
-                          <p className="text-sm text-primary font-medium">Click to view details →</p>
-                        </CardContent>
-                      </Card>
-                    </AnimatedSection>
-                  ))}
+                        </div>
+                      </AnimatedSection>
+                    );
+                  })}
                 </div>
 
                 {/* Device Mockup Modal */}

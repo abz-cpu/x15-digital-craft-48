@@ -12,7 +12,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { WebPackagesComparisonTable } from "@/components/WebPackagesComparisonTable";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
-import { LaptopMockup } from "@/components/LaptopMockup";
+import { LifestyleMockup } from "@/components/LifestyleMockup";
 import blogWebDevHero from "@/assets/blog-web-dev-hero.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
@@ -743,24 +743,33 @@ const WebPackage = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-10">
-              {portfolioItems.map(item => <button key={item.id} onClick={() => setSelectedProject(item)} className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 via-slate-50 to-white p-6 border border-border hover:shadow-2xl hover:border-primary/30 transition-all duration-300 text-left">
-                  {/* Laptop Mockup */}
-                  <div className="mb-4">
-                    <LaptopMockup 
+              {portfolioItems.map((item, index) => {
+                const variants: Array<'desk-plant' | 'minimal-desk' | 'cozy-vase'> = ['desk-plant', 'minimal-desk', 'cozy-vase'];
+                return (
+                  <button 
+                    key={item.id} 
+                    onClick={() => setSelectedProject(item)} 
+                    className="group text-left"
+                  >
+                    {/* Lifestyle Mockup */}
+                    <LifestyleMockup 
                       imageSrc={item.image} 
                       alt={`${item.title} Website`}
-                      className="transform group-hover:scale-[1.02] transition-transform duration-300"
+                      variant={variants[index % 3]}
+                      className="transform group-hover:scale-[1.02] transition-transform duration-500 mb-5"
                     />
-                  </div>
-                  {/* Title & Info */}
-                  <div className="space-y-2">
-                    <p className="text-xs uppercase tracking-wider text-primary font-semibold">
-                      {item.category}
-                    </p>
-                    <h3 className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">Click to view details →</p>
-                  </div>
-                </button>)}
+                    
+                    {/* Title & Info */}
+                    <div className="space-y-2 text-center">
+                      <p className="text-xs uppercase tracking-wider text-primary font-semibold">
+                        {item.category}
+                      </p>
+                      <h3 className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="text-center">

@@ -29,36 +29,43 @@ export const LifestyleMockup: React.FC<LifestyleMockupProps> = ({
     }
   };
 
-  // Screen positioning for each variant (percentage based)
+  // Screen positioning for each variant - calibrated to match device screens exactly
   const getScreenPosition = () => {
     switch (variant) {
       case 'imac':
+        // iMac screen position - centered, upper portion
         return {
-          top: '8%',
-          left: '12%',
-          width: '76%',
-          height: '52%',
+          top: '10.5%',
+          left: '18.5%',
+          width: '63%',
+          height: '51%',
+          borderRadius: '1px',
         };
       case 'macbook':
+        // MacBook screen position - centered with laptop open
         return {
-          top: '10%',
-          left: '18%',
-          width: '64%',
-          height: '48%',
+          top: '13%',
+          left: '24%',
+          width: '52%',
+          height: '42%',
+          borderRadius: '4px',
         };
       case 'laptop':
+        // Silver laptop screen position
         return {
-          top: '8%',
-          left: '16%',
-          width: '68%',
-          height: '52%',
+          top: '11%',
+          left: '21%',
+          width: '58%',
+          height: '50%',
+          borderRadius: '6px',
         };
       default:
         return {
-          top: '8%',
-          left: '12%',
-          width: '76%',
-          height: '52%',
+          top: '10.5%',
+          left: '18.5%',
+          width: '63%',
+          height: '51%',
+          borderRadius: '1px',
         };
     }
   };
@@ -82,13 +89,17 @@ export const LifestyleMockup: React.FC<LifestyleMockupProps> = ({
           left: screenPos.left,
           width: screenPos.width,
           height: screenPos.height,
-          borderRadius: '2px',
+          borderRadius: screenPos.borderRadius,
         }}
       >
         <img 
           src={imageSrc} 
           alt={alt}
           className="w-full h-full object-cover object-top"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'top center',
+          }}
         />
       </div>
     </div>

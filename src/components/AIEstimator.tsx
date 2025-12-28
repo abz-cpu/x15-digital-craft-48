@@ -68,10 +68,10 @@ export const AIEstimator: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-slate-800">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#E6FAF8] via-[#D9F7F4] to-[#CCEFE9] rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-primary/20">
           {/* Decorative glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-[80px] -ml-24 -mb-24" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/15 rounded-full blur-[100px] -mr-32 -mt-32" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/15 rounded-full blur-[80px] -ml-24 -mb-24" />
           
           <div className="relative z-10 flex flex-col items-center text-center">
             {/* Icon */}
@@ -80,12 +80,12 @@ export const AIEstimator: React.FC = () => {
             </div>
             
             {/* Title */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4">
               Instant AI Project Analysis
             </h2>
             
             {/* Description */}
-            <p className="text-slate-400 mb-8 sm:mb-10 max-w-xl text-sm sm:text-base">
+            <p className="text-slate-600 mb-8 sm:mb-10 max-w-xl text-sm sm:text-base">
               Tell our AI what you need (e.g., "I need a salon website with booking for 2 staff"), and get an instant professional breakdown.
             </p>
             
@@ -97,7 +97,7 @@ export const AIEstimator: React.FC = () => {
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Describe your project idea..."
-                className="flex-1 bg-slate-800 border border-slate-700 text-white px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary transition-all text-base sm:text-lg placeholder:text-slate-500"
+                className="flex-1 bg-white/80 border border-slate-200 text-slate-900 px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary transition-all text-base sm:text-lg placeholder:text-slate-400"
               />
               <button 
                 onClick={handleEstimate}
@@ -111,23 +111,23 @@ export const AIEstimator: React.FC = () => {
 
             {/* Results */}
             {response && (
-              <div className="w-full bg-slate-800/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-left border border-slate-700/50 animate-fade-in">
+              <div className="w-full bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-left border border-white/80 shadow-lg animate-fade-in">
                 <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
                   <div>
                     <div className="mb-5 sm:mb-6">
                       <div className="text-primary text-xs font-bold uppercase tracking-wider mb-2">Recommended Package</div>
-                      <div className="text-xl sm:text-2xl font-extrabold text-white">{response.recommendedPackage}</div>
+                      <div className="text-xl sm:text-2xl font-extrabold text-slate-900">{response.recommendedPackage}</div>
                     </div>
                     <div className="mb-5 sm:mb-6">
                       <div className="text-primary text-xs font-bold uppercase tracking-wider mb-2">Estimated Timeline</div>
-                      <div className="text-lg sm:text-xl font-bold text-slate-200">{response.estimatedTimeline}</div>
+                      <div className="text-lg sm:text-xl font-bold text-slate-700">{response.estimatedTimeline}</div>
                     </div>
                   </div>
                   <div>
                     <div className="text-primary text-xs font-bold uppercase tracking-wider mb-2">Key Features</div>
                     <ul className="space-y-2">
                       {response.keyFeatures.map((f: string, i: number) => (
-                        <li key={i} className="text-slate-300 flex items-start gap-2 text-sm sm:text-base">
+                        <li key={i} className="text-slate-600 flex items-start gap-2 text-sm sm:text-base">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                           {f}
                         </li>
@@ -135,11 +135,11 @@ export const AIEstimator: React.FC = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-slate-700/50">
+                <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-slate-200">
                   <div className="text-primary text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2">
                     <Quote size={14} /> Our Approach
                   </div>
-                  <p className="text-slate-400 leading-relaxed italic text-sm sm:text-base">"{response.approach}"</p>
+                  <p className="text-slate-500 leading-relaxed italic text-sm sm:text-base">"{response.approach}"</p>
                 </div>
               </div>
             )}

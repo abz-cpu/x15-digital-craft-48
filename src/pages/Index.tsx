@@ -938,8 +938,8 @@ const Index = () => {
             return (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
-                  {portfolioProjects.map((project, index) => {
-                    const variants: Array<'desk-plant' | 'minimal-desk' | 'cozy-vase'> = ['desk-plant', 'minimal-desk', 'cozy-vase'];
+                {portfolioProjects.map((project, index) => {
+                    const variants: Array<'imac' | 'macbook' | 'laptop'> = ['imac', 'macbook', 'laptop'];
                     return (
                       <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
                         <div 

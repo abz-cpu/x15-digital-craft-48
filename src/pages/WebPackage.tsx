@@ -744,7 +744,7 @@ const WebPackage = () => {
 
             <div className="grid md:grid-cols-3 gap-8 mb-10">
               {portfolioItems.map((item, index) => {
-                const variants: Array<'desk-plant' | 'minimal-desk' | 'cozy-vase'> = ['desk-plant', 'minimal-desk', 'cozy-vase'];
+                const variants: Array<'imac' | 'macbook' | 'laptop'> = ['imac', 'macbook', 'laptop'];
                 return (
                   <button 
                     key={item.id} 

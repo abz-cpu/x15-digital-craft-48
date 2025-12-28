@@ -16,7 +16,7 @@ export const ReviewSchema = ({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "L&D Digital",
-      "url": "https://luminusanddeliver.co.uk",
+      "url": "https://luminousanddeliver.co.uk",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": ratingValue,

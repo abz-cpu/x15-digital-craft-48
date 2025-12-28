@@ -15,7 +15,7 @@ const Seo = () => {
       <SEO
         title="SEO Services | L&D Digital"
         description="Get found on Google with expert SEO services. We help UK businesses rank higher, attract more traffic, and convert visitors into customers."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/seo"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/seo"
       />
       <Navigation darkHero />
 

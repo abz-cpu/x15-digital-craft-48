@@ -129,7 +129,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[#0F766E] hover:text-[#F59E0B] text-sm font-semibold transition-all hover:gap-3"
               >
-                X15 PC Builders <ArrowRight className="h-3.5 w-3.5" />
+                L&D Builds <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>

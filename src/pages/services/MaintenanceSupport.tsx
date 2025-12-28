@@ -15,7 +15,7 @@ const MaintenanceSupport = () => {
       <SEO
         title="Maintenance & Support | L&D Digital"
         description="Ongoing updates, fixes, and protection for your website. Keep your site secure, fast, and up-to-date."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/maintenance-support"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/maintenance-support"
       />
       <Navigation darkHero />
 

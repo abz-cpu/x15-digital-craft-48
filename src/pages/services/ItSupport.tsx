@@ -18,7 +18,7 @@ const ItSupport = () => {
       <SEO
         title="IT Support | L&D Digital"
         description="Reliable technical support for your day-to-day operations. Keep your business running smoothly with expert IT help."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/it-support"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/it-support"
       />
 
       <Navigation darkHero />

@@ -15,7 +15,7 @@ const Branding = () => {
       <SEO
         title="Branding | L&D Digital"
         description="A complete visual identity that matches your business. Professional branding services for UK businesses."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/branding"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/branding"
       />
       <Navigation darkHero />
 

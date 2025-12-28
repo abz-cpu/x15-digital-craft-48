@@ -73,8 +73,8 @@ const QuickStart = () => {
       <ScrollProgressBar />
       <Navigation />
       
-      {/* Breadcrumb below navbar */}
-      <div className="pt-[88px]">
+      {/* Breadcrumb below navbar - extra padding for top banner */}
+      <div className="pt-32 md:pt-36">
         <BreadcrumbNav />
       </div>
 

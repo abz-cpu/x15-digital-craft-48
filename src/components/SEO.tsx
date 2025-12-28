@@ -15,13 +15,13 @@ export const SEO = ({
   title,
   description,
   keywords = "web development UK, AI automation, website design London, affordable websites, small business web design",
-  ogImage = "https://luminusanddeliver.co.uk/og-image.jpg",
+  ogImage = "https://luminousanddeliver.co.uk/og-image.jpg",
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,
 }: SEOProps) => {
   const location = useLocation();
-  const fullUrl = canonicalUrl || `https://luminusanddeliver.co.uk${location.pathname}`;
+  const fullUrl = canonicalUrl || `https://luminousanddeliver.co.uk${location.pathname}`;
 
   useEffect(() => {
     // Update title

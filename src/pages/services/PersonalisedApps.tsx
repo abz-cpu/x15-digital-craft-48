@@ -15,7 +15,7 @@ const PersonalisedApps = () => {
       <SEO
         title="Personalised Apps | L&D Digital"
         description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke solutions."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/personalised-apps"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/personalised-apps"
       />
       <Navigation darkHero />
 

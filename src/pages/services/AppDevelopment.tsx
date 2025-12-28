@@ -15,7 +15,7 @@ const AppDevelopment = () => {
       <SEO
         title="App Development | L&D Digital"
         description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses."
-        canonicalUrl="https://luminusanddeliver.co.uk/services/app-development"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/app-development"
       />
       <Navigation darkHero />
 

@@ -42,21 +42,56 @@ export default function Footer() {
           <div className="space-y-5">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                {/* L&D Monogram */}
-                <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 shadow-lg shadow-primary/10">
-                  <span className="text-2xl font-serif font-bold text-primary tracking-tighter">
-                    L<span className="text-lg">&</span>D
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
-                    <span className="text-primary">L&D</span> DIGITAL
-                  </h3>
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/50">Luminus & Deliver</p>
-                </div>
+                {/* L&D Monogram - Same as navbar */}
+                <svg 
+                  width={40} 
+                  height={40} 
+                  viewBox="0 0 100 100" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0"
+                >
+                  <path 
+                    d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
+                    fill="none" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth="6"
+                    strokeLinejoin="round"
+                  />
+                  <path 
+                    d="M28 28 L28 65 L48 65" 
+                    fill="none" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth="6" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                  <text 
+                    x="42" 
+                    y="58" 
+                    fill="hsl(var(--muted-foreground))" 
+                    fontSize="18" 
+                    fontWeight="500"
+                    fontFamily="system-ui"
+                  >
+                    &amp;
+                  </text>
+                  <path 
+                    d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
+                    fill="none" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth="6" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <h3 className="text-lg md:text-xl font-bold tracking-tight">
+                  <span className="text-white">L&D</span>{" "}
+                  <span className="text-primary">DIGITAL</span>
+                </h3>
               </div>
               <p className="text-[11px] md:text-sm text-white/70 leading-relaxed">
-                Web design, development, and AI automation for UK businesses and creators.
+                Web design, development, and AI automation for UK businesses and creators. Built for performance and conversion.
               </p>
             </div>
 

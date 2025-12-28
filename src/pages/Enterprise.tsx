@@ -437,10 +437,10 @@ const Enterprise = () => {
           <p className="text-white/90">
             Or email us directly:{" "}
             <a
-              href="mailto:info@x15digital.co.uk"
+              href="mailto:luminusanddeliver@gmail.com"
               className="font-semibold hover:underline"
             >
-              info@x15digital.co.uk
+              luminusanddeliver@gmail.com
             </a>
           </p>
         </div>

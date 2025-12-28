@@ -13,9 +13,9 @@ const Branding = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Branding | X15 Digital"
+        title="Branding | L&D Digital"
         description="A complete visual identity that matches your business. Professional branding services for UK businesses."
-        canonicalUrl="https://x15.digital/services/branding"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/branding"
       />
       <Navigation darkHero />
 

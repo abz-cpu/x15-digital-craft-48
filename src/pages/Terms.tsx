@@ -8,8 +8,8 @@ const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Terms of Service | X15 Digital"
-        description="Read X15 Digital's terms of service. Understand the terms and conditions for using our web development and AI automation services."
+        title="Terms of Service | L&D Digital"
+        description="Read L&D Digital's terms of service. Understand the terms and conditions for using our web development and AI automation services."
         keywords="terms of service, terms and conditions, website terms, service agreement"
       />
       <ScrollProgressBar />
@@ -25,13 +25,13 @@ const Terms = () => {
           <section>
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">1. Agreement to Terms</h2>
             <p>
-              By accessing or using X15 Digital's website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.
+              By accessing or using L&D Digital's website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">2. Services</h2>
-            <p>X15 Digital provides:</p>
+            <p>L&D Digital provides:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Web development services</li>
               <li>AI automation solutions</li>
@@ -173,7 +173,7 @@ const Terms = () => {
               You may terminate a project with written notice. You will be billed for work completed up to the termination date.
             </p>
 
-            <h3 className="text-xl font-semibold mt-4 mb-2">By X15 Digital</h3>
+            <h3 className="text-xl font-semibold mt-4 mb-2">By L&D Digital</h3>
             <p>
               We may terminate services if you breach these terms, fail to make payments, or if continuing the project is not feasible.
             </p>
@@ -211,8 +211,8 @@ const Terms = () => {
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">17. Contact Information</h2>
             <p>For questions about these Terms of Service, contact us:</p>
             <ul className="list-none space-y-2 mt-4">
-              <li><strong>Email:</strong> <a href="mailto:info@x15digital.co.uk" className="text-primary hover:underline">info@x15digital.co.uk</a></li>
-              <li><strong>Phone:</strong> <a href="tel:+447424062513" className="text-primary hover:underline">+44 7424 062513</a></li>
+              <li><strong>Email:</strong> <a href="mailto:luminusanddeliver@gmail.com" className="text-primary hover:underline">luminusanddeliver@gmail.com</a></li>
+              <li><strong>Phone:</strong> <a href="tel:+447356260648" className="text-primary hover:underline">+44 7356 260648</a></li>
               <li><strong>Address:</strong> London, UK</li>
             </ul>
           </section>

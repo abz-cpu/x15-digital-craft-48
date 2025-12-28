@@ -13,9 +13,9 @@ const Seo = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="SEO Services | X15 Digital"
+        title="SEO Services | L&D Digital"
         description="Get found on Google with expert SEO services. We help UK businesses rank higher, attract more traffic, and convert visitors into customers."
-        canonicalUrl="https://x15.digital/services/seo"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/seo"
       />
       <Navigation darkHero />
 

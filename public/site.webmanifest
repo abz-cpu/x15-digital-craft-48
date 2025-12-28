@@ -1,6 +1,7 @@
 {
-  "name": "Luminus & Deliver",
-  "short_name": "L&D",
+  "name": "L&D Digital - Luminus & Deliver",
+  "short_name": "L&D Digital",
+  "description": "Professional web development and AI automation for UK businesses",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -17,5 +18,7 @@
   ],
   "theme_color": "#009a8c",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
 }

@@ -15,8 +15,8 @@ export const ReviewSchema = ({
     const schema = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "X15 Digital",
-      "url": "https://x15digital.co.uk",
+      "name": "L&D Digital",
+      "url": "https://luminusanddeliver.co.uk",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": ratingValue,

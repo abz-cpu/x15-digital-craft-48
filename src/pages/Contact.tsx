@@ -158,11 +158,11 @@ const Contact = () => {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("info@x15digital.co.uk");
+    navigator.clipboard.writeText("luminusanddeliver@gmail.com");
     setCopied(true);
     toast({
       title: "Email copied!",
-      description: "info@x15digital.co.uk copied to clipboard",
+      description: "luminusanddeliver@gmail.com copied to clipboard",
     });
     setTimeout(() => setCopied(false), 2000);
   };
@@ -190,8 +190,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Us - Get Your Free Quote | X15 Digital"
-        description="Contact X15 Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."
+        title="Contact Us - Get Your Free Quote | L&D Digital"
+        description="Contact L&D Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."
         keywords="contact web developer UK, get free quote website, AI automation consultation, web development London"
       />
       <ScrollProgressBar />
@@ -530,7 +530,7 @@ const Contact = () => {
                   {/* WhatsApp */}
                   <Button asChild size="lg" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm">
                     <a
-                      href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services"
+                      href="https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20I%27m%20interested%20in%20your%20services"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
@@ -545,7 +545,7 @@ const Contact = () => {
                   <Button variant="outline" size="lg" onClick={copyEmail} className="w-full justify-between">
                     <span className="flex items-center gap-2">
                       <Mail className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-sm">info@x15digital.co.uk</span>
+                      <span className="text-sm">luminusanddeliver@gmail.com</span>
                     </span>
                     <span className="flex items-center gap-2 text-xs text-muted-foreground">
                       {copied ? (
@@ -689,14 +689,14 @@ const Contact = () => {
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-2">
                   <Button asChild variant="outline" className="w-full">
-                    <a href="mailto:info@x15digital.co.uk?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
+                    <a href="mailto:luminusanddeliver@gmail.com?subject=Project%20Brief%20(Quick%20Quote)&body=Business%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A">
                       Email brief <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
 
                   <Button asChild className="w-full">
                     <a
-                      href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20here%E2%80%99s%20my%20quick%20brief%3A%0A%0ABusiness%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A"
+                      href="https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20here%E2%80%99s%20my%20quick%20brief%3A%0A%0ABusiness%20type%3A%0AWebsite%20goal%3A%0APages%20needed%3A%0AExample%20sites%3A%0AIntegrations%3A%0ABudget%20(optional)%3A%0ATimeline%20(optional)%3A"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -772,7 +772,7 @@ const Contact = () => {
                       </Button>
                       <Button asChild className="w-full">
                         <a
-                          href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                          href="https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project"
                           target="_blank"
                           rel="noopener noreferrer"
                         >

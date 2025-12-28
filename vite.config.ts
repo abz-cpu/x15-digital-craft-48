@@ -17,8 +17,8 @@ export default defineConfig(({ mode }) => ({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "robots.txt"],
       manifest: {
-        name: "X15 Digital - Web Development & AI Automation",
-        short_name: "X15 Digital",
+        name: "L&D Digital - Web Development & AI Automation",
+        short_name: "L&D Digital",
         description: "Professional web development from £100 & AI automation from £50/month for UK businesses",
         theme_color: "#06b6d4",
         background_color: "#ffffff",

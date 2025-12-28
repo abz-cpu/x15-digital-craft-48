@@ -351,10 +351,10 @@ const QuickStart = () => {
               <div>
                 <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-1">Free strategy call</p>
                 <h2 className="text-lg md:text-xl font-semibold text-secondary">
-                  Book a 30-minute call with X15 Digital
+                  Book a 30-minute call with L&D Digital
                 </h2>
                 <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                  We’ll review your goals and advise the best package – no pressure, no obligation.
+                  We'll review your goals and advise the best package – no pressure, no obligation.
                 </p>
               </div>
 
@@ -373,7 +373,7 @@ const QuickStart = () => {
                 src="https://calendly.com/x15builds/30min?hide_gdpr_banner=1"
                 className="w-full h-full border-0"
                 loading="lazy"
-                title="Book a 30-minute strategy call with X15 Digital"
+                title="Book a 30-minute strategy call with L&D Digital"
               />
             </div>
           </div>

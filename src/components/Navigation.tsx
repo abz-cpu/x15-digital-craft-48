@@ -347,7 +347,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 </span>
                 {/* Tagline: hide on compact to reduce clutter */}
                 <span className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}>
-                  Luminus &amp; Deliver —
+                  Luminous &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>
@@ -651,12 +651,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
                 {/* Phone Number - smaller, cleaner */}
                 <a
-                  href="tel:+447123456789"
+                  href="tel:+447356260648"
                   className={`flex items-center gap-2 text-[12px] font-semibold tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary ${getNavTextClass()}`}
-                  aria-label="Call us on 07123 456789"
+                  aria-label="Call us on +44 7356 260648"
                 >
                   <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>07123 456789</span>
+                  <span>+44 7356 260648</span>
                 </a>
 
                 {/* CTA Button - slightly smaller for balance */}
@@ -858,7 +858,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               <div className="bg-muted/50 rounded-2xl p-4 space-y-4">
                 {/* Phone Number */}
                 <a
-                  href="tel:+447123456789"
+                  href="tel:+447356260648"
                   className="flex items-center gap-3 py-3 px-4 text-base font-medium text-foreground bg-background hover:bg-primary/5 rounded-xl transition-all border border-border"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -866,7 +866,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Call us now</p>
-                    <p className="font-semibold">07123 456789</p>
+                    <p className="font-semibold">+44 7356 260648</p>
                   </div>
                 </a>
 

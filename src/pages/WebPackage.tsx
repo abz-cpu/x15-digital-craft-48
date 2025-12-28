@@ -53,7 +53,7 @@ const portfolioItems = [{
 const WebPackage = () => {
   const [selectedProject, setSelectedProject] = useState<(typeof portfolioItems)[0] | null>(null);
   return <div className="min-h-screen flex flex-col">
-      <SEO title="Web Development Packages | X15 Digital" description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything." canonicalUrl="https://x15.digital/web-package" />
+      <SEO title="Web Development Packages | L&D Digital" description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything." canonicalUrl="https://luminousanddeliver.co.uk/web-package" />
 
       <Navigation darkHero />
 

@@ -260,9 +260,9 @@ const AiPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="AI Automation Solutions | X15 Digital"
+        title="AI Automation Solutions | L&D Digital"
         description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
-        canonicalUrl="https://x15.digital/ai-package"
+        canonicalUrl="https://luminousanddeliver.co.uk/ai-package"
       />
       <Navigation darkHero />
 

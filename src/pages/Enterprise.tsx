@@ -41,7 +41,7 @@ const Enterprise = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Enterprise Solutions - Complex Projects & Custom Development | X15 Digital"
+        title="Enterprise Solutions - Complex Projects & Custom Development | L&D Digital"
         description="Custom enterprise web applications, complex AI automation, and large-scale projects for UK businesses. Flexible pricing for unique requirements."
         keywords="enterprise web development UK, custom web applications, complex AI automation, enterprise software development"
       />
@@ -437,10 +437,10 @@ const Enterprise = () => {
           <p className="text-white/90">
             Or email us directly:{" "}
             <a
-              href="mailto:luminusanddeliver@gmail.com"
+              href="mailto:contact.luminousanddeliver@gmail.com"
               className="font-semibold hover:underline"
             >
-              luminusanddeliver@gmail.com
+              contact.luminousanddeliver@gmail.com
             </a>
           </p>
         </div>

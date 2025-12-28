@@ -94,7 +94,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Blog - Web Development & AI Automation Insights | X15 Digital"
+        title="Blog - Web Development & AI Automation Insights | L&D Digital"
         description="Read expert insights on web development, offshore risks, cheap website pitfalls, and AI automation. Practical guides and case studies for UK small businesses."
         keywords="web development blog UK, offshore development risks, cheap websites, AI automation guides, website tips, UK small business"
       />

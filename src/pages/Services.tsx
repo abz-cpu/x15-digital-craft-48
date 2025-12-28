@@ -70,9 +70,9 @@ const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Services | X15 Digital - Web Development, AI Automation & Digital Marketing"
+        title="Services | L&D Digital - Web Development, AI Automation & Digital Marketing"
         description="Professional websites, AI chatbots, digital marketing, and ongoing support for UK businesses. Clear pricing, fast delivery, no jargon."
-        canonicalUrl="https://x15.digital/services"
+        canonicalUrl="https://luminousanddeliver.co.uk/services"
       />
 
       <Navigation darkHero />

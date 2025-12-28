@@ -145,7 +145,7 @@ const CtaCard: React.FC = () => {
                   <p className="text-sm text-muted-foreground">Prefer to ask a few questions first?</p>
 
                   <a
-                    href="https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions"
+                    href="https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20I%27d%20like%20to%20ask%20a%20few%20questions"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-primary hover:border-[#25D366] hover:text-[#25D366] transition-all"

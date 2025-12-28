@@ -13,9 +13,9 @@ const LandingPages = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Landing Page Creation | X15 Digital"
+        title="Landing Page Creation | L&D Digital"
         description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers."
-        canonicalUrl="https://x15.digital/services/landing-pages"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/landing-pages"
       />
       <Navigation darkHero />
 

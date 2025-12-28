@@ -46,7 +46,7 @@ export default function PreFooter() {
           </Button>
 
           <a
-            href="https://wa.me/447424062513"
+            href="https://wa.me/447356260648"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-12 px-8 rounded-xl text-base font-semibold bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-[0_8px_30px_rgba(16,185,129,.25)] hover:scale-[1.02]"

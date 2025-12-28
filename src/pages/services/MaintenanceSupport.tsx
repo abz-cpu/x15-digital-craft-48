@@ -13,9 +13,9 @@ const MaintenanceSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Maintenance & Support | X15 Digital"
+        title="Maintenance & Support | L&D Digital"
         description="Ongoing updates, fixes, and protection for your website. Keep your site secure, fast, and up-to-date."
-        canonicalUrl="https://x15.digital/services/maintenance-support"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/maintenance-support"
       />
       <Navigation darkHero />
 

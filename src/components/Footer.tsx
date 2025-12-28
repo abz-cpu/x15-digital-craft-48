@@ -18,13 +18,13 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
               <a
-                href="https://wa.me/447424062513?text=Hi%2C%20I%20want%20to%20discuss%20a%20website%20or%20AI%20automation%20project"
+                href="https://wa.me/447356260648?text=Hi%2C%20I%20want%20to%20discuss%20a%20website%20or%20AI%20automation%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-success px-4 py-2.5 text-sm font-semibold text-success-foreground shadow-lg shadow-success/30 hover:bg-success/90 transition-colors w-full sm:w-auto"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                WhatsApp X15 Digital
+                WhatsApp L&D Digital
               </a>
               <Link
                 to="/contact"
@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Left Column - Company Info & Contact */}
           <div className="space-y-5">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">X15 DIGITAL</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">L&D DIGITAL</h3>
               <p className="text-[11px] md:text-sm text-white/70 leading-relaxed">
                 Web design, development, and AI automation for UK businesses and creators.
               </p>
@@ -56,18 +56,18 @@ export default function Footer() {
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
                 <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
                 <a
-                  href="https://wa.me/447424062513"
+                  href="https://wa.me/447356260648"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#F59E0B] transition-colors"
                 >
-                  +44 7424 062 513
+                  +44 7356 260648
                 </a>
               </div>
               <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
                 <Mail className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@x15digital.co.uk" className="hover:text-[#F59E0B] transition-colors">
-                  hello@x15digital.co.uk
+                <a href="mailto:luminusanddeliver@gmail.com" className="hover:text-[#F59E0B] transition-colors">
+                  luminusanddeliver@gmail.com
                 </a>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-2 text-[10px] md:text-xs text-white/50 order-1 sm:order-2">
-            <span>© {year} X15 Digital. All rights reserved.</span>
+            <span>© {year} L&D Digital. All rights reserved.</span>
             <span className="hidden sm:inline opacity-40">•</span>
             <Link to="/privacy" className="hover:text-[#F59E0B] transition-colors">
               Privacy

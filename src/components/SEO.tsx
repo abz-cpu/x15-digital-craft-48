@@ -15,13 +15,13 @@ export const SEO = ({
   title,
   description,
   keywords = "web development UK, AI automation, website design London, affordable websites, small business web design",
-  ogImage = "https://x15digital.co.uk/og-image.jpg",
+  ogImage = "https://luminusanddeliver.co.uk/og-image.jpg",
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,
 }: SEOProps) => {
   const location = useLocation();
-  const fullUrl = canonicalUrl || `https://x15digital.co.uk${location.pathname}`;
+  const fullUrl = canonicalUrl || `https://luminusanddeliver.co.uk${location.pathname}`;
 
   useEffect(() => {
     // Update title
@@ -51,7 +51,7 @@ export const SEO = ({
     updateMetaTag("og:url", fullUrl, true);
     updateMetaTag("og:type", ogType, true);
     updateMetaTag("og:image", ogImage, true);
-    updateMetaTag("og:site_name", "X15 Digital", true);
+    updateMetaTag("og:site_name", "L&D Digital", true);
     updateMetaTag("og:locale", "en_GB", true);
 
     // Twitter Card tags
@@ -59,7 +59,7 @@ export const SEO = ({
     updateMetaTag("twitter:title", title);
     updateMetaTag("twitter:description", description);
     updateMetaTag("twitter:image", ogImage);
-    updateMetaTag("twitter:site", "@x15digital");
+    updateMetaTag("twitter:site", "@lddigital");
 
     // Update canonical link
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;

@@ -16,9 +16,9 @@ const ItSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="IT Support | X15 Digital"
+        title="IT Support | L&D Digital"
         description="Reliable technical support for your day-to-day operations. Keep your business running smoothly with expert IT help."
-        canonicalUrl="https://x15.digital/services/it-support"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/it-support"
       />
 
       <Navigation darkHero />

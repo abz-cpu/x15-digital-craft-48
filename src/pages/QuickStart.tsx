@@ -144,7 +144,7 @@ const QuickStart = () => {
             </Button>
             <Button asChild variant="outline">
               <a
-                href="https://wa.me/447424062513?text=Hi%2C%20I%20have%20a%20quick%20question%20about"
+                href="https://wa.me/447356260648?text=Hi%2C%20I%20have%20a%20quick%20question%20about"
                 target="_blank"
                 rel="noopener noreferrer"
               >

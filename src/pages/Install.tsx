@@ -61,7 +61,7 @@ const Install = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4">
-              Install X15 Digital
+              Install L&D Digital
             </h1>
             <p className="text-lg text-muted-foreground">
               Get quick access and work offline with our progressive web app
@@ -76,7 +76,7 @@ const Install = () => {
                 </div>
                 <h2 className="text-2xl font-bold mb-2">App Installed!</h2>
                 <p className="text-muted-foreground">
-                  You can now access X15 Digital from your home screen or app drawer.
+                  You can now access L&D Digital from your home screen or app drawer.
                 </p>
               </CardContent>
             </Card>
@@ -157,7 +157,7 @@ const Install = () => {
                         <h3 className="font-semibold mb-2">Firefox:</h3>
                         <ol className="space-y-2 text-muted-foreground ml-4">
                           <li>1. Click the three dots menu</li>
-                          <li>2. Select "Install X15 Digital"</li>
+                          <li>2. Select "Install L&D Digital"</li>
                         </ol>
                       </div>
                     </div>

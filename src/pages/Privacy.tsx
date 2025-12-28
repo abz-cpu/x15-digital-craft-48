@@ -8,8 +8,8 @@ const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Privacy Policy | X15 Digital"
-        description="Read X15 Digital's privacy policy. Learn how we collect, use, and protect your personal data in compliance with UK GDPR regulations."
+        title="Privacy Policy | L&D Digital"
+        description="Read L&D Digital's privacy policy. Learn how we collect, use, and protect your personal data in compliance with UK GDPR regulations."
         keywords="privacy policy, data protection, GDPR, cookies policy"
       />
       <ScrollProgressBar />
@@ -25,7 +25,7 @@ const Privacy = () => {
           <section>
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">1. Introduction</h2>
             <p>
-              X15 Digital ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              L&D Digital ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
           </section>
 
@@ -104,7 +104,7 @@ const Privacy = () => {
               <li>Object to processing</li>
               <li>Withdraw consent</li>
             </ul>
-            <p className="mt-4">To exercise these rights, contact us at: <a href="mailto:info@x15digital.co.uk" className="text-primary hover:underline">info@x15digital.co.uk</a></p>
+            <p className="mt-4">To exercise these rights, contact us at: <a href="mailto:luminusanddeliver@gmail.com" className="text-primary hover:underline">luminusanddeliver@gmail.com</a></p>
           </section>
 
           <section>
@@ -143,8 +143,8 @@ const Privacy = () => {
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">12. Contact Us</h2>
             <p>If you have questions about this Privacy Policy, please contact us:</p>
             <ul className="list-none space-y-2 mt-4">
-              <li><strong>Email:</strong> <a href="mailto:info@x15digital.co.uk" className="text-primary hover:underline">info@x15digital.co.uk</a></li>
-              <li><strong>Phone:</strong> <a href="tel:+447424062513" className="text-primary hover:underline">+44 7424 062513</a></li>
+              <li><strong>Email:</strong> <a href="mailto:luminusanddeliver@gmail.com" className="text-primary hover:underline">luminusanddeliver@gmail.com</a></li>
+              <li><strong>Phone:</strong> <a href="tel:+447356260648" className="text-primary hover:underline">+44 7356 260648</a></li>
               <li><strong>Address:</strong> London, UK</li>
             </ul>
           </section>

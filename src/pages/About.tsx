@@ -145,16 +145,16 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <a href="mailto:info@x15digital.co.uk" className="hover:text-primary transition-colors">
-                        info@x15digital.co.uk
+                      <a href="mailto:luminusanddeliver@gmail.com" className="hover:text-primary transition-colors">
+                        luminusanddeliver@gmail.com
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <a href="tel:+447424062513" className="hover:text-primary transition-colors">
-                        +44 7424 062513
+                      <a href="tel:+447356260648" className="hover:text-primary transition-colors">
+                        +44 7356 260648
                       </a>
                     </div>
                   </div>
@@ -169,7 +169,7 @@ const About = () => {
                       <Linkedin className="h-6 w-6" />
                     </a>
                     <a
-                      href="https://wa.me/447424062513"
+                      href="https://wa.me/447356260648"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-primary transition-colors"

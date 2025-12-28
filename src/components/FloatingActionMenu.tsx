@@ -48,7 +48,7 @@ const FloatingActionMenu = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp Chat",
-      href: "https://wa.me/447424062513?text=Hi%20X15%20Digital%2C%20I%27m%20interested%20in%20your%20services",
+      href: "https://wa.me/447356260648?text=Hi%20L%26D%20Digital%2C%20I%27m%20interested%20in%20your%20services",
       external: true,
       primary: false,
     },

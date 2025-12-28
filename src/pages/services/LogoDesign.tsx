@@ -13,9 +13,9 @@ const LogoDesign = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Logo Design | X15 Digital"
+        title="Logo Design | L&D Digital"
         description="Clean, modern brand marks that look professional everywhere. Professional logo design for UK businesses."
-        canonicalUrl="https://x15.digital/services/logo-design"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/logo-design"
       />
       <Navigation darkHero />
 

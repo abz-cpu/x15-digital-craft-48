@@ -13,9 +13,9 @@ const PersonalisedApps = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Personalised Apps | X15 Digital"
+        title="Personalised Apps | L&D Digital"
         description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke solutions."
-        canonicalUrl="https://x15.digital/services/personalised-apps"
+        canonicalUrl="https://luminusanddeliver.co.uk/services/personalised-apps"
       />
       <Navigation darkHero />
 

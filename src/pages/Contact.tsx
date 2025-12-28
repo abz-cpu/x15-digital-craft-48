@@ -545,7 +545,7 @@ const Contact = () => {
                   <Button variant="outline" size="lg" onClick={copyEmail} className="w-full justify-between">
                     <span className="flex items-center gap-2">
                       <Mail className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-sm">contact.luminousanddeliver@gmail.com</span>
+                      <span className="text-xs">contact.luminousanddeliver@gmail.com</span>
                     </span>
                     <span className="flex items-center gap-2 text-xs text-muted-foreground">
                       {copied ? (

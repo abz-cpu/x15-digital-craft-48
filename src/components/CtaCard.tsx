@@ -51,7 +51,7 @@ const CtaCard: React.FC = () => {
           <div className="lg:col-span-7 order-2 lg:order-1">
             {/* Badge */}
             <div className="flex justify-center lg:justify-start mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold shadow-lg shadow-primary/25 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold border border-primary/20 animate-fade-in">
                 <Sparkles className="h-4 w-4" />
                 <span>Ready to Grow Your Business?</span>
               </div>

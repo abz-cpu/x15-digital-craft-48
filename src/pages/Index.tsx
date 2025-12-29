@@ -933,58 +933,61 @@ const Index = () => {
               },
             ];
 
+            const variants: Array<'imac' | 'macbook' | 'laptop'> = ['imac', 'macbook', 'laptop'];
+            
             return (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
                   {portfolioProjects.map((project, index) => (
                     <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-                      <Card 
-                        className="overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                      <div 
+                        className="cursor-pointer group"
                         onClick={() => setSelectedPortfolioProject(project)}
                       >
-                        {/* Image Container */}
-                        <div className="relative aspect-[4/3] overflow-hidden">
-                          <img 
-                            src={project.image} 
+                        {/* Lifestyle Mockup with Category Badge */}
+                        <div className="relative mb-6">
+                          <LifestyleMockup 
+                            imageSrc={project.image} 
                             alt={`${project.title} Website`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            variant={variants[index % 3]}
+                            className="transform group-hover:scale-[1.02] transition-transform duration-500 rounded-2xl"
                           />
-                          {/* Category Badge */}
-                          <div className="absolute top-4 left-4">
-                            <Badge className={`${project.categoryColor} text-white border-0 px-3 py-1 text-xs font-medium flex items-center gap-1.5`}>
+                          {/* Category Badge Overlay */}
+                          <div className="absolute top-4 left-4 z-10">
+                            <Badge className="bg-slate-800/90 backdrop-blur-sm text-white border-0 px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 shadow-lg">
                               <Tag className="h-3 w-3" />
-                              {project.category}
+                              {project.category.toUpperCase()}
                             </Badge>
                           </div>
                         </div>
                         
-                        {/* Content */}
-                        <div className="p-5">
-                          <h3 className="text-lg font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">
+                        {/* Content Card */}
+                        <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                          <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">
                             {project.title}
                           </h3>
                           
                           {/* Tech Stack */}
                           <div className="flex items-center justify-between text-sm mb-2">
-                            <span className="text-slate-500">Tech Stack:</span>
-                            <span className="text-slate-700 font-medium">{project.tech}</span>
+                            <span className="text-slate-500 font-medium">Tech Stack:</span>
+                            <span className="text-slate-700 font-semibold">{project.tech}</span>
                           </div>
                           
                           {/* Timeline */}
                           <div className="flex items-center justify-between text-sm mb-5">
-                            <span className="text-slate-500">Timeline:</span>
-                            <span className="text-teal-600 font-semibold">{project.timeline}</span>
+                            <span className="text-slate-500 font-medium">Timeline:</span>
+                            <span className="text-teal-600 font-bold">{project.timeline}</span>
                           </div>
                           
                           {/* Button */}
                           <Button 
                             variant="outline" 
-                            className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300"
+                            className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-teal-300 hover:text-teal-700 rounded-full py-5"
                           >
                             Project Details
                           </Button>
                         </div>
-                      </Card>
+                      </div>
                     </AnimatedSection>
                   ))}
                 </div>

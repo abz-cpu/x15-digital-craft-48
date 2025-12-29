@@ -35,37 +35,37 @@ export const LifestyleMockup: React.FC<LifestyleMockupProps> = ({
       case 'imac':
         // iMac screen position - centered, upper portion
         return {
-          top: '10.5%',
-          left: '18.5%',
-          width: '63%',
-          height: '51%',
-          borderRadius: '1px',
+          top: '11%',
+          left: '19%',
+          width: '62%',
+          height: '49%',
+          borderRadius: '2px',
         };
       case 'macbook':
         // MacBook screen position - centered with laptop open
         return {
-          top: '13%',
-          left: '24%',
-          width: '52%',
-          height: '42%',
-          borderRadius: '4px',
+          top: '14%',
+          left: '25%',
+          width: '50%',
+          height: '40%',
+          borderRadius: '3px',
         };
       case 'laptop':
         // Silver laptop screen position
         return {
-          top: '11%',
-          left: '21%',
-          width: '58%',
-          height: '50%',
-          borderRadius: '6px',
+          top: '12%',
+          left: '22%',
+          width: '56%',
+          height: '48%',
+          borderRadius: '4px',
         };
       default:
         return {
-          top: '10.5%',
-          left: '18.5%',
-          width: '63%',
-          height: '51%',
-          borderRadius: '1px',
+          top: '11%',
+          left: '19%',
+          width: '62%',
+          height: '49%',
+          borderRadius: '2px',
         };
     }
   };

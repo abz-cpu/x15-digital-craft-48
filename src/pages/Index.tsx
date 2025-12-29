@@ -29,6 +29,8 @@ import {
   ShieldCheck,
   BadgeCheck,
   X,
+  ExternalLink,
+  Tag,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonLegacy } from "@/components/ui/button-legacy";
@@ -866,105 +868,125 @@ const Index = () => {
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"
-        className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-muted"
+        className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
       >
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Recent Work &amp; Capabilities
-          </h2>
-          <p className="text-center text-muted-foreground mb-8">See what we can build for your business.</p>
-
-          {/* Promotional Text */}
-          <div className="max-w-2xl mx-auto text-center mb-12 p-6 bg-primary/5 rounded-lg border border-primary/20">
-            <p className="text-foreground font-medium mb-3">
-              <a
-                href="https://x15pcbuilders.co.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline font-semibold"
-              >
-                X15 PC Builders
-              </a>{" "}
-              is our sister company—proof we build sites that work for real businesses.
-            </p>
-            <p className="text-muted-foreground">
-              <Link to="/contact" className="text-primary hover:underline font-medium">
-                Get in touch
-              </Link>{" "}
-              and we'll build something exceptional for yours.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                Recent Work &amp; Capabilities
+              </h2>
+              <p className="text-slate-600 max-w-xl">
+                See how we've helped other businesses scale and automate their operations with modern technology.
+              </p>
+            </div>
+            <Button 
+              asChild 
+              variant="outline" 
+              className="shrink-0 border-slate-300 text-slate-700 hover:bg-slate-50 gap-2"
+            >
+              <Link to="/portfolio">
+                View All Projects
+                <ExternalLink className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
 
-          {/* Portfolio items with mockups */}
+          {/* Portfolio Cards */}
           {(() => {
             const portfolioProjects = [
               {
                 id: "x15-pc",
-                title: "X15 PC Builders",
+                title: "L&D Builds",
                 category: "Web Development",
                 type: "Scale Package",
                 features: ["Professional showcase website", "Service packages display", "Build request form", "SEO optimization", "Fast loading performance"],
-                timeline: "LIVE PROJECT",
-                tech: "React, Tailwind CSS",
+                timeline: "7 Days",
+                tech: "React, Tailwind, Framer",
                 isLive: true,
                 liveUrl: "https://x15pcbuilders.co.uk",
                 image: x15Screenshot,
-                badge: "Live Client Project",
+                categoryColor: "bg-slate-800",
               },
               {
                 id: "elite-salon",
                 title: "Elite Salon Website",
-                category: "Web Development",
+                category: "Booking & Automation",
                 type: "Growth Package",
                 features: ["Professional booking system", "Mobile-responsive design", "Payment integration", "Service gallery", "Contact forms"],
-                timeline: "5–7 days",
-                tech: "React, Stripe, Calendly",
+                timeline: "5 Days",
+                tech: "Next.js, Stripe, Calendly",
                 image: portfolioSalon,
-                badge: "Capability Example",
+                categoryColor: "bg-slate-700",
               },
               {
                 id: "ai-chatbot",
                 title: "AI Chatbot Integration",
-                category: "AI Automation",
+                category: "AI Solutions",
                 type: "AI Solution",
                 features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)", "Custom training", "Analytics dashboard"],
-                timeline: "2–4 days",
-                tech: "OpenAI, Custom API",
+                timeline: "3 Days",
+                tech: "OpenAI, Python, React",
                 image: portfolioChatbot,
-                badge: "Capability Example",
+                categoryColor: "bg-slate-700",
               },
             ];
 
             return (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
-                {portfolioProjects.map((project, index) => {
-                    const variants: Array<'imac' | 'macbook' | 'laptop'> = ['imac', 'macbook', 'laptop'];
-                    return (
-                      <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
-                        <div 
-                          className="cursor-pointer group"
-                          onClick={() => setSelectedPortfolioProject(project)}
-                        >
-                          {/* Lifestyle Mockup */}
-                          <LifestyleMockup 
-                            imageSrc={project.image} 
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                  {portfolioProjects.map((project, index) => (
+                    <AnimatedSection key={project.title} staggerIndex={index} animation="fade">
+                      <Card 
+                        className="overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedPortfolioProject(project)}
+                      >
+                        {/* Image Container */}
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <img 
+                            src={project.image} 
                             alt={`${project.title} Website`}
-                            variant={variants[index % 3]}
-                            className="transform group-hover:scale-[1.02] transition-transform duration-500 mb-5"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                          
-                          {/* Title and info below */}
-                          <div className="text-center space-y-2">
-                            <Badge variant={project.isLive ? "default" : "secondary"} className="mb-2">{project.badge}</Badge>
-                            <h3 className="text-xl font-bold text-secondary group-hover:text-primary transition-colors">{project.title}</h3>
-                            <p className="text-sm text-muted-foreground">{project.category}</p>
-                            <p className="text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+                          {/* Category Badge */}
+                          <div className="absolute top-4 left-4">
+                            <Badge className={`${project.categoryColor} text-white border-0 px-3 py-1 text-xs font-medium flex items-center gap-1.5`}>
+                              <Tag className="h-3 w-3" />
+                              {project.category}
+                            </Badge>
                           </div>
                         </div>
-                      </AnimatedSection>
-                    );
-                  })}
+                        
+                        {/* Content */}
+                        <div className="p-5">
+                          <h3 className="text-lg font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">
+                            {project.title}
+                          </h3>
+                          
+                          {/* Tech Stack */}
+                          <div className="flex items-center justify-between text-sm mb-2">
+                            <span className="text-slate-500">Tech Stack:</span>
+                            <span className="text-slate-700 font-medium">{project.tech}</span>
+                          </div>
+                          
+                          {/* Timeline */}
+                          <div className="flex items-center justify-between text-sm mb-5">
+                            <span className="text-slate-500">Timeline:</span>
+                            <span className="text-teal-600 font-semibold">{project.timeline}</span>
+                          </div>
+                          
+                          {/* Button */}
+                          <Button 
+                            variant="outline" 
+                            className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300"
+                          >
+                            Project Details
+                          </Button>
+                        </div>
+                      </Card>
+                    </AnimatedSection>
+                  ))}
                 </div>
 
                 {/* Device Mockup Modal */}

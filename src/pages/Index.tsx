@@ -902,12 +902,11 @@ const Index = () => {
                 category: "Web Development",
                 type: "Scale Package",
                 features: ["Professional showcase website", "Service packages display", "Build request form", "SEO optimization", "Fast loading performance"],
-                timeline: "7 Days",
-                tech: "React, Tailwind, Framer",
+                timeline: "10–14 Days",
+                tech: "React, Tailwind CSS, SEO",
                 isLive: true,
                 liveUrl: "https://x15pcbuilders.co.uk",
                 image: x15Screenshot,
-                categoryColor: "bg-slate-800",
               },
               {
                 id: "elite-salon",
@@ -915,10 +914,9 @@ const Index = () => {
                 category: "Booking & Automation",
                 type: "Growth Package",
                 features: ["Professional booking system", "Mobile-responsive design", "Payment integration", "Service gallery", "Contact forms"],
-                timeline: "5 Days",
-                tech: "Next.js, Stripe, Calendly",
+                timeline: "5–7 Days",
+                tech: "React, Stripe, Calendly",
                 image: portfolioSalon,
-                categoryColor: "bg-slate-700",
               },
               {
                 id: "ai-chatbot",
@@ -926,10 +924,9 @@ const Index = () => {
                 category: "AI Solutions",
                 type: "AI Solution",
                 features: ["24/7 customer support", "Lead qualification", "Multi-platform (web + social)", "Custom training", "Analytics dashboard"],
-                timeline: "3 Days",
-                tech: "OpenAI, Python, React",
+                timeline: "2–4 Days",
+                tech: "OpenAI, Node.js, React",
                 image: portfolioChatbot,
-                categoryColor: "bg-slate-700",
               },
             ];
 
@@ -954,7 +951,7 @@ const Index = () => {
                           />
                           {/* Category Badge Overlay */}
                           <div className="absolute top-4 left-4 z-10">
-                            <Badge className="bg-slate-800/90 backdrop-blur-sm text-white border-0 px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 shadow-lg">
+                            <Badge className="bg-teal-600/90 backdrop-blur-sm text-white border-0 px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 shadow-lg">
                               <Tag className="h-3 w-3" />
                               {project.category.toUpperCase()}
                             </Badge>

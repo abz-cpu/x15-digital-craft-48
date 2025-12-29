@@ -6,7 +6,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -733,51 +733,86 @@ const WebPackage = () => {
         </section>
 
         {/* 4. PORTFOLIO SHOWCASE */}
-        <section className="py-16 md:py-20 bg-background">
+        <section className="py-16 md:py-20 bg-white">
           <Container>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">Trusted by Growing UK Businesses</h2>
-              <p className="text-lg text-muted-foreground">
-                From local trades to tech startups—websites that attract customers and drive growth
-              </p>
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                  Trusted by Growing UK Businesses
+                </h2>
+                <p className="text-slate-600 max-w-xl">
+                  From local trades to tech startups—websites that attract customers and drive growth.
+                </p>
+              </div>
+              <Button 
+                asChild 
+                variant="outline" 
+                className="shrink-0 border-slate-300 text-slate-700 hover:bg-slate-50 gap-2"
+              >
+                <Link to="/portfolio">
+                  View Full Portfolio
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-10">
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
               {portfolioItems.map((item, index) => {
                 const variants: Array<'imac' | 'macbook' | 'laptop'> = ['imac', 'macbook', 'laptop'];
                 return (
-                  <button 
-                    key={item.id} 
-                    onClick={() => setSelectedProject(item)} 
-                    className="group text-left"
-                  >
-                    {/* Lifestyle Mockup */}
-                    <LifestyleMockup 
-                      imageSrc={item.image} 
-                      alt={`${item.title} Website`}
-                      variant={variants[index % 3]}
-                      className="transform group-hover:scale-[1.02] transition-transform duration-500 mb-5"
-                    />
-                    
-                    {/* Title & Info */}
-                    <div className="space-y-2 text-center">
-                      <p className="text-xs uppercase tracking-wider text-primary font-semibold">
-                        {item.category}
-                      </p>
-                      <h3 className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+                  <AnimatedSection key={item.id} staggerIndex={index} animation="fade">
+                    <div 
+                      className="cursor-pointer group"
+                      onClick={() => setSelectedProject(item)}
+                    >
+                      {/* Lifestyle Mockup with Category Badge */}
+                      <div className="relative mb-6">
+                        <LifestyleMockup 
+                          imageSrc={item.image} 
+                          alt={`${item.title} Website`}
+                          variant={variants[index % 3]}
+                          className="transform group-hover:scale-[1.02] transition-transform duration-500 rounded-2xl"
+                        />
+                        {/* Category Badge Overlay */}
+                        <div className="absolute top-4 left-4 z-10">
+                          <Badge className="bg-teal-600/90 backdrop-blur-sm text-white border-0 px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 shadow-lg">
+                            <Tag className="h-3 w-3" />
+                            {item.category.split(' • ')[1]?.toUpperCase() || item.category.toUpperCase()}
+                          </Badge>
+                        </div>
+                      </div>
+                      
+                      {/* Content Card */}
+                      <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">
+                          {item.title}
+                        </h3>
+                        
+                        {/* Tech Stack */}
+                        <div className="flex items-center justify-between text-sm mb-2">
+                          <span className="text-slate-500 font-medium">Tech Stack:</span>
+                          <span className="text-slate-700 font-semibold">{item.tech}</span>
+                        </div>
+                        
+                        {/* Timeline */}
+                        <div className="flex items-center justify-between text-sm mb-5">
+                          <span className="text-slate-500 font-medium">Timeline:</span>
+                          <span className="text-teal-600 font-bold">{item.timeline}</span>
+                        </div>
+                        
+                        {/* Button */}
+                        <Button 
+                          variant="outline" 
+                          className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-teal-300 hover:text-teal-700 rounded-full py-5"
+                        >
+                          Project Details
+                        </Button>
+                      </div>
                     </div>
-                  </button>
+                  </AnimatedSection>
                 );
               })}
-            </div>
-
-            <div className="text-center">
-              <Button asChild size="lg">
-                <Link to="/portfolio">
-                  View Full Portfolio <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
             </div>
 
             {/* Portfolio Modal */}

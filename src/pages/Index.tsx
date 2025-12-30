@@ -48,6 +48,7 @@ import CtaCard from "@/components/CtaCard";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
+import { FAQSchema } from "@/components/FAQSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
@@ -197,9 +198,42 @@ const Index = () => {
       <SEO
         title="L&D Digital - Affordable Web Development & AI Automation for UK Businesses"
         description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
-        keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots"
+        keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots, UK digital agency, London web developer"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
+      <FAQSchema
+        pageId="home"
+        faqs={[
+          {
+            question: "How long does a typical project take?",
+            answer: "Entry/Starter websites take 5-10 days, Business packages take 14-21 days, and AI automation setup takes 3-10 days. Most projects are delivered in under 3 weeks."
+          },
+          {
+            question: "Why is your pricing lower than typical agencies?",
+            answer: "We use modern tools and run lean—no expensive offices or account managers. You get agency-quality work without the overhead."
+          },
+          {
+            question: "What do I actually own?",
+            answer: "You own your domain, hosting account, and all content. The codebase remains with L&D Digital to ensure quality, security, and maintainability. If you host the site yourself, it stays online as long as your hosting is active."
+          },
+          {
+            question: "What if I need changes after launch?",
+            answer: "Unlimited revisions until you're satisfied. After launch, minor tweaks are free for 30 days. We also offer maintenance plans if you prefer we handle ongoing updates."
+          },
+          {
+            question: "Can you work with my existing website?",
+            answer: "In most cases, yes. We can either improve your current site or build a new one and migrate content. AI automation works with almost any existing platform."
+          },
+          {
+            question: "Do you offer payment plans?",
+            answer: "Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly, so there's no large upfront investment."
+          },
+          {
+            question: "What happens if I'm not happy with the result?",
+            answer: "We offer unlimited revisions until you're satisfied. If we genuinely can't deliver what you need, we provide a full refund. Your success is our reputation."
+          }
+        ]}
+      />
       <ScrollProgressBar />
       <Navigation />
 

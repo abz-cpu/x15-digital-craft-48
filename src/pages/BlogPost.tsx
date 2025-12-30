@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
+import { ArticleSchema } from "@/components/ArticleSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 type BlogPostConfig = {
@@ -702,6 +703,15 @@ Want a site built for the UK market, legally compliant, and actually supported?
         keywords={currentPost.seoKeywords}
         ogType="article"
         ogImage={currentPost.ogImage}
+      />
+      <ArticleSchema
+        title={currentPost.title}
+        description={currentPost.seoDescription}
+        url={`https://luminousanddeliver.co.uk/blog/${slug}`}
+        image={typeof currentPost.ogImage === 'string' ? currentPost.ogImage : `https://luminousanddeliver.co.uk${currentPost.ogImage}`}
+        datePublished={currentPost.date}
+        author={currentPost.author}
+        category={currentPost.category}
       />
       <ScrollProgressBar />
       <Navigation />

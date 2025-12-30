@@ -11,6 +11,9 @@ import { performanceMonitor } from "@/utils/performance";
 import { registerPreload } from "@/components/PreloadLink";
 import { CookieConsent } from "@/components/CookieConsent";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { OrganizationSchema } from "@/components/OrganizationSchema";
+import { WebSiteSchema } from "@/components/WebSiteSchema";
+import { ProfessionalServiceSchema } from "@/components/ProfessionalServiceSchema";
 import ScrollToTop from "@/components/ScrollToTop";
 
 // Lazy load route components
@@ -88,6 +91,9 @@ const App = () => (
           <ScrollToTop />
           <RouteTracker />
           <BreadcrumbSchema />
+          <OrganizationSchema />
+          <WebSiteSchema />
+          <ProfessionalServiceSchema />
           <CookieConsent />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>

@@ -15,8 +15,8 @@
     <!-- Geographic Targeting -->
     <meta name="geo.region" content="GB" />
     <meta name="geo.placename" content="London, United Kingdom" />
-    <meta name="geo.position" content="51.5074;-0.1278" />
-    <meta name="ICBM" content="51.5074, -0.1278" />
+    <meta name="geo.position" content="51.521838;-0.018013" />
+    <meta name="ICBM" content="51.521838, -0.018013" />
     
     <!-- Language & Locale -->
     <meta http-equiv="content-language" content="en-GB" />
@@ -108,21 +108,29 @@
       "@id": "https://digital.luminousanddeliver.co.uk/#localbusiness",
       "name": "L&D Digital",
       "alternateName": "Luminous & Deliver Digital",
-      "description": "Professional web development and design services specializing in restaurant websites, ecommerce stores, and brand websites in the UK",
+      "description": "Professional web development and design services specializing in restaurant websites, ecommerce stores, and brand websites in the UK. Fast delivery 1-14 days, prices from £200.",
       "url": "https://digital.luminousanddeliver.co.uk",
-      "telephone": "+44 7356 260648",
+      "telephone": "+447356260648",
       "email": "contact.luminousanddeliver@gmail.com",
       "image": "https://digital.luminousanddeliver.co.uk/og-image.jpg",
-      "logo": "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
+        "width": 96,
+        "height": 96
+      },
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "London",
+        "streetAddress": "7 Corsican Square",
+        "addressLocality": "Bromley-by-Bow",
+        "addressRegion": "Greater London",
+        "postalCode": "E3 3YD",
         "addressCountry": "GB"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 51.5074,
-        "longitude": -0.1278
+        "latitude": 51.521838,
+        "longitude": -0.018013
       },
       "areaServed": [
         {
@@ -134,7 +142,9 @@
           "name": "United Kingdom"
         }
       ],
-      "priceRange": "££",
+      "priceRange": "£200-£1500",
+      "currenciesAccepted": "GBP",
+      "paymentAccepted": "Bank Transfer, Card Payment",
       "openingHours": "Mo-Fr 09:00-18:00, Sa-Su 10:00-16:00",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -188,8 +198,24 @@
       "name": "L&D Digital",
       "alternateName": "Luminous & Deliver Digital",
       "url": "https://digital.luminousanddeliver.co.uk",
-      "logo": "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
+        "width": 96,
+        "height": 96
+      },
+      "image": "https://digital.luminousanddeliver.co.uk/og-image.jpg",
       "description": "UK-based web development agency specializing in restaurant websites, ecommerce, and brand websites",
+      "telephone": "+447356260648",
+      "email": "contact.luminousanddeliver@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7 Corsican Square",
+        "addressLocality": "Bromley-by-Bow",
+        "addressRegion": "Greater London",
+        "postalCode": "E3 3YD",
+        "addressCountry": "GB"
+      },
       "foundingLocation": {
         "@type": "Place",
         "address": {
@@ -202,12 +228,16 @@
       "serviceType": ["Web Development", "Ecommerce Development", "Restaurant Website Design", "Brand Website Design", "SEO Services"],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+44 7356 260648",
+        "telephone": "+447356260648",
         "contactType": "customer service",
         "email": "contact.luminousanddeliver@gmail.com",
         "areaServed": "GB",
         "availableLanguage": "English"
-      }
+      },
+      "sameAs": [
+        "https://twitter.com/lddigital",
+        "https://www.linkedin.com/company/luminous-and-deliver"
+      ]
     }
     </script>
   </head>

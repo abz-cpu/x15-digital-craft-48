@@ -260,8 +260,9 @@ const AiPackage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="AI Automation Solutions | L&D Digital"
+        title="AI Automation Solutions UK | AI Chatbots & Virtual Assistants | L&D Digital"
         description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
+        keywords="AI chatbot for small business UK, AI automation for customer service, how to automate business with AI, affordable AI assistant UK, virtual receptionist AI, AI lead generation"
         canonicalUrl="https://luminousanddeliver.co.uk/ai-package"
       />
       <Navigation darkHero />

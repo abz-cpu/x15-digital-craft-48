@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Cog, Calculator, FileText, BarChart3 } from "
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const PersonalisedApps = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Personalised Apps | L&D Digital"
-        description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke solutions."
+        title="Custom Business Apps UK | Bespoke Tools & Calculators | L&D Digital"
+        description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke calculators, dashboards, and automation tools."
+        keywords="custom business apps UK, bespoke software development, business automation tools, custom calculators, internal tools development"
         canonicalUrl="https://luminousanddeliver.co.uk/services/personalised-apps"
+      />
+      <ServiceSchema
+        name="Personalised Apps & Tools"
+        description="Custom mini-apps and tools tailored to how you work. Bespoke calculators, dashboards, and automation tools."
+        url="https://luminousanddeliver.co.uk/services/personalised-apps"
+        priceRange="£500-£2000"
+        serviceType="Custom Software Development"
       />
       <Navigation darkHero />
 

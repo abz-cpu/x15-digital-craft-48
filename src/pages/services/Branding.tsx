@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Palette, Type, Image, BookOpen } from "lucide
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const Branding = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Branding | L&D Digital"
-        description="A complete visual identity that matches your business. Professional branding services for UK businesses."
+        title="Branding Services UK | Complete Visual Identity | L&D Digital"
+        description="A complete visual identity that matches your business. Professional branding services including logo, colours, typography, and brand guidelines for UK businesses."
+        keywords="branding services UK, brand identity design, visual identity, brand guidelines, corporate branding, small business branding"
         canonicalUrl="https://luminousanddeliver.co.uk/services/branding"
+      />
+      <ServiceSchema
+        name="Branding Services"
+        description="Complete visual identity including logo, colours, typography, and brand guidelines that match your business."
+        url="https://luminousanddeliver.co.uk/services/branding"
+        priceRange="£500-£1500"
+        serviceType="Branding"
       />
       <Navigation darkHero />
 

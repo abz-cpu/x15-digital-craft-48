@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Mail, Zap, Users, BarChart3, Target, Clock } 
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const EmailMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Email Marketing Services | L&D Digital"
+        title="Email Marketing Services UK | Automated Campaigns | L&D Digital"
+        description="Email campaigns that nurture leads and drive sales. Automated sequences, newsletters, and email strategy that delivers results. Mailchimp & Klaviyo experts."
+        keywords="email marketing UK, email automation, newsletter design, email campaign management, Mailchimp expert UK, email marketing for small business"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/email-marketing"
+      />
+      <ServiceSchema
+        name="Email Marketing Services"
         description="Email campaigns that nurture leads and drive sales. Automated sequences, newsletters, and email strategy that delivers results."
-        canonicalUrl="https://landdigital.co.uk/services/email-marketing"
+        url="https://luminousanddeliver.co.uk/services/email-marketing"
+        priceRange="£200-£800/month"
+        serviceType="Email Marketing"
       />
       <Navigation darkHero />
 

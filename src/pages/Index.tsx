@@ -198,7 +198,7 @@ const Index = () => {
       <SEO
         title="L&D Digital - Affordable Web Development & AI Automation for UK Businesses"
         description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
-        keywords="web development UK, AI automation, website design London, affordable websites, small business web design, AI chatbots, UK digital agency, London web developer"
+        keywords="how much does a website cost UK small business, affordable web design near me, AI chatbot for small business UK, cheap website builder UK, web developer London, professional website design UK, AI automation for business"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="12" />
       <FAQSchema

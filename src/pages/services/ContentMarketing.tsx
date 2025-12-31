@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, BookOpen, TrendingUp, Users, Calendar, Search
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const ContentMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Content Marketing Services | L&D Digital"
+        title="Content Marketing Services UK | Blog & Content Strategy | L&D Digital"
+        description="Strategic content marketing that attracts, engages, and converts. Blog posts, articles, guides, and content strategy for sustainable growth and SEO."
+        keywords="content marketing UK, blog writing services, content strategy, SEO content writing, content creation for business, blog management UK"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/content-marketing"
+      />
+      <ServiceSchema
+        name="Content Marketing Services"
         description="Strategic content marketing that attracts, engages, and converts. Blog posts, articles, guides, and content strategy for sustainable growth."
-        canonicalUrl="https://landdigital.co.uk/services/content-marketing"
+        url="https://luminousanddeliver.co.uk/services/content-marketing"
+        priceRange="£300-£1000/month"
+        serviceType="Content Marketing"
       />
       <Navigation darkHero />
 

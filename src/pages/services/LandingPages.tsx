@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Target, Zap, BarChart3, Sparkles } from "luci
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const LandingPages = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Landing Page Creation | L&D Digital"
-        description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers."
+        title="Landing Page Design UK | High-Converting Pages | L&D Digital"
+        description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers. Fast delivery and optimised for conversions."
+        keywords="landing page design UK, high converting landing pages, campaign landing page, lead generation page, sales page design"
         canonicalUrl="https://luminousanddeliver.co.uk/services/landing-pages"
+      />
+      <ServiceSchema
+        name="Landing Page Creation"
+        description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers."
+        url="https://luminousanddeliver.co.uk/services/landing-pages"
+        priceRange="£300-£800"
+        serviceType="Landing Page Design"
       />
       <Navigation darkHero />
 

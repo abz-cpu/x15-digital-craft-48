@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Palette, Users, MousePointer, Smartphone, Lay
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const UxUiDesign = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="UX/UI Design Services | L&D Digital"
+        title="UX/UI Design Services UK | User Experience Design | L&D Digital"
+        description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices. Mobile-first design approach."
+        keywords="UX design UK, UI design services, user experience designer London, mobile app design, website UX audit, conversion-focused design"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/ux-ui-design"
+      />
+      <ServiceSchema
+        name="UX/UI Design Services"
         description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices."
-        canonicalUrl="https://landdigital.co.uk/services/ux-ui-design"
+        url="https://luminousanddeliver.co.uk/services/ux-ui-design"
+        priceRange="£500-£2000"
+        serviceType="UX/UI Design"
       />
       <Navigation darkHero />
 

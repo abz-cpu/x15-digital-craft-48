@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Smartphone, Users, Zap, Shield } from "lucide
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const AppDevelopment = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="App Development | L&D Digital"
-        description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses."
+        title="Mobile App Development UK | iOS & Android Apps | L&D Digital"
+        description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses. From concept to app store launch."
+        keywords="mobile app development UK, iOS app developer, Android app developer, cross-platform app development, React Native developer, app development agency London"
         canonicalUrl="https://luminousanddeliver.co.uk/services/app-development"
+      />
+      <ServiceSchema
+        name="Mobile App Development"
+        description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses."
+        url="https://luminousanddeliver.co.uk/services/app-development"
+        priceRange="£2000-£10000"
+        serviceType="Mobile App Development"
       />
       <Navigation darkHero />
 

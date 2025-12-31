@@ -11,14 +11,23 @@ import { CheckCircle2, ArrowRight, Monitor, Wifi, HardDrive, LifeBuoy, Activity,
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const ItSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="IT Support | L&D Digital"
-        description="Reliable technical support for your day-to-day operations. Keep your business running smoothly with expert IT help."
+        title="IT Support for Small Business UK | Remote Tech Help | L&D Digital"
+        description="Reliable technical support for your day-to-day operations. Keep your business running smoothly with expert IT help. Remote support, network help, and hardware advice."
+        keywords="IT support for small business UK, remote IT help London, affordable tech support, small business IT services, computer support near me"
         canonicalUrl="https://luminousanddeliver.co.uk/services/it-support"
+      />
+      <ServiceSchema
+        name="IT Support for Small Business"
+        description="Reliable technical support for small businesses. Remote support, network help, and hardware advice without the cost of a full-time hire."
+        url="https://luminousanddeliver.co.uk/services/it-support"
+        priceRange="£35-£75/hour"
+        serviceType="IT Support Services"
       />
 
       <Navigation darkHero />

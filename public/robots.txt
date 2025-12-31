@@ -1,33 +1,49 @@
 # L&D Digital - Robots.txt
-# https://luminousanddeliver.co.uk
+# https://digital.luminousanddeliver.co.uk
 
 # Sitemap
-Sitemap: https://luminousanddeliver.co.uk/sitemap.xml
+Sitemap: https://digital.luminousanddeliver.co.uk/sitemap.xml
 
-# Googlebot
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
-# Bingbot
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
-# Brave Search Crawler
 User-agent: Brave
 Allow: /
-Crawl-delay: 1
 
-# DuckDuckBot
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 1
 
-# Yandex
 User-agent: Yandex
 Allow: /
-Crawl-delay: 2
+
+User-agent: Ecosia
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
 
 # Social Media Bots
 User-agent: Twitterbot
@@ -45,12 +61,14 @@ Allow: /
 User-agent: Slackbot
 Allow: /
 
+User-agent: Pinterest
+Allow: /
+
 # All other bots
 User-agent: *
 Allow: /
-Crawl-delay: 2
 
 # Disallow sensitive paths
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin/
+Disallow: /private/

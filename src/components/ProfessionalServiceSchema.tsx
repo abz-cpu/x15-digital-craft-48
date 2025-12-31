@@ -5,21 +5,20 @@ export const ProfessionalServiceSchema = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://luminousanddeliver.co.uk/#professionalservice",
+      "@id": "https://digital.luminousanddeliver.co.uk/#professionalservice",
       name: "L&D Digital",
       alternateName: "Luminous & Deliver Digital",
-      url: "https://luminousanddeliver.co.uk",
-      logo: "https://luminousanddeliver.co.uk/favicon-96x96.png",
-      image: "https://luminousanddeliver.co.uk/og-image.jpg",
+      url: "https://digital.luminousanddeliver.co.uk",
+      logo: "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
+      image: "https://digital.luminousanddeliver.co.uk/og-image.jpg",
       description:
-        "Professional web development and AI automation services for UK small businesses. Fast delivery, transparent pricing, you own everything.",
+        "Professional web development and design services specializing in restaurant websites, ecommerce stores, and brand websites in the UK. Fast delivery from 1-14 days, prices from £200.",
       email: "contact.luminousanddeliver@gmail.com",
-      telephone: "+447356260648",
+      telephone: "+44 7356 260648",
       address: {
         "@type": "PostalAddress",
         addressLocality: "London",
         addressRegion: "Greater London",
-        postalCode: "",
         addressCountry: "GB",
       },
       geo: {
@@ -57,7 +56,7 @@ export const ProfessionalServiceSchema = () => {
           name: "Edinburgh",
         },
       ],
-      priceRange: "£100-£1500",
+      priceRange: "££",
       currenciesAccepted: "GBP",
       paymentAccepted: "Bank Transfer, Card Payment",
       openingHoursSpecification: [
@@ -82,16 +81,43 @@ export const ProfessionalServiceSchema = () => {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Web Development & AI Services",
+        name: "Web Development Services",
         itemListElement: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Website Development",
+              name: "Restaurant Website Design",
               description:
-                "Professional website development for UK businesses from £200",
+                "Custom website design for restaurants with online menus, booking systems, and mobile optimization",
+              serviceType: "Web Development",
             },
+            price: "200",
+            priceCurrency: "GBP",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Ecommerce Website Development",
+              description:
+                "Full-featured online store development with payment integration and product management",
+              serviceType: "Ecommerce Development",
+            },
+            price: "200",
+            priceCurrency: "GBP",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Brand Website Design",
+              description:
+                "Professional business websites for brands, companies, and small businesses",
+              serviceType: "Web Design",
+            },
+            price: "200",
+            priceCurrency: "GBP",
           },
           {
             "@type": "Offer",
@@ -99,16 +125,15 @@ export const ProfessionalServiceSchema = () => {
               "@type": "Service",
               name: "AI Chatbot",
               description:
-                "AI-powered chatbot for customer service from £50/month",
+                "AI-powered chatbot for customer service automation",
             },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "AI Voice Agent",
-              description:
-                "AI voice agent for phone calls from £100/month",
+            price: "50",
+            priceCurrency: "GBP",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: "50",
+              priceCurrency: "GBP",
+              unitText: "month",
             },
           },
           {
@@ -116,15 +141,7 @@ export const ProfessionalServiceSchema = () => {
             itemOffered: {
               "@type": "Service",
               name: "SEO Services",
-              description: "Search engine optimization to improve rankings",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "E-commerce Development",
-              description: "Online store setup with Shopify or WooCommerce",
+              description: "Search engine optimization to improve Google, Bing, and Brave rankings",
             },
           },
         ],
@@ -164,6 +181,20 @@ export const ProfessionalServiceSchema = () => {
           },
           reviewBody:
             "Best investment I've made for my plumbing business. Professional website and the voice agent handles calls when I'm on jobs.",
+        },
+        {
+          "@type": "Review",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          author: {
+            "@type": "Person",
+            name: "Maria Garcia",
+          },
+          reviewBody:
+            "Our restaurant website looks amazing and the online booking system has increased reservations by 40%. Highly recommend L&D Digital.",
         },
       ],
       sameAs: [

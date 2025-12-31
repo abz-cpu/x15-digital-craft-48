@@ -16,16 +16,16 @@ interface SEOProps {
 export const SEO = ({
   title,
   description,
-  keywords = "web development UK, AI automation, website design London, affordable websites, small business web design",
-  ogImage = "https://luminousanddeliver.co.uk/og-image.jpg",
+  keywords = "web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, custom website design UK, affordable website design London, responsive web design UK, web design agency London, brand website design London",
+  ogImage = "https://digital.luminousanddeliver.co.uk/og-image.jpg",
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,
-  robots = "index, follow",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   author = "L&D Digital",
 }: SEOProps) => {
   const location = useLocation();
-  const fullUrl = canonicalUrl || `https://luminousanddeliver.co.uk${location.pathname}`;
+  const fullUrl = canonicalUrl || `https://digital.luminousanddeliver.co.uk${location.pathname}`;
 
   useEffect(() => {
     // Update title
@@ -50,6 +50,11 @@ export const SEO = ({
     updateMetaTag("keywords", keywords);
     updateMetaTag("robots", robots);
     updateMetaTag("author", author);
+    
+    // Geographic targeting
+    updateMetaTag("geo.region", "GB");
+    updateMetaTag("geo.placename", "London, United Kingdom");
+    updateMetaTag("language", "English");
 
     // Open Graph tags
     updateMetaTag("og:title", title, true);
@@ -66,6 +71,7 @@ export const SEO = ({
     updateMetaTag("twitter:description", description);
     updateMetaTag("twitter:image", ogImage);
     updateMetaTag("twitter:site", "@lddigital");
+    updateMetaTag("twitter:url", fullUrl);
 
     // Update canonical link
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;

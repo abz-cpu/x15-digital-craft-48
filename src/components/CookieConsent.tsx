@@ -126,17 +126,17 @@ export const CookieConsent = () => {
         {!showDetails ? (
           <div className="flex flex-wrap gap-3">
             <Button
-              onClick={handleAcceptAll}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              Accept All
-            </Button>
-            <Button
               onClick={handleRejectAll}
               variant="outline"
-              className="border-border text-foreground"
+              className="border-border text-foreground order-2 md:order-2"
             >
               Reject All
+            </Button>
+            <Button
+              onClick={handleAcceptAll}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 order-1 md:order-1"
+            >
+              Accept All
             </Button>
             <Button
               onClick={() => setShowDetails(true)}

@@ -5,31 +5,33 @@ export const OrganizationSchema = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "@id": "https://luminousanddeliver.co.uk/#organization",
+      "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       name: "L&D Digital",
       alternateName: "Luminous & Deliver Digital",
-      url: "https://luminousanddeliver.co.uk",
+      url: "https://digital.luminousanddeliver.co.uk",
       logo: {
         "@type": "ImageObject",
-        url: "https://luminousanddeliver.co.uk/favicon-96x96.png",
+        url: "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
         width: 96,
         height: 96,
       },
-      image: "https://luminousanddeliver.co.uk/og-image.jpg",
+      image: "https://digital.luminousanddeliver.co.uk/og-image.jpg",
       description:
-        "Professional web development and AI automation services for UK businesses. Affordable websites from £200, AI chatbots from £50/month.",
+        "Professional web development and design services for UK businesses. Restaurant websites, ecommerce stores, and brand websites from £200.",
       email: "contact.luminousanddeliver@gmail.com",
       telephone: "+447356260648",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "London",
+        streetAddress: "7 Corsican Square",
+        addressLocality: "Bromley-by-Bow",
         addressRegion: "Greater London",
+        postalCode: "E3 3YD",
         addressCountry: "GB",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 51.5074,
-        longitude: -0.1278,
+        latitude: 51.521838,
+        longitude: -0.018013,
       },
       areaServed: [
         {
@@ -41,7 +43,7 @@ export const OrganizationSchema = () => {
           name: "London",
         },
       ],
-      priceRange: "£100-£1500",
+      priceRange: "£200-£1500",
       currenciesAccepted: "GBP",
       paymentAccepted: "Bank Transfer, Card Payment",
       openingHoursSpecification: {
@@ -67,15 +69,15 @@ export const OrganizationSchema = () => {
         name: "Abdul M Taher",
       },
       foundingDate: "2024",
-      slogan: "Affordable Web Development & AI Automation for UK Businesses",
+      slogan: "Professional Web Development for UK Businesses",
       knowsAbout: [
         "Web Development",
-        "AI Automation",
-        "Chatbots",
+        "Restaurant Websites",
+        "Ecommerce",
         "Website Design",
         "SEO",
         "Digital Marketing",
-        "E-commerce",
+        "Brand Websites",
       ],
     };
 

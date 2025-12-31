@@ -17,14 +17,16 @@ export const ProfessionalServiceSchema = () => {
       telephone: "+44 7356 260648",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "London",
+        streetAddress: "7 Corsican Square",
+        addressLocality: "Bromley-by-Bow",
         addressRegion: "Greater London",
+        postalCode: "E3 3YD",
         addressCountry: "GB",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 51.5074,
-        longitude: -0.1278,
+        latitude: 51.521838,
+        longitude: -0.018013,
       },
       areaServed: [
         {
@@ -56,7 +58,7 @@ export const ProfessionalServiceSchema = () => {
           name: "Edinburgh",
         },
       ],
-      priceRange: "££",
+      priceRange: "£200-£1500",
       currenciesAccepted: "GBP",
       paymentAccepted: "Bank Transfer, Card Payment",
       openingHoursSpecification: [

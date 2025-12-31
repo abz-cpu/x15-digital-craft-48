@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, FileText, PenTool, MessageSquare, Target, Spa
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const Copywriting = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Copywriting Services | L&D Digital"
+        title="Copywriting Services UK | Website & Marketing Copy | L&D Digital"
+        description="Compelling website copy that converts visitors into customers. Professional copywriting for websites, landing pages, and marketing materials. SEO-optimised content."
+        keywords="copywriting services UK, website copywriter, marketing copy, SEO copywriting, landing page copy, content writer for business"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/copywriting"
+      />
+      <ServiceSchema
+        name="Copywriting Services"
         description="Compelling website copy that converts visitors into customers. Professional copywriting for websites, landing pages, and marketing materials."
-        canonicalUrl="https://landdigital.co.uk/services/copywriting"
+        url="https://luminousanddeliver.co.uk/services/copywriting"
+        priceRange="£150-£500"
+        serviceType="Copywriting"
       />
       <Navigation darkHero />
 

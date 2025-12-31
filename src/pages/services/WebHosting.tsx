@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Server, Shield, Zap, Clock, Globe, Headphones
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const WebHosting = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Web Hosting Services | L&D Digital"
-        description="Fast, secure, and reliable web hosting for your business. Managed hosting with 99.9% uptime, SSL, backups, and 24/7 support."
-        canonicalUrl="https://landdigital.co.uk/services/web-hosting"
+        title="Web Hosting Services UK | Fast & Secure Hosting | L&D Digital"
+        description="Fast, secure, and reliable web hosting for your business. Managed hosting with 99.9% uptime, SSL, backups, and 24/7 support. UK-based servers available."
+        keywords="web hosting UK, managed hosting for small business, secure website hosting, fast web hosting, business hosting UK"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/web-hosting"
+      />
+      <ServiceSchema
+        name="Web Hosting Services"
+        description="Fast, secure, and reliable web hosting with 99.9% uptime, SSL certificates, backups, and 24/7 support."
+        url="https://luminousanddeliver.co.uk/services/web-hosting"
+        priceRange="£10-£50/month"
+        serviceType="Web Hosting"
       />
       <Navigation darkHero />
 

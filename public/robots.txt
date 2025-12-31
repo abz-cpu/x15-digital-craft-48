@@ -14,6 +14,21 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
 
+# Brave Search Crawler
+User-agent: Brave
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
 # Social Media Bots
 User-agent: Twitterbot
 Allow: /

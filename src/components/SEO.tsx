@@ -9,6 +9,8 @@ interface SEOProps {
   ogType?: string;
   twitterCard?: string;
   canonicalUrl?: string;
+  robots?: string;
+  author?: string;
 }
 
 export const SEO = ({
@@ -19,6 +21,8 @@ export const SEO = ({
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,
+  robots = "index, follow",
+  author = "L&D Digital",
 }: SEOProps) => {
   const location = useLocation();
   const fullUrl = canonicalUrl || `https://luminousanddeliver.co.uk${location.pathname}`;
@@ -44,6 +48,8 @@ export const SEO = ({
     // Standard meta tags
     updateMetaTag("description", description);
     updateMetaTag("keywords", keywords);
+    updateMetaTag("robots", robots);
+    updateMetaTag("author", author);
 
     // Open Graph tags
     updateMetaTag("og:title", title, true);
@@ -69,7 +75,7 @@ export const SEO = ({
       document.head.appendChild(canonical);
     }
     canonical.href = fullUrl;
-  }, [title, description, keywords, ogImage, ogType, twitterCard, fullUrl]);
+  }, [title, description, keywords, ogImage, ogType, twitterCard, fullUrl, robots, author]);
 
   return null;
 };

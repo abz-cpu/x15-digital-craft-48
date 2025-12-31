@@ -7,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 
 const routeNames: Record<string, string> = {
   "/": "Home",
@@ -56,27 +57,30 @@ export const BreadcrumbNav = () => {
   });
 
   return (
-    <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto">
-        <Breadcrumb>
-          <BreadcrumbList>
-            {breadcrumbItems.map((item, index) => (
-              <div key={item.path} className="contents">
-                <BreadcrumbItem>
-                  {index === breadcrumbItems.length - 1 ? (
-                    <BreadcrumbPage>{item.name}</BreadcrumbPage>
-                  ) : (
-                    <BreadcrumbLink asChild>
-                      <Link to={item.path}>{item.name}</Link>
-                    </BreadcrumbLink>
-                  )}
-                </BreadcrumbItem>
-                {index < breadcrumbItems.length - 1 && <BreadcrumbSeparator />}
-              </div>
-            ))}
-          </BreadcrumbList>
-        </Breadcrumb>
+    <>
+      <BreadcrumbSchema />
+      <div className="py-4 px-4 sm:px-6 lg:px-8 bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList>
+              {breadcrumbItems.map((item, index) => (
+                <div key={item.path} className="contents">
+                  <BreadcrumbItem>
+                    {index === breadcrumbItems.length - 1 ? (
+                      <BreadcrumbPage>{item.name}</BreadcrumbPage>
+                    ) : (
+                      <BreadcrumbLink asChild>
+                        <Link to={item.path}>{item.name}</Link>
+                      </BreadcrumbLink>
+                    )}
+                  </BreadcrumbItem>
+                  {index < breadcrumbItems.length - 1 && <BreadcrumbSeparator />}
+                </div>
+              ))}
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

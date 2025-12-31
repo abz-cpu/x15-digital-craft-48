@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, ShoppingCart, CreditCard, Package, TrendingUp
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const Ecommerce = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="E-Commerce Website Development | L&D Digital"
-        description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management, and beautiful design."
-        canonicalUrl="https://landdigital.co.uk/services/ecommerce"
+        title="E-Commerce Website Development UK | Online Store Design | L&D Digital"
+        description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management, and beautiful design. Shopify, WooCommerce & custom builds."
+        keywords="ecommerce website development UK, online store design, how to start an online shop UK, Shopify developer London, WooCommerce expert, custom ecommerce solutions"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/ecommerce"
+      />
+      <ServiceSchema
+        name="E-Commerce Website Development"
+        description="Custom e-commerce solutions with secure payments, inventory management, and beautiful design for UK businesses."
+        url="https://luminousanddeliver.co.uk/services/ecommerce"
+        priceRange="£1500-£5000"
+        serviceType="E-Commerce Development"
       />
       <Navigation darkHero />
 

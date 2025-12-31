@@ -8,14 +8,36 @@ import { CheckCircle2, ArrowRight, Search, TrendingUp, BarChart3, Globe, Target,
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
+import { HowToSchema } from "@/components/HowToSchema";
 
 const Seo = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="SEO Services | L&D Digital"
-        description="Get found on Google with expert SEO services. We help UK businesses rank higher, attract more traffic, and convert visitors into customers."
+        title="SEO Services UK | Get Found on Google | L&D Digital"
+        description="Professional SEO services for UK businesses. Rank higher on Google, attract more traffic, and convert visitors into customers. Local SEO specialists in London."
+        keywords="SEO services UK, local SEO London, how to rank higher on Google, affordable SEO agency, small business SEO, Google ranking services UK"
         canonicalUrl="https://luminousanddeliver.co.uk/services/seo"
+      />
+      <ServiceSchema
+        name="SEO Services"
+        description="Professional SEO services for UK businesses. We help you rank higher on Google, attract more organic traffic, and convert visitors into customers."
+        url="https://luminousanddeliver.co.uk/services/seo"
+        priceRange="£150-£500/month"
+        serviceType="Search Engine Optimization"
+      />
+      <HowToSchema
+        name="How to Improve Your SEO with L&D Digital"
+        description="Our proven 4-step SEO process to help your business rank higher on Google"
+        totalTime="P30D"
+        estimatedCost={{ currency: "GBP", value: "300" }}
+        steps={[
+          { name: "SEO Audit", text: "We analyse your current SEO performance and identify opportunities for improvement" },
+          { name: "Strategy Development", text: "Create a tailored SEO strategy based on your business goals and competition" },
+          { name: "On-Page Optimisation", text: "Implement technical fixes, content optimisation, and metadata improvements" },
+          { name: "Ongoing Growth", text: "Continuous content creation, link building, and performance monitoring" },
+        ]}
       />
       <Navigation darkHero />
 

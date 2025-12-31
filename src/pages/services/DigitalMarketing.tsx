@@ -8,14 +8,23 @@ import { CheckCircle2, ArrowRight, Megaphone, Target, BarChart3, Users, Mail, Sh
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
+import { ServiceSchema } from "@/components/ServiceSchema";
 
 const DigitalMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Digital Marketing Services | L&D Digital"
-        description="Grow your business with comprehensive digital marketing. PPC, social media, content marketing, and more. Data-driven strategies that deliver results."
-        canonicalUrl="https://landdigital.co.uk/services/digital-marketing"
+        title="Digital Marketing Services UK | PPC, SEO & Social Media | L&D Digital"
+        description="Grow your business with comprehensive digital marketing. PPC, social media, content marketing, and more. Data-driven strategies that deliver measurable results."
+        keywords="digital marketing UK, PPC management, social media marketing, Google Ads management UK, Facebook advertising, digital marketing agency London"
+        canonicalUrl="https://luminousanddeliver.co.uk/services/digital-marketing"
+      />
+      <ServiceSchema
+        name="Digital Marketing Services"
+        description="Comprehensive digital marketing including PPC, social media, content marketing, and data-driven strategies that deliver results."
+        url="https://luminousanddeliver.co.uk/services/digital-marketing"
+        priceRange="£500-£2000/month"
+        serviceType="Digital Marketing"
       />
       <Navigation darkHero />
 

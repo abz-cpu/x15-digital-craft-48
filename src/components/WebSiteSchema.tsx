@@ -5,13 +5,14 @@ export const WebSiteSchema = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "@id": "https://luminousanddeliver.co.uk/#website",
-      url: "https://luminousanddeliver.co.uk",
+      "@id": "https://digital.luminousanddeliver.co.uk/#website",
+      url: "https://digital.luminousanddeliver.co.uk",
       name: "L&D Digital",
+      alternateName: "Luminous & Deliver Digital",
       description:
-        "Professional web development and AI automation for UK businesses. Websites from £200, AI from £50/month.",
+        "Professional web development for restaurants, ecommerce, and brands. Built in 1-14 days from £200. UK-based team. SEO-optimized, mobile-responsive websites.",
       publisher: {
-        "@id": "https://luminousanddeliver.co.uk/#organization",
+        "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       },
       inLanguage: "en-GB",
       potentialAction: {
@@ -19,7 +20,7 @@ export const WebSiteSchema = () => {
         target: {
           "@type": "EntryPoint",
           urlTemplate:
-            "https://luminousanddeliver.co.uk/services?search={search_term_string}",
+            "https://digital.luminousanddeliver.co.uk/services?search={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },

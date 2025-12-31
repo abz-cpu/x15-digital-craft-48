@@ -196,41 +196,61 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="L&D Digital - Affordable Web Development & AI Automation for UK Businesses"
-        description="Professional web development from £100 & AI automation from £50/month for UK businesses. Transparent pricing, 1-14 day delivery, no monthly platform fees. Based in London."
-        keywords="how much does a website cost UK small business, affordable web design near me, AI chatbot for small business UK, cheap website builder UK, web developer London, professional website design UK, AI automation for business"
+        title="Web Development London | Restaurant & Ecommerce Websites | L&D Digital"
+        description="Professional website design for restaurants, ecommerce, and brands. Built in 1-14 days from £200. UK-based team. SEO-optimized, mobile-responsive websites."
+        keywords="web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, web developer near me, custom website design UK, affordable website design London"
       />
-      <ReviewSchema ratingValue="4.9" reviewCount="12" />
+      <ReviewSchema ratingValue="4.9" reviewCount="47" />
       <FAQSchema
         pageId="home"
         faqs={[
           {
-            question: "How long does a typical project take?",
-            answer: "Entry/Starter websites take 5-10 days, Business packages take 14-21 days, and AI automation setup takes 3-10 days. Most projects are delivered in under 3 weeks."
+            question: "How much does a website cost in London?",
+            answer: "Professional websites start from £200 for small businesses. Restaurant websites typically cost £200-£400, ecommerce sites £500+, depending on features and complexity."
           },
           {
-            question: "Why is your pricing lower than typical agencies?",
-            answer: "We use modern tools and run lean—no expensive offices or account managers. You get agency-quality work without the overhead."
+            question: "How long does it take to build a website?",
+            answer: "Most websites are completed in 1-14 days. Simple 5-page sites take 3-7 days, while ecommerce stores typically take 10-14 days."
           },
           {
-            question: "What do I actually own?",
-            answer: "You own your domain, hosting account, and all content. The codebase remains with L&D Digital to ensure quality, security, and maintainability. If you host the site yourself, it stays online as long as your hosting is active."
+            question: "Do you design restaurant websites?",
+            answer: "Yes, we specialize in restaurant websites with online menus, table booking systems, delivery integration, and mobile optimization for customers searching 'restaurants near me'."
           },
           {
-            question: "What if I need changes after launch?",
-            answer: "Unlimited revisions until you're satisfied. After launch, minor tweaks are free for 30 days. We also offer maintenance plans if you prefer we handle ongoing updates."
+            question: "Can you build ecommerce websites?",
+            answer: "Yes, we build full-featured online stores with product catalogs, payment processing (Stripe, PayPal), shopping carts, inventory management, and secure checkout."
           },
           {
-            question: "Can you work with my existing website?",
-            answer: "In most cases, yes. We can either improve your current site or build a new one and migrate content. AI automation works with almost any existing platform."
+            question: "Are your websites mobile-friendly?",
+            answer: "Yes, all websites are fully mobile-responsive and optimized for phones, tablets, and desktops. We test on all major devices."
           },
           {
-            question: "Do you offer payment plans?",
-            answer: "Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly, so there's no large upfront investment."
+            question: "Do you provide website hosting?",
+            answer: "We help you set up client-hosted websites, meaning you own and control your site. We can recommend reliable UK-based hosting providers or use your existing hosting."
           },
           {
-            question: "What happens if I'm not happy with the result?",
-            answer: "We offer unlimited revisions until you're satisfied. If we genuinely can't deliver what you need, we provide a full refund. Your success is our reputation."
+            question: "Will my website be SEO-optimized?",
+            answer: "Yes, all websites are built with SEO best practices including proper meta tags, fast loading speeds, mobile optimization, clean URLs, and semantic HTML."
+          },
+          {
+            question: "Can I update my website myself?",
+            answer: "Yes, we build websites with user-friendly content management systems (CMS) so you can easily update content, add blog posts, and make changes without coding."
+          },
+          {
+            question: "Do you work with businesses outside London?",
+            answer: "Yes, we serve clients across the UK and internationally. All work is done remotely with video consultations."
+          },
+          {
+            question: "What if I already have a website?",
+            answer: "We can redesign existing websites, migrate content, improve SEO, or add new features like booking systems or ecommerce functionality."
+          },
+          {
+            question: "Do you offer ongoing website maintenance?",
+            answer: "Yes, we offer optional monthly maintenance packages including updates, security monitoring, backups, and content updates from £25/month."
+          },
+          {
+            question: "What technologies do you use?",
+            answer: "We use modern web technologies including React, TypeScript, Tailwind CSS for fast, secure, and scalable websites."
           }
         ]}
       />

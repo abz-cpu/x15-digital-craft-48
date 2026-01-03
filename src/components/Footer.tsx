@@ -99,24 +99,24 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
 
             {/* Contact Info */}
             <div className="space-y-2">
-              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
-                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
                 <span>London, United Kingdom</span>
               </div>
-              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
-                <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <a
                   href="https://wa.me/447356260648"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors min-h-[44px] flex items-center"
+                  className="hover:text-accent transition-colors"
                 >
                   +44 7356 260648
                 </a>
               </div>
-              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
-                <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-accent transition-colors break-all">
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+                <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-accent transition-colors">
                   contact.luminousanddeliver@gmail.com
                 </a>
               </div>
@@ -141,11 +141,11 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
             {/* Services */}
             <nav aria-label="Services navigation">
               <h4 className="text-sm font-semibold mb-3 text-white/90">Services</h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     to="/services#web"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Websites & Landing Pages
                   </Link>
@@ -153,7 +153,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/services#ai-automation"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     AI Chatbots & Automation
                   </Link>
@@ -161,7 +161,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/services#combined-packages"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Combined Packages
                   </Link>
@@ -169,7 +169,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/services#addons"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     SEO & Add-ons
                   </Link>
@@ -180,11 +180,11 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
             {/* Company */}
             <nav aria-label="Company navigation">
               <h4 className="text-sm font-semibold mb-3 text-white/90">Company</h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     to="/portfolio"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Portfolio
                   </Link>
@@ -192,7 +192,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/blog"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Blog
                   </Link>
@@ -200,7 +200,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/about"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     About
                   </Link>
@@ -208,7 +208,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Contact
                   </Link>
@@ -216,7 +216,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/quick-start"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Quick Start
                   </Link>
@@ -227,11 +227,11 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
             {/* Resources */}
             <nav aria-label="Resources navigation">
               <h4 className="text-sm font-semibold mb-3 text-white/90">Resources</h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -239,7 +239,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Terms of Service
                   </Link>

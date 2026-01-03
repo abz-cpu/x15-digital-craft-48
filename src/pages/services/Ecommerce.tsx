@@ -14,15 +14,15 @@ const Ecommerce = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="E-Commerce Website Development UK | Online Store Design | L&D Digital"
-        description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management, and beautiful design. Shopify, WooCommerce & custom builds."
+        title="E-Commerce Website Development UK | Online Stores | L&D Digital"
+        description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management. Shopify, WooCommerce & custom builds."
         keywords="ecommerce website development UK, online store design, how to start an online shop UK, Shopify developer London, WooCommerce expert, custom ecommerce solutions"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/ecommerce"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/ecommerce"
       />
       <ServiceSchema
         name="E-Commerce Website Development"
         description="Custom e-commerce solutions with secure payments, inventory management, and beautiful design for UK businesses."
-        url="https://luminousanddeliver.co.uk/services/ecommerce"
+        url="https://digital.luminousanddeliver.co.uk/services/ecommerce"
         priceRange="£1500-£5000"
         serviceType="E-Commerce Development"
       />

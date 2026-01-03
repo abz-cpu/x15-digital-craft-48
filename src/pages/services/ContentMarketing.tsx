@@ -14,15 +14,15 @@ const ContentMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Content Marketing Services UK | Blog & Content Strategy | L&D Digital"
+        title="Content Marketing Services UK | Blog & Strategy | L&D Digital"
         description="Strategic content marketing that attracts, engages, and converts. Blog posts, articles, guides, and content strategy for sustainable growth and SEO."
         keywords="content marketing UK, blog writing services, content strategy, SEO content writing, content creation for business, blog management UK"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/content-marketing"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/content-marketing"
       />
       <ServiceSchema
         name="Content Marketing Services"
         description="Strategic content marketing that attracts, engages, and converts. Blog posts, articles, guides, and content strategy for sustainable growth."
-        url="https://luminousanddeliver.co.uk/services/content-marketing"
+        url="https://digital.luminousanddeliver.co.uk/services/content-marketing"
         priceRange="£300-£1000/month"
         serviceType="Content Marketing"
       />

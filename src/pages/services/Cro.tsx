@@ -14,15 +14,15 @@ const Cro = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Conversion Rate Optimization (CRO) UK | A/B Testing | L&D Digital"
+        title="Conversion Rate Optimization UK | A/B Testing | L&D Digital"
         description="Turn more visitors into customers with data-driven CRO. A/B testing, UX improvements, and conversion optimization strategies that boost your bottom line."
         keywords="conversion rate optimization UK, CRO agency, A/B testing services, website optimization, increase website conversions, landing page optimization"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/cro"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/cro"
       />
       <ServiceSchema
         name="Conversion Rate Optimization"
         description="Turn more visitors into customers with data-driven CRO. A/B testing, UX improvements, and conversion optimization strategies."
-        url="https://luminousanddeliver.co.uk/services/cro"
+        url="https://digital.luminousanddeliver.co.uk/services/cro"
         priceRange="£400-£1500/month"
         serviceType="Conversion Rate Optimization"
       />

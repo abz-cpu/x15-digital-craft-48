@@ -54,10 +54,10 @@ const WebPackage = () => {
   const [selectedProject, setSelectedProject] = useState<(typeof portfolioItems)[0] | null>(null);
   return <div className="min-h-screen flex flex-col">
       <SEO 
-        title="Web Development Packages UK | Affordable Websites from £200 | L&D Digital" 
-        description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance if you want us to manage everything." 
+        title="Web Development Packages | Websites from £200 UK | L&D Digital" 
+        description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance." 
         keywords="cheap website package for startups UK, best website builder for small business, how to get a professional website on a budget, affordable web design packages, small business website cost UK"
-        canonicalUrl="https://luminousanddeliver.co.uk/web-package" 
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/web-package" 
       />
 
       <Navigation darkHero />

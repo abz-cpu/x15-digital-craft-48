@@ -17,12 +17,12 @@ const Copywriting = () => {
         title="Copywriting Services UK | Website & Marketing Copy | L&D Digital"
         description="Compelling website copy that converts visitors into customers. Professional copywriting for websites, landing pages, and marketing materials. SEO-optimised content."
         keywords="copywriting services UK, website copywriter, marketing copy, SEO copywriting, landing page copy, content writer for business"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/copywriting"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/copywriting"
       />
       <ServiceSchema
         name="Copywriting Services"
         description="Compelling website copy that converts visitors into customers. Professional copywriting for websites, landing pages, and marketing materials."
-        url="https://luminousanddeliver.co.uk/services/copywriting"
+        url="https://digital.luminousanddeliver.co.uk/services/copywriting"
         priceRange="£150-£500"
         serviceType="Copywriting"
       />

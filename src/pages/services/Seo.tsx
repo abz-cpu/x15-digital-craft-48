@@ -18,12 +18,12 @@ const Seo = () => {
         title="SEO Services UK | Get Found on Google | L&D Digital"
         description="Professional SEO services for UK businesses. Rank higher on Google, attract more traffic, and convert visitors into customers. Local SEO specialists in London."
         keywords="SEO services UK, local SEO London, how to rank higher on Google, affordable SEO agency, small business SEO, Google ranking services UK"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/seo"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/seo"
       />
       <ServiceSchema
         name="SEO Services"
         description="Professional SEO services for UK businesses. We help you rank higher on Google, attract more organic traffic, and convert visitors into customers."
-        url="https://luminousanddeliver.co.uk/services/seo"
+        url="https://digital.luminousanddeliver.co.uk/services/seo"
         priceRange="£150-£500/month"
         serviceType="Search Engine Optimization"
       />

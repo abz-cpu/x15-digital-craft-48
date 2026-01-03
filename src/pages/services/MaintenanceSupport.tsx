@@ -14,15 +14,15 @@ const MaintenanceSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Website Maintenance & Support UK | Keep Your Site Secure | L&D Digital"
+        title="Website Maintenance UK | Keep Your Site Secure | L&D Digital"
         description="Ongoing updates, fixes, and protection for your website. Keep your site secure, fast, and up-to-date with our affordable maintenance plans from £25/month."
         keywords="website maintenance UK, website support services, how to keep website secure, WordPress maintenance, website updates and backups"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/maintenance-support"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/maintenance-support"
       />
       <ServiceSchema
         name="Website Maintenance & Support"
         description="Ongoing website updates, security patches, backups, and priority support to keep your site secure and running smoothly."
-        url="https://luminousanddeliver.co.uk/services/maintenance-support"
+        url="https://digital.luminousanddeliver.co.uk/services/maintenance-support"
         priceRange="£25-£100/month"
         serviceType="Website Maintenance"
       />

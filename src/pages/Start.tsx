@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 type Goal = "website" | "automation" | "both" | "";
@@ -110,6 +111,12 @@ const Start = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Get Started | Find the Right Solution | L&D Digital"
+        description="Not sure where to start? Choose between websites, AI automation, or both. Take our 30-second quiz to find the right solution for your UK business."
+        keywords="get started web development, AI automation quiz, business website uk, which website package do I need"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/start"
+      />
       <ScrollProgressBar />
       <Navigation />
       

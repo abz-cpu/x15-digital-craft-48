@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -54,6 +55,11 @@ const Install = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Install App | L&D Digital"
+        description="Install the L&D Digital progressive web app for quick access and offline functionality."
+        robots="noindex, nofollow"
+      />
       <Navigation />
       <BreadcrumbNav />
       

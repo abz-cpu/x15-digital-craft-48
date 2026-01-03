@@ -17,12 +17,12 @@ const EmailMarketing = () => {
         title="Email Marketing Services UK | Automated Campaigns | L&D Digital"
         description="Email campaigns that nurture leads and drive sales. Automated sequences, newsletters, and email strategy that delivers results. Mailchimp & Klaviyo experts."
         keywords="email marketing UK, email automation, newsletter design, email campaign management, Mailchimp expert UK, email marketing for small business"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/email-marketing"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/email-marketing"
       />
       <ServiceSchema
         name="Email Marketing Services"
         description="Email campaigns that nurture leads and drive sales. Automated sequences, newsletters, and email strategy that delivers results."
-        url="https://luminousanddeliver.co.uk/services/email-marketing"
+        url="https://digital.luminousanddeliver.co.uk/services/email-marketing"
         priceRange="£200-£800/month"
         serviceType="Email Marketing"
       />

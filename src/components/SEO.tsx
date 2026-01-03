@@ -17,7 +17,7 @@ export const SEO = ({
   title,
   description,
   keywords = "web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, custom website design UK, affordable website design London, responsive web design UK, web design agency London, brand website design London",
-  ogImage = "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02-v2.png",
+  ogImage = "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02.png",
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,

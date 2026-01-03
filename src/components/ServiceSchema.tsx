@@ -27,7 +27,7 @@ export const ServiceSchema = ({
       url,
       ...(image && { image }),
       provider: {
-        "@id": "https://luminousanddeliver.co.uk/#organization",
+        "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       },
       areaServed: {
         "@type": "Country",
@@ -40,7 +40,7 @@ export const ServiceSchema = ({
         priceCurrency: "GBP",
         availability: "https://schema.org/InStock",
         seller: {
-          "@id": "https://luminousanddeliver.co.uk/#organization",
+          "@id": "https://digital.luminousanddeliver.co.uk/#organization",
         },
       },
       aggregateRating: {

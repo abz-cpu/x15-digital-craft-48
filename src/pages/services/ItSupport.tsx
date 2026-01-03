@@ -17,15 +17,15 @@ const ItSupport = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="IT Support for Small Business UK | Remote Tech Help | L&D Digital"
+        title="IT Support for Small Business UK | Remote Help | L&D Digital"
         description="Reliable technical support for your day-to-day operations. Keep your business running smoothly with expert IT help. Remote support, network help, and hardware advice."
         keywords="IT support for small business UK, remote IT help London, affordable tech support, small business IT services, computer support near me"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/it-support"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/it-support"
       />
       <ServiceSchema
         name="IT Support for Small Business"
         description="Reliable technical support for small businesses. Remote support, network help, and hardware advice without the cost of a full-time hire."
-        url="https://luminousanddeliver.co.uk/services/it-support"
+        url="https://digital.luminousanddeliver.co.uk/services/it-support"
         priceRange="£35-£75/hour"
         serviceType="IT Support Services"
       />

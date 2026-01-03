@@ -17,12 +17,12 @@ const PersonalisedApps = () => {
         title="Custom Business Apps UK | Bespoke Tools & Calculators | L&D Digital"
         description="Custom mini-apps and tools tailored to how you work. Streamline your business processes with bespoke calculators, dashboards, and automation tools."
         keywords="custom business apps UK, bespoke software development, business automation tools, custom calculators, internal tools development"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/personalised-apps"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/personalised-apps"
       />
       <ServiceSchema
         name="Personalised Apps & Tools"
         description="Custom mini-apps and tools tailored to how you work. Bespoke calculators, dashboards, and automation tools."
-        url="https://luminousanddeliver.co.uk/services/personalised-apps"
+        url="https://digital.luminousanddeliver.co.uk/services/personalised-apps"
         priceRange="£500-£2000"
         serviceType="Custom Software Development"
       />

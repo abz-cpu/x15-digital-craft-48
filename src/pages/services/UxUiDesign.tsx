@@ -17,12 +17,12 @@ const UxUiDesign = () => {
         title="UX/UI Design Services UK | User Experience Design | L&D Digital"
         description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices. Mobile-first design approach."
         keywords="UX design UK, UI design services, user experience designer London, mobile app design, website UX audit, conversion-focused design"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/ux-ui-design"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/ux-ui-design"
       />
       <ServiceSchema
         name="UX/UI Design Services"
         description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices."
-        url="https://luminousanddeliver.co.uk/services/ux-ui-design"
+        url="https://digital.luminousanddeliver.co.uk/services/ux-ui-design"
         priceRange="£500-£2000"
         serviceType="UX/UI Design"
       />

@@ -17,12 +17,12 @@ const LogoDesign = () => {
         title="Logo Design UK | Professional Brand Marks | L&D Digital"
         description="Clean, modern brand marks that look professional everywhere. Professional logo design for UK businesses. Multiple concepts, unlimited revisions."
         keywords="logo design UK, professional logo designer, business logo design, brand mark design, logo design for startups, affordable logo design"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/logo-design"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/logo-design"
       />
       <ServiceSchema
         name="Logo Design"
         description="Clean, modern brand marks that look professional everywhere. Multiple concepts and unlimited revisions included."
-        url="https://luminousanddeliver.co.uk/services/logo-design"
+        url="https://digital.luminousanddeliver.co.uk/services/logo-design"
         priceRange="£200-£600"
         serviceType="Logo Design"
       />

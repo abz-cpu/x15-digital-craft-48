@@ -19,6 +19,10 @@ const routeNames: Record<string, string> = {
   "/install": "Install App",
   "/privacy": "Privacy Policy",
   "/terms": "Terms of Service",
+  "/web-package": "Web Packages",
+  "/ai-package": "AI Packages",
+  "/platforms": "Platforms",
+  "/sectors": "Sectors",
 };
 
 export const BreadcrumbSchema = () => {

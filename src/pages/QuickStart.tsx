@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const QuickStart = () => {
@@ -70,6 +71,12 @@ const QuickStart = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Quick Start Guide | Get Your Quote Fast | L&D Digital"
+        description="Get started in 30 seconds. Tell us what you need and receive a clear quote within 4 hours. Fast, no-pressure web development and AI automation quotes."
+        keywords="quick quote website, fast web development UK, get website quote, AI automation quote"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/quick-start"
+      />
       <ScrollProgressBar />
       <Navigation />
       

@@ -17,12 +17,12 @@ const WebHosting = () => {
         title="Web Hosting Services UK | Fast & Secure Hosting | L&D Digital"
         description="Fast, secure, and reliable web hosting for your business. Managed hosting with 99.9% uptime, SSL, backups, and 24/7 support. UK-based servers available."
         keywords="web hosting UK, managed hosting for small business, secure website hosting, fast web hosting, business hosting UK"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/web-hosting"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/web-hosting"
       />
       <ServiceSchema
         name="Web Hosting Services"
         description="Fast, secure, and reliable web hosting with 99.9% uptime, SSL certificates, backups, and 24/7 support."
-        url="https://luminousanddeliver.co.uk/services/web-hosting"
+        url="https://digital.luminousanddeliver.co.uk/services/web-hosting"
         priceRange="£10-£50/month"
         serviceType="Web Hosting"
       />

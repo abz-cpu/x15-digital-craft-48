@@ -17,12 +17,12 @@ const LandingPages = () => {
         title="Landing Page Design UK | High-Converting Pages | L&D Digital"
         description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers. Fast delivery and optimised for conversions."
         keywords="landing page design UK, high converting landing pages, campaign landing page, lead generation page, sales page design"
-        canonicalUrl="https://luminousanddeliver.co.uk/services/landing-pages"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/services/landing-pages"
       />
       <ServiceSchema
         name="Landing Page Creation"
         description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers."
-        url="https://luminousanddeliver.co.uk/services/landing-pages"
+        url="https://digital.luminousanddeliver.co.uk/services/landing-pages"
         priceRange="£300-£800"
         serviceType="Landing Page Design"
       />

@@ -283,25 +283,41 @@
   }
 }
 
-/* Keyframes */
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
+/* Note: Duplicate keyframes removed - fade-in-up and float-subtle defined above */
+
+/* ===== MOBILE PERFORMANCE & UX ===== */
+@layer utilities {
+  /* Minimum tap target size for accessibility (44x44px as per WCAG) */
+  .tap-target {
+    min-width: 44px;
+    min-height: 44px;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  
+  /* Improved mobile readability */
+  @media (max-width: 640px) {
+    .mobile-readable {
+      font-size: 16px; /* Prevents iOS zoom on focus */
+      line-height: 1.6;
+    }
   }
 }
 
-@keyframes float-subtle {
-  0%,
-  100% {
-    transform: translateY(0);
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  50% {
-    transform: translateY(-3px);
+  
+  .animate-bounce,
+  .animate-ping,
+  .animate-pulse,
+  .animate-spin {
+    animation: none !important;
   }
 }
 

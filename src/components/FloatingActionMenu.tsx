@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Package, X, FileText, Sparkles } from "lucide-react";
 
-const FloatingActionMenu = () => {
+const FloatingActionMenu = forwardRef<HTMLDivElement>(function FloatingActionMenu(_props, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileCtaVisible, setMobileCtaVisible] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -17,7 +17,7 @@ const FloatingActionMenu = () => {
       setMobileCtaVisible(scrolledPastHero && !nearBottom);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     
     return () => window.removeEventListener("scroll", handleScroll);
@@ -63,7 +63,11 @@ const FloatingActionMenu = () => {
 
   return (
     <div 
-      ref={menuRef} 
+      ref={(node) => {
+        menuRef.current = node;
+        if (typeof ref === 'function') ref(node);
+        else if (ref) ref.current = node;
+      }}
       className={`fixed right-4 bottom-6 z-[1000] transition-all duration-300 ${
         mobileCtaVisible ? "max-md:bottom-20" : ""
       }`}
@@ -77,9 +81,9 @@ const FloatingActionMenu = () => {
         {actions.map((action) => {
           const Icon = action.icon;
           const baseClasses =
-            "flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 border text-sm font-medium";
+            "flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 border text-sm font-medium min-h-[48px]";
           const colorClasses = action.primary
-            ? "bg-[#0F766E] text-white border-[#0F766E] hover:bg-[#F59E0B]"
+            ? "bg-primary text-primary-foreground border-primary hover:bg-accent"
             : "bg-background text-foreground border-border";
 
           const content = (
@@ -116,18 +120,20 @@ const FloatingActionMenu = () => {
       {/* Main FAB button */}
       <button
         onClick={toggleMenu}
-        className="bg-[#0F766E] text-white p-4 rounded-full 
+        className="bg-primary text-primary-foreground p-4 rounded-full 
              shadow-[0_4px_12px_rgba(15,118,110,0.3)]
-             hover:bg-[#F59E0B] hover:scale-110
+             hover:bg-accent hover:scale-110
              transition-transform duration-200
-             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ml-auto block"
+             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ml-auto block
+             min-w-[56px] min-h-[56px]"
         aria-label={isOpen ? "Close quick actions menu" : "Open quick actions menu"}
         aria-pressed={isOpen}
+        aria-expanded={isOpen}
       >
         {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Sparkles className="h-6 w-6 md:h-7 md:w-7" />}
       </button>
     </div>
   );
-};
+});
 
 export default FloatingActionMenu;

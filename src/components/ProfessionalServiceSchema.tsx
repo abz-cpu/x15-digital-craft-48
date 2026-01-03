@@ -10,7 +10,7 @@ export const ProfessionalServiceSchema = () => {
       alternateName: "Luminous & Deliver Digital",
       url: "https://digital.luminousanddeliver.co.uk",
       logo: "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
-      image: "https://digital.luminousanddeliver.co.uk/og-image.jpg",
+      image: "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02-v2.png",
       description:
         "Professional web development and design services specializing in restaurant websites, ecommerce stores, and brand websites in the UK. Fast delivery from 1-14 days, prices from £200.",
       email: "contact.luminousanddeliver@gmail.com",

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import {
   DollarSign,
@@ -43,7 +43,6 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import FloatingActionMenu from "@/components/FloatingActionMenu";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import CtaCard from "@/components/CtaCard";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
@@ -54,17 +53,27 @@ import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 import { ServiceMockup } from "@/components/ServiceMockup";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { DeviceMockup } from "@/components/DeviceMockup";
 import { LaptopMockup } from "@/components/LaptopMockup";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
-import { AIEstimator } from "@/components/AIEstimator";
-import { LifestyleMockup } from "@/components/LifestyleMockup";
 import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import portfolioChatbot from "@/assets/portfolio-chatbot.png";
+
+// Lazy load heavy below-the-fold components
+const TestimonialsCarousel = lazy(() => import("@/components/TestimonialsCarousel").then(m => ({ default: m.TestimonialsCarousel })));
+const ProcessTimeline = lazy(() => import("@/components/ProcessTimeline").then(m => ({ default: m.ProcessTimeline })));
+const AIEstimator = lazy(() => import("@/components/AIEstimator").then(m => ({ default: m.AIEstimator })));
+const LifestyleMockup = lazy(() => import("@/components/LifestyleMockup").then(m => ({ default: m.LifestyleMockup })));
+
+// Simple loading placeholder
+const SectionLoader = () => (
+  <div className="flex items-center justify-center py-12">
+    <div className="w-8 h-8 border-3 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -373,6 +382,9 @@ const Index = () => {
                 src={heroIllustration}
                 alt="Team collaborating on website design"
                 className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -890,7 +902,9 @@ const Index = () => {
             <p className="text-lg text-[#6B7280]">Simple Process. Professional Results.</p>
           </div>
 
-          <ProcessTimeline />
+          <Suspense fallback={<SectionLoader />}>
+            <ProcessTimeline />
+          </Suspense>
         </div>
       </section>
 
@@ -917,7 +931,9 @@ const Index = () => {
       </section>
 
       {/* AI Estimator Section */}
-      <AIEstimator />
+      <Suspense fallback={<SectionLoader />}>
+        <AIEstimator />
+      </Suspense>
 
       {/* Portfolio Preview */}
       <section
@@ -997,12 +1013,14 @@ const Index = () => {
                       >
                         {/* Lifestyle Mockup with Category Badge */}
                         <div className="relative mb-6">
-                          <LifestyleMockup 
-                            imageSrc={project.image} 
-                            alt={`${project.title} Website`}
-                            variant={variants[index % 3]}
-                            className="transform group-hover:scale-[1.02] transition-transform duration-500 rounded-2xl"
-                          />
+                          <Suspense fallback={<div className="aspect-[4/3] bg-muted animate-pulse rounded-2xl" />}>
+                            <LifestyleMockup 
+                              imageSrc={project.image} 
+                              alt={`${project.title} Website`}
+                              variant={variants[index % 3]}
+                              className="transform group-hover:scale-[1.02] transition-transform duration-500 rounded-2xl"
+                            />
+                          </Suspense>
                           {/* Category Badge Overlay */}
                           <div className="absolute top-4 left-4 z-10">
                             <Badge className="bg-teal-600/90 backdrop-blur-sm text-white border-0 px-3 py-1.5 text-xs font-medium flex items-center gap-1.5 shadow-lg">
@@ -1066,7 +1084,9 @@ const Index = () => {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <TestimonialsCarousel testimonials={testimonials} />
+            <Suspense fallback={<SectionLoader />}>
+              <TestimonialsCarousel testimonials={testimonials} />
+            </Suspense>
 
             <Card className="overflow-hidden">
               <CardContent className="pt-6">

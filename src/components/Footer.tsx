@@ -1,11 +1,12 @@
+import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Instagram, Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 
-export default function Footer() {
+const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[radial-gradient(circle_at_top,_hsl(170,83%,22%)_0,_hsl(170,47%,10%)_40%,_hsl(170,47%,5%)_100%)] text-white">
+    <footer ref={ref} className="relative bg-[radial-gradient(circle_at_top,_hsl(170,83%,22%)_0,_hsl(170,47%,10%)_40%,_hsl(170,47%,5%)_100%)] text-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Ready When You Are CTA */}
         <div className="mb-8 md:mb-12">
@@ -21,14 +22,14 @@ export default function Footer() {
                 href="https://wa.me/447356260648?text=Hi%2C%20I%20want%20to%20discuss%20a%20website%20or%20AI%20automation%20project"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-success px-4 py-2.5 text-sm font-semibold text-success-foreground shadow-lg shadow-success/30 hover:bg-success/90 transition-colors w-full sm:w-auto"
+                className="inline-flex items-center justify-center rounded-lg bg-success px-4 py-2.5 text-sm font-semibold text-success-foreground shadow-lg shadow-success/30 hover:bg-success/90 transition-colors w-full sm:w-auto min-h-[44px]"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 WhatsApp L&D Digital
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-lg border border-white/25 px-4 py-2.5 text-sm font-semibold text-white/80 hover:bg-white/10 transition-colors w-full sm:w-auto"
+                className="inline-flex items-center justify-center rounded-lg border border-white/25 px-4 py-2.5 text-sm font-semibold text-white/80 hover:bg-white/10 transition-colors w-full sm:w-auto min-h-[44px]"
               >
                 Send project brief →
               </Link>
@@ -50,6 +51,7 @@ export default function Footer() {
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                   className="flex-shrink-0"
+                  aria-hidden="true"
                 >
                   <path 
                     d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
@@ -90,31 +92,31 @@ export default function Footer() {
                   <span className="text-primary">DIGITAL</span>
                 </h3>
               </div>
-              <p className="text-[11px] md:text-sm text-white/70 leading-relaxed">
+              <p className="text-xs md:text-sm text-white/70 leading-relaxed">
                 Web design, development, and AI automation for UK businesses and creators. Built for performance and conversion.
               </p>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-2">
-              <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
+                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <span>London, United Kingdom</span>
               </div>
-              <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Phone className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
+                <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href="https://wa.me/447356260648"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#F59E0B] transition-colors"
+                  className="hover:text-accent transition-colors min-h-[44px] flex items-center"
                 >
                   +44 7356 260648
                 </a>
               </div>
-              <div className="flex items-start gap-2 text-[10px] md:text-xs text-white/70">
-                <Mail className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-[#F59E0B] transition-colors">
+              <div className="flex items-start gap-2 text-xs md:text-sm text-white/70">
+                <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-accent transition-colors break-all">
                   contact.luminousanddeliver@gmail.com
                 </a>
               </div>
@@ -122,12 +124,12 @@ export default function Footer() {
 
             {/* Sister Company */}
             <div className="pt-3 border-t border-white/10">
-              <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-white/50 mb-2">Sister Company</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-wider text-white/50 mb-2">Sister Company</p>
               <a
                 href="https://x15pcbuilders.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#0F766E] hover:text-[#F59E0B] text-sm font-semibold transition-all hover:gap-3"
+                className="inline-flex items-center gap-2 text-primary hover:text-accent text-sm font-semibold transition-all hover:gap-3 min-h-[44px]"
               >
                 L&D Builds <ArrowRight className="h-3.5 w-3.5" />
               </a>
@@ -137,13 +139,13 @@ export default function Footer() {
           {/* Right Side - 3 Column Grid for Links */}
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             {/* Services */}
-            <div>
-              <h4 className="text-xs md:text-sm font-semibold mb-3 text-white/90">Services</h4>
+            <nav aria-label="Services navigation">
+              <h4 className="text-sm font-semibold mb-3 text-white/90">Services</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/services#web"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Websites & Landing Pages
                   </Link>
@@ -151,7 +153,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/services#ai-automation"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     AI Chatbots & Automation
                   </Link>
@@ -159,7 +161,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/services#combined-packages"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Combined Packages
                   </Link>
@@ -167,22 +169,22 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/services#addons"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     SEO & Add-ons
                   </Link>
                 </li>
               </ul>
-            </div>
+            </nav>
 
             {/* Company */}
-            <div>
-              <h4 className="text-xs md:text-sm font-semibold mb-3 text-white/90">Company</h4>
+            <nav aria-label="Company navigation">
+              <h4 className="text-sm font-semibold mb-3 text-white/90">Company</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/portfolio"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Portfolio
                   </Link>
@@ -190,7 +192,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/blog"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Blog
                   </Link>
@@ -198,7 +200,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/about"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     About
                   </Link>
@@ -206,7 +208,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Contact
                   </Link>
@@ -214,22 +216,22 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/quick-start"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Quick Start
                   </Link>
                 </li>
               </ul>
-            </div>
+            </nav>
 
             {/* Resources */}
-            <div>
-              <h4 className="text-xs md:text-sm font-semibold mb-3 text-white/90">Resources</h4>
+            <nav aria-label="Resources navigation">
+              <h4 className="text-sm font-semibold mb-3 text-white/90">Resources</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Privacy Policy
                   </Link>
@@ -237,32 +239,32 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-[10px] md:text-xs text-white/60 hover:text-[#F59E0B] transition-colors block"
+                    className="text-xs md:text-sm text-white/60 hover:text-accent transition-colors block py-1 min-h-[44px] flex items-center"
                   >
                     Terms of Service
                   </Link>
                 </li>
               </ul>
-            </div>
+            </nav>
           </div>
         </div>
 
         {/* Business Hours & Service Areas */}
         <div className="border-t border-white/10 pt-5 pb-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           <div className="flex items-start gap-2">
-            <Clock className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
             <div>
-              <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Business Hours</p>
-              <p className="text-[10px] md:text-xs text-white/60">
+              <p className="text-xs md:text-sm font-semibold text-white/90 mb-1">Business Hours</p>
+              <p className="text-xs md:text-sm text-white/60">
                 Available evenings & weekends for London businesses
               </p>
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <MapPin className="h-3 w-3 md:h-4 md:w-4 text-[#0F766E] mt-0.5 flex-shrink-0" />
+            <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
             <div>
-              <p className="text-[10px] md:text-xs font-semibold text-white/90 mb-1">Service Area</p>
-              <p className="text-[10px] md:text-xs text-white/60">Based in London, working across the UK</p>
+              <p className="text-xs md:text-sm font-semibold text-white/90 mb-1">Service Area</p>
+              <p className="text-xs md:text-sm text-white/60">Based in London, working across the UK</p>
             </div>
           </div>
         </div>
@@ -275,38 +277,38 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
+              className="p-3 rounded-lg bg-white/5 text-white/60 hover:text-accent hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
+              className="p-3 rounded-lg bg-white/5 text-white/60 hover:text-accent hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <Twitter className="h-4 w-4" />
+              <Twitter className="h-5 w-5" />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="p-2 rounded-lg bg-white/5 text-white/60 hover:text-[#F59E0B] hover:bg-white/10 transition-colors"
+              className="p-3 rounded-lg bg-white/5 text-white/60 hover:text-accent hover:bg-white/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <Instagram className="h-4 w-4" />
+              <Instagram className="h-5 w-5" />
             </a>
           </div>
 
-          <div className="flex items-center gap-2 text-[10px] md:text-xs text-white/50 order-1 sm:order-2">
+          <div className="flex items-center gap-2 text-xs md:text-sm text-white/50 order-1 sm:order-2">
             <span>© {year} L&D Digital. All rights reserved.</span>
             <span className="hidden sm:inline opacity-40">•</span>
-            <Link to="/privacy" className="hover:text-[#F59E0B] transition-colors">
+            <Link to="/privacy" className="hover:text-accent transition-colors py-2">
               Privacy
             </Link>
             <span className="opacity-40">•</span>
-            <Link to="/terms" className="hover:text-[#F59E0B] transition-colors">
+            <Link to="/terms" className="hover:text-accent transition-colors py-2">
               Terms
             </Link>
           </div>
@@ -314,4 +316,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

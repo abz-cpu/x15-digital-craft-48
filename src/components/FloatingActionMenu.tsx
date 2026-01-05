@@ -2,12 +2,24 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Package, X, FileText, Sparkles } from "lucide-react";
 
+const STORAGE_KEY = "fab_notification_seen";
+
 const FloatingActionMenu = forwardRef<HTMLDivElement>(function FloatingActionMenu(_props, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileCtaVisible, setMobileCtaVisible] = useState(false);
+  const [showNotification, setShowNotification] = useState(() => {
+    return localStorage.getItem(STORAGE_KEY) !== "true";
+  });
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+    // Mark notification as seen permanently
+    if (showNotification) {
+      setShowNotification(false);
+      localStorage.setItem(STORAGE_KEY, "true");
+    }
+  };
 
   // Track mobile CTA visibility to adjust position
   useEffect(() => {
@@ -118,12 +130,12 @@ const FloatingActionMenu = forwardRef<HTMLDivElement>(function FloatingActionMen
       </div>
 
       {/* Main FAB button */}
-      <div className="relative ml-auto">
+      <div className="relative ml-auto w-fit">
         {/* Notification dot */}
-        {!isOpen && (
-          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+        {showNotification && !isOpen && (
+          <span className="absolute top-0 right-0 flex h-3.5 w-3.5 z-10">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-amber-500" />
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-amber-500 border-2 border-background" />
           </span>
         )}
         <button

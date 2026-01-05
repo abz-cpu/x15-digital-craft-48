@@ -118,20 +118,29 @@ const FloatingActionMenu = forwardRef<HTMLDivElement>(function FloatingActionMen
       </div>
 
       {/* Main FAB button */}
-      <button
-        onClick={toggleMenu}
-        className="bg-primary text-primary-foreground p-4 rounded-full 
-             shadow-[0_4px_12px_rgba(15,118,110,0.3)]
-             hover:bg-accent hover:scale-110
-             transition-transform duration-200
-             focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ml-auto block
-             min-w-[56px] min-h-[56px]"
-        aria-label={isOpen ? "Close quick actions menu" : "Open quick actions menu"}
-        aria-pressed={isOpen}
-        aria-expanded={isOpen}
-      >
-        {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Sparkles className="h-6 w-6 md:h-7 md:w-7" />}
-      </button>
+      <div className="relative ml-auto">
+        {/* Notification dot */}
+        {!isOpen && (
+          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-amber-500" />
+          </span>
+        )}
+        <button
+          onClick={toggleMenu}
+          className="bg-primary text-primary-foreground p-4 rounded-full 
+               shadow-[0_4px_12px_rgba(15,118,110,0.3)]
+               hover:bg-accent hover:scale-110
+               transition-transform duration-200
+               focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
+               min-w-[56px] min-h-[56px]"
+          aria-label={isOpen ? "Close quick actions menu" : "Open quick actions menu"}
+          aria-pressed={isOpen}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <X className="h-6 w-6 md:h-7 md:w-7" /> : <Sparkles className="h-6 w-6 md:h-7 md:w-7" />}
+        </button>
+      </div>
     </div>
   );
 });

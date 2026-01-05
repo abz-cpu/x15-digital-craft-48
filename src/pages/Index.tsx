@@ -61,6 +61,7 @@ import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import portfolioChatbot from "@/assets/portfolio-chatbot.png";
 import heroBackground from "@/assets/hero-background.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 // Lazy load heavy below-the-fold components
 const TestimonialsCarousel = lazy(() => import("@/components/TestimonialsCarousel").then(m => ({ default: m.TestimonialsCarousel })));
@@ -274,13 +275,18 @@ const Index = () => {
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Cinematic Background Image */}
-        <img
-          src={heroBackground}
-          alt=""
+        {/* Cinematic Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroBackground}
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         
         {/* Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />

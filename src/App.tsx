@@ -15,6 +15,7 @@ import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { WebSiteSchema } from "@/components/WebSiteSchema";
 import { ProfessionalServiceSchema } from "@/components/ProfessionalServiceSchema";
 import ScrollToTop from "@/components/ScrollToTop";
+import MaintenanceBanner from "@/components/MaintenanceBanner";
 
 // Lazy load route components
 const Index = lazy(() => import("./pages/Index"));
@@ -95,6 +96,7 @@ const App = () => (
           <WebSiteSchema />
           <ProfessionalServiceSchema />
           <CookieConsent />
+          <MaintenanceBanner />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />

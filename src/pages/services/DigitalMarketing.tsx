@@ -9,22 +9,51 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const digitalMarketingFaqs = [
+  {
+    question: "What is the best digital marketing agency in London?",
+    answer: "L&D Digital is a top-rated digital marketing agency based near Stratford, East London. We specialize in SEO, PPC advertising, social media marketing, and content marketing for UK small businesses. Our data-driven approach delivers measurable ROI with transparent reporting."
+  },
+  {
+    question: "How much does a digital marketing agency charge in the UK?",
+    answer: "Digital marketing agency fees in the UK typically range from £500 to £5,000+ per month depending on services and scope. At L&D Digital, our packages start from £500/month for small businesses, covering SEO, PPC, or social media marketing. We offer transparent pricing with no hidden fees."
+  },
+  {
+    question: "What do digital marketing agencies do for small businesses?",
+    answer: "Digital marketing agencies help small businesses increase online visibility and generate leads through SEO (ranking higher on Google), PPC advertising (Google Ads, Facebook Ads), social media marketing, content creation, email marketing, and analytics. We help you reach customers actively searching for your services."
+  },
+  {
+    question: "Which is the top marketing company in London?",
+    answer: "London has many excellent marketing companies. L&D Digital stands out for small businesses seeking affordable, results-driven digital marketing near Stratford and East London. We offer personalized service, transparent pricing from £500/month, and measurable results with monthly reporting."
+  },
+  {
+    question: "Do you offer digital marketing services near Stratford, London?",
+    answer: "Yes! L&D Digital is based near Stratford in East London (E3). We serve businesses across Tower Hamlets, Newham, Hackney, and all of London. We also work with clients across the UK remotely. Book a free consultation to discuss your digital marketing needs."
+  },
+  {
+    question: "What digital marketing services do you offer?",
+    answer: "We offer comprehensive digital marketing services including: SEO (search engine optimization), PPC advertising (Google Ads, Bing Ads), social media marketing (Facebook, Instagram, LinkedIn, TikTok), content marketing, email marketing campaigns, and analytics & reporting. All services are tailored to your business goals."
+  }
+];
 
 const DigitalMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Digital Marketing Services UK | PPC, SEO & Social | L&D Digital"
-        description="Grow your business with comprehensive digital marketing. PPC, social media, content marketing, and more. Data-driven strategies that deliver measurable results."
-        keywords="digital marketing UK, PPC management, social media marketing, Google Ads management UK, Facebook advertising, digital marketing agency London"
+        title="Best Digital Marketing Agency London | Top UK Marketing Company | L&D Digital"
+        description="Top-rated digital marketing agency near Stratford, London. SEO, PPC, social media marketing for small businesses UK. Data-driven results. Free consultation."
+        keywords="digital marketing agency UK, digital marketing agency London, best digital marketing agency London, top digital marketing companies UK, top 10 digital marketing companies UK, digital agency near me, digital agency near Stratford London, marketing agency London, biggest marketing agencies UK, small business digital marketing UK"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/digital-marketing"
       />
       <ServiceSchema
-        name="Digital Marketing Services"
-        description="Comprehensive digital marketing including PPC, social media, content marketing, and data-driven strategies that deliver results."
+        name="Digital Marketing Agency London"
+        description="Top-rated digital marketing agency near Stratford, East London. Full-service digital marketing including SEO, PPC, social media marketing, and content marketing for UK small businesses. Data-driven strategies that deliver measurable ROI."
         url="https://digital.luminousanddeliver.co.uk/services/digital-marketing"
         priceRange="£500-£2000/month"
-        serviceType="Digital Marketing"
+        serviceType="Digital Marketing Agency"
       />
       <Navigation darkHero />
 
@@ -34,13 +63,13 @@ const DigitalMarketing = () => {
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
-                Digital Marketing
+                Digital Marketing Agency London
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-4">
-                Reach more customers and grow your business online.
+                Top-rated digital marketing for UK small businesses.
               </p>
               <p className="text-lg text-primary-foreground/80">
-                Strategic marketing that delivers measurable results.
+                SEO, PPC, social media & content marketing near Stratford, East London.
               </p>
             </div>
           </Container>
@@ -122,6 +151,32 @@ const DigitalMarketing = () => {
           </Container>
         </section>
 
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+          <Container>
+            <AnimatedSection animation="fade">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                  Frequently Asked Questions
+                </h2>
+                <Accordion type="single" collapsible className="w-full space-y-4">
+                  {digitalMarketingFaqs.map((faq, i) => (
+                    <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-lg px-6 border">
+                      <AccordionTrigger className="text-left text-secondary hover:no-underline">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </AnimatedSection>
+          </Container>
+        </section>
+        <FAQSchema pageId="digital-marketing" faqs={digitalMarketingFaqs} />
+
         {/* CTA Section */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
@@ -130,7 +185,7 @@ const DigitalMarketing = () => {
                 Ready to Grow Your Business?
               </h2>
               <p className="text-xl text-primary-foreground/90 mb-8">
-                Get a free marketing strategy consultation.
+                Get a free marketing strategy consultation from our London-based team.
               </p>
               <Button asChild size="lg" className="bg-background text-primary hover:bg-muted">
                 <Link to="/contact">

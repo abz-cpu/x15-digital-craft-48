@@ -56,7 +56,6 @@ import { ServiceMockup } from "@/components/ServiceMockup";
 import { DeviceMockup } from "@/components/DeviceMockup";
 import { LaptopMockup } from "@/components/LaptopMockup";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
-import heroIllustration from "@/assets/hero-illustration.png";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
@@ -268,124 +267,128 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden bg-white pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 xl:pt-52 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50/30 pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 xl:pt-52 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
         style={{
           transform: `translateY(${parallaxOffset}px)`,
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+        {/* Animated floating background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Large floating orbs */}
+          <div className="absolute top-[10%] left-[5%] w-72 h-72 md:w-96 md:h-96 bg-gradient-to-br from-teal-400/30 to-emerald-300/20 rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute top-[20%] right-[10%] w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-amber-300/25 to-yellow-200/20 rounded-full blur-3xl animate-float-medium" />
+          <div className="absolute bottom-[15%] left-[15%] w-56 h-56 md:w-72 md:h-72 bg-gradient-to-br from-purple-300/20 to-violet-200/15 rounded-full blur-3xl animate-float-fast" />
+          <div className="absolute bottom-[25%] right-[5%] w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-teal-300/25 to-cyan-200/20 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '-5s' }} />
+          
+          {/* Medium floating shapes */}
+          <div className="absolute top-[40%] left-[40%] w-32 h-32 md:w-48 md:h-48 bg-gradient-to-br from-emerald-400/20 to-teal-300/15 rounded-full blur-2xl animate-float-medium" style={{ animationDelay: '-7s' }} />
+          <div className="absolute top-[60%] right-[25%] w-40 h-40 md:w-56 md:h-56 bg-gradient-to-br from-amber-200/30 to-orange-200/20 rounded-full blur-2xl animate-float-slow" style={{ animationDelay: '-10s' }} />
+          
+          {/* Small accent dots */}
+          <div className="absolute top-[30%] left-[25%] w-4 h-4 bg-teal-500/40 rounded-full animate-pulse-glow" />
+          <div className="absolute top-[50%] right-[30%] w-3 h-3 bg-amber-500/50 rounded-full animate-pulse-glow" style={{ animationDelay: '-2s' }} />
+          <div className="absolute bottom-[35%] left-[50%] w-5 h-5 bg-emerald-500/40 rounded-full animate-pulse-glow" style={{ animationDelay: '-1s' }} />
+          <div className="absolute top-[70%] left-[10%] w-3 h-3 bg-purple-500/40 rounded-full animate-pulse-glow" style={{ animationDelay: '-3s' }} />
+          <div className="absolute top-[15%] right-[40%] w-4 h-4 bg-teal-400/50 rounded-full animate-pulse-glow" style={{ animationDelay: '-1.5s' }} />
+          
+          {/* Drifting horizontal elements */}
+          <div className="absolute top-[45%] left-0 w-24 h-24 bg-gradient-to-r from-teal-300/20 to-transparent rounded-full blur-xl animate-drift-horizontal" />
+          <div className="absolute bottom-[40%] right-0 w-32 h-32 bg-gradient-to-l from-amber-300/20 to-transparent rounded-full blur-xl animate-drift-horizontal" style={{ animationDelay: '-12s' }} />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left column - Content */}
-            <div className="text-center lg:text-left space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
-                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                <span>
-                  Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
-                </span>
-              </div>
-
-              {/* Main heading */}
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
-                  Your Business Sleeps.
-                  <br />
-                  <span className="text-teal-600">Your Website Shouldn't.</span>
-                </h1>
-
-                <p className="text-lg sm:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Professional websites and AI automation that capture leads and book clients 24/7— even while you
-                  sleep. Websites from £200, AI from £50/month.
-                </p>
-              </div>
-
-              {/* Trust line */}
-              <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto lg:mx-0">
-                Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
-                Client-Hosted & Managed. Optional support from{" "}
-                <span className="font-semibold text-slate-700">£25/month</span>.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
-                >
-                  <Link to="/contact">
-                    Book a Free Consultation
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
-                >
-                  <Link to="/portfolio">View Our Work</Link>
-                </Button>
-              </div>
-
-              {/* Service pills */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                  Web Development
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                  AI Automation
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                  Digital Marketing
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                  Branding
-                </span>
-              </div>
-
-              {/* Quick stats */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-slate-500 pt-2">
-                <div className="flex items-center gap-1.5">
-                  <Star className="h-4 w-4 text-yellow-500" />
-                  <span>
-                    <span className="font-semibold text-slate-700">4.9/5</span> rating
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MessageCircle className="h-4 w-4 text-teal-500" />
-                  <span>Quote in 1–3 hours</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Globe className="h-4 w-4 text-slate-400" />
-                  <span>UK-based team</span>
-                </div>
-              </div>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              </span>
+              <span>
+                Accepting 3 new projects for <span className="font-semibold">{currentMonth}</span>
+              </span>
             </div>
 
-            {/* Right column - Illustration */}
-            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-              <img
-                src={heroIllustration}
-                alt="Team collaborating on website design"
-                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
+            {/* Main heading */}
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-slate-900 leading-tight">
+                Your Business Sleeps.
+                <br />
+                <span className="text-teal-600">Your Website Shouldn't.</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Professional websites and AI automation that capture leads and book clients 24/7— even while you
+                sleep. Websites from £200, AI from £50/month.
+              </p>
+            </div>
+
+            {/* Trust line */}
+            <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+              Built for UK businesses. Delivered in <span className="font-semibold text-slate-700">1–14 days</span>.
+              Client-Hosted & Managed. Optional support from{" "}
+              <span className="font-semibold text-slate-700">£25/month</span>.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-500/25 px-8"
+              >
+                <Link to="/contact">
+                  Book a Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-slate-300 bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
+              >
+                <Link to="/portfolio">View Our Work</Link>
+              </Button>
+            </div>
+
+            {/* Service pills */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm text-slate-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                Web Development
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm text-slate-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                AI Automation
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm text-slate-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                Digital Marketing
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm text-slate-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                Branding
+              </span>
+            </div>
+
+            {/* Quick stats */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500 pt-2">
+              <div className="flex items-center gap-1.5">
+                <Star className="h-4 w-4 text-yellow-500" />
+                <span>
+                  <span className="font-semibold text-slate-700">4.9/5</span> rating
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <MessageCircle className="h-4 w-4 text-teal-500" />
+                <span>Quote in 1–3 hours</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Globe className="h-4 w-4 text-slate-400" />
+                <span>UK-based team</span>
+              </div>
             </div>
           </div>
 

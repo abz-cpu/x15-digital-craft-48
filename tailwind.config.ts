@@ -124,6 +124,11 @@ const config: Config = {
           "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
           "50%": { opacity: "0.7", transform: "scale(1.1)" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.08) translate(-1%, -1%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
@@ -135,6 +140,7 @@ const config: Config = {
         "float-fast": "float-fast 10s ease-in-out infinite",
         "drift-horizontal": "drift-horizontal 25s ease-in-out infinite",
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        "ken-burns": "ken-burns 25s ease-in-out infinite",
       },
     },
   },

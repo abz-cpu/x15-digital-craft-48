@@ -38,7 +38,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const scrolled = window.scrollY > 10;
+      setIsScrolled(scrolled);
+      // Hide announcement bar when scrolling down
+      if (scrolled) {
+        setShowAnnouncementBar(false);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

@@ -17,7 +17,7 @@ export const SEO = ({
   title,
   description,
   keywords = "web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, custom website design UK, affordable website design London, responsive web design UK, web design agency London, brand website design London, digital marketing agency UK, digital marketing agency London, best digital marketing agency London, top digital marketing companies UK, digital agency near me, marketing agency Stratford London, small business digital marketing UK",
-  ogImage = "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02-v2.png",
+  ogImage = "https://digital.luminousanddeliver.co.uk/og-image-2026-01-05.jpg",
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,

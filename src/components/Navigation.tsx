@@ -26,7 +26,8 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [showAnnouncementBar, setShowAnnouncementBar] = useState(true);
+  const [announcementDismissed, setAnnouncementDismissed] = useState(false);
+  const showAnnouncementBar = !announcementDismissed && !isScrolled;
 
   const closeTimeoutRef = useRef<number | null>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -38,12 +39,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 10;
-      setIsScrolled(scrolled);
-      // Hide announcement bar when scrolling down
-      if (scrolled) {
-        setShowAnnouncementBar(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -267,7 +263,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               <ArrowRight className="h-3.5 w-3.5" />
             </PreloadLink>
             <button
-              onClick={() => setShowAnnouncementBar(false)}
+              onClick={() => setAnnouncementDismissed(true)}
               className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
               aria-label="Close announcement"
             >

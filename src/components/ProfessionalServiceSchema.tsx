@@ -4,22 +4,22 @@ export const ProfessionalServiceSchema = () => {
   useEffect(() => {
     const schema = {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": ["ProfessionalService", "MarketingAgency"],
       "@id": "https://digital.luminousanddeliver.co.uk/#professionalservice",
       name: "L&D Digital",
-      alternateName: "Luminous & Deliver Digital",
+      alternateName: ["Luminous & Deliver Digital", "L&D Digital Marketing Agency"],
       url: "https://digital.luminousanddeliver.co.uk",
       logo: "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
       image: "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02-v2.png",
       description:
-        "Professional web development and design services specializing in restaurant websites, ecommerce stores, and brand websites in the UK. Fast delivery from 1-14 days, prices from £200.",
+        "Top digital marketing agency and web development company near Stratford, London. Specializing in SEO, PPC, social media marketing, restaurant websites, ecommerce stores, and AI automation for UK businesses. Websites from £200, digital marketing from £500/month.",
       email: "contact.luminousanddeliver@gmail.com",
       telephone: "+44 7356 260648",
       address: {
         "@type": "PostalAddress",
         streetAddress: "7 Corsican Square",
-        addressLocality: "Bromley-by-Bow",
-        addressRegion: "Greater London",
+        addressLocality: "Stratford",
+        addressRegion: "East London",
         postalCode: "E3 3YD",
         addressCountry: "GB",
       },
@@ -30,12 +30,28 @@ export const ProfessionalServiceSchema = () => {
       },
       areaServed: [
         {
-          "@type": "Country",
-          name: "United Kingdom",
+          "@type": "City",
+          name: "Stratford",
         },
         {
           "@type": "City",
           name: "London",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "East London",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Tower Hamlets",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Newham",
+        },
+        {
+          "@type": "Country",
+          name: "United Kingdom",
         },
         {
           "@type": "City",
@@ -45,19 +61,8 @@ export const ProfessionalServiceSchema = () => {
           "@type": "City",
           name: "Birmingham",
         },
-        {
-          "@type": "City",
-          name: "Leeds",
-        },
-        {
-          "@type": "City",
-          name: "Glasgow",
-        },
-        {
-          "@type": "City",
-          name: "Edinburgh",
-        },
       ],
+      knowsAbout: ["Digital Marketing", "SEO", "PPC Advertising", "Social Media Marketing", "Web Development", "AI Automation", "Content Marketing", "Small Business Marketing"],
       priceRange: "£200-£1500",
       currenciesAccepted: "GBP",
       paymentAccepted: "Bank Transfer, Card Payment",
@@ -83,8 +88,56 @@ export const ProfessionalServiceSchema = () => {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Web Development Services",
+        name: "Digital Marketing & Web Development Services",
         itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Digital Marketing Services",
+              description:
+                "Full-service digital marketing agency offering SEO, PPC, social media marketing, and content marketing for UK small businesses",
+              serviceType: "Digital Marketing",
+            },
+            price: "500",
+            priceCurrency: "GBP",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "SEO Services",
+              description:
+                "Search engine optimization to improve Google rankings and drive organic traffic for UK businesses",
+              serviceType: "SEO",
+            },
+            price: "300",
+            priceCurrency: "GBP",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "PPC Advertising",
+              description:
+                "Google Ads and social media advertising management for lead generation",
+              serviceType: "PPC Management",
+            },
+            price: "500",
+            priceCurrency: "GBP",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Social Media Marketing",
+              description:
+                "Social media management and advertising across Facebook, Instagram, LinkedIn, and TikTok",
+              serviceType: "Social Media Marketing",
+            },
+            price: "400",
+            priceCurrency: "GBP",
+          },
           {
             "@type": "Offer",
             itemOffered: {
@@ -113,18 +166,6 @@ export const ProfessionalServiceSchema = () => {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Brand Website Design",
-              description:
-                "Professional business websites for brands, companies, and small businesses",
-              serviceType: "Web Design",
-            },
-            price: "200",
-            priceCurrency: "GBP",
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
               name: "AI Chatbot",
               description:
                 "AI-powered chatbot for customer service automation",
@@ -136,14 +177,6 @@ export const ProfessionalServiceSchema = () => {
               price: "50",
               priceCurrency: "GBP",
               unitText: "month",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "SEO Services",
-              description: "Search engine optimization to improve Google, Bing, and Brave rankings",
             },
           },
         ],

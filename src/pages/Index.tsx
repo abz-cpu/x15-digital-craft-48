@@ -270,23 +270,27 @@ const Index = () => {
       {/* Hero */}
       <section
         className="relative overflow-hidden min-h-screen pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 xl:pt-52 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
-        style={{
-          transform: `translateY(${parallaxOffset}px)`,
-          transition: "transform 0.1s ease-out",
-        }}
       >
-        {/* Cinematic Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroBackground}
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden="true"
+        {/* Cinematic Background Video with Ken Burns + Parallax */}
+        <div 
+          className="absolute inset-0 scale-110"
+          style={{
+            transform: `translateY(${parallaxOffset * 0.5}px) scale(1.1)`,
+            transition: "transform 0.1s ease-out",
+          }}
         >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroBackground}
+            className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
+            aria-hidden="true"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
         
         {/* Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />

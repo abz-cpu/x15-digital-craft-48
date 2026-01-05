@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
@@ -450,7 +450,7 @@ const Start = () => {
       )}
 
       <Footer />
-      <WhatsAppWidget />
+      <FloatingActionMenu />
     </div>
   );
 };

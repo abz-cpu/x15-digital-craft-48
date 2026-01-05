@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -189,7 +189,7 @@ const Blog = () => {
       </section>
 
       <Footer />
-      <WhatsAppWidget />
+      <FloatingActionMenu />
     </div>
   );
 };

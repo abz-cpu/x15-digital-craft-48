@@ -1,23 +1,25 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Wrench, X, MessageCircle } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Construction, X, MessageCircle } from "lucide-react";
 
 const MaintenanceBanner = () => {
   const [dismissed, setDismissed] = useState(false);
+  const location = useLocation();
 
-  if (dismissed) return null;
+  // Hide on contact page since users are already there
+  if (dismissed || location.pathname === "/contact") return null;
 
   return (
     <div className="fixed bottom-24 right-4 z-40 flex items-start gap-2 animate-bounce-subtle">
       <Link
         to="/contact"
         className="group flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 text-amber-950 text-sm font-semibold py-3 px-5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
-        aria-label="Website under development - Get in touch for enquiries"
+        aria-label="Site under maintenance - Contact us for enquiries"
       >
-        <Wrench className="h-4 w-4 flex-shrink-0" />
+        <Construction className="h-4 w-4 flex-shrink-0" />
         <div className="flex flex-col leading-tight">
-          <span className="text-xs opacity-80">We're improving things</span>
-          <span className="font-bold">Get in Touch</span>
+          <span className="text-xs opacity-80">Site Under Maintenance</span>
+          <span className="font-bold">Contact Us</span>
         </div>
         <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
       </Link>

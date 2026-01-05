@@ -18,7 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
@@ -418,7 +418,7 @@ const Portfolio = () => {
       <CtaCard />
 
       <Footer />
-      <WhatsAppWidget />
+      <FloatingActionMenu />
       
       {/* Modals */}
       {selectedProject && (

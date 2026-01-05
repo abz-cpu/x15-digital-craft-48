@@ -25,7 +25,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
@@ -945,7 +945,7 @@ const Contact = () => {
       </section>
 
       <Footer />
-      <WhatsAppWidget />
+      <FloatingActionMenu />
 
       {/* ====================================================================
           MODALS (Calendly + Quiz)

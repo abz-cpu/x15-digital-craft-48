@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { ArticleSchema } from "@/components/ArticleSchema";
@@ -869,7 +869,7 @@ Want a site built for the UK market, legally compliant, and actually supported?
       </section>
 
       <Footer />
-      <WhatsAppWidget />
+      <FloatingActionMenu />
     </div>
   );
 };

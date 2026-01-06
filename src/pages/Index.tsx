@@ -265,7 +265,7 @@ const Index = () => {
         ]}
       />
       <ScrollProgressBar />
-      <Navigation />
+      <Navigation darkHero={true} />
 
       {/* Hero */}
       <section

@@ -325,7 +325,7 @@ const Index = () => {
             {/* Trust line */}
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
               Built for UK businesses. Delivered in <span className="font-semibold text-white">1–14 days</span>.
-              Client-Hosted & Managed. Optional support from{" "}
+              Client-Hosted & Managed. Optional <span className="font-semibold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">support</span> from{" "}
               <span className="font-semibold text-white">£25/month</span>.
             </p>
 

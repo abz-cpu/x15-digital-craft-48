@@ -307,46 +307,51 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Gradient definition - green dominant blending to gold */}
+                {/* Gradient definition - green at bottom-left blending to amber at top-right */}
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#10B981" />
-                    <stop offset="70%" stopColor="#10B981" />
+                    <stop offset="50%" stopColor="#10B981" />
                     <stop offset="100%" stopColor="#F59E0B" />
                   </linearGradient>
                 </defs>
-                {/* Outer frame with gradient */}
-                <path 
-                  d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
+                {/* Outer frame with gradient - matching reference style */}
+                <rect 
+                  x="12" 
+                  y="12" 
+                  width="76" 
+                  height="76" 
+                  rx="8"
                   fill="none" 
                   stroke="url(#logoGradient)" 
                   strokeWidth="6"
-                  strokeLinejoin="round"
                 />
+                {/* L character */}
                 <path 
                   d="M28 28 L28 65 L48 65" 
                   fill="none" 
                   stroke="url(#logoGradient)" 
-                  strokeWidth="6" 
+                  strokeWidth="5" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
-                {/* Ampersand in gold */}
+                {/* Ampersand in amber */}
                 <text 
-                  x="42" 
-                  y="58" 
+                  x="44" 
+                  y="54" 
                   fill="#F59E0B" 
-                  fontSize="18" 
+                  fontSize="14" 
                   fontWeight="600"
                   fontFamily="system-ui"
                 >
                   &amp;
                 </text>
+                {/* D character */}
                 <path 
-                  d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
+                  d="M55 28 L55 65 M55 28 L68 28 Q78 28 78 46.5 Q78 65 68 65 L55 65" 
                   fill="none" 
                   stroke="url(#logoGradient)" 
-                  strokeWidth="6" 
+                  strokeWidth="5" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />

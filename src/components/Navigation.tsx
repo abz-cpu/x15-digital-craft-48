@@ -302,12 +302,21 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                <path
+              {/* Main frame in primary green */}
+              <path
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z"
                   fill="none"
                   stroke="hsl(var(--primary))"
                   strokeWidth="6"
                   strokeLinejoin="round"
+                />
+                {/* Gold/amber accent stripe on left edge */}
+                <path
+                  d="M15 10 L15 75"
+                  fill="none"
+                  stroke="#F59E0B"
+                  strokeWidth="6"
+                  strokeLinecap="round"
                 />
                 <path
                   d="M28 28 L28 65 L48 65"
@@ -320,7 +329,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <text
                   x="42"
                   y="58"
-                  fill="hsl(var(--muted-foreground))"
+                  fill="#F59E0B"
                   fontSize="18"
                   fontWeight="500"
                   fontFamily="system-ui"

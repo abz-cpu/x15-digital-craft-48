@@ -304,7 +304,7 @@ const Index = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
               </span>
               <span>
-                Accepting 3 new projects for <span className="font-semibold text-amber-400">{currentMonth}</span>
+                Accepting 3 new projects for <span className="font-semibold text-emerald-400">{currentMonth}</span>
               </span>
             </div>
 
@@ -313,7 +313,7 @@ const Index = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight">
                 Your Business Sleeps.
                 <br />
-                <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 bg-clip-text text-transparent">Your Website Shouldn't.</span>
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(251,191,36,0.3)]">Your Website Shouldn't.</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">

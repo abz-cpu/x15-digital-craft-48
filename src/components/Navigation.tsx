@@ -307,26 +307,26 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Outer frame with gold accent */}
+                {/* Gradient definition - green to gold blend */}
+                <defs>
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="60%" stopColor="#14B8A6" />
+                    <stop offset="100%" stopColor="#F59E0B" />
+                  </linearGradient>
+                </defs>
+                {/* Outer frame with gradient */}
                 <path 
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
                   fill="none" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="url(#logoGradient)" 
                   strokeWidth="6"
                   strokeLinejoin="round"
-                />
-                {/* Gold accent corner */}
-                <path 
-                  d="M65 10 L85 25" 
-                  fill="none" 
-                  stroke="#F59E0B" 
-                  strokeWidth="6"
-                  strokeLinecap="round"
                 />
                 <path 
                   d="M28 28 L28 65 L48 65" 
                   fill="none" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="url(#logoGradient)" 
                   strokeWidth="6" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
@@ -345,7 +345,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <path 
                   d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65" 
                   fill="none" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="url(#logoGradient)" 
                   strokeWidth="6" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"

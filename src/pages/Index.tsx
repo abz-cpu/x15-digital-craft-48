@@ -309,16 +309,17 @@ const Index = () => {
             </div>
 
             {/* Main heading */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight">
-                Your Business Sleeps.
+            <div className="space-y-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
+                <span className="text-white">Your Business Sleeps.</span>
                 <br />
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(251,191,36,0.3)]">Your Website Shouldn't.</span>
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-amber-400 bg-clip-text text-transparent">Your Website Shouldn't.</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
-                Professional websites and AI automation that capture leads and book clients 24/7— even while you
-                sleep. Websites from £200, AI from £50/month.
+              <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+                Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep. 
+                <span className="text-white font-medium"> Websites from £200</span>, 
+                <span className="text-amber-400 font-medium"> AI from £50/month</span>.
               </p>
             </div>
 

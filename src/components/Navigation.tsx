@@ -307,12 +307,21 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
+                {/* Outer frame with gold accent */}
                 <path 
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z" 
                   fill="none" 
                   stroke="hsl(var(--primary))" 
                   strokeWidth="6"
                   strokeLinejoin="round"
+                />
+                {/* Gold accent corner */}
+                <path 
+                  d="M65 10 L85 25" 
+                  fill="none" 
+                  stroke="#F59E0B" 
+                  strokeWidth="6"
+                  strokeLinecap="round"
                 />
                 <path 
                   d="M28 28 L28 65 L48 65" 
@@ -322,12 +331,13 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
+                {/* Ampersand with gold color */}
                 <text 
                   x="42" 
                   y="58" 
-                  fill="hsl(var(--muted-foreground))" 
+                  fill="#F59E0B" 
                   fontSize="18" 
-                  fontWeight="500"
+                  fontWeight="600"
                   fontFamily="system-ui"
                 >
                   &amp;

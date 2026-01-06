@@ -293,97 +293,87 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* L&D Monogram Icon - Premium gradient with glow */}
+              {/* L&D Monogram Icon - scales with scroll */}
               <svg
-                width={isScrolled ? 36 : 44}
-                height={isScrolled ? 36 : 44}
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                viewBox="0 0 48 48"
+                className={`transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg ${
+                  isScrolled ? "w-9 h-9" : "w-11 h-11"
+                }`}
+                aria-hidden="true"
               >
-                {/* Subtle glow behind logo - amber accent on hover */}
                 <defs>
-                  {/* Gradient definition - mostly green with subtle amber accent */}
-                  <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(160, 84%, 39%)" />
-                    <stop offset="70%" stopColor="hsl(160, 84%, 39%)" />
-                    <stop offset="100%" stopColor="hsl(45, 93%, 47%)" />
-                  </linearGradient>
-                  <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feFlood floodColor="hsl(45, 93%, 47%)" floodOpacity="0" result="color" />
-                    <feComposite in="color" in2="blur" operator="in" />
+                  {/* Green glow filter */}
+                  <filter id="greenGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="1.5" result="blur" />
+                    <feFlood floodColor="hsl(160, 84%, 39%)" floodOpacity="0.4" />
+                    <feComposite in2="blur" operator="in" />
+                    <feMerge>
+                      <feMergeNode />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
                   </filter>
+                  {/* Subtle teal gradient for accent */}
+                  <linearGradient id="tealAccent" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(150, 65%, 50%)" />
+                    <stop offset="100%" stopColor="hsl(160, 84%, 39%)" />
+                  </linearGradient>
                 </defs>
-
-                {/* Main frame - gradient stroke */}
-                <path
-                  d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z"
-                  fill="none"
-                  stroke="url(#logoGradient)"
-                  strokeWidth="6"
-                  strokeLinejoin="round"
-                  className="transition-all duration-300"
+                
+                {/* Main green frame */}
+                <rect
+                  x="4"
+                  y="4"
+                  width="40"
+                  height="40"
+                  rx="6"
+                  fill="hsl(160, 84%, 39%)"
+                  className="transition-all duration-300 group-hover:brightness-110"
+                  filter="url(#greenGlow)"
                 />
                 
-                {/* Amber accent stripe on left edge */}
-                <path
-                  d="M15 10 L15 75"
-                  fill="none"
-                  stroke="hsl(38, 92%, 50%)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
+                {/* Subtle teal accent stripe - left edge */}
+                <rect
+                  x="4"
+                  y="4"
+                  width="4"
+                  height="40"
+                  rx="2"
+                  fill="url(#tealAccent)"
+                  className="transition-opacity duration-300 opacity-70 group-hover:opacity-100"
                 />
                 
-                {/* L letter */}
-                <path
-                  d="M28 28 L28 65 L48 65"
-                  fill="none"
-                  stroke="url(#logoGradient)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                
-                {/* & symbol - amber colored */}
+                {/* L&D Text */}
                 <text
-                  x="42"
-                  y="58"
-                  fill="hsl(38, 92%, 50%)"
-                  fontSize="18"
-                  fontWeight="500"
-                  fontFamily="system-ui"
+                  x="24"
+                  y="26"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  className="font-bold tracking-tight"
+                  style={{ fontSize: "14px", fill: "white" }}
                 >
-                  &amp;
+                  L
+                  <tspan fill="hsl(160, 70%, 60%)" className="transition-colors duration-300">
+                    &amp;
+                  </tspan>
+                  D
                 </text>
-                
-                {/* D letter */}
-                <path
-                  d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65"
-                  fill="none"
-                  stroke="url(#logoGradient)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
               </svg>
-              <div className="flex flex-col leading-none whitespace-nowrap">
-                <span
-                  className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}
-                >
+
+              {/* Brand Text */}
+              <div className={`hidden sm:flex flex-col transition-all duration-300 ${isScrolled ? "gap-0" : "gap-0.5"}`}>
+                <span className={`font-bold tracking-wide leading-none transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}>
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>
                     L&amp;D
                   </span>{" "}
-                  <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primary via-emerald-400 to-teal-400 bg-clip-text text-transparent">
                     DIGITAL
                   </span>
                 </span>
-                {/* Tagline: hide on compact to reduce clutter */}
-                <span
-                  className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}
-                >
-                  Luminous &amp; Deliver —
+                {/* Tagline - hide on compact */}
+                <span className={`text-[10px] tracking-[0.2em] uppercase transition-all duration-300 ${
+                  isScrolled ? "opacity-0 h-0" : "opacity-100"
+                } ${getMutedTextClass()}`}>
+                  <span className="text-primary">Luminous</span> &amp; Deliver —
                 </span>
               </div>
             </PreloadLink>

@@ -307,11 +307,11 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Gradient definition - green to gold blend */}
+                {/* Gradient definition - green dominant blending to gold */}
                 <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#10B981" />
-                    <stop offset="60%" stopColor="#14B8A6" />
+                    <stop offset="70%" stopColor="#10B981" />
                     <stop offset="100%" stopColor="#F59E0B" />
                   </linearGradient>
                 </defs>
@@ -331,7 +331,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 />
-                {/* Ampersand with gold color */}
+                {/* Ampersand in gold */}
                 <text 
                   x="42" 
                   y="58" 

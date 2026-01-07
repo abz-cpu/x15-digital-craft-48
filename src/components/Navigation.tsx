@@ -290,53 +290,34 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
             {/* === ZONE 1: Logo === */}
             <PreloadLink
               to="/"
-              className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
+              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg transition-all shrink-0"
               aria-label="L&D Digital home"
             >
-              {/* L&D Monogram Icon - Premium gradient with glow */}
+              {/* L&D Monogram Icon - scales with scroll */}
               <svg
                 width={isScrolled ? 36 : 44}
                 height={isScrolled ? 36 : 44}
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                className="flex-shrink-0 transition-all duration-300"
               >
-                {/* Subtle glow behind logo - amber accent on hover */}
+                {/* Gradient definition - green to gold blend */}
                 <defs>
-                  {/* Gradient definition - mostly green with subtle amber accent */}
-                  <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(160, 84%, 39%)" />
-                    <stop offset="70%" stopColor="hsl(160, 84%, 39%)" />
-                    <stop offset="100%" stopColor="hsl(45, 93%, 47%)" />
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="60%" stopColor="#14B8A6" />
+                    <stop offset="100%" stopColor="#F59E0B" />
                   </linearGradient>
-                  <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feFlood floodColor="hsl(45, 93%, 47%)" floodOpacity="0" result="color" />
-                    <feComposite in="color" in2="blur" operator="in" />
-                  </filter>
                 </defs>
-
-                {/* Main frame - gradient stroke */}
+                {/* Outer frame with gradient */}
                 <path
                   d="M15 10 L15 75 L35 90 L85 90 L85 25 L65 10 L15 10 Z"
                   fill="none"
                   stroke="url(#logoGradient)"
                   strokeWidth="6"
                   strokeLinejoin="round"
-                  className="transition-all duration-300"
                 />
-                
-                {/* Amber accent stripe on left edge */}
-                <path
-                  d="M15 10 L15 75"
-                  fill="none"
-                  stroke="hsl(38, 92%, 50%)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                />
-                
-                {/* L letter */}
                 <path
                   d="M28 28 L28 65 L48 65"
                   fill="none"
@@ -345,20 +326,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                
-                {/* & symbol - amber colored */}
-                <text
-                  x="42"
-                  y="58"
-                  fill="hsl(38, 92%, 50%)"
-                  fontSize="18"
-                  fontWeight="500"
-                  fontFamily="system-ui"
-                >
+                {/* Ampersand with gold color */}
+                <text x="42" y="58" fill="#F59E0B" fontSize="18" fontWeight="600" fontFamily="system-ui">
                   &amp;
                 </text>
-                
-                {/* D letter */}
                 <path
                   d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65"
                   fill="none"
@@ -375,9 +346,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>
                     L&amp;D
                   </span>{" "}
-                  <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">
-                    DIGITAL
-                  </span>
+                  <span className="text-primary">DIGITAL</span>
                 </span>
                 {/* Tagline: hide on compact to reduce clutter */}
                 <span

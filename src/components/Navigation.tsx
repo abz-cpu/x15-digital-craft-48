@@ -304,14 +304,15 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               >
                 {/* Subtle glow behind logo - amber accent on hover */}
                 <defs>
-                  {/* Gradient definition - green to amber accent */}
+                  {/* Gradient definition - mostly green with subtle amber accent */}
                   <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="hsl(160, 84%, 39%)" />
-                    <stop offset="100%" stopColor="hsl(38, 92%, 50%)" />
+                    <stop offset="70%" stopColor="hsl(160, 84%, 39%)" />
+                    <stop offset="100%" stopColor="hsl(45, 93%, 47%)" />
                   </linearGradient>
                   <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feFlood floodColor="hsl(38, 92%, 50%)" floodOpacity="0" result="color" />
+                    <feFlood floodColor="hsl(45, 93%, 47%)" floodOpacity="0" result="color" />
                     <feComposite in="color" in2="blur" operator="in" />
                   </filter>
                 </defs>

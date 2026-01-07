@@ -326,16 +326,10 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinejoin="round"
                   className="transition-all duration-300"
                 />
-                
+
                 {/* Amber accent stripe on left edge */}
-                <path
-                  d="M15 10 L15 75"
-                  fill="none"
-                  stroke="hsl(38, 92%, 50%)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                />
-                
+                <path d="M15 10 L15 75" fill="none" stroke="hsl(38, 92%, 50%)" strokeWidth="6" strokeLinecap="round" />
+
                 {/* L letter */}
                 <path
                   d="M28 28 L28 65 L48 65"
@@ -345,19 +339,12 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                
+
                 {/* & symbol - amber colored */}
-                <text
-                  x="42"
-                  y="58"
-                  fill="hsl(38, 92%, 50%)"
-                  fontSize="18"
-                  fontWeight="500"
-                  fontFamily="system-ui"
-                >
+                <text x="42" y="58" fill="hsl(38, 92%, 50%)" fontSize="18" fontWeight="500" fontFamily="system-ui">
                   &amp;
                 </text>
-                
+
                 {/* D letter */}
                 <path
                   d="M55 28 L55 65 M55 28 L70 28 Q82 28 82 46.5 Q82 65 70 65 L55 65"

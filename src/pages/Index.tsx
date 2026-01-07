@@ -267,13 +267,13 @@ const Index = () => {
       <ScrollProgressBar />
       <Navigation darkHero={true} />
 
-      {/* Hero */}
+      {/* Hero - negative margin pulls background behind fixed nav */}
       <section
-        className="relative overflow-hidden min-h-screen pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 xl:pt-52 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden min-h-screen pb-16 md:pb-20 lg:pb-24 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10 pt-[184px] md:pt-[188px] lg:pt-[192px] xl:pt-[196px] -mt-[144px]"
       >
-        {/* Cinematic Background Video with Ken Burns + Parallax */}
+        {/* Cinematic Background Video with Ken Burns + Parallax - extends behind nav */}
         <div 
-          className="absolute inset-0 scale-110"
+          className="absolute inset-0 scale-110 -top-[144px]"
           style={{
             transform: `translateY(${parallaxOffset * 0.5}px) scale(1.1)`,
             transition: "transform 0.1s ease-out",
@@ -285,15 +285,15 @@ const Index = () => {
             loop
             playsInline
             poster={heroBackground}
-            className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
+            className="absolute inset-0 w-full h-[calc(100%+144px)] object-cover animate-ken-burns"
             aria-hidden="true"
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
         
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />
+        {/* Dark Gradient Overlay - extends behind nav */}
+        <div className="absolute inset-0 -top-[144px] h-[calc(100%+144px)] bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto text-center space-y-6">

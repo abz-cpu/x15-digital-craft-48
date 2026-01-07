@@ -26,8 +26,19 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [announcementDismissed, setAnnouncementDismissed] = useState(false);
+  const [announcementDismissed, setAnnouncementDismissed] = useState(() => {
+    // Check localStorage on initial load
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('announcementDismissed') === 'true';
+    }
+    return false;
+  });
   const showAnnouncementBar = !announcementDismissed && !isScrolled;
+
+  const handleDismissAnnouncement = () => {
+    setAnnouncementDismissed(true);
+    localStorage.setItem('announcementDismissed', 'true');
+  };
 
   const closeTimeoutRef = useRef<number | null>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -261,7 +272,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               <ArrowRight className="h-3.5 w-3.5" />
             </PreloadLink>
             <button
-              onClick={() => setAnnouncementDismissed(true)}
+              onClick={handleDismissAnnouncement}
               className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
               aria-label="Close announcement"
             >

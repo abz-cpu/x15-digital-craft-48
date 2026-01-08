@@ -37,6 +37,29 @@ const AiPackage = lazy(() => import("./pages/AiPackage"));
 const Platforms = lazy(() => import("./pages/Platforms"));
 const Sectors = lazy(() => import("./pages/Sectors"));
 
+// Near Me pages
+const WebDeveloperNearMe = lazy(() => import("./pages/WebDeveloperNearMe"));
+const DigitalMarketingNearMe = lazy(() => import("./pages/DigitalMarketingNearMe"));
+const SeoNearMe = lazy(() => import("./pages/SeoNearMe"));
+const AiChatbotNearMe = lazy(() => import("./pages/AiChatbotNearMe"));
+
+// Area pages
+const AreasIndex = lazy(() => import("./pages/areas/index"));
+const Stratford = lazy(() => import("./pages/areas/Stratford"));
+const Ilford = lazy(() => import("./pages/areas/Ilford"));
+const Leyton = lazy(() => import("./pages/areas/Leyton"));
+const EastHam = lazy(() => import("./pages/areas/EastHam"));
+const ManorPark = lazy(() => import("./pages/areas/ManorPark"));
+const Newham = lazy(() => import("./pages/areas/Newham"));
+const Plaistow = lazy(() => import("./pages/areas/Plaistow"));
+const Barking = lazy(() => import("./pages/areas/Barking"));
+const Walthamstow = lazy(() => import("./pages/areas/Walthamstow"));
+const Hackney = lazy(() => import("./pages/areas/Hackney"));
+const BethnalGreen = lazy(() => import("./pages/areas/BethnalGreen"));
+const Shoreditch = lazy(() => import("./pages/areas/Shoreditch"));
+const TowerHamlets = lazy(() => import("./pages/areas/TowerHamlets"));
+const Greenwich = lazy(() => import("./pages/areas/Greenwich"));
+
 // Service pages
 const AppDevelopment = lazy(() => import("./pages/services/AppDevelopment"));
 const PersonalisedApps = lazy(() => import("./pages/services/PersonalisedApps"));
@@ -133,6 +156,27 @@ const App = () => (
               <Route path="/services/email-marketing" element={<EmailMarketing />} />
               <Route path="/services/web-hosting" element={<WebHosting />} />
               <Route path="/services/ux-ui-design" element={<UxUiDesign />} />
+              {/* Near Me pages */}
+              <Route path="/web-developer-near-me" element={<WebDeveloperNearMe />} />
+              <Route path="/digital-marketing-agency-near-me" element={<DigitalMarketingNearMe />} />
+              <Route path="/seo-agency-near-me" element={<SeoNearMe />} />
+              <Route path="/ai-chatbot-near-me" element={<AiChatbotNearMe />} />
+              {/* Area pages */}
+              <Route path="/areas" element={<AreasIndex />} />
+              <Route path="/areas/stratford" element={<Stratford />} />
+              <Route path="/areas/ilford" element={<Ilford />} />
+              <Route path="/areas/leyton" element={<Leyton />} />
+              <Route path="/areas/east-ham" element={<EastHam />} />
+              <Route path="/areas/manor-park" element={<ManorPark />} />
+              <Route path="/areas/newham" element={<Newham />} />
+              <Route path="/areas/plaistow" element={<Plaistow />} />
+              <Route path="/areas/barking" element={<Barking />} />
+              <Route path="/areas/walthamstow" element={<Walthamstow />} />
+              <Route path="/areas/hackney" element={<Hackney />} />
+              <Route path="/areas/bethnal-green" element={<BethnalGreen />} />
+              <Route path="/areas/shoreditch" element={<Shoreditch />} />
+              <Route path="/areas/tower-hamlets" element={<TowerHamlets />} />
+              <Route path="/areas/greenwich" element={<Greenwich />} />
               {/* Placeholder routes for platforms and sectors */}
               <Route path="/platforms/wordpress" element={<Platforms />} />
               <Route path="/platforms/shopify" element={<Platforms />} />

@@ -265,23 +265,42 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
           </div>
         </div>
 
-        {/* Business Hours & Service Areas */}
-        <div className="border-t border-white/10 pt-5 pb-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-          <div className="flex items-start gap-2">
-            <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs md:text-sm font-semibold text-white/90 mb-1">Business Hours</p>
-              <p className="text-xs md:text-sm text-white/60">
-                Available evenings & weekends for London businesses
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start gap-2">
+        {/* Service Areas */}
+        <div className="border-t border-white/10 pt-5 pb-5 mb-5">
+          <div className="flex items-start gap-2 mb-4">
             <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs md:text-sm font-semibold text-white/90 mb-1">Service Area</p>
-              <p className="text-xs md:text-sm text-white/60">Based in London, working across the UK</p>
-            </div>
+            <p className="text-xs md:text-sm font-semibold text-white/90">Service Areas</p>
+          </div>
+          <div className="flex flex-wrap gap-x-2 gap-y-1">
+            {[
+              { name: "Stratford (E15, E20)", slug: "stratford" },
+              { name: "Ilford (IG1-IG6)", slug: "ilford" },
+              { name: "Leyton (E10, E11)", slug: "leyton" },
+              { name: "East Ham (E6, E7)", slug: "east-ham" },
+              { name: "Manor Park (E12)", slug: "manor-park" },
+              { name: "Newham", slug: "newham" },
+              { name: "Plaistow (E13, E16)", slug: "plaistow" },
+              { name: "Barking (IG11)", slug: "barking" },
+              { name: "Walthamstow (E17)", slug: "walthamstow" },
+              { name: "Hackney (E5, E8, E9)", slug: "hackney" },
+              { name: "Bethnal Green (E2, E3)", slug: "bethnal-green" },
+              { name: "Shoreditch (EC2, N1)", slug: "shoreditch" },
+              { name: "Tower Hamlets (E1, E14)", slug: "tower-hamlets" },
+              { name: "Greenwich (SE3, SE10)", slug: "greenwich" },
+            ].map((area, index, arr) => (
+              <span key={area.slug} className="text-xs text-white/60">
+                <Link to={`/areas/${area.slug}`} className="hover:text-accent transition-colors">
+                  {area.name}
+                </Link>
+                {index < arr.length - 1 && <span className="ml-2">•</span>}
+              </span>
+            ))}
+          </div>
+          <div className="flex items-center gap-2 mt-4">
+            <Clock className="h-4 w-4 text-primary flex-shrink-0" />
+            <p className="text-xs md:text-sm text-white/60">
+              Available evenings & weekends for London businesses
+            </p>
           </div>
         </div>
 

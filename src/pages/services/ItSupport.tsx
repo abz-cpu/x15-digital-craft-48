@@ -12,6 +12,36 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const itSupportFaqs = [
+  {
+    question: "What IT issues do you typically help with?",
+    answer: "We handle email setup, software installation, network issues, printer problems, cloud storage, backup solutions, security guidance, and general tech troubleshooting. Basically, anything that's stopping you from doing your work."
+  },
+  {
+    question: "Is your support remote or on-site?",
+    answer: "Primarily remote for speed and cost-effectiveness. Most issues can be resolved via remote access within 15-30 minutes. For complex hardware issues, we can recommend trusted local partners or coordinate on-site visits."
+  },
+  {
+    question: "How quickly do you respond to support requests?",
+    answer: "Retainer clients get priority response within 2-4 hours during business hours. Pay-as-you-go clients typically receive responses within 4-8 hours. Emergency support is available for critical issues."
+  },
+  {
+    question: "Do I need a retainer or can I pay per issue?",
+    answer: "Both options are available. Pay-as-you-go is £35-75/hour for occasional issues. Monthly retainers from £75/month make sense if you have regular IT needs or want priority support and faster response times."
+  },
+  {
+    question: "Can you help set up new computers and software?",
+    answer: "Yes, we handle complete workstation setup including OS configuration, software installation, email setup, cloud storage configuration, security tools, and data migration from old machines."
+  },
+];
 
 const ItSupport = () => {
   return (
@@ -22,6 +52,7 @@ const ItSupport = () => {
         keywords="IT support for small business UK, remote IT help London, affordable tech support, small business IT services, computer support near me"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/it-support"
       />
+      <FAQSchema faqs={itSupportFaqs} pageId="it-support" />
       <ServiceSchema
         name="IT Support for Small Business"
         description="Reliable technical support for small businesses. Remote support, network help, and hardware advice without the cost of a full-time hire."
@@ -322,6 +353,29 @@ const ItSupport = () => {
                 </p>
               </div>
             </AnimatedSection>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                Frequently Asked Questions
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {itSupportFaqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </Container>
         </section>
 

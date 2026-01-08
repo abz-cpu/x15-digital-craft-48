@@ -9,6 +9,36 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const appDevFaqs = [
+  {
+    question: "How much does mobile app development cost?",
+    answer: "App development typically starts from £2,000 for simple apps and ranges to £10,000+ for complex, feature-rich applications. The cost depends on features, platforms (iOS, Android, or both), and integrations required."
+  },
+  {
+    question: "Should I build a native app or a cross-platform app?",
+    answer: "Cross-platform (React Native) is usually more cost-effective as one codebase works on both iOS and Android. Native apps offer better performance for complex features. We'll recommend the best approach based on your specific requirements."
+  },
+  {
+    question: "How long does it take to build an app?",
+    answer: "Simple apps take 4-6 weeks, medium complexity apps 8-12 weeks, and complex apps 3-6 months. We work in sprints with regular demos so you can see progress throughout development."
+  },
+  {
+    question: "Do you help with app store submission?",
+    answer: "Yes, we handle the entire app store submission process for both Apple App Store and Google Play Store, including screenshots, descriptions, and compliance with their guidelines."
+  },
+  {
+    question: "Can you integrate my app with existing systems?",
+    answer: "Absolutely. We integrate apps with CRMs, payment systems, booking platforms, APIs, and custom backends. We'll map out all integrations during the discovery phase."
+  },
+];
 
 const AppDevelopment = () => {
   return (
@@ -19,6 +49,7 @@ const AppDevelopment = () => {
         keywords="mobile app development UK, iOS app developer, Android app developer, cross-platform app development, React Native developer, app development agency London"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/app-development"
       />
+      <FAQSchema faqs={appDevFaqs} pageId="app-development" />
       <ServiceSchema
         name="Mobile App Development"
         description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses."
@@ -152,6 +183,29 @@ const AppDevelopment = () => {
               <p className="text-muted-foreground">
                 Get in touch for a custom quote tailored to your specific requirements.
               </p>
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                Frequently Asked Questions
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {appDevFaqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </Container>
         </section>

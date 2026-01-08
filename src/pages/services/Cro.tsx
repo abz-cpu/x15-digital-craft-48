@@ -9,6 +9,36 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const croFaqs = [
+  {
+    question: "What is conversion rate optimization (CRO)?",
+    answer: "CRO is the process of improving your website to convert more visitors into customers. We use data analysis, user research, and A/B testing to identify what's stopping people from taking action and fix it."
+  },
+  {
+    question: "How much can CRO improve my conversions?",
+    answer: "Results vary, but typical improvements range from 20-100%+ conversion rate increase. Even a 10% improvement can significantly impact revenue when you're getting consistent traffic."
+  },
+  {
+    question: "How long until I see results from CRO?",
+    answer: "Initial audit insights come within 2-3 weeks. A/B test results typically need 2-4 weeks of traffic to be statistically significant. Most clients see measurable improvements within 2-3 months."
+  },
+  {
+    question: "Do I need a lot of traffic for CRO to work?",
+    answer: "We recommend at least 1,000 monthly visitors for effective A/B testing. For lower traffic sites, we focus on high-impact quick wins and qualitative research to maximize limited data."
+  },
+  {
+    question: "What's included in a CRO audit?",
+    answer: "Our audit includes heatmap analysis, user session recordings, funnel analysis, form analytics, speed assessment, and competitor benchmarking. You get a prioritized action plan with expected impact."
+  },
+];
 
 const Cro = () => {
   return (
@@ -19,6 +49,7 @@ const Cro = () => {
         keywords="conversion rate optimization UK, CRO agency, A/B testing services, website optimization, increase website conversions, landing page optimization"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/cro"
       />
+      <FAQSchema faqs={croFaqs} pageId="cro" />
       <ServiceSchema
         name="Conversion Rate Optimization"
         description="Turn more visitors into customers with data-driven CRO. A/B testing, UX improvements, and conversion optimization strategies."
@@ -124,6 +155,29 @@ const Cro = () => {
               <p className="text-muted-foreground">
                 One-time audits available from £250. Monthly retainers include ongoing testing and optimization.
               </p>
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                Frequently Asked Questions
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {croFaqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </Container>
         </section>

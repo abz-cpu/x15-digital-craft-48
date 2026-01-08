@@ -16,6 +16,37 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { FAQSchema } from "@/components/FAQSchema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Container } from "@/components/Container";
+
+const enterpriseFaqs = [
+  {
+    question: "What's the minimum budget for enterprise projects?",
+    answer: "Enterprise projects typically start from £3,000 for custom web applications. Complex AI automation stacks and multi-service platforms range from £5,000-£15,000+. We provide detailed quotes after understanding your specific requirements."
+  },
+  {
+    question: "How long do enterprise projects take?",
+    answer: "Timelines vary by complexity: simple custom applications take 4-6 weeks, complex multi-feature platforms 8-12 weeks, and enterprise-scale systems 3-6 months. We use milestone-based delivery so you see progress throughout."
+  },
+  {
+    question: "Do you offer ongoing support after launch?",
+    answer: "Yes, we offer retainer partnerships from £2,000/month that include continuous feature development, technical support, maintenance, and regular updates. Many enterprise clients prefer this for long-term technical partnership."
+  },
+  {
+    question: "Can you work with our existing tech stack?",
+    answer: "Absolutely. We integrate with existing systems, APIs, and third-party tools. We're experienced with major CRMs, ERPs, payment systems, and custom APIs. We'll assess compatibility during our discovery call."
+  },
+  {
+    question: "What's the difference between project-based and retainer pricing?",
+    answer: "Project-based is a fixed quote for defined scope with milestone payments. Retainer is a monthly fee (£2,000-£10,000) for ongoing development hours, priority support, and continuous improvements. Revenue share is also available for high-growth platforms."
+  },
+];
 
 const Enterprise = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -44,7 +75,9 @@ const Enterprise = () => {
         title="Enterprise Solutions - Complex Projects & Custom Development | L&D Digital"
         description="Custom enterprise web applications, complex AI automation, and large-scale projects for UK businesses. Flexible pricing for unique requirements."
         keywords="enterprise web development UK, custom web applications, complex AI automation, enterprise software development"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/enterprise"
       />
+      <FAQSchema faqs={enterpriseFaqs} pageId="enterprise" />
       <ScrollProgressBar />
       <Navigation />
 

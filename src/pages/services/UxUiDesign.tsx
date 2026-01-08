@@ -9,6 +9,36 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const uxUiFaqs = [
+  {
+    question: "What's the difference between UX and UI design?",
+    answer: "UX (User Experience) focuses on how the product works and feels — the user journey, ease of use, and problem-solving. UI (User Interface) focuses on how it looks — visual design, colors, typography, and layout. We do both."
+  },
+  {
+    question: "How much does UX/UI design cost?",
+    answer: "UX/UI design typically starts from £500 for a focused project (like a landing page redesign) and ranges to £2,000+ for comprehensive app or website design with research, wireframes, and full visual design."
+  },
+  {
+    question: "Do you provide the final design files?",
+    answer: "Yes, you receive complete design files in Figma, including all components, style guides, and assets ready for development. These are your property and can be used by any developer."
+  },
+  {
+    question: "Can you redesign my existing website or app?",
+    answer: "Absolutely. We start with an audit of your current design, identify UX issues affecting conversions, and create an improved design that addresses user pain points while maintaining your brand identity."
+  },
+  {
+    question: "How long does a UX/UI project take?",
+    answer: "Timeline depends on scope: landing page redesigns take 1-2 weeks, multi-page websites 2-4 weeks, and complex apps 4-8 weeks. We include research, wireframing, visual design, and revision rounds."
+  },
+];
 
 const UxUiDesign = () => {
   return (
@@ -19,6 +49,7 @@ const UxUiDesign = () => {
         keywords="UX design UK, UI design services, user experience designer London, mobile app design, website UX audit, conversion-focused design"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/ux-ui-design"
       />
+      <FAQSchema faqs={uxUiFaqs} pageId="ux-ui-design" />
       <ServiceSchema
         name="UX/UI Design Services"
         description="User-centered design that delights customers and drives conversions. Beautiful interfaces backed by research and best practices."
@@ -118,6 +149,29 @@ const UxUiDesign = () => {
               <p className="text-muted-foreground">
                 Includes research, wireframes, visual design, and prototype. Scope depends on project size.
               </p>
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                Frequently Asked Questions
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {uxUiFaqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </Container>
         </section>

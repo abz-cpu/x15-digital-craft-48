@@ -191,6 +191,30 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                 </li>
                 <li>
                   <Link
+                    to="/enterprise"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
+                  >
+                    Enterprise
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/platforms"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
+                  >
+                    Platforms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/sectors"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
+                  >
+                    Sectors
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/blog"
                     className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
@@ -211,14 +235,6 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                     className="text-sm text-white/60 hover:text-accent transition-colors"
                   >
                     Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/quick-start"
-                    className="text-sm text-white/60 hover:text-accent transition-colors"
-                  >
-                    Quick Start
                   </Link>
                 </li>
               </ul>

@@ -15,15 +15,6 @@ export const WebSiteSchema = () => {
         "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       },
       inLanguage: "en-GB",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate:
-            "https://digital.luminousanddeliver.co.uk/services?search={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
-      },
     };
 
     const script = document.createElement("script");

@@ -76,14 +76,28 @@ const Terms = () => {
 
           <section>
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">5. Intellectual Property</h2>
-            <h3 className="text-xl font-semibold mt-4 mb-2">Client Ownership</h3>
+            <h3 className="text-xl font-semibold mt-4 mb-2">Code & Technical Assets</h3>
             <p>
-              Upon full payment, you own the final deliverables including code, design files, and content we create for your project.
+              L&D Digital retains ownership of all source code, frameworks, templates, and technical implementations created for your project. This ensures ongoing quality, security, and maintainability of your website.
+            </p>
+
+            <h3 className="text-xl font-semibold mt-4 mb-2">Client Ownership</h3>
+            <p>Upon full payment, you own:</p>
+            <ul className="list-disc pl-6 space-y-2 mt-2">
+              <li>Your domain name (registered in your name)</li>
+              <li>All written content (copy, blog posts, descriptions)</li>
+              <li>Images and media you provide</li>
+              <li>Any custom graphics created specifically for your project</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold mt-4 mb-2">Hosting Services</h3>
+            <p>
+              We provide and manage hosting services for your website. Your site remains accessible as long as your hosting agreement is active. You may request a copy of your content (text, images) at any time.
             </p>
 
             <h3 className="text-xl font-semibold mt-4 mb-2">Pre-existing Materials</h3>
             <p>
-              We retain ownership of pre-existing materials, frameworks, and tools used in development. You receive a license to use these as part of your project.
+              We retain ownership of pre-existing materials, frameworks, templates, and tools used in development.
             </p>
 
             <h3 className="text-xl font-semibold mt-4 mb-2">Third-party Components</h3>

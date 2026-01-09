@@ -308,7 +308,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
         <div className="border-t border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 order-2 sm:order-1">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/luminous-deliver-digital"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -317,7 +317,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://twitter.com/lddigital"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
@@ -326,7 +326,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
               <Twitter className="h-5 w-5" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/lddigital"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

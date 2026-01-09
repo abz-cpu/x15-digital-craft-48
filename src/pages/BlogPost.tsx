@@ -166,17 +166,17 @@ Let's do the math:
 
 **Professional Website from L&D Digital:**
 - One-time payment: £300-600
-- Monthly fees: £0
+- Monthly hosting: Optional from £25/month
 - Your time: 2 hours
-- Migration costs: £0 (you own everything)
-- **Total: £300-600**
+- No hidden fees, transparent pricing
+- **Total: £300-600 + optional hosting**
 
 ## What You're Actually Paying For
 
 When you hire a professional (us or anyone reputable), you get:
 
 1. **Speed** - Days, not weeks of your time
-2. **Ownership** - All files, no lock-in
+2. **Your domain & content** - No lock-in on what's yours
 3. **SEO** - Proper setup from day one
 4. **Support** - Direct access to the developer
 5. **Quality** - Code that works and scales

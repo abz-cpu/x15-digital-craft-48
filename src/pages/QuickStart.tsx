@@ -216,7 +216,7 @@ const QuickStart = () => {
           <div className="mt-12 text-center">
             <p className="text-lg font-semibold text-secondary mb-2">No hidden fees. No surprises. No BS.</p>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-muted-foreground">
-              {["Transparent pricing", "Fast delivery", "Direct communication", "You own everything"].map((item, i) => (
+              {["Transparent pricing", "Fast delivery", "Direct communication", "No long-term contracts"].map((item, i) => (
                 <span key={i} className="flex items-center gap-1">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
                   {item}

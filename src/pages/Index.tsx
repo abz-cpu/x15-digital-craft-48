@@ -236,7 +236,7 @@ const Index = () => {
           },
           {
             question: "Do you provide website hosting?",
-            answer: "We help you set up client-hosted websites, meaning you own and control your site. We can recommend reliable UK-based hosting providers or use your existing hosting."
+            answer: "Yes, we provide and manage hosting for your website. This includes security updates, backups, and technical maintenance. Your domain name and content remain yours—we handle the technical side so you can focus on your business."
           },
           {
             question: "Will my website be SEO-optimized?",
@@ -703,7 +703,7 @@ const Index = () => {
 
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm text-[#1F2937]">You own your domain & hosting</span>
+                      <span className="text-sm text-[#1F2937]">Your domain & content stay yours</span>
                     </div>
 
                     <div className="flex items-center gap-3">

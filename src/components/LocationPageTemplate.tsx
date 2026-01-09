@@ -21,7 +21,7 @@ interface LocationPageTemplateProps {
 
 const services = [
   { name: "Website Design", price: "200", icon: Globe },
-  { name: "Ecommerce Stores", price: "200", icon: Zap },
+  { name: "Ecommerce Stores", price: "500", icon: Zap },
   { name: "AI Chatbots", price: "50/month", icon: Shield },
   { name: "SEO Services", price: "300", icon: Star },
 ];
@@ -30,11 +30,15 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
   const faqs = [
     {
       question: `How much does a website cost in ${location.name}?`,
-      answer: `Our websites for ${location.name} businesses start from just £200. This includes responsive design, SEO optimization, and hosting setup. Ecommerce stores and advanced features may have additional costs.`,
+      answer: `Our websites for ${location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. Ecommerce stores and advanced features may have additional costs.`,
     },
     {
       question: `How long does it take to build a website in ${location.name}?`,
       answer: `We deliver most websites in 1-14 days. Simple landing pages can be ready in 1-3 days, while full ecommerce stores typically take 7-14 days. We serve all ${location.postcodes.join(", ")} postcodes.`,
+    },
+    {
+      question: `Do I own the website after you build it?`,
+      answer: `You own your domain and all content (text, images, graphics we create for you). We retain the codebase to ensure ongoing quality and security. We handle hosting and maintenance so you can focus on your business.`,
     },
     {
       question: `Do you offer SEO services in ${location.name}?`,
@@ -151,7 +155,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
                   "Affordable pricing from £200",
                   "24/7 WhatsApp support",
                   "SEO-optimized websites",
-                  "AI-powered automation tools",
+                  "We handle hosting & maintenance",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />

@@ -41,6 +41,10 @@ const routeNames: Record<string, string> = {
   "/web-package": "Web Packages",
   "/ai-package": "AI Package",
   "/platforms": "Platforms",
+  "/platforms/wordpress": "WordPress Development",
+  "/platforms/shopify": "Shopify Development",
+  "/platforms/woocommerce": "WooCommerce Development",
+  "/platforms/custom-development": "Custom Development",
   "/sectors": "Sectors",
   // Near Me Pages
   "/web-developer-near-me": "Web Developer Near Me",

@@ -293,8 +293,8 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
               <h3 className="text-xl font-semibold mb-4">Quick Stats</h3>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                <p className="text-3xl font-bold text-primary">25+</p>
-                  <p className="text-sm text-muted-foreground">Projects Delivered</p>
+                  <p className="text-3xl font-bold text-primary">100%</p>
+                  <p className="text-sm text-muted-foreground">Client Satisfaction</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold text-primary">1-14</p>

@@ -90,10 +90,9 @@ const WordPress = () => {
       <ServiceSchema
         name="WordPress Development London"
         description="Professional WordPress development services in London. Custom themes, plugins, WooCommerce stores, and SEO-optimised websites."
-        provider="L&D Digital"
-        areaServed="London, United Kingdom"
-        price="200"
-        priceCurrency="GBP"
+        url="https://digital.luminousanddeliver.co.uk/platforms/wordpress"
+        priceRange="£200-£10,000"
+        serviceType="WordPress Development"
       />
       <FAQSchema faqs={faqs} />
       <HowToSchema
@@ -111,7 +110,7 @@ const WordPress = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="max-w-4xl">
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
                   WordPress Development UK
@@ -130,7 +129,7 @@ const WordPress = () => {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg">
-                    <a href="https://wa.me/447424aborz" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/447424050827" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Us
                     </a>
                   </Button>
@@ -146,7 +145,7 @@ const WordPress = () => {
         {/* Who This Is For */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Who WordPress Is Perfect For
               </h2>
@@ -162,7 +161,7 @@ const WordPress = () => {
                 { icon: Palette, title: "Creative Professionals", desc: "Portfolio sites that showcase your work beautifully" },
                 { icon: Code, title: "Content Creators", desc: "Powerful blogging and content management capabilities" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-colors h-full">
                     <item.icon className="h-10 w-10 text-primary mb-4" />
                     <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
@@ -177,7 +176,7 @@ const WordPress = () => {
         {/* What We Build */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 What We Build on WordPress
               </h2>
@@ -195,7 +194,7 @@ const WordPress = () => {
                 { title: "Directory Listings", desc: "Property listings, job boards, business directories", price: "From £2,000" },
                 { title: "Custom Applications", desc: "Bespoke functionality with custom plugins", price: "From £3,000" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
                     <h3 className="font-semibold text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground mb-4">{item.desc}</p>
@@ -210,7 +209,7 @@ const WordPress = () => {
         {/* Benefits Grid */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Why Choose WordPress?
               </h2>
@@ -228,7 +227,7 @@ const WordPress = () => {
                 { icon: Code, title: "60,000+ Plugins", desc: "Extend functionality with plugins for forms, booking, payments, and more" },
                 { icon: Users, title: "Full Ownership", desc: "You own your website. No monthly platform fees or vendor lock-in" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -249,7 +248,7 @@ const WordPress = () => {
         {/* WordPress vs Alternatives */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 WordPress vs Website Builders
               </h2>
@@ -302,7 +301,7 @@ const WordPress = () => {
         {/* FAQs */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 WordPress FAQs
               </h2>
@@ -331,7 +330,7 @@ const WordPress = () => {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Ready to Build Your WordPress Website?
@@ -357,7 +356,7 @@ const WordPress = () => {
         {/* Related Services */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl font-bold text-center mb-12">
                 Related Services
               </h2>
@@ -369,7 +368,7 @@ const WordPress = () => {
                 { title: "SEO Services", link: "/services/seo", desc: "Rank higher on Google with our SEO expertise" },
                 { title: "Website Maintenance", link: "/services/maintenance-support", desc: "Keep your WordPress site secure and updated" },
               ].map((service, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <Link 
                     to={service.link}
                     className="block bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-colors"

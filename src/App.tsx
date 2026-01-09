@@ -37,6 +37,12 @@ const AiPackage = lazy(() => import("./pages/AiPackage"));
 const Platforms = lazy(() => import("./pages/Platforms"));
 const Sectors = lazy(() => import("./pages/Sectors"));
 
+// Platform pages
+const WordPressPlatform = lazy(() => import("./pages/platforms/WordPress"));
+const ShopifyPlatform = lazy(() => import("./pages/platforms/Shopify"));
+const WooCommercePlatform = lazy(() => import("./pages/platforms/WooCommerce"));
+const CustomDevelopmentPlatform = lazy(() => import("./pages/platforms/CustomDevelopment"));
+
 // Near Me pages
 const WebDeveloperNearMe = lazy(() => import("./pages/WebDeveloperNearMe"));
 const DigitalMarketingNearMe = lazy(() => import("./pages/DigitalMarketingNearMe"));
@@ -85,6 +91,10 @@ registerPreload("/portfolio", () => import("./pages/Portfolio"));
 registerPreload("/contact", () => import("./pages/Contact"));
 registerPreload("/platforms", () => import("./pages/Platforms"));
 registerPreload("/sectors", () => import("./pages/Sectors"));
+registerPreload("/platforms/wordpress", () => import("./pages/platforms/WordPress"));
+registerPreload("/platforms/shopify", () => import("./pages/platforms/Shopify"));
+registerPreload("/platforms/woocommerce", () => import("./pages/platforms/WooCommerce"));
+registerPreload("/platforms/custom-development", () => import("./pages/platforms/CustomDevelopment"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -178,10 +188,10 @@ const App = () => (
               <Route path="/areas/tower-hamlets" element={<TowerHamlets />} />
               <Route path="/areas/greenwich" element={<Greenwich />} />
               {/* Placeholder routes for platforms and sectors */}
-              <Route path="/platforms/wordpress" element={<Platforms />} />
-              <Route path="/platforms/shopify" element={<Platforms />} />
-              <Route path="/platforms/woocommerce" element={<Platforms />} />
-              <Route path="/platforms/custom-development" element={<Platforms />} />
+              <Route path="/platforms/wordpress" element={<WordPressPlatform />} />
+              <Route path="/platforms/shopify" element={<ShopifyPlatform />} />
+              <Route path="/platforms/woocommerce" element={<WooCommercePlatform />} />
+              <Route path="/platforms/custom-development" element={<CustomDevelopmentPlatform />} />
               <Route path="/sectors/property" element={<Sectors />} />
               <Route path="/sectors/charity" element={<Sectors />} />
               <Route path="/sectors/b2b" element={<Sectors />} />

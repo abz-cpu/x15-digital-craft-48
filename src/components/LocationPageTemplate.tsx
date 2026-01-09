@@ -9,6 +9,12 @@ import { Button } from "@/components/ui/button";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Shield, Star, Clock, Headphones, Building2 } from "lucide-react";
 
+interface RelatedBlogPost {
+  title: string;
+  slug: string;
+  description: string;
+}
+
 interface LocationData {
   name: string;
   slug: string;
@@ -20,6 +26,7 @@ interface LocationData {
   businessLandscape?: string;
   uniqueAngle?: string;
   nearbyAreas: { name: string; slug: string }[];
+  relatedBlogPosts?: RelatedBlogPost[];
 }
 
 interface LocationPageTemplateProps {
@@ -354,6 +361,37 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
           </div>
         </Container>
       </section>
+
+      {/* Related Blog Resources */}
+      {location.relatedBlogPosts && location.relatedBlogPosts.length > 0 && (
+        <section className="py-16">
+          <Container>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Helpful Resources for {location.name} Businesses
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Read our guides and tips to help your {location.name} business succeed online.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {location.relatedBlogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  to={`/blog/${post.slug}`}
+                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-colors group"
+                >
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{post.description}</p>
+                  <span className="text-primary text-sm inline-flex items-center gap-1">
+                    Read more <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Nearby Areas */}
       <section className="py-16 bg-muted/30">

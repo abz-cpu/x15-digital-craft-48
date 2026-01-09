@@ -33,6 +33,18 @@ const Newham = () => {
       { name: "Tower Hamlets", slug: "tower-hamlets" },
       { name: "Manor Park", slug: "manor-park" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Newham business succeed online."
+      },
+      {
+        title: "Best Web Developer in Stratford 2026",
+        slug: "best-web-developer-stratford-2026",
+        description: "What to look for when choosing a web developer in the Newham area."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

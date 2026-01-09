@@ -32,6 +32,13 @@ const Greenwich = () => {
       { name: "Shoreditch", slug: "shoreditch" },
       { name: "Bethnal Green", slug: "bethnal-green" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Greenwich business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

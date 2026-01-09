@@ -33,6 +33,13 @@ const Plaistow = () => {
       { name: "Tower Hamlets", slug: "tower-hamlets" },
       { name: "Barking", slug: "barking" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Plaistow business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

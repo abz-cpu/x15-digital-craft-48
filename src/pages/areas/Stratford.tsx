@@ -32,6 +32,18 @@ const Stratford = () => {
       { name: "Hackney", slug: "hackney" },
       { name: "Newham", slug: "newham" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Best Web Developer in Stratford 2026",
+        slug: "best-web-developer-stratford-2026",
+        description: "What to look for when choosing a web developer in the Stratford area."
+      },
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your East London business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

@@ -33,6 +33,13 @@ const Ilford = () => {
       { name: "Walthamstow", slug: "walthamstow" },
       { name: "Newham", slug: "newham" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Ilford business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

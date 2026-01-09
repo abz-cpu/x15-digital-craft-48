@@ -33,6 +33,18 @@ const BethnalGreen = () => {
       { name: "Stratford", slug: "stratford" },
       { name: "Mile End", slug: "mile-end" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Local SEO Guide for Hackney & Shoreditch",
+        slug: "local-seo-hackney-shoreditch",
+        description: "How to rank higher on Google and attract more local customers."
+      },
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Bethnal Green business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

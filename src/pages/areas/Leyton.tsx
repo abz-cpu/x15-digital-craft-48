@@ -33,6 +33,18 @@ const Leyton = () => {
       { name: "Manor Park", slug: "manor-park" },
       { name: "Ilford", slug: "ilford" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Leyton business succeed online."
+      },
+      {
+        title: "Best Web Developer in Stratford 2026",
+        slug: "best-web-developer-stratford-2026",
+        description: "What to look for when choosing a web developer near Leyton."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

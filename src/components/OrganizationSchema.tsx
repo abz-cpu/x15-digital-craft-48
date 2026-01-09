@@ -6,8 +6,9 @@ export const OrganizationSchema = () => {
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": "https://digital.luminousanddeliver.co.uk/#organization",
-      name: "L&D Digital",
-      alternateName: "Luminous & Deliver Digital",
+      name: "Luminous & Deliver Digital",
+      legalName: "Luminous & Deliver Digital Agency",
+      alternateName: ["L&D Digital", "Luminous and Deliver Digital"],
       url: "https://digital.luminousanddeliver.co.uk",
       logo: {
         "@type": "ImageObject",

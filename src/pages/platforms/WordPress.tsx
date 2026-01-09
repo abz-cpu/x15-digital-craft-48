@@ -31,8 +31,8 @@ import {
 const WordPress = () => {
   const faqs = [
     {
-      question: "How much does a WordPress website cost in London?",
-      answer: "WordPress websites in London typically start from £200 for a starter site. A full business website with custom design, SEO optimisation, and essential plugins ranges from £500-£2,000. Enterprise WordPress solutions with custom functionality can range from £3,000-£10,000+. We offer transparent pricing with no hidden fees."
+      question: "How much does a WordPress website cost in London in 2025?",
+      answer: "For London in 2025-2026, WordPress websites typically cost: £400-800 for a starter theme-based site, £800-2,500 for a custom-designed business website, and £2,500-5,000+ for complex sites with advanced functionality. However, if you want a truly bespoke website without template limitations, our custom-coded websites start from just £200—often more cost-effective long-term with better performance and no plugin bloat."
     },
     {
       question: "Is WordPress good for SEO?",
@@ -48,7 +48,11 @@ const WordPress = () => {
     },
     {
       question: "Do you provide WordPress maintenance and support?",
-      answer: "Yes, we offer ongoing WordPress maintenance packages from £49/month. This includes security updates, plugin updates, regular backups, uptime monitoring, and priority support. Keeping WordPress updated is crucial for security and performance."
+      answer: "Yes, we offer ongoing WordPress maintenance packages from £59/month (2025 pricing). This includes security updates, plugin updates, regular backups, uptime monitoring, and priority support. Keeping WordPress updated is crucial for security and performance. Alternatively, our custom-coded websites require less maintenance due to no plugin dependencies."
+    },
+    {
+      question: "Should I choose WordPress or a custom-coded website?",
+      answer: "WordPress is ideal if you need to frequently update content yourself and want access to the plugin ecosystem. However, for many London businesses, our custom-coded websites from £200 offer better performance, lower maintenance costs, and a unique design without template limitations. We can advise which approach suits your specific needs during a free consultation."
     }
   ];
 
@@ -135,7 +139,7 @@ const WordPress = () => {
                   </Button>
                 </div>
                 <p className="mt-6 text-muted-foreground">
-                  <span className="text-primary font-semibold">Websites from £200</span> • No hidden fees • UK-based team
+                  <span className="text-primary font-semibold">WordPress from £400</span> • Or <Link to="/platforms/custom-development" className="text-primary hover:underline">custom-coded sites from £200</Link> • UK-based team
                 </p>
               </div>
             </AnimatedSection>
@@ -187,12 +191,12 @@ const WordPress = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Business Websites", desc: "Professional sites that establish credibility and generate leads", price: "From £200" },
-                { title: "Portfolio Sites", desc: "Stunning showcases for photographers, designers, and artists", price: "From £300" },
-                { title: "WooCommerce Stores", desc: "Full ecommerce functionality with payment processing", price: "From £800" },
-                { title: "Membership Sites", desc: "Gated content, subscriptions, and member management", price: "From £1,500" },
-                { title: "Directory Listings", desc: "Property listings, job boards, business directories", price: "From £2,000" },
-                { title: "Custom Applications", desc: "Bespoke functionality with custom plugins", price: "From £3,000" },
+                { title: "Business Websites", desc: "Professional sites that establish credibility and generate leads", price: "From £500 (WordPress) or £200 (Custom)" },
+                { title: "Portfolio Sites", desc: "Stunning showcases for photographers, designers, and artists", price: "From £600" },
+                { title: "WooCommerce Stores", desc: "Full ecommerce functionality with payment processing", price: "From £1,200" },
+                { title: "Membership Sites", desc: "Gated content, subscriptions, and member management", price: "From £2,000" },
+                { title: "Directory Listings", desc: "Property listings, job boards, business directories", price: "From £2,500" },
+                { title: "Custom Applications", desc: "Bespoke functionality with custom plugins", price: "From £3,500" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
@@ -202,6 +206,14 @@ const WordPress = () => {
                   </div>
                 </AnimatedSection>
               ))}
+            </div>
+            
+            {/* Nudge to Custom */}
+            <div className="mt-12 bg-primary/5 rounded-xl p-6 border border-primary/20 max-w-3xl mx-auto">
+              <h3 className="font-semibold text-lg mb-2 text-center">💡 Consider Custom-Coded Websites</h3>
+              <p className="text-muted-foreground text-center mb-4">
+                For many businesses, our <Link to="/platforms/custom-development" className="text-primary hover:underline font-medium">custom-coded websites from £200</Link> offer better value than WordPress—faster loading, no plugin maintenance, and a truly unique design. <Link to="/web-package" className="text-primary hover:underline">View our packages →</Link>
+              </p>
             </div>
           </Container>
         </section>

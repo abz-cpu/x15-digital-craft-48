@@ -32,8 +32,8 @@ import {
 const WooCommerce = () => {
   const faqs = [
     {
-      question: "How much does a WooCommerce store cost in London?",
-      answer: "WooCommerce stores in London typically start from £800 for a standard setup with theme customisation and essential plugins. Custom WooCommerce development with unique designs and advanced functionality ranges from £2,000-£5,000. Enterprise solutions can exceed £10,000. Unlike Shopify, there's no monthly platform fee—you own everything."
+      question: "How much does a WooCommerce store cost in London in 2025?",
+      answer: "For London in 2025-2026, WooCommerce stores typically cost: £1,000-2,000 for a standard setup with theme customisation, £2,000-4,000 for custom design with advanced functionality, and £4,000-10,000+ for enterprise solutions. Unlike Shopify, there's no monthly platform fee—you own everything. For simpler stores, our custom-coded ecommerce from £200 can be even more cost-effective."
     },
     {
       question: "Is WooCommerce better than Shopify?",
@@ -49,7 +49,11 @@ const WooCommerce = () => {
     },
     {
       question: "Do you provide WooCommerce maintenance?",
-      answer: "Yes. We offer WooCommerce maintenance packages from £79/month including WordPress and plugin updates, security monitoring, backups, performance optimisation, and priority support. Keeping WooCommerce updated is essential for security."
+      answer: "Yes. We offer WooCommerce maintenance packages from £89/month (2025 pricing) including WordPress and plugin updates, security monitoring, backups, performance optimisation, and priority support. Keeping WooCommerce updated is essential for security."
+    },
+    {
+      question: "Should I use WooCommerce or a custom-coded ecommerce solution?",
+      answer: "WooCommerce is great if you need WordPress's content capabilities alongside ecommerce. However, WooCommerce can become slow with many plugins and requires ongoing maintenance. For businesses wanting maximum performance and lower long-term costs, our custom-coded ecommerce solutions offer better speed and less maintenance overhead. We can advise which suits your needs."
     }
   ];
 
@@ -136,7 +140,7 @@ const WooCommerce = () => {
                   </Button>
                 </div>
                 <p className="mt-6 text-muted-foreground">
-                  <span className="text-purple-600 font-semibold">Stores from £800</span> • No platform fees • Full ownership
+                  <span className="text-purple-600 font-semibold">Stores from £1,000</span> • No platform fees • Or <Link to="/platforms/custom-development" className="text-purple-600 hover:underline">custom ecommerce from £200</Link>
                 </p>
               </div>
             </AnimatedSection>
@@ -188,12 +192,12 @@ const WooCommerce = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Standard Online Shops", desc: "Product catalogues, cart, checkout—everything you need to sell", price: "From £800" },
-                { title: "Variable Products", desc: "Size, colour, material variations with stock management", price: "From £1,000" },
-                { title: "B2B Wholesale Stores", desc: "Tiered pricing, minimum orders, customer-specific catalogues", price: "From £2,500" },
-                { title: "Subscription Products", desc: "Recurring payments for memberships, boxes, services", price: "From £1,500" },
-                { title: "Booking & Appointments", desc: "Service booking, rentals, reservations with calendar", price: "From £2,000" },
-                { title: "Multi-vendor Marketplaces", desc: "Multiple sellers, vendor dashboards, commission systems", price: "From £5,000" },
+                { title: "Standard Online Shops", desc: "Product catalogues, cart, checkout—everything you need to sell", price: "From £1,000" },
+                { title: "Variable Products", desc: "Size, colour, material variations with stock management", price: "From £1,300" },
+                { title: "B2B Wholesale Stores", desc: "Tiered pricing, minimum orders, customer-specific catalogues", price: "From £3,000" },
+                { title: "Subscription Products", desc: "Recurring payments for memberships, boxes, services", price: "From £2,000" },
+                { title: "Booking & Appointments", desc: "Service booking, rentals, reservations with calendar", price: "From £2,500" },
+                { title: "Multi-vendor Marketplaces", desc: "Multiple sellers, vendor dashboards, commission systems", price: "From £6,000" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
@@ -203,6 +207,14 @@ const WooCommerce = () => {
                   </div>
                 </AnimatedSection>
               ))}
+            </div>
+            
+            {/* Nudge to Custom */}
+            <div className="mt-12 bg-purple-500/5 rounded-xl p-6 border border-purple-500/20 max-w-3xl mx-auto">
+              <h3 className="font-semibold text-lg mb-2 text-center">💡 Want Maximum Performance?</h3>
+              <p className="text-muted-foreground text-center mb-4">
+                WooCommerce can get slow with many plugins. For businesses prioritising speed and lower maintenance, our <Link to="/platforms/custom-development" className="text-purple-600 hover:underline font-medium">custom-coded ecommerce solutions</Link> offer lightning-fast performance without plugin bloat. <Link to="/web-package" className="text-purple-600 hover:underline">Explore our packages →</Link>
+              </p>
             </div>
           </Container>
         </section>

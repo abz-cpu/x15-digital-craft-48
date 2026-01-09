@@ -32,8 +32,8 @@ import {
 const Shopify = () => {
   const faqs = [
     {
-      question: "How much does a Shopify store cost in London?",
-      answer: "A professionally designed Shopify store in London typically costs £800-£3,000 for setup and design, depending on complexity. You'll also pay Shopify's monthly subscription (from £25/month for Basic). We offer transparent pricing—you'll know the full cost upfront before we begin."
+      question: "How much does a Shopify store cost in London in 2025?",
+      answer: "For London in 2025-2026, Shopify stores typically cost: £1,000-2,000 for a starter store with theme customisation, £2,000-4,000 for custom theme design, and £4,000-8,000+ for advanced features and integrations. You'll also pay Shopify's monthly subscription (from £25/month for Basic). For businesses with simpler needs, our custom-coded ecommerce solutions can be more cost-effective without ongoing platform fees."
     },
     {
       question: "Is Shopify better than WooCommerce for ecommerce?",
@@ -136,7 +136,7 @@ const Shopify = () => {
                   </Button>
                 </div>
                 <p className="mt-6 text-muted-foreground">
-                  <span className="text-green-600 font-semibold">Stores from £800</span> • Launch in 2-3 weeks • Ongoing support available
+                  <span className="text-green-600 font-semibold">Stores from £1,000</span> • Launch in 2-3 weeks • Or <Link to="/platforms/custom-development" className="text-green-600 hover:underline">custom solutions with no monthly fees</Link>
                 </p>
               </div>
             </AnimatedSection>
@@ -188,12 +188,12 @@ const Shopify = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Starter Store Setup", desc: "Theme customisation, product upload, payment setup—ready to sell", price: "From £800" },
-                { title: "Custom Theme Design", desc: "Unique branded design that stands out from competitors", price: "From £1,500" },
-                { title: "App Integrations", desc: "Email marketing, reviews, inventory, accounting integrations", price: "From £300" },
-                { title: "Migration Service", desc: "Move from WooCommerce, Magento, or other platforms seamlessly", price: "From £500" },
-                { title: "Conversion Optimisation", desc: "Improve checkout flow, reduce cart abandonment, increase sales", price: "From £400" },
-                { title: "Shopify Plus", desc: "Enterprise-grade solutions for high-volume merchants", price: "From £5,000" },
+                { title: "Starter Store Setup", desc: "Theme customisation, product upload, payment setup—ready to sell", price: "From £1,000" },
+                { title: "Custom Theme Design", desc: "Unique branded design that stands out from competitors", price: "From £2,000" },
+                { title: "App Integrations", desc: "Email marketing, reviews, inventory, accounting integrations", price: "From £400" },
+                { title: "Migration Service", desc: "Move from WooCommerce, Magento, or other platforms seamlessly", price: "From £600" },
+                { title: "Conversion Optimisation", desc: "Improve checkout flow, reduce cart abandonment, increase sales", price: "From £500" },
+                { title: "Shopify Plus", desc: "Enterprise-grade solutions for high-volume merchants", price: "From £6,000" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
@@ -203,6 +203,14 @@ const Shopify = () => {
                   </div>
                 </AnimatedSection>
               ))}
+            </div>
+            
+            {/* Nudge to Custom */}
+            <div className="mt-12 bg-green-500/5 rounded-xl p-6 border border-green-500/20 max-w-3xl mx-auto">
+              <h3 className="font-semibold text-lg mb-2 text-center">💡 Avoid Monthly Platform Fees?</h3>
+              <p className="text-muted-foreground text-center mb-4">
+                Shopify's monthly fees (£25-300) add up over time. For some businesses, our <Link to="/platforms/custom-development" className="text-green-600 hover:underline font-medium">custom-coded ecommerce solutions</Link> can be more cost-effective—no monthly platform fees, full ownership, and unlimited customisation. <Link to="/web-package" className="text-green-600 hover:underline">Compare our packages →</Link>
+              </p>
             </div>
           </Container>
         </section>

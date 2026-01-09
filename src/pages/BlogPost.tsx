@@ -4,6 +4,9 @@ import { ArrowRight, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
+import blogStratfordWebDev from "@/assets/blog-stratford-web-developer.png";
+import blogEastLondonTips from "@/assets/blog-east-london-website-tips.png";
+import blogHackneySeo from "@/assets/blog-hackney-shoreditch-seo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -676,16 +679,16 @@ Want a site built for the UK market, legally compliant, and actually supported?
 **P.S.** We're in London. UK company, UK address, UK phone number, UK courts. When something breaks, you know exactly where to find us. Try doing that with your developer in Delhi.
   `,
     },
-    "best-web-developer-stratford-2025": {
-      title: "Best Web Developer in Stratford: What to Look for in 2025",
+    "best-web-developer-stratford-2026": {
+      title: "Best Web Developer in Stratford: What to Look for in 2026",
       category: "Web Development",
-      date: "2025-01-05",
+      date: "2026-01-05",
       readTime: 8,
       author: "Abdul M Taher",
-      seoTitle: "Best Web Developer in Stratford 2025 | What to Look For | L&D Digital",
+      seoTitle: "Best Web Developer in Stratford 2026 | What to Look For | L&D Digital",
       seoDescription: "Looking for the best web developer in Stratford, East London? Learn what makes a great developer, red flags to avoid, and how to choose the right partner for your E15/E20 business.",
-      seoKeywords: "web developer stratford, best web developer E15, stratford website design, web design stratford east london, website developer olympic park",
-      ogImage: blogWebDev,
+      seoKeywords: "web developer stratford 2026, best web developer E15, stratford website design, web design stratford east london, website developer olympic park",
+      ogImage: blogStratfordWebDev,
       heroAlt: "Modern website design for Stratford businesses near the Olympic Park",
       content: `
 ## Finding the Best Web Developer in Stratford
@@ -796,13 +799,13 @@ Whether you're a new business in the Olympic Park or an established Stratford tr
     "website-design-tips-east-london": {
       title: "Website Design Tips for East London Small Businesses",
       category: "Web Development",
-      date: "2025-01-08",
+      date: "2026-01-08",
       readTime: 7,
       author: "Abdul M Taher",
       seoTitle: "Website Design Tips for East London Small Businesses | L&D Digital",
       seoDescription: "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust, improve SEO, and convert more local customers.",
-      seoKeywords: "website design east london, web design tips small business, east london business website, local business website design, ilford web design, hackney website",
-      ogImage: blogWebDev,
+      seoKeywords: "website design east london 2026, web design tips small business, east london business website, local business website design, ilford web design, hackney website",
+      ogImage: blogEastLondonTips,
       heroAlt: "Small business owner in East London working on their website design",
       content: `
 ## Website Design Tips for East London Small Businesses
@@ -927,13 +930,13 @@ If your website isn't bringing in local customers, we can help. We build afforda
     "local-seo-hackney-shoreditch": {
       title: "Local SEO Guide: How Hackney & Shoreditch Businesses Get Found",
       category: "Web Development",
-      date: "2025-01-09",
+      date: "2026-01-09",
       readTime: 9,
       author: "Abdul M Taher",
-      seoTitle: "Local SEO Guide for Hackney & Shoreditch Businesses | L&D Digital",
+      seoTitle: "Local SEO Guide for Hackney & Shoreditch Businesses 2026 | L&D Digital",
       seoDescription: "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Learn how to rank higher on Google and attract more local customers.",
-      seoKeywords: "local seo hackney, seo shoreditch, local seo east london, google my business hackney, seo for small business london, hackney digital marketing",
-      ogImage: blogWebDev,
+      seoKeywords: "local seo hackney 2026, seo shoreditch, local seo east london, google my business hackney, seo for small business london, hackney digital marketing",
+      ogImage: blogHackneySeo,
       heroAlt: "Hackney and Shoreditch business owners discussing local SEO strategy",
       content: `
 ## Local SEO Guide: How Hackney & Shoreditch Businesses Get Found

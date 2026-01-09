@@ -63,6 +63,13 @@ const routeNames: Record<string, string> = {
   "/areas/shoreditch": "Shoreditch",
   "/areas/tower-hamlets": "Tower Hamlets",
   "/areas/greenwich": "Greenwich",
+  // Blog Posts
+  "/blog/cheap-websites": "Why Cheap Websites Cost More",
+  "/blog/ai-for-small-businesses": "AI for Small Businesses",
+  "/blog/offshore-development-risks": "Offshore Development Risks",
+  "/blog/best-web-developer-stratford-2026": "Best Web Developer Stratford 2026",
+  "/blog/website-design-tips-east-london": "Website Design Tips East London",
+  "/blog/local-seo-hackney-shoreditch": "Local SEO Hackney & Shoreditch",
 };
 
 export const BreadcrumbNav = () => {

@@ -91,10 +91,9 @@ const WooCommerce = () => {
       <ServiceSchema
         name="WooCommerce Development London"
         description="Professional WooCommerce development in London. Custom WordPress ecommerce stores with advanced functionality and full ownership."
-        provider="L&D Digital"
-        areaServed="London, United Kingdom"
-        price="800"
-        priceCurrency="GBP"
+        url="https://digital.luminousanddeliver.co.uk/platforms/woocommerce"
+        priceRange="£800-£10,000"
+        serviceType="WooCommerce Development"
       />
       <FAQSchema faqs={faqs} />
       <HowToSchema
@@ -112,7 +111,7 @@ const WooCommerce = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-background via-background to-purple-500/5 overflow-hidden">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="max-w-4xl">
                 <span className="inline-block px-4 py-2 bg-purple-500/10 text-purple-600 rounded-full text-sm font-medium mb-6">
                   WooCommerce Experts UK
@@ -131,7 +130,7 @@ const WooCommerce = () => {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg">
-                    <a href="https://wa.me/447424" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/447424050827" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Us
                     </a>
                   </Button>
@@ -147,7 +146,7 @@ const WooCommerce = () => {
         {/* Who This Is For */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Who WooCommerce Is Perfect For
               </h2>
@@ -163,7 +162,7 @@ const WooCommerce = () => {
                 { icon: TrendingUp, title: "Cost-Conscious Brands", desc: "Avoid monthly platform fees—own everything" },
                 { icon: Settings, title: "Complex Requirements", desc: "B2B, subscriptions, bookings, custom products" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border hover:border-purple-500/50 transition-colors h-full">
                     <item.icon className="h-10 w-10 text-purple-600 mb-4" />
                     <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
@@ -178,7 +177,7 @@ const WooCommerce = () => {
         {/* What We Build */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 What We Build with WooCommerce
               </h2>
@@ -196,7 +195,7 @@ const WooCommerce = () => {
                 { title: "Booking & Appointments", desc: "Service booking, rentals, reservations with calendar", price: "From £2,000" },
                 { title: "Multi-vendor Marketplaces", desc: "Multiple sellers, vendor dashboards, commission systems", price: "From £5,000" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
                     <h3 className="font-semibold text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground mb-4">{item.desc}</p>
@@ -211,7 +210,7 @@ const WooCommerce = () => {
         {/* Benefits Grid */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Why Choose WooCommerce?
               </h2>
@@ -229,7 +228,7 @@ const WooCommerce = () => {
                 { icon: Palette, title: "Design Freedom", desc: "Any design is possible. Custom themes, page builders, complete control" },
                 { icon: TrendingUp, title: "Cost Effective", desc: "No monthly platform fees. Pay only for hosting and maintenance" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
@@ -250,7 +249,7 @@ const WooCommerce = () => {
         {/* WooCommerce vs Shopify */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 WooCommerce vs Shopify
               </h2>
@@ -308,7 +307,7 @@ const WooCommerce = () => {
         {/* FAQs */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 WooCommerce FAQs
               </h2>
@@ -337,7 +336,7 @@ const WooCommerce = () => {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-purple-600 text-white">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Ready to Build Your WooCommerce Store?
@@ -363,7 +362,7 @@ const WooCommerce = () => {
         {/* Related Services */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl font-bold text-center mb-12">
                 Related Services
               </h2>
@@ -375,7 +374,7 @@ const WooCommerce = () => {
                 { title: "Shopify Development", link: "/platforms/shopify", desc: "Hosted ecommerce alternative" },
                 { title: "SEO Services", link: "/services/seo", desc: "Get your store ranking on Google" },
               ].map((service, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <Link 
                     to={service.link}
                     className="block bg-card rounded-xl p-6 border border-border hover:border-purple-500/50 transition-colors"

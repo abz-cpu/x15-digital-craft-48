@@ -92,10 +92,9 @@ const CustomDevelopment = () => {
       <ServiceSchema
         name="Custom Web Development London"
         description="Bespoke web application development in London using React, TypeScript, and modern technologies. Custom solutions for complex business requirements."
-        provider="L&D Digital"
-        areaServed="London, United Kingdom"
-        price="3000"
-        priceCurrency="GBP"
+        url="https://digital.luminousanddeliver.co.uk/platforms/custom-development"
+        priceRange="£3,000-£50,000"
+        serviceType="Custom Web Development"
       />
       <FAQSchema faqs={faqs} />
       <HowToSchema
@@ -113,7 +112,7 @@ const CustomDevelopment = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-background via-background to-orange-500/5 overflow-hidden">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="max-w-4xl">
                 <span className="inline-block px-4 py-2 bg-orange-500/10 text-orange-600 rounded-full text-sm font-medium mb-6">
                   Custom Development UK
@@ -132,7 +131,7 @@ const CustomDevelopment = () => {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg">
-                    <a href="https://wa.me/447424" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/447424050827" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Us
                     </a>
                   </Button>
@@ -148,7 +147,7 @@ const CustomDevelopment = () => {
         {/* Who This Is For */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 When Custom Development Makes Sense
               </h2>
@@ -164,7 +163,7 @@ const CustomDevelopment = () => {
                 { icon: Rocket, title: "SaaS Products", desc: "Building a product to sell to others requires custom development" },
                 { icon: Globe, title: "High Performance", desc: "Real-time features, complex calculations, heavy traffic loads" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border hover:border-orange-500/50 transition-colors h-full">
                     <item.icon className="h-10 w-10 text-orange-600 mb-4" />
                     <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
@@ -179,7 +178,7 @@ const CustomDevelopment = () => {
         {/* What We Build */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 What We Build
               </h2>
@@ -197,7 +196,7 @@ const CustomDevelopment = () => {
                 { title: "SaaS Applications", desc: "Subscription products with user management, billing, and analytics", price: "From £20,000" },
                 { title: "AI-Powered Tools", desc: "Custom AI integrations, chatbots, and intelligent automation", price: "From £3,000" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
                     <h3 className="font-semibold text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground mb-4">{item.desc}</p>
@@ -212,7 +211,7 @@ const CustomDevelopment = () => {
         {/* Technology Stack */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Our Technology Stack
               </h2>
@@ -230,7 +229,7 @@ const CustomDevelopment = () => {
                 { name: "PostgreSQL", desc: "Database" },
                 { name: "Supabase", desc: "Backend-as-a-Service" },
               ].map((tech, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-4 border border-border text-center h-full">
                     <Code className="h-8 w-8 text-orange-600 mx-auto mb-2" />
                     <h3 className="font-semibold">{tech.name}</h3>
@@ -245,7 +244,7 @@ const CustomDevelopment = () => {
         {/* Benefits Grid */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Why Choose Custom Development?
               </h2>
@@ -263,7 +262,7 @@ const CustomDevelopment = () => {
                 { icon: Code, title: "Maintainable", desc: "Clean, documented code that your team (or ours) can maintain" },
                 { icon: Database, title: "Integration Ready", desc: "Connect to any API or system with custom integrations" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
@@ -284,7 +283,7 @@ const CustomDevelopment = () => {
         {/* Custom vs Template */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Custom vs Template Solutions
               </h2>
@@ -342,7 +341,7 @@ const CustomDevelopment = () => {
         {/* FAQs */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Custom Development FAQs
               </h2>
@@ -371,7 +370,7 @@ const CustomDevelopment = () => {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-orange-600 text-white">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Have a Complex Project in Mind?
@@ -397,7 +396,7 @@ const CustomDevelopment = () => {
         {/* Related Services */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl font-bold text-center mb-12">
                 Related Services
               </h2>
@@ -409,7 +408,7 @@ const CustomDevelopment = () => {
                 { title: "AI & Automation", link: "/ai-package", desc: "Intelligent automation solutions" },
                 { title: "WordPress Development", link: "/platforms/wordpress", desc: "When templates can meet your needs" },
               ].map((service, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <Link 
                     to={service.link}
                     className="block bg-card rounded-xl p-6 border border-border hover:border-orange-500/50 transition-colors"

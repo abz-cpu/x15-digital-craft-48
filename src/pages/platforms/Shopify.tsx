@@ -91,10 +91,9 @@ const Shopify = () => {
       <ServiceSchema
         name="Shopify Development London"
         description="Professional Shopify store development in London. Custom themes, app integrations, and conversion-optimised ecommerce stores."
-        provider="L&D Digital"
-        areaServed="London, United Kingdom"
-        price="800"
-        priceCurrency="GBP"
+        url="https://digital.luminousanddeliver.co.uk/platforms/shopify"
+        priceRange="£800-£5,000"
+        serviceType="Shopify Development"
       />
       <FAQSchema faqs={faqs} />
       <HowToSchema
@@ -112,7 +111,7 @@ const Shopify = () => {
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-background via-background to-green-500/5 overflow-hidden">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="max-w-4xl">
                 <span className="inline-block px-4 py-2 bg-green-500/10 text-green-600 rounded-full text-sm font-medium mb-6">
                   Shopify Experts UK
@@ -131,7 +130,7 @@ const Shopify = () => {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg">
-                    <a href="https://wa.me/447424" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/447424050827" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Us
                     </a>
                   </Button>
@@ -147,7 +146,7 @@ const Shopify = () => {
         {/* Who This Is For */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Who Shopify Is Perfect For
               </h2>
@@ -163,7 +162,7 @@ const Shopify = () => {
                 { icon: TrendingUp, title: "Growing Brands", desc: "Scalable platform that handles thousands of orders" },
                 { icon: ShoppingCart, title: "Retail Expansion", desc: "Brick-and-mortar shops going online for the first time" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border hover:border-green-500/50 transition-colors h-full">
                     <item.icon className="h-10 w-10 text-green-600 mb-4" />
                     <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
@@ -178,7 +177,7 @@ const Shopify = () => {
         {/* What We Deliver */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 What We Deliver
               </h2>
@@ -196,7 +195,7 @@ const Shopify = () => {
                 { title: "Conversion Optimisation", desc: "Improve checkout flow, reduce cart abandonment, increase sales", price: "From £400" },
                 { title: "Shopify Plus", desc: "Enterprise-grade solutions for high-volume merchants", price: "From £5,000" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="bg-card rounded-xl p-6 border border-border h-full">
                     <h3 className="font-semibold text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground mb-4">{item.desc}</p>
@@ -211,7 +210,7 @@ const Shopify = () => {
         {/* Benefits Grid */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Why Choose Shopify?
               </h2>
@@ -229,7 +228,7 @@ const Shopify = () => {
                 { icon: Globe, title: "Multi-Channel Selling", desc: "Sell on Instagram, Facebook, Amazon, and eBay from one dashboard" },
                 { icon: TrendingUp, title: "Scalable", desc: "From 10 orders to 10,000—Shopify scales with your business automatically" },
               ].map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
@@ -250,7 +249,7 @@ const Shopify = () => {
         {/* Shopify vs WooCommerce */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Shopify vs WooCommerce
               </h2>
@@ -307,7 +306,7 @@ const Shopify = () => {
         {/* FAQs */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
                 Shopify FAQs
               </h2>
@@ -336,7 +335,7 @@ const Shopify = () => {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-green-600 text-white">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Ready to Launch Your Shopify Store?
@@ -362,7 +361,7 @@ const Shopify = () => {
         {/* Related Services */}
         <section className="py-16 lg:py-24">
           <Container>
-            <AnimatedSection animation="fade-up">
+            <AnimatedSection animation="fade">
               <h2 className="text-3xl font-bold text-center mb-12">
                 Related Services
               </h2>
@@ -374,7 +373,7 @@ const Shopify = () => {
                 { title: "Ecommerce Services", link: "/services/ecommerce", desc: "Complete ecommerce solutions and strategy" },
                 { title: "Digital Marketing", link: "/services/digital-marketing", desc: "Drive traffic to your new Shopify store" },
               ].map((service, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <Link 
                     to={service.link}
                     className="block bg-card rounded-xl p-6 border border-border hover:border-green-500/50 transition-colors"

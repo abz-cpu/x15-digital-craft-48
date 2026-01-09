@@ -32,8 +32,8 @@ import {
 const WooCommerce = () => {
   const faqs = [
     {
-      question: "How much does a WooCommerce store cost in London in 2025?",
-      answer: "For London in 2025-2026, WooCommerce stores typically cost: £1,000-2,000 for a standard setup with theme customisation, £2,000-4,000 for custom design with advanced functionality, and £4,000-10,000+ for enterprise solutions. Unlike Shopify, there's no monthly platform fee—you own everything. For simpler stores, our custom-coded ecommerce from £200 can be even more cost-effective."
+      question: "How much does a WooCommerce store cost in London in 2026?",
+      answer: "For London in 2026, WooCommerce stores typically cost: £1,000-2,000 for a standard setup with theme customisation, £2,000-4,000 for custom design with advanced functionality, and £4,000-10,000+ for enterprise solutions. Unlike Shopify, there's no monthly platform fee—you own everything. For simpler stores, our custom-coded ecommerce from £200 can be even more cost-effective."
     },
     {
       question: "Is WooCommerce better than Shopify?",
@@ -49,7 +49,7 @@ const WooCommerce = () => {
     },
     {
       question: "Do you provide WooCommerce maintenance?",
-      answer: "Yes. We offer WooCommerce maintenance packages from £89/month (2025 pricing) including WordPress and plugin updates, security monitoring, backups, performance optimisation, and priority support. Keeping WooCommerce updated is essential for security."
+      answer: "Yes. We offer WooCommerce maintenance packages from £89/month (2026 pricing) including WordPress and plugin updates, security monitoring, backups, performance optimisation, and priority support. Keeping WooCommerce updated is essential for security."
     },
     {
       question: "Should I use WooCommerce or a custom-coded ecommerce solution?",

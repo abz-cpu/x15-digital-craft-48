@@ -46,6 +46,10 @@ const routeNames: Record<string, string> = {
   "/platforms/woocommerce": "WooCommerce Development",
   "/platforms/custom-development": "Custom Development",
   "/sectors": "Sectors",
+  "/sectors/property": "Property Websites",
+  "/sectors/charity": "Charity Websites",
+  "/sectors/b2b": "B2B Websites",
+  "/sectors/b2c": "B2C Websites",
   // Near Me Pages
   "/web-developer-near-me": "Web Developer Near Me",
   "/digital-marketing-agency-near-me": "Digital Marketing Agency Near Me",

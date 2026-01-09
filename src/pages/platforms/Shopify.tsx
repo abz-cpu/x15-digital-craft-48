@@ -32,8 +32,8 @@ import {
 const Shopify = () => {
   const faqs = [
     {
-      question: "How much does a Shopify store cost in London in 2025?",
-      answer: "For London in 2025-2026, Shopify stores typically cost: £1,000-2,000 for a starter store with theme customisation, £2,000-4,000 for custom theme design, and £4,000-8,000+ for advanced features and integrations. You'll also pay Shopify's monthly subscription (from £25/month for Basic). For businesses with simpler needs, our custom-coded ecommerce solutions can be more cost-effective without ongoing platform fees."
+      question: "How much does a Shopify store cost in London in 2026?",
+      answer: "For London in 2026, Shopify stores typically cost: £1,000-2,000 for a starter store with theme customisation, £2,000-4,000 for custom theme design, and £4,000-8,000+ for advanced features and integrations. You'll also pay Shopify's monthly subscription (from £25/month for Basic). For businesses with simpler needs, our custom-coded ecommerce solutions can be more cost-effective without ongoing platform fees."
     },
     {
       question: "Is Shopify better than WooCommerce for ecommerce?",

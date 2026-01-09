@@ -80,7 +80,7 @@ const CtaCard: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-400 to-violet-500 flex items-center justify-center text-white text-sm font-bold border-3 border-white shadow-md ring-2 ring-white">+</div>
               </div>
               <div className="text-slate-700">
-                <span className="font-bold text-slate-900">50+</span> UK businesses trust us
+                <span className="font-bold text-slate-900">25+</span> UK businesses trust us
               </div>
             </div>
 

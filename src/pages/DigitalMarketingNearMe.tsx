@@ -152,7 +152,7 @@ const DigitalMarketingNearMe = () => {
                   <p className="text-sm text-muted-foreground">ROI Improvement</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">50+</p>
+                <p className="text-3xl font-bold text-primary">25+</p>
                   <p className="text-sm text-muted-foreground">Clients Served</p>
                 </div>
                 <div>

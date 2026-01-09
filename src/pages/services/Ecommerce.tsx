@@ -137,8 +137,42 @@ const Ecommerce = () => {
           </Container>
         </section>
 
-        {/* Pricing */}
+        {/* Platform Options */}
         <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+          <Container>
+            <AnimatedSection animation="fade">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">
+                  Choose Your Platform
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
+                  We build on the platform that's right for your business—or create something bespoke.
+                </p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <Link to="/platforms/shopify" className="p-6 bg-background rounded-xl hover:shadow-lg transition-all text-center group">
+                    <h3 className="font-semibold text-secondary group-hover:text-primary transition-colors">Shopify</h3>
+                    <p className="text-sm text-muted-foreground mt-1">Hosted & managed</p>
+                  </Link>
+                  <Link to="/platforms/woocommerce" className="p-6 bg-background rounded-xl hover:shadow-lg transition-all text-center group">
+                    <h3 className="font-semibold text-secondary group-hover:text-primary transition-colors">WooCommerce</h3>
+                    <p className="text-sm text-muted-foreground mt-1">WordPress-based</p>
+                  </Link>
+                  <Link to="/platforms/wordpress" className="p-6 bg-background rounded-xl hover:shadow-lg transition-all text-center group">
+                    <h3 className="font-semibold text-secondary group-hover:text-primary transition-colors">WordPress</h3>
+                    <p className="text-sm text-muted-foreground mt-1">Flexible & powerful</p>
+                  </Link>
+                  <Link to="/platforms/custom-development" className="p-6 bg-background rounded-xl hover:shadow-lg transition-all text-center group border-2 border-primary/20">
+                    <h3 className="font-semibold text-primary transition-colors">Custom Build</h3>
+                    <p className="text-sm text-muted-foreground mt-1">From £200 • No fees</p>
+                  </Link>
+                </div>
+              </div>
+            </AnimatedSection>
+          </Container>
+        </section>
+
+        {/* Pricing */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">

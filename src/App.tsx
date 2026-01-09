@@ -43,6 +43,12 @@ const ShopifyPlatform = lazy(() => import("./pages/platforms/Shopify"));
 const WooCommercePlatform = lazy(() => import("./pages/platforms/WooCommerce"));
 const CustomDevelopmentPlatform = lazy(() => import("./pages/platforms/CustomDevelopment"));
 
+// Sector pages
+const PropertySector = lazy(() => import("./pages/sectors/Property"));
+const CharitySector = lazy(() => import("./pages/sectors/Charity"));
+const B2BSector = lazy(() => import("./pages/sectors/B2B"));
+const B2CSector = lazy(() => import("./pages/sectors/B2C"));
+
 // Near Me pages
 const WebDeveloperNearMe = lazy(() => import("./pages/WebDeveloperNearMe"));
 const DigitalMarketingNearMe = lazy(() => import("./pages/DigitalMarketingNearMe"));
@@ -192,10 +198,11 @@ const App = () => (
               <Route path="/platforms/shopify" element={<ShopifyPlatform />} />
               <Route path="/platforms/woocommerce" element={<WooCommercePlatform />} />
               <Route path="/platforms/custom-development" element={<CustomDevelopmentPlatform />} />
-              <Route path="/sectors/property" element={<Sectors />} />
-              <Route path="/sectors/charity" element={<Sectors />} />
-              <Route path="/sectors/b2b" element={<Sectors />} />
-              <Route path="/sectors/b2c" element={<Sectors />} />
+              {/* Sector pages */}
+              <Route path="/sectors/property" element={<PropertySector />} />
+              <Route path="/sectors/charity" element={<CharitySector />} />
+              <Route path="/sectors/b2b" element={<B2BSector />} />
+              <Route path="/sectors/b2c" element={<B2CSector />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

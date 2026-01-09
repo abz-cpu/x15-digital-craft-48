@@ -55,6 +55,11 @@ const DigitalMarketingNearMe = lazy(() => import("./pages/DigitalMarketingNearMe
 const SeoNearMe = lazy(() => import("./pages/SeoNearMe"));
 const AiChatbotNearMe = lazy(() => import("./pages/AiChatbotNearMe"));
 
+// SEO Landing Pages
+const WebDesignAgencyLondon = lazy(() => import("./pages/WebDesignAgencyLondon"));
+const SeoServicesLondon = lazy(() => import("./pages/SeoServicesLondon"));
+const AiServicesLondon = lazy(() => import("./pages/AiServicesLondon"));
+
 // Area pages
 const AreasIndex = lazy(() => import("./pages/areas/index"));
 const Stratford = lazy(() => import("./pages/areas/Stratford"));
@@ -177,6 +182,10 @@ const App = () => (
               <Route path="/digital-marketing-agency-near-me" element={<DigitalMarketingNearMe />} />
               <Route path="/seo-agency-near-me" element={<SeoNearMe />} />
               <Route path="/ai-chatbot-near-me" element={<AiChatbotNearMe />} />
+              {/* SEO Landing Pages */}
+              <Route path="/web-design-agency-london" element={<WebDesignAgencyLondon />} />
+              <Route path="/seo-services-london" element={<SeoServicesLondon />} />
+              <Route path="/ai-services-london" element={<AiServicesLondon />} />
               {/* Area pages */}
               <Route path="/areas" element={<AreasIndex />} />
               <Route path="/areas/stratford" element={<Stratford />} />

@@ -33,6 +33,13 @@ const ManorPark = () => {
       { name: "Stratford", slug: "stratford" },
       { name: "Barking", slug: "barking" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your Manor Park business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

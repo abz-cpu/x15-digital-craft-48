@@ -32,6 +32,18 @@ const Shoreditch = () => {
       { name: "Tower Hamlets", slug: "tower-hamlets" },
       { name: "Stratford", slug: "stratford" },
     ],
+    relatedBlogPosts: [
+      {
+        title: "Local SEO Guide for Hackney & Shoreditch",
+        slug: "local-seo-hackney-shoreditch",
+        description: "How to rank higher on Google and attract more local customers in Shoreditch."
+      },
+      {
+        title: "Website Design Tips for East London",
+        slug: "website-design-tips-east-london",
+        description: "Practical advice to help your East London business succeed online."
+      }
+    ],
   };
 
   return <LocationPageTemplate location={location} />;

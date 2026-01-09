@@ -18,6 +18,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { ArticleSchema } from "@/components/ArticleSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { HowToSchema } from "@/components/HowToSchema";
 
 type BlogPostConfig = {
   title: string;
@@ -791,6 +792,8 @@ At L&D Digital, we're based in East London and understand the Stratford market:
 
 Whether you're a new business in the Olympic Park or an established Stratford trader, we'd love to help you succeed online.
 
+For more tips on building your East London business website, check out our [Website Design Tips for East London Small Businesses](/blog/website-design-tips-east-london).
+
 [Get a free quote](/contact) or [WhatsApp us on 07356 260648](https://wa.me/447356260648).
 
 **Local tip:** Mention you're from Stratford when you get in touch - we love supporting local businesses!
@@ -923,6 +926,8 @@ We've helped small businesses across:
 ### Ready to Improve Your Website?
 
 If your website isn't bringing in local customers, we can help. We build affordable websites (from £200) specifically for East London small businesses.
+
+Want to improve your local search rankings? Read our [Local SEO Guide for Hackney & Shoreditch Businesses](/blog/local-seo-hackney-shoreditch). Looking for a developer in Stratford? See our guide on [What to Look for in a Web Developer](/blog/best-web-developer-stratford-2026).
 
 [See our packages](/services) or [get a free quote](/contact).
       `,
@@ -1117,12 +1122,42 @@ We offer SEO services specifically for Hackney, Shoreditch, and East London busi
 - Build citations and reviews strategy
 - Create locally-focused content
 
+Need a website built for local success? Check out our guide on [What Makes a Great Web Developer](/blog/best-web-developer-stratford-2026) or read our [Website Design Tips for East London Small Businesses](/blog/website-design-tips-east-london).
+
 [Get a free SEO audit](/contact) or [learn about our SEO services](/services/seo).
       `,
     },
   };
 
   const currentPost = posts[slug || ""];
+
+  // HowTo steps for the local SEO blog post
+  const localSeoSteps = [
+    {
+      name: "Claim and Optimise Google Business Profile",
+      text: "Go to business.google.com, claim or create your listing, verify your address, and complete every section including business name, address, phone number, hours, description, categories, and photos."
+    },
+    {
+      name: "Get Your Website Right",
+      text: "Ensure NAP consistency, create location pages for multiple areas, add schema markup, use local keywords like 'plumber Hackney', and optimise for mobile devices."
+    },
+    {
+      name: "Build Local Citations",
+      text: "Get listed on Yell.com, Thomson Local, Yelp UK, Bark.com, Checkatrade, TripAdvisor, and local Hackney/Shoreditch business directories with identical NAP everywhere."
+    },
+    {
+      name: "Collect Reviews Systematically",
+      text: "Ask happy customers directly, send follow-up emails with review links, put QR codes at your premises, respond to every review, and never buy fake reviews."
+    },
+    {
+      name: "Create Local Content",
+      text: "Write content that mentions Hackney and Shoreditch, including 'Best [Service] in Hackney' guides, case studies featuring local clients, and blog posts about local events."
+    },
+    {
+      name: "Build Local Backlinks",
+      text: "Sponsor local events, join Hackney/Shoreditch business networks, get featured in local publications, partner with complementary businesses, and offer expert quotes to journalists."
+    }
+  ];
 
   if (!currentPost) {
     return (
@@ -1157,6 +1192,15 @@ We offer SEO services specifically for Hackney, Shoreditch, and East London busi
         author={currentPost.author}
         category={currentPost.category}
       />
+      {slug === "local-seo-hackney-shoreditch" && (
+        <HowToSchema
+          name="How to Improve Local SEO for Hackney & Shoreditch Businesses"
+          description="Complete 6-step guide to ranking higher on Google for Hackney and Shoreditch businesses in East London."
+          steps={localSeoSteps}
+          totalTime="P30D"
+          estimatedCost={{ currency: "GBP", value: "0-300" }}
+        />
+      )}
       <ScrollProgressBar />
       <Navigation />
 

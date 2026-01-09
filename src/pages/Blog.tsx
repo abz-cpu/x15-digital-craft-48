@@ -48,7 +48,7 @@ const Blog = () => {
       excerpt:
         "That £50 website builder might seem like a bargain, but hidden platform fees, lost time, and migration costs quickly turn it into a £2,000 problem.",
       readTime: 5,
-      date: "2024-03-15",
+      date: "2025-03-15",
       author: "Abdul M Taher",
       image: blogWebDev,
     },
@@ -61,7 +61,7 @@ const Blog = () => {
       excerpt:
         "That £200 developer in India might seem tempting, but one GDPR mistake could cost £17.5M. Learn why UK-based development protects your business.",
       readTime: 6,
-      date: "2024-03-20",
+      date: "2025-03-20",
       author: "Abdul M Taher",
       image: blogOffshoreRisks,
     },
@@ -74,7 +74,7 @@ const Blog = () => {
       excerpt:
         "AI automation isn't just for tech companies. See how UK small businesses use chatbots and voice agents to save 10–20 hours per week without being technical.",
       readTime: 7,
-      date: "2024-03-10",
+      date: "2025-03-10",
       author: "Abdul M Taher",
       image: blogAiAutomation,
     },

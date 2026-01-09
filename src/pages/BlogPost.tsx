@@ -80,7 +80,7 @@ const BlogPost = () => {
     "cheap-websites": {
       title: "Why Cheap Websites Cost More in the Long Run",
       category: "Web Development",
-      date: "2024-03-15",
+      date: "2025-03-15",
       readTime: 5,
       author: "Abdul M Taher",
       seoTitle: "Why Cheap Websites Cost More in the Long Run | L&D Digital",
@@ -195,7 +195,7 @@ Want to do it right the first time? [See our packages](/services) or [get a free
     "ai-for-small-businesses": {
       title: "How Small Businesses Can Use AI Without Being Techy",
       category: "AI Automation",
-      date: "2024-03-10",
+      date: "2025-03-10",
       readTime: 7,
       author: "Abdul M Taher",
       seoTitle: "How Small Businesses Can Use AI Without Being Techy | L&D Digital",
@@ -353,7 +353,7 @@ Ready to automate? [See our AI services](/services#ai-automation) or [get a free
     "offshore-development-risks": {
       title: "The Hidden Dangers of Hiring Offshore Web Developers",
       category: "Web Development",
-      date: "2024-03-20",
+      date: "2025-03-20",
       readTime: 6,
       author: "Abdul M Taher",
       seoTitle: "The Hidden Dangers of Hiring Offshore Web Developers | L&D Digital",
@@ -687,8 +687,10 @@ Want a site built for the UK market, legally compliant, and actually supported?
       readTime: 8,
       author: "Abdul M Taher",
       seoTitle: "Best Web Developer in Stratford 2026 | What to Look For | L&D Digital",
-      seoDescription: "Looking for the best web developer in Stratford, East London? Learn what makes a great developer, red flags to avoid, and how to choose the right partner for your E15/E20 business.",
-      seoKeywords: "web developer stratford 2026, best web developer E15, stratford website design, web design stratford east london, website developer olympic park",
+      seoDescription:
+        "Looking for the best web developer in Stratford, East London? Learn what makes a great developer, red flags to avoid, and how to choose the right partner for your E15/E20 business.",
+      seoKeywords:
+        "web developer stratford 2026, best web developer E15, stratford website design, web design stratford east london, website developer olympic park",
       ogImage: blogStratfordWebDev,
       heroAlt: "Modern website design for Stratford businesses near the Olympic Park",
       content: `
@@ -806,8 +808,10 @@ For more tips on building your East London business website, check out our [Webs
       readTime: 7,
       author: "Abdul M Taher",
       seoTitle: "Website Design Tips for East London Small Businesses | L&D Digital",
-      seoDescription: "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust, improve SEO, and convert more local customers.",
-      seoKeywords: "website design east london 2026, web design tips small business, east london business website, local business website design, ilford web design, hackney website",
+      seoDescription:
+        "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust, improve SEO, and convert more local customers.",
+      seoKeywords:
+        "website design east london 2026, web design tips small business, east london business website, local business website design, ilford web design, hackney website",
       ogImage: blogEastLondonTips,
       heroAlt: "Small business owner in East London working on their website design",
       content: `
@@ -939,8 +943,10 @@ Want to improve your local search rankings? Read our [Local SEO Guide for Hackne
       readTime: 9,
       author: "Abdul M Taher",
       seoTitle: "Local SEO Guide for Hackney & Shoreditch Businesses 2026 | L&D Digital",
-      seoDescription: "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Learn how to rank higher on Google and attract more local customers.",
-      seoKeywords: "local seo hackney 2026, seo shoreditch, local seo east london, google my business hackney, seo for small business london, hackney digital marketing",
+      seoDescription:
+        "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Learn how to rank higher on Google and attract more local customers.",
+      seoKeywords:
+        "local seo hackney 2026, seo shoreditch, local seo east london, google my business hackney, seo for small business london, hackney digital marketing",
       ogImage: blogHackneySeo,
       heroAlt: "Hackney and Shoreditch business owners discussing local SEO strategy",
       content: `
@@ -1135,28 +1141,28 @@ Need a website built for local success? Check out our guide on [What Makes a Gre
   const localSeoSteps = [
     {
       name: "Claim and Optimise Google Business Profile",
-      text: "Go to business.google.com, claim or create your listing, verify your address, and complete every section including business name, address, phone number, hours, description, categories, and photos."
+      text: "Go to business.google.com, claim or create your listing, verify your address, and complete every section including business name, address, phone number, hours, description, categories, and photos.",
     },
     {
       name: "Get Your Website Right",
-      text: "Ensure NAP consistency, create location pages for multiple areas, add schema markup, use local keywords like 'plumber Hackney', and optimise for mobile devices."
+      text: "Ensure NAP consistency, create location pages for multiple areas, add schema markup, use local keywords like 'plumber Hackney', and optimise for mobile devices.",
     },
     {
       name: "Build Local Citations",
-      text: "Get listed on Yell.com, Thomson Local, Yelp UK, Bark.com, Checkatrade, TripAdvisor, and local Hackney/Shoreditch business directories with identical NAP everywhere."
+      text: "Get listed on Yell.com, Thomson Local, Yelp UK, Bark.com, Checkatrade, TripAdvisor, and local Hackney/Shoreditch business directories with identical NAP everywhere.",
     },
     {
       name: "Collect Reviews Systematically",
-      text: "Ask happy customers directly, send follow-up emails with review links, put QR codes at your premises, respond to every review, and never buy fake reviews."
+      text: "Ask happy customers directly, send follow-up emails with review links, put QR codes at your premises, respond to every review, and never buy fake reviews.",
     },
     {
       name: "Create Local Content",
-      text: "Write content that mentions Hackney and Shoreditch, including 'Best [Service] in Hackney' guides, case studies featuring local clients, and blog posts about local events."
+      text: "Write content that mentions Hackney and Shoreditch, including 'Best [Service] in Hackney' guides, case studies featuring local clients, and blog posts about local events.",
     },
     {
       name: "Build Local Backlinks",
-      text: "Sponsor local events, join Hackney/Shoreditch business networks, get featured in local publications, partner with complementary businesses, and offer expert quotes to journalists."
-    }
+      text: "Sponsor local events, join Hackney/Shoreditch business networks, get featured in local publications, partner with complementary businesses, and offer expert quotes to journalists.",
+    },
   ];
 
   if (!currentPost) {
@@ -1187,7 +1193,11 @@ Need a website built for local success? Check out our guide on [What Makes a Gre
         title={currentPost.title}
         description={currentPost.seoDescription}
         url={`https://luminousanddeliver.co.uk/blog/${slug}`}
-        image={typeof currentPost.ogImage === 'string' ? currentPost.ogImage : `https://luminousanddeliver.co.uk${currentPost.ogImage}`}
+        image={
+          typeof currentPost.ogImage === "string"
+            ? currentPost.ogImage
+            : `https://luminousanddeliver.co.uk${currentPost.ogImage}`
+        }
         datePublished={currentPost.date}
         author={currentPost.author}
         category={currentPost.category}

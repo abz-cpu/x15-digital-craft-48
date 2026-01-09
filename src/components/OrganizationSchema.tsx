@@ -48,29 +48,16 @@ export const OrganizationSchema = () => {
       paymentAccepted: "Bank Transfer, Card Payment",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         opens: "00:00",
         closes: "23:59",
       },
-      sameAs: [
-        "https://g.co/kgs/ExQZKh30OtBVi5wxS",
-        "https://www.linkedin.com/company/luminous-deliver-digital",
-        "https://twitter.com/lddigital",
-      ],
+      sameAs: ["https://twitter.com/lddigital", "https://www.linkedin.com/company/luminous-and-deliver"],
       founder: {
         "@type": "Person",
         name: "Abdul M Taher",
-        sameAs: "https://www.linkedin.com/in/abdul-m-taher-815177247/",
       },
-      foundingDate: "2024",
+      foundingDate: "2025",
       slogan: "Professional Web Development for UK Businesses",
       knowsAbout: [
         "Web Development",

@@ -14,9 +14,6 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
-import blogStratfordWebDev from "@/assets/blog-stratford-web-developer.png";
-import blogEastLondonTips from "@/assets/blog-east-london-website-tips.png";
-import blogHackneySeo from "@/assets/blog-hackney-shoreditch-seo.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -48,7 +45,7 @@ const Blog = () => {
       excerpt:
         "That £50 website builder might seem like a bargain, but hidden platform fees, lost time, and migration costs quickly turn it into a £2,000 problem.",
       readTime: 5,
-      date: "2024-03-15",
+      date: "2025-03-15",
       author: "Abdul M Taher",
       image: blogWebDev,
     },
@@ -61,7 +58,7 @@ const Blog = () => {
       excerpt:
         "That £200 developer in India might seem tempting, but one GDPR mistake could cost £17.5M. Learn why UK-based development protects your business.",
       readTime: 6,
-      date: "2024-03-20",
+      date: "2025-03-20",
       author: "Abdul M Taher",
       image: blogOffshoreRisks,
     },
@@ -74,48 +71,9 @@ const Blog = () => {
       excerpt:
         "AI automation isn't just for tech companies. See how UK small businesses use chatbots and voice agents to save 10–20 hours per week without being technical.",
       readTime: 7,
-      date: "2024-03-10",
+      date: "2025-03-10",
       author: "Abdul M Taher",
       image: blogAiAutomation,
-    },
-    {
-      id: 4,
-      slug: "best-web-developer-stratford-2026",
-      title: "Best Web Developer in Stratford: What to Look for in 2026",
-      category: "web-dev" as Category,
-      categoryLabel: "Web Development",
-      excerpt:
-        "Looking for a web developer in Stratford? Learn what separates great developers from the rest, and how to choose the right partner for your Olympic Park area business.",
-      readTime: 8,
-      date: "2026-01-05",
-      author: "Abdul M Taher",
-      image: blogStratfordWebDev,
-    },
-    {
-      id: 5,
-      slug: "website-design-tips-east-london",
-      title: "Website Design Tips for East London Small Businesses",
-      category: "web-dev" as Category,
-      categoryLabel: "Web Development",
-      excerpt:
-        "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust and convert more local customers.",
-      readTime: 7,
-      date: "2026-01-08",
-      author: "Abdul M Taher",
-      image: blogEastLondonTips,
-    },
-    {
-      id: 6,
-      slug: "local-seo-hackney-shoreditch",
-      title: "Local SEO Guide: How Hackney & Shoreditch Businesses Get Found",
-      category: "business" as Category,
-      categoryLabel: "Business Growth",
-      excerpt:
-        "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Rank higher on Google and attract more local customers to your business.",
-      readTime: 9,
-      date: "2026-01-09",
-      author: "Abdul M Taher",
-      image: blogHackneySeo,
     },
   ];
 

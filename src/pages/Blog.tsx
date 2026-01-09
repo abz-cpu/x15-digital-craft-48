@@ -75,6 +75,45 @@ const Blog = () => {
       author: "Abdul M Taher",
       image: blogAiAutomation,
     },
+    {
+      id: 4,
+      slug: "best-web-developer-stratford-2025",
+      title: "Best Web Developer in Stratford: What to Look for in 2025",
+      category: "web-dev" as Category,
+      categoryLabel: "Web Development",
+      excerpt:
+        "Looking for a web developer in Stratford? Learn what separates great developers from the rest, and how to choose the right partner for your Olympic Park area business.",
+      readTime: 8,
+      date: "2025-01-05",
+      author: "Abdul M Taher",
+      image: blogWebDev,
+    },
+    {
+      id: 5,
+      slug: "website-design-tips-east-london",
+      title: "Website Design Tips for East London Small Businesses",
+      category: "web-dev" as Category,
+      categoryLabel: "Web Development",
+      excerpt:
+        "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust and convert more local customers.",
+      readTime: 7,
+      date: "2025-01-08",
+      author: "Abdul M Taher",
+      image: blogWebDev,
+    },
+    {
+      id: 6,
+      slug: "local-seo-hackney-shoreditch",
+      title: "Local SEO Guide: How Hackney & Shoreditch Businesses Get Found",
+      category: "business" as Category,
+      categoryLabel: "Business Growth",
+      excerpt:
+        "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Rank higher on Google and attract more local customers to your business.",
+      readTime: 9,
+      date: "2025-01-09",
+      author: "Abdul M Taher",
+      image: blogWebDev,
+    },
   ];
 
   // sort by date (newest first)

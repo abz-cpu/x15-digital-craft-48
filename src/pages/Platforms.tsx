@@ -38,7 +38,7 @@ const platforms = [
     path: "/platforms/woocommerce", 
     desc: "Powerful WordPress e-commerce with full customization.",
     icon: ShoppingCart,
-    features: ["Full ownership", "Unlimited products", "Flexible payments", "Complete control"],
+    features: ["Full customisation", "Unlimited products", "Flexible payments", "Complete control"],
     bestFor: "Growing stores, custom requirements"
   },
   { 
@@ -58,7 +58,7 @@ const platformFaqs = [
   },
   {
     question: "Should I choose Shopify or WooCommerce for my online store?",
-    answer: "Shopify is best if you want a hassle-free, hosted solution with built-in support. WooCommerce is better if you want full ownership, more customization options, and lower long-term costs. We help you choose based on your specific needs."
+    answer: "Shopify is best if you want a hassle-free, hosted solution with built-in support. WooCommerce is better if you want full customisation, more flexibility, and lower long-term costs. We help you choose based on your specific needs."
   },
   {
     question: "When should I consider custom development?",

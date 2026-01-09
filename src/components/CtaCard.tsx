@@ -141,7 +141,7 @@ const CtaCard: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-sm border border-white/80">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                <span className="text-sm font-medium text-slate-700">You own everything</span>
+                <span className="text-sm font-medium text-slate-700">Fast, reliable delivery</span>
               </div>
             </div>
           </div>

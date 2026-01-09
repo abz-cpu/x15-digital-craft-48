@@ -48,7 +48,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="About Us - Fast, Transparent Web Development & AI | L&D Digital"
-        description="Learn about L&D Digital's mission: affordable, transparent web development & AI automation for UK businesses. No hidden fees, fast turnaround, you own everything."
+        description="Learn about L&D Digital's mission: affordable, transparent web development & AI automation for UK businesses. No hidden fees, fast turnaround, direct communication."
         keywords="about L&D Digital, web development agency UK, AI automation company London, transparent pricing"
       />
       <ScrollProgressBar />
@@ -160,7 +160,7 @@ const About = () => {
                   </div>
                   <div className="flex gap-4 pt-4 border-t border-border">
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/company/luminous-deliver-digital"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-primary transition-colors"

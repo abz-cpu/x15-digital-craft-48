@@ -14,6 +14,9 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";
 import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
+import blogStratfordWebDev from "@/assets/blog-stratford-web-developer.png";
+import blogEastLondonTips from "@/assets/blog-east-london-website-tips.png";
+import blogHackneySeo from "@/assets/blog-hackney-shoreditch-seo.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -77,16 +80,16 @@ const Blog = () => {
     },
     {
       id: 4,
-      slug: "best-web-developer-stratford-2025",
-      title: "Best Web Developer in Stratford: What to Look for in 2025",
+      slug: "best-web-developer-stratford-2026",
+      title: "Best Web Developer in Stratford: What to Look for in 2026",
       category: "web-dev" as Category,
       categoryLabel: "Web Development",
       excerpt:
         "Looking for a web developer in Stratford? Learn what separates great developers from the rest, and how to choose the right partner for your Olympic Park area business.",
       readTime: 8,
-      date: "2025-01-05",
+      date: "2026-01-05",
       author: "Abdul M Taher",
-      image: blogWebDev,
+      image: blogStratfordWebDev,
     },
     {
       id: 5,
@@ -97,9 +100,9 @@ const Blog = () => {
       excerpt:
         "Practical website design advice for small businesses in Stratford, Ilford, Hackney, and across East London. Build trust and convert more local customers.",
       readTime: 7,
-      date: "2025-01-08",
+      date: "2026-01-08",
       author: "Abdul M Taher",
-      image: blogWebDev,
+      image: blogEastLondonTips,
     },
     {
       id: 6,
@@ -110,9 +113,9 @@ const Blog = () => {
       excerpt:
         "Complete local SEO guide for businesses in Hackney, Shoreditch, and East London. Rank higher on Google and attract more local customers to your business.",
       readTime: 9,
-      date: "2025-01-09",
+      date: "2026-01-09",
       author: "Abdul M Taher",
-      image: blogWebDev,
+      image: blogHackneySeo,
     },
   ];
 

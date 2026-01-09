@@ -31,8 +31,8 @@ import {
 const WordPress = () => {
   const faqs = [
     {
-      question: "How much does a WordPress website cost in London in 2025?",
-      answer: "For London in 2025-2026, WordPress websites typically cost: £400-800 for a starter theme-based site, £800-2,500 for a custom-designed business website, and £2,500-5,000+ for complex sites with advanced functionality. However, if you want a truly bespoke website without template limitations, our custom-coded websites start from just £200—often more cost-effective long-term with better performance and no plugin bloat."
+      question: "How much does a WordPress website cost in London in 2026?",
+      answer: "For London in 2026, WordPress websites typically cost: £400-800 for a starter theme-based site, £800-2,500 for a custom-designed business website, and £2,500-5,000+ for complex sites with advanced functionality. However, if you want a truly bespoke website without template limitations, our custom-coded websites start from just £200—often more cost-effective long-term with better performance and no plugin bloat."
     },
     {
       question: "Is WordPress good for SEO?",
@@ -48,7 +48,7 @@ const WordPress = () => {
     },
     {
       question: "Do you provide WordPress maintenance and support?",
-      answer: "Yes, we offer ongoing WordPress maintenance packages from £59/month (2025 pricing). This includes security updates, plugin updates, regular backups, uptime monitoring, and priority support. Keeping WordPress updated is crucial for security and performance. Alternatively, our custom-coded websites require less maintenance due to no plugin dependencies."
+      answer: "Yes, we offer ongoing WordPress maintenance packages from £59/month (2026 pricing). This includes security updates, plugin updates, regular backups, uptime monitoring, and priority support. Keeping WordPress updated is crucial for security and performance. Alternatively, our custom-coded websites require less maintenance due to no plugin dependencies."
     },
     {
       question: "Should I choose WordPress or a custom-coded website?",

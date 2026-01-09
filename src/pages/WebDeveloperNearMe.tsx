@@ -169,7 +169,7 @@ const WebDeveloperNearMe = () => {
                   <p className="text-sm text-muted-foreground">Days Delivery</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">50+</p>
+                <p className="text-3xl font-bold text-primary">25+</p>
                   <p className="text-sm text-muted-foreground">Projects Done</p>
                 </div>
                 <div>

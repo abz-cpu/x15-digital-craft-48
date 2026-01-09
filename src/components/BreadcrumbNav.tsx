@@ -71,6 +71,10 @@ const routeNames: Record<string, string> = {
   "/areas/shoreditch": "Shoreditch",
   "/areas/tower-hamlets": "Tower Hamlets",
   "/areas/greenwich": "Greenwich",
+  // SEO Landing Pages
+  "/web-design-agency-london": "Web Design Agency London",
+  "/seo-services-london": "SEO Services London",
+  "/ai-services-london": "AI Services London",
   // Blog Posts
   "/blog/cheap-websites": "Why Cheap Websites Cost More",
   "/blog/ai-for-small-businesses": "AI for Small Businesses",

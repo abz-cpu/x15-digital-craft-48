@@ -286,6 +286,26 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- SEO Landing Pages (High Priority) -->
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/web-design-agency-london</loc>
+    <lastmod>2026-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/seo-services-london</loc>
+    <lastmod>2026-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/ai-services-london</loc>
+    <lastmod>2026-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Near Me Pages (High Priority) -->
   <url>
     <loc>https://digital.luminousanddeliver.co.uk/web-developer-near-me</loc>

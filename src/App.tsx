@@ -34,6 +34,7 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const WebPackage = lazy(() => import("./pages/WebPackage"));
 const AiPackage = lazy(() => import("./pages/AiPackage"));
+const Faq = lazy(() => import("./pages/Faq"));
 const Platforms = lazy(() => import("./pages/Platforms"));
 const Sectors = lazy(() => import("./pages/Sectors"));
 
@@ -158,6 +159,7 @@ const App = () => (
               <Route path="/terms" element={<Terms />} />
               <Route path="/web-package" element={<WebPackage />} />
               <Route path="/ai-package" element={<AiPackage />} />
+              <Route path="/faq" element={<Faq />} />
               <Route path="/platforms" element={<Platforms />} />
               <Route path="/sectors" element={<Sectors />} />
               {/* Service pages */}

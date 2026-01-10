@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { AreasFooter } from "@/components/AreasFooter";
 import {
   Accordion,
   AccordionContent,
@@ -400,6 +401,9 @@ const WooCommerce = () => {
             </div>
           </Container>
         </section>
+
+        {/* Areas Footer */}
+        <AreasFooter accentColor="purple" />
       </main>
       
       <Footer />

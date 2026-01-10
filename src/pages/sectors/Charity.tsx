@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { AreasFooter } from "@/components/AreasFooter";
 import {
   Accordion,
   AccordionContent,
@@ -353,6 +354,9 @@ const Charity = () => {
             </AnimatedSection>
           </Container>
         </section>
+
+        {/* Areas Footer */}
+        <AreasFooter accentColor="rose" />
       </main>
       
       <Footer />

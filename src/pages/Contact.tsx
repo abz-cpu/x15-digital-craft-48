@@ -911,7 +911,7 @@ const Contact = () => {
           </div>
 
           <p className="text-center mt-6">
-            <Link to="/services#faq" className="text-sm text-primary hover:underline font-medium">
+            <Link to="/faq" className="text-sm text-primary hover:underline font-medium">
               View all FAQs <ArrowRight className="inline h-3.5 w-3.5" />
             </Link>
           </p>

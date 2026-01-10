@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { AreasFooter } from "@/components/AreasFooter";
 import {
   Accordion,
   AccordionContent,
@@ -382,6 +383,9 @@ const B2B = () => {
             </AnimatedSection>
           </Container>
         </section>
+
+        {/* Areas Footer */}
+        <AreasFooter accentColor="slate" />
       </main>
       
       <Footer />

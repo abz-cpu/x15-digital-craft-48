@@ -40,6 +40,7 @@ const routeNames: Record<string, string> = {
   "/privacy": "Privacy",
   "/web-package": "Web Packages",
   "/ai-package": "AI Package",
+  "/faq": "FAQ",
   "/platforms": "Platforms",
   "/platforms/wordpress": "WordPress Development",
   "/platforms/shopify": "Shopify Development",

@@ -1320,6 +1320,42 @@ Need a website built for local success? Check out our guide on [What Makes a Gre
         </div>
       </section>
 
+      {/* Available in These Areas */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-xl font-bold text-secondary mb-6 text-center">Available in These Areas</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { name: "Stratford", path: "/areas/stratford" },
+              { name: "Ilford", path: "/areas/ilford" },
+              { name: "Hackney", path: "/areas/hackney" },
+              { name: "Shoreditch", path: "/areas/shoreditch" },
+              { name: "Newham", path: "/areas/newham" },
+              { name: "Leyton", path: "/areas/leyton" },
+              { name: "Walthamstow", path: "/areas/walthamstow" },
+              { name: "Barking", path: "/areas/barking" },
+              { name: "Tower Hamlets", path: "/areas/tower-hamlets" },
+              { name: "Bethnal Green", path: "/areas/bethnal-green" },
+              { name: "East Ham", path: "/areas/east-ham" },
+              { name: "Manor Park", path: "/areas/manor-park" },
+              { name: "Plaistow", path: "/areas/plaistow" },
+              { name: "Greenwich", path: "/areas/greenwich" },
+            ].map((area) => (
+              <Link
+                key={area.path}
+                to={area.path}
+                className="px-4 py-2 bg-muted hover:bg-primary/10 text-secondary hover:text-primary rounded-full text-sm font-medium transition-colors border border-border hover:border-primary/30"
+              >
+                {area.name}
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-muted-foreground text-sm mt-4">
+            Serving London & East London with professional web design, SEO, and AI automation services.
+          </p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-4xl mx-auto text-center fade-in-section">

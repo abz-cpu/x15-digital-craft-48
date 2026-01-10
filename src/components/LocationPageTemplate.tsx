@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Shield, Star, Clock, Headphones, Building2 } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Shield, Star, Clock, Headphones, Building2, Wrench } from "lucide-react";
 
 interface RelatedBlogPost {
   title: string;
@@ -34,10 +34,11 @@ interface LocationPageTemplateProps {
 }
 
 const services = [
-  { name: "Website Design", price: "200", icon: Globe },
-  { name: "Ecommerce Stores", price: "500", icon: Zap },
-  { name: "AI Chatbots", price: "50/month", icon: Shield },
-  { name: "SEO Services", price: "300", icon: Star },
+  { name: "Website Design", price: "200", icon: Globe, path: "/web-package" },
+  { name: "Ecommerce Stores", price: "500", icon: Zap, path: "/services/ecommerce" },
+  { name: "AI Chatbots", price: "50/month", icon: Shield, path: "/ai-package" },
+  { name: "SEO Services", price: "300", icon: Star, path: "/services/seo" },
+  { name: "Personalised Apps", price: "500", icon: Wrench, path: "/services/personalised-apps" },
 ];
 
 const differentiators = [
@@ -74,7 +75,8 @@ const differentiators = [
 ];
 
 export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) => {
-  const faqs = [
+  // Schema FAQs (plain text for structured data)
+  const schemaFaqs = [
     {
       question: `How much does a website cost in ${location.name}?`,
       answer: `Our websites for ${location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. Ecommerce stores and advanced features may have additional costs. You'll always get an upfront quote—no hidden fees.`,
@@ -93,7 +95,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
     },
     {
       question: `Can you help my ${location.name} business with AI automation?`,
-      answer: `Absolutely. We offer AI chatbots from £50/month and AI receptionist services for ${location.name} businesses. These tools can handle customer inquiries 24/7, saving you time and improving customer service.`,
+      answer: `Absolutely. We offer AI chatbots from £50/month and personalised business apps from £500 for ${location.name} businesses. These tools can handle customer inquiries 24/7, track orders, manage invoices, and more.`,
     },
     {
       question: `Do you work with small businesses in ${location.name}?`,
@@ -105,6 +107,58 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
     },
   ];
 
+  // Display FAQs (with internal links for SEO)
+  const displayFaqs = [
+    {
+      question: `How much does a website cost in ${location.name}?`,
+      answer: (
+        <>
+          Our <Link to="/web-package" className="text-primary hover:underline">websites</Link> for {location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. <Link to="/services/ecommerce" className="text-primary hover:underline">Ecommerce stores</Link> and advanced features may have additional costs. You'll always get an upfront quote—no hidden fees.
+        </>
+      ),
+    },
+    {
+      question: `Do I own the website after you build it?`,
+      answer: `You own your domain and all content (text, images, graphics we create for you). We retain the codebase to ensure ongoing quality and security. We handle hosting and maintenance so you can focus on your business. You're free to take your domain and content elsewhere anytime.`,
+    },
+    {
+      question: `How long does it take to build a website in ${location.name}?`,
+      answer: `We deliver most websites in 1-14 days depending on complexity. Simple sites can launch in under a week. Full ecommerce stores typically take 7-14 days. We'll give you a realistic timeline during your free consultation. We serve all ${location.postcodes.join(", ")} postcodes.`,
+    },
+    {
+      question: `Do you offer SEO services in ${location.name}?`,
+      answer: (
+        <>
+          Yes! We provide comprehensive <Link to="/services/seo" className="text-primary hover:underline">SEO services</Link> for {location.name} businesses from £300. This includes local SEO to help you rank for "{location.name}" searches, keyword optimization, and Google Business Profile setup.
+        </>
+      ),
+    },
+    {
+      question: `Can you help my ${location.name} business with AI automation?`,
+      answer: (
+        <>
+          Absolutely. We offer <Link to="/ai-package" className="text-primary hover:underline">AI chatbots</Link> from £50/month and <Link to="/services/personalised-apps" className="text-primary hover:underline">personalised business apps</Link> from £500 for {location.name} businesses. These tools can handle customer inquiries 24/7, track orders, manage invoices, and more.
+        </>
+      ),
+    },
+    {
+      question: `Do you work with small businesses in ${location.name}?`,
+      answer: (
+        <>
+          Yes! Over 80% of our clients are small businesses, tradespeople, and local service providers. We specialise in affordable, high-quality websites for businesses that don't have Fortune 500 budgets. Explore our <Link to="/sectors/b2b" className="text-primary hover:underline">B2B solutions</Link> and <Link to="/sectors/b2c" className="text-primary hover:underline">B2C services</Link>.
+        </>
+      ),
+    },
+    {
+      question: `Why choose L&D Digital for my ${location.name} business?`,
+      answer: (
+        <>
+          We're a London-based agency with deep knowledge of East London markets. We understand {location.name} businesses, offer competitive pricing, fast delivery, and ongoing support. Check out our <Link to="/about" className="text-primary hover:underline">About page</Link> or <Link to="/contact" className="text-primary hover:underline">get in touch</Link>—we're just a WhatsApp message away!
+        </>
+      ),
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -113,7 +167,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
         keywords={`web developer ${location.name}, website design ${location.postcodes[0]}, digital marketing ${location.name}, SEO ${location.name}, web design ${location.postcodes.join(" ")}, ${location.name} web developer, ${location.name} website design, affordable web design ${location.name}`}
         canonicalUrl={`https://digital.luminousanddeliver.co.uk/areas/${location.slug}`}
       />
-      <FAQSchema faqs={faqs} pageId={`area-${location.slug}`} />
+      <FAQSchema faqs={schemaFaqs} pageId={`area-${location.slug}`} />
       <ServiceAreaSchema />
 
       <Navigation />
@@ -242,18 +296,19 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.name}
-                className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-colors"
+                to={service.path}
+                className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all group"
               >
-                <service.icon className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-lg font-semibold mb-2">{service.name}</h3>
+                <service.icon className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{service.name}</h3>
                 <p className="text-2xl font-bold text-primary">
                   From £{service.price}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -348,15 +403,15 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-card rounded-lg p-6 border border-border"
-                >
-                  <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
-              ))}
+                {displayFaqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="bg-card rounded-lg p-6 border border-border"
+                  >
+                    <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+                    <div className="text-muted-foreground">{faq.answer}</div>
+                  </div>
+                ))}
             </div>
           </div>
         </Container>

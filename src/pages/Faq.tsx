@@ -25,6 +25,7 @@ import {
   ArrowRight,
   MessageSquare,
   LayoutGrid,
+  Wrench,
 } from "lucide-react";
 
 interface FAQ {
@@ -241,6 +242,61 @@ const faqCategories: FAQCategory[] = [
             Absolutely. Small businesses often benefit most from automation, as it extends your capacity without hiring staff. Even simple automation like lead capture or appointment booking can save hours each week. <Link to="/contact" className="text-primary hover:underline">Get a free consultation →</Link>
           </>
         )
+      },
+    ],
+  },
+  {
+    id: "custom-tools",
+    name: "Custom Tools",
+    icon: Wrench,
+    faqs: [
+      {
+        question: "How much does a custom order tracker cost?",
+        answer: (
+          <>
+            A basic order tracking app starts from £500, with more advanced versions including customer portals ranging from £800-1,500. <Link to="/contact" className="text-primary hover:underline">Contact us for a personalised quote</Link> based on your specific requirements. <Link to="/services/personalised-apps" className="text-primary hover:underline">Learn more about personalised apps →</Link>
+          </>
+        ),
+      },
+      {
+        question: "Can you build an invoice management system for my business?",
+        answer: (
+          <>
+            Absolutely! We build custom invoice trackers showing paid, pending, and overdue invoices at a glance. Basic tracking starts from £500, with automated reminders and client portals from £1,000+. <Link to="/blog/personalised-apps-struggling-business-owners" className="text-primary hover:underline">Read how business owners use these tools →</Link>
+          </>
+        ),
+      },
+      {
+        question: "Do you offer financial tracking apps for small businesses?",
+        answer: (
+          <>
+            Yes, we build personal financial management dashboards for small business owners and sole traders. Track income, expenses, budgets, and cash flow forecasts. These can integrate with <Link to="/ai-package" className="text-primary hover:underline">AI automation features</Link> for smarter insights. <Link to="/services/personalised-apps" className="text-primary hover:underline">Explore personalised apps →</Link>
+          </>
+        ),
+      },
+      {
+        question: "How long does it take to build a custom business app?",
+        answer: (
+          <>
+            Simple tools like basic trackers can be ready in 1-2 weeks. More complex systems with multiple features typically take 2-4 weeks. We provide clear timelines during our discovery call. <Link to="/services/personalised-apps" className="text-primary hover:underline">View all custom app options →</Link>
+          </>
+        ),
+      },
+      {
+        question: "Can I access my custom app on mobile?",
+        answer: (
+          <>
+            Yes! All our <Link to="/services/personalised-apps" className="text-primary hover:underline">custom apps</Link> are responsive and work beautifully on phones, tablets, and desktops. Access your order tracker, invoice manager, or financial dashboard from anywhere.
+          </>
+        ),
+      },
+      {
+        question: "What custom business tools can you build?",
+        answer: (
+          <>
+            We build a wide range of tools: order trackers, invoice managers, financial dashboards, customer databases (CRM), booking systems, quote calculators, and more. If you're drowning in spreadsheets, we can build something better. <Link to="/services/personalised-apps" className="text-primary hover:underline">See examples →</Link>
+          </>
+        ),
       },
     ],
   },

@@ -71,11 +71,8 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Turnstile CAPTCHA
-  const TURNSTILE_SITE_KEY = "0x4AAAAAACLuw5EZZf7nmsII";
-  const { containerRef: turnstileRef, token: turnstileToken, reset: resetTurnstile, getToken } = useTurnstile({
-    siteKey: TURNSTILE_SITE_KEY,
-  });
+  // Turnstile CAPTCHA - no need to pass siteKey, hook uses env variable as string
+  const { containerRef: turnstileRef, token: turnstileToken, reset: resetTurnstile, getToken } = useTurnstile();
 
   // Re-render Turnstile widget on route navigation
   useEffect(() => {

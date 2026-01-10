@@ -1,6 +1,8 @@
 import type { FormEvent } from "react";
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useTurnstile } from "@/hooks/useTurnstile";
+import { Loader2 } from "lucide-react";
 import {
   Mail,
   MessageCircle,
@@ -45,6 +47,7 @@ interface QuizResult {
 }
 
 const Contact = () => {
+  const location = useLocation();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -63,6 +66,22 @@ const Contact = () => {
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
   const [quizError, setQuizError] = useState<string | null>(null);
   const { toast } = useToast();
+
+  // Form submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Turnstile CAPTCHA
+  const TURNSTILE_SITE_KEY = "0x4AAAAAACLuw5EZZf7nmsII";
+  const { containerRef: turnstileRef, token: turnstileToken, reset: resetTurnstile, getToken } = useTurnstile({
+    siteKey: TURNSTILE_SITE_KEY,
+  });
+
+  // Re-render Turnstile widget on route navigation
+  useEffect(() => {
+    // Reset turnstile when navigating to this page
+    resetTurnstile();
+  }, [location.pathname, resetTurnstile]);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -167,16 +186,114 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleInquirySubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    toast({
-      title: "Inquiry sent",
-      description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
-    });
-
-    (e.currentTarget as HTMLFormElement).reset();
-    setIsInquiryOpen(false);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    const name = (formData.get("name") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+    const phone = (formData.get("phone") as string)?.trim() || "";
+    const need = (formData.get("projectType") as string) || "";
+    const budgetValue = (formData.get("budgetRange") as string) || "";
+    const deadline = (formData.get("deadline") as string) || "";
+    const message = (formData.get("message") as string)?.trim();
+    
+    // Validate required fields
+    if (!name) {
+      toast({
+        title: "Name required",
+        description: "Please enter your name.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!email) {
+      toast({
+        title: "Email required",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!message) {
+      toast({
+        title: "Message required",
+        description: "Please tell us about your project.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Get Turnstile token
+    const token = getToken();
+    if (!token) {
+      toast({
+        title: "Verification required",
+        description: "Please complete the security verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          need,
+          budget: budgetValue,
+          deadline,
+          message,
+          turnstileToken: token,
+        }),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to send inquiry");
+      }
+      
+      toast({
+        title: "Inquiry sent!",
+        description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
+      });
+      
+      // Reset form and Turnstile
+      form.reset();
+      resetTurnstile();
+      
+    } catch (error) {
+      console.error("Contact form error:", error);
+      toast({
+        title: "Something went wrong",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -252,7 +369,7 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <form onSubmit={handleInquirySubmit} className="space-y-5">
+                <form ref={formRef} onSubmit={handleInquirySubmit} className="space-y-5">
                   {/* Name + Email */}
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-1.5">
@@ -371,13 +488,28 @@ const Contact = () => {
                     />
                   </div>
 
+                  {/* Turnstile CAPTCHA Widget */}
+                  <div className="flex justify-center">
+                    <div ref={turnstileRef} className="cf-turnstile" />
+                  </div>
+
                   {/* Submit */}
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg disabled:opacity-70"
                   >
-                    Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
                   </Button>
 
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">

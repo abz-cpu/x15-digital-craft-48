@@ -246,6 +246,14 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
               <ul className="space-y-1.5">
                 <li>
                   <Link
+                    to="/faq"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/privacy"
                     className="text-sm text-white/60 hover:text-accent transition-colors"
                   >

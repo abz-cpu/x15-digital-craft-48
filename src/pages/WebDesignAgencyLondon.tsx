@@ -3,18 +3,34 @@ import { FAQSchema } from "@/components/FAQSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { AreasFooter } from "@/components/AreasFooter";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Globe, Clock, PoundSterling, Award } from "lucide-react";
+import { ArrowRight, CheckCircle, Globe, Clock, PoundSterling, Award, BookOpen, Layers } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { question: "How much does a website design cost in London?", answer: "Website design costs in London typically range from £200 to £15,000+ depending on complexity. At Luminous & Deliver Digital, we offer professional websites from £200 with transparent pricing." },
-  { question: "What is the best web design agency in London?", answer: "The best web design agency depends on your needs, budget, and project requirements. Luminous & Deliver Digital specialises in fast-turnaround, affordable websites for small businesses across London." },
-  { question: "How long does it take to build a website in London?", answer: "Template-based sites can be ready in 1-3 days, custom websites typically take 7-14 days. We specialise in rapid delivery, completing most projects within 1-14 days." },
-  { question: "Do I need a London-based web designer?", answer: "While not essential, working with a London-based designer offers advantages: face-to-face meetings, understanding of the local market, and same timezone communication. We're based in East London." },
-  { question: "What should I look for in a web design agency UK?", answer: "Key factors include: a strong portfolio, transparent pricing, clear communication, mobile-responsive designs, SEO knowledge, post-launch support, and positive testimonials." }
+  { 
+    question: "How much does a website design cost in London?", 
+    answer: "Website design costs in London typically range from £200 to £15,000+ depending on complexity. At L&D Digital, we offer professional websites from £200 with transparent pricing. View our complete pricing on our web packages page." 
+  },
+  { 
+    question: "What is the best web design agency in London?", 
+    answer: "The best web design agency depends on your needs, budget, and project requirements. L&D Digital specialises in fast-turnaround, affordable websites for small businesses across London and East London areas including Stratford, Ilford, and Hackney." 
+  },
+  { 
+    question: "How long does it take to build a website in London?", 
+    answer: "Template-based sites can be ready in 1-3 days, custom websites typically take 7-14 days. We specialise in rapid delivery, completing most projects within 1-14 days." 
+  },
+  { 
+    question: "Do I need a London-based web designer?", 
+    answer: "While not essential, working with a London-based designer offers advantages: face-to-face meetings, understanding of the local market, and same timezone communication. We're based in East London and serve the entire capital." 
+  },
+  { 
+    question: "What should I look for in a web design agency UK?", 
+    answer: "Key factors include: a strong portfolio, transparent pricing, clear communication, mobile-responsive designs, SEO knowledge, post-launch support, and positive testimonials. Read our comprehensive FAQ for more guidance." 
+  }
 ];
 
 const WebDesignAgencyLondon = () => {
@@ -39,7 +55,7 @@ const WebDesignAgencyLondon = () => {
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">London's Trusted Web Design Agency</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Web Design Agency London: Professional Websites from £200</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're Luminous & Deliver Digital, a London-based web design agency creating stunning, high-converting websites for businesses across the UK.</p>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're L&D Digital, a London-based web design agency creating stunning, high-converting websites for businesses across the UK.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg"><Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/portfolio">View Our Work</Link></Button>
@@ -132,8 +148,61 @@ const WebDesignAgencyLondon = () => {
           </Container>
         </section>
 
-        {/* Areas Served */}
+        {/* Related Resources Section */}
         <section className="py-16">
+          <Container>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Related Resources</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explore our platforms, sector expertise, and helpful guides.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Platforms */}
+              <div className="bg-card p-6 rounded-xl border">
+                <div className="flex items-center gap-3 mb-4">
+                  <Layers className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-semibold">Platforms We Build On</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/platforms/wordpress" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">WordPress</Link>
+                  <Link to="/platforms/shopify" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Shopify</Link>
+                  <Link to="/platforms/woocommerce" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">WooCommerce</Link>
+                  <Link to="/platforms/custom-development" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Custom Development</Link>
+                </div>
+              </div>
+
+              {/* Sectors */}
+              <div className="bg-card p-6 rounded-xl border">
+                <div className="flex items-center gap-3 mb-4">
+                  <Globe className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-semibold">Sectors We Serve</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/sectors/property" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Property & Estate Agents</Link>
+                  <Link to="/sectors/charity" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Charities & Non-Profits</Link>
+                  <Link to="/sectors/b2b" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">B2B Companies</Link>
+                  <Link to="/sectors/b2c" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">B2C & Retail</Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="bg-muted/30 p-6 rounded-xl border flex flex-wrap items-center justify-center gap-4">
+              <BookOpen className="h-5 w-5 text-primary" />
+              <span className="font-medium">Helpful Resources:</span>
+              <Link to="/faq" className="text-primary hover:underline">FAQ</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/seo-services-london" className="text-primary hover:underline">SEO Services</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/ai-services-london" className="text-primary hover:underline">AI & Automation</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/blog" className="text-primary hover:underline">Blog</Link>
+            </div>
+          </Container>
+        </section>
+
+        {/* Areas Served */}
+        <section className="py-16 bg-muted/30">
           <Container>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Serving Businesses Across London</h2>
@@ -159,11 +228,11 @@ const WebDesignAgencyLondon = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <Container>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Common questions about web design services in London.</p>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Common questions about web design services in London. <Link to="/faq" className="text-primary hover:underline">View all FAQs →</Link></p>
             </div>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="space-y-4">
@@ -190,6 +259,9 @@ const WebDesignAgencyLondon = () => {
             </div>
           </Container>
         </section>
+
+        {/* Areas Footer */}
+        <AreasFooter />
       </main>
 
       <Footer />

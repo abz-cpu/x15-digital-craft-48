@@ -3,18 +3,34 @@ import { FAQSchema } from "@/components/FAQSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { AreasFooter } from "@/components/AreasFooter";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Bot, MessageSquare, Phone, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle, Bot, MessageSquare, Phone, Workflow, BookOpen, Layers, Globe } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { question: "What are AI services for business?", answer: "AI services include chatbots for customer support, automated lead qualification, voice assistants, and workflow automation. At Luminous & Deliver Digital, we specialise in practical AI implementations for UK businesses." },
-  { question: "How much does an AI chatbot cost in the UK?", answer: "AI chatbot costs range from £200 for simple FAQ bots to £5,000+ for custom solutions. Our packages start from £200, with monthly maintenance from £50/month." },
-  { question: "Can AI really help small businesses?", answer: "Absolutely. AI helps small businesses compete by automating repetitive tasks, providing 24/7 customer support, and qualifying leads automatically." },
-  { question: "What is L&D Digital?", answer: "L&D Digital (Luminous & Deliver Digital) is a London-based digital agency specialising in web development, AI automation, and digital marketing. We're based in Stratford, East London." },
-  { question: "How long does it take to build an AI chatbot?", answer: "Simple AI chatbots can be built in 3-5 days. More complex chatbots with custom integrations typically take 1-2 weeks." }
+  { 
+    question: "What are AI services for business?", 
+    answer: "AI services include chatbots for customer support, automated lead qualification, voice assistants, and workflow automation. At L&D Digital, we specialise in practical AI implementations for UK businesses across London and East London." 
+  },
+  { 
+    question: "How much does an AI chatbot cost in the UK?", 
+    answer: "AI chatbot costs range from £200 for simple FAQ bots to £5,000+ for custom solutions. Our AI packages start from £200, with monthly maintenance from £50/month. View our AI packages for detailed pricing." 
+  },
+  { 
+    question: "Can AI really help small businesses?", 
+    answer: "Absolutely. AI helps small businesses compete by automating repetitive tasks, providing 24/7 customer support, and qualifying leads automatically. It's particularly effective for B2B and B2C companies looking to scale." 
+  },
+  { 
+    question: "What is L&D Digital?", 
+    answer: "L&D Digital is a London-based digital agency specialising in web development, AI automation, and digital marketing. We're based in Stratford, East London, and serve businesses across the UK. Learn more about us." 
+  },
+  { 
+    question: "How long does it take to build an AI chatbot?", 
+    answer: "Simple AI chatbots can be built in 3-5 days. More complex chatbots with custom integrations typically take 1-2 weeks. Contact us to discuss your requirements." 
+  }
 ];
 
 const AiServicesLondon = () => {
@@ -38,7 +54,7 @@ const AiServicesLondon = () => {
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">AI-Powered Business Solutions</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">AI Services London: Chatbots & Automation from £200</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're Luminous & Deliver Digital, a London-based AI agency helping businesses automate customer service and qualify leads.</p>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're L&D Digital, a London-based AI agency helping businesses automate customer service and qualify leads.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg"><Link to="/contact">Get Free AI Consultation <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/ai-package">View AI Packages</Link></Button>
@@ -54,16 +70,16 @@ const AiServicesLondon = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: MessageSquare, title: "AI Chatbots", description: "24/7 customer support chatbots trained on your business" },
-                { icon: Phone, title: "AI Voice Assistants", description: "Voice-enabled AI that handles phone calls and bookings" },
-                { icon: Bot, title: "WhatsApp AI Bots", description: "AI assistants for WhatsApp Business" },
-                { icon: Workflow, title: "Workflow Automation", description: "Connect your tools and automate repetitive tasks" }
+                { icon: MessageSquare, title: "AI Chatbots", description: "24/7 customer support chatbots trained on your business", link: "/ai-package" },
+                { icon: Phone, title: "AI Voice Assistants", description: "Voice-enabled AI that handles phone calls and bookings", link: "/ai-package" },
+                { icon: Bot, title: "WhatsApp AI Bots", description: "AI assistants for WhatsApp Business", link: "/ai-package" },
+                { icon: Workflow, title: "Workflow Automation", description: "Connect your tools and automate repetitive tasks", link: "/services/personalised-apps" }
               ].map((service, index) => (
-                <div key={index} className="bg-card p-6 rounded-xl border hover:border-primary/50 transition-colors h-full">
+                <Link to={service.link} key={index} className="bg-card p-6 rounded-xl border hover:border-primary/50 transition-colors h-full block">
                   <service.icon className="h-10 w-10 text-primary mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </Container>
@@ -101,9 +117,66 @@ const AiServicesLondon = () => {
           </Container>
         </section>
 
+        {/* Related Resources Section */}
         <section className="py-16">
           <Container>
-            <div className="text-center mb-12"><h2 className="text-3xl md:text-4xl font-bold mb-4">AI Services FAQ</h2></div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Related Resources</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explore our other digital services and sector expertise.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Related Services */}
+              <div className="bg-card p-6 rounded-xl border">
+                <div className="flex items-center gap-3 mb-4">
+                  <Layers className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-semibold">Related Services</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/web-design-agency-london" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Web Design</Link>
+                  <Link to="/seo-services-london" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">SEO Services</Link>
+                  <Link to="/services/digital-marketing" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Digital Marketing</Link>
+                  <Link to="/services/personalised-apps" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Custom Apps</Link>
+                </div>
+              </div>
+
+              {/* Sectors */}
+              <div className="bg-card p-6 rounded-xl border">
+                <div className="flex items-center gap-3 mb-4">
+                  <Globe className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-semibold">AI Works Great For</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/sectors/property" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Property & Estate Agents</Link>
+                  <Link to="/sectors/b2b" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">B2B Companies</Link>
+                  <Link to="/sectors/b2c" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">B2C & Retail</Link>
+                  <Link to="/sectors/charity" className="px-4 py-2 bg-muted rounded-full text-sm hover:bg-primary/10 transition-colors">Charities</Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="bg-muted/30 p-6 rounded-xl border flex flex-wrap items-center justify-center gap-4">
+              <BookOpen className="h-5 w-5 text-primary" />
+              <span className="font-medium">Helpful Resources:</span>
+              <Link to="/faq" className="text-primary hover:underline">FAQ</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/about" className="text-primary hover:underline">About Us</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/blog" className="text-primary hover:underline">Blog</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/portfolio" className="text-primary hover:underline">Portfolio</Link>
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-muted/30">
+          <Container>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">AI Services FAQ</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Common questions about AI services in London. <Link to="/faq" className="text-primary hover:underline">View all FAQs →</Link></p>
+            </div>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (
@@ -126,6 +199,9 @@ const AiServicesLondon = () => {
             </div>
           </Container>
         </section>
+
+        {/* Areas Footer */}
+        <AreasFooter />
       </main>
 
       <Footer />

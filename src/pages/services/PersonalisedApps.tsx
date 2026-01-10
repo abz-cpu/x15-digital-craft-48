@@ -125,18 +125,38 @@ const PersonalisedApps = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="relative overflow-hidden pt-40 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+          </div>
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Personalised Apps for UK Businesses
+              <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 mb-6">
+                Custom Business Tools • From £500
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Stop Drowning in Spreadsheets
               </h1>
-              <p className="text-xl text-white/90 mb-4">
-                Order trackers, invoice managers, financial dashboards, and more.
+              <p className="text-xl md:text-2xl text-white/90 mb-4">
+                Order trackers, invoice managers, financial dashboards — built exactly how you work.
               </p>
-              <p className="text-lg text-white/80">
-                Custom tools built exactly how you work. From £500.
+              <p className="text-lg text-white/70 mb-8">
+                Personalised apps that replace your messy spreadsheets with clean, simple tools.
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                  <Link to="/contact">
+                    Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+                  <Link to="/quick-start">
+                    Start Project Brief
+                  </Link>
+                </Button>
+              </div>
             </div>
           </Container>
         </section>
@@ -145,29 +165,39 @@ const PersonalisedApps = () => {
         <BreadcrumbNav />
 
         {/* Who This Is For */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">
-                  Who This Is For
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-                  Personalised apps are perfect for businesses drowning in spreadsheets and manual processes.
-                </p>
+                <div className="text-center mb-10">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                    Is This You?
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Sound Familiar?
+                  </h2>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    If you're nodding along, we built these tools for you.
+                  </p>
+                </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    "Business owners tracking orders on paper or WhatsApp",
-                    "Freelancers chasing invoices and payments manually",
-                    "Sole traders with no visibility on cash flow",
-                    "Service providers juggling customer details across apps",
-                    "Anyone spending hours on tasks that could be automated",
+                    { text: "Tracking orders on paper, WhatsApp, or sticky notes", emoji: "📝" },
+                    { text: "Chasing invoices and losing track of who's paid", emoji: "💸" },
+                    { text: "No idea where your money goes each month", emoji: "🤷" },
+                    { text: "Customer details scattered across five different apps", emoji: "📱" },
+                    { text: "Spending hours on admin instead of growing your business", emoji: "⏰" },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 bg-primary/5 rounded-lg">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-secondary">{item}</span>
+                    <div key={i} className="flex items-start gap-4 p-5 bg-muted/50 rounded-xl border border-border hover:border-primary/30 transition-colors">
+                      <span className="text-2xl flex-shrink-0">{item.emoji}</span>
+                      <span className="text-secondary font-medium">{item.text}</span>
                     </div>
                   ))}
+                </div>
+                <div className="text-center mt-8">
+                  <p className="text-muted-foreground">
+                    <strong className="text-secondary">You're not alone.</strong> Most small business owners start this way — but they don't have to stay there.
+                  </p>
                 </div>
               </div>
             </AnimatedSection>
@@ -175,36 +205,49 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Real-World Examples */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-5xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
-                  Real-World Examples
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-                  These are the custom apps UK business owners are building to take back control.
-                </p>
+                <div className="text-center mb-12">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                    Popular Solutions
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Tools Real Business Owners Use
+                  </h2>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Stop juggling spreadsheets and WhatsApp notes. Here's what we build for UK businesses just like yours.
+                  </p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {realWorldExamples.map((example, i) => (
-                    <Card key={i} className="hover-lift h-full">
+                    <Card key={i} className="hover-lift h-full border-0 shadow-md hover:shadow-xl transition-shadow duration-300 bg-background">
                       <CardContent className="p-6 flex flex-col h-full">
-                        <example.icon className="h-10 w-10 text-primary mb-4" />
-                        <h3 className="text-lg font-semibold text-secondary mb-2">{example.title}</h3>
-                        <p className="text-muted-foreground text-sm mb-3 flex-grow">{example.description}</p>
-                        <div className="mt-auto">
-                          <p className="text-xs text-muted-foreground mb-2"><strong>For:</strong> {example.forWho}</p>
-                          <p className="text-primary font-semibold">{example.startPrice}</p>
+                        <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                          <example.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-secondary mb-2">{example.title}</h3>
+                        <p className="text-muted-foreground text-sm mb-4 flex-grow leading-relaxed">{example.description}</p>
+                        <div className="pt-4 border-t border-border mt-auto">
+                          <p className="text-xs text-muted-foreground mb-1">
+                            <span className="font-medium">Best for:</span> {example.forWho}
+                          </p>
+                          <p className="text-primary font-bold text-lg">{example.startPrice}</p>
                         </div>
                       </CardContent>
                     </Card>
                   ))}
                 </div>
-                <p className="text-center text-muted-foreground mt-8">
-                  <Link to="/blog/personalised-apps-struggling-business-owners" className="text-primary hover:underline">
-                    Read our full guide: 5 Apps Every Struggling Business Owner Needs →
+                <div className="text-center mt-10">
+                  <Link 
+                    to="/blog/personalised-apps-struggling-business-owners" 
+                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+                  >
+                    Read our full guide: 5 Apps Every Struggling Business Owner Needs
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
-                </p>
+                </div>
               </div>
             </AnimatedSection>
           </Container>
@@ -269,51 +312,105 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                Transparent Pricing
-              </h2>
-              <p className="text-lg text-muted-foreground mb-2">
-                Pricing depends on complexity and features required.
-              </p>
-              <p className="text-2xl font-bold text-primary mb-6">
-                Most projects start from £500
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Simple tools can be ready in 1-2 weeks. Complex systems take 2-4 weeks.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Compare that to £800-1,200/month for a part-time admin, or £50-200/month × forever for enterprise software subscriptions.
-              </p>
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-10">
+                <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                  Clear & Honest
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                  Transparent Pricing
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  No hidden fees. No surprise invoices. Just straightforward pricing.
+                </p>
+              </div>
+              
+              <Card className="border-2 border-primary/20 shadow-lg overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-primary/5 p-8 text-center border-b border-border">
+                    <p className="text-muted-foreground mb-2">Most projects start from</p>
+                    <p className="text-5xl font-bold text-primary mb-2">£500</p>
+                    <p className="text-sm text-muted-foreground">One-time payment, you own it forever</p>
+                  </div>
+                  <div className="p-8">
+                    <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-secondary">Quick Turnaround</p>
+                          <p className="text-sm text-muted-foreground">1-2 weeks for simple tools</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-secondary">Fully Customised</p>
+                          <p className="text-sm text-muted-foreground">Built to your exact workflow</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-secondary">Training Included</p>
+                          <p className="text-sm text-muted-foreground">We show you how to use it</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-secondary">No Monthly Fees</p>
+                          <p className="text-sm text-muted-foreground">Unlike SaaS subscriptions</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-muted/50 rounded-lg p-4 text-center">
+                      <p className="text-sm text-muted-foreground">
+                        <strong>Compare:</strong> Part-time admin = £800-1,200/month. Enterprise SaaS = £50-200/month forever.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </Container>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
-                  Frequently Asked Questions
-                </h2>
-                <Accordion type="single" collapsible className="w-full">
+                <div className="text-center mb-10">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                    Got Questions?
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Frequently Asked Questions
+                  </h2>
+                </div>
+                <Accordion type="single" collapsible className="w-full space-y-3">
                   {faqs.map((faq, i) => (
-                    <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-lg mb-2 px-4">
-                      <AccordionTrigger className="text-left text-secondary hover:text-primary">
-                        {faq.question}
+                    <AccordionItem 
+                      key={i} 
+                      value={`faq-${i}`} 
+                      className="bg-background rounded-xl border border-border px-6 data-[state=open]:border-primary/30 shadow-sm"
+                    >
+                      <AccordionTrigger className="text-left text-secondary hover:text-primary py-5 hover:no-underline">
+                        <span className="font-medium pr-4">{faq.question}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
+                      <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
-                <p className="text-center text-muted-foreground mt-6">
-                  More questions? <Link to="/faq" className="text-primary hover:underline">Visit our complete FAQ page</Link> or <Link to="/contact" className="text-primary hover:underline">get in touch</Link>.
-                </p>
+                <div className="text-center mt-8">
+                  <p className="text-muted-foreground">
+                    More questions? <Link to="/faq" className="text-primary hover:underline font-medium">Visit our complete FAQ page</Link> or <Link to="/contact" className="text-primary hover:underline font-medium">get in touch</Link>.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           </Container>

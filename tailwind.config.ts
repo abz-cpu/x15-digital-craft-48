@@ -129,6 +129,16 @@ const config: Config = {
           "50%": { transform: "scale(1.08) translate(-1%, -1%)" },
           "100%": { transform: "scale(1) translate(0, 0)" },
         },
+        "confetti-fall": {
+          "0%": { 
+            transform: "translateY(0) rotate(0deg)", 
+            opacity: "1" 
+          },
+          "100%": { 
+            transform: "translateY(100vh) rotate(720deg)", 
+            opacity: "0" 
+          },
+        },
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
@@ -141,6 +151,7 @@ const config: Config = {
         "drift-horizontal": "drift-horizontal 25s ease-in-out infinite",
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         "ken-burns": "ken-burns 25s ease-in-out infinite",
+        "confetti-fall": "confetti-fall 2s ease-out forwards",
       },
     },
   },

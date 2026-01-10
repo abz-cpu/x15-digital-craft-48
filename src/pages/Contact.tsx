@@ -31,6 +31,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { ConfettiEffect } from "@/components/ConfettiEffect";
 
 // ============================================================================
 // Types for quiz functionality (preserved for future backend integration)
@@ -69,6 +70,7 @@ const Contact = () => {
 
   // Form submission state
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   // Turnstile CAPTCHA - no need to pass siteKey, hook uses env variable as string
@@ -272,6 +274,9 @@ const Contact = () => {
         throw new Error(errorData.message || "Failed to send inquiry");
       }
       
+      // Trigger confetti celebration
+      setShowConfetti(true);
+      
       toast({
         title: "Inquiry sent!",
         description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
@@ -303,6 +308,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ConfettiEffect trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
       <SEO
         title="Contact Us - Get Your Free Quote | L&D Digital"
         description="Contact L&D Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."

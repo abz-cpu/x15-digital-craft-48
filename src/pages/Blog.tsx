@@ -17,6 +17,7 @@ import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import blogStratfordWebDev from "@/assets/blog-stratford-web-developer.png";
 import blogEastLondonTips from "@/assets/blog-east-london-website-tips.png";
 import blogHackneySeo from "@/assets/blog-hackney-shoreditch-seo.png";
+import blogPersonalisedApps from "@/assets/blog-personalised-apps.png";
 
 type Category = "all" | "web-dev" | "ai-automation" | "business" | "case-studies";
 
@@ -116,6 +117,19 @@ const Blog = () => {
       date: "2026-01-09",
       author: "Abdul M Taher",
       image: blogHackneySeo,
+    },
+    {
+      id: 7,
+      slug: "personalised-apps-struggling-business-owners",
+      title: "5 Personalised Apps Every Struggling Business Owner Needs in 2026",
+      category: "ai-automation" as Category,
+      categoryLabel: "AI Automation",
+      excerpt:
+        "Order trackers, invoice managers, and financial dashboards. Learn how UK small business owners escape spreadsheet chaos with custom apps from £500.",
+      readTime: 8,
+      date: "2026-01-10",
+      author: "Abdul M Taher",
+      image: blogPersonalisedApps,
     },
   ];
 

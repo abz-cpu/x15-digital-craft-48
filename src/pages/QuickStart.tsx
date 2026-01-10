@@ -1,9 +1,11 @@
 import type { FormEvent, MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle, X, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { useTurnstile } from "@/hooks/useTurnstile";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingActionMenu from "@/components/FloatingActionMenu";
@@ -12,10 +14,16 @@ import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 
 const QuickStart = () => {
+  const location = useLocation();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [isQuickStartOpen, setIsQuickStartOpen] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Turnstile CAPTCHA - uses env variable automatically
+  const { containerRef: turnstileRef, reset: resetTurnstile, getToken } = useTurnstile();
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -35,6 +43,11 @@ const QuickStart = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  // Reset Turnstile on route navigation
+  useEffect(() => {
+    resetTurnstile();
+  }, [location.pathname, resetTurnstile]);
+
   // Close modals with Escape
   useEffect(() => {
     if (!isQuickStartOpen && !isCalendlyOpen) return;
@@ -50,16 +63,102 @@ const QuickStart = () => {
     return () => window.removeEventListener("keydown", handleKey);
   }, [isQuickStartOpen, isCalendlyOpen]);
 
-  const handleQuickStartSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleQuickStartSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    const name = (formData.get("name") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+    const need = (formData.get("projectType") as string) || "";
+    const budget = (formData.get("budget") as string) || "";
+    const message = (formData.get("details") as string)?.trim() || "Quick start form submission";
+    
+    // Validate required fields
+    if (!name) {
+      toast({
+        title: "Name required",
+        description: "Please enter your name.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!email) {
+      toast({
+        title: "Email required",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Get Turnstile token
+    const token = getToken();
+    if (!token) {
+      toast({
+        title: "Verification required",
+        description: "Please complete the security verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
-
-    // TODO: send to backend / Airtable / Make / Zapier
-    setTimeout(() => {
-      setIsSubmitting(false);
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          need,
+          budget,
+          message,
+          turnstileToken: token,
+        }),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to send enquiry");
+      }
+      
+      toast({
+        title: "Enquiry sent!",
+        description: "We'll reply within 2–4 hours with a clear quote and next steps.",
+      });
+      
+      // Reset form and close modal
+      form.reset();
+      resetTurnstile();
       setIsQuickStartOpen(false);
-      // plug toast here if you want
-    }, 800);
+      
+    } catch (error) {
+      console.error("Quick start form error:", error);
+      toast({
+        title: "Something went wrong",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOverlayClick = (e: ReactMouseEvent<HTMLDivElement>) => {
@@ -261,7 +360,7 @@ const QuickStart = () => {
                 hours.
               </p>
 
-              <form onSubmit={handleQuickStartSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={handleQuickStartSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-medium text-muted-foreground mb-1.5">Your name</label>
@@ -329,9 +428,23 @@ const QuickStart = () => {
                   />
                 </div>
 
+                {/* Turnstile CAPTCHA Widget */}
+                <div className="flex justify-center pt-2">
+                  <div ref={turnstileRef} className="cf-turnstile" />
+                </div>
+
                 <Button type="submit" className="w-full mt-2" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Submit & Get My Quote"}
-                  {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Submit & Get My Quote
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </>
+                  )}
                 </Button>
 
                 <p className="mt-2 text-[11px] text-muted-foreground text-center">

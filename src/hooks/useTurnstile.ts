@@ -23,14 +23,25 @@ declare global {
 const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
 const TURNSTILE_SCRIPT_URL = "https://challenges.cloudflare.com/turnstile/v0/api.js";
 
+// Get sitekey from environment variable as a STRING
+const TURNSTILE_SITE_KEY = String(import.meta.env.VITE_TURNSTILE_SITE_KEY || "0x4AAAAAACLuw5EZZf7nmsII");
+
+// Warn if sitekey is not configured in env
+if (!import.meta.env.VITE_TURNSTILE_SITE_KEY) {
+  console.warn("Missing VITE_TURNSTILE_SITE_KEY environment variable, using default sitekey");
+}
+
 interface UseTurnstileOptions {
-  siteKey: string;
+  siteKey?: string;
   onVerify?: (token: string) => void;
   onExpire?: () => void;
   onError?: () => void;
 }
 
-export function useTurnstile({ siteKey, onVerify, onExpire, onError }: UseTurnstileOptions) {
+export function useTurnstile({ siteKey, onVerify, onExpire, onError }: UseTurnstileOptions = {}) {
+  // Always use string sitekey - prefer passed value, fallback to env variable
+  const effectiveSiteKey = String(siteKey || TURNSTILE_SITE_KEY);
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -84,7 +95,7 @@ export function useTurnstile({ siteKey, onVerify, onExpire, onError }: UseTurnst
 
     try {
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
-        sitekey: siteKey,
+        sitekey: effectiveSiteKey,
         callback: (newToken: string) => {
           setToken(newToken);
           onVerify?.(newToken);
@@ -104,7 +115,7 @@ export function useTurnstile({ siteKey, onVerify, onExpire, onError }: UseTurnst
       console.error("Failed to render Turnstile widget:", error);
       setIsLoading(false);
     }
-  }, [siteKey, loadScript, onVerify, onExpire, onError]);
+  }, [effectiveSiteKey, loadScript, onVerify, onExpire, onError]);
 
   const reset = useCallback(() => {
     if (widgetIdRef.current && window.turnstile) {

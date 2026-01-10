@@ -74,6 +74,39 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/c
 
 ---
 
+## 🔐 Environment Variables
+
+This project requires the following environment variables for full functionality:
+
+### Frontend (Vite)
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `VITE_TURNSTILE_SITE_KEY` | Optional | Cloudflare Turnstile site key for CAPTCHA. Falls back to default if not set. |
+
+### Backend (Cloudflare Pages Functions)
+
+These must be set in Cloudflare Pages dashboard under Settings → Environment Variables:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `TURNSTILE_SECRET_KEY` | **Yes** | Cloudflare Turnstile secret key for server-side verification. Get from [Cloudflare Dashboard](https://dash.cloudflare.com/?to=/:account/turnstile). |
+| `RESEND_API_KEY` | **Yes** | Resend API key for sending emails. Get from [Resend Dashboard](https://resend.com/api-keys). |
+
+### Email Configuration
+
+The contact form sends two emails:
+1. **Internal notification** to `contact.luminousanddeliver@gmail.com` with full lead details
+2. **Confirmation email** to the user thanking them for their enquiry
+
+Emails are sent from:
+- Internal: `noreply@luminousanddeliver.co.uk`
+- Confirmation: `contact@luminousanddeliver.co.uk`
+
+Make sure these domains are verified in Resend: [Resend Domains](https://resend.com/domains)
+
+---
+
 # 🚀 Performance & PWA Features
 
 This app includes advanced performance optimizations and Progressive Web App capabilities.

@@ -158,8 +158,18 @@ function getInternalEmailHtml(
     ? `mailto:${customerEmail}?subject=${replySubject}&body=${replyBody}` 
     : '';
   
+  // Map project type value to human-readable label
+  const projectTypeMap: Record<string, string> = {
+    'website': 'New Website',
+    'redesign': 'Redesign Existing Site',
+    'ai': 'AI Automation / Chatbot',
+    'both': 'Website + AI',
+    'not-sure': 'Not Sure Yet'
+  };
+  const projectTypeRaw = data.need?.trim() || '';
+  const projectType = projectTypeMap[projectTypeRaw] || projectTypeRaw || 'Not specified';
+  
   // WhatsApp links - regular and prefilled
-  const projectType = data.need?.trim() || '';
   const whatsappPrefill = encodeURIComponent(`Hi ${firstName || 'there'}, thanks for your enquiry about ${projectType || 'your project'}. When would you like to chat?`);
   const whatsappLink = hasPhone ? `https://wa.me/${phoneDigitsOnly}` : '';
   const whatsappLinkPrefilled = hasPhone ? `https://wa.me/${phoneDigitsOnly}?text=${whatsappPrefill}` : '';
@@ -241,7 +251,7 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td style="text-align: center;">
-                    ${data.need?.trim() ? `<span style="display: inline-block; padding: 6px 14px; background-color: #dbeafe; color: #1e40af; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">📋 ${escapeHtml(data.need)}</span>` : ''}
+                    ${projectType && projectType !== 'Not specified' ? `<span style="display: inline-block; padding: 6px 14px; background-color: #dbeafe; color: #1e40af; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">📋 ${escapeHtml(projectType)}</span>` : ''}
                     ${data.budget?.trim() ? `<span style="display: inline-block; padding: 6px 14px; background-color: #dcfce7; color: #166534; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">💰 ${escapeHtml(data.budget)}</span>` : ''}
                     ${deadlineDisplay ? `<span style="display: inline-block; padding: 6px 14px; background-color: ${isUrgent ? '#fee2e2' : '#f3f4f6'}; color: ${isUrgent ? '#b91c1c' : '#374151'}; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">📆 ${escapeHtml(deadlineDisplay)}</span>` : ''}
                   </td>
@@ -371,7 +381,7 @@ function getInternalEmailHtml(
                         <td style="width: 33%; padding: 8px; vertical-align: top;">
                           <div style="padding: 12px; background-color: #f8fafc; border-radius: 8px; text-align: center;">
                             <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Type</p>
-                            <p class="text-primary" style="margin: 0; color: #1e293b; font-size: 13px; font-weight: 600;">${escapeHtml(data.need?.trim() || 'Not specified')}</p>
+                            <p class="text-primary" style="margin: 0; color: #1e293b; font-size: 13px; font-weight: 600;">${escapeHtml(projectType)}</p>
                           </div>
                         </td>
                         <td style="width: 33%; padding: 8px; vertical-align: top;">
@@ -406,7 +416,8 @@ function getInternalEmailHtml(
                           <p class="text-heading" style="margin: 0; color: #92400e; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">💬 Message</p>
                         </td>
                         <td style="text-align: right;">
-                          <span style="color: #b45309; font-size: 11px; font-weight: 500;">${messageCharCount} characters</span>
+                          <span style="color: #b45309; font-size: 11px; font-weight: 500; margin-right: 8px;">${messageCharCount} characters</span>
+                          <a href="#" onclick="navigator.clipboard.writeText(\`${escapeHtml(messageText).replace(/`/g, '\\`').replace(/\n/g, '\\n')}\`); this.innerText='✓ Copied'; setTimeout(() => this.innerText='📋 Copy message', 2000); return false;" style="display: inline-block; padding: 4px 10px; background-color: #f59e0b; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 11px; font-weight: 600; cursor: pointer;" data-copy="message">📋 Copy message</a>
                         </td>
                       </tr>
                     </table>

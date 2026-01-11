@@ -291,12 +291,24 @@ const Contact = () => {
         throw new Error(errorData.message || "Failed to send inquiry");
       }
       
+      // Parse response for confirmation status
+      const responseData = await response.json().catch(() => ({ ok: true }));
+      const confirmationStatus = responseData.confirmationStatus || 'sent';
+      const inquiryId = responseData.inquiryId;
+      
       // Trigger confetti celebration
       setShowConfetti(true);
       
+      // Show success message with optional email delivery note
+      const baseDescription = "We'll reply within 24–48 hours with a detailed quote and next steps.";
+      const emailNote = confirmationStatus === 'failed' 
+        ? " Note: Our confirmation email couldn't be delivered, but we've received your message and will respond via your preferred contact method."
+        : "";
+      
       toast({
         title: "Inquiry sent!",
-        description: "We'll reply within 24–48 hours with a detailed quote and next steps.",
+        description: baseDescription + emailNote + (inquiryId ? ` Reference: ${inquiryId}` : ''),
+        duration: confirmationStatus === 'failed' ? 8000 : 5000, // Show longer if email failed
       });
       
       // Reset form and Turnstile
@@ -531,6 +543,11 @@ const Contact = () => {
                       Take the 30-second quiz
                     </button>
                   </div>
+                  
+                  {/* Privacy email note */}
+                  <p className="text-[11px] text-muted-foreground/70 text-center mt-3 leading-relaxed">
+                    Using a school, university, or privacy email (e.g. Hide My Email)? Our confirmation may not arrive — but we've still received your message and will respond within 24–48 hours.
+                  </p>
                 </form>
               </CardContent>
             </Card>

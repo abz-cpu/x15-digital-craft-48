@@ -279,7 +279,7 @@ const Contact = () => {
       
       toast({
         title: "Inquiry sent!",
-        description: "We'll reply within 2–4 hours with a detailed quote and next steps.",
+        description: "We'll reply within 24–48 hours with a detailed quote and next steps.",
       });
       
       // Reset form and Turnstile

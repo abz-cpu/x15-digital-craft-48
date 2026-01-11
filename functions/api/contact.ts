@@ -275,13 +275,48 @@ function adjustColorBrightness(hex: string, percent: number): string {
   return `#${Math.round(r).toString(16).padStart(2, '0')}${Math.round(g).toString(16).padStart(2, '0')}${Math.round(b).toString(16).padStart(2, '0')}`;
 }
 
-function getConfirmationEmailHtml(name: string, config: EmailConfig = DEFAULT_EMAIL_CONFIG): string {
-  const customerName = name?.trim() || '';
-  const firstName = customerName ? customerName.split(' ')[0] : 'there';
+interface ConfirmationEmailData {
+  name?: string;
+  projectType?: string;
+  budget?: string;
+  deadline?: string;
+}
+
+function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConfig = DEFAULT_EMAIL_CONFIG): string {
+  const customerName = data.name?.trim() || '';
+  const hasName = customerName.length > 0;
   
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
   const brandColorDark = adjustColorBrightness(brandColor, -20);
+  
+  // Build summary items (only show fields that exist)
+  const summaryRows: string[] = [];
+  if (data.projectType?.trim()) {
+    summaryRows.push(`
+      <tr>
+        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; width: 110px; vertical-align: top;">Project type</td>
+        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.projectType)}</td>
+      </tr>
+    `);
+  }
+  if (data.budget?.trim()) {
+    summaryRows.push(`
+      <tr>
+        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; vertical-align: top;">Budget range</td>
+        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.budget)}</td>
+      </tr>
+    `);
+  }
+  if (data.deadline?.trim()) {
+    summaryRows.push(`
+      <tr>
+        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; vertical-align: top;">Deadline</td>
+        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.deadline)}</td>
+      </tr>
+    `);
+  }
+  const hasSummary = summaryRows.length > 0;
   
   return `
 <!DOCTYPE html>
@@ -296,9 +331,12 @@ function getConfirmationEmailHtml(name: string, config: EmailConfig = DEFAULT_EM
     @media (prefers-color-scheme: dark) {
       .email-body { background-color: #1f2937 !important; }
       .email-card { background-color: #111827 !important; }
+      .section-bg { background-color: #1f2937 !important; }
       .text-primary { color: #f9fafb !important; }
       .text-secondary { color: #d1d5db !important; }
+      .text-muted { color: #9ca3af !important; }
       .footer-bg { background-color: #1f2937 !important; }
+      .summary-table td { color: #d1d5db !important; }
     }
   </style>
 </head>
@@ -306,69 +344,100 @@ function getConfirmationEmailHtml(name: string, config: EmailConfig = DEFAULT_EM
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
       <td style="padding: 40px 20px;">
-        <table class="email-card" role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header with configurable brand color -->
+        <table class="email-card" role="presentation" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);">
+          <!-- Header with brand gradient -->
           <tr>
-            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 32px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">Thanks for getting in touch!</h1>
+            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 28px 32px; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600; letter-spacing: -0.3px;">We've received your enquiry</h1>
             </td>
           </tr>
           
           <!-- Content -->
           <tr>
-            <td style="padding: 40px;">
-              <p class="text-primary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
-                Hi ${escapeHtml(firstName)},
-              </p>
+            <td style="padding: 32px 32px 24px;">
+              ${hasName ? `<p class="text-primary" style="margin: 0 0 20px; color: #111827; font-size: 15px;">Hi ${escapeHtml(customerName)},</p>` : ''}
               
-              <p class="text-secondary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
-                We've received your enquiry and we're excited to learn more about your project.
+              <!-- Confirmation message -->
+              <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 15px;">
+                Thanks — your enquiry has been received.
+              </p>
+              <p class="text-muted" style="margin: 0 0 24px; color: #6b7280; font-size: 14px;">
+                We typically respond within 24–48 hours (Mon–Fri).
               </p>
 
-              <!-- Timeline Box -->
-              <table role="presentation" style="width: 100%; margin: 24px 0;">
+              ${hasSummary ? `
+              <!-- Summary section -->
+              <table class="summary-table" role="presentation" style="width: 100%; margin-bottom: 24px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
                 <tr>
-                  <td style="padding: 20px; background-color: ${brandColor}10; border-radius: 8px; border-left: 4px solid ${brandColor};">
-                    <p style="margin: 0; color: ${brandColorDark}; font-size: 14px; font-weight: 600;">
-                      ⏱️ What happens next?
+                  <td colspan="2" style="padding: 12px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+                    <p style="margin: 0; font-size: 13px; font-weight: 600; color: #374151; text-transform: uppercase; letter-spacing: 0.5px;">Your submission</p>
+                  </td>
+                </tr>
+                ${summaryRows.join('')}
+              </table>
+              ` : ''}
+
+              <!-- Reply instruction -->
+              <p class="text-secondary" style="margin: 0 0 24px; color: #374151; font-size: 14px; padding: 12px 16px; background-color: ${brandColor}08; border-left: 3px solid ${brandColor}; border-radius: 0 6px 6px 0;">
+                If you need to add anything, you can reply directly to this email.
+              </p>
+
+              <!-- Signature -->
+              <p class="text-primary" style="margin: 0; color: #374151; font-size: 14px;">
+                Best regards,<br>
+                <strong style="color: #111827;">${escapeHtml(config.brandName)}</strong>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Sister brand section (subtle) -->
+          <tr>
+            <td style="padding: 0 32px 28px;">
+              <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+                <tr>
+                  <td>
+                    <p class="text-muted" style="margin: 0 0 12px; color: #6b7280; font-size: 12px;">
+                      If you also need help with custom PCs or technical support, our sister brand may be useful:
                     </p>
-                    <p style="margin: 8px 0 0; color: #374151; font-size: 14px;">
-                      We typically respond within <strong>24–48 hours</strong> (Mon–Fri).
+                    <p style="margin: 0 0 16px;">
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: ${brandColor}; text-decoration: none; font-size: 13px; font-weight: 500;">builds.luminousanddeliver.co.uk</a>
                     </p>
+                    
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="vertical-align: top; width: 50%; padding-right: 12px;">
+                          <p style="margin: 0 0 6px; color: #374151; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">What you get</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.7;">
+                            <li>Remote support for quick fixes</li>
+                            <li>Network & Wi-Fi troubleshooting</li>
+                            <li>Hardware advice & upgrades</li>
+                            <li>Software support</li>
+                          </ul>
+                        </td>
+                        <td style="vertical-align: top; width: 50%; padding-left: 12px;">
+                          <p style="margin: 0 0 6px; color: #374151; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">What's covered</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.7;">
+                            <li>Email setup & troubleshooting</li>
+                            <li>Printer & peripheral setup</li>
+                            <li>Cloud storage & backups</li>
+                            <li>Password & security guidance</li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
-
-              <p class="text-secondary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
-                If you have any additional details to share or questions, feel free to reply to this email or message us on WhatsApp.
-              </p>
-
-              <!-- WhatsApp Button -->
-              <table role="presentation" style="width: 100%; margin: 24px 0;">
-                <tr>
-                  <td style="text-align: center;">
-                    <a href="https://wa.me/447356260648?text=Hi%2C%20I%20just%20submitted%20an%20enquiry%20and%20wanted%20to%20add%20some%20details" 
-                       style="display: inline-block; padding: 12px 24px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                      💬 Message us on WhatsApp
-                    </a>
-                  </td>
-                </tr>
-              </table>
-
-              <p class="text-primary" style="margin: 24px 0 0; color: #374151; font-size: 16px;">
-                Speak soon,<br>
-                <strong>The ${escapeHtml(config.brandName)} Team</strong>
-              </p>
             </td>
           </tr>
 
           <!-- Footer -->
           <tr>
-            <td class="footer-bg" style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center;">
-              <p style="margin: 0 0 8px; color: #6b7280; font-size: 12px;">
+            <td class="footer-bg" style="padding: 16px 32px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 11px;">
                 ${escapeHtml(config.brandName)} • London, UK
               </p>
-              <p style="margin: 0; color: #9ca3af; font-size: 11px;">
+              <p style="margin: 0; color: #9ca3af; font-size: 10px;">
                 <a href="https://digital.luminousanddeliver.co.uk" style="color: ${brandColor}; text-decoration: none;">digital.luminousanddeliver.co.uk</a>
               </p>
             </td>
@@ -529,6 +598,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     // Send confirmation email to the user
+    const confirmationEmailData: ConfirmationEmailData = {
+      name: name,
+      projectType: need,
+      budget: budget,
+      deadline: deadline,
+    };
+    
     const confirmationEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -539,8 +615,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         from: "L&D Digital <contact@luminousanddeliver.co.uk>",
         to: [email],
         reply_to: "contact.luminousanddeliver@gmail.com",
-        subject: "We've received your enquiry – L&D Digital",
-        html: getConfirmationEmailHtml(name, emailConfig),
+        subject: "We've received your enquiry — we'll be in touch shortly",
+        html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
       }),
     });
 

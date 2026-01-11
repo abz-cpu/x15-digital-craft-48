@@ -55,13 +55,63 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+// Email template configuration - configurable brand color
+interface EmailConfig {
+  brandPrimaryColor: string; // Hex color e.g. "#0d9488"
+  brandName: string;
+  sourceUrl?: string;
+}
+
+// Default brand configuration (teal/green to match L&D Digital)
+const DEFAULT_EMAIL_CONFIG: EmailConfig = {
+  brandPrimaryColor: "#0d9488", // Teal-600
+  brandName: "L&D Digital",
+};
+
 // HTML Email Templates
-function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
+function getInternalEmailHtml(
+  data: ContactRequest, 
+  clientIP: string,
+  config: EmailConfig = DEFAULT_EMAIL_CONFIG
+): string {
   const submittedAt = new Date().toLocaleString('en-GB', { 
     timeZone: 'Europe/London',
     dateStyle: 'full',
     timeStyle: 'short'
   });
+
+  // Safely extract customer name - never use form name or placeholders
+  const customerName = data.name?.trim() || '';
+  const displayName = customerName || '(Not provided)';
+  const firstName = customerName ? customerName.split(' ')[0] : '';
+  
+  // Email must be lowercase for display, never uppercase
+  const customerEmail = data.email?.trim()?.toLowerCase() || '';
+  const hasValidEmail = customerEmail && customerEmail.includes('@');
+  
+  // Brand color with fallback
+  const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
+  const brandColorDark = adjustColorBrightness(brandColor, -20); // Darker shade for gradient
+  
+  // Build summary items (only show fields that exist)
+  const summaryItems: string[] = [];
+  if (data.need?.trim()) {
+    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: ${brandColor}15; color: ${brandColor}; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px; margin-bottom: 4px;">${escapeHtml(data.need)}</span>`);
+  }
+  if (data.budget?.trim()) {
+    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: #f59e0b15; color: #b45309; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px; margin-bottom: 4px;">${escapeHtml(data.budget)}</span>`);
+  }
+  if (data.deadline?.trim()) {
+    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: #6366f115; color: #4f46e5; border-radius: 4px; font-size: 12px; font-weight: 500; margin-bottom: 4px;">${escapeHtml(data.deadline)}</span>`);
+  }
+  const hasSummary = summaryItems.length > 0;
+  
+  // Build reply mailto link with pre-filled body
+  const replySubject = encodeURIComponent('Re: Your enquiry');
+  const replyBody = encodeURIComponent(`Hi ${firstName || 'there'},\n\nThanks for reaching out — we've received your enquiry and will get back to you within 24–48 hours (Mon–Fri).\n\n`);
+  const replyMailtoLink = hasValidEmail 
+    ? `mailto:${customerEmail}?subject=${replySubject}&body=${replyBody}` 
+    : '';
 
   return `
 <!DOCTYPE html>
@@ -69,36 +119,62 @@ function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Enquiry - L&D Digital</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>New Enquiry - ${escapeHtml(config.brandName)}</title>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .email-body { background-color: #1f2937 !important; }
+      .email-card { background-color: #111827 !important; }
+      .section-bg { background-color: #1f2937 !important; }
+      .text-primary { color: #f9fafb !important; }
+      .text-secondary { color: #d1d5db !important; }
+      .footer-bg { background-color: #1f2937 !important; }
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
+<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
       <td style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header -->
+        <table class="email-card" role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <!-- Header with configurable brand color -->
           <tr>
-            <td style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 32px 40px; text-align: center;">
+            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 32px 40px; text-align: center;">
               <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">New Project Enquiry</h1>
-              <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">L&D Digital Contact Form</p>
+              <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
+              <p style="margin: 12px 0 0; color: rgba(255,255,255,0.75); font-size: 12px;">We typically respond within 24–48 hours (Mon–Fri).</p>
             </td>
           </tr>
           
           <!-- Content -->
           <tr>
             <td style="padding: 40px;">
+              ${hasSummary ? `
+              <!-- Quick Summary -->
+              <table role="presentation" style="width: 100%; margin-bottom: 20px;">
+                <tr>
+                  <td style="padding: 12px 16px; background-color: #f9fafb; border-radius: 8px; text-align: center;">
+                    ${summaryItems.join('')}
+                  </td>
+                </tr>
+              </table>
+              ` : ''}
+              
               <!-- Contact Details -->
               <table role="presentation" style="width: 100%; margin-bottom: 24px;">
                 <tr>
-                  <td style="padding: 16px; background-color: #f9fafb; border-radius: 8px; border-left: 4px solid #6366f1;">
-                    <h2 style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Contact Details</h2>
-                    <p style="margin: 0 0 8px; color: #374151; font-size: 14px;">
-                      <strong>Name:</strong> ${escapeHtml(data.name)}
+                  <td class="section-bg" style="padding: 16px; background-color: #f9fafb; border-radius: 8px; border-left: 4px solid ${brandColor};">
+                    <h2 class="text-primary" style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Contact Details</h2>
+                    <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 14px;">
+                      <strong>Name:</strong> ${escapeHtml(displayName)}
                     </p>
-                    <p style="margin: 0 0 8px; color: #374151; font-size: 14px;">
-                      <strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}" style="color: #6366f1;">${escapeHtml(data.email)}</a>
+                    <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 14px;">
+                      <strong>Email:</strong> ${hasValidEmail 
+                        ? `<a href="mailto:${escapeHtml(customerEmail)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(customerEmail)}</a>` 
+                        : '<span style="color: #9ca3af; font-style: italic;">(Not provided)</span>'}
                     </p>
-                    ${data.phone ? `<p style="margin: 0; color: #374151; font-size: 14px;"><strong>Phone:</strong> <a href="tel:${escapeHtml(data.phone)}" style="color: #6366f1;">${escapeHtml(data.phone)}</a></p>` : ''}
+                    ${data.phone?.trim() ? `<p class="text-secondary" style="margin: 0; color: #374151; font-size: 14px;"><strong>Phone:</strong> <a href="tel:${escapeHtml(data.phone)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(data.phone)}</a></p>` : ''}
                   </td>
                 </tr>
               </table>
@@ -106,20 +182,20 @@ function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
               <!-- Project Details -->
               <table role="presentation" style="width: 100%; margin-bottom: 24px;">
                 <tr>
-                  <td style="padding: 16px; background-color: #f9fafb; border-radius: 8px;">
-                    <h2 style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Project Details</h2>
+                  <td class="section-bg" style="padding: 16px; background-color: #f9fafb; border-radius: 8px;">
+                    <h2 class="text-primary" style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Project Details</h2>
                     <table role="presentation" style="width: 100%;">
                       <tr>
-                        <td style="padding: 4px 0; color: #6b7280; font-size: 14px; width: 120px;">Project Type:</td>
-                        <td style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.need || 'Not specified')}</td>
+                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px; width: 120px;">Project Type:</td>
+                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.need?.trim() || 'Not specified')}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 4px 0; color: #6b7280; font-size: 14px;">Budget Range:</td>
-                        <td style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.budget || 'Not specified')}</td>
+                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px;">Budget Range:</td>
+                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.budget?.trim() || 'Not specified')}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 4px 0; color: #6b7280; font-size: 14px;">Deadline:</td>
-                        <td style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.deadline || 'Not specified')}</td>
+                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px;">Deadline:</td>
+                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.deadline?.trim() || 'Not specified')}</td>
                       </tr>
                     </table>
                   </td>
@@ -131,7 +207,7 @@ function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
                 <tr>
                   <td style="padding: 16px; background-color: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
                     <h2 style="margin: 0 0 12px; color: #92400e; font-size: 16px; font-weight: 600;">Message</h2>
-                    <p style="margin: 0; color: #78350f; font-size: 14px; white-space: pre-wrap;">${escapeHtml(data.message)}</p>
+                    <p style="margin: 0; color: #78350f; font-size: 14px; white-space: pre-wrap;">${escapeHtml(data.message || '(No message provided)')}</p>
                   </td>
                 </tr>
               </table>
@@ -140,22 +216,35 @@ function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td style="text-align: center; padding-top: 16px;">
-                    <a href="mailto:${escapeHtml(data.email)}?subject=Re: Your enquiry to L&D Digital" 
-                       style="display: inline-block; padding: 12px 24px; background-color: #6366f1; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                      Reply to ${escapeHtml(data.name.split(' ')[0])}
-                    </a>
+                    ${hasValidEmail 
+                      ? `<a href="${replyMailtoLink}" 
+                           style="display: inline-block; padding: 14px 28px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                          Reply to customer
+                        </a>`
+                      : `<p style="margin: 0; color: #9ca3af; font-size: 13px; font-style: italic;">No email provided — reply unavailable.</p>`
+                    }
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- Footer with debug metadata -->
           <tr>
-            <td style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
-              <p style="margin: 0; color: #6b7280; font-size: 12px; text-align: center;">
-                Submitted: ${submittedAt} • IP: ${clientIP}
-              </p>
+            <td class="footer-bg" style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+              <table role="presentation" style="width: 100%;">
+                <tr>
+                  <td style="text-align: center;">
+                    <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px;">
+                      Submitted: ${submittedAt}
+                    </p>
+                    ${config.sourceUrl ? `<p style="margin: 0 0 4px; color: #9ca3af; font-size: 11px;">Source: ${escapeHtml(config.sourceUrl)}</p>` : ''}
+                    <p style="margin: 0; color: #d1d5db; font-size: 10px;">
+                      IP: ${clientIP}
+                    </p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
@@ -167,8 +256,32 @@ function getInternalEmailHtml(data: ContactRequest, clientIP: string): string {
   `.trim();
 }
 
-function getConfirmationEmailHtml(name: string): string {
-  const firstName = name.split(' ')[0];
+// Helper to darken/lighten hex color
+function adjustColorBrightness(hex: string, percent: number): string {
+  // Remove # if present
+  hex = hex.replace(/^#/, '');
+  
+  // Parse RGB
+  let r = parseInt(hex.substring(0, 2), 16);
+  let g = parseInt(hex.substring(2, 4), 16);
+  let b = parseInt(hex.substring(4, 6), 16);
+  
+  // Adjust brightness
+  r = Math.max(0, Math.min(255, r + (r * percent / 100)));
+  g = Math.max(0, Math.min(255, g + (g * percent / 100)));
+  b = Math.max(0, Math.min(255, b + (b * percent / 100)));
+  
+  // Convert back to hex
+  return `#${Math.round(r).toString(16).padStart(2, '0')}${Math.round(g).toString(16).padStart(2, '0')}${Math.round(b).toString(16).padStart(2, '0')}`;
+}
+
+function getConfirmationEmailHtml(name: string, config: EmailConfig = DEFAULT_EMAIL_CONFIG): string {
+  const customerName = name?.trim() || '';
+  const firstName = customerName ? customerName.split(' ')[0] : 'there';
+  
+  // Brand color with fallback
+  const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
+  const brandColorDark = adjustColorBrightness(brandColor, -20);
   
   return `
 <!DOCTYPE html>
@@ -176,16 +289,27 @@ function getConfirmationEmailHtml(name: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>We've received your enquiry - L&D Digital</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>We've received your enquiry - ${escapeHtml(config.brandName)}</title>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .email-body { background-color: #1f2937 !important; }
+      .email-card { background-color: #111827 !important; }
+      .text-primary { color: #f9fafb !important; }
+      .text-secondary { color: #d1d5db !important; }
+      .footer-bg { background-color: #1f2937 !important; }
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
+<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
       <td style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header -->
+        <table class="email-card" role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <!-- Header with configurable brand color -->
           <tr>
-            <td style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 32px 40px; text-align: center;">
+            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 32px 40px; text-align: center;">
               <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">Thanks for getting in touch!</h1>
             </td>
           </tr>
@@ -193,30 +317,30 @@ function getConfirmationEmailHtml(name: string): string {
           <!-- Content -->
           <tr>
             <td style="padding: 40px;">
-              <p style="margin: 0 0 16px; color: #374151; font-size: 16px;">
+              <p class="text-primary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
                 Hi ${escapeHtml(firstName)},
               </p>
               
-              <p style="margin: 0 0 16px; color: #374151; font-size: 16px;">
+              <p class="text-secondary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
                 We've received your enquiry and we're excited to learn more about your project.
               </p>
 
               <!-- Timeline Box -->
               <table role="presentation" style="width: 100%; margin: 24px 0;">
                 <tr>
-                  <td style="padding: 20px; background-color: #ecfdf5; border-radius: 8px; border-left: 4px solid #10b981;">
-                    <p style="margin: 0; color: #065f46; font-size: 14px; font-weight: 600;">
+                  <td style="padding: 20px; background-color: ${brandColor}10; border-radius: 8px; border-left: 4px solid ${brandColor};">
+                    <p style="margin: 0; color: ${brandColorDark}; font-size: 14px; font-weight: 600;">
                       ⏱️ What happens next?
                     </p>
-                    <p style="margin: 8px 0 0; color: #047857; font-size: 14px;">
-                      We'll review your requirements and get back to you within <strong>2–4 hours</strong> (during business hours) with a clear quote and next steps.
+                    <p style="margin: 8px 0 0; color: #374151; font-size: 14px;">
+                      We typically respond within <strong>24–48 hours</strong> (Mon–Fri).
                     </p>
                   </td>
                 </tr>
               </table>
 
-              <p style="margin: 0 0 16px; color: #374151; font-size: 16px;">
-                In the meantime, if you have any additional details to share or questions, feel free to reply to this email or message us on WhatsApp.
+              <p class="text-secondary" style="margin: 0 0 16px; color: #374151; font-size: 16px;">
+                If you have any additional details to share or questions, feel free to reply to this email or message us on WhatsApp.
               </p>
 
               <!-- WhatsApp Button -->
@@ -231,21 +355,21 @@ function getConfirmationEmailHtml(name: string): string {
                 </tr>
               </table>
 
-              <p style="margin: 24px 0 0; color: #374151; font-size: 16px;">
+              <p class="text-primary" style="margin: 24px 0 0; color: #374151; font-size: 16px;">
                 Speak soon,<br>
-                <strong>The L&D Digital Team</strong>
+                <strong>The ${escapeHtml(config.brandName)} Team</strong>
               </p>
             </td>
           </tr>
 
           <!-- Footer -->
           <tr>
-            <td style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center;">
+            <td class="footer-bg" style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center;">
               <p style="margin: 0 0 8px; color: #6b7280; font-size: 12px;">
-                L&D Digital • London, UK
+                ${escapeHtml(config.brandName)} • London, UK
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 11px;">
-                <a href="https://digital.luminousanddeliver.co.uk" style="color: #6366f1; text-decoration: none;">digital.luminousanddeliver.co.uk</a>
+                <a href="https://digital.luminousanddeliver.co.uk" style="color: ${brandColor}; text-decoration: none;">digital.luminousanddeliver.co.uk</a>
               </p>
             </td>
           </tr>
@@ -365,7 +489,15 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       );
     }
 
+    // Email config - use brand colors and settings
+    const emailConfig: EmailConfig = {
+      brandPrimaryColor: "#0d9488", // Teal-600 matching L&D Digital site
+      brandName: "L&D Digital",
+      sourceUrl: request.headers.get("Referer") || "https://digital.luminousanddeliver.co.uk/contact",
+    };
+
     // Send internal email to site owner via Resend REST API
+    const customerName = name?.trim() || '';
     const internalEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -376,8 +508,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
-        subject: `New enquiry from ${name} – L&D Digital`,
-        html: getInternalEmailHtml(body, clientIP),
+        subject: `New enquiry from ${customerName || 'a visitor'} – L&D Digital`,
+        html: getInternalEmailHtml(body, clientIP, emailConfig),
       }),
     });
 
@@ -408,7 +540,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         to: [email],
         reply_to: "contact.luminousanddeliver@gmail.com",
         subject: "We've received your enquiry – L&D Digital",
-        html: getConfirmationEmailHtml(name),
+        html: getConfirmationEmailHtml(name, emailConfig),
       }),
     });
 

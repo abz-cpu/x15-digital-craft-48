@@ -121,6 +121,40 @@ function getInternalEmailHtml(
   const dueAt = new Date(submittedAtDate.getTime() + slaHours * 60 * 60 * 1000);
   const dueAtFormatted = formatEmailDateTime(dueAt);
 
+  // Build Sendtric countdown timer URL (free, no signup required)
+  // Counts down to the SLA deadline (48 hours after submission)
+  const sendtricTimerUrl = (() => {
+    const year = dueAt.getUTCFullYear();
+    const month = String(dueAt.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(dueAt.getUTCDate()).padStart(2, "0");
+    const hours = String(dueAt.getUTCHours()).padStart(2, "0");
+    const minutes = String(dueAt.getUTCMinutes()).padStart(2, "0");
+    const seconds = String(dueAt.getUTCSeconds()).padStart(2, "0");
+    
+    // Sendtric format: YYYY-MM-DD HH:MM:SS
+    const deadline = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    
+    // Build URL with styling to match brand
+    const params = new URLSearchParams({
+      year: String(year),
+      month: month,
+      day: day,
+      hour: hours,
+      min: minutes,
+      sec: seconds,
+      p0: "00", // days label
+      p1: "00", // hours label  
+      color: "fef08a", // yellow text (matches brand accent)
+      width: "180",
+      height: "50",
+      timezone: "UTC",
+      font: "roboto",
+      time_zone: "UTC"
+    });
+    
+    return `https://www.sendtric.com/countdown/gif?${params.toString()}`;
+  })();
+
   // Elapsed time (fallback text for clients that block images)
   const elapsedMs = now.getTime() - submittedAtDate.getTime();
   const elapsedMinutes = Math.max(0, Math.floor(elapsedMs / (1000 * 60)));
@@ -327,11 +361,17 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAtFormatted} · <strong style="color: #fef08a;">${elapsedLabel}</strong>
+                            📅 <strong>Received:</strong> ${submittedAtFormatted}
                           </p>
                           <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 12px;">
-                            ⏱️ <strong>Response due by:</strong> ${dueAtFormatted}
+                            ⏱️ <strong>Time remaining:</strong>
+                            <img src="${sendtricTimerUrl}" alt="${elapsedLabel}" style="vertical-align: middle; height: 20px; margin-left: 4px;" />
                           </p>
+                          <p style="margin: 4px 0 0; color: rgba(255,255,255,0.7); font-size: 11px;">
+                            (Due: ${dueAtFormatted})
+                          </p>
+                        </td>
+                      </tr>
                     </table>
                   </td>
                 </tr>

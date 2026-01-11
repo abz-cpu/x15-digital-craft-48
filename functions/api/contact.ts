@@ -332,6 +332,8 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
+                    <!-- Logo -->
+                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" alt="L&D Digital - Luminous & Deliver" style="height: 36px; width: auto; display: block; margin-bottom: 16px;" />
                     <!-- SLA Status Badge -->
                     <table role="presentation" style="margin-bottom: 12px;">
                       <tr>
@@ -645,8 +647,8 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
   const brandColorDark = adjustColorBrightness(brandColor, -15);
   const brandColorLight = adjustColorBrightness(brandColor, 85); // Very light tint for backgrounds
   
-  // WhatsApp config
-  const whatsappNumber = '447961341548';
+  // WhatsApp config - correct number
+  const whatsappNumber = '447356260648';
   const whatsappMessage = encodeURIComponent('Hi, I just submitted an enquiry on your website and wanted to follow up.');
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   
@@ -715,6 +717,8 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
+              <!-- Logo -->
+              <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" alt="L&D Digital - Luminous & Deliver" style="height: 40px; width: auto; display: inline-block; margin-bottom: 16px;" />
               <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Thanks for getting in touch!</h1>
               <p style="margin: 10px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">We're excited to learn more about your project</p>
             </td>
@@ -1007,7 +1011,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+        from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
         subject: `New enquiry from ${customerName || 'a visitor'} – L&D Digital`,
@@ -1045,7 +1049,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital <contact@luminousanddeliver.co.uk>",
+        from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
         to: [email],
         reply_to: "contact.luminousanddeliver@gmail.com",
         subject: "We've received your enquiry — we'll be in touch shortly",

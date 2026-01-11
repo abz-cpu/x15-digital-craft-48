@@ -336,7 +336,7 @@ function getInternalEmailHtml(
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
                         <td>
-                          <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                          <img src="https://digital.luminousanddeliver.co.uk/brand/logo1-email-gradient.png"
                                alt="L&D DIGITAL - Luminous & Deliver" 
                                width="220" 
                                style="display: block; border: 0; outline: none; max-height: 60px;" />
@@ -759,7 +759,7 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
                   <td style="text-align: center;">
-                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo1-email-gradient.png" 
                          alt="L&D DIGITAL - Luminous & Deliver" 
                          width="240" 
                          style="display: block; margin: 0 auto; border: 0; outline: none; max-height: 65px;" />

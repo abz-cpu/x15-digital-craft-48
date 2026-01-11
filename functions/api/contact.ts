@@ -94,9 +94,37 @@ function getInternalEmailHtml(
   const customerEmail = data.email?.trim()?.toLowerCase() || '';
   const hasValidEmail = customerEmail && customerEmail.includes('@');
   
-  // Phone formatting
+  // Phone formatting - compute E.164 and display formats
   const customerPhone = data.phone?.trim() || '';
   const hasPhone = customerPhone.length > 0;
+  
+  // Parse phone to E.164 format (+447356260648) and display format
+  let phoneE164 = '';
+  let phoneDigitsOnly = '';
+  let phoneDisplay = customerPhone;
+  
+  if (hasPhone) {
+    // Remove all non-digit characters
+    const digitsOnly = customerPhone.replace(/\D/g, '');
+    
+    // Convert to E.164 format (UK assumed)
+    if (digitsOnly.startsWith('44')) {
+      phoneE164 = '+' + digitsOnly;
+      phoneDigitsOnly = digitsOnly;
+    } else if (digitsOnly.startsWith('0')) {
+      phoneE164 = '+44' + digitsOnly.substring(1);
+      phoneDigitsOnly = '44' + digitsOnly.substring(1);
+    } else {
+      // Assume UK number without prefix
+      phoneE164 = '+44' + digitsOnly;
+      phoneDigitsOnly = '44' + digitsOnly;
+    }
+    
+    // Format display nicely if it looks like a UK mobile (07xxx)
+    if (digitsOnly.startsWith('07') && digitsOnly.length === 11) {
+      phoneDisplay = digitsOnly.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+    }
+  }
   
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
@@ -104,12 +132,16 @@ function getInternalEmailHtml(
   
   // Check if deadline is urgent (within 7 days)
   let isUrgent = false;
+  let daysUntilDeadline: number | null = null;
   let deadlineDisplay = data.deadline?.trim() || '';
+  
   if (deadlineDisplay) {
     try {
       const deadlineDate = new Date(deadlineDisplay);
-      const daysUntil = Math.ceil((deadlineDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-      isUrgent = daysUntil <= 7 && daysUntil >= 0;
+      if (!isNaN(deadlineDate.getTime())) {
+        daysUntilDeadline = Math.ceil((deadlineDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+        isUrgent = daysUntilDeadline <= 7 && daysUntilDeadline >= 0;
+      }
     } catch (e) {
       // Invalid date format, not urgent
     }
@@ -126,10 +158,11 @@ function getInternalEmailHtml(
     ? `mailto:${customerEmail}?subject=${replySubject}&body=${replyBody}` 
     : '';
   
-  // WhatsApp link
-  const whatsappMessage = encodeURIComponent(`Hi ${firstName || 'there'}, thanks for your enquiry to L&D Digital! I'm following up about your project. `);
-  const cleanPhone = customerPhone.replace(/\D/g, '');
-  const whatsappLink = hasPhone ? `https://wa.me/${cleanPhone.startsWith('44') ? cleanPhone : '44' + cleanPhone.replace(/^0/, '')}?text=${whatsappMessage}` : '';
+  // WhatsApp links - regular and prefilled
+  const projectType = data.need?.trim() || '';
+  const whatsappPrefill = encodeURIComponent(`Hi ${firstName || 'there'}, thanks for your enquiry about ${projectType || 'your project'}. When would you like to chat?`);
+  const whatsappLink = hasPhone ? `https://wa.me/${phoneDigitsOnly}` : '';
+  const whatsappLinkPrefilled = hasPhone ? `https://wa.me/${phoneDigitsOnly}?text=${whatsappPrefill}` : '';
 
   return `
 <!DOCTYPE html>
@@ -173,7 +206,7 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    ${isUrgent ? `<span style="display: inline-block; padding: 4px 10px; background-color: #ef4444; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">🔥 Urgent</span>` : ''}
+                    ${isUrgent && daysUntilDeadline !== null ? `<span style="display: inline-block; padding: 4px 10px; background-color: #ef4444; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">🔥 Urgent: deadline in ${daysUntilDeadline} day${daysUntilDeadline === 1 ? '' : 's'}</span>` : ''}
                     <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Project Enquiry</h1>
                     <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
                   </td>
@@ -228,7 +261,7 @@ function getInternalEmailHtml(
                       <tr>
                         ${hasPhone ? `
                         <td style="padding: 4px; text-align: center;">
-                          <a href="${whatsappLink}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
+                          <a href="${whatsappLinkPrefilled}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
                             💬 WhatsApp
                           </a>
                         </td>
@@ -242,7 +275,7 @@ function getInternalEmailHtml(
                         ` : ''}
                         ${hasPhone ? `
                         <td style="padding: 4px; text-align: center;">
-                          <a href="tel:${escapeHtml(customerPhone)}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
+                          <a href="tel:${phoneE164}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
                             📞 Call
                           </a>
                         </td>
@@ -304,7 +337,8 @@ function getInternalEmailHtml(
                         </td>
                         <td style="vertical-align: top; padding-left: 12px;">
                           <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Phone</p>
-                          <a href="tel:${escapeHtml(customerPhone)}" style="color: #22c55e; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(customerPhone)}</a>
+                          <a href="tel:${phoneE164}" style="color: #22c55e; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(phoneDisplay)}</a>
+                          ${whatsappLink ? `<br/><a href="${whatsappLinkPrefilled}" style="color: #25D366; text-decoration: none; font-size: 12px; font-weight: 500;">💬 Message on WhatsApp</a>` : ''}
                         </td>
                       </tr>
                     </table>

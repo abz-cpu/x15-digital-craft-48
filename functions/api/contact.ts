@@ -332,8 +332,21 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <!-- Logo -->
-                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" alt="L&D Digital - Luminous & Deliver" style="height: 36px; width: auto; display: block; margin-bottom: 16px;" />
+                    <!-- Logo - Styled Text (no images = no spam risk) -->
+                    <table role="presentation" style="margin-bottom: 16px;">
+                      <tr>
+                        <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+                          <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">
+                            <span style="color: #ffffff;">L&amp;D</span>
+                            <span style="color: #5eead4;"> DIGITAL</span>
+                          </span>
+                          <br />
+                          <span style="font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7);">
+                            Luminous &amp; Deliver —
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
                     <!-- SLA Status Badge -->
                     <table role="presentation" style="margin-bottom: 12px;">
                       <tr>
@@ -717,8 +730,21 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Logo -->
-              <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" alt="L&D Digital - Luminous & Deliver" style="height: 40px; width: auto; display: inline-block; margin-bottom: 16px;" />
+              <!-- Logo - Styled Text (no images = no spam risk) -->
+              <table role="presentation" style="margin: 0 auto 16px;">
+                <tr>
+                  <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; text-align: center;">
+                    <span style="font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">
+                      <span style="color: #ffffff;">L&amp;D</span>
+                      <span style="color: #5eead4;"> DIGITAL</span>
+                    </span>
+                    <br />
+                    <span style="font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7);">
+                      Luminous &amp; Deliver —
+                    </span>
+                  </td>
+                </tr>
+              </table>
               <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Thanks for getting in touch!</h1>
               <p style="margin: 10px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">We're excited to learn more about your project</p>
             </td>

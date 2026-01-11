@@ -128,7 +128,7 @@ const Property = () => {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                    <a href="https://wa.me/447424050827" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/447356260648" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Us
                     </a>
                   </Button>

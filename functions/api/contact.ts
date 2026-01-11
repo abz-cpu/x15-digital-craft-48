@@ -332,25 +332,31 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <!-- Logo - Boxed L&D Icon with amber ampersand (no images = no spam risk) -->
+                    <!-- Logo - Matching navbar layout: Square box + L&D DIGITAL on top, Luminous & Deliver below -->
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
                         <td style="font-family: Arial, Helvetica, sans-serif;">
                           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                              <!-- Boxed L&D Icon with amber & -->
-                              <td style="vertical-align: middle;">
-                                <div style="display: inline-block; border: 2px solid #2dd4bf; border-radius: 4px; padding: 8px 12px; background-color: rgba(45, 212, 191, 0.1);">
-                                  <span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L</span><span style="font-size: 16px; font-weight: 700; color: #F59E0B; letter-spacing: 0.5px;">&amp;</span><span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">D</span>
+                              <!-- Square L&D Box (matches navbar SVG proportions) -->
+                              <td style="vertical-align: top;" rowspan="2">
+                                <div style="display: inline-block; width: 42px; height: 42px; border: 2px solid #2dd4bf; border-radius: 6px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.1) 60%, rgba(245, 158, 11, 0.08) 100%); text-align: center; line-height: 38px;">
+                                  <span style="font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0;">L</span><span style="font-size: 14px; font-weight: 700; color: #F59E0B; letter-spacing: 0;">&amp;</span><span style="font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0;">D</span>
                                 </div>
                               </td>
-                              <!-- DIGITAL Text -->
-                              <td style="vertical-align: middle; padding-left: 12px;">
-                                <span style="font-size: 22px; font-weight: 700; color: #5eead4; letter-spacing: 1px;">DIGITAL</span>
+                              <!-- L&D DIGITAL Text (next to box, top line) -->
+                              <td style="vertical-align: bottom; padding-left: 10px; padding-bottom: 2px;">
+                                <span style="font-size: 17px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
+                                <span style="font-size: 17px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 4px;">DIGITAL</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <!-- Luminous & Deliver tagline (next to box, bottom line) -->
+                              <td style="vertical-align: top; padding-left: 10px; padding-top: 1px;">
+                                <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
                               </td>
                             </tr>
                           </table>
-                          <div style="margin-top: 8px; font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.8);">LUMINOUS &amp; DELIVER —</div>
                         </td>
                       </tr>
                     </table>
@@ -589,21 +595,50 @@ function getInternalEmailHtml(
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- Footer - Branded gradient with social links -->
           <tr>
-            <td class="footer-bg" style="padding: 20px 32px; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 32px;">
               <table role="presentation" style="width: 100%;">
+                <!-- Social Links -->
                 <tr>
-                  <td style="text-align: center;">
-                    <p class="text-muted" style="margin: 0 0 6px; color: #64748b; font-size: 12px;">
+                  <td style="text-align: center; padding-bottom: 20px;">
+                    <a href="https://www.linkedin.com/company/luminous-deliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">in</a>
+                    <a href="https://www.instagram.com/luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">📷</a>
+                    <a href="https://wa.me/447488855786" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #25D366; font-size: 16px;">💬</a>
+                  </td>
+                </tr>
+                <!-- Contact Info -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 16px;">
+                    <p style="margin: 0 0 6px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
+                    <p style="margin: 0 0 4px; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
+                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">
+                      <a href="mailto:hello@luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none;">hello@luminousanddeliver.co.uk</a>
+                    </p>
+                  </td>
+                </tr>
+                <!-- Links -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <a href="https://digital.luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Website</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/portfolio" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Portfolio</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/contact" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Contact</a>
+                  </td>
+                </tr>
+                <!-- Submission Info -->
+                <tr>
+                  <td style="text-align: center; padding-top: 16px;">
+                    <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 11px;">
                       📅 Submitted: ${submittedAtFormatted}
                     </p>
                     ${config.sourceUrl ? `
-                    <p class="text-muted" style="margin: 0 0 6px; color: #94a3b8; font-size: 11px;">
-                      🔗 Source: <a href="${escapeHtml(config.sourceUrl)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(config.sourceUrl)}</a>
+                    <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 10px;">
+                      🔗 Source: <a href="${escapeHtml(config.sourceUrl)}" style="color: #5eead4; text-decoration: none;">${escapeHtml(config.sourceUrl)}</a>
                     </p>
                     ` : ''}
-                    <p class="text-muted" style="margin: 0; color: #cbd5e1; font-size: 10px;">
+                    <p class="text-muted" style="margin: 0; color: #475569; font-size: 9px;">
                       IP: ${clientIP}
                     </p>
                   </td>
@@ -737,25 +772,31 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Logo - Boxed L&D Icon with amber ampersand (no images = no spam risk) -->
+              <!-- Logo - Matching navbar layout: Square box + L&D DIGITAL on top, Luminous & Deliver below -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
-                  <td style="font-family: Arial, Helvetica, sans-serif; text-align: center;">
+                  <td style="font-family: Arial, Helvetica, sans-serif;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
                       <tr>
-                        <!-- Boxed L&D Icon with amber & -->
-                        <td style="vertical-align: middle;">
-                          <div style="display: inline-block; border: 2px solid #2dd4bf; border-radius: 4px; padding: 8px 12px; background-color: rgba(45, 212, 191, 0.1);">
-                            <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L</span><span style="font-size: 18px; font-weight: 700; color: #F59E0B; letter-spacing: 0.5px;">&amp;</span><span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">D</span>
+                        <!-- Square L&D Box (matches navbar SVG proportions) -->
+                        <td style="vertical-align: top;" rowspan="2">
+                          <div style="display: inline-block; width: 46px; height: 46px; border: 2px solid #2dd4bf; border-radius: 6px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.1) 60%, rgba(245, 158, 11, 0.08) 100%); text-align: center; line-height: 42px;">
+                            <span style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: 0;">L</span><span style="font-size: 15px; font-weight: 700; color: #F59E0B; letter-spacing: 0;">&amp;</span><span style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: 0;">D</span>
                           </div>
                         </td>
-                        <!-- DIGITAL Text -->
-                        <td style="vertical-align: middle; padding-left: 12px;">
-                          <span style="font-size: 24px; font-weight: 700; color: #5eead4; letter-spacing: 1px;">DIGITAL</span>
+                        <!-- L&D DIGITAL Text (next to box, top line) -->
+                        <td style="vertical-align: bottom; padding-left: 12px; padding-bottom: 2px;">
+                          <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
+                          <span style="font-size: 18px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 5px;">DIGITAL</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <!-- Luminous & Deliver tagline (next to box, bottom line) -->
+                        <td style="vertical-align: top; padding-left: 12px; padding-top: 1px;">
+                          <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
                         </td>
                       </tr>
                     </table>
-                    <div style="margin-top: 8px; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.8);">LUMINOUS &amp; DELIVER —</div>
                   </td>
                 </tr>
               </table>
@@ -877,15 +918,44 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- Footer - Branded gradient with social links -->
           <tr>
-            <td class="footer-bg" style="padding: 20px 40px; background-color: #f3f4f6; border-top: 1px solid #e5e7eb; text-align: center;">
-              <p style="margin: 0 0 6px; color: #6b7280; font-size: 12px; font-weight: 500;">
-                ${escapeHtml(config.brandName)} • London, UK
-              </p>
-              <p style="margin: 0; color: #9ca3af; font-size: 11px;">
-                <a href="https://digital.luminousanddeliver.co.uk" style="color: ${brandColor}; text-decoration: none;">digital.luminousanddeliver.co.uk</a>
-              </p>
+            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 40px;">
+              <table role="presentation" style="width: 100%;">
+                <!-- Social Links -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 18px;">
+                    <a href="https://www.linkedin.com/company/luminous-deliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">in</a>
+                    <a href="https://www.instagram.com/luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">📷</a>
+                    <a href="https://wa.me/447488855786" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #25D366; font-size: 16px;">💬</a>
+                  </td>
+                </tr>
+                <!-- Contact Info -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 14px;">
+                    <p style="margin: 0 0 4px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
+                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
+                  </td>
+                </tr>
+                <!-- Links -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 14px;">
+                    <a href="https://digital.luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Website</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/portfolio" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Portfolio</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/contact" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Contact</a>
+                  </td>
+                </tr>
+                <!-- Copyright -->
+                <tr>
+                  <td style="text-align: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="margin: 0; color: #64748b; font-size: 11px;">
+                      © 2026 ${escapeHtml(config.brandName)}. All rights reserved.
+                    </p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>

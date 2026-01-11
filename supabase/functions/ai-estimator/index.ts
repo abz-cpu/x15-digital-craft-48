@@ -1,9 +1,79 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
+
+// Rate limiting: 5 requests per minute per IP
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60 * 1000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS });
+    return false;
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return true;
+  }
+
+  record.count++;
+  return false;
+}
+
+// Clean up old entries
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [ip, record] of rateLimitMap.entries()) {
+    if (now > record.resetTime) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}
+
+// Validate prompt to prevent abuse
+function validatePrompt(prompt: string): { valid: boolean; error?: string } {
+  if (!prompt || typeof prompt !== 'string') {
+    return { valid: false, error: 'Please provide a project description' };
+  }
+  
+  const trimmed = prompt.trim();
+  
+  if (trimmed.length === 0) {
+    return { valid: false, error: 'Please provide a project description' };
+  }
+  
+  if (trimmed.length < 10) {
+    return { valid: false, error: 'Please provide more detail about your project (at least 10 characters)' };
+  }
+  
+  if (trimmed.length > 1000) {
+    return { valid: false, error: 'Please keep your description under 1000 characters' };
+  }
+  
+  // Block obvious spam patterns
+  const spamPatterns = [
+    /^(.)\1{10,}$/,  // Repeated single character
+    /^[0-9]+$/,      // Only numbers
+    /https?:\/\//i,  // URLs
+    /<script/i,      // Script injection attempts
+  ];
+  
+  for (const pattern of spamPatterns) {
+    if (pattern.test(trimmed)) {
+      return { valid: false, error: 'Invalid project description' };
+    }
+  }
+  
+  return { valid: true };
+}
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -11,12 +81,31 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Clean up old rate limit entries periodically
+  cleanupRateLimitMap();
+
+  // Get client IP for rate limiting
+  const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
+                   req.headers.get("cf-connecting-ip") ||
+                   "unknown";
+
+  // Check rate limit
+  if (isRateLimited(clientIP)) {
+    console.log(`Rate limited IP: ${clientIP}`);
+    return new Response(
+      JSON.stringify({ error: "Too many requests. Please wait a minute before trying again." }),
+      { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    );
+  }
+
   try {
     const { prompt } = await req.json();
     
-    if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
+    // Validate the prompt
+    const validation = validatePrompt(prompt);
+    if (!validation.valid) {
       return new Response(
-        JSON.stringify({ error: 'Please provide a project description' }),
+        JSON.stringify({ error: validation.error }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -24,10 +113,10 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       console.error("LOVABLE_API_KEY is not configured");
-      throw new Error("LOVABLE_API_KEY is not configured");
+      throw new Error("Service temporarily unavailable");
     }
 
-    console.log("Processing AI estimation for prompt:", prompt.substring(0, 100));
+    console.log(`Processing AI estimation from IP ${clientIP}:`, prompt.substring(0, 100));
 
     const systemPrompt = `You are a digital agency project estimator for L&D Digital, a UK-based web development and AI automation agency. Analyze client project requests and provide professional, helpful estimates.
 
@@ -56,7 +145,7 @@ Be encouraging, professional, and realistic.`;
         model: "google/gemini-2.5-flash",
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: `Analyze this project request and provide an estimate: "${prompt}"` }
+          { role: "user", content: `Analyze this project request and provide an estimate: "${prompt.trim()}"` }
         ],
         temperature: 0.7,
       }),
@@ -79,7 +168,7 @@ Be encouraging, professional, and realistic.`;
         );
       }
       
-      throw new Error(`AI gateway error: ${response.status}`);
+      throw new Error("AI service unavailable");
     }
 
     const data = await response.json();
@@ -89,7 +178,7 @@ Be encouraging, professional, and realistic.`;
       throw new Error("No response from AI");
     }
 
-    console.log("AI response received:", content.substring(0, 200));
+    console.log("AI response received for IP", clientIP);
 
     // Parse JSON from the response - handle markdown code blocks
     let parsed;
@@ -126,7 +215,7 @@ Be encouraging, professional, and realistic.`;
   } catch (error) {
     console.error("AI estimator error:", error);
     return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : "Failed to analyze project" }),
+      JSON.stringify({ error: "Failed to analyze project. Please try again." }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }

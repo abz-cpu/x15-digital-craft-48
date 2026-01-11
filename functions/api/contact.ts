@@ -332,33 +332,15 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <!-- Logo - Gradient logo image with HTML fallback -->
+                    <!-- Logo - Gradient logo image only, text as alt fallback -->
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
-                        <td style="font-family: Arial, Helvetica, sans-serif;">
-                          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                            <tr>
-                              <!-- Gradient Logo Image -->
-                              <td style="vertical-align: top;" rowspan="2">
-                                <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
-                                     alt="L&D" 
-                                     width="44" 
-                                     height="44"
-                                     style="display: block; border: 0; outline: none; border-radius: 6px;" />
-                              </td>
-                              <!-- L&D DIGITAL Text (next to logo, top line) -->
-                              <td style="vertical-align: bottom; padding-left: 10px; padding-bottom: 2px;">
-                                <span style="font-size: 17px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
-                                <span style="font-size: 17px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 4px;">DIGITAL</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <!-- Luminous & Deliver tagline (next to logo, bottom line) -->
-                              <td style="vertical-align: top; padding-left: 10px; padding-top: 1px;">
-                                <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
-                              </td>
-                            </tr>
-                          </table>
+                        <td>
+                          <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                               alt="L&D DIGITAL - Luminous & Deliver" 
+                               width="160" 
+                               height="44"
+                               style="display: block; border: 0; outline: none;" />
                         </td>
                       </tr>
                     </table>
@@ -774,33 +756,15 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Logo - Gradient logo image with HTML fallback -->
+              <!-- Logo - Gradient logo image only, text as alt fallback -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
-                  <td style="font-family: Arial, Helvetica, sans-serif;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
-                      <tr>
-                        <!-- Gradient Logo Image -->
-                        <td style="vertical-align: top;" rowspan="2">
-                          <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
-                               alt="L&D" 
-                               width="48" 
-                               height="48"
-                               style="display: block; border: 0; outline: none; border-radius: 6px;" />
-                        </td>
-                        <!-- L&D DIGITAL Text (next to logo, top line) -->
-                        <td style="vertical-align: bottom; padding-left: 12px; padding-bottom: 2px;">
-                          <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
-                          <span style="font-size: 18px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 5px;">DIGITAL</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <!-- Luminous & Deliver tagline (next to logo, bottom line) -->
-                        <td style="vertical-align: top; padding-left: 12px; padding-top: 1px;">
-                          <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
-                        </td>
-                      </tr>
-                    </table>
+                  <td style="text-align: center;">
+                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                         alt="L&D DIGITAL - Luminous & Deliver" 
+                         width="180" 
+                         height="48"
+                         style="display: block; margin: 0 auto; border: 0; outline: none;" />
                   </td>
                 </tr>
               </table>

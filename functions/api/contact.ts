@@ -322,7 +322,10 @@ function getInternalEmailHtml(
                         <td style="vertical-align: top; padding-left: 12px;">
                           <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
                           ${hasValidEmail 
-                            ? `<a href="mailto:${escapeHtml(customerEmail)}" style="color: #3b82f6; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(customerEmail)}</a>` 
+                            ? `<table role="presentation"><tr>
+                                <td><a href="mailto:${escapeHtml(customerEmail)}" style="color: #3b82f6; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(customerEmail)}</a></td>
+                                <td style="padding-left: 8px;"><a href="#" onclick="navigator.clipboard.writeText('${escapeHtml(customerEmail)}'); this.innerText='✓ Copied'; setTimeout(() => this.innerText='📋 Copy', 2000); return false;" style="display: inline-block; padding: 4px 8px; background-color: #f1f5f9; color: #64748b; text-decoration: none; border-radius: 4px; font-size: 11px; font-weight: 500; cursor: pointer;" data-copy="${escapeHtml(customerEmail)}">📋 Copy</a></td>
+                              </tr></table>` 
                             : '<p class="text-secondary" style="margin: 0; color: #94a3b8; font-size: 14px; font-style: italic;">(Not provided)</p>'}
                         </td>
                       </tr>
@@ -337,8 +340,11 @@ function getInternalEmailHtml(
                         </td>
                         <td style="vertical-align: top; padding-left: 12px;">
                           <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Phone</p>
-                          <a href="tel:${phoneE164}" style="color: #22c55e; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(phoneDisplay)}</a>
-                          ${whatsappLink ? `<br/><a href="${whatsappLinkPrefilled}" style="color: #25D366; text-decoration: none; font-size: 12px; font-weight: 500;">💬 Message on WhatsApp</a>` : ''}
+                          <table role="presentation"><tr>
+                            <td><a href="tel:${phoneE164}" style="color: #22c55e; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(phoneDisplay)}</a></td>
+                            <td style="padding-left: 8px;"><a href="#" onclick="navigator.clipboard.writeText('${phoneE164}'); this.innerText='✓ Copied'; setTimeout(() => this.innerText='📋 Copy', 2000); return false;" style="display: inline-block; padding: 4px 8px; background-color: #f1f5f9; color: #64748b; text-decoration: none; border-radius: 4px; font-size: 11px; font-weight: 500; cursor: pointer;" data-copy="${phoneE164}">📋 Copy</a></td>
+                          </tr></table>
+                          ${whatsappLink ? `<a href="${whatsappLinkPrefilled}" style="color: #25D366; text-decoration: none; font-size: 12px; font-weight: 500; display: inline-block; margin-top: 4px;">💬 Message on WhatsApp</a>` : ''}
                         </td>
                       </tr>
                     </table>
@@ -545,7 +551,7 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
       .text-muted { color: #9ca3af !important; }
       .footer-bg { background-color: #1f1f1f !important; }
       .summary-table td { color: #d1d5db !important; }
-      .callout-box { background-color: #1a3a38 !important; border-color: #2d5a56 !important; }
+      .callout-box { background-color: #451a03 !important; border-color: #92400e !important; }
     }
     @media only screen and (max-width: 600px) {
       .email-card { margin: 0 !important; border-radius: 0 !important; }
@@ -578,21 +584,18 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 We've received your enquiry and we're excited to learn more about your project. Our team will review your requirements shortly.
               </p>
 
-              <!-- What happens next callout box -->
+              <!-- What happens next callout box - amber style with left border -->
               <table role="presentation" style="width: 100%; margin-bottom: 28px;">
                 <tr>
-                  <td class="callout-box" style="padding: 20px 24px; background: linear-gradient(135deg, ${brandColorLight} 0%, #e0f7f5 100%); border: 1px solid ${brandColor}30; border-radius: 12px;">
+                  <td class="callout-box" style="padding: 16px 20px; background-color: #fef9f3; border-left: 4px solid #f59e0b; border-radius: 6px;">
                     <table role="presentation" style="width: 100%;">
                       <tr>
-                        <td style="width: 40px; vertical-align: top; padding-right: 14px;">
-                          <div style="width: 36px; height: 36px; background-color: ${brandColor}; border-radius: 50%; text-align: center; line-height: 36px;">
-                            <span style="font-size: 18px;">⏱️</span>
-                          </div>
-                        </td>
                         <td style="vertical-align: top;">
-                          <p style="margin: 0 0 6px; color: ${brandColorDark}; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">What happens next?</p>
-                          <p style="margin: 0; color: #1f4a47; font-size: 14px; line-height: 1.6;">
-                            We'll review your requirements and get back to you within <strong>2–4 hours</strong> (during business hours, Mon–Fri 9am–6pm) with a clear quote and next steps.
+                          <p style="margin: 0 0 8px; color: #92400e; font-size: 14px; font-weight: 600; display: flex; align-items: center;">
+                            <span style="margin-right: 6px;">⏱️</span> What happens next?
+                          </p>
+                          <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
+                            We'll review your requirements and get back to you within <strong style="color: #b45309;">24–48 hours</strong> (during business hours) with a clear quote and next steps.
                           </p>
                         </td>
                       </tr>

@@ -3,6 +3,16 @@ import { useState, useCallback, forwardRef, useImperativeHandle } from "react";
 // Configurable default country code (without +)
 const DEFAULT_COUNTRY_CODE = "44"; // UK
 
+// Country code patterns for auto-detection
+const COUNTRY_PATTERNS: { prefix: string; code: string; minLength: number }[] = [
+  { prefix: "07", code: "44", minLength: 11 },    // UK mobile starting with 07
+  { prefix: "01onal", code: "44", minLength: 10 }, // UK landline
+  { prefix: "02", code: "44", minLength: 11 },    // UK landline (London, etc.)
+  { prefix: "03", code: "44", minLength: 11 },    // UK non-geographic
+  { prefix: "08", code: "353", minLength: 10 },   // Ireland mobile starting with 08
+  { prefix: "1", code: "1", minLength: 10 },      // US/Canada
+];
+
 export interface PhoneInputRef {
   getNormalizedPhone: () => string;
   validate: () => boolean;
@@ -17,8 +27,8 @@ interface PhoneInputProps {
  * Phone input with:
  * - Optional field (empty = valid)
  * - Digits only (strips letters/symbols)
- * - Auto country code normalization (0 → +44)
- * - Length validation: 11-13 digits after normalization
+ * - Auto country code normalization (UK default, detects Ireland/US)
+ * - Length validation: 10-13 digits after normalization
  * - Inline error display
  */
 export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
@@ -27,25 +37,35 @@ export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
     const [error, setError] = useState("");
     const [touched, setTouched] = useState(false);
 
-    // Normalize phone to E.164 format
+    // Normalize phone to E.164 format (digits only, no +)
     const normalizePhone = useCallback((input: string): string => {
       const digitsOnly = input.replace(/\D/g, "");
       
       if (!digitsOnly) return "";
       
-      // Already has country code (starts with valid code like 44, 353, 1, etc.)
-      if (digitsOnly.startsWith("44") || digitsOnly.startsWith("353") || 
-          digitsOnly.startsWith("1") && digitsOnly.length >= 11) {
-        return "+" + digitsOnly;
+      // Already has a valid international code
+      if (digitsOnly.startsWith("44") && digitsOnly.length >= 12) {
+        return digitsOnly; // UK with country code
+      }
+      if (digitsOnly.startsWith("353") && digitsOnly.length >= 12) {
+        return digitsOnly; // Ireland with country code
+      }
+      if (digitsOnly.startsWith("1") && digitsOnly.length >= 11 && !digitsOnly.startsWith("07")) {
+        return digitsOnly; // US/Canada with country code
       }
       
-      // Starts with 0 - replace with country code
+      // Detect Ireland mobile (starts with 08)
+      if (digitsOnly.startsWith("08") && digitsOnly.length >= 10) {
+        return "353" + digitsOnly.substring(1); // Remove leading 0, add +353
+      }
+      
+      // UK number starting with 0 - replace with 44
       if (digitsOnly.startsWith("0")) {
-        return "+" + DEFAULT_COUNTRY_CODE + digitsOnly.substring(1);
+        return DEFAULT_COUNTRY_CODE + digitsOnly.substring(1);
       }
       
-      // No leading 0 or country code - prepend default
-      return "+" + DEFAULT_COUNTRY_CODE + digitsOnly;
+      // No leading 0 or country code - prepend default (UK)
+      return DEFAULT_COUNTRY_CODE + digitsOnly;
     }, []);
 
     // Validate phone number
@@ -55,16 +75,20 @@ export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
       // Empty is valid (optional field)
       if (!digitsOnly) return "";
       
-      // Get normalized length (after adding country code)
-      const normalized = normalizePhone(input);
-      const normalizedDigits = normalized.replace(/\D/g, "");
-      
-      // Check length: 11-13 digits (e.g., 447356260648 = 12 digits)
-      if (normalizedDigits.length < 11) {
-        return "Enter a valid phone number (11–13 digits), or leave blank.";
+      // Reject very short entries (partial numbers like "07", "075")
+      if (digitsOnly.length < 10) {
+        return "Please enter a valid UK phone number.";
       }
       
-      if (normalizedDigits.length > 13) {
+      // Get normalized length (after adding country code)
+      const normalized = normalizePhone(input);
+      
+      // Check length: 10-13 digits (e.g., 447356260648 = 12 digits)
+      if (normalized.length < 10) {
+        return "Please enter a valid UK phone number.";
+      }
+      
+      if (normalized.length > 13) {
         return "Phone number too long. Maximum 13 digits.";
       }
       
@@ -144,7 +168,7 @@ export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
               ? "border-destructive focus-visible:ring-destructive/70" 
               : "border-border focus-visible:ring-primary/70"
           } ${className || ""}`}
-          placeholder="07xxx xxx xxx"
+          placeholder="07xxxxxxxxx"
         />
         {hasError ? (
           <p 
@@ -157,7 +181,7 @@ export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
           </p>
         ) : (
           <p id="phone-hint" className="text-xs text-muted-foreground">
-            Digits only. 11–13 numbers. Leave blank if you prefer email.
+            UK numbers only. We'll add +44 automatically.
           </p>
         )}
       </div>

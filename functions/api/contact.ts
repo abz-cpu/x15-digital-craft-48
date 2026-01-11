@@ -74,10 +74,15 @@ function getInternalEmailHtml(
   clientIP: string,
   config: EmailConfig = DEFAULT_EMAIL_CONFIG
 ): string {
-  const submittedAt = new Date().toLocaleString('en-GB', { 
+  const now = new Date();
+  const submittedAt = now.toLocaleString('en-GB', { 
     timeZone: 'Europe/London',
-    dateStyle: 'full',
-    timeStyle: 'short'
+    weekday: 'long',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
   });
 
   // Safely extract customer name - never use form name or placeholders
@@ -89,29 +94,42 @@ function getInternalEmailHtml(
   const customerEmail = data.email?.trim()?.toLowerCase() || '';
   const hasValidEmail = customerEmail && customerEmail.includes('@');
   
+  // Phone formatting
+  const customerPhone = data.phone?.trim() || '';
+  const hasPhone = customerPhone.length > 0;
+  
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
-  const brandColorDark = adjustColorBrightness(brandColor, -20); // Darker shade for gradient
+  const brandColorDark = adjustColorBrightness(brandColor, -15);
   
-  // Build summary items (only show fields that exist)
-  const summaryItems: string[] = [];
-  if (data.need?.trim()) {
-    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: ${brandColor}15; color: ${brandColor}; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px; margin-bottom: 4px;">${escapeHtml(data.need)}</span>`);
+  // Check if deadline is urgent (within 7 days)
+  let isUrgent = false;
+  let deadlineDisplay = data.deadline?.trim() || '';
+  if (deadlineDisplay) {
+    try {
+      const deadlineDate = new Date(deadlineDisplay);
+      const daysUntil = Math.ceil((deadlineDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+      isUrgent = daysUntil <= 7 && daysUntil >= 0;
+    } catch (e) {
+      // Invalid date format, not urgent
+    }
   }
-  if (data.budget?.trim()) {
-    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: #f59e0b15; color: #b45309; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px; margin-bottom: 4px;">${escapeHtml(data.budget)}</span>`);
-  }
-  if (data.deadline?.trim()) {
-    summaryItems.push(`<span style="display: inline-block; padding: 4px 10px; background-color: #6366f115; color: #4f46e5; border-radius: 4px; font-size: 12px; font-weight: 500; margin-bottom: 4px;">${escapeHtml(data.deadline)}</span>`);
-  }
-  const hasSummary = summaryItems.length > 0;
+  
+  // Message character count
+  const messageText = data.message?.trim() || '';
+  const messageCharCount = messageText.length;
   
   // Build reply mailto link with pre-filled body
-  const replySubject = encodeURIComponent('Re: Your enquiry');
-  const replyBody = encodeURIComponent(`Hi ${firstName || 'there'},\n\nThanks for reaching out — we've received your enquiry and will get back to you within 24–48 hours (Mon–Fri).\n\n`);
+  const replySubject = encodeURIComponent('Re: Your enquiry to L&D Digital');
+  const replyBody = encodeURIComponent(`Hi ${firstName || 'there'},\n\nThanks for reaching out to L&D Digital! We've reviewed your enquiry and would love to discuss your project further.\n\n`);
   const replyMailtoLink = hasValidEmail 
     ? `mailto:${customerEmail}?subject=${replySubject}&body=${replyBody}` 
     : '';
+  
+  // WhatsApp link
+  const whatsappMessage = encodeURIComponent(`Hi ${firstName || 'there'}, thanks for your enquiry to L&D Digital! I'm following up about your project. `);
+  const cleanPhone = customerPhone.replace(/\D/g, '');
+  const whatsappLink = hasPhone ? `https://wa.me/${cleanPhone.startsWith('44') ? cleanPhone : '44' + cleanPhone.replace(/^0/, '')}?text=${whatsappMessage}` : '';
 
   return `
 <!DOCTYPE html>
@@ -124,127 +142,277 @@ function getInternalEmailHtml(
   <title>New Enquiry - ${escapeHtml(config.brandName)}</title>
   <style>
     @media (prefers-color-scheme: dark) {
-      .email-body { background-color: #1f2937 !important; }
-      .email-card { background-color: #111827 !important; }
-      .section-bg { background-color: #1f2937 !important; }
-      .text-primary { color: #f9fafb !important; }
-      .text-secondary { color: #d1d5db !important; }
-      .footer-bg { background-color: #1f2937 !important; }
+      .email-body { background-color: #0f172a !important; }
+      .email-card { background-color: #1e293b !important; }
+      .section-card { background-color: #334155 !important; border-color: #475569 !important; }
+      .text-heading { color: #f1f5f9 !important; }
+      .text-primary { color: #e2e8f0 !important; }
+      .text-secondary { color: #94a3b8 !important; }
+      .text-muted { color: #64748b !important; }
+      .footer-bg { background-color: #1e293b !important; }
+      .divider { border-color: #334155 !important; }
+    }
+    @media only screen and (max-width: 600px) {
+      .email-card { margin: 0 !important; border-radius: 0 !important; }
+      .content-padding { padding: 20px 16px !important; }
+      .header-padding { padding: 24px 16px !important; }
+      .action-btn { display: block !important; width: 100% !important; margin-bottom: 8px !important; }
+      .action-row td { display: block !important; width: 100% !important; }
     }
   </style>
 </head>
-<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
+<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f1f5f9; line-height: 1.6;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td style="padding: 40px 20px;">
-        <table class="email-card" role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header with configurable brand color -->
-          <tr>
-            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 32px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">New Project Enquiry</h1>
-              <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
-              <p style="margin: 12px 0 0; color: rgba(255,255,255,0.75); font-size: 12px;">We typically respond within 24–48 hours (Mon–Fri).</p>
-            </td>
-          </tr>
+      <td style="padding: 32px 16px;">
+        <table class="email-card" role="presentation" style="max-width: 640px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
           
-          <!-- Content -->
+          <!-- Header -->
           <tr>
-            <td style="padding: 40px;">
-              ${hasSummary ? `
-              <!-- Quick Summary -->
-              <table role="presentation" style="width: 100%; margin-bottom: 20px;">
+            <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 28px 32px;">
+              <table role="presentation" style="width: 100%;">
                 <tr>
-                  <td style="padding: 12px 16px; background-color: #f9fafb; border-radius: 8px; text-align: center;">
-                    ${summaryItems.join('')}
+                  <td>
+                    ${isUrgent ? `<span style="display: inline-block; padding: 4px 10px; background-color: #ef4444; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">🔥 Urgent</span>` : ''}
+                    <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Project Enquiry</h1>
+                    <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
                   </td>
                 </tr>
-              </table>
-              ` : ''}
-              
-              <!-- Contact Details -->
-              <table role="presentation" style="width: 100%; margin-bottom: 24px;">
                 <tr>
-                  <td class="section-bg" style="padding: 16px; background-color: #f9fafb; border-radius: 8px; border-left: 4px solid ${brandColor};">
-                    <h2 class="text-primary" style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Contact Details</h2>
-                    <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 14px;">
-                      <strong>Name:</strong> ${escapeHtml(displayName)}
-                    </p>
-                    <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 14px;">
-                      <strong>Email:</strong> ${hasValidEmail 
-                        ? `<a href="mailto:${escapeHtml(customerEmail)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(customerEmail)}</a>` 
-                        : '<span style="color: #9ca3af; font-style: italic;">(Not provided)</span>'}
-                    </p>
-                    ${data.phone?.trim() ? `<p class="text-secondary" style="margin: 0; color: #374151; font-size: 14px;"><strong>Phone:</strong> <a href="tel:${escapeHtml(data.phone)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(data.phone)}</a></p>` : ''}
-                  </td>
-                </tr>
-              </table>
-
-              <!-- Project Details -->
-              <table role="presentation" style="width: 100%; margin-bottom: 24px;">
-                <tr>
-                  <td class="section-bg" style="padding: 16px; background-color: #f9fafb; border-radius: 8px;">
-                    <h2 class="text-primary" style="margin: 0 0 12px; color: #111827; font-size: 16px; font-weight: 600;">Project Details</h2>
+                  <td style="padding-top: 16px;">
                     <table role="presentation" style="width: 100%;">
                       <tr>
-                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px; width: 120px;">Project Type:</td>
-                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.need?.trim() || 'Not specified')}</td>
+                        <td style="vertical-align: middle;">
+                          <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
+                            📅 <strong>Received:</strong> ${submittedAt}
+                          </p>
+                        </td>
                       </tr>
                       <tr>
-                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px;">Budget Range:</td>
-                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.budget?.trim() || 'Not specified')}</td>
-                      </tr>
-                      <tr>
-                        <td class="text-secondary" style="padding: 4px 0; color: #6b7280; font-size: 14px;">Deadline:</td>
-                        <td class="text-primary" style="padding: 4px 0; color: #111827; font-size: 14px;">${escapeHtml(data.deadline?.trim() || 'Not specified')}</td>
+                        <td style="padding-top: 8px;">
+                          <span style="display: inline-block; padding: 6px 12px; background-color: rgba(255,255,255,0.2); color: #ffffff; border-radius: 6px; font-size: 12px; font-weight: 600;">
+                            ⏱️ Respond within 2–4 hours
+                          </span>
+                        </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
 
-              <!-- Message -->
-              <table role="presentation" style="width: 100%; margin-bottom: 24px;">
-                <tr>
-                  <td style="padding: 16px; background-color: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
-                    <h2 style="margin: 0 0 12px; color: #92400e; font-size: 16px; font-weight: 600;">Message</h2>
-                    <p style="margin: 0; color: #78350f; font-size: 14px; white-space: pre-wrap;">${escapeHtml(data.message || '(No message provided)')}</p>
-                  </td>
-                </tr>
-              </table>
-
-              <!-- Quick Actions -->
+          <!-- Priority Tags -->
+          <tr>
+            <td style="padding: 20px 32px 0;">
               <table role="presentation" style="width: 100%;">
                 <tr>
-                  <td style="text-align: center; padding-top: 16px;">
-                    ${hasValidEmail 
-                      ? `<a href="${replyMailtoLink}" 
-                           style="display: inline-block; padding: 14px 28px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                          Reply to customer
-                        </a>`
-                      : `<p style="margin: 0; color: #9ca3af; font-size: 13px; font-style: italic;">No email provided — reply unavailable.</p>`
-                    }
+                  <td style="text-align: center;">
+                    ${data.need?.trim() ? `<span style="display: inline-block; padding: 6px 14px; background-color: #dbeafe; color: #1e40af; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">📋 ${escapeHtml(data.need)}</span>` : ''}
+                    ${data.budget?.trim() ? `<span style="display: inline-block; padding: 6px 14px; background-color: #dcfce7; color: #166534; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">💰 ${escapeHtml(data.budget)}</span>` : ''}
+                    ${deadlineDisplay ? `<span style="display: inline-block; padding: 6px 14px; background-color: ${isUrgent ? '#fee2e2' : '#f3f4f6'}; color: ${isUrgent ? '#b91c1c' : '#374151'}; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 4px;">📆 ${escapeHtml(deadlineDisplay)}</span>` : ''}
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Footer with debug metadata -->
+          <!-- Quick Actions Bar -->
           <tr>
-            <td class="footer-bg" style="padding: 20px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+            <td class="content-padding" style="padding: 24px 32px;">
+              <table role="presentation" style="width: 100%; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+                <tr>
+                  <td style="padding: 16px; text-align: center;">
+                    <p style="margin: 0 0 12px; color: #64748b; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">⚡ Quick Actions</p>
+                    <table role="presentation" class="action-row" style="width: 100%;">
+                      <tr>
+                        ${hasPhone ? `
+                        <td style="padding: 4px; text-align: center;">
+                          <a href="${whatsappLink}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
+                            💬 WhatsApp
+                          </a>
+                        </td>
+                        ` : ''}
+                        ${hasValidEmail ? `
+                        <td style="padding: 4px; text-align: center;">
+                          <a href="${replyMailtoLink}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: #3b82f6; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
+                            ✉️ Reply Email
+                          </a>
+                        </td>
+                        ` : ''}
+                        ${hasPhone ? `
+                        <td style="padding: 4px; text-align: center;">
+                          <a href="tel:${escapeHtml(customerPhone)}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
+                            📞 Call
+                          </a>
+                        </td>
+                        ` : ''}
+                      </tr>
+                    </table>
+                    ${!hasValidEmail && !hasPhone ? `<p style="margin: 0; color: #94a3b8; font-size: 12px; font-style: italic;">No contact details provided</p>` : ''}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Contact Details Card -->
+          <tr>
+            <td style="padding: 0 32px 20px;">
+              <table class="section-card" role="presentation" style="width: 100%; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <tr>
+                  <td style="padding: 16px 20px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+                    <p class="text-heading" style="margin: 0; color: #1e293b; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">👤 Contact Details</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 20px;">
+                    <!-- Name -->
+                    <table role="presentation" style="width: 100%; margin-bottom: 16px;">
+                      <tr>
+                        <td style="width: 32px; vertical-align: top;">
+                          <span style="display: inline-block; width: 28px; height: 28px; background-color: ${brandColor}15; border-radius: 6px; text-align: center; line-height: 28px; font-size: 14px;">👤</span>
+                        </td>
+                        <td style="vertical-align: top; padding-left: 12px;">
+                          <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
+                          <p class="text-heading" style="margin: 0; color: #1e293b; font-size: 16px; font-weight: 600;">${escapeHtml(displayName)}</p>
+                        </td>
+                      </tr>
+                    </table>
+                    
+                    <!-- Email -->
+                    <table role="presentation" style="width: 100%; margin-bottom: 16px;">
+                      <tr>
+                        <td style="width: 32px; vertical-align: top;">
+                          <span style="display: inline-block; width: 28px; height: 28px; background-color: #3b82f615; border-radius: 6px; text-align: center; line-height: 28px; font-size: 14px;">✉️</span>
+                        </td>
+                        <td style="vertical-align: top; padding-left: 12px;">
+                          <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
+                          ${hasValidEmail 
+                            ? `<a href="mailto:${escapeHtml(customerEmail)}" style="color: #3b82f6; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(customerEmail)}</a>` 
+                            : '<p class="text-secondary" style="margin: 0; color: #94a3b8; font-size: 14px; font-style: italic;">(Not provided)</p>'}
+                        </td>
+                      </tr>
+                    </table>
+                    
+                    <!-- Phone -->
+                    ${hasPhone ? `
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="width: 32px; vertical-align: top;">
+                          <span style="display: inline-block; width: 28px; height: 28px; background-color: #22c55e15; border-radius: 6px; text-align: center; line-height: 28px; font-size: 14px;">📱</span>
+                        </td>
+                        <td style="vertical-align: top; padding-left: 12px;">
+                          <p class="text-muted" style="margin: 0 0 2px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Phone</p>
+                          <a href="tel:${escapeHtml(customerPhone)}" style="color: #22c55e; text-decoration: none; font-size: 15px; font-weight: 500;">${escapeHtml(customerPhone)}</a>
+                        </td>
+                      </tr>
+                    </table>
+                    ` : ''}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Project Details Card -->
+          <tr>
+            <td style="padding: 0 32px 20px;">
+              <table class="section-card" role="presentation" style="width: 100%; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <tr>
+                  <td style="padding: 16px 20px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+                    <p class="text-heading" style="margin: 0; color: #1e293b; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">📋 Project Details</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 20px;">
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="width: 33%; padding: 8px; vertical-align: top;">
+                          <div style="padding: 12px; background-color: #f8fafc; border-radius: 8px; text-align: center;">
+                            <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Type</p>
+                            <p class="text-primary" style="margin: 0; color: #1e293b; font-size: 13px; font-weight: 600;">${escapeHtml(data.need?.trim() || 'Not specified')}</p>
+                          </div>
+                        </td>
+                        <td style="width: 33%; padding: 8px; vertical-align: top;">
+                          <div style="padding: 12px; background-color: #f8fafc; border-radius: 8px; text-align: center;">
+                            <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Budget</p>
+                            <p class="text-primary" style="margin: 0; color: #1e293b; font-size: 13px; font-weight: 600;">${escapeHtml(data.budget?.trim() || 'Not specified')}</p>
+                          </div>
+                        </td>
+                        <td style="width: 33%; padding: 8px; vertical-align: top;">
+                          <div style="padding: 12px; background-color: ${isUrgent ? '#fef2f2' : '#f8fafc'}; border-radius: 8px; text-align: center; ${isUrgent ? 'border: 1px solid #fecaca;' : ''}">
+                            <p class="text-muted" style="margin: 0 0 4px; color: ${isUrgent ? '#b91c1c' : '#64748b'}; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">${isUrgent ? '🔥 ' : ''}Deadline</p>
+                            <p style="margin: 0; color: ${isUrgent ? '#b91c1c' : '#1e293b'}; font-size: 13px; font-weight: 600;">${escapeHtml(deadlineDisplay || 'Flexible')}</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Card -->
+          <tr>
+            <td style="padding: 0 32px 24px;">
+              <table class="section-card" role="presentation" style="width: 100%; background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <tr>
+                  <td style="padding: 16px 20px; background-color: #fef3c7; border-bottom: 1px solid #fde68a;">
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td>
+                          <p class="text-heading" style="margin: 0; color: #92400e; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">💬 Message</p>
+                        </td>
+                        <td style="text-align: right;">
+                          <span style="color: #b45309; font-size: 11px; font-weight: 500;">${messageCharCount} characters</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 20px;">
+                    <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.7; white-space: pre-wrap;">${escapeHtml(messageText || '(No message provided)')}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="footer-bg" style="padding: 20px 32px; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td style="text-align: center;">
-                    <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px;">
-                      Submitted: ${submittedAt}
+                    <p class="text-muted" style="margin: 0 0 6px; color: #64748b; font-size: 12px;">
+                      📅 Submitted: ${submittedAt}
                     </p>
-                    ${config.sourceUrl ? `<p style="margin: 0 0 4px; color: #9ca3af; font-size: 11px;">Source: ${escapeHtml(config.sourceUrl)}</p>` : ''}
-                    <p style="margin: 0; color: #d1d5db; font-size: 10px;">
+                    ${config.sourceUrl ? `
+                    <p class="text-muted" style="margin: 0 0 6px; color: #94a3b8; font-size: 11px;">
+                      🔗 Source: <a href="${escapeHtml(config.sourceUrl)}" style="color: ${brandColor}; text-decoration: none;">${escapeHtml(config.sourceUrl)}</a>
+                    </p>
+                    ` : ''}
+                    <p class="text-muted" style="margin: 0; color: #cbd5e1; font-size: 10px;">
                       IP: ${clientIP}
                     </p>
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
+
+        </table>
+        
+        <!-- Bottom tip -->
+        <table role="presentation" style="max-width: 640px; margin: 16px auto 0;">
+          <tr>
+            <td style="text-align: center;">
+              <p style="margin: 0; color: #94a3b8; font-size: 11px;">
+                💡 Tip: Reply quickly to convert more leads — aim for under 2 hours during business hours.
+              </p>
             </td>
           </tr>
         </table>

@@ -4,6 +4,7 @@
 interface Env {
   TURNSTILE_SECRET_KEY: string;
   RESEND_API_KEY: string;
+  EMAIL_STATUS_KV?: KVNamespace;
 }
 
 interface ContactRequest {
@@ -15,6 +16,31 @@ interface ContactRequest {
   deadline?: string;
   message: string;
   turnstileToken: string;
+}
+
+// Email delivery status tracking
+interface EmailStatusRecord {
+  inquiryId: string;
+  resendEmailId: string;
+  userEmail: string;
+  timestamp: string;
+  confirmationStatus: 'sent' | 'delivered' | 'bounced' | 'failed';
+  bounceReason?: string;
+  lastUpdated: string;
+}
+
+// Confirmation status for admin email display
+type ConfirmationStatusType = 'sent' | 'failed' | 'not_sent';
+
+// Generate a short unique inquiry ID (8 chars, alphanumeric)
+function generateInquiryId(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Avoid ambiguous chars
+  let result = '';
+  const randomBytes = crypto.getRandomValues(new Uint8Array(8));
+  for (let i = 0; i < 8; i++) {
+    result += chars[randomBytes[i] % chars.length];
+  }
+  return result;
 }
 
 // Simple in-memory rate limiting (5 requests per minute per IP)
@@ -74,7 +100,10 @@ function getInternalEmailHtml(
   clientIP: string,
   config: EmailConfig = DEFAULT_EMAIL_CONFIG,
   submittedAtInput?: string | number,
-  timezone: string = "UTC"
+  timezone: string = "UTC",
+  inquiryId?: string,
+  confirmationStatus?: ConfirmationStatusType,
+  confirmationFailReason?: string
 ): string {
   const now = new Date();
 
@@ -405,6 +434,75 @@ function getInternalEmailHtml(
               </table>
             </td>
           </tr>
+
+          <!-- Email Confirmation Status Banner -->
+          ${confirmationStatus ? `
+          <tr>
+            <td style="padding: 16px 32px 0;">
+              <table role="presentation" style="width: 100%; border-radius: 10px; overflow: hidden; ${
+                confirmationStatus === 'sent' 
+                  ? 'background-color: #f0fdf4; border: 1px solid #86efac;' 
+                  : confirmationStatus === 'failed' 
+                    ? 'background-color: #fef2f2; border: 1px solid #fecaca;'
+                    : 'background-color: #f8fafc; border: 1px solid #e2e8f0;'
+              }">
+                <tr>
+                  <td style="padding: 14px 18px;">
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="vertical-align: middle;">
+                          <span style="display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 10px; ${
+                            confirmationStatus === 'sent' 
+                              ? 'background-color: #dcfce7; color: #166534;' 
+                              : confirmationStatus === 'failed' 
+                                ? 'background-color: #fee2e2; color: #b91c1c;'
+                                : 'background-color: #f1f5f9; color: #64748b;'
+                          }">
+                            ${confirmationStatus === 'sent' ? '✅ Confirmation Sent' : confirmationStatus === 'failed' ? '⚠️ Confirmation Failed' : '📧 Not Sent'}
+                          </span>
+                          <span style="color: ${confirmationStatus === 'failed' ? '#b91c1c' : '#64748b'}; font-size: 13px;">
+                            ${confirmationStatus === 'sent' 
+                              ? 'Customer confirmation email was sent successfully.' 
+                              : confirmationStatus === 'failed' 
+                                ? 'Customer confirmation email could not be delivered.'
+                                : 'No confirmation email was sent.'}
+                          </span>
+                        </td>
+                      </tr>
+                      ${confirmationStatus === 'failed' ? `
+                      <tr>
+                        <td style="padding-top: 10px;">
+                          ${confirmationFailReason ? `<p style="margin: 0 0 8px; color: #991b1b; font-size: 12px;"><strong>Reason:</strong> ${escapeHtml(confirmationFailReason)}</p>` : ''}
+                          <p style="margin: 0; color: #78350f; font-size: 12px; padding: 10px; background-color: #fef3c7; border-radius: 6px;">
+                            <strong>💡 Follow up via alternative channel:</strong> Consider replying directly, calling, or messaging on WhatsApp using the quick actions below.
+                          </p>
+                        </td>
+                      </tr>
+                      ` : ''}
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          ` : ''}
+
+          ${inquiryId ? `
+          <!-- Inquiry Reference ID -->
+          <tr>
+            <td style="padding: 12px 32px 0;">
+              <table role="presentation" style="width: 100%;">
+                <tr>
+                  <td style="text-align: center;">
+                    <span style="display: inline-block; padding: 4px 12px; background-color: #f1f5f9; color: #64748b; border-radius: 6px; font-size: 11px; font-weight: 500; font-family: monospace; letter-spacing: 0.5px;">
+                      Inquiry ID: ${escapeHtml(inquiryId)}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          ` : ''}
 
           <!-- Quick Actions Bar -->
           <tr>
@@ -1076,10 +1174,88 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       sourceUrl: request.headers.get("Referer") || "https://digital.luminousanddeliver.co.uk/contact",
     };
 
-    // Send internal email to site owner via Resend REST API
+    // Generate unique inquiry ID
+    const inquiryId = generateInquiryId();
     const customerName = name?.trim() || '';
     const submittedAtIso = new Date().toISOString();
 
+    // Track confirmation email status
+    let confirmationStatus: ConfirmationStatusType = 'not_sent';
+    let confirmationFailReason: string | undefined;
+    let resendEmailId: string | undefined;
+
+    // Send confirmation email to the user FIRST so we know status for admin email
+    const confirmationEmailData: ConfirmationEmailData = {
+      name: name,
+      projectType: need,
+      budget: budget,
+      deadline: deadline,
+    };
+    
+    try {
+      const confirmationEmailResponse = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
+          to: [email],
+          reply_to: "contact.luminousanddeliver@gmail.com",
+          subject: "We've received your enquiry — we'll be in touch shortly",
+          html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
+        }),
+      });
+
+      if (confirmationEmailResponse.ok) {
+        confirmationStatus = 'sent';
+        const responseData = await confirmationEmailResponse.json() as { id?: string };
+        resendEmailId = responseData.id;
+        
+        // Store in KV if available for webhook tracking
+        if (env.EMAIL_STATUS_KV && resendEmailId) {
+          const statusRecord: EmailStatusRecord = {
+            inquiryId,
+            resendEmailId,
+            userEmail: email,
+            timestamp: submittedAtIso,
+            confirmationStatus: 'sent',
+            lastUpdated: submittedAtIso,
+          };
+          
+          try {
+            // Store by both email ID and inquiry ID for lookup
+            await env.EMAIL_STATUS_KV.put(`email:${resendEmailId}`, JSON.stringify(statusRecord), {
+              expirationTtl: 60 * 60 * 24 * 30, // 30 days
+            });
+            await env.EMAIL_STATUS_KV.put(`inquiry:${inquiryId}`, JSON.stringify(statusRecord), {
+              expirationTtl: 60 * 60 * 24 * 30,
+            });
+          } catch (kvError) {
+            console.warn('KV storage failed:', kvError);
+          }
+        }
+      } else {
+        confirmationStatus = 'failed';
+        const errorText = await confirmationEmailResponse.text();
+        console.error("Resend API error (confirmation email):", errorText);
+        
+        // Try to parse error for reason
+        try {
+          const errorData = JSON.parse(errorText);
+          confirmationFailReason = errorData.message || errorData.error || 'Email delivery failed';
+        } catch {
+          confirmationFailReason = 'Email delivery failed';
+        }
+      }
+    } catch (confirmError) {
+      confirmationStatus = 'failed';
+      confirmationFailReason = confirmError instanceof Error ? confirmError.message : 'Network error';
+      console.error("Confirmation email send error:", confirmError);
+    }
+
+    // Send internal email to site owner via Resend REST API (with confirmation status info)
     const internalEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -1090,8 +1266,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
-        subject: `New enquiry from ${customerName || 'a visitor'} – L&D Digital`,
-        html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC"),
+        subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,
+        html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC", inquiryId, confirmationStatus, confirmationFailReason),
       }),
     });
 
@@ -1110,37 +1286,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       );
     }
 
-    // Send confirmation email to the user
-    const confirmationEmailData: ConfirmationEmailData = {
-      name: name,
-      projectType: need,
-      budget: budget,
-      deadline: deadline,
-    };
-    
-    const confirmationEmailResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
-        to: [email],
-        reply_to: "contact.luminousanddeliver@gmail.com",
-        subject: "We've received your enquiry — we'll be in touch shortly",
-        html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
-      }),
-    });
-
-    if (!confirmationEmailResponse.ok) {
-      // Log but don't fail - internal email was sent successfully
-      const errorText = await confirmationEmailResponse.text();
-      console.error("Resend API error (confirmation email):", errorText);
-    }
-
+    // Always return success to user - admin email was sent successfully
+    // Include inquiry ID and confirmation status for frontend display
     return new Response(
-      JSON.stringify({ ok: true }),
+      JSON.stringify({ 
+        ok: true, 
+        inquiryId,
+        confirmationStatus,
+      }),
       {
         status: 200,
         headers: {

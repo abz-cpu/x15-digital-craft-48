@@ -413,13 +413,19 @@ const Contact = () => {
                       <input
                         id="phone"
                         name="phone"
-                        inputMode="tel"
+                        inputMode="numeric"
                         autoComplete="tel"
+                        pattern="[0-9]*"
+                        maxLength={13}
                         className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                        placeholder="+44 7xxx xxx xxx"
+                        placeholder="07xxx xxx xxx"
+                        onInput={(e) => {
+                          const target = e.target as HTMLInputElement;
+                          target.value = target.value.replace(/\D/g, '').slice(0, 13);
+                        }}
                       />
                       <p className="text-xs text-muted-foreground">
-                        Useful if you prefer a quick call to clarify requirements.
+                        Numbers only, max 13 digits. Useful for a quick call.
                       </p>
                     </div>
 

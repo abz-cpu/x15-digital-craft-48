@@ -70,64 +70,80 @@ const DEFAULT_EMAIL_CONFIG: EmailConfig = {
 
 // HTML Email Templates
 function getInternalEmailHtml(
-  data: ContactRequest, 
+  data: ContactRequest,
   clientIP: string,
-  config: EmailConfig = DEFAULT_EMAIL_CONFIG
+  config: EmailConfig = DEFAULT_EMAIL_CONFIG,
+  submittedAtInput?: string | number,
+  timezone: string = "UTC"
 ): string {
   const now = new Date();
-  const submittedAtDate = now;
-  const submittedAt = now.toLocaleString('en-GB', { 
-    timeZone: 'Europe/London',
-    weekday: 'long',
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
 
-  // SLA Timer calculations
+  // submittedAt must be stable and come from backend
+  const submittedAtDate = (() => {
+    if (typeof submittedAtInput === "number") {
+      const d = new Date(submittedAtInput);
+      return isNaN(d.getTime()) ? now : d;
+    }
+    if (typeof submittedAtInput === "string" && submittedAtInput.trim()) {
+      const d = new Date(submittedAtInput);
+      return isNaN(d.getTime()) ? now : d;
+    }
+    return now;
+  })();
+
+  const tzLabel = timezone === "Europe/London" ? "UK" : timezone;
+
+  const formatEmailDateTime = (d: Date): string => {
+    const raw = new Intl.DateTimeFormat("en-GB", {
+      timeZone: timezone,
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }).format(d);
+
+    // Example: "Sat, 10 Jan 2026, 11:49 pm" -> "Sat 10 Jan 2026, 11:49 PM"
+    const cleaned = raw
+      .replace(/,/g, "")
+      .replace(/\b(am|pm)\b/i, (m) => m.toUpperCase())
+      .replace(/(\d{4})\s/, "$1, ");
+
+    return `${cleaned} (${tzLabel})`;
+  };
+
+  const submittedAtFormatted = formatEmailDateTime(submittedAtDate);
+
+  // SLA: due-by time (48 hours from submission)
   const slaHours = 48;
   const dueAt = new Date(submittedAtDate.getTime() + slaHours * 60 * 60 * 1000);
-  const dueAtFormatted = dueAt.toLocaleString('en-GB', {
-    timeZone: 'Europe/London',
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  }) + ' (UK)';
-  
-  // Calculate elapsed time since submission (for when email is viewed later)
+  const dueAtFormatted = formatEmailDateTime(dueAt);
+
+  // Elapsed time (fallback text for clients that block images)
   const elapsedMs = now.getTime() - submittedAtDate.getTime();
-  const elapsedMinutes = Math.floor(elapsedMs / (1000 * 60));
-  const elapsedHours = Math.floor(elapsedMs / (1000 * 60 * 60));
-  
-  // Human-readable elapsed time label
+  const elapsedMinutes = Math.max(0, Math.floor(elapsedMs / (1000 * 60)));
+  const elapsedHours = Math.max(0, Math.floor(elapsedMs / (1000 * 60 * 60)));
+
   const getElapsedLabel = (mins: number, hrs: number): string => {
-    if (mins < 1) return 'Just now';
-    if (mins < 60) return `Received ${mins} min${mins === 1 ? '' : 's'} ago`;
-    if (hrs < 48) return `Received ${hrs} hour${hrs === 1 ? '' : 's'} ago`;
+    if (mins < 1) return "Just now";
+    if (mins < 60) return `Received ${mins} min${mins === 1 ? "" : "s"} ago`;
+    if (hrs < 48) return `Received ${hrs} hour${hrs === 1 ? "" : "s"} ago`;
     const overdueHours = hrs - 48;
-    return `Overdue by ${overdueHours} hour${overdueHours === 1 ? '' : 's'}`;
+    return `Overdue by ${overdueHours} hour${overdueHours === 1 ? "" : "s"}`;
   };
+
   const elapsedLabel = getElapsedLabel(elapsedMinutes, elapsedHours);
-  
-  // Calculate hours remaining until SLA deadline
-  const hoursUntilDue = Math.ceil((dueAt.getTime() - now.getTime()) / (1000 * 60 * 60));
-  
-  // SLA status based on hours remaining - Green > 24h, Amber 1-24h, Red <= 0
-  const getSlaStatus = (hoursRemaining: number): { color: string; bgColor: string; label: string } => {
-    if (hoursRemaining <= 0) {
-      return { color: '#b91c1c', bgColor: '#fee2e2', label: 'Overdue' };
-    } else if (hoursRemaining <= 24) {
-      return { color: '#92400e', bgColor: '#fef3c7', label: 'Due Soon' };
-    } else {
-      return { color: '#166534', bgColor: '#dcfce7', label: 'On Track' };
-    }
+
+  // SLA status pill based on elapsed time
+  const getSlaStatus = (hrs: number): { color: string; bgColor: string; label: string } => {
+    if (hrs >= 48) return { color: "#b91c1c", bgColor: "#fee2e2", label: "Overdue" };
+    if (hrs >= 24) return { color: "#92400e", bgColor: "#fef3c7", label: "Due Soon" };
+    return { color: "#166534", bgColor: "#dcfce7", label: "On Track" };
   };
-  const slaStatus = getSlaStatus(hoursUntilDue);
+
+  const slaStatus = getSlaStatus(elapsedHours);
 
   // Safely extract customer name - never use form name or placeholders
   const customerName = data.name?.trim() || '';
@@ -311,20 +327,11 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAt} · <strong style="color: #fef08a;">${elapsedLabel}</strong>
+                            📅 <strong>Received:</strong> ${submittedAtFormatted} · <strong style="color: #fef08a;">${elapsedLabel}</strong>
                           </p>
                           <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 12px;">
                             ⏱️ <strong>Response due by:</strong> ${dueAtFormatted}
                           </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding-top: 8px;">
-                          <p style="margin: 0; color: rgba(255,255,255,0.85); font-size: 12px;">
-                            📆 <strong>Response due by:</strong> ${dueAtFormatted}
-                          </p>
-                        </td>
-                      </tr>
                     </table>
                   </td>
                 </tr>
@@ -526,7 +533,7 @@ function getInternalEmailHtml(
                 <tr>
                   <td style="text-align: center;">
                     <p class="text-muted" style="margin: 0 0 6px; color: #64748b; font-size: 12px;">
-                      📅 Submitted: ${submittedAt}
+                      📅 Submitted: ${submittedAtFormatted}
                     </p>
                     ${config.sourceUrl ? `
                     <p class="text-muted" style="margin: 0 0 6px; color: #94a3b8; font-size: 11px;">
@@ -885,7 +892,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       // Phone should be 10-13 digits after stripping non-digits
       if (phoneDigits.length < 10 || phoneDigits.length > 13) {
         return new Response(
-          JSON.stringify({ ok: false, error: "invalid_phone", message: "Please enter a valid UK phone number." }),
+          JSON.stringify({ ok: false, error: "invalid_phone", message: "Please enter a valid phone number." }),
           {
             status: 400,
             headers: {
@@ -950,6 +957,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     // Send internal email to site owner via Resend REST API
     const customerName = name?.trim() || '';
+    const submittedAtIso = new Date().toISOString();
+
     const internalEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -961,7 +970,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
         subject: `New enquiry from ${customerName || 'a visitor'} – L&D Digital`,
-        html: getInternalEmailHtml(body, clientIP, emailConfig),
+        html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC"),
       }),
     });
 

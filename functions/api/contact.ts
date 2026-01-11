@@ -75,6 +75,7 @@ function getInternalEmailHtml(
   config: EmailConfig = DEFAULT_EMAIL_CONFIG
 ): string {
   const now = new Date();
+  const submittedAtDate = now;
   const submittedAt = now.toLocaleString('en-GB', { 
     timeZone: 'Europe/London',
     weekday: 'long',
@@ -85,10 +86,40 @@ function getInternalEmailHtml(
     minute: '2-digit'
   });
 
+  // SLA Timer calculations
+  const elapsedMs = 0; // Just submitted
+  const elapsedHours = 0;
+  const slaHours = 48;
+  const dueAt = new Date(submittedAtDate.getTime() + slaHours * 60 * 60 * 1000);
+  const dueAtFormatted = dueAt.toLocaleString('en-GB', {
+    timeZone: 'Europe/London',
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  }) + ' (UK)';
+  
+  // SLA status - Green < 24h, Amber 24-48h, Red > 48h
+  const getSlaStatus = (hoursElapsed: number): { color: string; bgColor: string; label: string } => {
+    if (hoursElapsed < 24) {
+      return { color: '#166534', bgColor: '#dcfce7', label: 'On Track' };
+    } else if (hoursElapsed < 48) {
+      return { color: '#92400e', bgColor: '#fef3c7', label: 'Due Soon' };
+    } else {
+      return { color: '#b91c1c', bgColor: '#fee2e2', label: 'Overdue' };
+    }
+  };
+  const slaStatus = getSlaStatus(elapsedHours);
+
   // Safely extract customer name - never use form name or placeholders
   const customerName = data.name?.trim() || '';
   const displayName = customerName || '(Not provided)';
   const firstName = customerName ? customerName.split(' ')[0] : '';
+  
+  // Capitalize first name properly
+  const capitalizedFirstName = firstName ? firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase() : '';
   
   // Email must be lowercase for display, never uppercase
   const customerEmail = data.email?.trim()?.toLowerCase() || '';
@@ -96,9 +127,9 @@ function getInternalEmailHtml(
   
   // Phone formatting - compute E.164 and display formats
   const customerPhone = data.phone?.trim() || '';
-  const hasPhone = customerPhone.length > 0;
+  const hasPhone = customerPhone.length >= 10; // Minimum 10 digits for valid phone
   
-  // Parse phone to E.164 format (+447356260648) and display format
+  // Parse phone to E.164 format and display format
   let phoneE164 = '';
   let phoneDigitsOnly = '';
   let phoneDisplay = customerPhone;
@@ -107,24 +138,52 @@ function getInternalEmailHtml(
     // Remove all non-digit characters
     const digitsOnly = customerPhone.replace(/\D/g, '');
     
-    // Convert to E.164 format (UK assumed)
-    if (digitsOnly.startsWith('44')) {
-      phoneE164 = '+' + digitsOnly;
-      phoneDigitsOnly = digitsOnly;
-    } else if (digitsOnly.startsWith('0')) {
-      phoneE164 = '+44' + digitsOnly.substring(1);
-      phoneDigitsOnly = '44' + digitsOnly.substring(1);
-    } else {
+    // Only process if we have enough digits (10-13)
+    if (digitsOnly.length >= 10 && digitsOnly.length <= 13) {
+      // Detect Ireland (starts with 08)
+      if (digitsOnly.startsWith('08') && digitsOnly.length >= 10) {
+        phoneE164 = '+353' + digitsOnly.substring(1);
+        phoneDigitsOnly = '353' + digitsOnly.substring(1);
+      }
+      // Already has UK country code
+      else if (digitsOnly.startsWith('44')) {
+        phoneE164 = '+' + digitsOnly;
+        phoneDigitsOnly = digitsOnly;
+      }
+      // Already has Ireland country code
+      else if (digitsOnly.startsWith('353')) {
+        phoneE164 = '+' + digitsOnly;
+        phoneDigitsOnly = digitsOnly;
+      }
+      // US/Canada number (starts with 1, not 07)
+      else if (digitsOnly.startsWith('1') && digitsOnly.length >= 11 && !digitsOnly.startsWith('07')) {
+        phoneE164 = '+' + digitsOnly;
+        phoneDigitsOnly = digitsOnly;
+      }
+      // UK number starting with 0 - replace with 44
+      else if (digitsOnly.startsWith('0')) {
+        phoneE164 = '+44' + digitsOnly.substring(1);
+        phoneDigitsOnly = '44' + digitsOnly.substring(1);
+      }
       // Assume UK number without prefix
-      phoneE164 = '+44' + digitsOnly;
-      phoneDigitsOnly = '44' + digitsOnly;
-    }
-    
-    // Format display nicely if it looks like a UK mobile (07xxx)
-    if (digitsOnly.startsWith('07') && digitsOnly.length === 11) {
-      phoneDisplay = digitsOnly.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+      else {
+        phoneE164 = '+44' + digitsOnly;
+        phoneDigitsOnly = '44' + digitsOnly;
+      }
+      
+      // Format display nicely if it looks like a UK mobile (07xxx)
+      if (digitsOnly.startsWith('07') && digitsOnly.length === 11) {
+        phoneDisplay = digitsOnly.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+      }
+    } else {
+      // Invalid length - don't generate links
+      phoneE164 = '';
+      phoneDigitsOnly = '';
     }
   }
+  
+  // Recompute hasPhone based on valid phone parsing
+  const hasValidPhone = phoneDigitsOnly.length > 0;
   
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
@@ -153,7 +212,7 @@ function getInternalEmailHtml(
   
   // Build reply mailto link with pre-filled body
   const replySubject = encodeURIComponent('Re: Your enquiry to L&D Digital');
-  const replyBody = encodeURIComponent(`Hi ${firstName || 'there'},\n\nThanks for reaching out to L&D Digital! We've reviewed your enquiry and would love to discuss your project further.\n\n`);
+  const replyBody = encodeURIComponent(`Hi ${capitalizedFirstName || 'there'},\n\nThanks for reaching out to L&D Digital! We've reviewed your enquiry and would love to discuss your project further.\n\n`);
   const replyMailtoLink = hasValidEmail 
     ? `mailto:${customerEmail}?subject=${replySubject}&body=${replyBody}` 
     : '';
@@ -169,10 +228,10 @@ function getInternalEmailHtml(
   const projectTypeRaw = data.need?.trim() || '';
   const projectType = projectTypeMap[projectTypeRaw] || projectTypeRaw || 'Not specified';
   
-  // WhatsApp links - regular and prefilled
-  const whatsappPrefill = encodeURIComponent(`Hi ${firstName || 'there'}, thanks for your enquiry about ${projectType || 'your project'}. When would you like to chat?`);
-  const whatsappLink = hasPhone ? `https://wa.me/${phoneDigitsOnly}` : '';
-  const whatsappLinkPrefilled = hasPhone ? `https://wa.me/${phoneDigitsOnly}?text=${whatsappPrefill}` : '';
+  // WhatsApp links - only generate if phone is valid
+  const whatsappPrefill = encodeURIComponent(`Hi ${capitalizedFirstName || 'there'}, thanks for your enquiry about ${projectType || 'your project'}. When would be a good time to chat?`);
+  const whatsappLink = hasValidPhone ? `https://wa.me/${phoneDigitsOnly}` : '';
+  const whatsappLinkPrefilled = hasValidPhone ? `https://wa.me/${phoneDigitsOnly}?text=${whatsappPrefill}` : '';
 
   return `
 <!DOCTYPE html>
@@ -216,6 +275,15 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
+                    <!-- SLA Status Badge -->
+                    <table role="presentation" style="margin-bottom: 12px;">
+                      <tr>
+                        <td>
+                          <span style="display: inline-block; padding: 4px 10px; background-color: ${slaStatus.bgColor}; color: ${slaStatus.color}; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 8px;">⏱️ ${slaStatus.label}</span>
+                          <span style="display: inline-block; padding: 4px 10px; background-color: rgba(255,255,255,0.15); color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 600;">SLA: 24–48h (Mon–Fri)</span>
+                        </td>
+                      </tr>
+                    </table>
                     ${isUrgent && daysUntilDeadline !== null ? `<span style="display: inline-block; padding: 4px 10px; background-color: #ef4444; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">🔥 Urgent: deadline in ${daysUntilDeadline} day${daysUntilDeadline === 1 ? '' : 's'}</span>` : ''}
                     <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Project Enquiry</h1>
                     <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
@@ -227,15 +295,15 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAt}
+                            📅 <strong>Received:</strong> ${submittedAt} · <strong>Just now</strong>
                           </p>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding-top: 8px;">
-                          <span style="display: inline-block; padding: 6px 12px; background-color: rgba(255,255,255,0.2); color: #ffffff; border-radius: 6px; font-size: 12px; font-weight: 600;">
-                            ⏱️ Respond within 2–4 hours
-                          </span>
+                          <p style="margin: 0; color: rgba(255,255,255,0.85); font-size: 12px;">
+                            📆 <strong>Response due by:</strong> ${dueAtFormatted}
+                          </p>
                         </td>
                       </tr>
                     </table>
@@ -269,7 +337,7 @@ function getInternalEmailHtml(
                     <p style="margin: 0 0 12px; color: #64748b; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">⚡ Quick Actions</p>
                     <table role="presentation" class="action-row" style="width: 100%;">
                       <tr>
-                        ${hasPhone ? `
+                        ${hasValidPhone ? `
                         <td style="padding: 4px; text-align: center;">
                           <a href="${whatsappLinkPrefilled}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
                             💬 WhatsApp
@@ -283,7 +351,7 @@ function getInternalEmailHtml(
                           </a>
                         </td>
                         ` : ''}
-                        ${hasPhone ? `
+                        ${hasValidPhone ? `
                         <td style="padding: 4px; text-align: center;">
                           <a href="tel:${phoneE164}" class="action-btn" style="display: inline-block; padding: 10px 16px; background-color: ${brandColor}; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 12px; font-weight: 600; min-width: 120px;">
                             📞 Call
@@ -292,7 +360,7 @@ function getInternalEmailHtml(
                         ` : ''}
                       </tr>
                     </table>
-                    ${!hasValidEmail && !hasPhone ? `<p style="margin: 0; color: #94a3b8; font-size: 12px; font-style: italic;">No contact details provided</p>` : ''}
+                    ${!hasValidEmail && !hasValidPhone ? `<p style="margin: 0; color: #94a3b8; font-size: 12px; font-style: italic;">No contact details provided</p>` : ''}
                   </td>
                 </tr>
               </table>
@@ -342,7 +410,7 @@ function getInternalEmailHtml(
                     </table>
                     
                     <!-- Phone -->
-                    ${hasPhone ? `
+                    ${hasValidPhone ? `
                     <table role="presentation" style="width: 100%;">
                       <tr>
                         <td style="width: 32px; vertical-align: top;">
@@ -795,10 +863,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     // Validate phone if provided (optional field, but must be valid if present)
     if (phone && phone.trim()) {
       const phoneDigits = phone.replace(/\D/g, '');
-      // Phone should be 11-13 digits after stripping non-digits
-      if (phoneDigits.length < 11 || phoneDigits.length > 13) {
+      // Phone should be 10-13 digits after stripping non-digits
+      if (phoneDigits.length < 10 || phoneDigits.length > 13) {
         return new Response(
-          JSON.stringify({ ok: false, error: "invalid_phone", message: "Enter a valid phone number (11–13 digits), or leave blank." }),
+          JSON.stringify({ ok: false, error: "invalid_phone", message: "Please enter a valid UK phone number." }),
           {
             status: 400,
             headers: {

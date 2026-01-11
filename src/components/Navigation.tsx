@@ -353,6 +353,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
               <div className="flex flex-col leading-none whitespace-nowrap">
                 <span
                   className={`font-bold tracking-tight transition-all duration-300 ${isScrolled ? "text-base" : "text-lg"}`}
+                  style={{ textShadow: !isScrolled && darkHero ? '0 1px 3px rgba(0,0,0,0.3)' : 'none' }}
                 >
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>
                     L&amp;D
@@ -362,6 +363,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 {/* Tagline: hide on compact to reduce clutter */}
                 <span
                   className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}
+                  style={{ textShadow: !isScrolled && darkHero ? '0 1px 2px rgba(0,0,0,0.25)' : 'none' }}
                 >
                   Luminous &amp; Deliver —
                 </span>

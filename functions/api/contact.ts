@@ -288,31 +288,37 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
   
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
-  const brandColorDark = adjustColorBrightness(brandColor, -20);
+  const brandColorDark = adjustColorBrightness(brandColor, -15);
+  const brandColorLight = adjustColorBrightness(brandColor, 85); // Very light tint for backgrounds
+  
+  // WhatsApp config
+  const whatsappNumber = '447961341548';
+  const whatsappMessage = encodeURIComponent('Hi, I just submitted an enquiry on your website and wanted to follow up.');
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   
   // Build summary items (only show fields that exist)
   const summaryRows: string[] = [];
   if (data.projectType?.trim()) {
     summaryRows.push(`
       <tr>
-        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; width: 110px; vertical-align: top;">Project type</td>
-        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.projectType)}</td>
+        <td style="padding: 10px 16px; color: #6b7280; font-size: 13px; width: 120px; vertical-align: top; border-bottom: 1px solid #f3f4f6;">Project type</td>
+        <td style="padding: 10px 16px; color: #111827; font-size: 13px; font-weight: 500; border-bottom: 1px solid #f3f4f6;">${escapeHtml(data.projectType)}</td>
       </tr>
     `);
   }
   if (data.budget?.trim()) {
     summaryRows.push(`
       <tr>
-        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; vertical-align: top;">Budget range</td>
-        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.budget)}</td>
+        <td style="padding: 10px 16px; color: #6b7280; font-size: 13px; vertical-align: top; border-bottom: 1px solid #f3f4f6;">Budget range</td>
+        <td style="padding: 10px 16px; color: #111827; font-size: 13px; font-weight: 500; border-bottom: 1px solid #f3f4f6;">${escapeHtml(data.budget)}</td>
       </tr>
     `);
   }
   if (data.deadline?.trim()) {
     summaryRows.push(`
       <tr>
-        <td style="padding: 8px 12px; color: #6b7280; font-size: 13px; vertical-align: top;">Deadline</td>
-        <td style="padding: 8px 12px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.deadline)}</td>
+        <td style="padding: 10px 16px; color: #6b7280; font-size: 13px; vertical-align: top;">Deadline</td>
+        <td style="padding: 10px 16px; color: #111827; font-size: 13px; font-weight: 500;">${escapeHtml(data.deadline)}</td>
       </tr>
     `);
   }
@@ -326,97 +332,142 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
-  <title>We've received your enquiry - ${escapeHtml(config.brandName)}</title>
+  <title>Thanks for getting in touch - ${escapeHtml(config.brandName)}</title>
   <style>
     @media (prefers-color-scheme: dark) {
-      .email-body { background-color: #1f2937 !important; }
-      .email-card { background-color: #111827 !important; }
-      .section-bg { background-color: #1f2937 !important; }
+      .email-body { background-color: #1a1a1a !important; }
+      .email-card { background-color: #262626 !important; }
+      .section-bg { background-color: #333333 !important; }
       .text-primary { color: #f9fafb !important; }
       .text-secondary { color: #d1d5db !important; }
       .text-muted { color: #9ca3af !important; }
-      .footer-bg { background-color: #1f2937 !important; }
+      .footer-bg { background-color: #1f1f1f !important; }
       .summary-table td { color: #d1d5db !important; }
+      .callout-box { background-color: #1a3a38 !important; border-color: #2d5a56 !important; }
+    }
+    @media only screen and (max-width: 600px) {
+      .email-card { margin: 0 !important; border-radius: 0 !important; }
+      .content-padding { padding: 24px 20px !important; }
+      .header-padding { padding: 24px 20px !important; }
     }
   </style>
 </head>
-<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; line-height: 1.6;">
+<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f0f4f5; line-height: 1.65;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td style="padding: 40px 20px;">
-        <table class="email-card" role="presentation" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);">
+      <td style="padding: 40px 16px;">
+        <table class="email-card" role="presentation" style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);">
+          
           <!-- Header with brand gradient -->
           <tr>
-            <td style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 28px 32px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600; letter-spacing: -0.3px;">We've received your enquiry</h1>
+            <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Thanks for getting in touch!</h1>
+              <p style="margin: 10px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">We're excited to learn more about your project</p>
             </td>
           </tr>
           
           <!-- Content -->
           <tr>
-            <td style="padding: 32px 32px 24px;">
-              ${hasName ? `<p class="text-primary" style="margin: 0 0 20px; color: #111827; font-size: 15px;">Hi ${escapeHtml(customerName)},</p>` : ''}
+            <td class="content-padding" style="padding: 36px 40px 28px;">
+              ${hasName ? `<p class="text-primary" style="margin: 0 0 20px; color: #1f2937; font-size: 16px; font-weight: 500;">Hi ${escapeHtml(customerName)},</p>` : ''}
               
-              <!-- Confirmation message -->
-              <p class="text-secondary" style="margin: 0 0 8px; color: #374151; font-size: 15px;">
-                Thanks — your enquiry has been received.
+              <!-- Opening message -->
+              <p class="text-secondary" style="margin: 0 0 24px; color: #4b5563; font-size: 15px; line-height: 1.7;">
+                We've received your enquiry and we're excited to learn more about your project. Our team will review your requirements shortly.
               </p>
-              <p class="text-muted" style="margin: 0 0 24px; color: #6b7280; font-size: 14px;">
-                We typically respond within 24–48 hours (Mon–Fri).
+
+              <!-- What happens next callout box -->
+              <table role="presentation" style="width: 100%; margin-bottom: 28px;">
+                <tr>
+                  <td class="callout-box" style="padding: 20px 24px; background: linear-gradient(135deg, ${brandColorLight} 0%, #e0f7f5 100%); border: 1px solid ${brandColor}30; border-radius: 12px;">
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="width: 40px; vertical-align: top; padding-right: 14px;">
+                          <div style="width: 36px; height: 36px; background-color: ${brandColor}; border-radius: 50%; text-align: center; line-height: 36px;">
+                            <span style="font-size: 18px;">⏱️</span>
+                          </div>
+                        </td>
+                        <td style="vertical-align: top;">
+                          <p style="margin: 0 0 6px; color: ${brandColorDark}; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">What happens next?</p>
+                          <p style="margin: 0; color: #1f4a47; font-size: 14px; line-height: 1.6;">
+                            We'll review your requirements and get back to you within <strong>2–4 hours</strong> (during business hours, Mon–Fri 9am–6pm) with a clear quote and next steps.
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Additional message -->
+              <p class="text-secondary" style="margin: 0 0 24px; color: #4b5563; font-size: 14px; line-height: 1.7;">
+                In the meantime, if you have any additional details to share or questions, feel free to reply to this email or message us on WhatsApp.
               </p>
+
+              <!-- WhatsApp button -->
+              <table role="presentation" style="width: 100%; margin-bottom: 32px;">
+                <tr>
+                  <td style="text-align: center;">
+                    <a href="${whatsappLink}" style="display: inline-block; padding: 14px 32px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 14px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);">
+                      <span style="vertical-align: middle;">💬</span>&nbsp;&nbsp;Message us on WhatsApp
+                    </a>
+                  </td>
+                </tr>
+              </table>
 
               ${hasSummary ? `
               <!-- Summary section -->
-              <table class="summary-table" role="presentation" style="width: 100%; margin-bottom: 24px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+              <table class="summary-table" role="presentation" style="width: 100%; margin-bottom: 28px; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;">
                 <tr>
-                  <td colspan="2" style="padding: 12px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
-                    <p style="margin: 0; font-size: 13px; font-weight: 600; color: #374151; text-transform: uppercase; letter-spacing: 0.5px;">Your submission</p>
+                  <td colspan="2" style="padding: 14px 16px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+                    <p style="margin: 0; font-size: 12px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.8px;">📋 Your submission details</p>
                   </td>
                 </tr>
                 ${summaryRows.join('')}
               </table>
               ` : ''}
 
-              <!-- Reply instruction -->
-              <p class="text-secondary" style="margin: 0 0 24px; color: #374151; font-size: 14px; padding: 12px 16px; background-color: ${brandColor}08; border-left: 3px solid ${brandColor}; border-radius: 0 6px 6px 0;">
-                If you need to add anything, you can reply directly to this email.
-              </p>
-
               <!-- Signature -->
-              <p class="text-primary" style="margin: 0; color: #374151; font-size: 14px;">
-                Best regards,<br>
-                <strong style="color: #111827;">${escapeHtml(config.brandName)}</strong>
-              </p>
+              <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+                <tr>
+                  <td>
+                    <p class="text-primary" style="margin: 0 0 4px; color: #374151; font-size: 14px;">
+                      Best regards,
+                    </p>
+                    <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600;">${escapeHtml(config.brandName)}</p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
           <!-- Sister brand section (subtle) -->
           <tr>
-            <td style="padding: 0 32px 28px;">
-              <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+            <td style="padding: 0 40px 32px;">
+              <table role="presentation" style="width: 100%; background-color: #fafafa; border-radius: 10px; padding: 20px;">
                 <tr>
-                  <td>
-                    <p class="text-muted" style="margin: 0 0 12px; color: #6b7280; font-size: 12px;">
+                  <td style="padding: 20px;">
+                    <p class="text-muted" style="margin: 0 0 10px; color: #6b7280; font-size: 12px;">
                       If you also need help with custom PCs or technical support, our sister brand may be useful:
                     </p>
-                    <p style="margin: 0 0 16px;">
-                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: ${brandColor}; text-decoration: none; font-size: 13px; font-weight: 500;">builds.luminousanddeliver.co.uk</a>
+                    <p style="margin: 0 0 14px;">
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: ${brandColor}; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
                     </p>
                     
                     <table role="presentation" style="width: 100%;">
                       <tr>
-                        <td style="vertical-align: top; width: 50%; padding-right: 12px;">
-                          <p style="margin: 0 0 6px; color: #374151; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">What you get</p>
-                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.7;">
+                        <td style="vertical-align: top; width: 50%; padding-right: 10px;">
+                          <p style="margin: 0 0 6px; color: #4b5563; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">What you get</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.8;">
                             <li>Remote support for quick fixes</li>
                             <li>Network & Wi-Fi troubleshooting</li>
                             <li>Hardware advice & upgrades</li>
                             <li>Software support</li>
                           </ul>
                         </td>
-                        <td style="vertical-align: top; width: 50%; padding-left: 12px;">
-                          <p style="margin: 0 0 6px; color: #374151; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;">What's covered</p>
-                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.7;">
+                        <td style="vertical-align: top; width: 50%; padding-left: 10px;">
+                          <p style="margin: 0 0 6px; color: #4b5563; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">What's covered</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.8;">
                             <li>Email setup & troubleshooting</li>
                             <li>Printer & peripheral setup</li>
                             <li>Cloud storage & backups</li>
@@ -433,12 +484,23 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
 
           <!-- Footer -->
           <tr>
-            <td class="footer-bg" style="padding: 16px 32px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center;">
-              <p style="margin: 0 0 4px; color: #6b7280; font-size: 11px;">
+            <td class="footer-bg" style="padding: 20px 40px; background-color: #f3f4f6; border-top: 1px solid #e5e7eb; text-align: center;">
+              <p style="margin: 0 0 6px; color: #6b7280; font-size: 12px; font-weight: 500;">
                 ${escapeHtml(config.brandName)} • London, UK
               </p>
-              <p style="margin: 0; color: #9ca3af; font-size: 10px;">
+              <p style="margin: 0; color: #9ca3af; font-size: 11px;">
                 <a href="https://digital.luminousanddeliver.co.uk" style="color: ${brandColor}; text-decoration: none;">digital.luminousanddeliver.co.uk</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Unsubscribe footer -->
+        <table role="presentation" style="max-width: 580px; margin: 16px auto 0;">
+          <tr>
+            <td style="text-align: center;">
+              <p style="margin: 0; color: #9ca3af; font-size: 10px;">
+                This is a one-time confirmation email. You won't receive marketing emails unless you subscribe.
               </p>
             </td>
           </tr>

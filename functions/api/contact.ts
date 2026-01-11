@@ -792,6 +792,24 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       );
     }
 
+    // Validate phone if provided (optional field, but must be valid if present)
+    if (phone && phone.trim()) {
+      const phoneDigits = phone.replace(/\D/g, '');
+      // Phone should be 11-13 digits after stripping non-digits
+      if (phoneDigits.length < 11 || phoneDigits.length > 13) {
+        return new Response(
+          JSON.stringify({ ok: false, error: "invalid_phone", message: "Enter a valid phone number (11–13 digits), or leave blank." }),
+          {
+            status: 400,
+            headers: {
+              "Content-Type": "application/json",
+              ...corsHeaders,
+            },
+          }
+        );
+      }
+    }
+
     if (!turnstileToken) {
       return new Response(
         JSON.stringify({ ok: false, error: "missing_turnstile_token", message: "Please complete the security verification." }),

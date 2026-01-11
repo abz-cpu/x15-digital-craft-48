@@ -332,26 +332,28 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <!-- Logo - Matching navbar layout: Square box + L&D DIGITAL on top, Luminous & Deliver below -->
+                    <!-- Logo - Gradient logo image with HTML fallback -->
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
                         <td style="font-family: Arial, Helvetica, sans-serif;">
                           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                              <!-- Square L&D Box (matches navbar SVG proportions) -->
+                              <!-- Gradient Logo Image -->
                               <td style="vertical-align: top;" rowspan="2">
-                                <div style="display: inline-block; width: 42px; height: 42px; border: 2px solid #2dd4bf; border-radius: 6px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.1) 60%, rgba(245, 158, 11, 0.08) 100%); text-align: center; line-height: 38px;">
-                                  <span style="font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0;">L</span><span style="font-size: 14px; font-weight: 700; color: #F59E0B; letter-spacing: 0;">&amp;</span><span style="font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0;">D</span>
-                                </div>
+                                <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                                     alt="L&D" 
+                                     width="44" 
+                                     height="44"
+                                     style="display: block; border: 0; outline: none; border-radius: 6px;" />
                               </td>
-                              <!-- L&D DIGITAL Text (next to box, top line) -->
+                              <!-- L&D DIGITAL Text (next to logo, top line) -->
                               <td style="vertical-align: bottom; padding-left: 10px; padding-bottom: 2px;">
                                 <span style="font-size: 17px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
                                 <span style="font-size: 17px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 4px;">DIGITAL</span>
                               </td>
                             </tr>
                             <tr>
-                              <!-- Luminous & Deliver tagline (next to box, bottom line) -->
+                              <!-- Luminous & Deliver tagline (next to logo, bottom line) -->
                               <td style="vertical-align: top; padding-left: 10px; padding-top: 1px;">
                                 <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
                               </td>
@@ -772,26 +774,28 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Logo - Matching navbar layout: Square box + L&D DIGITAL on top, Luminous & Deliver below -->
+              <!-- Logo - Gradient logo image with HTML fallback -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
                   <td style="font-family: Arial, Helvetica, sans-serif;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
                       <tr>
-                        <!-- Square L&D Box (matches navbar SVG proportions) -->
+                        <!-- Gradient Logo Image -->
                         <td style="vertical-align: top;" rowspan="2">
-                          <div style="display: inline-block; width: 46px; height: 46px; border: 2px solid #2dd4bf; border-radius: 6px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.1) 60%, rgba(245, 158, 11, 0.08) 100%); text-align: center; line-height: 42px;">
-                            <span style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: 0;">L</span><span style="font-size: 15px; font-weight: 700; color: #F59E0B; letter-spacing: 0;">&amp;</span><span style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: 0;">D</span>
-                          </div>
+                          <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email-gradient.png" 
+                               alt="L&D" 
+                               width="48" 
+                               height="48"
+                               style="display: block; border: 0; outline: none; border-radius: 6px;" />
                         </td>
-                        <!-- L&D DIGITAL Text (next to box, top line) -->
+                        <!-- L&D DIGITAL Text (next to logo, top line) -->
                         <td style="vertical-align: bottom; padding-left: 12px; padding-bottom: 2px;">
                           <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">L&amp;D</span>
                           <span style="font-size: 18px; font-weight: 700; color: #5eead4; letter-spacing: 0.3px; margin-left: 5px;">DIGITAL</span>
                         </td>
                       </tr>
                       <tr>
-                        <!-- Luminous & Deliver tagline (next to box, bottom line) -->
+                        <!-- Luminous & Deliver tagline (next to logo, bottom line) -->
                         <td style="vertical-align: top; padding-left: 12px; padding-top: 1px;">
                           <span style="font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Luminous &amp; Deliver —</span>
                         </td>

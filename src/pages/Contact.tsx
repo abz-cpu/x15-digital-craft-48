@@ -32,6 +32,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { ConfettiEffect } from "@/components/ConfettiEffect";
+import { PhoneInput, type PhoneInputRef } from "@/components/PhoneInput";
 
 // ============================================================================
 // Types for quiz functionality (preserved for future backend integration)
@@ -72,6 +73,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const phoneInputRef = useRef<PhoneInputRef>(null);
 
   // Turnstile CAPTCHA - no need to pass siteKey, hook uses env variable as string
   const { containerRef: turnstileRef, token: turnstileToken, reset: resetTurnstile, getToken } = useTurnstile();
@@ -193,7 +195,6 @@ const Contact = () => {
     
     const name = (formData.get("name") as string)?.trim();
     const email = (formData.get("email") as string)?.trim();
-    const phone = (formData.get("phone") as string)?.trim() || "";
     const need = (formData.get("projectType") as string) || "";
     const budgetValue = (formData.get("budgetRange") as string) || "";
     const deadline = (formData.get("deadline") as string) || "";
@@ -228,6 +229,22 @@ const Contact = () => {
       });
       return;
     }
+    
+    // Validate phone (optional but must be valid if provided)
+    if (phoneInputRef.current) {
+      const isPhoneValid = phoneInputRef.current.validate();
+      if (!isPhoneValid) {
+        toast({
+          title: "Invalid phone number",
+          description: phoneInputRef.current.getError(),
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+    
+    // Get normalized phone (empty string if not provided)
+    const phone = phoneInputRef.current?.getNormalizedPhone() || "";
     
     if (!message) {
       toast({
@@ -406,28 +423,7 @@ const Contact = () => {
 
                   {/* Phone + Project Type */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <label htmlFor="phone" className="text-sm font-medium text-secondary">
-                        Phone (optional)
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        inputMode="numeric"
-                        autoComplete="tel"
-                        pattern="[0-9]*"
-                        maxLength={13}
-                        className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-                        placeholder="07xxx xxx xxx"
-                        onInput={(e) => {
-                          const target = e.target as HTMLInputElement;
-                          target.value = target.value.replace(/\D/g, '').slice(0, 13);
-                        }}
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        Numbers only, max 13 digits. Useful for a quick call.
-                      </p>
-                    </div>
+                    <PhoneInput ref={phoneInputRef} />
 
                     <div className="space-y-1.5">
                       <label htmlFor="projectType" className="text-sm font-medium text-secondary">

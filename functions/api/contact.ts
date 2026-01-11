@@ -86,23 +86,7 @@ function getInternalEmailHtml(
     minute: '2-digit'
   });
 
-  // SLA Timer calculations - compute elapsed time since submission
-  // Note: For new submissions, submittedAtDate = now, so elapsed will be minimal
-  // The email will show actual elapsed time when opened later
-  const elapsedMs = now.getTime() - submittedAtDate.getTime();
-  const elapsedMinutes = Math.floor(elapsedMs / (1000 * 60));
-  const elapsedHours = Math.floor(elapsedMs / (1000 * 60 * 60));
-  
-  // Human-readable elapsed time label
-  const getElapsedLabel = (mins: number, hrs: number): string => {
-    if (mins < 1) return 'Just now';
-    if (mins < 60) return `${mins} min${mins === 1 ? '' : 's'} ago`;
-    if (hrs < 48) return `${hrs} hour${hrs === 1 ? '' : 's'} ago`;
-    const days = Math.floor(hrs / 24);
-    return `${days} day${days === 1 ? '' : 's'} ago`;
-  };
-  const elapsedLabel = getElapsedLabel(elapsedMinutes, elapsedHours);
-  
+  // SLA Timer calculations
   const slaHours = 48;
   const dueAt = new Date(submittedAtDate.getTime() + slaHours * 60 * 60 * 1000);
   const dueAtFormatted = dueAt.toLocaleString('en-GB', {
@@ -115,17 +99,30 @@ function getInternalEmailHtml(
     minute: '2-digit'
   }) + ' (UK)';
   
-  // SLA status - Green < 24h, Amber 24-48h, Red > 48h
-  const getSlaStatus = (hoursElapsed: number): { color: string; bgColor: string; label: string } => {
-    if (hoursElapsed < 24) {
-      return { color: '#166534', bgColor: '#dcfce7', label: 'On Track' };
-    } else if (hoursElapsed < 48) {
+  // Calculate hours remaining until SLA deadline (more useful than elapsed time)
+  const hoursUntilDue = Math.ceil((dueAt.getTime() - now.getTime()) / (1000 * 60 * 60));
+  
+  // SLA countdown label - shows time remaining until 48h deadline
+  const getSlaCountdownLabel = (hoursRemaining: number): string => {
+    if (hoursRemaining <= 0) return 'Response overdue';
+    if (hoursRemaining <= 1) return 'Response due within 1 hour';
+    if (hoursRemaining <= 24) return `Response due within ${hoursRemaining} hours`;
+    const daysRemaining = Math.ceil(hoursRemaining / 24);
+    return `Response due within ${daysRemaining} day${daysRemaining === 1 ? '' : 's'}`;
+  };
+  const slaCountdownLabel = getSlaCountdownLabel(hoursUntilDue);
+  
+  // SLA status based on hours remaining - Green > 24h, Amber 1-24h, Red <= 0
+  const getSlaStatus = (hoursRemaining: number): { color: string; bgColor: string; label: string } => {
+    if (hoursRemaining <= 0) {
+      return { color: '#b91c1c', bgColor: '#fee2e2', label: 'Overdue' };
+    } else if (hoursRemaining <= 24) {
       return { color: '#92400e', bgColor: '#fef3c7', label: 'Due Soon' };
     } else {
-      return { color: '#b91c1c', bgColor: '#fee2e2', label: 'Overdue' };
+      return { color: '#166534', bgColor: '#dcfce7', label: 'On Track' };
     }
   };
-  const slaStatus = getSlaStatus(elapsedHours);
+  const slaStatus = getSlaStatus(hoursUntilDue);
 
   // Safely extract customer name - never use form name or placeholders
   const customerName = data.name?.trim() || '';
@@ -309,7 +306,10 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAt} · <strong>${elapsedLabel}</strong>
+                            📅 <strong>Received:</strong> ${submittedAt}
+                          </p>
+                          <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600;">
+                            ⏱️ ${slaCountdownLabel}
                           </p>
                         </td>
                       </tr>
@@ -730,7 +730,7 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 <tr>
                   <td>
                     <p class="text-primary" style="margin: 0 0 4px; color: #374151; font-size: 14px;">
-                      Best regards,
+                      Speak soon,
                     </p>
                     <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600;">${escapeHtml(config.brandName)}</p>
                   </td>

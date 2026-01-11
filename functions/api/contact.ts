@@ -99,18 +99,23 @@ function getInternalEmailHtml(
     minute: '2-digit'
   }) + ' (UK)';
   
-  // Calculate hours remaining until SLA deadline (more useful than elapsed time)
-  const hoursUntilDue = Math.ceil((dueAt.getTime() - now.getTime()) / (1000 * 60 * 60));
+  // Calculate elapsed time since submission (for when email is viewed later)
+  const elapsedMs = now.getTime() - submittedAtDate.getTime();
+  const elapsedMinutes = Math.floor(elapsedMs / (1000 * 60));
+  const elapsedHours = Math.floor(elapsedMs / (1000 * 60 * 60));
   
-  // SLA countdown label - shows time remaining until 48h deadline
-  const getSlaCountdownLabel = (hoursRemaining: number): string => {
-    if (hoursRemaining <= 0) return 'Response overdue';
-    if (hoursRemaining <= 1) return 'Response due within 1 hour';
-    if (hoursRemaining <= 24) return `Response due within ${hoursRemaining} hours`;
-    const daysRemaining = Math.ceil(hoursRemaining / 24);
-    return `Response due within ${daysRemaining} day${daysRemaining === 1 ? '' : 's'}`;
+  // Human-readable elapsed time label
+  const getElapsedLabel = (mins: number, hrs: number): string => {
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `Received ${mins} min${mins === 1 ? '' : 's'} ago`;
+    if (hrs < 48) return `Received ${hrs} hour${hrs === 1 ? '' : 's'} ago`;
+    const overdueHours = hrs - 48;
+    return `Overdue by ${overdueHours} hour${overdueHours === 1 ? '' : 's'}`;
   };
-  const slaCountdownLabel = getSlaCountdownLabel(hoursUntilDue);
+  const elapsedLabel = getElapsedLabel(elapsedMinutes, elapsedHours);
+  
+  // Calculate hours remaining until SLA deadline
+  const hoursUntilDue = Math.ceil((dueAt.getTime() - now.getTime()) / (1000 * 60 * 60));
   
   // SLA status based on hours remaining - Green > 24h, Amber 1-24h, Red <= 0
   const getSlaStatus = (hoursRemaining: number): { color: string; bgColor: string; label: string } => {
@@ -306,10 +311,10 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAt}
+                            📅 <strong>Received:</strong> ${submittedAt} · <strong style="color: #fef08a;">${elapsedLabel}</strong>
                           </p>
-                          <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600;">
-                            ⏱️ ${slaCountdownLabel}
+                          <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 12px;">
+                            ⏱️ <strong>Response due by:</strong> ${dueAtFormatted}
                           </p>
                         </td>
                       </tr>

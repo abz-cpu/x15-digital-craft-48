@@ -474,6 +474,7 @@ const Contact = () => {
                         id="deadline"
                         name="deadline"
                         type="date"
+                        min={new Date().toISOString().split('T')[0]}
                         className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
                       />
                     </div>

@@ -332,25 +332,25 @@ function getInternalEmailHtml(
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <!-- Logo - Boxed L&D Icon (no images = no spam risk) -->
+                    <!-- Logo - Boxed L&D Icon with amber ampersand (no images = no spam risk) -->
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
                         <td style="font-family: Arial, Helvetica, sans-serif;">
                           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                              <!-- Boxed L&D Icon -->
+                              <!-- Boxed L&D Icon with amber & -->
                               <td style="vertical-align: middle;">
-                                <div style="display: inline-block; border: 2px solid #5eead4; border-radius: 6px; padding: 6px 10px; background-color: rgba(255,255,255,0.1);">
-                                  <span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L&amp;D</span>
+                                <div style="display: inline-block; border: 2px solid #2dd4bf; border-radius: 4px; padding: 8px 12px; background-color: rgba(45, 212, 191, 0.1);">
+                                  <span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L</span><span style="font-size: 16px; font-weight: 700; color: #F59E0B; letter-spacing: 0.5px;">&amp;</span><span style="font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">D</span>
                                 </div>
                               </td>
                               <!-- DIGITAL Text -->
-                              <td style="vertical-align: middle; padding-left: 10px;">
-                                <span style="font-size: 22px; font-weight: 700; color: #5eead4; letter-spacing: 0.5px;">DIGITAL</span>
+                              <td style="vertical-align: middle; padding-left: 12px;">
+                                <span style="font-size: 22px; font-weight: 700; color: #5eead4; letter-spacing: 1px;">DIGITAL</span>
                               </td>
                             </tr>
                           </table>
-                          <div style="margin-top: 6px; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75);">LUMINOUS &amp; DELIVER</div>
+                          <div style="margin-top: 8px; font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.8);">LUMINOUS &amp; DELIVER —</div>
                         </td>
                       </tr>
                     </table>
@@ -737,25 +737,25 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Logo - Boxed L&D Icon (no images = no spam risk) -->
+              <!-- Logo - Boxed L&D Icon with amber ampersand (no images = no spam risk) -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
                   <td style="font-family: Arial, Helvetica, sans-serif; text-align: center;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
                       <tr>
-                        <!-- Boxed L&D Icon -->
+                        <!-- Boxed L&D Icon with amber & -->
                         <td style="vertical-align: middle;">
-                          <div style="display: inline-block; border: 2px solid #5eead4; border-radius: 6px; padding: 8px 12px; background-color: rgba(255,255,255,0.1);">
-                            <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L&amp;D</span>
+                          <div style="display: inline-block; border: 2px solid #2dd4bf; border-radius: 4px; padding: 8px 12px; background-color: rgba(45, 212, 191, 0.1);">
+                            <span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">L</span><span style="font-size: 18px; font-weight: 700; color: #F59E0B; letter-spacing: 0.5px;">&amp;</span><span style="font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">D</span>
                           </div>
                         </td>
                         <!-- DIGITAL Text -->
-                        <td style="vertical-align: middle; padding-left: 10px;">
-                          <span style="font-size: 24px; font-weight: 700; color: #5eead4; letter-spacing: 0.5px;">DIGITAL</span>
+                        <td style="vertical-align: middle; padding-left: 12px;">
+                          <span style="font-size: 24px; font-weight: 700; color: #5eead4; letter-spacing: 1px;">DIGITAL</span>
                         </td>
                       </tr>
                     </table>
-                    <div style="margin-top: 8px; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75);">LUMINOUS &amp; DELIVER</div>
+                    <div style="margin-top: 8px; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.8);">LUMINOUS &amp; DELIVER —</div>
                   </td>
                 </tr>
               </table>

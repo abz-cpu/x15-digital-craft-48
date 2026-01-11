@@ -357,7 +357,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <span className={isScrolled ? "text-foreground" : darkHero ? "text-white" : "text-foreground"}>
                     L&amp;D
                   </span>{" "}
-                  <span className="text-primary">DIGITAL</span>
+                  <span className={isScrolled ? "text-primary" : darkHero ? "text-white" : "text-primary"}>DIGITAL</span>
                 </span>
                 {/* Tagline: hide on compact to reduce clutter */}
                 <span

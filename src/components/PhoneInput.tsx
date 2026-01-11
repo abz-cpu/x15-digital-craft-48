@@ -181,7 +181,7 @@ export const PhoneInput = forwardRef<PhoneInputRef, PhoneInputProps>(
           </p>
         ) : (
           <p id="phone-hint" className="text-xs text-muted-foreground">
-            UK numbers only. We'll add +44 automatically.
+            We'll format your number automatically. Leave blank if you prefer email.
           </p>
         )}
       </div>

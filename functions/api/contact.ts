@@ -86,9 +86,23 @@ function getInternalEmailHtml(
     minute: '2-digit'
   });
 
-  // SLA Timer calculations
-  const elapsedMs = 0; // Just submitted
-  const elapsedHours = 0;
+  // SLA Timer calculations - compute elapsed time since submission
+  // Note: For new submissions, submittedAtDate = now, so elapsed will be minimal
+  // The email will show actual elapsed time when opened later
+  const elapsedMs = now.getTime() - submittedAtDate.getTime();
+  const elapsedMinutes = Math.floor(elapsedMs / (1000 * 60));
+  const elapsedHours = Math.floor(elapsedMs / (1000 * 60 * 60));
+  
+  // Human-readable elapsed time label
+  const getElapsedLabel = (mins: number, hrs: number): string => {
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `${mins} min${mins === 1 ? '' : 's'} ago`;
+    if (hrs < 48) return `${hrs} hour${hrs === 1 ? '' : 's'} ago`;
+    const days = Math.floor(hrs / 24);
+    return `${days} day${days === 1 ? '' : 's'} ago`;
+  };
+  const elapsedLabel = getElapsedLabel(elapsedMinutes, elapsedHours);
+  
   const slaHours = 48;
   const dueAt = new Date(submittedAtDate.getTime() + slaHours * 60 * 60 * 1000);
   const dueAtFormatted = dueAt.toLocaleString('en-GB', {
@@ -295,7 +309,7 @@ function getInternalEmailHtml(
                       <tr>
                         <td style="vertical-align: middle;">
                           <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 13px;">
-                            📅 <strong>Received:</strong> ${submittedAt} · <strong>Just now</strong>
+                            📅 <strong>Received:</strong> ${submittedAt} · <strong>${elapsedLabel}</strong>
                           </p>
                         </td>
                       </tr>

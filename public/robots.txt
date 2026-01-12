@@ -1,15 +1,30 @@
 # L&D Digital - Robots.txt
 # https://digital.luminousanddeliver.co.uk
 
-# Sitemap
+# Default rule
+User-agent: *
+Allow: /
+
+# Disallow sensitive paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_/
+
+# Sitemap location
 Sitemap: https://digital.luminousanddeliver.co.uk/sitemap.xml
 
-# Allow all major search engines
+# RSS Feed
+# Available at: https://digital.luminousanddeliver.co.uk/feed.xml
+
+# Search engine specific rules
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Brave
 Allow: /
@@ -26,26 +41,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# AI Search Crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-# Social Media Bots
+# Social Media Bots (Allow for rich previews)
 User-agent: Twitterbot
 Allow: /
 
@@ -64,11 +60,25 @@ Allow: /
 User-agent: Pinterest
 Allow: /
 
-# All other bots
-User-agent: *
+# AI Search Crawlers (Allow for AI search visibility)
+User-agent: GPTBot
 Allow: /
 
-# Disallow sensitive paths
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Block AI training bots (optional - uncomment to block)
+# User-agent: CCBot
+# Disallow: /

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>L&amp;D Digital Blog</title>
+    <link>https://digital.luminousanddeliver.co.uk/blog</link>
+    <description>Expert insights on web development, SEO, AI automation and digital marketing for London and UK businesses.</description>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 12 Jan 2026 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://digital.luminousanddeliver.co.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://digital.luminousanddeliver.co.uk/brand/logo-email.png</url>
+      <title>L&amp;D Digital Blog</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog</link>
+    </image>
+    <copyright>© 2026 L&amp;D Digital. All rights reserved.</copyright>
+    <managingEditor>contact@luminousanddeliver.co.uk (L&amp;D Digital)</managingEditor>
+    <webMaster>contact@luminousanddeliver.co.uk (L&amp;D Digital)</webMaster>
+    
+    <item>
+      <title>Why Cheap Websites Cost More in the Long Run</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/cheap-websites</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/cheap-websites</guid>
+      <pubDate>Sat, 15 Mar 2025 10:00:00 GMT</pubDate>
+      <description>That £50 website builder might seem like a bargain, but hidden platform fees, lost time, SEO issues and migration costs quickly turn it into a £2,000+ problem.</description>
+      <category>Web Development</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>How Small Businesses Can Use AI Without Being Techy</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/ai-for-small-businesses</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/ai-for-small-businesses</guid>
+      <pubDate>Mon, 10 Mar 2025 10:00:00 GMT</pubDate>
+      <description>AI automation isn't just for tech giants. Learn how UK small businesses use chatbots, voice agents and automation to save 10–20 hours per week without any technical skills.</description>
+      <category>AI Automation</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>The Hidden Dangers of Hiring Offshore Web Developers</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/offshore-development-risks</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/offshore-development-risks</guid>
+      <pubDate>Thu, 20 Mar 2025 10:00:00 GMT</pubDate>
+      <description>That £200 offshore developer might look cheap, but GDPR fines up to £17.5M, poor quality, and zero legal protection make it an expensive gamble for UK businesses.</description>
+      <category>Web Development</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>Best Web Developer in Stratford 2026: What to Look For</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/best-web-developer-stratford-2026</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/best-web-developer-stratford-2026</guid>
+      <pubDate>Tue, 07 Jan 2026 10:00:00 GMT</pubDate>
+      <description>Looking for a web developer in Stratford, East London? Here's what to look for, questions to ask, and red flags to avoid when choosing a local developer.</description>
+      <category>Web Development</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>Website Design Tips for East London Businesses</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/website-design-tips-east-london</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/website-design-tips-east-london</guid>
+      <pubDate>Mon, 06 Jan 2026 10:00:00 GMT</pubDate>
+      <description>Essential website tips for East London businesses looking to attract more local customers and stand out in a competitive market.</description>
+      <category>Web Development</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>Local SEO Guide for Hackney &amp; Shoreditch Businesses</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/local-seo-hackney-shoreditch</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/local-seo-hackney-shoreditch</guid>
+      <pubDate>Sun, 05 Jan 2026 10:00:00 GMT</pubDate>
+      <description>A complete SEO guide for businesses in Hackney and Shoreditch to rank higher in local search results and attract more customers.</description>
+      <category>SEO</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+    <item>
+      <title>How Personalised Apps Transform Customer Experience</title>
+      <link>https://digital.luminousanddeliver.co.uk/blog/personalised-apps-customer-experience</link>
+      <guid isPermaLink="true">https://digital.luminousanddeliver.co.uk/blog/personalised-apps-customer-experience</guid>
+      <pubDate>Sat, 04 Jan 2026 10:00:00 GMT</pubDate>
+      <description>How personalised apps are changing the way businesses connect with customers and drive engagement through tailored experiences.</description>
+      <category>App Development</category>
+      <author>contact@luminousanddeliver.co.uk (Abdul M Taher)</author>
+    </item>
+    
+  </channel>
+</rss>

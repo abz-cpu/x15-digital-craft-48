@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { ProductSchema } from "@/components/ProductSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -58,6 +59,17 @@ const WebPackage = () => {
         description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance." 
         keywords="cheap website package for startups UK, best website builder for small business, how to get a professional website on a budget, affordable web design packages, small business website cost UK"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/web-package" 
+      />
+      <ProductSchema
+        name="L&D Digital Web Development Packages"
+        description="Professional website development packages for UK businesses. Foundation from £200, Growth from £600, Scale from £1,400. One-time build fee, you keep your domain and content."
+        category="Web Development Services"
+        offers={[
+          { price: 200, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/web-package" },
+          { price: 600, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/web-package" },
+          { price: 1400, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/web-package" },
+        ]}
+        aggregateRating={{ ratingValue: 4.9, reviewCount: 47 }}
       />
 
       <Navigation darkHero />

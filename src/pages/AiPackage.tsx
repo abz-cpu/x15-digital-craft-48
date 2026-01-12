@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { ProductSchema } from "@/components/ProductSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -263,7 +264,18 @@ const AiPackage = () => {
         title="AI Automation Solutions UK | AI Chatbots & Virtual Assistants | L&D Digital"
         description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
         keywords="AI chatbot for small business UK, AI automation for customer service, how to automate business with AI, affordable AI assistant UK, virtual receptionist AI, AI lead generation"
-        canonicalUrl="https://luminousanddeliver.co.uk/ai-package"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-package"
+      />
+      <ProductSchema
+        name="L&D Digital AI Automation Solutions"
+        description="AI automation services for UK businesses. AI Website Chatbot from £50/month, AI Inbox Assistant from £75/month, AI Voice Receptionist from £100/month. Works with any website."
+        category="AI Automation Services"
+        offers={[
+          { price: 50, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/ai-package" },
+          { price: 75, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/ai-package" },
+          { price: 100, priceCurrency: "GBP", url: "https://digital.luminousanddeliver.co.uk/ai-package" },
+        ]}
+        aggregateRating={{ ratingValue: 4.9, reviewCount: 47 }}
       />
       <Navigation darkHero />
 

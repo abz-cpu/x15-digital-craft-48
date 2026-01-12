@@ -750,13 +750,13 @@ const Services = () => {
         </section>
 
         {/* ================================================================
-            SISTER BRAND: X15 PC BUILDERS
+            SISTER BRAND: L&D BUILDS
         ================================================================ */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-secondary/10 text-secondary border-secondary/20">Sister Brand</Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">X15 PC Builders</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">L&D Builds</h2>
               <p className="text-muted-foreground">Custom PC builds, repairs, and maintenance services in the UK</p>
             </div>
 
@@ -797,7 +797,7 @@ const Services = () => {
                       Perfect for: Gaming, video editing, 3D rendering, or general use
                     </p>
                     <Button asChild size="sm" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                      <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                         View PC Builds <ArrowRight className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
@@ -841,7 +841,7 @@ const Services = () => {
                       Perfect for: When your PC isn't running right or won't start
                     </p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                      <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                         Get a Repair Quote <ArrowRight className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
@@ -885,7 +885,7 @@ const Services = () => {
                       Perfect for: Keeping your PC running smoothly and quietly
                     </p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
-                      <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+                      <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                         Book Maintenance <ArrowRight className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
@@ -896,11 +896,11 @@ const Services = () => {
 
             <div className="text-center mt-8 fade-in-section">
               <p className="text-muted-foreground mb-4">
-                X15 PC Builders is our sister brand specializing in custom PC solutions
+                L&D Builds is our sister brand specialising in custom PC solutions
               </p>
               <Button asChild>
-                <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
-                  Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
+                  Visit L&D Builds <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </div>

@@ -19,8 +19,8 @@ import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import x15pcbuilders from "@/assets/x15pcbuilders-screenshot-new.png";
 const portfolioItems = [{
-  id: "x15-pc-builders",
-  title: "X15 PC Builders",
+  id: "ld-builds",
+  title: "L&D Builds",
   category: "Scale Package • PC Building",
   type: "Scale",
   features: ["Custom PC building services showcase", "FAQ section with common questions", "Lead capture forms", "Service pages with pricing"],
@@ -28,7 +28,7 @@ const portfolioItems = [{
   tech: "React, Tailwind CSS, SEO optimised",
   image: x15pcbuilders,
   isLive: true,
-  liveUrl: "https://x15pcbuilders.co.uk"
+  liveUrl: "https://builds.luminousanddeliver.co.uk"
 }, {
   id: "elite-salon",
   title: "Elite Salon",

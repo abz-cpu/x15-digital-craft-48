@@ -6,6 +6,8 @@ interface Env {
   RESEND_WEBHOOK_SECRET?: string;
   EMAIL_STATUS_KV?: KVNamespace;
   RESEND_API_KEY?: string;
+  FROM_EMAIL?: string;
+  TO_EMAIL?: string;
 }
 
 interface ResendWebhookEvent {
@@ -192,8 +194,8 @@ async function sendBounceNotificationEmail(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
-        to: ["contact@luminousanddeliver.co.uk"],
+        from: `L&D Digital – Luminous & Deliver <${env.FROM_EMAIL || "hello@luminousanddeliver.co.uk"}>`,
+        to: [env.TO_EMAIL || "contact@luminousanddeliver.co.uk"],
         subject: `⚠️ BOUNCED: Email to ${userEmail} failed`,
         html: emailHtml,
       }),

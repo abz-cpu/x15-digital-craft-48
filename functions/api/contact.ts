@@ -1294,7 +1294,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
+          from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
           to: [email],
           reply_to: "contact.luminousanddeliver@gmail.com",
           subject: "We've received your enquiry — we'll be in touch shortly",
@@ -1361,8 +1361,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             "Authorization": `Bearer ${env.RESEND_API_KEY}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+        body: JSON.stringify({
+            from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
             to: [email],
             reply_to: "contact.luminousanddeliver@gmail.com",
             subject: plainEmail.subject,
@@ -1391,7 +1391,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
+        from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
         subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}${plainFallbackSent ? '📄 ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,

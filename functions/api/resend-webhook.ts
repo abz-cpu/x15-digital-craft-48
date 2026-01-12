@@ -192,7 +192,7 @@ async function sendBounceNotificationEmail(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+        from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         subject: `⚠️ BOUNCED: Email to ${userEmail} failed`,
         html: emailHtml,

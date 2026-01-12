@@ -1041,11 +1041,12 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
               <table role="presentation" style="width: 100%; background-color: #fafafa; border-radius: 10px; padding: 20px;">
                 <tr>
                   <td style="padding: 20px;">
+                    <!-- email-template-version: 2026-01-12-v2-ldbuilds-orange -->
                     <p class="text-muted" style="margin: 0 0 10px; color: #6b7280; font-size: 12px;">
-                      If you also need help with <strong style="color: #374151;">custom PCs</strong> or technical support, our sister brand may be useful:
+                      If you also need help with <strong style="color: #374151 !important; font-weight: 700 !important;">custom PCs</strong> or technical support, our sister brand may be useful:
                     </p>
                     <p style="margin: 0 0 14px;">
-                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: #f46734; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: #f46734 !important; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
                     </p>
                     
                     <table role="presentation" style="width: 100%;">

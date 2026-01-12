@@ -944,12 +944,14 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
               <!-- Logo - Gradient logo image only, text as alt fallback -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
-                  <td style="text-align: center; font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; color: #ffffff;">
+                  <td style="text-align: center; font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.2;">
                     <img src="https://digital.luminousanddeliver.co.uk/brand/logo2-email-gradient.png" 
-                         alt="L&D DIGITAL - Luminous & Deliver" 
+                         alt="L&D DIGITAL – Luminous & Deliver" 
                          width="240"
                          height="55"
-                         style="display: block; margin: 0 auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%;" />
+                         border="0"
+                         loading="eager"
+                         style="display: block; margin: 0 auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; height: auto; font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #ffffff; font-style: normal; vertical-align: middle;" />
                   </td>
                 </tr>
               </table>

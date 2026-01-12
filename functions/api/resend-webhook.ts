@@ -5,6 +5,7 @@
 interface Env {
   RESEND_WEBHOOK_SECRET?: string;
   EMAIL_STATUS_KV?: KVNamespace;
+  RESEND_API_KEY?: string;
 }
 
 interface ResendWebhookEvent {
@@ -124,6 +125,91 @@ function arrayBufferToBase64(buffer: ArrayBuffer): string {
   return btoa(binary);
 }
 
+// Send bounce notification email to admin
+async function sendBounceNotificationEmail(
+  userEmail: string,
+  subject: string,
+  bounceReason: string,
+  env: Env
+): Promise<void> {
+  if (!env.RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured - bounce notification not sent');
+    return;
+  }
+
+  const emailHtml = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #fef2f2;">
+      <div style="max-width: 500px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border: 1px solid #fecaca; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <span style="font-size: 48px;">⚠️</span>
+        </div>
+        <h2 style="color: #b91c1c; margin: 0 0 16px; text-align: center; font-size: 20px;">Email Bounced</h2>
+        <p style="margin: 0 0 20px; color: #374151; text-align: center; font-size: 14px;">
+          A customer confirmation email has bounced and could not be delivered.
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+          <tr>
+            <td style="padding: 12px; color: #6b7280; font-size: 13px; border-bottom: 1px solid #f3f4f6;">Customer Email:</td>
+            <td style="padding: 12px; font-weight: 600; color: #111827; font-size: 13px; border-bottom: 1px solid #f3f4f6;">${userEmail}</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; color: #6b7280; font-size: 13px; border-bottom: 1px solid #f3f4f6;">Original Subject:</td>
+            <td style="padding: 12px; color: #111827; font-size: 13px; border-bottom: 1px solid #f3f4f6;">${subject}</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; color: #6b7280; font-size: 13px; border-bottom: 1px solid #f3f4f6;">Bounce Reason:</td>
+            <td style="padding: 12px; color: #b91c1c; font-weight: 600; font-size: 13px; border-bottom: 1px solid #f3f4f6;">${bounceReason}</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; color: #6b7280; font-size: 13px;">Timestamp:</td>
+            <td style="padding: 12px; color: #111827; font-size: 13px;">${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</td>
+          </tr>
+        </table>
+        <div style="margin-top: 20px; padding: 16px; background-color: #fef3c7; border-radius: 8px; border: 1px solid #fcd34d;">
+          <p style="margin: 0; color: #92400e; font-size: 13px;">
+            💡 <strong>Action Required:</strong> Consider contacting this customer via phone if they provided one, or check if they made a typo in their email address.
+          </p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 11px;">
+        L&amp;D Digital - Luminous &amp; Deliver • Automated Bounce Notification
+      </p>
+    </body>
+    </html>
+  `;
+
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+        to: ["contact.luminousanddeliver@gmail.com"],
+        subject: `⚠️ BOUNCED: Email to ${userEmail} failed`,
+        html: emailHtml,
+      }),
+    });
+
+    if (response.ok) {
+      console.log(`Bounce notification sent for ${userEmail}`);
+    } else {
+      const errorText = await response.text();
+      console.error(`Failed to send bounce notification: ${errorText}`);
+    }
+  } catch (error) {
+    console.error('Error sending bounce notification:', error);
+  }
+}
+
 export const onRequestOptions: PagesFunction<Env> = async () => {
   return new Response(null, { status: 204, headers: corsHeaders });
 };
@@ -167,6 +253,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       case 'email.bounced':
         newStatus = 'bounced';
         bounceReason = event.data.bounce?.message || 'Email bounced';
+        // Send bounce notification email
+        await sendBounceNotificationEmail(
+          event.data.to[0] || 'Unknown',
+          event.data.subject || 'Unknown subject',
+          bounceReason,
+          env
+        );
         break;
       case 'email.complained':
         newStatus = 'failed';

@@ -585,11 +585,11 @@ function getInternalEmailHtml(
                                 ? 'background-color: #fee2e2; color: #b91c1c;'
                                 : 'background-color: #f1f5f9; color: #64748b;'
                           }">
-                            ${confirmationStatus === 'sent' ? '✅ Confirmation Sent' : confirmationStatus === 'failed' ? '⚠️ Confirmation Failed' : '📧 Not Sent'}
+                            ${confirmationStatus === 'sent' ? '📤 Confirmation Sent' : confirmationStatus === 'failed' ? '⚠️ Confirmation Failed' : '📧 Not Sent'}
                           </span>
                           <span style="color: ${confirmationStatus === 'failed' ? '#b91c1c' : '#64748b'}; font-size: 13px;">
                             ${confirmationStatus === 'sent' 
-                              ? 'Customer confirmation email was sent successfully.' 
+                              ? 'Customer confirmation email accepted for delivery.'
                               : confirmationStatus === 'failed' 
                                 ? 'Customer confirmation email could not be delivered.'
                                 : 'No confirmation email was sent.'}

@@ -96,12 +96,12 @@ These must be set in Cloudflare Pages dashboard under Settings → Environment V
 ### Email Configuration
 
 The contact form sends two emails:
-1. **Internal notification** to `contact.luminousanddeliver@gmail.com` with full lead details
+1. **Internal notification** to `contact@luminousanddeliver.co.uk` with full lead details
 2. **Confirmation email** to the user thanking them for their enquiry
 
 Emails are sent from:
 - All emails: `L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>`
-- Reply-To: `contact.luminousanddeliver@gmail.com`
+- Reply-To: `contact@luminousanddeliver.co.uk`
 
 Make sure these domains are verified in Resend: [Resend Domains](https://resend.com/domains)
 

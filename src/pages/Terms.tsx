@@ -225,7 +225,7 @@ const Terms = () => {
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">17. Contact Information</h2>
             <p>For questions about these Terms of Service, contact us:</p>
             <ul className="list-none space-y-2 mt-4">
-              <li><strong>Email:</strong> <a href="mailto:contact.luminousanddeliver@gmail.com" className="text-primary hover:underline">contact.luminousanddeliver@gmail.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:contact@luminousanddeliver.co.uk" className="text-primary hover:underline">contact@luminousanddeliver.co.uk</a></li>
               <li><strong>Phone:</strong> <a href="tel:+447356260648" className="text-primary hover:underline">+44 7356 260648</a></li>
               <li><strong>Address:</strong> London, UK</li>
             </ul>

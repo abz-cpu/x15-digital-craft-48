@@ -13,7 +13,7 @@ export const ProfessionalServiceSchema = () => {
       image: "https://digital.luminousanddeliver.co.uk/og-image-2026-01-02-v2.png",
       description:
         "Top digital marketing agency and web development company near Stratford, London. Specializing in SEO, PPC, social media marketing, restaurant websites, ecommerce stores, and AI automation for UK businesses. Websites from £200, digital marketing from £500/month.",
-      email: "contact.luminousanddeliver@gmail.com",
+      email: "contact@luminousanddeliver.co.uk",
       telephone: "+44 7356 260648",
       address: {
         "@type": "PostalAddress",

@@ -470,10 +470,10 @@ const Enterprise = () => {
           <p className="text-white/90">
             Or email us directly:{" "}
             <a
-              href="mailto:contact.luminousanddeliver@gmail.com"
+              href="mailto:contact@luminousanddeliver.co.uk"
               className="font-semibold hover:underline"
             >
-              contact.luminousanddeliver@gmail.com
+              contact@luminousanddeliver.co.uk
             </a>
           </p>
         </div>

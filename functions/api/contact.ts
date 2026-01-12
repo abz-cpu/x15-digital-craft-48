@@ -109,7 +109,7 @@ What happens next:
 - If you don't hear from us, please reply to this email
 
 Questions? Simply reply to this email or contact us at:
-Email: contact.luminousanddeliver@gmail.com
+Email: contact@luminousanddeliver.co.uk
 Phone: +44 7488 855786
 
 Best regards,
@@ -1298,7 +1298,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         body: JSON.stringify({
           from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
           to: [email],
-          reply_to: "contact.luminousanddeliver@gmail.com",
+          reply_to: "contact@luminousanddeliver.co.uk",
           subject: "We've received your enquiry — we'll be in touch shortly",
           html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
         }),
@@ -1366,7 +1366,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         body: JSON.stringify({
             from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
             to: [email],
-            reply_to: "contact.luminousanddeliver@gmail.com",
+            reply_to: "contact@luminousanddeliver.co.uk",
             subject: plainEmail.subject,
             text: plainEmail.text, // Plain text only - no HTML, no tracking
           }),
@@ -1394,7 +1394,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       },
       body: JSON.stringify({
         from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
-        to: ["contact.luminousanddeliver@gmail.com"],
+        to: ["contact@luminousanddeliver.co.uk"],
         reply_to: email,
         subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}${plainFallbackSent ? '📄 ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,
         html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC", inquiryId, confirmationStatus, confirmationFailReason, plainFallbackSent, plainFallbackReason),

@@ -32,6 +32,92 @@ interface EmailStatusRecord {
 // Confirmation status for admin email display
 type ConfirmationStatusType = 'sent' | 'failed' | 'not_sent';
 
+// Plain fallback detection result
+interface PlainFallbackResult {
+  needed: boolean;
+  reason: 'privacy_relay' | 'education' | '';
+  reasonDisplay: string;
+}
+
+// Detect Apple Hide My Email / privacy relay domains
+function isPrivacyRelayEmail(email: string): boolean {
+  const domain = email.toLowerCase().split('@')[1] || '';
+  const localPart = email.toLowerCase().split('@')[0] || '';
+  
+  return (
+    domain.includes('privaterelay') ||
+    domain.includes('icloud.com') ||
+    domain.includes('hide.email') ||
+    domain.includes('relay.firefox.com') ||
+    domain.includes('duck.com') ||
+    domain.includes('simplelogin') ||
+    domain.includes('anonaddy') ||
+    domain.includes('burnermail') ||
+    domain.includes('guerrillamail') ||
+    // Random alias pattern: 20+ alphanumeric chars in local part
+    /^[a-z0-9]{20,}$/.test(localPart)
+  );
+}
+
+// Detect education/university domains
+function isEducationEmail(email: string): boolean {
+  const domain = email.toLowerCase().split('@')[1] || '';
+  
+  return (
+    domain.endsWith('.ac.uk') ||
+    domain.endsWith('.edu') ||
+    domain.endsWith('.edu.au') ||
+    domain.endsWith('.edu.sg') ||
+    domain.endsWith('.edu.in') ||
+    domain.endsWith('.edu.my') ||
+    domain.includes('.sch.') ||
+    domain.includes('university') ||
+    domain.includes('college') ||
+    domain.includes('student') ||
+    // Common UK universities
+    /gre\.ac\.uk|ucl\.ac\.uk|kcl\.ac\.uk|imperial\.ac\.uk|ox\.ac\.uk|cam\.ac\.uk|lse\.ac\.uk|qmul\.ac\.uk/.test(domain)
+  );
+}
+
+// Combined check for plain fallback necessity
+function needsPlainFallback(email: string): PlainFallbackResult {
+  if (isPrivacyRelayEmail(email)) {
+    return { needed: true, reason: 'privacy_relay', reasonDisplay: 'Privacy/relay email detected' };
+  }
+  if (isEducationEmail(email)) {
+    return { needed: true, reason: 'education', reasonDisplay: 'School/university email detected' };
+  }
+  return { needed: false, reason: '', reasonDisplay: '' };
+}
+
+// Generate plain-text fallback confirmation email (no HTML, no links, no tracking)
+function getPlainConfirmationEmail(inquiryId: string, customerName: string): { subject: string; text: string } {
+  const firstName = customerName?.split(' ')[0]?.trim() || '';
+  const greeting = firstName ? `Hi ${firstName}` : 'Hello';
+  
+  return {
+    subject: `We received your enquiry (Ref: ${inquiryId})`,
+    text: `${greeting},
+
+Thank you for getting in touch with L&D Digital.
+
+Your enquiry reference is: ${inquiryId}
+
+What happens next:
+- We review your request within 24-48 hours (Mon-Fri)
+- You'll receive a reply with a quote and next steps
+- If you don't hear from us, please reply to this email
+
+Questions? Simply reply to this email or contact us at:
+Email: hello@luminousanddeliver.co.uk
+Phone: +44 7488 855786
+
+Best regards,
+L&D Digital
+London, UK`
+  };
+}
+
 // Generate a short unique inquiry ID (8 chars, alphanumeric)
 function generateInquiryId(): string {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Avoid ambiguous chars
@@ -103,7 +189,9 @@ function getInternalEmailHtml(
   timezone: string = "UTC",
   inquiryId?: string,
   confirmationStatus?: ConfirmationStatusType,
-  confirmationFailReason?: string
+  confirmationFailReason?: string,
+  plainFallbackSent?: boolean,
+  plainFallbackReason?: string
 ): string {
   const now = new Date();
 
@@ -381,6 +469,45 @@ function getInternalEmailHtml(
                         </td>
                       </tr>
                     </table>
+                    <!-- Customer Confirmation Status -->
+                    ${inquiryId ? `
+                    <table role="presentation" style="margin-bottom: 12px;">
+                      <tr>
+                        <td>
+                          <span style="display: inline-block; padding: 4px 10px; background-color: ${
+                            confirmationStatus === 'sent' ? '#dcfce7' : 
+                            confirmationStatus === 'failed' ? '#fee2e2' : '#f1f5f9'
+                          }; color: ${
+                            confirmationStatus === 'sent' ? '#166534' : 
+                            confirmationStatus === 'failed' ? '#b91c1c' : '#64748b'
+                          }; border-radius: 20px; font-size: 11px; font-weight: 600; margin-right: 6px;">
+                            📧 Primary: ${confirmationStatus === 'sent' ? '✓ Sent' : confirmationStatus === 'failed' ? '✗ Failed' : 'Not sent'}
+                          </span>
+                          <span style="display: inline-block; padding: 4px 10px; background-color: ${
+                            plainFallbackSent ? '#dbeafe' : 'rgba(255,255,255,0.15)'
+                          }; color: ${
+                            plainFallbackSent ? '#1e40af' : 'rgba(255,255,255,0.7)'
+                          }; border-radius: 20px; font-size: 11px; font-weight: 600;">
+                            📄 Plain fallback: ${plainFallbackSent ? '✓ Sent' : 'No'}
+                          </span>
+                        </td>
+                      </tr>
+                      ${plainFallbackSent && plainFallbackReason ? `
+                      <tr>
+                        <td style="padding-top: 6px;">
+                          <span style="color: rgba(255,255,255,0.8); font-size: 11px;">ℹ️ Reason: ${plainFallbackReason}</span>
+                        </td>
+                      </tr>
+                      ` : ''}
+                      ${confirmationStatus === 'failed' && confirmationFailReason ? `
+                      <tr>
+                        <td style="padding-top: 6px;">
+                          <span style="color: #fecaca; font-size: 11px;">⚠️ ${confirmationFailReason}</span>
+                        </td>
+                      </tr>
+                      ` : ''}
+                    </table>
+                    ` : ''}
                     ${isUrgent && daysUntilDeadline !== null ? `<span style="display: inline-block; padding: 4px 10px; background-color: #ef4444; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">🔥 Urgent: deadline in ${daysUntilDeadline} day${daysUntilDeadline === 1 ? '' : 's'}</span>` : ''}
                     <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Project Enquiry</h1>
                     <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">${escapeHtml(config.brandName)} Contact Form</p>
@@ -1183,6 +1310,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     let confirmationStatus: ConfirmationStatusType = 'not_sent';
     let confirmationFailReason: string | undefined;
     let resendEmailId: string | undefined;
+    
+    // Check if plain fallback is needed based on email domain
+    const fallbackCheck = needsPlainFallback(email);
+    let plainFallbackSent = false;
+    let plainFallbackReason = '';
 
     // Send confirmation email to the user FIRST so we know status for admin email
     const confirmationEmailData: ConfirmationEmailData = {
@@ -1255,6 +1387,40 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       console.error("Confirmation email send error:", confirmError);
     }
 
+    // Send plain-text fallback if needed (for privacy/education emails)
+    // This is sent regardless of primary email status to maximize deliverability
+    if (fallbackCheck.needed) {
+      try {
+        const plainEmail = getPlainConfirmationEmail(inquiryId, customerName);
+        
+        const plainEmailResponse = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+            to: [email],
+            reply_to: "contact.luminousanddeliver@gmail.com",
+            subject: plainEmail.subject,
+            text: plainEmail.text, // Plain text only - no HTML, no tracking
+          }),
+        });
+        
+        if (plainEmailResponse.ok) {
+          plainFallbackSent = true;
+          plainFallbackReason = fallbackCheck.reasonDisplay;
+          console.log(`Plain fallback sent for ${fallbackCheck.reason} email: ${email}`);
+        } else {
+          console.warn('Plain fallback email failed:', await plainEmailResponse.text());
+        }
+      } catch (plainError) {
+        console.warn('Plain fallback email error:', plainError);
+        // Don't fail the submission - this is a best-effort fallback
+      }
+    }
+
     // Send internal email to site owner via Resend REST API (with confirmation status info)
     const internalEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -1266,8 +1432,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
         to: ["contact.luminousanddeliver@gmail.com"],
         reply_to: email,
-        subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,
-        html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC", inquiryId, confirmationStatus, confirmationFailReason),
+        subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}${plainFallbackSent ? '📄 ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,
+        html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC", inquiryId, confirmationStatus, confirmationFailReason, plainFallbackSent, plainFallbackReason),
       }),
     });
 
@@ -1287,12 +1453,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     // Always return success to user - admin email was sent successfully
-    // Include inquiry ID and confirmation status for frontend display
+    // Include inquiry ID, confirmation status, and fallback info for frontend display
     return new Response(
       JSON.stringify({ 
         ok: true, 
         inquiryId,
         confirmationStatus,
+        plainFallbackSent,
+        isPrivacyEmail: fallbackCheck.needed,
       }),
       {
         status: 200,

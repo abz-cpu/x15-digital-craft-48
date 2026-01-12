@@ -291,24 +291,34 @@ const Contact = () => {
         throw new Error(errorData.message || "Failed to send inquiry");
       }
       
-      // Parse response for confirmation status
+      // Parse response for confirmation status and fallback info
       const responseData = await response.json().catch(() => ({ ok: true }));
       const confirmationStatus = responseData.confirmationStatus || 'sent';
       const inquiryId = responseData.inquiryId;
+      const isPrivacyEmail = responseData.isPrivacyEmail || false;
       
       // Trigger confetti celebration
       setShowConfetti(true);
       
-      // Show success message with optional email delivery note
-      const baseDescription = "We'll reply within 24–48 hours with a detailed quote and next steps.";
-      const emailNote = confirmationStatus === 'failed' 
-        ? " Note: Our confirmation email couldn't be delivered, but we've received your message and will respond via your preferred contact method."
-        : "";
+      // Build success description based on email status
+      let description = "We'll reply within 24–48 hours with a detailed quote and next steps.";
+      
+      if (isPrivacyEmail) {
+        description += " If you used a school/university or Hide My Email address, confirmations can be delayed — but we've received your enquiry.";
+      }
+      
+      if (confirmationStatus === 'failed') {
+        description += " Note: Our confirmation email couldn't be delivered, but we have your message.";
+      }
+      
+      if (inquiryId) {
+        description += ` Reference: ${inquiryId}`;
+      }
       
       toast({
         title: "Inquiry sent!",
-        description: baseDescription + emailNote + (inquiryId ? ` Reference: ${inquiryId}` : ''),
-        duration: confirmationStatus === 'failed' ? 8000 : 5000, // Show longer if email failed
+        description,
+        duration: (isPrivacyEmail || confirmationStatus === 'failed') ? 8000 : 5000,
       });
       
       // Reset form and Turnstile

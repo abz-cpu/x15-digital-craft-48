@@ -363,7 +363,7 @@ function getInternalEmailHtml(
         daysUntilDeadline = Math.ceil((deadlineDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
         isUrgent = daysUntilDeadline <= 7 && daysUntilDeadline >= 0;
       }
-    } catch {
+    } catch (_deadlineParseError) {
       // ignore
     }
   }
@@ -1212,7 +1212,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         try {
           const errorData = JSON.parse(errorText) as { message?: string; error?: string };
           confirmationFailReason = errorData.message || errorData.error || "Email delivery failed";
-        } catch {
+        } catch (_parseError) {
           confirmationFailReason = "Email delivery failed";
         }
       }

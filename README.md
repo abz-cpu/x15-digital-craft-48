@@ -100,8 +100,8 @@ The contact form sends two emails:
 2. **Confirmation email** to the user thanking them for their enquiry
 
 Emails are sent from:
-- Internal: `noreply@luminousanddeliver.co.uk`
-- Confirmation: `contact@luminousanddeliver.co.uk`
+- All emails: `L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>`
+- Reply-To: `contact.luminousanddeliver@gmail.com`
 
 Make sure these domains are verified in Resend: [Resend Domains](https://resend.com/domains)
 

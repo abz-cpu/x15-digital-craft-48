@@ -452,11 +452,12 @@ function getInternalEmailHtml(
                     <!-- Logo - Gradient logo image only, text as alt fallback -->
                     <table role="presentation" style="margin-bottom: 16px;">
                       <tr>
-                        <td>
+                        <td style="font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; color: #ffffff;">
                           <img src="https://digital.luminousanddeliver.co.uk/brand/logo2-email-gradient.png"
                                alt="L&D DIGITAL - Luminous & Deliver" 
-                               width="220" 
-                               style="display: block; border: 0; outline: none; max-height: 60px;" />
+                               width="220"
+                               height="50"
+                               style="display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%;" />
                         </td>
                       </tr>
                     </table>
@@ -940,14 +941,27 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
+              <!-- Profile icon for brand identity -->
+              <table role="presentation" style="margin: 0 auto 12px;">
+                <tr>
+                  <td style="text-align: center;">
+                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" 
+                         alt="L&D" 
+                         width="48" 
+                         height="48"
+                         style="display: block; margin: 0 auto; border: 0; outline: none; border-radius: 8px; text-decoration: none; -ms-interpolation-mode: bicubic;" />
+                  </td>
+                </tr>
+              </table>
               <!-- Logo - Gradient logo image only, text as alt fallback -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; color: #ffffff;">
                     <img src="https://digital.luminousanddeliver.co.uk/brand/logo2-email-gradient.png" 
                          alt="L&D DIGITAL - Luminous & Deliver" 
-                         width="240" 
-                         style="display: block; margin: 0 auto; border: 0; outline: none; max-height: 65px;" />
+                         width="240"
+                         height="55"
+                         style="display: block; margin: 0 auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%;" />
                   </td>
                 </tr>
               </table>

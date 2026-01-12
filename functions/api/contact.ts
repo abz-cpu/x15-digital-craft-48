@@ -109,7 +109,7 @@ What happens next:
 - If you don't hear from us, please reply to this email
 
 Questions? Simply reply to this email or contact us at:
-Email: hello@luminousanddeliver.co.uk
+Email: contact.luminousanddeliver@gmail.com
 Phone: +44 7488 855786
 
 Best regards,
@@ -821,7 +821,7 @@ function getInternalEmailHtml(
                     <p style="margin: 0 0 6px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
                     <p style="margin: 0 0 4px; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
                     <p style="margin: 0; color: #94a3b8; font-size: 12px;">
-                      <a href="mailto:hello@luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none;">hello@luminousanddeliver.co.uk</a>
+                      <a href="mailto:contact.luminousanddeliver@gmail.com" style="color: #5eead4; text-decoration: none;">contact.luminousanddeliver@gmail.com</a>
                     </p>
                   </td>
                 </tr>
@@ -1124,7 +1124,7 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 <!-- Contact Info -->
                 <tr>
                   <td style="text-align: center; padding-bottom: 14px;">
-                    <p style="margin: 0 0 4px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
+                    <p style="margin: 0 0 4px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital - Luminous &amp; Deliver</p>
                     <p style="margin: 0; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
                   </td>
                 </tr>

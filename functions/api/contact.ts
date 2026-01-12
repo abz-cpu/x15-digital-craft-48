@@ -1042,10 +1042,10 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 <tr>
                   <td style="padding: 20px;">
                     <p class="text-muted" style="margin: 0 0 10px; color: #6b7280; font-size: 12px;">
-                      If you also need help with custom PCs or technical support, our sister brand may be useful:
+                      If you also need help with <strong style="color: #374151;">custom PCs</strong> or technical support, our sister brand may be useful:
                     </p>
                     <p style="margin: 0 0 14px;">
-                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: ${brandColor}; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: #f46734; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
                     </p>
                     
                     <table role="presentation" style="width: 100%;">

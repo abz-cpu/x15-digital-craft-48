@@ -995,6 +995,34 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 </tr>
               </table>
 
+              <!-- What You Get / What's Covered Two-Column Section -->
+              <table role="presentation" style="width: 100%; margin-bottom: 24px;">
+                <tr>
+                  <td style="vertical-align: top; width: 50%; padding-right: 12px;">
+                    <p style="margin: 0 0 12px; font-size: 11px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.5px;">
+                      WHAT YOU GET
+                    </p>
+                    <ul style="margin: 0; padding-left: 16px; color: #4b5563; font-size: 12px; line-height: 1.8;">
+                      <li>Remote support for quick fixes</li>
+                      <li>Network &amp; Wi-Fi troubleshooting</li>
+                      <li>Hardware advice &amp; upgrades</li>
+                      <li>Software support</li>
+                    </ul>
+                  </td>
+                  <td style="vertical-align: top; width: 50%; padding-left: 12px;">
+                    <p style="margin: 0 0 12px; font-size: 11px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.5px;">
+                      WHAT'S COVERED
+                    </p>
+                    <ul style="margin: 0; padding-left: 16px; color: #4b5563; font-size: 12px; line-height: 1.8;">
+                      <li>Email setup &amp; troubleshooting</li>
+                      <li>Printer &amp; peripheral setup</li>
+                      <li>Cloud storage &amp; backups</li>
+                      <li>Password &amp; security guidance</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+
               <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
                 <tr>
                   <td>
@@ -1011,12 +1039,38 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <tr>
             <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 40px;">
               <table role="presentation" style="width: 100%;">
+                <!-- Social Icons Row -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 16px;">
+                    <a href="https://linkedin.com/company/landdigital" style="display: inline-block; width: 36px; height: 36px; background-color: #334155; border-radius: 50%; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none;">
+                      <span style="color: #e2e8f0; font-size: 14px; font-weight: 600;">in</span>
+                    </a>
+                    <a href="https://instagram.com/landdigital" style="display: inline-block; width: 36px; height: 36px; background-color: #334155; border-radius: 50%; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none;">
+                      <span style="color: #e2e8f0; font-size: 14px;">📷</span>
+                    </a>
+                    <a href="https://tiktok.com/@landdigital" style="display: inline-block; width: 36px; height: 36px; background-color: #334155; border-radius: 50%; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none;">
+                      <span style="color: #e2e8f0; font-size: 14px;">♪</span>
+                    </a>
+                  </td>
+                </tr>
+                <!-- Company Info -->
                 <tr>
                   <td style="text-align: center; padding-bottom: 14px;">
                     <p style="margin: 0 0 4px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital - Luminous &amp; Deliver</p>
                     <p style="margin: 0; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
                   </td>
                 </tr>
+                <!-- Navigation Links -->
+                <tr>
+                  <td style="text-align: center; padding: 12px 0;">
+                    <a href="https://luminousanddeliver.co.uk/" style="color: #2dd4bf; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 8px;">Landing Page</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://ai.luminousanddeliver.co.uk/" style="color: #2dd4bf; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 8px;">AI</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://seo.luminousanddeliver.co.uk/" style="color: #2dd4bf; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 8px;">SEO</a>
+                  </td>
+                </tr>
+                <!-- Copyright -->
                 <tr>
                   <td style="text-align: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
                     <p style="margin: 0; color: #64748b; font-size: 11px;">

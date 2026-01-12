@@ -803,50 +803,21 @@ function getInternalEmailHtml(
             </td>
           </tr>
 
-          <!-- Footer - Branded gradient with social links -->
+          <!-- Footer - Minimal admin info -->
           <tr>
-            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 32px;">
+            <td style="background-color: #f8fafc; padding: 20px 32px; border-top: 1px solid #e2e8f0;">
               <table role="presentation" style="width: 100%;">
-                <!-- Social Links -->
                 <tr>
-                  <td style="text-align: center; padding-bottom: 20px;">
-                    <a href="https://www.linkedin.com/company/luminous-deliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">in</a>
-                    <a href="https://www.instagram.com/luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">📷</a>
-                    <a href="https://wa.me/447488855786" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #25D366; font-size: 16px;">💬</a>
-                  </td>
-                </tr>
-                <!-- Contact Info -->
-                <tr>
-                  <td style="text-align: center; padding-bottom: 16px;">
-                    <p style="margin: 0 0 6px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
-                    <p style="margin: 0 0 4px; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
-                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">
-                      <a href="mailto:contact.luminousanddeliver@gmail.com" style="color: #5eead4; text-decoration: none;">contact.luminousanddeliver@gmail.com</a>
-                    </p>
-                  </td>
-                </tr>
-                <!-- Links -->
-                <tr>
-                  <td style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <a href="https://digital.luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Website</a>
-                    <span style="color: #475569;">•</span>
-                    <a href="https://digital.luminousanddeliver.co.uk/portfolio" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Portfolio</a>
-                    <span style="color: #475569;">•</span>
-                    <a href="https://digital.luminousanddeliver.co.uk/contact" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Contact</a>
-                  </td>
-                </tr>
-                <!-- Submission Info -->
-                <tr>
-                  <td style="text-align: center; padding-top: 16px;">
-                    <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 11px;">
+                  <td style="text-align: center;">
+                    <p style="margin: 0 0 6px; color: #6b7280; font-size: 11px;">
                       📅 Submitted: ${submittedAtFormatted}
                     </p>
                     ${config.sourceUrl ? `
-                    <p class="text-muted" style="margin: 0 0 4px; color: #64748b; font-size: 10px;">
-                      🔗 Source: <a href="${escapeHtml(config.sourceUrl)}" style="color: #5eead4; text-decoration: none;">${escapeHtml(config.sourceUrl)}</a>
+                    <p style="margin: 0 0 6px; color: #6b7280; font-size: 11px;">
+                      🔗 Form: <a href="${escapeHtml(config.sourceUrl)}" style="color: #6b7280; text-decoration: underline;">${escapeHtml(config.sourceUrl)}</a>
                     </p>
                     ` : ''}
-                    <p class="text-muted" style="margin: 0; color: #475569; font-size: 9px;">
+                    <p style="margin: 0; color: #9ca3af; font-size: 10px;">
                       IP: ${clientIP}
                     </p>
                   </td>
@@ -855,17 +826,6 @@ function getInternalEmailHtml(
             </td>
           </tr>
 
-        </table>
-        
-        <!-- Bottom tip -->
-        <table role="presentation" style="max-width: 640px; margin: 16px auto 0;">
-          <tr>
-            <td style="text-align: center;">
-              <p style="margin: 0; color: #94a3b8; font-size: 11px;">
-                💡 Tip: Reply quickly to convert more leads — aim for under 2 hours during business hours.
-              </p>
-            </td>
-          </tr>
         </table>
       </td>
     </tr>
@@ -1118,7 +1078,7 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                   <td style="text-align: center; padding-bottom: 18px;">
                     <a href="https://www.linkedin.com/company/luminous-deliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">in</a>
                     <a href="https://www.instagram.com/luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">📷</a>
-                    <a href="https://wa.me/447488855786" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #25D366; font-size: 16px;">💬</a>
+                    <a href="https://www.tiktok.com/@luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">🎵</a>
                   </td>
                 </tr>
                 <!-- Contact Info -->
@@ -1131,11 +1091,11 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                 <!-- Links -->
                 <tr>
                   <td style="text-align: center; padding-bottom: 14px;">
-                    <a href="https://digital.luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Website</a>
+                    <a href="https://luminousanddeliver.co.uk/" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Landing Page</a>
                     <span style="color: #475569;">•</span>
-                    <a href="https://digital.luminousanddeliver.co.uk/portfolio" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Portfolio</a>
+                    <a href="https://ai.luminousanddeliver.co.uk/" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">AI</a>
                     <span style="color: #475569;">•</span>
-                    <a href="https://digital.luminousanddeliver.co.uk/contact" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Contact</a>
+                    <a href="https://seo.luminousanddeliver.co.uk/" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">SEO</a>
                   </td>
                 </tr>
                 <!-- Copyright -->

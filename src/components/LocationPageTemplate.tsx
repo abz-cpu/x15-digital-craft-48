@@ -476,7 +476,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
               Ready to Grow Your {location.name} Business Online?
             </h2>
             <p className="text-primary-foreground/80 mb-8">
-              Get a free, no-obligation quote today. WhatsApp us on <strong>07356 260648</strong> or email <strong>contact.luminousanddeliver@gmail.com</strong>. Let's build something great together.
+              Get a free, no-obligation quote today. WhatsApp us on <strong>07356 260648</strong> or email <strong>contact@luminousanddeliver.co.uk</strong>. Let's build something great together.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" variant="secondary" className="gap-2" asChild>

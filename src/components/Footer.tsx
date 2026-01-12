@@ -116,8 +116,8 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
               </div>
               <div className="flex items-center gap-2 text-sm text-white/70">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-accent transition-colors">
-                  contact.luminousanddeliver@gmail.com
+                <a href="mailto:contact@luminousanddeliver.co.uk" className="hover:text-accent transition-colors">
+                  contact@luminousanddeliver.co.uk
                 </a>
               </div>
             </div>

@@ -257,7 +257,7 @@ const AreasIndex = () => {
               Ready to Grow Your East London Business?
             </h2>
             <p className="text-primary-foreground/80 mb-8">
-              Get a free, no-obligation quote today. WhatsApp us on <strong>07356 260648</strong> or email <strong>contact.luminousanddeliver@gmail.com</strong>.
+              Get a free, no-obligation quote today. WhatsApp us on <strong>07356 260648</strong> or email <strong>contact@luminousanddeliver.co.uk</strong>.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" variant="secondary" className="gap-2" asChild>

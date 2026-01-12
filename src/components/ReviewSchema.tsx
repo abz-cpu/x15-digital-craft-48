@@ -19,7 +19,7 @@ export const ReviewSchema = ({
       "name": "L&D Digital",
       "url": "https://digital.luminousanddeliver.co.uk",
       "telephone": "+447356260648",
-      "email": "contact.luminousanddeliver@gmail.com",
+      "email": "contact@luminousanddeliver.co.uk",
       "image": "https://digital.luminousanddeliver.co.uk/og-image.jpg",
       "priceRange": "£200-£1500",
       "address": {

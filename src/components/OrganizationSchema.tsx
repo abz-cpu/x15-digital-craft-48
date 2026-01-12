@@ -19,7 +19,7 @@ export const OrganizationSchema = () => {
       image: "https://digital.luminousanddeliver.co.uk/og-image.jpg",
       description:
         "Professional web development and design services for UK businesses. Restaurant websites, ecommerce stores, and brand websites from £200.",
-      email: "contact.luminousanddeliver@gmail.com",
+      email: "contact@luminousanddeliver.co.uk",
       telephone: "+447356260648",
       address: {
         "@type": "PostalAddress",

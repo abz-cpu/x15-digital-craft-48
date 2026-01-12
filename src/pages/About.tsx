@@ -145,8 +145,8 @@ const About = () => {
                   <div className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <a href="mailto:contact.luminousanddeliver@gmail.com" className="hover:text-primary transition-colors">
-                        contact.luminousanddeliver@gmail.com
+                      <a href="mailto:contact@luminousanddeliver.co.uk" className="hover:text-primary transition-colors">
+                        contact@luminousanddeliver.co.uk
                       </a>
                     </div>
                   </div>

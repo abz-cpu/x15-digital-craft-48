@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTurnstile } from "@/hooks/useTurnstile";
 import { Loader2 } from "lucide-react";
+import { format } from "date-fns";
 import {
   Mail,
   MessageCircle,
@@ -33,6 +34,9 @@ import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { ConfettiEffect } from "@/components/ConfettiEffect";
 import { PhoneInput, type PhoneInputRef } from "@/components/PhoneInput";
+import { Calendar as CalendarComponent } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 // ============================================================================
 // Types for quiz functionality (preserved for future backend integration)
@@ -72,6 +76,7 @@ const Contact = () => {
   // Form submission state
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [deadlineDate, setDeadlineDate] = useState<Date | undefined>(undefined);
   const formRef = useRef<HTMLFormElement>(null);
   const phoneInputRef = useRef<PhoneInputRef>(null);
 
@@ -323,6 +328,7 @@ const Contact = () => {
       
       // Reset form and Turnstile
       form.reset();
+      setDeadlineDate(undefined);
       resetTurnstile();
       
     } catch (error) {
@@ -492,12 +498,35 @@ const Contact = () => {
                       <label htmlFor="deadline" className="text-sm font-medium text-secondary">
                         Desired deadline (optional)
                       </label>
-                      <input
-                        id="deadline"
-                        name="deadline"
-                        type="date"
-                        min={new Date().toISOString().split('T')[0]}
-                        className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <button
+                            type="button"
+                            className={cn(
+                              "w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-left shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 flex items-center justify-between",
+                              !deadlineDate && "text-muted-foreground"
+                            )}
+                          >
+                            {deadlineDate ? format(deadlineDate, "dd/MM/yyyy") : "Select date"}
+                            <Calendar className="h-4 w-4 opacity-50" />
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <CalendarComponent
+                            mode="single"
+                            selected={deadlineDate}
+                            onSelect={setDeadlineDate}
+                            disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                            initialFocus
+                            className="p-3 pointer-events-auto"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      {/* Hidden input to include in form submission */}
+                      <input 
+                        type="hidden" 
+                        name="deadline" 
+                        value={deadlineDate ? format(deadlineDate, "yyyy-MM-dd") : ""} 
                       />
                     </div>
                   </div>

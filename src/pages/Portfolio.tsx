@@ -69,7 +69,7 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       id: 0,
-      title: "X15 PC Builders",
+      title: "L&D Builds",
       category: "web" as FilterType,
       type: "Web Development",
       features: [
@@ -84,7 +84,7 @@ const Portfolio = () => {
       tech: "React, Tailwind CSS",
       image: "pcbuilder",
       isLive: true,
-      liveUrl: "https://x15pcbuilders.com/",
+      liveUrl: "https://builds.luminousanddeliver.co.uk/",
     },
     {
       id: 1,

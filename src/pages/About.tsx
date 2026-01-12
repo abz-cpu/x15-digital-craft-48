@@ -277,7 +277,7 @@ const About = () => {
             Same values. Same transparency. Different expertise.
           </p>
           <Button asChild variant="outline">
-            <a href="https://x15pcbuilders.co.uk" target="_blank" rel="noopener noreferrer">
+            <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
               Visit L&D Builds <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>

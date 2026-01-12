@@ -205,14 +205,14 @@ const ItSupport = () => {
           </Container>
         </section>
 
-        {/* X15 PC BUILDERS – SISTER BRAND */}
+        {/* L&D BUILDS – SISTER BRAND */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                   <Badge className="mb-4 bg-primary/10 text-primary border border-primary/20">SISTER BRAND</Badge>
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">X15 PC Builders</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">L&D Builds</h2>
                   <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                     Custom PC builds, repairs, and maintenance services across the UK.
                   </p>
@@ -247,7 +247,7 @@ const ItSupport = () => {
                         <strong>Perfect for:</strong> Gaming, video editing, 3D work, or a fast everyday machine.
                       </p>
                       <Button asChild className="w-full">
-                        <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                           View PC Builds <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -282,7 +282,7 @@ const ItSupport = () => {
                         <strong>Perfect for:</strong> Slow, unstable, or non-booting machines.
                       </p>
                       <Button asChild variant="outline" className="w-full">
-                        <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                           Get a Repair Quote <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -317,7 +317,7 @@ const ItSupport = () => {
                         <strong>Perfect for:</strong> Keeping your PC cool, quiet, and reliable long term.
                       </p>
                       <Button asChild variant="outline" className="w-full">
-                        <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
                           Book Maintenance <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -327,11 +327,11 @@ const ItSupport = () => {
 
                 <div className="text-center">
                   <p className="text-muted-foreground mb-4">
-                    X15 PC Builders is our dedicated brand for custom PCs, repairs, and performance tuning.
+                    L&D Builds is our dedicated brand for custom PCs, repairs, and performance tuning.
                   </p>
                   <Button asChild size="lg">
-                    <a href="https://x15pcbuilders.com" target="_blank" rel="noopener noreferrer">
-                      Visit X15 PC Builders <ArrowRight className="ml-2 h-4 w-4" />
+                    <a href="https://builds.luminousanddeliver.co.uk" target="_blank" rel="noopener noreferrer">
+                      Visit L&D Builds <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
                 </div>

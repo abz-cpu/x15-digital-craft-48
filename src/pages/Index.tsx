@@ -976,7 +976,7 @@ const Index = () => {
                 timeline: "10–14 Days",
                 tech: "React, Tailwind CSS, SEO",
                 isLive: true,
-                liveUrl: "https://x15pcbuilders.co.uk",
+                liveUrl: "https://builds.luminousanddeliver.co.uk",
                 image: x15Screenshot,
               },
               {

@@ -5,6 +5,9 @@ interface Env {
   TURNSTILE_SECRET_KEY: string;
   RESEND_API_KEY: string;
   EMAIL_STATUS_KV?: KVNamespace;
+  FROM_EMAIL?: string;
+  REPLY_TO_EMAIL?: string;
+  TO_EMAIL?: string;
 }
 
 interface ContactRequest {
@@ -1265,6 +1268,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       sourceUrl: request.headers.get("Referer") || "https://digital.luminousanddeliver.co.uk/contact",
     };
 
+    // Email addresses from env vars with fallbacks
+    const fromEmail = env.FROM_EMAIL || "hello@luminousanddeliver.co.uk";
+    const replyToEmail = env.REPLY_TO_EMAIL || "contact@luminousanddeliver.co.uk";
+    const toEmail = env.TO_EMAIL || "contact@luminousanddeliver.co.uk";
+    const fromHeader = `L&D Digital – Luminous & Deliver <${fromEmail}>`;
+
     // Generate unique inquiry ID
     const inquiryId = generateInquiryId();
     const customerName = name?.trim() || '';
@@ -1296,12 +1305,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
+          from: fromHeader,
           to: [email],
-          reply_to: "contact@luminousanddeliver.co.uk",
+          reply_to: replyToEmail,
           subject: "We've received your enquiry — we'll be in touch shortly",
           html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
         }),
+      });
       });
 
       if (confirmationEmailResponse.ok) {
@@ -1364,9 +1374,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             "Content-Type": "application/json",
           },
         body: JSON.stringify({
-            from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
+            from: fromHeader,
             to: [email],
-            reply_to: "contact@luminousanddeliver.co.uk",
+            reply_to: replyToEmail,
             subject: plainEmail.subject,
             text: plainEmail.text, // Plain text only - no HTML, no tracking
           }),
@@ -1393,8 +1403,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "L&D Digital – Luminous & Deliver <hello@luminousanddeliver.co.uk>",
-        to: ["contact@luminousanddeliver.co.uk"],
+        from: fromHeader,
+        to: [toEmail],
         reply_to: email,
         subject: `${confirmationStatus === 'failed' ? '⚠️ ' : ''}${plainFallbackSent ? '📄 ' : ''}New enquiry from ${customerName || 'a visitor'} – L&D Digital [${inquiryId}]`,
         html: getInternalEmailHtml(body, clientIP, emailConfig, submittedAtIso, "UTC", inquiryId, confirmationStatus, confirmationFailReason, plainFallbackSent, plainFallbackReason),

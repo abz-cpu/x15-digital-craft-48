@@ -17,7 +17,7 @@ export const X15CaseStudyModal = ({ isOpen, onClose }: X15CaseStudyModalProps) =
         <DialogHeader>
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
-              <DialogTitle className="text-3xl mb-2">X15 PC Builders</DialogTitle>
+              <DialogTitle className="text-3xl mb-2">L&D Builds</DialogTitle>
               <p className="text-muted-foreground">Professional PC Building Service Website</p>
               <div className="flex gap-2 flex-wrap mt-3">
                 <Badge className="bg-green-500 text-white">LIVE PROJECT</Badge>
@@ -32,7 +32,7 @@ export const X15CaseStudyModal = ({ isOpen, onClose }: X15CaseStudyModalProps) =
         <div className="w-full h-64 md:h-96 bg-muted rounded-lg overflow-hidden mb-6 border">
           <img 
             src={x15Screenshot} 
-            alt="X15 PC Builders Website" 
+            alt="L&D Builds Website" 
             className="w-full h-full object-cover"
           />
         </div>
@@ -46,7 +46,7 @@ export const X15CaseStudyModal = ({ isOpen, onClose }: X15CaseStudyModalProps) =
               Project Overview
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              X15 PC Builders is our sister brand offering custom PC building, repairs, and maintenance services. 
+              L&D Builds is our sister brand offering custom PC building, repairs, and maintenance services. 
               We needed a professional website to showcase services, display pricing packages, and allow customers 
               to easily request custom builds or service bookings.
             </p>
@@ -166,7 +166,7 @@ export const X15CaseStudyModal = ({ isOpen, onClose }: X15CaseStudyModalProps) =
             </p>
             <div className="flex gap-3">
               <Button asChild className="flex-1">
-                <a href="https://x15pcbuilders.com/" target="_blank" rel="noopener noreferrer">
+                <a href="https://builds.luminousanddeliver.co.uk/" target="_blank" rel="noopener noreferrer">
                   <Globe className="h-4 w-4 mr-2" />
                   View Live Site
                 </a>

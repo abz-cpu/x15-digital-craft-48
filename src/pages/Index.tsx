@@ -48,6 +48,8 @@ import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
 import { FAQSchema } from "@/components/FAQSchema";
+import { VideoSchema } from "@/components/VideoSchema";
+import { SiteNavigationSchema } from "@/components/SiteNavigationSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
 import { Container } from "@/components/Container";
 import { LazyImage } from "@/components/LazyImage";
@@ -211,6 +213,15 @@ const Index = () => {
         keywords="web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, web developer near me, custom website design UK, affordable website design London"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="47" />
+      <VideoSchema
+        name="L&D Digital - Professional Web Development London"
+        description="Professional websites and AI automation that capture leads and book clients 24/7. Websites from £200, AI from £50/month. Built for UK businesses, delivered in 1-14 days."
+        thumbnailUrl="https://digital.luminousanddeliver.co.uk/og-image-2026-01-05.jpg"
+        contentUrl="https://digital.luminousanddeliver.co.uk/assets/hero-video.mp4"
+        uploadDate="2026-01-01"
+        duration="PT30S"
+      />
+      <SiteNavigationSchema />
       <FAQSchema
         pageId="home"
         faqs={[

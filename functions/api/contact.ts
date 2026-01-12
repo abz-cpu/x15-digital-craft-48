@@ -941,18 +941,6 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
           <!-- Header with brand gradient -->
           <tr>
             <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
-              <!-- Profile icon for brand identity -->
-              <table role="presentation" style="margin: 0 auto 12px;">
-                <tr>
-                  <td style="text-align: center;">
-                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo-email.png" 
-                         alt="L&D" 
-                         width="48" 
-                         height="48"
-                         style="display: block; margin: 0 auto; border: 0; outline: none; border-radius: 8px; text-decoration: none; -ms-interpolation-mode: bicubic;" />
-                  </td>
-                </tr>
-              </table>
               <!-- Logo - Gradient logo image only, text as alt fallback -->
               <table role="presentation" style="margin: 0 auto 16px;">
                 <tr>

@@ -979,6 +979,22 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
                   : ""
               }
 
+              <!-- Sister Brand Section - email-template-version: 2026-01-12-ldbuilds-orange -->
+              <table role="presentation" style="width: 100%; margin-bottom: 24px; padding-top: 20px; border-top: 1px dashed #e5e7eb;">
+                <tr>
+                  <td>
+                    <p style="margin: 0 0 8px; color: #6b7280; font-size: 13px; line-height: 1.5;">
+                      If you also need help with <strong style="color: #374151; font-weight: 700 !important;">custom PCs</strong> or technical support, our sister brand may be useful:
+                    </p>
+                    <p style="margin: 0;">
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: #f46734 !important; text-decoration: none; font-size: 13px; font-weight: 600;">
+                        🖥️ builds.luminousanddeliver.co.uk
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
               <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
                 <tr>
                   <td>

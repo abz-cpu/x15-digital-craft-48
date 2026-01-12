@@ -901,16 +901,19 @@ interface ConfirmationEmailData {
   deadline?: string;
 }
 
-function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConfig = DEFAULT_EMAIL_CONFIG, inquiryId?: string): string {
+function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConfig = DEFAULT_EMAIL_CONFIG): string {
   const customerName = data.name?.trim() || '';
   const hasName = customerName.length > 0;
-  const firstName = customerName ? customerName.split(' ')[0] : '';
   
   // Brand color with fallback
   const brandColor = config.brandPrimaryColor || DEFAULT_EMAIL_CONFIG.brandPrimaryColor;
+  const brandColorDark = adjustColorBrightness(brandColor, -15);
+  const brandColorLight = adjustColorBrightness(brandColor, 85); // Very light tint for backgrounds
   
-  // WhatsApp config - correct number (plain text link, not button)
-  const whatsappNumber = '+44 7356 260648';
+  // WhatsApp config - correct number
+  const whatsappNumber = '447356260648';
+  const whatsappMessage = encodeURIComponent('Hi, I just submitted an enquiry on your website and wanted to follow up.');
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   
   // Build summary items (only show fields that exist)
   const summaryRows: string[] = [];
@@ -940,96 +943,219 @@ function getConfirmationEmailHtml(data: ConfirmationEmailData, config: EmailConf
   }
   const hasSummary = summaryRows.length > 0;
   
-  // Simplified email template - no external images, minimal HTML for maximum deliverability
   return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enquiry Received - ${escapeHtml(config.brandName)}</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>Thanks for getting in touch - ${escapeHtml(config.brandName)}</title>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .email-body { background-color: #1a1a1a !important; }
+      .email-card { background-color: #262626 !important; }
+      .section-bg { background-color: #333333 !important; }
+      .text-primary { color: #f9fafb !important; }
+      .text-secondary { color: #d1d5db !important; }
+      .text-muted { color: #9ca3af !important; }
+      .footer-bg { background-color: #1f1f1f !important; }
+      .summary-table td { color: #d1d5db !important; }
+      .callout-box { background-color: #451a03 !important; border-color: #92400e !important; }
+    }
+    @media only screen and (max-width: 600px) {
+      .email-card { margin: 0 !important; border-radius: 0 !important; }
+      .content-padding { padding: 24px 20px !important; }
+      .header-padding { padding: 24px 20px !important; }
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5; line-height: 1.6;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+<body class="email-body" style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f0f4f5; line-height: 1.65;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" width="100%" style="max-width: 560px; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+      <td style="padding: 40px 16px;">
+        <table class="email-card" role="presentation" style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);">
           
-          <!-- Header - Text-based logo, no external images -->
+          <!-- Header with brand gradient -->
           <tr>
-            <td style="background-color: ${brandColor}; padding: 28px 32px; text-align: center; border-radius: 8px 8px 0 0;">
-              <p style="margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">
-                L&amp;D DIGITAL
-              </p>
-              <p style="margin: 0; font-size: 22px; font-weight: 600; color: #ffffff;">
-                Thanks for getting in touch!
-              </p>
+            <td class="header-padding" style="background: linear-gradient(135deg, ${brandColor} 0%, ${brandColorDark} 100%); padding: 36px 40px; text-align: center;">
+              <!-- Logo - Gradient logo image only, text as alt fallback -->
+              <table role="presentation" style="margin: 0 auto 16px;">
+                <tr>
+                  <td style="text-align: center;">
+                    <img src="https://digital.luminousanddeliver.co.uk/brand/logo2-email-gradient.png" 
+                         alt="L&D DIGITAL - Luminous & Deliver" 
+                         width="240" 
+                         style="display: block; margin: 0 auto; border: 0; outline: none; max-height: 65px;" />
+                  </td>
+                </tr>
+              </table>
+              <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Thanks for getting in touch!</h1>
+              <p style="margin: 10px 0 0; color: rgba(255,255,255,0.85); font-size: 14px;">We're excited to learn more about your project</p>
             </td>
           </tr>
           
-          <!-- Body Content -->
+          <!-- Content -->
           <tr>
-            <td style="padding: 32px;">
-              ${hasName ? `<p style="margin: 0 0 16px; font-size: 15px; color: #333333;">Hi ${escapeHtml(firstName)},</p>` : '<p style="margin: 0 0 16px; font-size: 15px; color: #333333;">Hello,</p>'}
+            <td class="content-padding" style="padding: 36px 40px 28px;">
+              ${hasName ? `<p class="text-primary" style="margin: 0 0 20px; color: #1f2937; font-size: 16px; font-weight: 500;">Hi ${escapeHtml(customerName)},</p>` : ''}
               
-              <p style="margin: 0 0 16px; font-size: 15px; color: #333333; line-height: 1.6;">
-                We've received your enquiry and will review it shortly.
+              <!-- Opening message -->
+              <p class="text-secondary" style="margin: 0 0 24px; color: #4b5563; font-size: 15px; line-height: 1.7;">
+                We've received your enquiry and we're excited to learn more about your project. Our team will review your requirements shortly.
               </p>
-              
-              <p style="margin: 0 0 24px; font-size: 15px; color: #333333; line-height: 1.6;">
-                <strong>What happens next:</strong> We'll get back to you within 24–48 hours with a quote and next steps.
+
+              <!-- What happens next callout box - amber style with left border -->
+              <table role="presentation" style="width: 100%; margin-bottom: 28px;">
+                <tr>
+                  <td class="callout-box" style="padding: 16px 20px; background-color: #fef9f3; border-left: 4px solid #f59e0b; border-radius: 6px;">
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="vertical-align: top;">
+                          <p style="margin: 0 0 8px; color: #92400e; font-size: 14px; font-weight: 600; display: flex; align-items: center;">
+                            <span style="margin-right: 6px;">⏱️</span> What happens next?
+                          </p>
+                          <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
+                            We'll review your requirements and get back to you within <strong style="color: #b45309;">24–48 hours</strong> (during business hours) with a clear quote and next steps.
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Additional message -->
+              <p class="text-secondary" style="margin: 0 0 24px; color: #4b5563; font-size: 14px; line-height: 1.7;">
+                In the meantime, if you have any additional details to share or questions, feel free to reply to this email or message us on WhatsApp.
               </p>
-              
-              ${inquiryId ? `<p style="margin: 0 0 16px; font-size: 14px; color: #666666;">Reference: <strong>${inquiryId}</strong></p>` : ''}
-              
+
+              <!-- WhatsApp button -->
+              <table role="presentation" style="width: 100%; margin-bottom: 32px;">
+                <tr>
+                  <td style="text-align: center;">
+                    <a href="${whatsappLink}" style="display: inline-block; padding: 14px 32px; background-color: #25D366; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 14px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);">
+                      <span style="vertical-align: middle;">💬</span>&nbsp;&nbsp;Message us on WhatsApp
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
               ${hasSummary ? `
               <!-- Summary section -->
-              <table role="presentation" style="width: 100%; margin: 24px 0; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+              <table class="summary-table" role="presentation" style="width: 100%; margin-bottom: 28px; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;">
                 <tr>
-                  <td colspan="2" style="padding: 12px 16px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
-                    <p style="margin: 0; font-size: 12px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.5px;">Your submission details</p>
+                  <td colspan="2" style="padding: 14px 16px; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+                    <p style="margin: 0; font-size: 12px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.8px;">📋 Your submission details</p>
                   </td>
                 </tr>
                 ${summaryRows.join('')}
               </table>
               ` : ''}
-              
-              <hr style="border: none; border-top: 1px solid #eeeeee; margin: 24px 0;">
-              
-              <p style="margin: 0 0 8px; font-size: 14px; color: #333333;">
-                Questions? Reply to this email or contact us:
-              </p>
-              <p style="margin: 0; font-size: 14px; color: #666666;">
-                WhatsApp: ${whatsappNumber}<br>
-                Email: hello@luminousanddeliver.co.uk
-              </p>
-              
-              <hr style="border: none; border-top: 1px solid #eeeeee; margin: 24px 0;">
-              
-              <p style="margin: 0 0 4px; font-size: 14px; color: #333333;">
-                Speak soon,
-              </p>
-              <p style="margin: 0; font-size: 15px; font-weight: 600; color: #111111;">
-                ${escapeHtml(config.brandName)}
-              </p>
+
+              <!-- Signature -->
+              <table role="presentation" style="width: 100%; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+                <tr>
+                  <td>
+                    <p class="text-primary" style="margin: 0 0 4px; color: #374151; font-size: 14px;">
+                      Speak soon,
+                    </p>
+                    <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600;">${escapeHtml(config.brandName)}</p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
-          
-          <!-- Footer -->
+
+          <!-- Sister brand section (subtle) -->
           <tr>
-            <td style="padding: 20px 32px; background-color: #f9f9f9; border-radius: 0 0 8px 8px; text-align: center;">
-              <p style="margin: 0; font-size: 12px; color: #888888;">
-                L&amp;D Digital · London, UK
-              </p>
+            <td style="padding: 0 40px 32px;">
+              <table role="presentation" style="width: 100%; background-color: #fafafa; border-radius: 10px; padding: 20px;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <p class="text-muted" style="margin: 0 0 10px; color: #6b7280; font-size: 12px;">
+                      If you also need help with custom PCs or technical support, our sister brand may be useful:
+                    </p>
+                    <p style="margin: 0 0 14px;">
+                      <a href="https://builds.luminousanddeliver.co.uk/" style="color: ${brandColor}; text-decoration: none; font-size: 13px; font-weight: 600;">🖥️ builds.luminousanddeliver.co.uk</a>
+                    </p>
+                    
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="vertical-align: top; width: 50%; padding-right: 10px;">
+                          <p style="margin: 0 0 6px; color: #4b5563; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">What you get</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.8;">
+                            <li>Remote support for quick fixes</li>
+                            <li>Network & Wi-Fi troubleshooting</li>
+                            <li>Hardware advice & upgrades</li>
+                            <li>Software support</li>
+                          </ul>
+                        </td>
+                        <td style="vertical-align: top; width: 50%; padding-left: 10px;">
+                          <p style="margin: 0 0 6px; color: #4b5563; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">What's covered</p>
+                          <ul style="margin: 0; padding: 0 0 0 14px; color: #6b7280; font-size: 11px; line-height: 1.8;">
+                            <li>Email setup & troubleshooting</li>
+                            <li>Printer & peripheral setup</li>
+                            <li>Cloud storage & backups</li>
+                            <li>Password & security guidance</li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer - Branded gradient with social links -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 40px;">
+              <table role="presentation" style="width: 100%;">
+                <!-- Social Links -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 18px;">
+                    <a href="https://www.linkedin.com/company/luminous-deliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">in</a>
+                    <a href="https://www.instagram.com/luminousanddeliver" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #5eead4; font-size: 16px;">📷</a>
+                    <a href="https://wa.me/447488855786" style="display: inline-block; width: 36px; height: 36px; background-color: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; line-height: 36px; margin: 0 6px; text-decoration: none; color: #25D366; font-size: 16px;">💬</a>
+                  </td>
+                </tr>
+                <!-- Contact Info -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 14px;">
+                    <p style="margin: 0 0 4px; color: #e2e8f0; font-size: 13px; font-weight: 500;">L&amp;D Digital</p>
+                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">📍 London, UK • East London</p>
+                  </td>
+                </tr>
+                <!-- Links -->
+                <tr>
+                  <td style="text-align: center; padding-bottom: 14px;">
+                    <a href="https://digital.luminousanddeliver.co.uk" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Website</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/portfolio" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Portfolio</a>
+                    <span style="color: #475569;">•</span>
+                    <a href="https://digital.luminousanddeliver.co.uk/contact" style="color: #5eead4; text-decoration: none; font-size: 12px; font-weight: 500; margin: 0 10px;">Contact</a>
+                  </td>
+                </tr>
+                <!-- Copyright -->
+                <tr>
+                  <td style="text-align: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="margin: 0; color: #64748b; font-size: 11px;">
+                      © 2026 ${escapeHtml(config.brandName)}. All rights reserved.
+                    </p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
         
-        <!-- Unsubscribe notice -->
-        <table role="presentation" style="max-width: 560px; margin: 16px auto 0;">
+        <!-- Unsubscribe footer -->
+        <table role="presentation" style="max-width: 580px; margin: 16px auto 0;">
           <tr>
             <td style="text-align: center;">
-              <p style="margin: 0; font-size: 10px; color: #9ca3af;">
+              <p style="margin: 0; color: #9ca3af; font-size: 10px;">
                 This is a one-time confirmation email. You won't receive marketing emails unless you subscribe.
               </p>
             </td>
@@ -1206,14 +1332,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "L&D Digital <noreply@luminousanddeliver.co.uk>",
+          from: "L&D Digital - Luminous & Deliver <noreply@luminousanddeliver.co.uk>",
           to: [email],
-          reply_to: "hello@luminousanddeliver.co.uk",
-          subject: "We've received your enquiry",
-          html: getConfirmationEmailHtml(confirmationEmailData, emailConfig, inquiryId),
-          headers: {
-            "X-Entity-Ref-ID": inquiryId, // Unique ID prevents duplicate detection
-          },
+          reply_to: "contact.luminousanddeliver@gmail.com",
+          subject: "We've received your enquiry — we'll be in touch shortly",
+          html: getConfirmationEmailHtml(confirmationEmailData, emailConfig),
         }),
       });
 

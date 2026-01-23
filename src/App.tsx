@@ -99,6 +99,7 @@ const PosSetup = lazy(() => import("./pages/services/PosSetup"));
 
 // Sector pages
 const RestaurantPosSector = lazy(() => import("./pages/sectors/RestaurantPos"));
+const PosServicesSector = lazy(() => import("./pages/sectors/PosServices"));
 
 // Near Me pages - POS
 const PosSetupNearMe = lazy(() => import("./pages/PosSetupNearMe"));
@@ -223,6 +224,7 @@ const App = () => (
               <Route path="/sectors/b2b" element={<B2BSector />} />
               <Route path="/sectors/b2c" element={<B2CSector />} />
               <Route path="/sectors/restaurant-pos" element={<RestaurantPosSector />} />
+              <Route path="/sectors/pos-systems" element={<PosServicesSector />} />
               {/* POS Near Me */}
               <Route path="/pos-setup-near-me" element={<PosSetupNearMe />} />
               <Route path="*" element={<NotFound />} />

@@ -50,7 +50,7 @@ const PosServices = () => {
     },
     {
       question: "How much does a POS system installation cost?",
-      answer: "Our setup packages start from £299 for small single-terminal installations, £499 for growing businesses with multiple terminals, and £899+ for complex multi-location setups. Monthly support plans range from £79-£199/month."
+      answer: "Our setup packages start from £299 for small single-terminal installations, £499 for growing businesses with multiple terminals, and £899+ for complex multi-location setups. Monthly support plans range from £50-£127/month (billed annually) or £59-£149/month (billed monthly)."
     },
     {
       question: "Can you integrate with my booking or inventory system?",
@@ -58,7 +58,7 @@ const PosServices = () => {
     },
     {
       question: "What support do you offer after installation?",
-      answer: "We offer three support tiers: Essential (£79/month) for remote support, Professional (£129/month) adding on-site visits, and Premium (£199/month) with priority response and quarterly reviews. All plans include software updates and troubleshooting."
+      answer: "We offer three support tiers: Basic (from £50/month billed annually) for essential support, Standard (from £84/month billed annually) adding priority phone support, and Premium (from £127/month billed annually) with 24/7 emergency support. All plans include software updates and troubleshooting."
     },
     {
       question: "Do you serve areas outside East London?",

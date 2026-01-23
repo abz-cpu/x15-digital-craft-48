@@ -18,6 +18,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
   CreditCard,
   Store,
   Utensils,
@@ -36,6 +44,9 @@ import {
   Gift,
   Calculator,
   Globe,
+  XCircle,
+  Lock,
+  TrendingDown,
 } from "lucide-react";
 
 const PosSetup = () => {
@@ -520,6 +531,110 @@ const PosSetup = () => {
               </Card>
             ))}
           </div>
+        </Container>
+      </AnimatedSection>
+
+      {/* Square vs Legacy EPOS Comparison */}
+      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+        <Container>
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-destructive/10 text-destructive border-destructive/30">
+              The Real Comparison
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Why Square Beats Legacy EPOS Systems
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Many businesses are locked into overpriced, restrictive EPOS systems with hidden fees and long contracts. Here's how Square compares—and why we recommend it.
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <Card className="mb-12 overflow-hidden">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-muted/50">
+                    <TableHead className="font-semibold">Factor</TableHead>
+                    <TableHead className="font-semibold text-primary">Square</TableHead>
+                    <TableHead className="font-semibold text-destructive">Legacy/Proprietary EPOS</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">Hardware</TableCell>
+                    <TableCell className="text-primary">Buy once, own it</TableCell>
+                    <TableCell className="text-muted-foreground">Often leased (£30+/month)</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Contract</TableCell>
+                    <TableCell className="text-primary">None — cancel anytime</TableCell>
+                    <TableCell className="text-muted-foreground">12-36 months lock-in</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Exit Fees</TableCell>
+                    <TableCell className="text-primary">None</TableCell>
+                    <TableCell className="text-muted-foreground">Often £1,000+</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Monthly Fees</TableCell>
+                    <TableCell className="text-primary">Optional support only</TableCell>
+                    <TableCell className="text-muted-foreground">Mandatory bundled fees</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Software Updates</TableCell>
+                    <TableCell className="text-primary">Free, automatic</TableCell>
+                    <TableCell className="text-muted-foreground">Often paid or restricted</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Payment Rates</TableCell>
+                    <TableCell className="text-primary">Transparent (~1.75%)</TableCell>
+                    <TableCell className="text-muted-foreground">Hidden fees common</TableCell>
+                  </TableRow>
+                  <TableRow className="bg-muted/30 font-semibold">
+                    <TableCell className="font-bold">Total 3-Year Cost</TableCell>
+                    <TableCell className="text-primary font-bold">~£1,500-£2,500</TableCell>
+                    <TableCell className="text-destructive font-bold">~£5,000+</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
+          </Card>
+
+          {/* Three Key Differentiators */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <Card className="p-6 border-primary/20 bg-primary/5">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <Lock className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">No Lock-In</h3>
+              <p className="text-sm text-muted-foreground">
+                You're not trapped. If you want to leave, you leave. No penalties, no exit fees, no awkward "retention" calls.
+              </p>
+            </Card>
+            <Card className="p-6 border-primary/20 bg-primary/5">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <CreditCard className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Hardware Ownership</h3>
+              <p className="text-sm text-muted-foreground">
+                Buy once at £200-500. Legacy systems lease at £30+/month = £1,080 over 3 years. You own your equipment outright.
+              </p>
+            </Card>
+            <Card className="p-6 border-primary/20 bg-primary/5">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <TrendingDown className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Future-Proof</h3>
+              <p className="text-sm text-muted-foreground">
+                Square updates automatically at no extra cost. Legacy systems often charge for upgrades or restrict features behind paywalls.
+              </p>
+            </Card>
+          </div>
+
+          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto">
+            We recommend Square because it's genuinely cheaper long-term for most UK businesses—not because we're locked into reselling one brand.
+          </p>
         </Container>
       </AnimatedSection>
 

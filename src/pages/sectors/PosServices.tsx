@@ -76,24 +76,73 @@ const PosServices = () => {
       title: "Restaurants & Hospitality",
       desc: "Cafés, restaurants, takeaways, pubs, and food trucks",
       features: ["Table management", "Kitchen display integration", "Split bills & tips", "Menu management"],
+      link: "/sectors/restaurant-pos",
     },
     {
       icon: ShoppingBag,
       title: "Retail & Shops",
       desc: "High street stores, boutiques, convenience shops",
       features: ["Inventory tracking", "Barcode scanning", "Loyalty programmes", "Multi-location sync"],
+      link: "/sectors/retail-pos",
     },
     {
       icon: Scissors,
       title: "Salons & Beauty",
       desc: "Hair salons, spas, barbershops, nail bars",
       features: ["Appointment booking", "Client profiles", "Retail add-ons", "Staff scheduling"],
+      link: "/sectors/salon-pos",
     },
     {
       icon: Wrench,
       title: "Trades & Services",
       desc: "Mechanics, repair shops, service providers",
       features: ["Invoicing", "Job tracking", "Deposit collection", "Customer records"],
+      link: "/sectors/trades-pos",
+    },
+  ];
+
+  const hardwareItems = [
+    {
+      name: "Square Terminal",
+      category: "All-in-One",
+      price: "From £149",
+      specs: ["Built-in receipt printer", "Wi-Fi + Ethernet", "All-day battery", "Chip, contactless, Apple Pay"],
+      ideal: "Countertop & mobile",
+    },
+    {
+      name: "Square Reader",
+      category: "Portable",
+      price: "From £19",
+      specs: ["Connects via Bluetooth", "Compact pocket-size", "Chip & contactless", "Pairs with phone/tablet"],
+      ideal: "Pop-ups & markets",
+    },
+    {
+      name: "Square Stand",
+      category: "iPad Docking",
+      price: "From £99",
+      specs: ["Swivels for signatures", "Connects card reader", "USB ports for peripherals", "Sleek countertop design"],
+      ideal: "Retail & hospitality",
+    },
+    {
+      name: "Square Register",
+      category: "Full POS Station",
+      price: "From £599",
+      specs: ["Dual touchscreens", "Customer-facing display", "Built-in payments", "No iPad required"],
+      ideal: "High-volume venues",
+    },
+    {
+      name: "Receipt Printers",
+      category: "Peripheral",
+      price: "From £199",
+      specs: ["Star Micronics compatible", "USB & Bluetooth options", "Fast thermal printing", "Kitchen & counter use"],
+      ideal: "All industries",
+    },
+    {
+      name: "Barcode Scanners",
+      category: "Peripheral",
+      price: "From £79",
+      specs: ["USB & wireless", "1D & 2D barcodes", "Fast scanning", "Durable design"],
+      ideal: "Retail & inventory",
     },
   ];
 
@@ -200,19 +249,24 @@ const PosServices = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {industries.map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
-                  <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-colors h-full">
-                    <item.icon className="h-10 w-10 text-primary mb-4" />
-                    <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                    <ul className="space-y-2">
-                      {item.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <Link to={item.link} className="block h-full">
+                    <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all h-full group">
+                      <item.icon className="h-10 w-10 text-primary mb-4" />
+                      <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
+                      <ul className="space-y-2 mb-4">
+                        {item.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm">
+                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="text-primary font-medium text-sm inline-flex items-center group-hover:underline">
+                        Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                      </span>
+                    </div>
+                  </Link>
                 </AnimatedSection>
               ))}
             </div>
@@ -255,6 +309,51 @@ const PosServices = () => {
                 </AnimatedSection>
               ))}
             </div>
+          </Container>
+        </section>
+
+        {/* Hardware Showcase */}
+        <section className="py-16 lg:py-24">
+          <Container>
+            <AnimatedSection animation="fade">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+                Hardware We Install
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                All Square hardware is purchased outright—no leasing, no rental fees. You own it from day one.
+              </p>
+            </AnimatedSection>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {hardwareItems.map((item, index) => (
+                <AnimatedSection key={index} animation="fade" staggerIndex={index}>
+                  <div className="bg-card rounded-xl p-6 border border-border h-full">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                        {item.category}
+                      </span>
+                      <span className="font-bold text-primary">{item.price}</span>
+                    </div>
+                    <h3 className="font-semibold text-lg mb-3">{item.name}</h3>
+                    <ul className="space-y-2 mb-4">
+                      {item.specs.map((spec, i) => (
+                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="h-3 w-3 text-primary flex-shrink-0" />
+                          {spec}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-xs text-muted-foreground border-t border-border pt-3">
+                      <strong>Ideal for:</strong> {item.ideal}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+            
+            <p className="text-center text-sm text-muted-foreground mt-8">
+              Hardware quoted separately based on your requirements. All equipment professionally installed and configured.
+            </p>
           </Container>
         </section>
 

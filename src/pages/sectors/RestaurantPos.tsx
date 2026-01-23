@@ -287,8 +287,71 @@ const RestaurantPos = () => {
         </Container>
       </AnimatedSection>
 
+      {/* Hardware Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <Container>
+          <AnimatedSection animation="fade">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Your Restaurant</h2>
+              <p className="text-muted-foreground text-lg">
+                Own your equipment outright—no leasing, no rental fees.
+              </p>
+            </div>
+          </AnimatedSection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Square Register",
+                price: "From £599",
+                specs: ["Dual touchscreens", "Customer-facing display", "Built-in payments"],
+                ideal: "Main counter",
+              },
+              {
+                name: "Kitchen Display",
+                price: "From £299",
+                specs: ["Order routing", "Course timing", "Bump-bar compatible"],
+                ideal: "Kitchen stations",
+              },
+              {
+                name: "Square Terminal",
+                price: "From £149",
+                specs: ["Portable payments", "Built-in printer", "All-day battery"],
+                ideal: "Tableside service",
+              },
+              {
+                name: "Receipt Printers",
+                price: "From £199",
+                specs: ["Kitchen & counter", "Fast thermal printing", "Wi-Fi options"],
+                ideal: "Order printing",
+              },
+            ].map((item, index) => (
+              <AnimatedSection key={index} animation="fade" staggerIndex={index}>
+                <Card className="p-5 h-full">
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="secondary" className="text-xs">Hardware</Badge>
+                    <span className="font-bold text-primary text-sm">{item.price}</span>
+                  </div>
+                  <h3 className="font-semibold mb-2">{item.name}</h3>
+                  <ul className="space-y-1 mb-3">
+                    {item.specs.map((spec, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
+                        {spec}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-muted-foreground border-t pt-2">
+                    <strong>Ideal for:</strong> {item.ideal}
+                  </p>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Why L&D Digital */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-16 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">

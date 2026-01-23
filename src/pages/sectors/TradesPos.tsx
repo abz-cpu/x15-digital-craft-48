@@ -285,6 +285,59 @@ export default function TradesPos() {
         </div>
       </section>
 
+      {/* Hardware Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Mobile Work</h2>
+            <p className="text-muted-foreground text-lg">
+              Own your equipment outright—no leasing, no rental fees.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                name: "Square Reader",
+                price: "From £19",
+                specs: ["Bluetooth connection", "Pocket-size", "Works with phone"],
+                ideal: "On-site payments",
+              },
+              {
+                name: "Square Terminal",
+                price: "From £149",
+                specs: ["Built-in printer", "All-day battery", "Wi-Fi & offline mode"],
+                ideal: "Workshop counter",
+              },
+              {
+                name: "Receipt Printers",
+                price: "From £199",
+                specs: ["Portable options", "Bluetooth connection", "Fast thermal printing"],
+                ideal: "Invoice receipts",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge variant="secondary" className="text-xs">Hardware</Badge>
+                  <span className="font-bold text-primary text-sm">{item.price}</span>
+                </div>
+                <h3 className="font-semibold mb-2">{item.name}</h3>
+                <ul className="space-y-1 mb-3">
+                  {item.specs.map((spec, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Check className="w-3 h-3 text-primary flex-shrink-0" />
+                      {spec}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground border-t pt-2">
+                  <strong>Ideal for:</strong> {item.ideal}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">

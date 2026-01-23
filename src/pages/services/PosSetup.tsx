@@ -344,34 +344,84 @@ const PosSetup = () => {
       {/* Hardware Supply & Installation */}
       <AnimatedSection className="py-16 md:py-20">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Hardware Supply & Installation
+              Hardware We Install
             </h2>
-            <p className="text-muted-foreground mb-8">
-              We source, install, and configure all the hardware you need. From basic card terminals to full multi-station setups with kitchen displays and customer-facing screens—everything is professionally installed and tested before you go live.
-            </p>
-            <div className="grid sm:grid-cols-3 gap-6 text-left">
-              <Card className="p-5">
-                <CreditCard className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Card Terminals</h3>
-                <p className="text-sm text-muted-foreground">Mobile, countertop, and portable options</p>
-              </Card>
-              <Card className="p-5">
-                <Monitor className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Display Systems</h3>
-                <p className="text-sm text-muted-foreground">Till screens, kitchen displays, customer-facing</p>
-              </Card>
-              <Card className="p-5">
-                <Wrench className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Peripherals</h3>
-                <p className="text-sm text-muted-foreground">Receipt printers, barcode scanners, cash drawers</p>
-              </Card>
-            </div>
-            <p className="text-sm text-muted-foreground mt-8">
-              Hardware is quoted separately based on your specific requirements. All equipment is professionally configured and tested.
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              All Square hardware is purchased outright—no leasing, no rental fees. You own it from day one.
             </p>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Square Terminal",
+                category: "All-in-One",
+                price: "From £149",
+                specs: ["Built-in receipt printer", "Wi-Fi + Ethernet", "All-day battery", "Chip, contactless, Apple Pay"],
+                ideal: "Countertop & mobile",
+              },
+              {
+                name: "Square Reader",
+                category: "Portable",
+                price: "From £19",
+                specs: ["Connects via Bluetooth", "Compact pocket-size", "Chip & contactless", "Pairs with phone/tablet"],
+                ideal: "Pop-ups & markets",
+              },
+              {
+                name: "Square Stand",
+                category: "iPad Docking",
+                price: "From £99",
+                specs: ["Swivels for signatures", "Connects card reader", "USB ports for peripherals", "Sleek countertop design"],
+                ideal: "Retail & hospitality",
+              },
+              {
+                name: "Square Register",
+                category: "Full POS Station",
+                price: "From £599",
+                specs: ["Dual touchscreens", "Customer-facing display", "Built-in payments", "No iPad required"],
+                ideal: "High-volume venues",
+              },
+              {
+                name: "Receipt Printers",
+                category: "Peripheral",
+                price: "From £199",
+                specs: ["Star Micronics compatible", "USB & Bluetooth options", "Fast thermal printing", "Kitchen & counter use"],
+                ideal: "All industries",
+              },
+              {
+                name: "Barcode Scanners",
+                category: "Peripheral",
+                price: "From £79",
+                specs: ["USB & wireless", "1D & 2D barcodes", "Fast scanning", "Durable design"],
+                ideal: "Retail & inventory",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <Badge variant="secondary">{item.category}</Badge>
+                  <span className="font-bold text-primary">{item.price}</span>
+                </div>
+                <h3 className="font-semibold text-lg mb-3">{item.name}</h3>
+                <ul className="space-y-2 mb-4">
+                  {item.specs.map((spec, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
+                      {spec}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground border-t pt-3">
+                  <strong>Ideal for:</strong> {item.ideal}
+                </p>
+              </Card>
+            ))}
+          </div>
+          
+          <p className="text-center text-sm text-muted-foreground mt-8">
+            Hardware quoted separately based on your requirements. All equipment professionally installed and configured.
+          </p>
         </Container>
       </AnimatedSection>
 

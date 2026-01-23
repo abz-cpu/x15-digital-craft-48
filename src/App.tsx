@@ -95,6 +95,7 @@ const ContentMarketing = lazy(() => import("./pages/services/ContentMarketing"))
 const EmailMarketing = lazy(() => import("./pages/services/EmailMarketing"));
 const WebHosting = lazy(() => import("./pages/services/WebHosting"));
 const UxUiDesign = lazy(() => import("./pages/services/UxUiDesign"));
+const PosSetup = lazy(() => import("./pages/services/PosSetup"));
 
 // Register preloads
 registerPreload("/", () => import("./pages/Index"));
@@ -179,6 +180,7 @@ const App = () => (
               <Route path="/services/email-marketing" element={<EmailMarketing />} />
               <Route path="/services/web-hosting" element={<WebHosting />} />
               <Route path="/services/ux-ui-design" element={<UxUiDesign />} />
+              <Route path="/services/pos-setup" element={<PosSetup />} />
               {/* Near Me pages */}
               <Route path="/web-developer-near-me" element={<WebDeveloperNearMe />} />
               <Route path="/digital-marketing-agency-near-me" element={<DigitalMarketingNearMe />} />

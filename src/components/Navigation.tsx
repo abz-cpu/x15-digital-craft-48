@@ -112,6 +112,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
       title: "E-Commerce & CRO",
       items: [
         { name: "E-Commerce", path: "/services/ecommerce", desc: "Online store solutions" },
+        { name: "POS Setup", path: "/services/pos-setup", desc: "Square payment systems" },
         { name: "CRO", path: "/services/cro", desc: "Conversion rate optimization" },
         { name: "SEO", path: "/services/seo", desc: "Search engine optimization" },
       ],

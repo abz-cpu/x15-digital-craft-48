@@ -38,7 +38,7 @@ export const ServiceAreaSchema = () => {
         },
         geoRadius: "5000",
         name: area.name,
-        description: `Web development services in ${area.name} (${area.postcodes.join(", ")})`,
+        description: `Web development, AI automation, POS systems, IT support & SEO services in ${area.name} (${area.postcodes.join(", ")})`,
       })),
       serviceType: [
         "Web Development",
@@ -48,13 +48,21 @@ export const ServiceAreaSchema = () => {
         "Digital Marketing",
         "AI Chatbot Development",
         "AI Receptionist Services",
+        "AI Voice Agent Services",
+        "POS System Installation",
+        "Point of Sale Setup",
+        "IT Support Services",
+        "IT Setup Services",
+        "Custom Business Applications",
+        "Order Tracking Systems",
+        "Invoice Management Systems",
       ],
       offers: {
         "@type": "AggregateOffer",
-        lowPrice: "200",
-        highPrice: "1500",
+        lowPrice: "25",
+        highPrice: "2000",
         priceCurrency: "GBP",
-        offerCount: "10",
+        offerCount: "15",
       },
     };
 

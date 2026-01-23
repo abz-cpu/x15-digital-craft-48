@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Shield, Star, Clock, Headphones, Building2, Wrench } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Bot, Star, Clock, Headphones, Building2, CreditCard, Headset, Search, Package, FileText, Code2, Shield } from "lucide-react";
 
 interface RelatedBlogPost {
   title: string;
@@ -35,10 +35,14 @@ interface LocationPageTemplateProps {
 
 const services = [
   { name: "Website Design", price: "200", icon: Globe, path: "/web-package" },
+  { name: "Web Development", price: "200", icon: Code2, path: "/web-package" },
   { name: "Ecommerce Stores", price: "500", icon: Zap, path: "/services/ecommerce" },
-  { name: "AI Chatbots", price: "50/month", icon: Shield, path: "/ai-package" },
-  { name: "SEO Services", price: "300", icon: Star, path: "/services/seo" },
-  { name: "Personalised Apps", price: "500", icon: Wrench, path: "/services/personalised-apps" },
+  { name: "AI Chatbots", price: "50/month", icon: Bot, path: "/ai-package" },
+  { name: "POS Systems", price: "299", icon: CreditCard, path: "/services/pos-setup" },
+  { name: "IT Support", price: "25/month", icon: Headset, path: "/services/it-support" },
+  { name: "SEO Services", price: "300", icon: Search, path: "/services/seo" },
+  { name: "Order Trackers", price: "500", icon: Package, path: "/services/personalised-apps" },
+  { name: "Invoice Trackers", price: "500", icon: FileText, path: "/services/personalised-apps" },
 ];
 
 const differentiators = [
@@ -105,6 +109,18 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
       question: `Why choose L&D Digital for my ${location.name} business?`,
       answer: `We're a London-based agency with deep knowledge of East London markets. We understand ${location.name} businesses, offer competitive pricing, fast delivery, and ongoing support. Plus, we're just a WhatsApp message away!`,
     },
+    {
+      question: `Do you install POS systems in ${location.name}?`,
+      answer: `Yes! We provide Square POS installation and setup for ${location.name} businesses from £299. This includes hardware configuration, staff training, and ongoing support. Perfect for retail shops, restaurants, salons, and trades.`,
+    },
+    {
+      question: `Can you help with IT support in ${location.name}?`,
+      answer: `Absolutely. Our IT support plans for ${location.name} businesses start from just £25/month. We handle troubleshooting, security updates, software installations, and remote support for small businesses.`,
+    },
+    {
+      question: `Do you build order trackers or invoice systems for ${location.name} businesses?`,
+      answer: `Yes! We create custom business apps including order trackers, invoice managers, and booking systems from £500. These are personalised tools built specifically for your ${location.name} business operations.`,
+    },
   ];
 
   // Display FAQs (with internal links for SEO)
@@ -162,9 +178,9 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`Web Developer ${location.name} | Website Design ${location.postcodes[0]} | L&D Digital`}
-        description={`Professional web developer in ${location.name}. Websites from £200, AI chatbots, SEO services. Serving ${location.postcodes.join(", ")} postcodes. Fast delivery 1-14 days. Your domain & content stay yours.`}
-        keywords={`web developer ${location.name}, website design ${location.postcodes[0]}, digital marketing ${location.name}, SEO ${location.name}, web design ${location.postcodes.join(" ")}, ${location.name} web developer, ${location.name} website design, affordable web design ${location.name}`}
+        title={`Web Developer & Digital Services ${location.name} | AI, POS, SEO, IT Support | L&D Digital`}
+        description={`Professional digital services in ${location.name}. Web design from £200, AI chatbots, POS systems, IT support, SEO & custom business apps. Serving ${location.postcodes.join(", ")}. Fast 1-14 day delivery.`}
+        keywords={`web developer ${location.name}, website design ${location.name}, AI chatbot ${location.name}, POS system ${location.name}, IT support ${location.name}, SEO services ${location.name}, custom apps ${location.name}, invoice tracker ${location.name}, order tracker ${location.name}, web design ${location.postcodes.join(" ")}`}
         canonicalUrl={`https://digital.luminousanddeliver.co.uk/areas/${location.slug}`}
       />
       <FAQSchema faqs={schemaFaqs} pageId={`area-${location.slug}`} />
@@ -296,7 +312,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Link
                 key={service.name}

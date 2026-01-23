@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building2, Heart, Briefcase, ShoppingBag, CheckCircle2, Target } from "lucide-react";
+import { ArrowRight, Building2, Heart, Briefcase, ShoppingBag, CheckCircle2, Target, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Container } from "@/components/Container";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -48,6 +48,14 @@ const sectors = [
     icon: ShoppingBag,
     features: ["E-commerce ready", "Mobile-first design", "Fast checkout flows", "Customer reviews"],
     stats: "53% of mobile users leave slow websites"
+  },
+  { 
+    name: "POS Systems", 
+    path: "/sectors/pos-systems", 
+    desc: "Square POS setup for restaurants, retail, salons, and trades. No contracts, hardware ownership, local support.",
+    icon: CreditCard,
+    features: ["Restaurants & hospitality", "Retail & shops", "Salons & beauty", "Trades & services"],
+    stats: "Save £3,500+ vs legacy EPOS systems"
   },
 ];
 

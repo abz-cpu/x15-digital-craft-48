@@ -28,6 +28,7 @@ const routeNames: Record<string, string> = {
   "/services/cro": "Conversion Rate Optimisation",
   "/services/ux-ui-design": "UX/UI Design",
   "/services/web-hosting": "Web Hosting",
+  "/services/pos-setup": "POS Setup",
   "/portfolio": "Portfolio",
   "/about": "About",
   "/contact": "Contact",

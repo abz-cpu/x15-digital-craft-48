@@ -153,6 +153,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
     { name: "Charity Websites", path: "/sectors/charity", desc: "Non-profits & charities" },
     { name: "B2B Websites", path: "/sectors/b2b", desc: "Business-to-business solutions" },
     { name: "B2C Websites", path: "/sectors/b2c", desc: "Consumer-focused websites" },
+    { name: "Restaurant POS", path: "/sectors/restaurant-pos", desc: "Hospitality payment systems" },
   ];
 
   const navLinks = [

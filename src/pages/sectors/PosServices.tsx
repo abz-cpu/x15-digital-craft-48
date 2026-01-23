@@ -507,8 +507,9 @@ const PosServices = () => {
               </p>
             </AnimatedSection>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
+                { title: "POS Migration Guide", desc: "Switch from legacy EPOS to Square", link: "/pos-migration-guide" },
                 { title: "Website Design", desc: "Get online presence to match your new POS", link: "/web-package" },
                 { title: "IT Support", desc: "Ongoing tech support for your business", link: "/services/it-support" },
                 { title: "Digital Marketing", desc: "Attract more customers to your business", link: "/services/digital-marketing" },

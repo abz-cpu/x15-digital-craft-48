@@ -466,6 +466,7 @@ const Contact = () => {
                         <option value="website">New website</option>
                         <option value="redesign">Redesign existing site</option>
                         <option value="ai">AI automation / chatbot</option>
+                        <option value="pos">POS system setup</option>
                         <option value="both">Website + AI</option>
                         <option value="not-sure">Not sure yet</option>
                       </select>

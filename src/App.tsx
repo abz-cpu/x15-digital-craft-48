@@ -97,6 +97,12 @@ const WebHosting = lazy(() => import("./pages/services/WebHosting"));
 const UxUiDesign = lazy(() => import("./pages/services/UxUiDesign"));
 const PosSetup = lazy(() => import("./pages/services/PosSetup"));
 
+// Sector pages
+const RestaurantPosSector = lazy(() => import("./pages/sectors/RestaurantPos"));
+
+// Near Me pages - POS
+const PosSetupNearMe = lazy(() => import("./pages/PosSetupNearMe"));
+
 // Register preloads
 registerPreload("/", () => import("./pages/Index"));
 registerPreload("/services", () => import("./pages/Services"));
@@ -216,6 +222,9 @@ const App = () => (
               <Route path="/sectors/charity" element={<CharitySector />} />
               <Route path="/sectors/b2b" element={<B2BSector />} />
               <Route path="/sectors/b2c" element={<B2CSector />} />
+              <Route path="/sectors/restaurant-pos" element={<RestaurantPosSector />} />
+              {/* POS Near Me */}
+              <Route path="/pos-setup-near-me" element={<PosSetupNearMe />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

@@ -41,6 +41,7 @@ import {
   Mic,
   HardDrive,
   Activity,
+  CreditCard,
 } from "lucide-react";
 
 const Services = () => {
@@ -221,8 +222,42 @@ const Services = () => {
                 </Card>
               </AnimatedSection>
 
-              {/* Landing Pages */}
+              {/* POS System Setup */}
               <AnimatedSection staggerIndex={2} animation="scale">
+                <Card className="h-full hover-lift border-2 border-teal-500/20">
+                  <CardHeader className="pb-3">
+                    <div className="inline-flex w-10 h-10 rounded-lg bg-teal-500/10 items-center justify-center mb-2">
+                      <CreditCard className="h-5 w-5 text-teal-600" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-secondary">POS System Setup</CardTitle>
+                    <p className="text-sm text-muted-foreground">From £499</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                    <p>
+                      Square payment systems installed in 2-3 days. Hardware, training, and local support included.
+                    </p>
+                    <ul className="space-y-1">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-teal-600" /> 2-3 day installation
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-teal-600" /> Staff training included
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-teal-600" /> Monthly support plans
+                      </li>
+                    </ul>
+                    <Button asChild size="sm" className="w-full mt-2">
+                      <Link to="/services/pos-setup">
+                        View POS Services <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* Landing Pages */}
+              <AnimatedSection staggerIndex={3} animation="scale">
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-teal-500/10 items-center justify-center mb-2">
@@ -257,7 +292,7 @@ const Services = () => {
               </AnimatedSection>
 
               {/* App Development */}
-              <AnimatedSection staggerIndex={3} animation="scale">
+              <AnimatedSection staggerIndex={4} animation="scale">
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-blue-500/10 items-center justify-center mb-2">
@@ -292,7 +327,7 @@ const Services = () => {
               </AnimatedSection>
 
               {/* UX/UI Design */}
-              <AnimatedSection staggerIndex={4} animation="scale">
+              <AnimatedSection staggerIndex={5} animation="scale">
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-purple-500/10 items-center justify-center mb-2">
@@ -327,7 +362,7 @@ const Services = () => {
               </AnimatedSection>
 
               {/* Personalised Tools */}
-              <AnimatedSection staggerIndex={5} animation="scale">
+              <AnimatedSection staggerIndex={6} animation="scale">
                 <Card className="h-full hover-lift">
                   <CardHeader className="pb-3">
                     <div className="inline-flex w-10 h-10 rounded-lg bg-emerald-500/10 items-center justify-center mb-2">

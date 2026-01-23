@@ -29,6 +29,8 @@ const routeNames: Record<string, string> = {
   "/services/ux-ui-design": "UX/UI Design",
   "/services/web-hosting": "Web Hosting",
   "/services/pos-setup": "POS Setup",
+  "/sectors/restaurant-pos": "Restaurant POS",
+  "/pos-setup-near-me": "POS Setup Near Me",
   "/portfolio": "Portfolio",
   "/about": "About",
   "/contact": "Contact",

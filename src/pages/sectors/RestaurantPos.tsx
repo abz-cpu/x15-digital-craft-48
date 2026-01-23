@@ -158,11 +158,10 @@ const RestaurantPos = () => {
               Whether you're a neighbourhood café or a multi-floor restaurant, we configure Square to match how your kitchen and front-of-house actually work.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Utensils, title: "Restaurants", desc: "Fine dining to casual eateries" },
               { icon: ChefHat, title: "Cafés & Coffee Shops", desc: "Quick service and takeaway" },
-              { icon: Receipt, title: "Bars & Pubs", desc: "Tabs, rounds, and late-night service" },
               { icon: Smartphone, title: "Takeaways & Delivery", desc: "Kitchen efficiency and order tracking" },
             ].map((item, index) => (
               <Card key={index} className="text-center p-6">
@@ -326,22 +325,22 @@ const RestaurantPos = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <Card className="p-6">
                 <h3 className="font-semibold text-foreground mb-2">Small Café</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£499-£799</p>
+                <p className="text-3xl font-bold text-primary mb-2">£299-£499</p>
                 <p className="text-sm text-muted-foreground">Single counter, basic menu</p>
               </Card>
               <Card className="p-6 border-2 border-primary">
                 <h3 className="font-semibold text-foreground mb-2">Restaurant</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£799-£1,499</p>
+                <p className="text-3xl font-bold text-primary mb-2">£499-£899</p>
                 <p className="text-sm text-muted-foreground">Table service, kitchen display</p>
               </Card>
               <Card className="p-6">
                 <h3 className="font-semibold text-foreground mb-2">Multi-Site/Complex</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£1,499-£2,499</p>
-                <p className="text-sm text-muted-foreground">Multiple floors, bars, large venues</p>
+                <p className="text-3xl font-bold text-primary mb-2">£899-£1,499</p>
+                <p className="text-sm text-muted-foreground">Multiple floors, large venues</p>
               </Card>
             </div>
             <p className="text-sm text-muted-foreground mt-6">
-              Hardware quoted separately. Monthly support from £79/month optional.
+              Hardware quoted separately. Monthly support from £59/month optional.
             </p>
             <Button asChild className="mt-6">
               <Link to="/services/pos-setup">

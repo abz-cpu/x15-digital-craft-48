@@ -259,17 +259,17 @@ const PosSetupNearMe = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <Card className="p-6">
                 <h3 className="font-semibold text-foreground mb-2">Small Business</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£499-£799</p>
+                <p className="text-3xl font-bold text-primary mb-2">£299-£499</p>
                 <p className="text-sm text-muted-foreground">Café, salon, small shop</p>
               </Card>
               <Card className="p-6 border-2 border-primary">
                 <h3 className="font-semibold text-foreground mb-2">Mid-Size Operations</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£799-£1,499</p>
+                <p className="text-3xl font-bold text-primary mb-2">£499-£899</p>
                 <p className="text-sm text-muted-foreground">Restaurant, retail store</p>
               </Card>
               <Card className="p-6">
                 <h3 className="font-semibold text-foreground mb-2">Complex Setups</h3>
-                <p className="text-3xl font-bold text-primary mb-2">£1,499-£2,499</p>
+                <p className="text-3xl font-bold text-primary mb-2">£899-£1,499</p>
                 <p className="text-sm text-muted-foreground">Multi-location, large venues</p>
               </Card>
             </div>

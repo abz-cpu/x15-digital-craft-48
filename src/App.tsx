@@ -107,6 +107,9 @@ const TradesPosSector = lazy(() => import("./pages/sectors/TradesPos"));
 // Near Me pages - POS
 const PosSetupNearMe = lazy(() => import("./pages/PosSetupNearMe"));
 
+// Migration Guide
+const PosMigrationGuide = lazy(() => import("./pages/PosMigrationGuide"));
+
 // Register preloads
 registerPreload("/", () => import("./pages/Index"));
 registerPreload("/services", () => import("./pages/Services"));
@@ -233,6 +236,8 @@ const App = () => (
               <Route path="/sectors/trades-pos" element={<TradesPosSector />} />
               {/* POS Near Me */}
               <Route path="/pos-setup-near-me" element={<PosSetupNearMe />} />
+              {/* Migration Guide */}
+              <Route path="/pos-migration-guide" element={<PosMigrationGuide />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

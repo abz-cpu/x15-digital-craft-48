@@ -82,7 +82,7 @@ const PosSetup = () => {
     },
     {
       question: "Do I really need ongoing support?",
-      answer: "Consider this: one system failure during a busy Saturday typically costs £1,500-£5,000 in lost revenue and damaged reputation. Monthly support costs £79-£199 depending on your needs. The maths speaks for itself. Beyond emergencies, ongoing support means menu updates, staff changes, and system optimisations happen quickly without disrupting your business.",
+      answer: "Consider this: one system failure during a busy Saturday typically costs £1,500-£5,000 in lost revenue and damaged reputation. Monthly support costs £59-£149 depending on your needs. The maths speaks for itself. Beyond emergencies, ongoing support means menu updates, staff changes, and system optimisations happen quickly without disrupting your business.",
     },
     {
       question: "What happens if the system goes down?",
@@ -124,7 +124,7 @@ const PosSetup = () => {
   const supportPlans = [
     {
       name: "Basic",
-      price: "£79",
+      price: "£59",
       period: "/month",
       description: "Essential support for smaller operations",
       features: [
@@ -138,7 +138,7 @@ const PosSetup = () => {
     },
     {
       name: "Standard",
-      price: "£129",
+      price: "£99",
       period: "/month",
       description: "Priority support for busy businesses",
       features: [
@@ -152,7 +152,7 @@ const PosSetup = () => {
     },
     {
       name: "Premium",
-      price: "£199",
+      price: "£149",
       period: "/month",
       description: "Complete peace of mind",
       features: [
@@ -387,7 +387,7 @@ const PosSetup = () => {
             </p>
             <Card className="inline-block p-4 bg-amber-500/10 border-amber-500/30">
               <p className="text-sm font-medium text-amber-700 dark:text-amber-400">
-                <strong>The reality:</strong> One system failure during peak hours typically costs £1,500-£5,000 in lost revenue. Monthly support is £79-£199.
+                <strong>The reality:</strong> One system failure during peak hours typically costs £1,500-£5,000 in lost revenue. Monthly support is £59-£149.
               </p>
             </Card>
           </div>
@@ -481,21 +481,21 @@ const PosSetup = () => {
                     <p className="font-medium text-foreground">Small Business</p>
                     <p className="text-sm text-muted-foreground">Café, salon, small shop</p>
                   </div>
-                  <p className="font-bold text-primary text-lg">£499-£799</p>
+                  <p className="font-bold text-primary text-lg">£299-£499</p>
                 </div>
                 <div className="flex justify-between items-center pb-4 border-b border-border">
                   <div>
                     <p className="font-medium text-foreground">Mid-Size Operations</p>
                     <p className="text-sm text-muted-foreground">Restaurant, retail store</p>
                   </div>
-                  <p className="font-bold text-primary text-lg">£799-£1,499</p>
+                  <p className="font-bold text-primary text-lg">£499-£899</p>
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="font-medium text-foreground">Complex Setups</p>
-                    <p className="text-sm text-muted-foreground">Multi-location, large venues, bars</p>
+                    <p className="text-sm text-muted-foreground">Multi-location, large venues</p>
                   </div>
-                  <p className="font-bold text-primary text-lg">£1,499-£2,499</p>
+                  <p className="font-bold text-primary text-lg">£899-£1,499</p>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground text-center">

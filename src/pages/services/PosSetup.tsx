@@ -124,8 +124,8 @@ const PosSetup = () => {
   const supportPlans = [
     {
       name: "Basic",
-      price: "£59",
-      period: "/month",
+      annualPrice: "£50",
+      monthlyPrice: "£59",
       description: "Essential support for smaller operations",
       features: [
         "Menu and product updates",
@@ -138,8 +138,8 @@ const PosSetup = () => {
     },
     {
       name: "Standard",
-      price: "£99",
-      period: "/month",
+      annualPrice: "£84",
+      monthlyPrice: "£99",
       description: "Priority support for busy businesses",
       features: [
         "Everything in Basic",
@@ -152,8 +152,8 @@ const PosSetup = () => {
     },
     {
       name: "Premium",
-      price: "£149",
-      period: "/month",
+      annualPrice: "£127",
+      monthlyPrice: "£149",
       description: "Complete peace of mind",
       features: [
         "Everything in Standard",
@@ -404,10 +404,13 @@ const PosSetup = () => {
                 )}
                 <CardHeader className="p-0 pb-4 text-center">
                   <CardTitle className="text-xl mb-2">{plan.name}</CardTitle>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-3xl font-bold text-foreground">{plan.price}</span>
-                    <span className="text-muted-foreground">{plan.period}</span>
+                  <div className="mt-2">
+                    <span className="text-sm text-muted-foreground">From </span>
+                    <span className="text-3xl font-bold text-foreground">{plan.annualPrice}</span>
+                    <span className="text-lg text-muted-foreground"> /mo</span>
                   </div>
+                  <p className="text-sm text-muted-foreground mt-1">Billed annually, per site.</p>
+                  <p className="text-xs text-muted-foreground">{plan.monthlyPrice} if billed monthly</p>
                   <CardDescription className="mt-2">{plan.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-0">

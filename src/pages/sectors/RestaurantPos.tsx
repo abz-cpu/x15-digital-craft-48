@@ -403,7 +403,7 @@ const RestaurantPos = () => {
               </Card>
             </div>
             <p className="text-sm text-muted-foreground mt-6">
-              Hardware quoted separately. Monthly support from £50/mo (billed annually) or £59/mo (billed monthly).
+              Hardware quoted separately. Monthly support from £25/mo (billed annually) or £30/mo (billed monthly).
             </p>
             <Button asChild className="mt-6">
               <Link to="/services/pos-setup">

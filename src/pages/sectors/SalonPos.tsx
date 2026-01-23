@@ -110,8 +110,8 @@ const salonTypes = [
 const supportPlans = [
   {
     name: "Basic",
-    annualPrice: "£50",
-    monthlyPrice: "£59",
+    annualPrice: "£25",
+    monthlyPrice: "£30",
     description: "Essential support for smaller salons",
     features: [
       "Email support",
@@ -122,8 +122,8 @@ const supportPlans = [
   },
   {
     name: "Standard",
-    annualPrice: "£84",
-    monthlyPrice: "£99",
+    annualPrice: "£55",
+    monthlyPrice: "£65",
     description: "Priority support for growing salons",
     features: [
       "Phone & email support",
@@ -136,8 +136,8 @@ const supportPlans = [
   },
   {
     name: "Premium",
-    annualPrice: "£127",
-    monthlyPrice: "£149",
+    annualPrice: "£93",
+    monthlyPrice: "£110",
     description: "Full coverage for salon groups",
     features: [
       "Dedicated account manager",

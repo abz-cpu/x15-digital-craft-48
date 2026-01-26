@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { FAQSchema } from "@/components/FAQSchema";
 import { ServiceAreaSchema } from "@/components/ServiceAreaSchema";
+import { AreaServicesSchema } from "@/components/AreaServicesSchema";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
@@ -185,6 +186,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
       />
       <FAQSchema faqs={schemaFaqs} pageId={`area-${location.slug}`} />
       <ServiceAreaSchema />
+      <AreaServicesSchema location={location} />
 
       <Navigation />
       <BreadcrumbNav />

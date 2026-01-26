@@ -1,269 +1,292 @@
 
-## Plan: Create Unified AreaServicesSchema Component
+
+## Plan: Rebuild SEO Services Page with Full Pricing & Service Details
 
 ### Summary
-Create a new `AreaServicesSchema.tsx` component that dynamically generates individual Service schema markup for each of the 9 services offered on area pages. This provides more granular SEO signals than the current `ServiceAreaSchema.tsx` which groups all services into a single schema.
+Completely rebuild the `/services/seo` page with comprehensive pricing packages, detailed service breakdowns, and positioning focused on local SME businesses. The page will follow the established visual patterns from WebPackage.tsx and AiPackage.tsx while incorporating the user's specific SEO pricing strategy.
 
 ---
 
-### Current State
+### Page Structure Overview
 
-The `LocationPageTemplate.tsx` currently uses:
-- `ServiceAreaSchema` - A single schema covering all areas and services together
-- `FAQSchema` - For the FAQ section
-
-**Problem**: The current `ServiceAreaSchema` bundles all services into one schema object. For better SEO, each service should have its own distinct Service schema with location-specific data.
+| Section | Purpose |
+|---------|---------|
+| Hero | Hook with outcome-focused messaging ("Get Found Locally, Get More Bookings") |
+| Stats Bar | Key numbers to build urgency and trust |
+| Who This Is For | Target client types with pain points |
+| One-Time Setup Packages | Foundational SEO & AI-Powered Website+SEO options |
+| Monthly Retainer Packages | Local Starter, Growth, Dominator tiers |
+| What's Included Grid | Visual breakdown of all services |
+| How It Works | 4-step process timeline |
+| Comparison Table | Local SEO vs DIY vs Other Agencies |
+| FAQs | SEO-specific questions with accordion |
+| Related Services | Internal links to complementary services |
+| Final CTA | Gradient section with strong conversion focus |
 
 ---
 
-### Solution: New AreaServicesSchema Component
+### SEO & Schema Updates
 
-Create a component that accepts the location data and generates individual `@type: Service` schema entries for each service offered in that area.
-
-**File:** `src/components/AreaServicesSchema.tsx`
-
----
-
-### Component Design
-
+**Updated Metadata:**
 ```typescript
-interface AreaServicesSchemaProps {
-  location: {
-    name: string;
-    slug: string;
-    postcodes: string[];
-  };
-}
+<SEO
+  title="Local SEO Services London | Get Found on Google | From £400/month | L&D Digital"
+  description="Local SEO packages for London SMEs. One-time setup from £950, monthly retainers from £400. More calls, more bookings, more foot traffic. Free SEO audit."
+  keywords="local SEO London, small business SEO UK, local SEO packages, affordable SEO agency London, Google Business Profile optimisation, local search ranking"
+  canonicalUrl="https://digital.luminousanddeliver.co.uk/services/seo"
+/>
 ```
 
-**Services to Generate Schema For:**
-| Service | Starting Price | Service Type |
-|---------|---------------|--------------|
-| Website Design | £200 | Web Design |
-| Web Development | £200 | Web Development |
-| Ecommerce Stores | £500 | Ecommerce Development |
-| AI Chatbots | £50/month | AI Chatbot Development |
-| POS Systems | £299 | POS System Installation |
-| IT Support | £25/month | IT Support Services |
-| SEO Services | £300 | Search Engine Optimization |
-| Order Trackers | £500 | Custom Business Application |
-| Invoice Trackers | £500 | Custom Business Application |
+**Schema Additions:**
+- `ServiceSchema` - Updated with new price range (£400-£1,200/month)
+- `FAQSchema` - For the 8+ FAQ items
+- `HowToSchema` - For the 4-step process (updated steps)
 
 ---
 
-### Schema Structure (Per Service)
+### Part 1: Hero Section
 
-Each service generates a schema like:
+**Style:** Dark gradient matching WebPackage (slate-700 via slate-800 to slate-900)
 
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://digital.luminousanddeliver.co.uk/areas/stratford#website-design",
-  "name": "Website Design in Stratford",
-  "description": "Professional website design services for Stratford businesses. Fast delivery, transparent pricing, starting from £200.",
-  "url": "https://digital.luminousanddeliver.co.uk/areas/stratford",
-  "serviceType": "Web Design",
-  "provider": {
-    "@id": "https://digital.luminousanddeliver.co.uk/#organization"
-  },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Stratford",
-    "address": {
-      "@type": "PostalAddress",
-      "postalCode": "E15, E20",
-      "addressLocality": "Stratford",
-      "addressRegion": "East London",
-      "addressCountry": "GB"
-    }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "200",
-    "priceCurrency": "GBP",
-    "availability": "https://schema.org/InStock",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": "200",
-      "priceCurrency": "GBP",
-      "unitText": "project"
-    }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "47",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
-}
-```
+**Content:**
+- **Badge:** "Local SEO Specialists • London & East London"
+- **H1:** "Get Found Locally. Get More Bookings."
+- **Subheadline:** "We help London SMEs rank on Google Maps and local search — so customers nearby actually call or book you."
+- **CTAs:** "Get Free SEO Audit" + "Book Discovery Call"
 
 ---
 
-### Implementation Details
+### Part 2: Trust Stats Bar
 
-#### 1. Service Definitions Array
+Quick-scan credibility section below hero:
 
-```typescript
-const serviceDefinitions = [
-  {
-    id: "website-design",
-    name: "Website Design",
-    serviceType: "Web Design",
-    description: (location: string) => 
-      `Professional website design services for ${location} businesses. Fast delivery, transparent pricing.`,
-    price: 200,
-    priceUnit: "project",
-    path: "/web-package",
-  },
-  {
-    id: "web-development",
-    name: "Web Development",
-    serviceType: "Web Development",
-    description: (location: string) => 
-      `Expert web development for ${location} businesses. Custom websites built with modern technology.`,
-    price: 200,
-    priceUnit: "project",
-    path: "/web-package",
-  },
-  {
-    id: "ecommerce",
-    name: "Ecommerce Stores",
-    serviceType: "Ecommerce Development",
-    description: (location: string) => 
-      `Online store development for ${location} businesses. Full shopping cart, payments, and inventory.`,
-    price: 500,
-    priceUnit: "project",
-    path: "/services/ecommerce",
-  },
-  {
-    id: "ai-chatbots",
-    name: "AI Chatbots",
-    serviceType: "AI Chatbot Development",
-    description: (location: string) => 
-      `AI chatbot solutions for ${location} businesses. 24/7 customer support automation.`,
-    price: 50,
-    priceUnit: "month",
-    path: "/ai-package",
-  },
-  {
-    id: "pos-systems",
-    name: "POS Systems",
-    serviceType: "POS System Installation",
-    description: (location: string) => 
-      `Square POS installation for ${location} businesses. Hardware setup, training, and support.`,
-    price: 299,
-    priceUnit: "project",
-    path: "/services/pos-setup",
-  },
-  {
-    id: "it-support",
-    name: "IT Support",
-    serviceType: "IT Support Services",
-    description: (location: string) => 
-      `IT support services for ${location} small businesses. Remote support, troubleshooting, security.`,
-    price: 25,
-    priceUnit: "month",
-    path: "/services/it-support",
-  },
-  {
-    id: "seo-services",
-    name: "SEO Services",
-    serviceType: "Search Engine Optimization",
-    description: (location: string) => 
-      `Local SEO services for ${location} businesses. Rank higher on Google for local searches.`,
-    price: 300,
-    priceUnit: "project",
-    path: "/services/seo",
-  },
-  {
-    id: "order-trackers",
-    name: "Order Trackers",
-    serviceType: "Custom Business Application",
-    description: (location: string) => 
-      `Custom order tracking apps for ${location} businesses. Real-time order status and notifications.`,
-    price: 500,
-    priceUnit: "project",
-    path: "/services/personalised-apps",
-  },
-  {
-    id: "invoice-trackers",
-    name: "Invoice Trackers",
-    serviceType: "Invoice Management System",
-    description: (location: string) => 
-      `Invoice tracking systems for ${location} businesses. Automated invoicing and payment reminders.`,
-    price: 500,
-    priceUnit: "project",
-    path: "/services/personalised-apps",
-  },
-];
-```
-
-#### 2. Schema Generation Logic
-
-- Loop through `serviceDefinitions`
-- Generate a unique `@id` per service per location
-- Include location-specific `areaServed` with postcodes
-- Use `priceSpecification` with correct `unitText` (project vs month)
-- Output as a single `<script>` tag with an array of schemas OR multiple `<script>` tags
-
-**Recommended approach**: Single script with `@graph` containing all services (cleaner DOM, valid JSON-LD):
-
-```json
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "Service", ... },
-    { "@type": "Service", ... },
-    ...
-  ]
-}
-```
+| Stat | Value |
+|------|-------|
+| Average ranking improvement | "Page 1 in 90 days" |
+| Customer satisfaction | "5-star rated" |
+| Response time | "24-hour audit turnaround" |
+| Speciality | "Local businesses only" |
 
 ---
 
-### Integration with LocationPageTemplate
+### Part 3: Who This Is For
 
-**File:** `src/components/LocationPageTemplate.tsx`
+Grid of ideal client types with icons:
 
-**Changes:**
-1. Import the new `AreaServicesSchema` component
-2. Add it alongside existing schemas (keep `ServiceAreaSchema` for backwards compatibility, or replace it)
-
-```typescript
-import { AreaServicesSchema } from "@/components/AreaServicesSchema";
-
-// In the component:
-<AreaServicesSchema location={location} />
-```
+| Client Type | Pain Point |
+|-------------|------------|
+| **Clinics & Healthcare** | Losing patients to competitors who rank higher |
+| **Trades & Home Services** | Paying £50+ per lead on Checkatrade/Bark |
+| **Restaurants & Hospitality** | Not showing up in "near me" searches |
+| **Retail & Shops** | Foot traffic declining despite good reviews |
+| **Property & Estate Agents** | Leads going to Rightmove instead of your site |
+| **Professional Services** | Referrals drying up, need online visibility |
 
 ---
 
-### Files Summary
+### Part 4: One-Time Setup Packages
+
+Two-column cards:
+
+#### Card 1: Foundational SEO Setup
+**Price:** £950 one-time
+**Best for:** Businesses with an existing website needing SEO boost
+
+**Includes:**
+- Full SEO audit & competitor analysis
+- On-page optimisation (titles, meta, headings)
+- Local keyword research & implementation
+- Google Business Profile optimisation
+- Local schema markup (LocalBusiness)
+- Technical SEO fixes (speed, mobile, indexing)
+- Internal linking structure
+- Sitemap & robots.txt setup
+- CTA & conversion improvements
+- **Delivery:** 7-10 days
+
+#### Card 2: AI-Powered Website + SEO Setup
+**Price:** £1,500 - £2,500 one-time
+**Best for:** New businesses or those with outdated websites
+
+**Includes:**
+- Everything in Foundational SEO Setup
+- Brand new SEO-optimised website (3-5 pages)
+- Mobile-first responsive design
+- Contact forms & booking integration
+- Speed-optimised hosting setup
+- **Delivery:** 10-14 days
+
+---
+
+### Part 5: Monthly Retainer Packages
+
+Three-tier card layout (like WebPackage):
+
+#### Local Starter - £400/month
+**Best for:** Small businesses needing basic local visibility
+
+**Includes:**
+- Google Business Profile management
+- Local keyword tracking (10 keywords)
+- Review management guidance
+- Minor on-page tweaks
+- Monthly performance report
+- Email support
+
+#### Growth (MOST POPULAR) - £750/month
+**Best for:** Growing businesses wanting consistent local leads
+
+**Includes:**
+- Everything in Local Starter
+- 1 new service page OR blog post per month
+- Internal linking & content optimisation
+- Conversion rate improvements
+- Competitor monitoring
+- Priority support
+- Monthly strategy call
+
+#### Dominator - £1,200+/month
+**Best for:** Established businesses ready to dominate local search
+
+**Includes:**
+- Everything in Growth
+- Proactive link building (2-3 quality links/month)
+- Advanced technical SEO monitoring
+- Comprehensive competitor analysis
+- Multi-location optimisation
+- Dedicated account manager
+- Bi-weekly strategy calls
+
+**Note below cards:** "All monthly plans require the one-time Foundational SEO Setup (£950) or can be bundled at a discount."
+
+---
+
+### Part 6: What You Get (Services Grid)
+
+Visual grid with icons (6 items, 3x2 on desktop):
+
+| Service | Icon | Description |
+|---------|------|-------------|
+| **Local SEO** | MapPin | Google Maps, "near me" searches, local pack |
+| **On-Page SEO** | FileText | Titles, headings, meta descriptions, content |
+| **Technical SEO** | Settings | Speed, mobile, Core Web Vitals, indexing |
+| **Google Business Profile** | Building | Setup, optimisation, posts, Q&A management |
+| **Content Strategy** | PenTool | Service pages, blogs, FAQs that rank |
+| **Monthly Reporting** | BarChart3 | Clear metrics, rankings, traffic, conversions |
+
+---
+
+### Part 7: How It Works (Process Timeline)
+
+4-step visual process:
+
+| Step | Title | Description | Duration |
+|------|-------|-------------|----------|
+| 1 | **Free Audit** | We analyse your current SEO, competition & quick wins | 24 hours |
+| 2 | **Strategy** | Custom plan based on your goals and local market | 2-3 days |
+| 3 | **Implementation** | On-page fixes, GBP setup, technical improvements | 7-10 days |
+| 4 | **Ongoing Growth** | Monthly optimisation, content, and link building | Continuous |
+
+---
+
+### Part 8: Comparison Table
+
+Simple 3-column comparison:
+
+| Factor | L&D Digital | DIY / Free Tools | Other Agencies |
+|--------|-------------|------------------|----------------|
+| Local focus | ✓ London specialists | Generic advice | Often national focus |
+| Setup time | 7-10 days | Months of learning | 2-4 weeks |
+| Monthly cost | £400-£1,200 | "Free" (your time) | £1,500-£5,000+ |
+| Contract | No lock-in | N/A | 6-12 month contracts |
+| Communication | Direct access | N/A | Account managers |
+| Results focus | Local bookings | Traffic metrics | Vanity metrics |
+
+---
+
+### Part 9: FAQs Section
+
+Accordion-style FAQ with 8 questions:
+
+1. **"How long until I see results?"**
+   Most local businesses see ranking improvements within 30-60 days, with significant traffic increases by 90 days. SEO is a long-term investment that compounds over time.
+
+2. **"Do I need the one-time setup, or can I just do monthly?"**
+   The one-time setup creates the foundation that makes monthly work effective. Without proper on-page SEO and technical fixes, monthly efforts won't deliver results.
+
+3. **"What's included in the Google Business Profile optimisation?"**
+   Full profile setup/optimisation, category selection, service descriptions, photo guidelines, post templates, Q&A management, and review response strategy.
+
+4. **"Do you guarantee rankings?"**
+   We never guarantee specific rankings — anyone who does is lying. We guarantee effort, transparency, and a proven process that has worked for 47+ local businesses.
+
+5. **"Can I cancel the monthly retainer anytime?"**
+   Yes. No long-term contracts. We work month-to-month because we believe results should keep you, not contracts.
+
+6. **"What's the difference between local SEO and regular SEO?"**
+   Local SEO focuses on ranking in Google Maps and "near me" searches for customers in your area. Regular SEO targets broader, often national keywords.
+
+7. **"I already have a website. Do I need a new one?"**
+   Usually not. The Foundational SEO Setup works with your existing site. We only recommend a new website if yours is severely outdated or built on a platform that limits SEO.
+
+8. **"What industries do you work with?"**
+   We specialise in local London businesses: clinics, trades, restaurants, retail, property, and professional services. If customers search for you locally, we can help.
+
+---
+
+### Part 10: Related Services Section
+
+Internal link cards to complementary services:
+
+| Service | Link | Description |
+|---------|------|-------------|
+| Web Development | /web-package | Need a new website first? |
+| Content Marketing | /services/content-marketing | Ongoing blog & content strategy |
+| Digital Marketing | /services/digital-marketing | Full marketing strategy |
+| Google Ads | /contact | Paid search for immediate results |
+
+---
+
+### Part 11: Final CTA Section
+
+Gradient background (teal-600 to gray-900)
+
+**Content:**
+- **Headline:** "Ready to Get Found Locally?"
+- **Subheadline:** "Get a free SEO audit and see exactly where you can improve."
+- **CTAs:** "Get Free SEO Audit" + "WhatsApp Us"
+
+---
+
+### Files to Modify
 
 | File | Action |
 |------|--------|
-| `src/components/AreaServicesSchema.tsx` | Create new unified schema component |
-| `src/components/LocationPageTemplate.tsx` | Import and use new component |
+| `src/pages/services/Seo.tsx` | Complete rewrite with new structure |
 
 ---
 
-### SEO Benefits
+### Technical Implementation Notes
 
-1. **Granular Indexing**: Each service gets its own schema entry, improving chances of rich snippets
-2. **Location-Specific**: Schema explicitly ties each service to the specific area
-3. **Price Clarity**: Individual price specifications per service (project vs monthly)
-4. **Internal Linking**: Each schema references the correct service page URL
-5. **Consistent Ratings**: Shared aggregate rating across all services
+1. **Imports needed:**
+   - Add `MapPin`, `Building`, `Settings`, `PenTool` from lucide-react
+   - Keep existing imports for AnimatedSection, Container, Card, etc.
+   - Add Accordion components for FAQ section
 
----
+2. **Schema updates:**
+   - Update ServiceSchema priceRange to "£400-£1,200/month"
+   - Update HowToSchema with new 4-step process
+   - Add FAQSchema with all 8 questions
 
-### Technical Considerations
+3. **Styling patterns:**
+   - Follow WebPackage hero gradient style
+   - Use amber badge for "MOST POPULAR" on Growth tier
+   - Consistent card hover effects (hover-lift class)
+   - Mobile-responsive grid layouts
 
-- **Single Script Tag**: Using `@graph` keeps DOM clean
-- **Dynamic Generation**: Schema content updates automatically when services change
-- **Cleanup on Unmount**: Component removes script when navigating away
-- **Unique IDs**: Each schema has a unique `@id` to prevent conflicts
+4. **SEO focus:**
+   - H1 contains "Local SEO" and "London" signals
+   - H2s use benefit-focused language
+   - Natural keyword integration throughout copy
+   - Clear pricing signals for featured snippets
 

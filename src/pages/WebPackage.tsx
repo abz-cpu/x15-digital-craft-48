@@ -610,7 +610,7 @@ const WebPackage = () => {
                         Support &amp; Maintenance
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
-                        £25<span className="block text-xs font-medium text-muted-foreground">/month</span>
+                        £19.99<span className="block text-xs font-medium text-muted-foreground">/month</span>
                       </p>
                     </CardHeader>
 

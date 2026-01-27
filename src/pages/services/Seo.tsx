@@ -37,7 +37,7 @@ const Seo = () => {
         name="Local SEO Services"
         description="Local SEO for UK service businesses. We help you rank in Google Maps and local search, improve on-page SEO, and increase enquiries."
         url="https://digital.luminousanddeliver.co.uk/services/seo"
-        priceRange="£350-£950+"
+        priceRange="£300-£950+"
         serviceType="Local Search Engine Optimization"
       />
 
@@ -45,15 +45,15 @@ const Seo = () => {
         name="How L&D Digital improves your local SEO"
         description="Our 4-step local SEO process to increase Google visibility, enquiries, and conversions."
         totalTime="P30D"
-        estimatedCost={{ currency: "GBP", value: "750" }}
+        estimatedCost={{ currency: "GBP", value: "600" }}
         steps={[
           {
-            name: "Local SEO Launch (Setup)",
-            text: "Audit + local keyword plan + Google Business Profile optimisation + schema + indexing checks.",
+            name: "Setup (Foundation or Launch)",
+            text: "We start with a one-time setup to build a clean baseline: audit, local keyword plan, Google Business Profile optimisation, schema, and indexing checks.",
           },
           {
             name: "On-Page Improvements",
-            text: "Optimise key pages (titles, headings, internal links) to match local intent and drive enquiries.",
+            text: "Optimise your key pages (titles, headings, internal links, and content) to match local intent and drive enquiries.",
           },
           {
             name: "Technical Health",
@@ -210,7 +210,11 @@ const Seo = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">How It Works</h2>
                 <div className="grid md:grid-cols-4 gap-6">
                   {[
-                    { step: "1", title: "Launch Setup", desc: "Audit + local plan + GBP + schema + indexing checks" },
+                    {
+                      step: "1",
+                      title: "Setup",
+                      desc: "Choose Foundation or Launch based on your goals and competition",
+                    },
                     { step: "2", title: "Fix + Align", desc: "Optimise key pages for local intent and conversion" },
                     {
                       step: "3",
@@ -261,28 +265,53 @@ const Seo = () => {
                 <div className="text-center mb-10">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Pricing</h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Transparent pricing for UK service businesses. Most clients start with the Local SEO Launch and then
-                    move onto a monthly plan.
+                    Transparent pricing for UK service businesses. Monthly SEO requires a one-time setup first.
                   </p>
                 </div>
 
                 <div className="grid lg:grid-cols-4 gap-6">
-                  {/* Setup */}
+                  {/* Setup - Foundation */}
                   <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">One-time (Required)</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Foundation</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£300–£600</div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Best for: smaller sites that need a clean baseline before ongoing SEO.
+                      </p>
+                      <ul className="space-y-2 text-sm">
+                        {[
+                          "Full SEO + local audit",
+                          "Local keyword plan (service + area)",
+                          "Google Business Profile optimisation",
+                          "On-page fixes (core pages)",
+                          "Local schema + indexing checks",
+                        ].map((li, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
+                            <span className="text-secondary">{li}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Setup - Launch */}
+                  <Card className="hover-lift lg:col-span-1 border-primary/30">
                     <CardContent className="p-6">
                       <div className="text-sm font-semibold text-primary mb-2">One-time (Required)</div>
                       <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Launch</h3>
                       <div className="text-2xl font-bold text-secondary mb-3">£750–£950</div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Best for: businesses that want a proper baseline before ongoing SEO.
+                        Best for: competitive niches that want faster progress and stronger conversion from day one.
                       </p>
                       <ul className="space-y-2 text-sm">
                         {[
-                          "Full SEO + local audit",
-                          "Local keyword plan",
-                          "Google Business Profile optimisation",
+                          "Everything in Foundation",
                           "On-page fixes (up to 10 key pages)",
-                          "Local schema + indexing checks",
+                          "Internal linking structure",
+                          "Conversion-focused improvements (CRO)",
+                          "Tracking + baseline reporting",
                         ].map((li, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
@@ -320,7 +349,7 @@ const Seo = () => {
                   </Card>
 
                   {/* Growth */}
-                  <Card className="hover-lift lg:col-span-1 border-primary/30">
+                  <Card className="hover-lift lg:col-span-1">
                     <CardContent className="p-6">
                       <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
                       <h3 className="text-xl font-bold text-secondary mb-2">Growth</h3>
@@ -335,32 +364,6 @@ const Seo = () => {
                           "Internal linking improvements",
                           "Conversion-focused updates (CRO)",
                           "Priority support",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  {/* Custom */}
-                  <Card className="hover-lift lg:col-span-1">
-                    <CardContent className="p-6">
-                      <div className="text-sm font-semibold text-primary mb-2">Custom</div>
-                      <h3 className="text-xl font-bold text-secondary mb-2">Campaigns</h3>
-                      <div className="text-2xl font-bold text-secondary mb-3">From £1,200/mo</div>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Best for: competitive niches and multi-location growth.
-                      </p>
-                      <ul className="space-y-2 text-sm">
-                        {[
-                          "Advanced technical monitoring",
-                          "Competitor analysis + gap plan",
-                          "Optional outreach for authority links",
-                          "Landing pages for multiple areas",
-                          "Custom reporting & tracking",
                         ].map((li, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />

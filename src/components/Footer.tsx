@@ -268,6 +268,14 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
                     Terms of Service
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/support-sla"
+                    className="text-sm text-white/60 hover:text-accent transition-colors"
+                  >
+                    Support SLA
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>

@@ -393,7 +393,7 @@ const WebPackage = () => {
                     });
                   }}
                 >
-                  Support & Maintenance from £19.99/month ↓
+                  Support & Maintenance from £24.99/month ↓
                 </a>
                 <span className="hidden sm:inline text-muted-foreground">|</span>
                 <Link
@@ -610,7 +610,7 @@ const WebPackage = () => {
                         Support &amp; Maintenance
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
-                        £19.99<span className="block text-xs font-medium text-muted-foreground">/month</span>
+                        £24.99<span className="block text-xs font-medium text-muted-foreground">/month</span>
                       </p>
                     </CardHeader>
 
@@ -686,7 +686,7 @@ const WebPackage = () => {
                         Hosting + Support
                       </CardTitle>
                       <p className="text-3xl font-bold text-secondary mt-1">
-                        £29.99
+                        £34.99
                         <span className="block text-xs font-medium text-muted-foreground">/month all-inclusive</span>
                       </p>
                     </CardHeader>
@@ -1100,7 +1100,7 @@ const WebPackage = () => {
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
                     Yes — you can use your own hosting, or I can fully manage everything for you:
-                    <br />• <strong>£29.99/month</strong> — Hosting + Support (fully managed, replaces your hosting
+                    <br />• <strong>£34.99/month</strong> — Hosting + Support (fully managed, replaces your hosting
                     bill)
                     <br />• <strong>£19.99/month</strong> — Support only (if you already have hosting)
                     <br />• <strong>£0</strong> — Use your own hosting with no extra monthly cost from me

@@ -16,75 +16,57 @@ import {
   ShieldCheck,
   MapPin,
   PhoneCall,
-  Code,
-  Wrench,
-  AlertTriangle,
-  Zap,
-  HelpCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import { HowToSchema } from "@/components/HowToSchema";
+import { FAQSchema } from "@/components/FAQSchema";
+import { SeoAuditForm } from "@/components/SeoAuditForm";
+
+// FAQ data for schema and display
+const seoFaqs = [
+  {
+    question: "How long until I see results from local SEO?",
+    answer: "Most local businesses see ranking improvements within 30-60 days, with significant traffic and enquiry increases by 90 days. SEO is a long-term investment that compounds over time — the earlier you start, the faster you pull ahead of competitors.",
+  },
+  {
+    question: "Do I need the one-time setup, or can I just do monthly?",
+    answer: "The one-time setup creates the foundation that makes monthly work effective. Without proper on-page SEO, technical fixes, and Google Business Profile optimisation, monthly efforts won't deliver meaningful results.",
+  },
+  {
+    question: "What's included in Google Business Profile optimisation?",
+    answer: "Full profile setup or optimisation, category selection, service descriptions, photo guidelines, post templates, Q&A management, and review response strategy. This is often the fastest way to improve local visibility.",
+  },
+  {
+    question: "Do you guarantee rankings?",
+    answer: "We never guarantee specific rankings — anyone who does is lying or using risky tactics. We guarantee clear deliverables, transparent reporting, and a proven process that has worked for 47+ local businesses.",
+  },
+  {
+    question: "Can I cancel the monthly retainer anytime?",
+    answer: "Yes. No long-term contracts required. We work month-to-month because we believe results should keep you, not contracts. You can pause or cancel with 30 days notice.",
+  },
+  {
+    question: "What's the difference between local SEO and regular SEO?",
+    answer: "Local SEO focuses on ranking in Google Maps and 'near me' searches for customers in your area. Regular SEO targets broader, often national keywords. For service businesses, local SEO typically delivers faster ROI.",
+  },
+  {
+    question: "I already have a website. Do I need a new one?",
+    answer: "Usually not. The Foundational SEO Setup works with your existing site. We only recommend a new website if yours is severely outdated, built on a platform that limits SEO, or has fundamental technical issues.",
+  },
+  {
+    question: "What industries do you work with?",
+    answer: "We specialise in local London businesses: clinics, trades, restaurants, retail, property, and professional services. If customers search for you locally, we can help you rank higher and convert more visitors.",
+  },
+];
 
 const Seo = () => {
-  const faqs = [
-    {
-      q: "How long until I see results from local SEO?",
-      a: "Most local businesses see ranking improvements within 30–60 days, with clearer traffic and enquiry movement by 60–90 days. Faster wins often come from Google Business Profile improvements, but competitive areas can take longer.",
-    },
-    {
-      q: "Do I need the one-time setup, or can I just do monthly?",
-      a: "Setup is required. It creates the baseline (audit, tracking, structure, GBP, technical checks). Without it, monthly work is guesswork and usually doesn’t deliver meaningful results.",
-    },
-    {
-      q: "What’s included in Google Business Profile optimisation?",
-      a: "Profile setup/cleanup, categories, services, descriptions, photos guidance, posting templates, Q&A, review strategy, and local signals that improve Maps visibility. This is often the fastest local win.",
-    },
-    {
-      q: "Do you guarantee rankings?",
-      a: "No. Anyone guaranteeing exact rankings is either lying or using risky tactics. We guarantee clear deliverables, transparent reporting, and a proven process focused on enquiries (not vanity metrics).",
-    },
-    {
-      q: "Can I cancel the monthly retainer anytime?",
-      a: "Yes. Month-to-month. You can cancel with 30 days’ notice. No long-term contracts.",
-    },
-    {
-      q: "What’s the difference between local SEO and regular SEO?",
-      a: "Local SEO targets Google Maps + ‘near me’ / location searches. Regular SEO often targets broader national keywords. For service businesses, local SEO usually produces faster, higher-intent leads.",
-    },
-    {
-      q: "I already have a website. Do I need a new one?",
-      a: "Usually not. We can work with your existing site if it’s technically sound. If the site is severely outdated, slow, or locked behind a bloated builder/hosting setup, it may be cheaper long-term to rebuild SEO-ready.",
-    },
-    {
-      q: "What industries do you work with?",
-      a: "Local service businesses: trades, clinics, property, hospitality, professional services, and more. If people search for your service in your area, we can help you rank and convert.",
-    },
-    {
-      q: "What if my website is on WordPress (Elementor/Divi/WPBakery)?",
-      a: "We can still do SEO, but it can take longer if the theme/plugins cause speed, layout, or indexing issues. In those cases we prioritise the highest-leverage fixes first, and we’ll be upfront if a rebuild is the smarter move.",
-    },
-    {
-      q: "Do you also fix UX/UI and conversion rate?",
-      a: "Yes. We include conversion-focused improvements (CRO) where it impacts enquiries: clearer CTAs, better page structure, trust signals, and mobile-first usability. SEO traffic is useless if the site doesn’t convert.",
-    },
-    {
-      q: "Do I need to provide access to my Google account and website?",
-      a: "For best results, yes (Google Business Profile, Search Console, Analytics, and your website CMS). If access is limited, we can still advise and provide a checklist, but implementation is slower.",
-    },
-    {
-      q: "What does ‘Authority Building’ mean and do I need it?",
-      a: "Authority building is earning quality links and local mentions that improve trust and rankings. You don’t always need it early on — we prioritise GBP + on-page + technical first, then add authority work if competition demands it.",
-    },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title="Local SEO Services London & UK | Get Found on Google | L&D Digital"
-        description="Local SEO for UK service businesses. Rank in Google Maps + local search, increase enquiries, and convert more website visitors into calls and bookings."
+        description="Local SEO for UK service businesses. We help you rank in Google Maps + local search, increase enquiries, and convert more website visitors into calls and bookings."
         keywords="local SEO London, SEO services UK, Google Maps ranking, Google Business Profile optimisation, small business SEO, SEO agency London, local service SEO"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/seo"
       />
@@ -93,7 +75,7 @@ const Seo = () => {
         name="Local SEO Services"
         description="Local SEO for UK service businesses. We help you rank in Google Maps and local search, improve on-page SEO, and increase enquiries."
         url="https://digital.luminousanddeliver.co.uk/services/seo"
-        priceRange="£200-£950+"
+        priceRange="£300-£950+"
         serviceType="Local Search Engine Optimization"
       />
 
@@ -105,15 +87,15 @@ const Seo = () => {
         steps={[
           {
             name: "Setup (Foundation or Launch)",
-            text: "We start with a one-time setup to build a clean baseline: audit, local keyword plan, Google Business Profile optimisation, schema, tracking, and indexing checks.",
+            text: "We start with a one-time setup to build a clean baseline: audit, local keyword plan, Google Business Profile optimisation, schema, and indexing checks.",
           },
           {
             name: "On-Page Improvements",
-            text: "We optimise your key pages (titles, headings, internal links, and content) to match local intent and drive enquiries.",
+            text: "Optimise your key pages (titles, headings, internal links, and content) to match local intent and drive enquiries.",
           },
           {
             name: "Technical Health",
-            text: "We fix crawl/index issues and improve speed/mobile usability where it impacts rankings and conversions.",
+            text: "Fix crawl/index issues and improve speed/mobile usability where it impacts rankings and conversions.",
           },
           {
             name: "Ongoing Growth",
@@ -122,53 +104,49 @@ const Seo = () => {
         ]}
       />
 
+      <FAQSchema faqs={seoFaqs} />
+
       <Navigation darkHero />
 
       <main className="flex-1">
-        {/* HERO */}
+        {/* Hero Section */}
         <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
-            <div className="relative text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/90 text-sm mb-6">
-                <Zap className="h-4 w-4" />
-                Lead-first Local SEO for UK service businesses
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <div className="relative text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Local SEO That Brings Calls & Bookings
               </h1>
-
               <p className="text-xl text-white/90 mb-4">Rank in Google Maps + local search across London and the UK.</p>
-
-              <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              <p className="text-lg text-white/80">
                 We focus on measurable outcomes: more visibility, more enquiries, better conversion.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
-                  <Link to="/contact">
-                    Request a Free SEO Review <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/90"
+                  onClick={() => document.getElementById("free-audit")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  Get Free SEO Audit <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  <Link to="/quick-start">Start Project Brief</Link>
+                  <a href="https://wa.me/447488855786" target="_blank" rel="noopener noreferrer">
+                    WhatsApp Us
+                  </a>
                 </Button>
               </div>
 
-              <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
                 {[
-                  { icon: MapPin, title: "Map Pack Focus", desc: "Google Business + local pages built for visibility" },
-                  { icon: ShieldCheck, title: "Clean, Safe SEO", desc: "No spam tactics or fake guarantees" },
-                  { icon: PhoneCall, title: "Lead-First", desc: "Optimised for calls, forms, and bookings" },
+                  { icon: MapPin, title: "Map Pack Focus", desc: "Google Business + local pages" },
+                  { icon: ShieldCheck, title: "Clean, Safe SEO", desc: "No spam tactics or “guarantees”" },
+                  { icon: PhoneCall, title: "Lead-First", desc: "Optimised for calls & forms" },
                 ].map((b, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-5 bg-white/10 rounded-xl border border-white/15 backdrop-blur-sm"
-                  >
-                    <b.icon className="h-6 w-6 text-white mt-0.5 flex-shrink-0" />
+                  <div key={i} className="flex items-start gap-3 p-4 bg-white/10 rounded-lg border border-white/10">
+                    <b.icon className="h-5 w-5 text-white mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-white font-semibold">{b.title}</div>
-                      <div className="text-white/80 text-sm leading-relaxed">{b.desc}</div>
+                      <div className="text-white/80 text-sm">{b.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -177,170 +155,88 @@ const Seo = () => {
           </Container>
         </section>
 
+        {/* Breadcrumb below hero */}
         <BreadcrumbNav />
 
-        {/* WHO THIS IS FOR */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        {/* Who This Is For */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Who This Is For</h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Best for service businesses that need consistent enquiries from people searching in your area.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 text-center">Who This Is For</h2>
+                <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
+                  Best for service businesses that need consistent enquiries from people searching in your area.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
                   {[
                     "Local businesses wanting to rank in Google Maps (Map Pack)",
                     "Service providers tired of paying for every lead with ads",
                     "Clinics, trades, property, hospitality, and professional services",
                     "Businesses ready to invest in steady, long-term growth",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-5 rounded-xl border bg-primary/5">
+                    <div key={i} className="flex items-start gap-3 p-4 bg-primary/5 rounded-lg">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-secondary leading-relaxed">{item}</span>
+                      <span className="text-secondary">{item}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 p-6 rounded-xl border bg-background">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="text-secondary font-semibold mb-2">Quick reality check</div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        SEO is not instant. We focus on the highest-leverage wins first (Google Business Profile + local
-                        pages + technical hygiene), then build momentum with monthly improvements.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </Container>
-        </section>
-
-        {/* NEW: SEO + UX/UI (CONVERSION) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
-          <Container>
-            <AnimatedSection animation="fade">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-                    <Code className="h-4 w-4" />
-                    SEO + UX/UI + Conversion
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                    Traffic Is Useless If The Website Doesn’t Convert
-                  </h2>
-                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    We don’t just chase rankings. We improve page structure, trust signals, and conversion flow so your
-                    SEO turns into calls and bookings.
+                <div className="mt-8 p-4 md:p-5 rounded-lg border bg-background">
+                  <div className="text-secondary font-semibold mb-1">Quick reality check</div>
+                  <p className="text-muted-foreground text-sm">
+                    SEO is not instant. We focus on the highest-leverage wins first (Google Business Profile + local
+                    pages + technical hygiene) and then build momentum with monthly improvements.
                   </p>
                 </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  {[
-                    {
-                      icon: Target,
-                      title: "Better CTAs + Structure",
-                      desc: "Clear next steps, cleaner layouts, and pages built around user intent.",
-                    },
-                    {
-                      icon: ShieldCheck,
-                      title: "Trust Signals That Sell",
-                      desc: "Reviews, proof, service areas, FAQs, and credibility blocks that reduce hesitation.",
-                    },
-                    {
-                      icon: BarChart3,
-                      title: "CRO Improvements",
-                      desc: "Make forms easier, improve mobile UX, and remove friction that kills enquiries.",
-                    },
-                  ].map((x, i) => (
-                    <Card key={i} className="hover-lift border-2 bg-background">
-                      <CardContent className="p-6">
-                        <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
-                          <x.icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <h3 className="text-lg font-semibold text-secondary mb-2">{x.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{x.desc}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                <div className="mt-10 p-6 rounded-xl border bg-background">
-                  <div className="flex items-start gap-4">
-                    <Wrench className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="text-secondary font-semibold mb-2">Important note about existing websites</div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        SEO can be harder on old sites (WordPress builders, plugin conflicts, slow hosting, messy
-                        structure). We’ll prioritise the highest-impact fixes first, and we’ll tell you directly if a
-                        rebuild is the smarter and cheaper long-term move.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </AnimatedSection>
           </Container>
         </section>
 
-        {/* WHAT YOU GET */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        {/* What You Get */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="scale">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">What You Get</h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Practical, results-focused SEO that increases visibility and converts visitors into customers.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">What You Get</h2>
+                <div className="grid md:grid-cols-2 gap-6">
                   {[
                     {
                       icon: Search,
                       title: "Local Keyword Strategy",
-                      desc: "Service + area terms that drive real enquiries (not vanity traffic).",
+                      desc: "Service + area terms that drive real enquiries",
                     },
                     {
                       icon: Target,
                       title: "Google Business Profile",
-                      desc: "Optimisation for Maps visibility, reviews, and trust signals.",
+                      desc: "Optimisation for Maps visibility and trust signals",
                     },
                     {
                       icon: FileText,
                       title: "On-Page SEO",
-                      desc: "Titles, headings, copy, and internal links optimised for conversion.",
+                      desc: "Titles, headings, copy, and internal links that convert",
                     },
                     {
                       icon: Globe,
                       title: "Technical SEO (Practical)",
-                      desc: "Speed, mobile, indexing, and crawl issues that matter.",
+                      desc: "Speed, mobile, indexing, and crawl issues that matter",
                     },
                     {
                       icon: TrendingUp,
                       title: "Authority Building (Optional)",
-                      desc: "Higher-tier outreach for quality local/industry links when needed.",
+                      desc: "Higher-tier outreach for quality local/industry links",
                     },
                     {
                       icon: BarChart3,
                       title: "Reporting & Next Actions",
-                      desc: "Clear updates + priorities for the next month.",
+                      desc: "Clear updates + what we’ll do next month",
                     },
                   ].map((item, i) => (
-                    <Card key={i} className="hover-lift border-2 bg-background">
+                    <Card key={i} className="hover-lift">
                       <CardContent className="p-6">
-                        <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
-                          <item.icon className="h-6 w-6 text-primary" />
-                        </div>
+                        <item.icon className="h-10 w-10 text-primary mb-4" />
                         <h3 className="text-lg font-semibold text-secondary mb-2">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                        <p className="text-muted-foreground">{item.desc}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -350,65 +246,54 @@ const Seo = () => {
           </Container>
         </section>
 
-        {/* HOW IT WORKS */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        {/* How It Works */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">How It Works</h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    A systematic local SEO process that builds momentum over time.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">How It Works</h2>
+                <div className="grid md:grid-cols-4 gap-6">
                   {[
                     {
                       step: "1",
                       title: "Setup",
-                      desc: "Choose Foundation or Launch based on your niche and competition.",
+                      desc: "Choose Foundation or Launch based on your goals and competition",
                     },
-                    { step: "2", title: "Fix + Align", desc: "Optimise key pages for local intent and conversion." },
+                    { step: "2", title: "Fix + Align", desc: "Optimise key pages for local intent and conversion" },
                     {
                       step: "3",
                       title: "Build Signals",
-                      desc: "Add service pages, content, and local signals as needed.",
+                      desc: "Local relevance: service pages, content, citations (as needed)",
                     },
                     {
                       step: "4",
                       title: "Track + Improve",
-                      desc: "Monthly iteration based on rankings, traffic and leads.",
+                      desc: "Monthly iteration based on rankings, traffic and leads",
                     },
                   ].map((item, i) => (
                     <div key={i} className="text-center">
-                      <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold mb-4">
                         {item.step}
                       </div>
                       <h3 className="text-lg font-semibold text-secondary mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="mt-8 grid md:grid-cols-3 gap-4">
                   {[
                     {
                       title: "Setup is required",
                       desc: "We don’t start monthly SEO without a clean baseline and tracking.",
                     },
                     { title: "No spam tactics", desc: "We avoid risky shortcuts that can damage rankings long-term." },
-                    {
-                      title: "Clear scope",
-                      desc: "You’ll know what’s included, what’s optional, and what changes monthly.",
-                    },
+                    { title: "Clear scope", desc: "You’ll know exactly what’s included and what’s optional." },
                   ].map((x, i) => (
-                    <Card key={i} className="border-2 bg-background">
-                      <CardContent className="p-6">
-                        <div className="font-semibold text-secondary mb-2">{x.title}</div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{x.desc}</p>
-                      </CardContent>
-                    </Card>
+                    <div key={i} className="p-4 rounded-lg border bg-primary/5">
+                      <div className="font-semibold text-secondary mb-1">{x.title}</div>
+                      <p className="text-sm text-muted-foreground">{x.desc}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -416,31 +301,29 @@ const Seo = () => {
           </Container>
         </section>
 
-        {/* PRICING (FIXED, NOT CRAMPED) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        {/* Pricing */}
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-10">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Pricing</h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                     Transparent pricing for UK service businesses. Monthly SEO requires a one-time setup first.
                   </p>
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
-                  {/* Foundation */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">One-time (Required)</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local SEO Foundation</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£300–£600</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                <div className="grid lg:grid-cols-5 gap-6">
+                  {/* Setup - Foundation */}
+                  <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">One-time (Required)</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Foundation</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£300–£600</div>
+                      <p className="text-sm text-muted-foreground mb-4">
                         Best for smaller sites that need a clean baseline before ongoing work.
                       </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
+                      <ul className="space-y-2 text-sm">
                         {[
                           "Full SEO + local audit",
                           "Local keyword plan (service + area)",
@@ -448,8 +331,8 @@ const Seo = () => {
                           "On-page fixes (core pages)",
                           "Local schema + indexing checks",
                         ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
                             <span className="text-secondary">{li}</span>
                           </li>
                         ))}
@@ -457,33 +340,25 @@ const Seo = () => {
                     </CardContent>
                   </Card>
 
-                  {/* Launch */}
-                  <Card className="hover-lift border-2 border-primary/40 bg-background shadow-sm">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="text-sm font-semibold text-primary">One-time (Required)</div>
-                        <div className="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
-                          RECOMMENDED
-                        </div>
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local SEO Launch</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£750–£950</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        Best for competitive niches that want faster traction and stronger conversion.
+                  {/* Setup - Launch */}
+                  <Card className="hover-lift lg:col-span-1 border-primary/30">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">One-time (Required)</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Launch</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£750–£950</div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Best for competitive niches that want faster traction and better conversion.
                       </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
+                      <ul className="space-y-2 text-sm">
                         {[
                           "Everything in Foundation",
-                          "On-page fixes (up to 10 key pages)",
+                          "On-page fixes (up to 10 pages)",
                           "Internal linking structure",
                           "Conversion-focused improvements (CRO)",
                           "Tracking + baseline reporting",
                         ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
                             <span className="text-secondary">{li}</span>
                           </li>
                         ))}
@@ -492,17 +367,15 @@ const Seo = () => {
                   </Card>
 
                   {/* Local Visibility */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">Monthly</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local Visibility</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£200–£250/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                  <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Local Visibility</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£200–£250/mo</div>
+                      <p className="text-sm text-muted-foreground mb-4">
                         Best for maintaining Google Maps presence and site hygiene (not growth SEO).
                       </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
+                      <ul className="space-y-2 text-sm">
                         {[
                           "Google Business Profile updates",
                           "Local listing hygiene",
@@ -510,31 +383,28 @@ const Seo = () => {
                           "Basic local keyword tracking",
                           "Monthly check-in",
                         ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
                             <span className="text-secondary">{li}</span>
                           </li>
                         ))}
                       </ul>
-
-                      <div className="mt-6 p-3 rounded-xl border bg-muted/30 text-xs text-muted-foreground leading-relaxed">
-                        Not suitable for competitive growth or scaling enquiries.
-                      </div>
+                      <p className="mt-3 text-xs text-muted-foreground">
+                        Not suitable for competitive growth or content-led SEO.
+                      </p>
                     </CardContent>
                   </Card>
 
                   {/* Starter */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">Monthly</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Starter SEO</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£350–£400/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        For steady local SEO improvements and consistent ranking maintenance.
+                  <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Starter SEO</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£350–£400/mo</div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Best for steady local SEO improvements and ranking stability.
                       </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
+                      <ul className="space-y-2 text-sm">
                         {[
                           "Everything in Local Visibility",
                           "On-page improvements",
@@ -542,8 +412,8 @@ const Seo = () => {
                           "Review strategy guidance",
                           "Monthly performance update",
                         ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
                             <span className="text-secondary">{li}</span>
                           </li>
                         ))}
@@ -552,32 +422,24 @@ const Seo = () => {
                   </Card>
 
                   {/* Growth */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="text-sm font-semibold text-primary">Monthly</div>
-                        <div className="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
-                          POPULAR
-                        </div>
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Growth SEO</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£550–£750/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        For businesses that want measurable growth in enquiries and revenue.
+                  <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Growth SEO</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£550–£750/mo</div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Best for businesses that want measurable growth in enquiries.
                       </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
+                      <ul className="space-y-2 text-sm">
                         {[
                           "Everything in Starter",
-                          "1 service page OR blog content (monthly)",
+                          "1 service page OR blog per month",
                           "Internal linking improvements",
-                          "Conversion-focused updates (CRO)",
+                          "Conversion optimisation (CRO)",
                           "Priority support",
                         ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
                             <span className="text-secondary">{li}</span>
                           </li>
                         ))}
@@ -586,11 +448,10 @@ const Seo = () => {
                   </Card>
                 </div>
 
-                <div className="mt-10 max-w-3xl mx-auto text-center">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Notes: pricing depends on site size, competition, and current SEO condition. We don’t guarantee
-                    rankings (nobody credible can), but we do commit to clear deliverables, transparent reporting, and
-                    steady improvements.
+                <div className="mt-8 max-w-3xl mx-auto text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Notes: pricing depends on competition and site condition. We don’t guarantee rankings (nobody
+                    credible can), but we do commit to clear deliverables, honest scope, and steady improvements.
                   </p>
                 </div>
               </div>
@@ -598,70 +459,101 @@ const Seo = () => {
           </Container>
         </section>
 
-        {/* FAQ (FULL, INCLUDES “MISSING” QUESTIONS) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        {/* Free SEO Audit Section */}
+        <section id="free-audit" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
           <Container>
-            <AnimatedSection animation="fade">
-              <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-                    <HelpCircle className="h-4 w-4" />
-                    FAQ
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Frequently Asked Questions</h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Clear answers to the questions people ask before hiring a local SEO partner.
+            <div className="max-w-5xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-10 items-start">
+                {/* Left: Copy */}
+                <div className="text-white">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-primary/20 text-primary mb-4">
+                    Free • No Obligation • 24-Hour Turnaround
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                    Get Your Free SEO Audit
+                  </h2>
+                  <p className="text-lg text-white/80 mb-6">
+                    Find out exactly where you're losing visibility and what quick wins can improve your local rankings.
                   </p>
+                  
+                  <ul className="space-y-4 mb-8">
+                    {[
+                      "Custom analysis of your website and local competition",
+                      "Google Business Profile review and opportunities",
+                      "Top 3 actionable improvements you can make today",
+                      "Honest assessment of whether SEO is right for you",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-white/90">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                    <p className="text-sm text-white/70">
+                      <strong className="text-white">No sales pitch.</strong> We'll tell you what's working, what's not, and whether SEO makes sense for your business. 
+                      If we don't think we can help, we'll say so.
+                    </p>
+                  </div>
                 </div>
 
+                {/* Right: Form */}
+                <div>
+                  <SeoAuditForm />
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+          <Container>
+            <AnimatedSection animation="fade">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
+                  Frequently Asked Questions
+                </h2>
                 <div className="space-y-4">
-                  {faqs.map((item, i) => (
-                    <Card key={i} className="border-2 bg-background">
-                      <CardContent className="p-6 md:p-7">
-                        <div className="font-semibold text-secondary mb-2 leading-snug">{item.q}</div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                  {seoFaqs.map((faq, i) => (
+                    <Card key={i} className="hover-lift">
+                      <CardContent className="p-6">
+                        <h3 className="text-lg font-semibold text-secondary mb-2">{faq.question}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
                       </CardContent>
                     </Card>
                   ))}
                 </div>
-
-                <div className="mt-10 p-6 rounded-xl border bg-background">
-                  <div className="flex items-start gap-3">
-                    <ShieldCheck className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="text-secondary font-semibold mb-2">No pressure, no nonsense</div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        If SEO isn’t worth it for your niche/location, we’ll tell you. If it is worth it, we’ll give you
-                        a short action plan and clear scope.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </AnimatedSection>
           </Container>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        {/* Final CTA Section */}
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Want More Enquiries From Google?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Get Found Locally?</h2>
               <p className="text-xl text-white/90 mb-8">
-                Request a free SEO review and we’ll tell you the biggest wins to improve visibility and conversions.
+                Request your free SEO audit and see exactly where you can improve visibility and conversions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
-                  <Link to="/contact">
-                    Request Free SEO Review <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/90"
+                  onClick={() => document.getElementById("free-audit")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  Get Free SEO Audit <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  <Link to="/quick-start">Start Project Brief</Link>
+                  <a href="https://wa.me/447488855786" target="_blank" rel="noopener noreferrer">
+                    WhatsApp Us
+                  </a>
                 </Button>
               </div>
               <p className="mt-6 text-sm text-white/75">
-                We’ll respond with a short action plan and whether SEO is worth it for your niche/location.
+                We'll respond within 24 hours with your custom action plan.
               </p>
             </div>
           </Container>

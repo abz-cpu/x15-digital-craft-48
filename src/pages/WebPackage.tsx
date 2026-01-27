@@ -518,7 +518,7 @@ const WebPackage = () => {
               <div className="grid gap-6 lg:gap-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-12">
                 {/* PACKAGE 1: Setup Only */}
                 <AnimatedSection staggerIndex={0} animation="scale">
-                  <Card className="hover-lift relative h-full bg-white border border-border">
+                  <Card className="hover-lift relative h-full flex flex-col bg-white border border-border">
                     <CardHeader className="pt-6 pb-4">
                       <CardTitle className="text-sm font-semibold tracking-[0.12em] text-teal-700 uppercase">
                         Cloudflare Setup
@@ -529,7 +529,7 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6 flex flex-col h-full">
+                    <CardContent className="pb-6 flex flex-col flex-grow">
                       <div className="flex-grow">
                         <p className="text-sm font-semibold text-secondary mb-1">Transform Your Website Performance</p>
                         <p className="text-sm text-muted-foreground mb-5">
@@ -621,7 +621,7 @@ const WebPackage = () => {
                 <AnimatedSection staggerIndex={1} animation="scale">
                   <Card
                     id="support-maintenance"
-                    className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
+                    className="hover-lift relative h-full flex flex-col bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
                   >
                     {/* MATCHED BADGE (same style & placement as Hosting + Support) */}
                     <Badge
@@ -647,7 +647,7 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6 flex flex-col h-full">
+                    <CardContent className="pb-6 flex flex-col flex-grow">
                       <div className="flex-grow">
                         <p className="text-sm font-semibold text-secondary mb-1">Never Worry About Your Website Again</p>
                         <p className="text-sm text-muted-foreground mb-5">
@@ -737,7 +737,7 @@ const WebPackage = () => {
 
                 {/* PACKAGE 3: Hosting + Support */}
                 <AnimatedSection staggerIndex={2} animation="scale">
-                  <Card className="hover-lift relative h-full bg-white border border-primary/30">
+                  <Card className="hover-lift relative h-full flex flex-col bg-white border border-primary/30">
                     <Badge className="absolute -top-3 left-4 bg-white text-[#F59E0B] border border-[#F59E0B]/30 shadow-sm flex items-center gap-1 px-3 py-1 text-[11px] font-medium tracking-wide">
                       ⭐ Best Value
                     </Badge>
@@ -752,7 +752,7 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6 flex flex-col h-full">
+                    <CardContent className="pb-6 flex flex-col flex-grow">
                       <div className="flex-grow">
                         <p className="text-sm font-semibold text-secondary mb-1">Maximum Speed, Security & Reliability</p>
                         <p className="text-sm text-muted-foreground mb-5">

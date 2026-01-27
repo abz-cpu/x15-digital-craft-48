@@ -21,7 +21,10 @@ import {
   AlertTriangle,
   Zap,
   HelpCircle,
+  Sparkles,
+  Clock,
 } from "lucide-react";
+import { SeoAuditForm } from "@/components/SeoAuditForm";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -36,10 +39,10 @@ const Seo = () => {
     },
     {
       q: "Do I need the one-time setup, or can I just do monthly?",
-      a: "Setup is required. It creates the baseline (audit, tracking, structure, GBP, technical checks). Without it, monthly work is guesswork and usually doesn’t deliver meaningful results.",
+      a: "Setup is required. It creates the baseline (audit, tracking, structure, GBP, technical checks). Without it, monthly work is guesswork and usually doesn't deliver meaningful results.",
     },
     {
-      q: "What’s included in Google Business Profile optimisation?",
+      q: "What's included in Google Business Profile optimisation?",
       a: "Profile setup/cleanup, categories, services, descriptions, photos guidance, posting templates, Q&A, review strategy, and local signals that improve Maps visibility. This is often the fastest local win.",
     },
     {
@@ -48,15 +51,15 @@ const Seo = () => {
     },
     {
       q: "Can I cancel the monthly retainer anytime?",
-      a: "Yes. Month-to-month. You can cancel with 30 days’ notice. No long-term contracts.",
+      a: "Yes. Month-to-month. You can cancel with 30 days' notice. No long-term contracts.",
     },
     {
-      q: "What’s the difference between local SEO and regular SEO?",
-      a: "Local SEO targets Google Maps + ‘near me’ / location searches. Regular SEO often targets broader national keywords. For service businesses, local SEO usually produces faster, higher-intent leads.",
+      q: "What's the difference between local SEO and regular SEO?",
+      a: "Local SEO targets Google Maps + 'near me' / location searches. Regular SEO often targets broader national keywords. For service businesses, local SEO usually produces faster, higher-intent leads.",
     },
     {
       q: "I already have a website. Do I need a new one?",
-      a: "Usually not. We can work with your existing site if it’s technically sound. If the site is severely outdated, slow, or locked behind a bloated builder/hosting setup, it may be cheaper long-term to rebuild SEO-ready.",
+      a: "Usually not. We can work with your existing site if it's technically sound. If the site is severely outdated, slow, or locked behind a bloated builder/hosting setup, it may be cheaper long-term to rebuild SEO-ready.",
     },
     {
       q: "What industries do you work with?",
@@ -64,19 +67,19 @@ const Seo = () => {
     },
     {
       q: "What if my website is on WordPress (Elementor/Divi/WPBakery)?",
-      a: "We can still do SEO, but it can take longer if the theme/plugins cause speed, layout, or indexing issues. In those cases we prioritise the highest-leverage fixes first, and we’ll be upfront if a rebuild is the smarter move.",
+      a: "We can still do SEO, but it can take longer if the theme/plugins cause speed, layout, or indexing issues. In those cases we prioritise the highest-leverage fixes first, and we'll be upfront if a rebuild is the smarter move.",
     },
     {
       q: "Do you also fix UX/UI and conversion rate?",
-      a: "Yes. We include conversion-focused improvements (CRO) where it impacts enquiries: clearer CTAs, better page structure, trust signals, and mobile-first usability. SEO traffic is useless if the site doesn’t convert.",
+      a: "Yes. We include conversion-focused improvements (CRO) where it impacts enquiries: clearer CTAs, better page structure, trust signals, and mobile-first usability. SEO traffic is useless if the site doesn't convert.",
     },
     {
       q: "Do I need to provide access to my Google account and website?",
       a: "For best results, yes (Google Business Profile, Search Console, Analytics, and your website CMS). If access is limited, we can still advise and provide a checklist, but implementation is slower.",
     },
     {
-      q: "What does ‘Authority Building’ mean and do I need it?",
-      a: "Authority building is earning quality links and local mentions that improve trust and rankings. You don’t always need it early on — we prioritise GBP + on-page + technical first, then add authority work if competition demands it.",
+      q: "What does 'Authority Building' mean and do I need it?",
+      a: "Authority building is earning quality links and local mentions that improve trust and rankings. You don't always need it early on — we prioritise GBP + on-page + technical first, then add authority work if competition demands it.",
     },
   ];
 
@@ -233,10 +236,10 @@ const Seo = () => {
                     SEO + UX/UI + Conversion
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                    Traffic Is Useless If The Website Doesn’t Convert
+                    Traffic Is Useless If The Website Doesn't Convert
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    We don’t just chase rankings. We improve page structure, trust signals, and conversion flow so your
+                    We don't just chase rankings. We improve page structure, trust signals, and conversion flow so your
                     SEO turns into calls and bookings.
                   </p>
                 </div>
@@ -278,7 +281,7 @@ const Seo = () => {
                       <div className="text-secondary font-semibold mb-2">Important note about existing websites</div>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         SEO can be harder on old sites (WordPress builders, plugin conflicts, slow hosting, messy
-                        structure). We’ll prioritise the highest-impact fixes first, and we’ll tell you directly if a
+                        structure). We'll prioritise the highest-impact fixes first, and we'll tell you directly if a
                         rebuild is the smarter and cheaper long-term move.
                       </p>
                     </div>
@@ -395,12 +398,12 @@ const Seo = () => {
                   {[
                     {
                       title: "Setup is required",
-                      desc: "We don’t start monthly SEO without a clean baseline and tracking.",
+                      desc: "We don't start monthly SEO without a clean baseline and tracking.",
                     },
                     { title: "No spam tactics", desc: "We avoid risky shortcuts that can damage rankings long-term." },
                     {
                       title: "Clear scope",
-                      desc: "You’ll know what’s included, what’s optional, and what changes monthly.",
+                      desc: "You'll know what's included, what's optional, and what changes monthly.",
                     },
                   ].map((x, i) => (
                     <Card key={i} className="border-2 bg-background">
@@ -609,7 +612,69 @@ const Seo = () => {
           </Container>
         </section>
 
-        {/* FAQ (FULL, INCLUDES “MISSING” QUESTIONS) */}
+        {/* FREE SEO AUDIT SECTION */}
+        <section id="free-audit" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
+          <Container>
+            <AnimatedSection animation="fade">
+              <div className="max-w-6xl mx-auto">
+                <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
+                  {/* Left Column - Benefits */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Sparkles className="h-5 w-5 text-primary" />
+                      <span className="text-sm font-semibold text-primary uppercase tracking-wide">
+                        Free SEO Audit
+                      </span>
+                    </div>
+                    
+                    <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                      Get Your Free Website Review
+                    </h2>
+                    
+                    <p className="text-lg text-muted-foreground mb-8">
+                      We'll analyse your site and send a custom SEO action plan within 24 hours.
+                    </p>
+                    
+                    {/* Benefit checklist */}
+                    <ul className="space-y-4 mb-8">
+                      {[
+                        "Custom analysis of your website + local competition",
+                        "Google Business Profile review and opportunities",
+                        "Top 3 actionable improvements you can make today",
+                        "Honest assessment of whether SEO is worth it for your niche",
+                      ].map((benefit, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-secondary">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* No sales pitch trust box */}
+                    <div className="p-5 rounded-xl bg-background border-2 border-border">
+                      <div className="flex items-start gap-3">
+                        <Clock className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <div className="font-semibold text-secondary mb-1">No sales pitch.</div>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            We'll tell you what's working, what's not, and whether SEO makes sense. If we don't think we can help, we'll say so.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right Column - Form */}
+                  <div>
+                    <SeoAuditForm />
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </Container>
+        </section>
+
+        {/* FAQ (FULL, INCLUDES "MISSING" QUESTIONS) */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
@@ -642,7 +707,7 @@ const Seo = () => {
                     <div>
                       <div className="text-secondary font-semibold mb-2">No pressure, no nonsense</div>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        If SEO isn’t worth it for your niche/location, we’ll tell you. If it is worth it, we’ll give you
+                        If SEO isn't worth it for your niche/location, we'll tell you. If it is worth it, we'll give you
                         a short action plan and clear scope.
                       </p>
                     </div>
@@ -659,7 +724,7 @@ const Seo = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Want More Enquiries From Google?</h2>
               <p className="text-xl text-white/90 mb-8">
-                Request a free SEO review and we’ll tell you the biggest wins to improve visibility and conversions.
+                Request a free SEO review and we'll tell you the biggest wins to improve visibility and conversions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
@@ -672,7 +737,7 @@ const Seo = () => {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-white/75">
-                We’ll respond with a short action plan and whether SEO is worth it for your niche/location.
+                We'll respond with a short action plan and whether SEO is worth it for your niche/location.
               </p>
             </div>
           </Container>

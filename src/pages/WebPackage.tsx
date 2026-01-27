@@ -7,7 +7,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock, Zap } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock, Zap, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -685,7 +685,15 @@ const WebPackage = () => {
                         </p>
                         <p className="text-xs text-slate-600 flex items-start gap-2">
                           <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Non-urgent support. Typical response within 24–72 hours.</span>
+                          <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
+                        </p>
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                          <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
+                        </p>
+                        <p className="text-xs text-primary flex items-start gap-2 font-medium">
+                          <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
+                          <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
                         </p>
                       </div>
 
@@ -770,7 +778,15 @@ const WebPackage = () => {
                         </p>
                         <p className="text-xs text-slate-600 flex items-start gap-2">
                           <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Non-urgent support. Typical response within 24–72 hours.</span>
+                          <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
+                        </p>
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                          <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
+                        </p>
+                        <p className="text-xs text-primary flex items-start gap-2 font-medium">
+                          <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
+                          <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
                         </p>
                       </div>
 

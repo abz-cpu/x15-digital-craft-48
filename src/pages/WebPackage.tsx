@@ -7,7 +7,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -572,6 +572,18 @@ const WebPackage = () => {
                         <p className="text-xs text-slate-600 flex items-center gap-1.5">
                           <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
                           No ongoing commitment
+                        </p>
+                      </div>
+
+                      {/* Service scope note */}
+                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>For websites needing CDN/caching setup only</span>
+                        </p>
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Zap className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>Works with any existing host or platform you use</span>
                         </p>
                       </div>
 

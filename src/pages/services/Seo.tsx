@@ -666,7 +666,7 @@ const Seo = () => {
                   
                   {/* Right Column - Form */}
                   <div>
-                    <SeoAuditForm />
+                    <SeoAuditForm variant="embedded" />
                   </div>
                 </div>
               </div>

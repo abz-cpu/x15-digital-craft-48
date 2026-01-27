@@ -49,7 +49,7 @@ const TARGET_AREAS = [
 
 interface SeoAuditFormProps {
   className?: string;
-  variant?: "default" | "compact";
+  variant?: "default" | "compact" | "embedded";
 }
 
 export function SeoAuditForm({ className = "", variant = "default" }: SeoAuditFormProps) {
@@ -211,6 +211,7 @@ export function SeoAuditForm({ className = "", variant = "default" }: SeoAuditFo
   };
 
   const isCompact = variant === "compact";
+  const isEmbedded = variant === "embedded";
 
   return (
     <>
@@ -218,21 +219,23 @@ export function SeoAuditForm({ className = "", variant = "default" }: SeoAuditFo
       
       <Card className={`border-2 border-primary/20 shadow-lg ${className}`}>
         <CardContent className={isCompact ? "p-5" : "p-6 md:p-8"}>
-          {/* Header */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="h-5 w-5 text-primary" />
-              <span className="text-sm font-semibold text-primary uppercase tracking-wide">
-                Free SEO Audit
-              </span>
+          {/* Header - hidden in embedded variant */}
+          {!isEmbedded && (
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="h-5 w-5 text-primary" />
+                <span className="text-sm font-semibold text-primary uppercase tracking-wide">
+                  Free SEO Audit
+                </span>
+              </div>
+              <h3 className={`font-bold text-secondary ${isCompact ? "text-xl" : "text-2xl"}`}>
+                Get Your Free Website Review
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                We'll analyse your site and send you a custom SEO action plan within 24 hours.
+              </p>
             </div>
-            <h3 className={`font-bold text-secondary ${isCompact ? "text-xl" : "text-2xl"}`}>
-              Get Your Free Website Review
-            </h3>
-            <p className="text-sm text-muted-foreground mt-1">
-              We'll analyse your site and send you a custom SEO action plan within 24 hours.
-            </p>
-          </div>
+          )}
 
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
             {/* Business Name + Type */}

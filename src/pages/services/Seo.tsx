@@ -416,179 +416,190 @@ const Seo = () => {
           </Container>
         </section>
 
-        {/* PRICING (FIXED, NOT CRAMPED) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        {/* PRICING - IMPROVED LAYOUT */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Pricing</h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                     Transparent pricing for UK service businesses. Monthly SEO requires a one-time setup first.
                   </p>
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
-                  {/* Foundation */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">One-time (Required)</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local SEO Foundation</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£300–£600</div>
+                {/* ONE-TIME SETUP SECTION */}
+                <div className="mb-16">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="h-px flex-1 bg-border" />
+                    <span className="text-sm font-semibold text-primary uppercase tracking-wide">One-Time Setup (Required)</span>
+                    <div className="h-px flex-1 bg-border" />
+                  </div>
 
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        Best for smaller sites that need a clean baseline before ongoing work.
-                      </p>
+                  <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                    {/* Foundation */}
+                    <Card className="hover-lift border-2 bg-background">
+                      <CardContent className="p-8">
+                        <h3 className="text-2xl font-bold text-secondary mb-2">Local SEO Foundation</h3>
+                        <div className="text-4xl font-bold text-secondary mb-2">£300–£600</div>
+                        <div className="text-sm text-muted-foreground mb-6">One-time payment</div>
 
-                      <ul className="space-y-3 text-sm leading-relaxed">
-                        {[
-                          "Full SEO + local audit",
-                          "Local keyword plan (service + area)",
-                          "Google Business Profile optimisation",
-                          "On-page fixes (core pages)",
-                          "Local schema + indexing checks",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                        <p className="text-muted-foreground mb-8 leading-relaxed">
+                          Best for smaller sites that need a clean baseline before ongoing work.
+                        </p>
 
-                  {/* Launch */}
-                  <Card className="hover-lift border-2 border-primary/40 bg-background shadow-sm">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="text-sm font-semibold text-primary">One-time (Required)</div>
-                        <div className="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
-                          RECOMMENDED
-                        </div>
+                        <ul className="space-y-4">
+                          {[
+                            "Full SEO + local audit",
+                            "Local keyword plan (service + area)",
+                            "Google Business Profile optimisation",
+                            "On-page fixes (core pages)",
+                            "Local schema + indexing checks",
+                          ].map((li, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-secondary">{li}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    {/* Launch - Recommended */}
+                    <Card className="hover-lift border-2 border-primary bg-background relative overflow-hidden">
+                      <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-2 text-sm font-semibold">
+                        RECOMMENDED
                       </div>
+                      <CardContent className="p-8 pt-14">
+                        <h3 className="text-2xl font-bold text-secondary mb-2">Local SEO Launch</h3>
+                        <div className="text-4xl font-bold text-secondary mb-2">£750–£950</div>
+                        <div className="text-sm text-muted-foreground mb-6">One-time payment</div>
 
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local SEO Launch</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£750–£950</div>
+                        <p className="text-muted-foreground mb-8 leading-relaxed">
+                          Best for competitive niches that want faster traction and stronger conversion.
+                        </p>
 
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        Best for competitive niches that want faster traction and stronger conversion.
-                      </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
-                        {[
-                          "Everything in Foundation",
-                          "On-page fixes (up to 10 key pages)",
-                          "Internal linking structure",
-                          "Conversion-focused improvements (CRO)",
-                          "Tracking + baseline reporting",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  {/* Local Visibility */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">Monthly</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Local Visibility</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£200–£250/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        Best for maintaining Google Maps presence and site hygiene (not growth SEO).
-                      </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
-                        {[
-                          "Google Business Profile updates",
-                          "Local listing hygiene",
-                          "Title & meta updates (light)",
-                          "Basic local keyword tracking",
-                          "Monthly check-in",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-6 p-3 rounded-xl border bg-muted/30 text-xs text-muted-foreground leading-relaxed">
-                        Not suitable for competitive growth or scaling enquiries.
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Starter */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="text-sm font-semibold text-primary mb-3">Monthly</div>
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Starter SEO</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£350–£400/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        For steady local SEO improvements and consistent ranking maintenance.
-                      </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
-                        {[
-                          "Everything in Local Visibility",
-                          "On-page improvements",
-                          "Local intent optimisation",
-                          "Review strategy guidance",
-                          "Monthly performance update",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  {/* Growth */}
-                  <Card className="hover-lift border-2 bg-background">
-                    <CardContent className="p-7 md:p-8">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="text-sm font-semibold text-primary">Monthly</div>
-                        <div className="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
-                          POPULAR
-                        </div>
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-secondary mb-2 leading-tight">Growth SEO</h3>
-                      <div className="text-3xl font-bold text-secondary mb-4">£550–£750/mo</div>
-
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        For businesses that want measurable growth in enquiries and revenue.
-                      </p>
-
-                      <ul className="space-y-3 text-sm leading-relaxed">
-                        {[
-                          "Everything in Starter",
-                          "1 service page OR blog content (monthly)",
-                          "Internal linking improvements",
-                          "Conversion-focused updates (CRO)",
-                          "Priority support",
-                        ].map((li, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-secondary">{li}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                        <ul className="space-y-4">
+                          {[
+                            "Everything in Foundation",
+                            "On-page fixes (up to 10 key pages)",
+                            "Internal linking structure",
+                            "Conversion-focused improvements (CRO)",
+                            "Tracking + baseline reporting",
+                          ].map((li, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-secondary">{li}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
 
-                <div className="mt-10 max-w-3xl mx-auto text-center">
+                {/* MONTHLY RETAINERS SECTION */}
+                <div>
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="h-px flex-1 bg-border" />
+                    <span className="text-sm font-semibold text-primary uppercase tracking-wide">Monthly Retainers</span>
+                    <div className="h-px flex-1 bg-border" />
+                  </div>
+
+                  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {/* Local Visibility */}
+                    <Card className="hover-lift border-2 bg-background">
+                      <CardContent className="p-8">
+                        <h3 className="text-xl font-bold text-secondary mb-2">Local Visibility</h3>
+                        <div className="text-3xl font-bold text-secondary mb-2">£200–£250<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+
+                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                          Best for maintaining Google Maps presence and site hygiene (not growth SEO).
+                        </p>
+
+                        <ul className="space-y-3 text-sm">
+                          {[
+                            "Google Business Profile updates",
+                            "Local listing hygiene",
+                            "Title & meta updates (light)",
+                            "Basic local keyword tracking",
+                            "Monthly check-in",
+                          ].map((li, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-secondary">{li}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-6 p-3 rounded-lg border bg-muted/30 text-xs text-muted-foreground leading-relaxed">
+                          Not suitable for competitive growth or scaling enquiries.
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Starter */}
+                    <Card className="hover-lift border-2 bg-background">
+                      <CardContent className="p-8">
+                        <h3 className="text-xl font-bold text-secondary mb-2">Starter SEO</h3>
+                        <div className="text-3xl font-bold text-secondary mb-2">£350–£400<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+
+                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                          For steady local SEO improvements and consistent ranking maintenance.
+                        </p>
+
+                        <ul className="space-y-3 text-sm">
+                          {[
+                            "Everything in Local Visibility",
+                            "On-page improvements",
+                            "Local intent optimisation",
+                            "Review strategy guidance",
+                            "Monthly performance update",
+                          ].map((li, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-secondary">{li}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    {/* Growth - Popular */}
+                    <Card className="hover-lift border-2 border-primary bg-background relative overflow-hidden">
+                      <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-2 text-sm font-semibold">
+                        MOST POPULAR
+                      </div>
+                      <CardContent className="p-8 pt-14">
+                        <h3 className="text-xl font-bold text-secondary mb-2">Growth SEO</h3>
+                        <div className="text-3xl font-bold text-secondary mb-2">£550–£750<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+
+                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                          For businesses that want measurable growth in enquiries and revenue.
+                        </p>
+
+                        <ul className="space-y-3 text-sm">
+                          {[
+                            "Everything in Starter",
+                            "1 service page OR blog content (monthly)",
+                            "Internal linking improvements",
+                            "Conversion-focused updates (CRO)",
+                            "Priority support",
+                          ].map((li, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-secondary">{li}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                <div className="mt-12 max-w-3xl mx-auto text-center">
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Notes: pricing depends on site size, competition, and current SEO condition. We don’t guarantee
+                    Notes: pricing depends on site size, competition, and current SEO condition. We don't guarantee
                     rankings (nobody credible can), but we do commit to clear deliverables, transparent reporting, and
                     steady improvements.
                   </p>

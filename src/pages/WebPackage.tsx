@@ -7,7 +7,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag } from "lucide-react";
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
@@ -665,6 +665,18 @@ const WebPackage = () => {
                         </Link>
                       </div>
 
+                      {/* Availability & response note */}
+                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>Available only for websites built or managed by L&D Digital</span>
+                        </p>
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>Non-urgent support. Typical response within 24–72 hours.</span>
+                        </p>
+                      </div>
+
                       <Button asChild className="w-full bg-primary hover:bg-primary/90">
                         <Link to="/contact">
                           Get Peace of Mind <ArrowRight className="ml-2 h-4 w-4" />
@@ -736,6 +748,18 @@ const WebPackage = () => {
                           Replaces your hosting bill
                         </p>
                         <p className="text-xs text-amber-700 mt-1">No separate hosting subscription needed</p>
+                      </div>
+
+                      {/* Availability & response note */}
+                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>Available only for websites built or managed by L&D Digital</span>
+                        </p>
+                        <p className="text-xs text-slate-600 flex items-start gap-2">
+                          <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                          <span>Non-urgent support. Typical response within 24–72 hours.</span>
+                        </p>
                       </div>
 
                       <Button asChild className="w-full">

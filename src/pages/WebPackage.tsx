@@ -695,6 +695,12 @@ const WebPackage = () => {
                           <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
                           <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
                         </p>
+                        <Link 
+                          to="/support-sla" 
+                          className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
+                        >
+                          View Support SLA →
+                        </Link>
                       </div>
 
                       <Button asChild className="w-full bg-primary hover:bg-primary/90">
@@ -788,6 +794,12 @@ const WebPackage = () => {
                           <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
                           <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
                         </p>
+                        <Link 
+                          to="/support-sla" 
+                          className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
+                        >
+                          View Support SLA →
+                        </Link>
                       </div>
 
                       <Button asChild className="w-full">

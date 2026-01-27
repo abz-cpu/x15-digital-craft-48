@@ -269,7 +269,7 @@ const Seo = () => {
                   </p>
                 </div>
 
-                <div className="grid lg:grid-cols-4 gap-6">
+                <div className="grid lg:grid-cols-5 gap-6">
                   {/* Setup - Foundation */}
                   <Card className="hover-lift lg:col-span-1">
                     <CardContent className="p-6">
@@ -277,7 +277,7 @@ const Seo = () => {
                       <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Foundation</h3>
                       <div className="text-2xl font-bold text-secondary mb-3">£300–£600</div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Best for: smaller sites that need a clean baseline before ongoing SEO.
+                        Best for smaller sites that need a clean baseline before ongoing work.
                       </p>
                       <ul className="space-y-2 text-sm">
                         {[
@@ -303,12 +303,12 @@ const Seo = () => {
                       <h3 className="text-xl font-bold text-secondary mb-2">Local SEO Launch</h3>
                       <div className="text-2xl font-bold text-secondary mb-3">£750–£950</div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Best for: competitive niches that want faster progress and stronger conversion from day one.
+                        Best for competitive niches that want faster traction and better conversion.
                       </p>
                       <ul className="space-y-2 text-sm">
                         {[
                           "Everything in Foundation",
-                          "On-page fixes (up to 10 key pages)",
+                          "On-page fixes (up to 10 pages)",
                           "Internal linking structure",
                           "Conversion-focused improvements (CRO)",
                           "Tracking + baseline reporting",
@@ -322,20 +322,49 @@ const Seo = () => {
                     </CardContent>
                   </Card>
 
+                  {/* Local Visibility */}
+                  <Card className="hover-lift lg:col-span-1">
+                    <CardContent className="p-6">
+                      <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Local Visibility</h3>
+                      <div className="text-2xl font-bold text-secondary mb-3">£200–£250/mo</div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Best for maintaining Google Maps presence and site hygiene (not growth SEO).
+                      </p>
+                      <ul className="space-y-2 text-sm">
+                        {[
+                          "Google Business Profile updates",
+                          "Local listing hygiene",
+                          "Title & meta updates (light)",
+                          "Basic local keyword tracking",
+                          "Monthly check-in",
+                        ].map((li, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5" />
+                            <span className="text-secondary">{li}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-3 text-xs text-muted-foreground">
+                        Not suitable for competitive growth or content-led SEO.
+                      </p>
+                    </CardContent>
+                  </Card>
+
                   {/* Starter */}
                   <Card className="hover-lift lg:col-span-1">
                     <CardContent className="p-6">
                       <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
-                      <h3 className="text-xl font-bold text-secondary mb-2">Starter</h3>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Starter SEO</h3>
                       <div className="text-2xl font-bold text-secondary mb-3">£350–£400/mo</div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Best for: stable visibility + consistent local maintenance.
+                        Best for steady local SEO improvements and ranking stability.
                       </p>
                       <ul className="space-y-2 text-sm">
                         {[
-                          "GBP ongoing management",
-                          "Local keyword tracking",
-                          "Small on-page improvements",
+                          "Everything in Local Visibility",
+                          "On-page improvements",
+                          "Local intent optimisation",
                           "Review strategy guidance",
                           "Monthly performance update",
                         ].map((li, i) => (
@@ -352,17 +381,17 @@ const Seo = () => {
                   <Card className="hover-lift lg:col-span-1">
                     <CardContent className="p-6">
                       <div className="text-sm font-semibold text-primary mb-2">Monthly</div>
-                      <h3 className="text-xl font-bold text-secondary mb-2">Growth</h3>
+                      <h3 className="text-xl font-bold text-secondary mb-2">Growth SEO</h3>
                       <div className="text-2xl font-bold text-secondary mb-3">£550–£750/mo</div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Best for: businesses that want measurable growth in enquiries.
+                        Best for businesses that want measurable growth in enquiries.
                       </p>
                       <ul className="space-y-2 text-sm">
                         {[
                           "Everything in Starter",
-                          "1 service page OR blog content (monthly)",
+                          "1 service page OR blog per month",
                           "Internal linking improvements",
-                          "Conversion-focused updates (CRO)",
+                          "Conversion optimisation (CRO)",
                           "Priority support",
                         ].map((li, i) => (
                           <li key={i} className="flex items-start gap-2">
@@ -377,9 +406,8 @@ const Seo = () => {
 
                 <div className="mt-8 max-w-3xl mx-auto text-center">
                   <p className="text-sm text-muted-foreground">
-                    Notes: pricing depends on site size, competition, and current SEO condition. We don’t guarantee
-                    rankings (nobody credible can), but we do commit to clear deliverables, transparent reporting, and
-                    steady improvements.
+                    Notes: pricing depends on competition and site condition. We don’t guarantee rankings (nobody
+                    credible can), but we do commit to clear deliverables, honest scope, and steady improvements.
                   </p>
                 </div>
               </div>

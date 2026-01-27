@@ -1,15 +1,40 @@
 
 
-## Plan: Fix SEO Audit Section Spacing
+## Plan: Add Availability & Response Time Notes to Support Cards
 
-### Problem Identified
-The SEO audit section has duplicate headers - the left column shows "FREE SEO AUDIT" badge, "Get Your Free Website Review" heading, and description, while the SeoAuditForm component on the right ALSO shows the same content. This creates:
-- Redundant content
-- Wasted vertical space
-- Poor visual hierarchy
+### Summary
+Add two informational notes to the Support & Maintenance and Hosting + Support cards:
+1. **Availability disclaimer**: "Available only for websites built or managed by L&D Digital"
+2. **Response time expectation**: "Non-urgent support. Typical response within 24–72 hours"
 
-### Solution
-Add a new `variant="embedded"` to the SeoAuditForm component that hides the internal header, keeping only the form fields. This variant is used when the form is embedded in a section that already provides the context/heading.
+---
+
+### Visual Placement
+
+The notes will appear as subtle info banners just before the CTA button:
+
+```
+┌─────────────────────────────┐
+│ Support & Maintenance       │
+│ £24.99/month                │
+│                             │
+│ ✓ Feature list...           │
+│                             │
+│ [Existing teal trust badge] │
+│                             │
+│ ┌─────────────────────────┐ │
+│ │ ℹ️ Available only for   │ │  ← NEW
+│ │ websites built or       │ │
+│ │ managed by L&D Digital  │ │
+│ │                         │ │
+│ │ 🕐 Non-urgent support.  │ │  ← NEW
+│ │ Typical response within │ │
+│ │ 24–72 hours.            │ │
+│ └─────────────────────────┘ │
+│                             │
+│ [Get Peace of Mind →]       │
+└─────────────────────────────┘
+```
 
 ---
 
@@ -17,125 +42,66 @@ Add a new `variant="embedded"` to the SeoAuditForm component that hides the inte
 
 | File | Action |
 |------|--------|
-| `src/components/SeoAuditForm.tsx` | Add `embedded` variant that hides header |
-| `src/pages/services/Seo.tsx` | Use `variant="embedded"` for the form |
+| `src/pages/WebPackage.tsx` | Add `Info` and `Clock` icons to imports, add disclaimer notes to both cards |
 
 ---
 
-### Technical Changes
+### Technical Implementation
 
-#### 1. SeoAuditForm.tsx - Add Embedded Variant
+#### 1. Update Imports (Line 10)
 
-```typescript
-// Update the variant prop type
-interface SeoAuditFormProps {
-  className?: string;
-  variant?: "default" | "compact" | "embedded";
-}
-
-// Update the isCompact check and add isEmbedded
-const isCompact = variant === "compact";
-const isEmbedded = variant === "embedded";
-```
-
-**Conditional rendering for header section:**
-- When `variant="embedded"`, skip the entire header block (lines 222-235)
-- Keep the form fields and submit button intact
-
-#### 2. Seo.tsx - Update Form Usage
-
-Change:
 ```tsx
-<SeoAuditForm />
+import { CheckCircle2, ArrowRight, MessageSquare, Phone, Briefcase, Shield, Tag, Info, Clock } from "lucide-react";
 ```
 
-To:
+#### 2. Support & Maintenance Card (After line 666, before Button)
+
+Add after the existing teal trust badge:
+
 ```tsx
-<SeoAuditForm variant="embedded" />
+{/* Availability & response note */}
+<div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+  <p className="text-xs text-slate-600 flex items-start gap-2">
+    <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+    <span>Available only for websites built or managed by L&D Digital</span>
+  </p>
+  <p className="text-xs text-slate-600 flex items-start gap-2">
+    <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+    <span>Non-urgent support. Typical response within 24–72 hours.</span>
+  </p>
+</div>
 ```
 
-This removes ~80px of duplicated content from the right column, bringing both columns into better visual alignment.
+#### 3. Hosting + Support Card (After line 739, before Button)
 
----
+Add after the existing amber trust badge:
 
-### Visual Before/After
-
-**Before:**
-```
-┌─────────────────────┐  ┌─────────────────────┐
-│ FREE SEO AUDIT      │  │ FREE SEO AUDIT      │
-│ Get Your Free...    │  │ Get Your Free...    │  ← DUPLICATE
-│ Description...      │  │ Description...      │
-│                     │  │                     │
-│ ✓ Custom analysis   │  │ [Business name]     │
-│ ✓ GBP review        │  │ [Business type]     │
-│ ✓ Top 3 actions     │  │ [Website URL]       │
-│ ✓ Honest assessment │  │ [Email] [Phone]     │
-│                     │  │ [Target Areas]      │
-│ ┌─────────────────┐ │  │ [Submit Button]     │
-│ │ No sales pitch  │ │  │                     │
-│ └─────────────────┘ │  │                     │
-└─────────────────────┘  └─────────────────────┘
-```
-
-**After:**
-```
-┌─────────────────────┐  ┌─────────────────────┐
-│ FREE SEO AUDIT      │  │ [Business name]     │
-│ Get Your Free...    │  │ [Business type]     │
-│ Description...      │  │ [Website URL]       │
-│                     │  │ [Email] [Phone]     │
-│ ✓ Custom analysis   │  │ [Target Areas]      │
-│ ✓ GBP review        │  │ [CAPTCHA]           │
-│ ✓ Top 3 actions     │  │ [Submit Button]     │
-│ ✓ Honest assessment │  │ Trust signals       │
-│                     │  │                     │
-│ ┌─────────────────┐ │  └─────────────────────┘
-│ │ No sales pitch  │ │
-│ └─────────────────┘ │
-└─────────────────────┘
+```tsx
+{/* Availability & response note */}
+<div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+  <p className="text-xs text-slate-600 flex items-start gap-2">
+    <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+    <span>Available only for websites built or managed by L&D Digital</span>
+  </p>
+  <p className="text-xs text-slate-600 flex items-start gap-2">
+    <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+    <span>Non-urgent support. Typical response within 24–72 hours.</span>
+  </p>
+</div>
 ```
 
 ---
 
-### Implementation Details
+### Styling Details
 
-**SeoAuditForm.tsx changes:**
+| Property | Value | Reason |
+|----------|-------|--------|
+| Background | `bg-slate-50` | Neutral, non-alarming, distinct from teal/amber badges |
+| Border | `border-slate-200` | Subtle definition |
+| Text | `text-slate-600` | Readable secondary text |
+| Icons | `Info` + `Clock` | Clear visual indicators |
+| Padding | `p-3` | Consistent with other trust badges |
+| Font size | `text-xs` | Small disclaimer style |
 
-```tsx
-// Line 55 - Update variant type
-interface SeoAuditFormProps {
-  className?: string;
-  variant?: "default" | "compact" | "embedded";
-}
-
-// Line 213 - Add embedded check
-const isCompact = variant === "compact";
-const isEmbedded = variant === "embedded";
-
-// Lines 221-236 - Conditionally render header
-{!isEmbedded && (
-  <div className="mb-6">
-    <div className="flex items-center gap-2 mb-2">
-      <Sparkles className="h-5 w-5 text-primary" />
-      <span className="text-sm font-semibold text-primary uppercase tracking-wide">
-        Free SEO Audit
-      </span>
-    </div>
-    <h3 className={`font-bold text-secondary ${isCompact ? "text-xl" : "text-2xl"}`}>
-      Get Your Free Website Review
-    </h3>
-    <p className="text-sm text-muted-foreground mt-1">
-      We'll analyse your site and send you a custom SEO action plan within 24 hours.
-    </p>
-  </div>
-)}
-```
-
-**Seo.tsx changes:**
-
-```tsx
-// Line 669 - Add variant prop
-<SeoAuditForm variant="embedded" />
-```
+This creates a clear visual distinction from the feature-focused trust badges (teal and amber), signalling these are conditions/expectations rather than selling points.
 

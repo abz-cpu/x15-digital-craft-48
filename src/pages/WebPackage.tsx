@@ -529,62 +529,83 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Transform Your Website Performance</p>
-                      <p className="text-sm text-muted-foreground mb-5">
-                        Get enterprise-grade speed and security in one setup.
-                      </p>
+                    <CardContent className="pb-6 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <p className="text-sm font-semibold text-secondary mb-1">Transform Your Website Performance</p>
+                        <p className="text-sm text-muted-foreground mb-5">
+                          Get enterprise-grade speed and security in one setup.
+                        </p>
 
-                      <p className="text-xs font-semibold mb-2">Your website gets:</p>
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Lightning-fast loading from 300+ global locations</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Industry-standard encryption & security</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Protection against attacks & bots</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Optimised DNS routing for faster loading</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Smart caching & redirects</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Real-time analytics</span>
-                        </li>
-                      </ul>
+                        <p className="text-xs font-semibold mb-2">Your website gets:</p>
+                        <ul className="space-y-2 mb-6">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Lightning-fast loading from 300+ global locations</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Industry-standard encryption & security</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Protection against attacks & bots</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Optimised DNS routing for faster loading</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Smart caching & redirects</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Real-time analytics</span>
+                          </li>
+                        </ul>
 
-                      {/* Micro-trust badges */}
-                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                        <p className="text-xs text-slate-600 flex items-center gap-1.5">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-                          One-time professional setup
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-center gap-1.5">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-                          No ongoing commitment
-                        </p>
-                      </div>
+                        {/* Micro-trust badges */}
+                        <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                          <p className="text-xs text-slate-600 flex items-center gap-1.5">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
+                            One-time professional setup
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-center gap-1.5">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
+                            No ongoing commitment
+                          </p>
+                        </div>
 
-                      {/* Service scope note */}
-                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>For websites needing CDN/caching setup only</span>
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Zap className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Works with any existing host or platform you use</span>
-                        </p>
+                        {/* Service scope note */}
+                        <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>For websites needing CDN/caching setup only</span>
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Zap className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>Works with any existing host or platform you use</span>
+                          </p>
+                        </div>
+
+                        {/* Perfect for section - filler content */}
+                        <div className="mb-4 p-3 bg-teal-50/50 rounded-lg border border-teal-100">
+                          <p className="text-xs font-semibold text-teal-700 mb-1.5">Perfect for:</p>
+                          <ul className="text-xs text-teal-600 space-y-1">
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-teal-500">•</span>
+                              <span>Websites on shared hosting needing a speed boost</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-teal-500">•</span>
+                              <span>Sites experiencing slow load times or downtime</span>
+                            </li>
+                            <li className="flex items-start gap-1.5">
+                              <span className="text-teal-500">•</span>
+                              <span>Businesses wanting enhanced security without migration</span>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
 
                       <Button asChild variant="outline" className="w-full">
@@ -626,81 +647,83 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Never Worry About Your Website Again</p>
-                      <p className="text-sm text-muted-foreground mb-5">
-                        We handle everything so you can focus on your business.
-                      </p>
+                    <CardContent className="pb-6 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <p className="text-sm font-semibold text-secondary mb-1">Never Worry About Your Website Again</p>
+                        <p className="text-sm text-muted-foreground mb-5">
+                          We handle everything so you can focus on your business.
+                        </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Cloudflare Setup, plus:</p>
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Priority fixes when issues arise</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Monthly content updates (1 Hour)</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Security monitoring &amp; threat blocking</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Speed optimisation tuning</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Priority support (24–48h response)</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Monthly health reports</span>
-                        </li>
-                      </ul>
+                        <p className="text-xs font-semibold mb-2">Everything in Cloudflare Setup, plus:</p>
+                        <ul className="space-y-2 mb-6">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Priority fixes when issues arise</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Monthly content updates (1 Hour)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Security monitoring &amp; threat blocking</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Speed optimisation tuning</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Priority support (24–48h response)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Monthly health reports</span>
+                          </li>
+                        </ul>
 
-                      <p className="text-xs text-muted-foreground mb-4 italic">* Works with your existing hosting</p>
+                        <p className="text-xs text-muted-foreground mb-4 italic">* Works with your existing hosting</p>
 
-                      {/* Micro-trust badge */}
-                      <div className="mb-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
-                        <p className="text-xs text-teal-700 flex items-center gap-1.5 font-medium">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-                          Works with any hosting provider
-                        </p>
-                        <Link
-                          to="/services/maintenance-support"
-                          className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2"
-                        >
-                          <ArrowRight className="h-3.5 w-3.5" />
-                          View full maintenance details
-                        </Link>
-                      </div>
+                        {/* Micro-trust badge */}
+                        <div className="mb-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
+                          <p className="text-xs text-teal-700 flex items-center gap-1.5 font-medium">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
+                            Works with any hosting provider
+                          </p>
+                          <Link
+                            to="/services/maintenance-support"
+                            className="text-xs text-teal-600 hover:text-teal-800 flex items-center gap-1.5 mt-1.5 underline underline-offset-2"
+                          >
+                            <ArrowRight className="h-3.5 w-3.5" />
+                            View full maintenance details
+                          </Link>
+                        </div>
 
-                      {/* Availability & response note */}
-                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Available only for websites built or managed by L&D Digital</span>
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
-                          <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
-                        </p>
-                        <p className="text-xs text-primary flex items-start gap-2 font-medium">
-                          <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
-                          <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
-                        </p>
-                        <Link 
-                          to="/support-sla" 
-                          className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
-                        >
-                          View Support SLA →
-                        </Link>
+                        {/* Availability & response note */}
+                        <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>Available only for websites built or managed by L&D Digital</span>
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                            <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
+                          </p>
+                          <p className="text-xs text-primary flex items-start gap-2 font-medium">
+                            <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
+                            <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
+                          </p>
+                          <Link 
+                            to="/support-sla" 
+                            className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
+                          >
+                            View Support SLA →
+                          </Link>
+                        </div>
                       </div>
 
                       <Button asChild className="w-full bg-primary hover:bg-primary/90">
@@ -729,77 +752,79 @@ const WebPackage = () => {
                       </p>
                     </CardHeader>
 
-                    <CardContent className="pb-6">
-                      <p className="text-sm font-semibold text-secondary mb-1">Maximum Speed, Security & Reliability</p>
-                      <p className="text-sm text-muted-foreground mb-5">
-                        Fully managed hosting on enterprise infrastructure.
-                      </p>
+                    <CardContent className="pb-6 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <p className="text-sm font-semibold text-secondary mb-1">Maximum Speed, Security & Reliability</p>
+                        <p className="text-sm text-muted-foreground mb-5">
+                          Fully managed hosting on enterprise infrastructure.
+                        </p>
 
-                      <p className="text-xs font-semibold mb-2">Everything in Support & Maintenance, plus:</p>
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Enterprise hosting with 99.99% uptime</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Instant loading from 300+ data centres</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Automatic seamless updates</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Complete domain control</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Advanced visitor analytics</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">Proactive monitoring & instant fixes</span>
-                        </li>
-                      </ul>
+                        <p className="text-xs font-semibold mb-2">Everything in Support & Maintenance, plus:</p>
+                        <ul className="space-y-2 mb-6">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Enterprise hosting with 99.99% uptime</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Instant loading from 300+ data centres</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Automatic seamless updates</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Complete domain control</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Advanced visitor analytics</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">Proactive monitoring & instant fixes</span>
+                          </li>
+                        </ul>
 
-                      <p className="text-xs text-emerald-700 mb-4 font-medium">
-                        Perfect for business sites, portfolios & web apps
-                      </p>
+                        <p className="text-xs text-emerald-700 mb-4 font-medium">
+                          Perfect for business sites, portfolios & web apps
+                        </p>
 
-                      {/* Micro-trust badge */}
-                      <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
-                        <p className="text-xs text-amber-800 flex items-center gap-1.5 font-medium">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-amber-600" />
-                          Replaces your hosting bill
-                        </p>
-                        <p className="text-xs text-amber-700 mt-1">No separate hosting subscription needed</p>
-                      </div>
+                        {/* Micro-trust badge */}
+                        <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                          <p className="text-xs text-amber-800 flex items-center gap-1.5 font-medium">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-amber-600" />
+                            Replaces your hosting bill
+                          </p>
+                          <p className="text-xs text-amber-700 mt-1">No separate hosting subscription needed</p>
+                        </div>
 
-                      {/* Availability & response note */}
-                      <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Available only for websites built or managed by L&D Digital</span>
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                          <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
-                        </p>
-                        <p className="text-xs text-slate-600 flex items-start gap-2">
-                          <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
-                          <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
-                        </p>
-                        <p className="text-xs text-primary flex items-start gap-2 font-medium">
-                          <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
-                          <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
-                        </p>
-                        <Link 
-                          to="/support-sla" 
-                          className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
-                        >
-                          View Support SLA →
-                        </Link>
+                        {/* Availability & response note */}
+                        <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Info className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>Available only for websites built or managed by L&D Digital</span>
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <Clock className="h-3.5 w-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
+                            <span>Non-urgent support. Subject to availability. Typical response within 24–72 hours.</span>
+                          </p>
+                          <p className="text-xs text-slate-600 flex items-start gap-2">
+                            <AlertTriangle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                            <span>Urgent support prioritises response time only and does not guarantee immediate fixes.</span>
+                          </p>
+                          <p className="text-xs text-primary flex items-start gap-2 font-medium">
+                            <Zap className="h-3.5 w-3.5 text-primary flex-shrink-0 mt-0.5" />
+                            <span>Urgent support available for +£5/month. Faster response for urgent issues.</span>
+                          </p>
+                          <Link 
+                            to="/support-sla" 
+                            className="text-xs text-primary hover:text-primary/80 flex items-center gap-1.5 font-medium underline underline-offset-2 pt-1"
+                          >
+                            View Support SLA →
+                          </Link>
+                        </div>
                       </div>
 
                       <Button asChild className="w-full">

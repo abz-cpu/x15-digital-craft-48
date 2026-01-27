@@ -1,131 +1,144 @@
 
 
-## Plan: Add Filler Text to Cloudflare Setup Card & Align Buttons
+## Plan: Fix Buttons Overflowing Outside Card Boxes
 
-### Summary
-1. Add additional descriptive content to the Cloudflare Setup card to fill the empty space
-2. Use flexbox to align all three card buttons at the bottom
+### Problem
 
----
+The buttons are appearing outside their card containers. This happens because:
 
-### Current Problem
-
-The three cards in the "Make Your Website Faster, Safer & More Reliable" section have unequal heights:
-
-```
-┌──────────┐  ┌──────────┐  ┌──────────┐
-│ Setup    │  │ Support  │  │ Hosting  │
-│          │  │          │  │          │
-│ Features │  │ Features │  │ Features │
-│          │  │          │  │          │
-│ Badges   │  │ Badges   │  │ Badges   │
-│ Notes    │  │ Link     │  │ Badge    │
-│          │  │ Disclaimer│  │ Disclaimer│
-│ [BUTTON] │  │ (5 items)│  │ (5 items)│
-└──────────┘  │ SLA Link │  │ SLA Link │
-              │ [BUTTON] │  │ [BUTTON] │
-              └──────────┘  └──────────┘
-```
-
----
+1. Each `Card` has `h-full` to match grid heights
+2. Each `CardContent` also has `h-full` which tries to take 100% of the card's height
+3. Since `CardContent` comes after `CardHeader`, adding `h-full` causes it to overflow past the card boundary
+4. The buttons, pushed to the bottom with flexbox, end up outside the visible card area
 
 ### Solution
 
-#### Part 1: Add Filler Text to Cloudflare Setup Card
+Make the entire Card a flex column container and let `CardContent` grow to fill remaining space after `CardHeader`:
 
-Add more descriptive content after the existing service scope note:
-
-**New content to add (after line 588, before the Button):**
-
-```tsx
-{/* Who it's for */}
-<div className="mb-4 p-3 bg-teal-50/50 rounded-lg border border-teal-100">
-  <p className="text-xs font-semibold text-teal-700 mb-1.5">Perfect for:</p>
-  <ul className="text-xs text-teal-600 space-y-1">
-    <li className="flex items-start gap-1.5">
-      <span className="text-teal-500">•</span>
-      <span>Websites on shared hosting needing a speed boost</span>
-    </li>
-    <li className="flex items-start gap-1.5">
-      <span className="text-teal-500">•</span>
-      <span>Sites experiencing slow load times or downtime</span>
-    </li>
-    <li className="flex items-start gap-1.5">
-      <span className="text-teal-500">•</span>
-      <span>Businesses wanting enhanced security without migration</span>
-    </li>
-  </ul>
-</div>
-```
-
-#### Part 2: Align All Three Buttons
-
-Update the `CardContent` structure for all three cards to use flexbox with `flex-grow` to push buttons to the bottom:
-
-**For each card's CardContent, change from:**
-```tsx
-<CardContent className="pb-6">
-```
-
-**To:**
-```tsx
-<CardContent className="pb-6 flex flex-col h-full">
-```
-
-**And wrap the content above the button in a `div` with `flex-grow`:**
-```tsx
-<CardContent className="pb-6 flex flex-col">
-  <div className="flex-grow">
-    {/* All existing content */}
-  </div>
-  <Button ... /> {/* Button stays at bottom */}
-</CardContent>
-```
-
----
+1. Add `flex flex-col` to each Card (keeps `h-full`)
+2. Remove `h-full` from each `CardContent` (the parent's flex will handle height)
+3. Keep `flex flex-col` on `CardContent` for internal button alignment
 
 ### File Changes
 
 | File | Action |
 |------|--------|
-| `src/pages/WebPackage.tsx` | Add filler content to Cloudflare Setup card, update CardContent structure for button alignment |
+| `src/pages/WebPackage.tsx` | Update Card and CardContent classes for all 3 cards |
+
+---
+
+### Technical Changes
+
+#### Card 1 - Cloudflare Setup (Line 521)
+
+**From:**
+```tsx
+<Card className="hover-lift relative h-full bg-white border border-border">
+```
+
+**To:**
+```tsx
+<Card className="hover-lift relative h-full flex flex-col bg-white border border-border">
+```
+
+#### CardContent 1 (Line 532)
+
+**From:**
+```tsx
+<CardContent className="pb-6 flex flex-col h-full">
+```
+
+**To:**
+```tsx
+<CardContent className="pb-6 flex flex-col flex-grow">
+```
+
+---
+
+#### Card 2 - Support & Maintenance (Line 622-624)
+
+**From:**
+```tsx
+<Card
+  id="support-maintenance"
+  className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
+>
+```
+
+**To:**
+```tsx
+<Card
+  id="support-maintenance"
+  className="hover-lift relative h-full flex flex-col bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
+>
+```
+
+#### CardContent 2 (Line 650)
+
+**From:**
+```tsx
+<CardContent className="pb-6 flex flex-col h-full">
+```
+
+**To:**
+```tsx
+<CardContent className="pb-6 flex flex-col flex-grow">
+```
+
+---
+
+#### Card 3 - Hosting + Support (Line 740)
+
+**From:**
+```tsx
+<Card className="hover-lift relative h-full bg-white border border-primary/30">
+```
+
+**To:**
+```tsx
+<Card className="hover-lift relative h-full flex flex-col bg-white border border-primary/30">
+```
+
+#### CardContent 3 (Line 755)
+
+**From:**
+```tsx
+<CardContent className="pb-6 flex flex-col h-full">
+```
+
+**To:**
+```tsx
+<CardContent className="pb-6 flex flex-col flex-grow">
+```
 
 ---
 
 ### Visual Result
 
 ```
-┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-│ Cloudflare   │  │ Support &    │  │ Hosting +    │
-│ Setup        │  │ Maintenance  │  │ Support      │
-│              │  │              │  │              │
-│ Features     │  │ Features     │  │ Features     │
-│ Badges       │  │ Badges       │  │ Badges       │
-│ Scope Note   │  │ Link         │  │ Value Badge  │
-│              │  │ Disclaimer   │  │ Disclaimer   │
-│ ┌──────────┐ │  │ (5 items)    │  │ (5 items)    │
-│ │Perfect   │ │  │ SLA Link     │  │ SLA Link     │
-│ │for:      │ │  │              │  │              │
-│ │• Speed   │ │  │              │  │              │
-│ │• Slow    │ │  │              │  │              │
-│ │• Security│ │  │              │  │              │
-│ └──────────┘ │  │              │  │              │
-│              │  │              │  │              │
-│ [BUTTON]     │  │ [BUTTON]     │  │ [BUTTON]     │ ← All aligned
-└──────────────┘  └──────────────┘  └──────────────┘
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│ CardHeader       │  │ CardHeader       │  │ CardHeader       │
+│                  │  │                  │  │                  │
+│ CardContent      │  │ CardContent      │  │ CardContent      │
+│ (flex-grow)      │  │ (flex-grow)      │  │ (flex-grow)      │
+│                  │  │                  │  │                  │
+│ ┌──────────────┐ │  │ ┌──────────────┐ │  │ ┌──────────────┐ │
+│ │ flex-grow    │ │  │ │ flex-grow    │ │  │ │ flex-grow    │ │
+│ │ content      │ │  │ │ content      │ │  │ │ content      │ │
+│ └──────────────┘ │  │ └──────────────┘ │  │ └──────────────┘ │
+│                  │  │                  │  │                  │
+│ [BUTTON]         │  │ [BUTTON]         │  │ [BUTTON]         │ ← Inside card
+└──────────────────┘  └──────────────────┘  └──────────────────┘
 ```
 
----
+### Summary of Changes
 
-### Technical Implementation
-
-#### Lines to modify:
-
-1. **Line 532**: Change CardContent class for Cloudflare Setup card
-2. **After line 588**: Add new "Perfect for" box
-3. **Line 629**: Change CardContent class for Support & Maintenance card
-4. **Line 732**: Change CardContent class for Hosting + Support card
-5. **Wrap content in flex-grow divs** for all three cards
-
-The `h-full` on each Card already exists, so adding `flex flex-col` to CardContent and `flex-grow` to the content wrapper will push buttons to the bottom.
+| Line | Element | Change |
+|------|---------|--------|
+| 521 | Card 1 | Add `flex flex-col` |
+| 532 | CardContent 1 | Replace `h-full` with `flex-grow` |
+| 622-624 | Card 2 | Add `flex flex-col` |
+| 650 | CardContent 2 | Replace `h-full` with `flex-grow` |
+| 740 | Card 3 | Add `flex flex-col` |
+| 755 | CardContent 3 | Replace `h-full` with `flex-grow` |
 

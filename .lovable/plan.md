@@ -1,144 +1,67 @@
 
 
-## Plan: Fix Buttons Overflowing Outside Card Boxes
+## Update SEO Page Pricing
 
-### Problem
-
-The buttons are appearing outside their card containers. This happens because:
-
-1. Each `Card` has `h-full` to match grid heights
-2. Each `CardContent` also has `h-full` which tries to take 100% of the card's height
-3. Since `CardContent` comes after `CardHeader`, adding `h-full` causes it to overflow past the card boundary
-4. The buttons, pushed to the bottom with flexbox, end up outside the visible card area
-
-### Solution
-
-Make the entire Card a flex column container and let `CardContent` grow to fill remaining space after `CardHeader`:
-
-1. Add `flex flex-col` to each Card (keeps `h-full`)
-2. Remove `h-full` from each `CardContent` (the parent's flex will handle height)
-3. Keep `flex flex-col` on `CardContent` for internal button alignment
-
-### File Changes
-
-| File | Action |
-|------|--------|
-| `src/pages/WebPackage.tsx` | Update Card and CardContent classes for all 3 cards |
+Update the pricing cards in `src/pages/services/Seo.tsx` (lines 442-601) with the new prices and descriptions you provided.
 
 ---
 
-### Technical Changes
+### Changes Summary
 
-#### Card 1 - Cloudflare Setup (Line 521)
+#### One-Time Setup Cards (lines 442-501)
 
-**From:**
-```tsx
-<Card className="hover-lift relative h-full bg-white border border-border">
-```
+| Card | Current Price | New Price |
+|------|--------------|-----------|
+| Local SEO Foundation | £300-£600 | £200-£350 |
+| Local SEO Launch | £750-£950 | £400-£600 |
 
-**To:**
-```tsx
-<Card className="hover-lift relative h-full flex flex-col bg-white border border-border">
-```
+- **Foundation** description updated to: "Full SEO + local audit, local keyword plan, GBP optimisation, on-page fixes (core pages), local schema + indexing checks."
+- **Launch** keeps "Recommended" badge, description updated to reference everything in Foundation plus expanded items.
 
-#### CardContent 1 (Line 532)
+#### Monthly Retainer Cards (lines 512-599)
 
-**From:**
-```tsx
-<CardContent className="pb-6 flex flex-col h-full">
-```
+| Card | Current Price | New Price |
+|------|--------------|-----------|
+| Local Visibility | £200-£250/mo | £150-£200/mo |
+| Starter SEO | £350-£400/mo | £250-£350/mo |
+| Growth SEO | £550-£750/mo | £400-£500/mo |
 
-**To:**
-```tsx
-<CardContent className="pb-6 flex flex-col flex-grow">
-```
+- **Growth SEO** keeps "Most Popular" badge.
+- Feature lists updated to match your provided bullet points exactly.
 
----
+#### Schema Update (line 99)
 
-#### Card 2 - Support & Maintenance (Line 622-624)
-
-**From:**
-```tsx
-<Card
-  id="support-maintenance"
-  className="hover-lift relative h-full bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
->
-```
-
-**To:**
-```tsx
-<Card
-  id="support-maintenance"
-  className="hover-lift relative h-full flex flex-col bg-white border-2 border-primary/40 shadow-lg lg:-mt-2 scroll-mt-24"
->
-```
-
-#### CardContent 2 (Line 650)
-
-**From:**
-```tsx
-<CardContent className="pb-6 flex flex-col h-full">
-```
-
-**To:**
-```tsx
-<CardContent className="pb-6 flex flex-col flex-grow">
-```
+- Update `priceRange` from `"£200-£950+"` to `"£150-£600+"` to reflect new range.
 
 ---
 
-#### Card 3 - Hosting + Support (Line 740)
+### Technical Details
 
-**From:**
-```tsx
-<Card className="hover-lift relative h-full bg-white border border-primary/30">
-```
+**File:** `src/pages/services/Seo.tsx`
 
-**To:**
-```tsx
-<Card className="hover-lift relative h-full flex flex-col bg-white border border-primary/30">
-```
+**Line 99** - ServiceSchema priceRange:
+- From: `£200-£950+`
+- To: `£150-£600+`
 
-#### CardContent 3 (Line 755)
+**Lines 447-448** - Foundation price:
+- From: `£300–£600`
+- To: `£200–£350`
 
-**From:**
-```tsx
-<CardContent className="pb-6 flex flex-col h-full">
-```
+**Lines 477-478** - Launch price:
+- From: `£750–£950`
+- To: `£400–£600`
 
-**To:**
-```tsx
-<CardContent className="pb-6 flex flex-col flex-grow">
-```
+**Line 517** - Local Visibility price:
+- From: `£200–£250`
+- To: `£150–£200`
 
----
+**Line 548** - Starter SEO price:
+- From: `£350–£400`
+- To: `£250–£350`
 
-### Visual Result
+**Line 578** - Growth SEO price:
+- From: `£550–£750`
+- To: `£400–£500`
 
-```
-┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│ CardHeader       │  │ CardHeader       │  │ CardHeader       │
-│                  │  │                  │  │                  │
-│ CardContent      │  │ CardContent      │  │ CardContent      │
-│ (flex-grow)      │  │ (flex-grow)      │  │ (flex-grow)      │
-│                  │  │                  │  │                  │
-│ ┌──────────────┐ │  │ ┌──────────────┐ │  │ ┌──────────────┐ │
-│ │ flex-grow    │ │  │ │ flex-grow    │ │  │ │ flex-grow    │ │
-│ │ content      │ │  │ │ content      │ │  │ │ content      │ │
-│ └──────────────┘ │  │ └──────────────┘ │  │ └──────────────┘ │
-│                  │  │                  │  │                  │
-│ [BUTTON]         │  │ [BUTTON]         │  │ [BUTTON]         │ ← Inside card
-└──────────────────┘  └──────────────────┘  └──────────────────┘
-```
-
-### Summary of Changes
-
-| Line | Element | Change |
-|------|---------|--------|
-| 521 | Card 1 | Add `flex flex-col` |
-| 532 | CardContent 1 | Replace `h-full` with `flex-grow` |
-| 622-624 | Card 2 | Add `flex flex-col` |
-| 650 | CardContent 2 | Replace `h-full` with `flex-grow` |
-| 740 | Card 3 | Add `flex flex-col` |
-| 755 | CardContent 3 | Replace `h-full` with `flex-grow` |
+All feature bullet point lists will be updated to match your provided content exactly. The card structure, layout, badges ("Recommended" and "Most Popular"), and styling remain unchanged.
 

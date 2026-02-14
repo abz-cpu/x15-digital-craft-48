@@ -587,6 +587,7 @@ const Seo = () => {
                             "1 service page OR blog content (monthly)",
                             "Internal linking improvements",
                             "Conversion-focused updates (CRO)",
+                            "AI Search Optimisation (AEO) — content optimised for AI Overviews, ChatGPT & Perplexity",
                             "Priority support",
                           ].map((li, i) => (
                             <li key={i} className="flex items-start gap-3">

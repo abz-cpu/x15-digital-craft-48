@@ -536,7 +536,7 @@ const Seo = () => {
                         </ul>
 
                         <div className="mt-6 p-3 rounded-lg border bg-muted/30 text-xs text-muted-foreground leading-relaxed">
-                          Not suitable for competitive growth or scaling enquiries.
+                          Ideal for maintaining and protecting your current local presence.
                         </div>
                       </CardContent>
                     </Card>

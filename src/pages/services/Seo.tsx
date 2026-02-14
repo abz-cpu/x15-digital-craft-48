@@ -96,7 +96,7 @@ const Seo = () => {
         name="Local SEO Services"
         description="Local SEO for UK service businesses. We help you rank in Google Maps and local search, improve on-page SEO, and increase enquiries."
         url="https://digital.luminousanddeliver.co.uk/services/seo"
-        priceRange="£200-£950+"
+        priceRange="£150-£600+"
         serviceType="Local Search Engine Optimization"
       />
 
@@ -444,11 +444,11 @@ const Seo = () => {
                     <Card className="hover-lift border-2 bg-background">
                       <CardContent className="p-8">
                         <h3 className="text-2xl font-bold text-secondary mb-2">Local SEO Foundation</h3>
-                        <div className="text-4xl font-bold text-secondary mb-2">£300–£600</div>
+                        <div className="text-4xl font-bold text-secondary mb-2">£200–£350</div>
                         <div className="text-sm text-muted-foreground mb-6">One-time payment</div>
 
                         <p className="text-muted-foreground mb-8 leading-relaxed">
-                          Best for smaller sites that need a clean baseline before ongoing work.
+                          Full SEO + local audit, local keyword plan, GBP optimisation, on-page fixes (core pages), local schema + indexing checks.
                         </p>
 
                         <ul className="space-y-4">
@@ -475,11 +475,11 @@ const Seo = () => {
                       </div>
                       <CardContent className="p-8 pt-14">
                         <h3 className="text-2xl font-bold text-secondary mb-2">Local SEO Launch</h3>
-                        <div className="text-4xl font-bold text-secondary mb-2">£750–£950</div>
+                        <div className="text-4xl font-bold text-secondary mb-2">£400–£600</div>
                         <div className="text-sm text-muted-foreground mb-6">One-time payment</div>
 
                         <p className="text-muted-foreground mb-8 leading-relaxed">
-                          Best for competitive niches that want faster traction and stronger conversion.
+                          Everything in Foundation, plus on-page fixes up to 10 key pages, internal linking structure, CRO improvements, tracking + baseline reporting.
                         </p>
 
                         <ul className="space-y-4">
@@ -514,7 +514,7 @@ const Seo = () => {
                     <Card className="hover-lift border-2 bg-background">
                       <CardContent className="p-8">
                         <h3 className="text-xl font-bold text-secondary mb-2">Local Visibility</h3>
-                        <div className="text-3xl font-bold text-secondary mb-2">£200–£250<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                        <div className="text-3xl font-bold text-secondary mb-2">£150–£200<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
 
                         <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                           Best for maintaining Google Maps presence and site hygiene (not growth SEO).
@@ -545,7 +545,7 @@ const Seo = () => {
                     <Card className="hover-lift border-2 bg-background">
                       <CardContent className="p-8">
                         <h3 className="text-xl font-bold text-secondary mb-2">Starter SEO</h3>
-                        <div className="text-3xl font-bold text-secondary mb-2">£350–£400<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                        <div className="text-3xl font-bold text-secondary mb-2">£250–£350<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
 
                         <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                           For steady local SEO improvements and consistent ranking maintenance.
@@ -575,7 +575,7 @@ const Seo = () => {
                       </div>
                       <CardContent className="p-8 pt-14">
                         <h3 className="text-xl font-bold text-secondary mb-2">Growth SEO</h3>
-                        <div className="text-3xl font-bold text-secondary mb-2">£550–£750<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                        <div className="text-3xl font-bold text-secondary mb-2">£400–£500<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
 
                         <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                           For businesses that want measurable growth in enquiries and revenue.

@@ -32,6 +32,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { ReviewSchema } from "@/components/ReviewSchema";
 import { ConfettiEffect } from "@/components/ConfettiEffect";
 import { PhoneInput, type PhoneInputRef } from "@/components/PhoneInput";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
@@ -361,6 +362,7 @@ const Contact = () => {
       />
       <ScrollProgressBar />
       <Navigation />
+      <ReviewSchema ratingValue="4.9" reviewCount="47" />
 
       {/* ====================================================================
           HERO

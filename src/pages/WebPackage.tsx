@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { ProductSchema } from "@/components/ProductSchema";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { ReviewSchema } from "@/components/ReviewSchema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -83,6 +84,7 @@ const WebPackage = () => {
       />
 
       <Navigation darkHero />
+      <ReviewSchema ratingValue="4.9" reviewCount="47" />
 
       <main className="flex-1">
         {/* 1. HERO */}

@@ -20,7 +20,7 @@ export const ProfessionalServiceSchema = () => {
         streetAddress: "7 Corsican Square",
         addressLocality: "Stratford",
         addressRegion: "East London",
-        postalCode: "E3 3YD",
+        postalCode: "E15 1NN",
         addressCountry: "GB",
       },
       geo: {
@@ -183,7 +183,7 @@ export const ProfessionalServiceSchema = () => {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "5",
+        ratingValue: "4.9",
         reviewCount: "47",
         bestRating: "5",
         worstRating: "1",

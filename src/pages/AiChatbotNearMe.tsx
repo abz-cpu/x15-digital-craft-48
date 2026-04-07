@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { FAQSchema } from "@/components/FAQSchema";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, CheckCircle, ArrowRight, Bot, MessageSquare, Mic, Zap } from "lucide-react";
@@ -42,6 +43,7 @@ const AiChatbotNearMe = () => {
       <FAQSchema faqs={faqs} pageId="ai-chatbot-near-me" />
 
       <Navigation />
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-b from-primary/5 to-background">

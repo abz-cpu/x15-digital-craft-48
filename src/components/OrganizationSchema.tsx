@@ -24,9 +24,9 @@ export const OrganizationSchema = () => {
       address: {
         "@type": "PostalAddress",
         streetAddress: "7 Corsican Square",
-        addressLocality: "Bromley-by-Bow",
-        addressRegion: "Greater London",
-        postalCode: "E3 3YD",
+        addressLocality: "Stratford",
+        addressRegion: "East London",
+        postalCode: "E15 1NN",
         addressCountry: "GB",
       },
       geo: {

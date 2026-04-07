@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { ReviewSchema } from "@/components/ReviewSchema";
 import { Container } from "@/components/Container";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
@@ -77,6 +78,7 @@ const Services = () => {
       />
 
       <Navigation darkHero />
+      <ReviewSchema ratingValue="4.9" reviewCount="47" />
 
       <main className="flex-1">
         {/* ================================================================

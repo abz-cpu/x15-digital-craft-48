@@ -1,40 +1,57 @@
-# Welcome to your Lovable project
+# L&D Digital — Business Website
 
-## Project info
+**Live site:** https://digital.luminousanddeliver.co.uk  
+**Business:** Luminous & Deliver Digital (L&D Digital)  
+**Stack:** React 18 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Cloudflare Pages
 
-**URL**: https://lovable.dev/projects/92b88d5e-b277-4ee0-9f06-5db32ed999e8
+---
 
-## How can I edit this code?
+## Local Development
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/92b88d5e-b277-4ee0-9f06-5db32ed999e8) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Node.js 18+ and npm are required. Install with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 1. Clone
+git clone https://github.com/abz-cpu/x15-digital-craft-48.git
+cd x15-digital-craft-48
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Set up environment variables
+cp .env.example .env
+# Edit .env and fill in your values (see Environment Variables section below)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start dev server (http://localhost:8080)
 npm run dev
 ```
+
+**Available commands:**
+
+```sh
+npm run dev        # Start development server
+npm run build      # Production build (TypeScript check + Vite bundle)
+npm run preview    # Preview production build locally
+```
+
+---
+
+## Deployment
+
+The site deploys to **Cloudflare Pages** automatically on push to `main`.
+
+1. Connect the repo in Cloudflare Pages dashboard
+2. Set build command: `npm run build`
+3. Set output directory: `dist`
+4. Add all environment variables (see below) in Cloudflare Pages → Settings → Environment Variables
+
+---
+
+## Security
+
+**Important:** Never commit `.env` to git. The `.gitignore` already excludes it.  
+Copy `.env.example` → `.env` and fill in real values locally.  
+For production, set all secrets in the Cloudflare Pages dashboard.
 
 **Edit a file directly in GitHub**
 

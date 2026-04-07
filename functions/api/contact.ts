@@ -134,24 +134,26 @@ function generateInquiryId(): string {
   return result;
 }
 
-// Simple in-memory rate limiting (5 requests per minute per IP)
+// In-memory rate limiting (3 requests per minute per IP)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 5;
+const RATE_LIMIT = 3;
 const RATE_WINDOW_MS = 60 * 1000; // 1 minute
 
-function isRateLimited(ip: string): boolean {
+function isRateLimited(ip: string): { limited: boolean; retryAfter: number } {
   const now = Date.now();
   const record = rateLimitMap.get(ip);
 
   if (!record || now > record.resetTime) {
     rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS });
-    return false;
+    return { limited: false, retryAfter: 0 };
   }
 
-  if (record.count >= RATE_LIMIT) return true;
+  if (record.count >= RATE_LIMIT) {
+    return { limited: true, retryAfter: Math.ceil((record.resetTime - now) / 1000) };
+  }
 
   record.count++;
-  return false;
+  return { limited: false, retryAfter: 0 };
 }
 
 // Clean up old entries periodically
@@ -1114,10 +1116,18 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     request.headers.get("X-Forwarded-For")?.split(",")[0]?.trim() ||
     "unknown";
 
-  if (isRateLimited(clientIP)) {
+  const rateCheck = isRateLimited(clientIP);
+  if (rateCheck.limited) {
     return new Response(
-      JSON.stringify({ ok: false, error: "rate_limited", message: "Too many requests. Please try again in a minute." }),
-      { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } },
+      JSON.stringify({ ok: false, error: "rate_limited", message: "Too many requests. Please try again shortly." }),
+      {
+        status: 429,
+        headers: {
+          "Content-Type": "application/json",
+          "Retry-After": String(rateCheck.retryAfter),
+          ...corsHeaders,
+        },
+      },
     );
   }
 

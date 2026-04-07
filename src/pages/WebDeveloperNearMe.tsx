@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { FAQSchema } from "@/components/FAQSchema";
 import Navigation from "@/components/Navigation";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
@@ -59,6 +60,7 @@ const WebDeveloperNearMe = () => {
       <FAQSchema faqs={faqs} pageId="web-developer-near-me" />
 
       <Navigation />
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-b from-primary/5 to-background">

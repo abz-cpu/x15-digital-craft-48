@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import Navigation from "@/components/Navigation";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -169,6 +170,7 @@ export default function TradesPos() {
       />
       <FAQSchema faqs={faqItems} pageId="trades-pos" />
       <Navigation />
+      <BreadcrumbNav />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">

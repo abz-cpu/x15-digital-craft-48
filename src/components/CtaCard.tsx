@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Send, CheckCircle2, Globe, Sparkles, Zap, Users, ArrowRight } from "lucide-react";
+import { CheckCircle2, Globe, Sparkles, Zap, Users, ArrowRight } from "lucide-react";
 import { Container } from "./Container";
 import { toast } from "@/hooks/use-toast";
 

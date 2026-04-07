@@ -6,7 +6,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, CheckCircle, ArrowRight, Search, TrendingUp, Globe, BarChart3 } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Search, Globe, BarChart3 } from "lucide-react";
 
 const faqs = [
   {

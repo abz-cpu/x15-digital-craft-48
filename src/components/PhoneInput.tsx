@@ -4,7 +4,7 @@ import { useState, useCallback, forwardRef, useImperativeHandle } from "react";
 const DEFAULT_COUNTRY_CODE = "44"; // UK
 
 // Country code patterns for auto-detection
-const COUNTRY_PATTERNS: { prefix: string; code: string; minLength: number }[] = [
+const _COUNTRY_PATTERNS: { prefix: string; code: string; minLength: number }[] = [
   { prefix: "07", code: "44", minLength: 11 },    // UK mobile starting with 07
   { prefix: "01onal", code: "44", minLength: 10 }, // UK landline
   { prefix: "02", code: "44", minLength: 11 },    // UK landline (London, etc.)
@@ -12,6 +12,7 @@ const COUNTRY_PATTERNS: { prefix: string; code: string; minLength: number }[] = 
   { prefix: "08", code: "353", minLength: 10 },   // Ireland mobile starting with 08
   { prefix: "1", code: "1", minLength: 10 },      // US/Canada
 ];
+void _COUNTRY_PATTERNS;
 
 export interface PhoneInputRef {
   getNormalizedPhone: () => string;

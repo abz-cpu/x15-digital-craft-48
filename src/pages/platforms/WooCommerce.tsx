@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/accordion";
 import {
   CheckCircle,
-  ShoppingCart,
+  
   Code,
   Settings,
   Shield,

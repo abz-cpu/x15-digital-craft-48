@@ -1,4 +1,4 @@
-import type { FormEvent, MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
+import type { FormEvent, MouseEvent as ReactMouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Clock, Zap, CheckCircle2, MessageCircle, X, Loader2 } from "lucide-react";

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import "react-router-dom";
 import {
   CheckCircle2,
   ArrowRight,

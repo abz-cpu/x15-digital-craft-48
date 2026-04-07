@@ -2,12 +2,9 @@ import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import {
   DollarSign,
-  Zap,
   MessageCircle,
   Globe,
   Bot,
-  Lock,
-  Shield,
   ClipboardCheck,
   Star,
   Target,
@@ -17,9 +14,7 @@ import {
   Smartphone,
   Palette,
   TrendingUp,
-  Search,
   ShoppingBag,
-  Package,
   MessageSquare,
   MapPin,
   Image,
@@ -34,14 +29,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonLegacy } from "@/components/ui/button-legacy";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import FloatingActionMenu from "@/components/FloatingActionMenu";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
+
 import { AnimatedSection } from "@/components/AnimatedSection";
 import CtaCard from "@/components/CtaCard";
 import { useParallax } from "@/hooks/useParallax";
@@ -51,12 +46,10 @@ import { FAQSchema } from "@/components/FAQSchema";
 import { VideoSchema } from "@/components/VideoSchema";
 import { SiteNavigationSchema } from "@/components/SiteNavigationSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
-import { Container } from "@/components/Container";
-import { LazyImage } from "@/components/LazyImage";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 import { ServiceMockup } from "@/components/ServiceMockup";
 import { DeviceMockup } from "@/components/DeviceMockup";
-import { LaptopMockup } from "@/components/LaptopMockup";
+
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";

@@ -1,5 +1,5 @@
 import type { FormEvent } from "react";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTurnstile } from "@/hooks/useTurnstile";
 import { Loader2 } from "lucide-react";
@@ -82,7 +82,7 @@ const Contact = () => {
   const phoneInputRef = useRef<PhoneInputRef>(null);
 
   // Turnstile CAPTCHA - no need to pass siteKey, hook uses env variable as string
-  const { containerRef: turnstileRef, token: turnstileToken, reset: resetTurnstile, getToken } = useTurnstile();
+  const { containerRef: turnstileRef, reset: resetTurnstile, getToken } = useTurnstile();
 
   // Re-render Turnstile widget on route navigation
   useEffect(() => {

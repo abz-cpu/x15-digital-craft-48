@@ -35,9 +35,7 @@ import {
   Wifi,
   Shield,
   Users,
-  Clock,
   CreditCard,
-  Receipt,
   Settings,
   HeadphonesIcon,
 } from "lucide-react";

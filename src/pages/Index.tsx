@@ -129,73 +129,14 @@ const Index = () => {
     });
   };
 
-  const _services = [
-    {
-      id: "web-app",
-      icon: Globe,
-      title: "Web/App Design",
-      tagline: "Sites that convert visitors into customers",
-      shortDescription: "Beautiful, user-focused designs that capture your brand and guide visitors to take action...",
-      fullDescription:
-        "Beautiful, user-focused designs that capture your brand and guide visitors to take action. We focus on layouts that feel clean, modern, and mobile-first—so every page feels fast, logical, and easy to use.",
-      process: ["UX-first layout", "Responsive design", "Conversion-focused structure", "Launch-ready assets"],
-      link: "/services#web",
-    },
-    {
-      id: "web-dev",
-      icon: Smartphone,
-      title: "Web Development",
-      tagline: "Lightning-fast sites delivered in days",
-      shortDescription: "Modern, responsive websites built with the latest technology and optimised for speed...",
-      fullDescription:
-        "Modern, responsive websites built with the latest technology and optimised for speed. Clean code, SEO-friendly structure, and an editing experience that doesn’t require a developer every time you want a small change.",
-      process: ["Architecture & setup", "Component-based build", "Testing & optimisation", "Launch & handover"],
-      link: "/services#web-development",
-    },
-    {
-      id: "apps",
-      icon: Smartphone,
-      title: "App Development",
-      tagline: "Apps your customers will love",
-      shortDescription: "Native or cross-platform apps designed for a smooth, modern user experience...",
-      fullDescription:
-        "From initial concept through app store launch, we handle every detail to create mobile solutions that engage users and deliver real value to your business.",
-      process: ["Strategy & feature planning", "Design & development", "Testing & refinement", "Launch & updates"],
-      link: "/services#app-development",
-    },
-    {
-      id: "marketing",
-      icon: TrendingUp,
-      title: "Digital Marketing",
-      tagline: "Rank higher, get more customers",
-      shortDescription: "Smart SEO, PPC, and content marketing to put your business in front of people ready to buy...",
-      fullDescription:
-        "Get seen on Google and drive real leads with results-focused digital marketing. We combine SEO, PPC ads, content, and social media so your business attracts the right buyers and you see measurable ROI.",
-      process: ["Market & competitor research", "Strategy & budget planning", "SEO/PPC/content launch", "Reporting"],
-      link: "/services#marketing",
-    },
-    {
-      id: "branding",
-      icon: Image,
-      title: "Graphic Design",
-      tagline: "Branding that makes you memorable",
-      shortDescription: "Professional branding and visual design that communicates your unique value...",
-      fullDescription:
-        "Professional branding and visual design that communicates your unique value and sets you apart. From logos to full brand systems, we create visual identities that people remember.",
-      process: ["Brand discovery", "Concept exploration", "Design refinement", "Guidelines & asset delivery"],
-      link: "/services#branding",
-    },
-    {
-      id: "ai-automation",
-      icon: Bot,
-      title: "AI Automation",
-      tagline: "24/7 customer service on autopilot",
-      shortDescription: "Intelligent AI solutions that handle customer inquiries, bookings and follow-up...",
-      fullDescription:
-        "Intelligent AI solutions that handle FAQs, bookings, lead capture and simple workflows around the clock. Free your time while giving customers instant responses.",
-      process: ["Workflow mapping", "AI training & configuration", "Integration & testing", "Launch & optimisation"],
-      link: "#ai-preview",
-    },
+  // Services data intentionally kept for future use
+  void [
+    { id: "web-app", icon: Globe, title: "Web/App Design", tagline: "Sites that convert visitors into customers", link: "/services#web" },
+    { id: "web-dev", icon: Smartphone, title: "Web Development", tagline: "Lightning-fast sites delivered in days", link: "/services#web-development" },
+    { id: "apps", icon: Smartphone, title: "App Development", tagline: "Apps your customers will love", link: "/services#app-development" },
+    { id: "marketing", icon: TrendingUp, title: "Digital Marketing", tagline: "Rank higher, get more customers", link: "/services#marketing" },
+    { id: "branding", icon: Image, title: "Graphic Design", tagline: "Branding that makes you memorable", link: "/services#branding" },
+    { id: "ai-automation", icon: Bot, title: "AI Automation", tagline: "24/7 customer service on autopilot", link: "#ai-preview" },
   ];
 
   return (

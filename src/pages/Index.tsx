@@ -129,7 +129,7 @@ const Index = () => {
     });
   };
 
-  const services = [
+  const _services = [
     {
       id: "web-app",
       icon: Globe,

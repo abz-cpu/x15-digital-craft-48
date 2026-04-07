@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
-import { AnimatedSection } from "@/components/AnimatedSection";
+
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import blogWebDev from "@/assets/blog-web-dev.png";
 import blogAiAutomation from "@/assets/blog-ai-automation.png";

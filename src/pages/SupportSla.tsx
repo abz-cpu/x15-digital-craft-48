@@ -17,7 +17,7 @@ import {
   AlertTriangle, 
   CheckCircle2, 
   ArrowRight, 
-  Phone, 
+   
   Mail, 
   Calendar,
   Shield,

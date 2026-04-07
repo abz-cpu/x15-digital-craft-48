@@ -56,7 +56,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ className = ""
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-        {steps.map((step, index) => {
+        {steps.map((step, _index) => {
           const Icon = step.icon;
           return (
             <div 

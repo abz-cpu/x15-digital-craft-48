@@ -31,7 +31,6 @@ import {
   Utensils,
   Scissors,
   Wrench,
-  Clock,
   Shield,
   MapPin,
   Phone,
@@ -44,7 +43,7 @@ import {
   Gift,
   Calculator,
   Globe,
-  XCircle,
+  
   Lock,
   TrendingDown,
 } from "lucide-react";

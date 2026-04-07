@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Bot, Star, Clock, Headphones, Building2, CreditCard, Headset, Search, Package, FileText, Code2, Shield } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Globe, Zap, Bot, Clock, Headphones, Building2, CreditCard, Headset, Search, Package, FileText, Code2, Shield } from "lucide-react";
 
 interface RelatedBlogPost {
   title: string;

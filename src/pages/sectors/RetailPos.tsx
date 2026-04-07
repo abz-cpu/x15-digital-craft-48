@@ -12,9 +12,7 @@ import {
   Phone,
   ShoppingBag,
   Gift,
-  CreditCard,
   RefreshCw,
-  Shield,
   MessageCircle
 } from "lucide-react";
 import { SEO } from "@/components/SEO";

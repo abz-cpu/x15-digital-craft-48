@@ -40,7 +40,7 @@ class PerformanceMonitor {
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1] as any;
         this.metrics.lcp = lastEntry.renderTime || lastEntry.loadTime;
-        this.sendMetric('LCP', this.metrics.lcp);
+        this.sendMetric('LCP', this.metrics.lcp ?? 0);
       });
       observer.observe({ type: 'largest-contentful-paint', buffered: true });
     } catch (e) {
@@ -122,7 +122,7 @@ class PerformanceMonitor {
     }
 
     // Console log in development
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.log(`[Performance] ${name}:`, Math.round(value), 'ms');
     }
   }
@@ -141,7 +141,7 @@ class PerformanceMonitor {
       (window as any).gtag('event', eventName, params);
     }
 
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.log(`[Event] ${eventName}:`, params);
     }
   }

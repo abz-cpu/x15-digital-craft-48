@@ -24,7 +24,7 @@ import CtaCard from "@/components/CtaCard";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Container } from "@/components/Container";
-import { LazyImage } from "@/components/LazyImage";
+
 import { LaptopMockup } from "@/components/LaptopMockup";
 
 type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";

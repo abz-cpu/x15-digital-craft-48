@@ -7,7 +7,7 @@ import { AreasFooter } from "@/components/AreasFooter";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Search, TrendingUp, BarChart3, MapPin, BookOpen, Layers, Globe } from "lucide-react";
+import { ArrowRight, Search, TrendingUp, BarChart3, MapPin, BookOpen, Layers, Globe } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [

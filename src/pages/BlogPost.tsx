@@ -18,7 +18,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { ArticleSchema } from "@/components/ArticleSchema";
-import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+
 import { HowToSchema } from "@/components/HowToSchema";
 
 type BlogPostConfig = {

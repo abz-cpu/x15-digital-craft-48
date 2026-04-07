@@ -17,13 +17,6 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { FAQSchema } from "@/components/FAQSchema";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Container } from "@/components/Container";
 
 const enterpriseFaqs = [
   {

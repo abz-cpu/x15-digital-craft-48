@@ -362,7 +362,7 @@ const Contact = () => {
       />
       <ScrollProgressBar />
       <Navigation />
-      <ReviewSchema ratingValue="4.9" reviewCount="47" />
+      <ReviewSchema ratingValue="4.9" reviewCount="3" />
 
       {/* ====================================================================
           HERO

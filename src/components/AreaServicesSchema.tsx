@@ -149,8 +149,8 @@ export const AreaServicesSchema = ({ location }: AreaServicesSchemaProps) => {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "47",
+        ratingValue: "4.9",
+        reviewCount: "3",
         bestRating: "5",
         worstRating: "1",
       },

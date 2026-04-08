@@ -146,7 +146,7 @@ const Index = () => {
         description="Professional website design for restaurants, ecommerce, and brands. Built in 1-14 days from £200. UK-based team. SEO-optimized, mobile-responsive websites."
         keywords="web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, web developer near me, custom website design UK, affordable website design London"
       />
-      <ReviewSchema ratingValue="4.9" reviewCount="47" />
+      <ReviewSchema ratingValue="4.9" reviewCount="3" />
       <VideoSchema
         name="L&D Digital - Professional Web Development London"
         description="Professional websites and AI automation that capture leads and book clients 24/7. Websites from £200, AI from £50/month. Built for UK businesses, delivered in 1-14 days."

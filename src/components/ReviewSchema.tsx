@@ -8,7 +8,7 @@ interface ReviewSchemaProps {
 
 export const ReviewSchema = ({
   ratingValue = "4.9",
-  reviewCount = "47",
+  reviewCount = "3",
   bestRating = "5"
 }: ReviewSchemaProps) => {
   useEffect(() => {

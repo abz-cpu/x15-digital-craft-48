@@ -73,7 +73,7 @@ const Services = () => {
       />
 
       <Navigation darkHero />
-      <ReviewSchema ratingValue="4.9" reviewCount="47" />
+      <ReviewSchema ratingValue="4.9" reviewCount="3" />
 
       <main className="flex-1">
         {/* ================================================================

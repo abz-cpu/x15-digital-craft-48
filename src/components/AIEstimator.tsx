@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Sparkles, Send, Loader2, Quote } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
 
 interface EstimateResponse {
@@ -9,6 +8,9 @@ interface EstimateResponse {
   keyFeatures: string[];
   approach: string;
 }
+
+const AI_ESTIMATOR_FUNCTION_URL = 'https://psnsqzcjyjeeuyuqkzik.supabase.co/functions/v1/ai-estimator';
+const AI_ESTIMATOR_PUBLISHABLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzbnNxemNqeWplZXV5dXFremlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4Nzk2OTMsImV4cCI6MjA4MjQ1NTY5M30.juOzqe1azg1_mP5AYli2kJhzV1SsJItnf5szFxDaq2Y';
 
 export const AIEstimator: React.FC = () => {
   const [prompt, setPrompt] = useState('');
@@ -29,12 +31,20 @@ export const AIEstimator: React.FC = () => {
     setResponse(null);
 
     try {
-      const { data, error } = await supabase.functions.invoke('ai-estimator', {
-        body: { prompt: prompt.trim() }
+      const result = await fetch(AI_ESTIMATOR_FUNCTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: AI_ESTIMATOR_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${AI_ESTIMATOR_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({ prompt: prompt.trim() }),
       });
 
-      if (error) {
-        throw error;
+      const data = await result.json().catch(() => ({ error: 'Please try again' }));
+
+      if (!result.ok) {
+        throw new Error(data.error || 'Please try again');
       }
 
       if (data.error) {

@@ -38,6 +38,8 @@ const Faq = lazy(() => import("./pages/Faq"));
 const SupportSla = lazy(() => import("./pages/SupportSla"));
 const Platforms = lazy(() => import("./pages/Platforms"));
 const Sectors = lazy(() => import("./pages/Sectors"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 
 // Platform pages
 const WordPressPlatform = lazy(() => import("./pages/platforms/WordPress"));
@@ -175,6 +177,8 @@ const App = () => (
               <Route path="/web-package" element={<WebPackage />} />
               <Route path="/ai-package" element={<AiPackage />} />
               <Route path="/faq" element={<Faq />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/support-sla" element={<SupportSla />} />
               <Route path="/platforms" element={<Platforms />} />
               <Route path="/sectors" element={<Sectors />} />

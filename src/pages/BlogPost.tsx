@@ -2745,19 +2745,26 @@ Every month with a broken mobile site is another month of lost customers and low
         <div className="max-w-7xl mx-auto">
           <h3 className="text-2xl font-bold text-secondary mb-8 text-center">Related Posts</h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {Object.entries(posts)
-              .filter(([key]) => key !== slug)
+            {[
+              ...Object.entries(posts).filter(([key, post]) => key !== slug && post.category === currentPost.category),
+              ...Object.entries(posts).filter(([key, post]) => key !== slug && post.category !== currentPost.category),
+            ]
               .slice(0, 3)
               .map(([key, post]) => (
-                <Card key={key} className="hover-lift">
+                <Card key={key} className="hover-lift flex flex-col">
                   <CardHeader>
                     <Badge className={`mb-2 w-fit ${getCategoryBadgeClass(post.category)}`}>{post.category}</Badge>
-                    <CardTitle className="text-lg">{post.title}</CardTitle>
+                    <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex flex-col flex-1">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">{post.seoDescription}</p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                      <span>{post.date}</span>
+                      <span>{post.readTime} min read</span>
+                    </div>
                     <Button asChild variant="outline" className="w-full">
                       <Link to={`/blog/${key}`}>
-                        Read More <ArrowRight className="ml-2 h-4 w-4" />
+                        Read Article <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   </CardContent>

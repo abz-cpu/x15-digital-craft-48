@@ -214,7 +214,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden min-h-screen pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 xl:pt-52 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden min-h-screen pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 xl:pt-40 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
       >
         {/* Cinematic Background Video with Ken Burns + Parallax */}
         <div 
@@ -273,6 +273,22 @@ const Index = () => {
               Client-Hosted & Managed. Optional <span className="font-semibold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">support</span> from{" "}
               <span className="font-semibold text-white">£25/month</span>.
             </p>
+
+            {/* Guarantee badges */}
+            <div className="flex flex-wrap gap-3 justify-center text-sm text-slate-300">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                14-Day Money-Back Guarantee
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                No Lock-in Contracts
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                UK-Based Team
+              </span>
+            </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -342,6 +358,22 @@ const Index = () => {
               <ChevronDown className="h-6 w-6 -mt-3" />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* AIO Key Facts — machine-readable summary for AI crawlers */}
+      <section aria-label="Key Facts About L&D Digital" className="bg-slate-50 border-b border-slate-200 py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3 text-center">At a Glance</p>
+          <dl className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-slate-700">
+            <div className="flex gap-1.5"><dt className="font-semibold">Business:</dt><dd>L&amp;D Digital</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Location:</dt><dd>Stratford, East London, UK</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Services:</dt><dd>Web Design, AI Chatbots, POS Systems, IT Support, SEO</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Pricing:</dt><dd>Websites from £200 · AI from £50/mo · IT Support from £25/mo</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Guarantee:</dt><dd>14-day money-back on all website builds</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Coverage:</dt><dd>East London — E1–E20, IG1–IG11, RM1–RM20</dd></div>
+            <div className="flex gap-1.5"><dt className="font-semibold">Rating:</dt><dd>4.9/5 (Google)</dd></div>
+          </dl>
         </div>
       </section>
 

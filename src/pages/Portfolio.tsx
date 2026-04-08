@@ -239,6 +239,25 @@ const Portfolio = () => {
       tech: "Zapier, Make, OpenAI",
       image: "sales",
     },
+    {
+      id: 10,
+      title: "Laser Light Skin Clinic",
+      category: "web" as FilterType,
+      type: "Web Development",
+      features: [
+        "Laser hair removal service pages",
+        "Skin treatment showcases",
+        "Online booking integration",
+        "Local SEO for Dagenham",
+        "Mobile-first responsive design",
+        "Google Maps & contact integration",
+      ],
+      timeline: "7 days",
+      tech: "React, Tailwind CSS, Resend",
+      image: null,
+      isLive: true,
+      liveUrl: "https://laserlightskinclinic.co.uk/",
+    },
   ];
 
   const filteredItems =
@@ -267,8 +286,7 @@ const Portfolio = () => {
         <Container className="text-center fade-in-section">
           <h1 className="mb-6">Recent Work & Capabilities</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See what we can build for your business. Most projects are capability examples showing our work - real
-            client projects coming soon.
+            See what we can build for your business. Includes real client projects and capability examples.
           </p>
         </Container>
       </section>

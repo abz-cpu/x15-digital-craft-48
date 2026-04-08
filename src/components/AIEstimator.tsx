@@ -102,6 +102,8 @@ export const AIEstimator: React.FC = () => {
             {/* Input and button */}
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
               <input 
+                id="ai-estimator-prompt"
+                name="ai-estimator-prompt"
                 type="text" 
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}

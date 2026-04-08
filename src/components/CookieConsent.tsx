@@ -168,6 +168,8 @@ export const CookieConsent = () => {
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
+                    id="cookie-analytics"
+                    name="cookie-analytics"
                     type="checkbox"
                     checked={preferences.analytics}
                     onChange={(e) =>
@@ -188,6 +190,8 @@ export const CookieConsent = () => {
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
+                    id="cookie-marketing"
+                    name="cookie-marketing"
                     type="checkbox"
                     checked={preferences.marketing}
                     onChange={(e) =>

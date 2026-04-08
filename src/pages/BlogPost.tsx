@@ -2522,6 +2522,133 @@ Every month with a broken mobile site is another month of lost customers and low
 [WhatsApp us a link to your current website](https://wa.me/447356260648) — we'll tell you honestly if it needs fixing and what it would cost.
       `,
     },
+
+    "laser-light-skin-clinic-case-study": {
+      title: "Case Study: Laser Light Skin Clinic — New Website in 7 Days",
+      category: "Business Growth",
+      date: "2026-04-07",
+      readTime: 5,
+      author: "Abdul M Taher",
+      seoTitle: "Case Study: Laser Light Skin Clinic Website | L&D Digital",
+      seoDescription:
+        "How we built a professional website for a Dagenham laser hair removal and skin treatment clinic in 7 days — online booking, local SEO, and mobile-first design.",
+      seoKeywords:
+        "laser hair removal website design, skin clinic website Dagenham, beauty salon web design East London, laser treatment website UK",
+      ogImage: blogEastLondonTips,
+      heroAlt: "Laser Light Skin Clinic website on laptop and mobile — professional beauty salon web design Dagenham",
+      content: `
+## The Client
+
+**Laser Light Skin Clinic** is a professional laser hair removal and skin treatment clinic based in **Dagenham, East London**.
+
+They offer a range of treatments including laser hair removal, skin rejuvenation, and advanced aesthetic procedures for clients across East London and Essex.
+
+**Website:** [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk/)
+
+---
+
+## The Problem
+
+Before working with us, the clinic had no professional online presence. Potential clients searching for laser hair removal in Dagenham or nearby areas weren't finding them — and those who did find a phone number had no way to learn about treatments, pricing, or book online.
+
+The challenges:
+
+- **No website** — completely invisible online
+- **No online booking** — clients had to call and hope someone was available
+- **No local SEO** — not appearing in Google Maps or local searches
+- **Missed mobile traffic** — most beauty searches happen on phones
+
+Every week without a website was another week of missed enquiries.
+
+---
+
+## What We Built
+
+We delivered a complete professional website in **7 days**, built specifically for a laser and skin treatment clinic.
+
+### Service Pages
+
+Clear, well-structured pages for each treatment:
+
+- Laser hair removal (face, body, intimate areas)
+- Skin rejuvenation treatments
+- Consultation booking information
+- Before & after care guidance
+
+Each page was written to rank for local search terms like *"laser hair removal Dagenham"* and *"skin treatments East London"*.
+
+### Online Booking Integration
+
+Clients can now book consultations directly from the website — no phone tag, no missed calls. The booking system works 24/7, even when the clinic is closed.
+
+### Local SEO Setup
+
+We optimised every page for East London and Essex searches:
+
+- Location-specific title tags and meta descriptions
+- Google Maps integration with the clinic's address
+- Schema markup for local business and services
+- Fast page load speeds to help rankings
+
+### Mobile-First Design
+
+Over 70% of beauty and laser clinic searches happen on mobile. The site was designed phone-first:
+
+- Tap-to-call buttons on every page
+- Fast-loading images
+- Clean navigation that works on small screens
+- Easy-to-read treatment descriptions
+
+---
+
+## The Results
+
+| Before | After |
+|--------|-------|
+| No website | Professional 6-page site |
+| No online booking | 24/7 booking system |
+| Invisible on Google | Ranking for local searches |
+| Mobile visitors bounced | Mobile-optimised experience |
+| Enquiries by chance only | Steady online lead flow |
+
+---
+
+## Timeline
+
+| Day | Activity |
+|-----|----------|
+| Day 1 | Discovery call, brief agreed, 50% deposit |
+| Day 2 | Design mockup shared for review |
+| Day 3 | Feedback incorporated, build begins |
+| Days 4–6 | Full site built, booking system connected |
+| Day 7 | Final review, domain connected, go live |
+
+---
+
+## What We Learned
+
+Beauty and aesthetics clients are highly visual — the design needed to feel clean, premium, and trustworthy. We used:
+
+- A minimal white and soft-tone colour palette
+- High-quality treatment imagery
+- Clear pricing presented honestly
+- Trust signals (qualifications, safety notes)
+
+Local SEO for clinics needs to be hyper-local. We targeted specific postcodes and neighbourhoods rather than generic "London" terms, which helps smaller clinics compete against big chains.
+
+---
+
+## Want a Similar Website?
+
+If you run a salon, clinic, or beauty business in East London or Essex and need a professional website, we can have you live in as little as 3–7 days.
+
+[View our website packages from £200 →](/web-package)
+
+[Book a free consultation →](/contact)
+
+[WhatsApp us directly](https://wa.me/447356260648) — send us your current site (or tell us you don't have one) and we'll give you an honest quote.
+      `,
+    },
   };
 
   const currentPost = posts[slug || ""];

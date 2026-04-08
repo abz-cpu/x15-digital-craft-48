@@ -235,6 +235,19 @@ const Blog = () => {
       author: "Abdul M Taher",
       image: blogWebDev,
     },
+    {
+      id: 16,
+      slug: "laser-light-skin-clinic-case-study",
+      title: "Case Study: Laser Light Skin Clinic — New Website in 7 Days",
+      category: "case-studies" as Category,
+      categoryLabel: "Case Studies",
+      excerpt:
+        "How we built a professional website for a Dagenham laser hair removal and skin treatment clinic in 7 days — with online booking, local SEO, and a mobile-first design.",
+      readTime: 5,
+      date: "2026-04-07",
+      author: "Abdul M Taher",
+      image: blogEastLondonTips,
+    },
   ];
 
   // sort by date (newest first)

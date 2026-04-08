@@ -362,17 +362,45 @@ const Index = () => {
       </section>
 
       {/* AIO Key Facts — machine-readable summary for AI crawlers */}
-      <section aria-label="Key Facts About L&D Digital" className="bg-slate-50 border-b border-slate-200 py-6 px-4 sm:px-6 lg:px-8">
+      <section aria-label="Key Facts About L&D Digital" className="bg-white border-b border-slate-100 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3 text-center">At a Glance</p>
-          <dl className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-slate-700">
-            <div className="flex gap-1.5"><dt className="font-semibold">Business:</dt><dd>L&amp;D Digital</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Location:</dt><dd>Stratford, East London, UK</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Services:</dt><dd>Web Design, AI Chatbots, POS Systems, IT Support, SEO</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Pricing:</dt><dd>Websites from £200 · AI from £50/mo · IT Support from £25/mo</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Guarantee:</dt><dd>14-day money-back on all website builds</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Coverage:</dt><dd>East London — E1–E20, IG1–IG11, RM1–RM20</dd></div>
-            <div className="flex gap-1.5"><dt className="font-semibold">Rating:</dt><dd>4.9/5 (Google)</dd></div>
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6 text-center">At a Glance</p>
+          <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <BadgeCheck className="h-5 w-5 text-teal-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Business</dt>
+              <dd className="text-sm font-medium text-slate-800">L&amp;D Digital</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <MapPin className="h-5 w-5 text-teal-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Location</dt>
+              <dd className="text-sm font-medium text-slate-800">Stratford, East London</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <DollarSign className="h-5 w-5 text-emerald-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">From</dt>
+              <dd className="text-sm font-medium text-slate-800">Websites £200 · AI £50/mo</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <ShieldCheck className="h-5 w-5 text-emerald-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Guarantee</dt>
+              <dd className="text-sm font-medium text-slate-800">14-Day Money-Back</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100 sm:col-span-1">
+              <Globe className="h-5 w-5 text-teal-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Coverage</dt>
+              <dd className="text-sm font-medium text-slate-800">E1–E20, IG, RM postcodes</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <Star className="h-5 w-5 text-amber-400" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Rating</dt>
+              <dd className="text-sm font-medium text-slate-800">4.9 / 5 on Google</dd>
+            </div>
+            <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100 col-span-2 sm:col-span-1 lg:col-span-2">
+              <Clock className="h-5 w-5 text-teal-500" aria-hidden="true" />
+              <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Services</dt>
+              <dd className="text-sm font-medium text-slate-800">Web Design · AI Chatbots · POS · IT Support · SEO</dd>
+            </div>
           </dl>
         </div>
       </section>

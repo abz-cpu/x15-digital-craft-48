@@ -35,6 +35,80 @@ type BlogPostConfig = {
   heroAlt: string;
 };
 
+// Process inline markdown: **bold**, *italic*, [text](url)
+const processInline = (text: string): string =>
+  text
+    .replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*\n]+)\*/g, "<em>$1</em>")
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1</a>',
+    )
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" class="text-primary hover:underline">$1</a>',
+    );
+
+const renderMarkdown = (content: string): string => {
+  const lines = content.split("\n");
+  const out: string[] = [];
+  let inTable = false;
+  let tableHeaderDone = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // --- Tables ---
+    if (trimmed.startsWith("|")) {
+      // Separator row like |---|---|
+      if (/^\|[-:\s|]+\|$/.test(trimmed)) {
+        tableHeaderDone = true;
+        continue;
+      }
+      if (!inTable) {
+        inTable = true;
+        tableHeaderDone = false;
+        out.push('<div class="overflow-x-auto my-6"><table class="w-full text-sm border-collapse border border-border rounded-lg">');
+      }
+      const cells = trimmed.split("|").slice(1, -1);
+      const tag = !tableHeaderDone ? "th" : "td";
+      const cellClass = !tableHeaderDone
+        ? "border border-border px-4 py-2 bg-muted font-semibold text-left text-secondary"
+        : "border border-border px-4 py-2 text-foreground";
+      out.push(`<tr>${cells.map((c) => `<${tag} class="${cellClass}">${processInline(c.trim())}</${tag}>`).join("")}</tr>`);
+      continue;
+    } else if (inTable) {
+      out.push("</table></div>");
+      inTable = false;
+      tableHeaderDone = false;
+    }
+
+    // --- Block elements ---
+    if (line.startsWith("## ")) {
+      out.push(`<h2 class="text-2xl font-bold text-secondary mt-10 mb-4">${processInline(line.slice(3))}</h2>`);
+    } else if (line.startsWith("### ")) {
+      out.push(`<h3 class="text-xl font-bold text-secondary mt-8 mb-3">${processInline(line.slice(4))}</h3>`);
+    } else if (line.startsWith("#### ")) {
+      out.push(`<h4 class="text-lg font-semibold text-secondary mt-6 mb-2">${processInline(line.slice(5))}</h4>`);
+    } else if (trimmed === "---") {
+      out.push('<hr class="my-8 border-border" />');
+    } else if (line.startsWith("- ")) {
+      out.push(`<li class="ml-6 mb-1 list-disc">${processInline(line.slice(2))}</li>`);
+    } else if (/^\d+\. /.test(line)) {
+      const text = line.replace(/^\d+\.\s/, "");
+      out.push(`<li class="ml-6 mb-1 list-decimal">${processInline(text)}</li>`);
+    } else if (trimmed === "") {
+      out.push("");
+    } else {
+      out.push(`<p class="mb-4 leading-relaxed">${processInline(line)}</p>`);
+    }
+  }
+
+  if (inTable) out.push("</table></div>");
+  return out.join("\n");
+};
+
 const getCategoryBadgeClass = (category: string) => {
   switch (category) {
     case "Web Development":
@@ -213,32 +287,32 @@ Want to do it right the first time? [See our packages](/services) or [get a free
 
 Small businesses are using AI to save 20+ hours per week. Here's how you can too - without needing a computer science degree.
 
-### Real Example: Sarah's Salon
+### Scenario: A Busy Salon
 
-Sarah runs a salon in Brighton. She was spending 2 hours daily:
-- Answering booking inquiries
+A typical salon owner spends 2 hours daily:
+- Answering booking enquiries
 - Responding to "Are you open?" messages
 - Handling after-hours calls
 
 **Solution:** AI chatbot (£50/month)
 
-**Results:**
+**Typical results:**
 - 80% of questions answered automatically
-- Bookings increased 30% (24/7 availability)
-- Sarah saves 10 hours/week
-- ROI: Paid for itself in 5 days
+- Bookings increase as 24/7 availability kicks in
+- Owner saves 10+ hours per week
+- Usually pays for itself within the first month
 
-### Real Example: James the Plumber
+### Scenario: A Sole-Trader Plumber
 
-James gets 30+ calls daily. Half are "How much for X?" He was missing jobs because he couldn't answer during work.
+A plumber gets 30+ calls daily. Half are "How much for X?" They miss jobs because they can't answer while on-site.
 
 **Solution:** AI voice agent (£100/month)
 
-**Results:**
-- Answers calls naturally 24/7
-- Quotes common jobs automatically
-- Books appointments in James's calendar
-- Saves 15 hours/week
+**Typical results:**
+- Calls answered naturally 24/7
+- Common jobs quoted automatically
+- Appointments booked into the calendar
+- 10–15 hours saved per week
 
 ### 5 AI Tools That Actually Make Sense
 
@@ -1530,15 +1604,15 @@ It works while you're on-site, driving between jobs, or sleeping.
 
 ---
 
-## Real Results for East London Trades
+## What Trades Are Saying
 
-Here's what tradespeople in our area are seeing:
+These are the two most common things we hear from tradespeople who add a chatbot:
 
-**James, Plumber (Stratford E15):**
-> "I was losing jobs every week because I couldn't answer the phone on-site. The chatbot now captures every enquiry. I come home to 3-4 qualified leads most days."
+**From plumbers:**
+"I was losing jobs every week because I couldn't answer the phone on-site. Having something that captures every enquiry while I'm working has made a real difference."
 
-**Mohammed, Electrician (Hackney E8):**
-> "Customers get an instant response even at 10pm. They love it. I've had people book jobs at midnight. Would never have got those before."
+**From electricians:**
+"Customers now get a response even at 10pm. I've had people book jobs late at night that I'd never have caught before."
 
 ---
 
@@ -2254,25 +2328,28 @@ For East London: mention the nearest Elizabeth line station, DLR stop, or bus ro
 
 ---
 
-## Real Example: Barber in Stratford E15
+## Our Work: Laser Light Skin Clinic
 
-One of our clients, a barber shop near Westfield Stratford, was getting 90% of their new clients from word of mouth.
+We recently built a website for Laser Light Skin Clinic, a laser hair removal and skin treatment clinic based in Dagenham.
 
-We built them:
-- A 5-page website with gallery and online booking
-- Google Business Profile fully optimised for E15 and E20
-- Schema markup so Google understood what they offered and where
+The brief was simple: a clean, professional site that reflected the quality of the treatments and made it easy for new clients to find them and book.
 
-**3 months later:**
-- Appearing in top 3 for "barber Stratford" searches
-- Booking system handling 15-20 new bookings per week autonomously
-- Reduced no-shows by ~30% (automatic confirmation emails)
+**What we delivered:**
+- A fully mobile-responsive multi-page website
+- Services page with clear treatment descriptions
+- Booking integration so clients can request appointments online
+- Location page optimised for local search
+- Fast load times and Google-friendly structure
+
+The site is currently live at [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk) (domain being finalised).
+
+If you run a beauty clinic, skin clinic, or aesthetic treatment business, this is exactly the type of website that builds trust and converts visitors into bookings.
 
 ---
 
 ## How Much Does a Salon Website Cost?
 
-At L&D Digital, we build salon and barber websites from **£200** (single page with booking link) to **£600** (full multi-page with integrated booking system).
+At L&D Digital, we build salon and clinic websites from **£200** (single page with booking link) to **£600** (full multi-page with integrated booking and services pages).
 
 Both options include:
 - Mobile-responsive design (looks great on phones)
@@ -2289,13 +2366,13 @@ Once your website is live, focus on these:
 1. **Google Business Profile** — fill in everything, add 20+ photos
 2. **Reviews** — ask every happy client directly for a Google review
 3. **Location keywords** — make sure your area and postcode appear on your pages
-4. **Blog posts** (optional but powerful) — "Best barbers in Stratford E15" type content
+4. **Blog posts** (optional but powerful) — "Best laser clinic in Dagenham" type content
 
 ---
 
 ## Book a Free Consultation
 
-We've built websites for salons, barbers, beauticians, and nail studios across East London — Stratford, Hackney, Walthamstow, Ilford and beyond.
+We build websites for salons, clinics, barbers, beauticians, and nail studios across East London and beyond — Stratford, Hackney, Walthamstow, Ilford, Dagenham and more.
 
 [View website packages →](/web-packages)
 
@@ -2564,31 +2641,7 @@ Every month with a broken mobile site is another month of lost customers and low
 
           <div
             className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{
-              __html: currentPost.content
-                .split("\n")
-                .map((line: string) => {
-                  if (line.startsWith("## ")) {
-                    return `<h2 class="text-2xl font-bold text-secondary mt-8 mb-4">${line.slice(3)}</h2>`;
-                  } else if (line.startsWith("### ")) {
-                    return `<h3 class="text-xl font-bold text-secondary mt-6 mb-3">${line.slice(4)}</h3>`;
-                  } else if (line.startsWith("#### ")) {
-                    return `<h4 class="text-lg font-semibold text-secondary mt-4 mb-2">${line.slice(5)}</h4>`;
-                  } else if (line.startsWith("- ")) {
-                    return `<li class="ml-6">${line.slice(2)}</li>`;
-                  } else if (line.includes("[") && line.includes("](/")) {
-                    const match = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
-                    if (match) {
-                      return line.replace(
-                        match[0],
-                        `<a href="${match[2]}" class="text-primary hover:underline">${match[1]}</a>`,
-                      );
-                    }
-                  }
-                  return line ? `<p class="mb-4">${line}</p>` : "";
-                })
-                .join(""),
-            }}
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(currentPost.content) }}
           />
         </div>
       </article>

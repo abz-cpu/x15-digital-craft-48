@@ -163,8 +163,10 @@ const CtaCard: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <input 
+                      id="cta-name"
+                      name="name"
                       type="text" 
-                      placeholder="Your Name" 
+                      placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
@@ -173,8 +175,10 @@ const CtaCard: React.FC = () => {
                   </div>
                   <div className="space-y-1">
                     <input 
+                      id="cta-email"
+                      name="email"
                       type="email" 
-                      placeholder="Email Address" 
+                      placeholder="Email Address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
@@ -183,7 +187,9 @@ const CtaCard: React.FC = () => {
                   </div>
                   <div className="space-y-1">
                     <textarea 
-                      placeholder="Tell us about your project..." 
+                      id="cta-message"
+                      name="message"
+                      placeholder="Tell us about your project..."
                       rows={4} 
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}

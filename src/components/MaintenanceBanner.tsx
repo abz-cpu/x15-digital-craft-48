@@ -37,10 +37,10 @@ const MaintenanceBanner = () => {
       <button
         type="button"
         onClick={handleDismiss}
-        className="relative z-50 bg-amber-400/80 hover:bg-amber-300 text-amber-950 p-1.5 rounded-full shadow-lg transition-colors"
+        className="relative z-[60] bg-amber-400/80 hover:bg-amber-300 text-amber-950 p-2 rounded-full shadow-lg transition-colors pointer-events-auto cursor-pointer"
         aria-label="Dismiss banner"
       >
-        <X className="h-3.5 w-3.5" />
+        <X className="h-4 w-4" />
       </button>
     </div>
   );

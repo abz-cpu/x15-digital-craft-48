@@ -100,6 +100,8 @@ const renderMarkdown = (content: string): string => {
       out.push(`<li class="ml-6 mb-1 list-decimal">${processInline(text)}</li>`);
     } else if (trimmed === "") {
       out.push("");
+    } else if (trimmed.startsWith("<")) {
+      out.push(trimmed);
     } else {
       out.push(`<p class="mb-4 leading-relaxed">${processInline(line)}</p>`);
     }

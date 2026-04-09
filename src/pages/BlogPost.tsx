@@ -2543,8 +2543,7 @@ Every month with a broken mobile site is another month of lost customers and low
 
 They serve clients from Dagenham, Barking, Ilford, Romford, and across East London.
 
-**Old site:** [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk/)
-**New site:** Coming soon (currently in preview)
+**Website:** [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk/)
 
 ---
 
@@ -2552,17 +2551,25 @@ They serve clients from Dagenham, Barking, Ilford, Romford, and across East Lond
 
 The clinic had an existing WordPress website — but it was holding them back rather than helping them grow.
 
+<img src="/images/case-studies/laser-light-old-homepage.png" alt="Laser Light Skin Clinic old WordPress homepage showing cluttered navigation with two dropdown menus" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
+
 ### Broken Shortcodes Showing as Raw Text
 
 Pages displayed **[custom_breadcrumb]** as visible raw text to real visitors — a WordPress plugin had failed and nobody noticed. This looks unprofessional and confuses potential clients immediately.
+
+<img src="/images/case-studies/laser-light-old-testimonials.png" alt="Laser Light Skin Clinic old testimonials page showing broken WordPress shortcode custom_breadcrumb as raw text" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Navigation Overload
 
 The menu had two separate dropdowns — **Services** and **Other Services** — each with 10–15 items. Visitors landing on mobile had no idea where to go. Services like *Hopi Ear Candling*, *Intimate V-Whitening*, and *Mesopeels* were all at the same navigation level as the core treatments.
 
+<img src="/images/case-studies/laser-light-old-services.png" alt="Laser Light Skin Clinic old site showing overcrowded service dropdown menu with 20+ items" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
+
 ### Pricing Page Was Hard to Read
 
 The pricing page listed treatments with sale prices inline (e.g., *"1 Session £140 £80"*) — no visual hierarchy, no clear callout for the sale price, no structure. On mobile it was nearly unreadable.
+
+<img src="/images/case-studies/laser-light-old-pricing.png" alt="Laser Light Skin Clinic old pricing page with confusing inline prices and no visual hierarchy" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Slow WordPress Build
 
@@ -2571,6 +2578,18 @@ WordPress with multiple plugins, a shared hosting setup, and no caching meant sl
 ### No Clear Trust Signals
 
 The clinic is NHS-approved and has dozens of real client reviews (Mili Begum, Saima Ali, Aisha Oma, and more). But this credibility was buried. New visitors had no reason to trust them before scrolling far down the page.
+
+### Booking Form Was Basic
+
+The old booking form was functional but lacked polish — no treatment categories, no visual structure, and the service dropdown listed every treatment in a flat list.
+
+<img src="/images/case-studies/laser-light-old-booking.png" alt="Laser Light Skin Clinic old WordPress booking form with flat treatment dropdown and basic layout" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
+
+### Blog Was Underused
+
+The blog section existed but had minimal content and was visually disconnected from the rest of the site.
+
+<img src="/images/case-studies/laser-light-old-blog.png" alt="Laser Light Skin Clinic old blog page with minimal content and disconnected design" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ---
 

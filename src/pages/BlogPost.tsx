@@ -2524,92 +2524,92 @@ Every month with a broken mobile site is another month of lost customers and low
     },
 
     "laser-light-skin-clinic-case-study": {
-      title: "Case Study: Laser Light Skin Clinic — New Website in 7 Days",
+      title: "Case Study: Laser Light Skin Clinic — From WordPress to a Modern Website",
       category: "Business Growth",
       date: "2026-04-07",
-      readTime: 5,
+      readTime: 6,
       author: "Abdul M Taher",
-      seoTitle: "Case Study: Laser Light Skin Clinic Website | L&D Digital",
+      seoTitle: "Case Study: Laser Light Skin Clinic Website Redesign | L&D Digital",
       seoDescription:
-        "How we built a professional website for a Dagenham laser hair removal and skin treatment clinic in 7 days — online booking, local SEO, and mobile-first design.",
+        "How we redesigned the Laser Light Skin Clinic website from a clunky WordPress build to a fast, modern site — before and after breakdown with real improvements.",
       seoKeywords:
-        "laser hair removal website design, skin clinic website Dagenham, beauty salon web design East London, laser treatment website UK",
+        "laser clinic website redesign, skin clinic website Dagenham, beauty salon web design East London, WordPress to React migration UK",
       ogImage: blogEastLondonTips,
-      heroAlt: "Laser Light Skin Clinic website on laptop and mobile — professional beauty salon web design Dagenham",
+      heroAlt: "Laser Light Skin Clinic — before and after website redesign by L&D Digital",
       content: `
 ## The Client
 
-**Laser Light Skin Clinic** is a professional laser hair removal and skin treatment clinic based in **Dagenham, East London**.
+**Laser Light Skin Clinic** is a specialist laser aesthetics clinic based at **125 Becontree Avenue, Dagenham, Essex**. They are East London's only 5-Star NHS-approved clinic offering laser hair removal, skin rejuvenation, hydra facials, electrolysis, chemical peels, IV drips, and over 20 other treatments.
 
-They offer a range of treatments including laser hair removal, skin rejuvenation, and advanced aesthetic procedures for clients across East London and Essex.
+They serve clients from Dagenham, Barking, Ilford, Romford, and across East London.
 
-**Website:** [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk/)
-
----
-
-## The Problem
-
-Before working with us, the clinic had no professional online presence. Potential clients searching for laser hair removal in Dagenham or nearby areas weren't finding them — and those who did find a phone number had no way to learn about treatments, pricing, or book online.
-
-The challenges:
-
-- **No website** — completely invisible online
-- **No online booking** — clients had to call and hope someone was available
-- **No local SEO** — not appearing in Google Maps or local searches
-- **Missed mobile traffic** — most beauty searches happen on phones
-
-Every week without a website was another week of missed enquiries.
+**Old site:** [laserlightskinclinic.co.uk](https://laserlightskinclinic.co.uk/)
+**New site:** Coming soon (currently in preview)
 
 ---
 
-## What We Built
+## Before: What Was Wrong With the Old Site
 
-We delivered a complete professional website in **7 days**, built specifically for a laser and skin treatment clinic.
+The clinic had an existing WordPress website — but it was holding them back rather than helping them grow.
 
-### Service Pages
+### Broken Shortcodes Showing as Raw Text
 
-Clear, well-structured pages for each treatment:
+Pages displayed **[custom_breadcrumb]** as visible raw text to real visitors — a WordPress plugin had failed and nobody noticed. This looks unprofessional and confuses potential clients immediately.
 
-- Laser hair removal (face, body, intimate areas)
-- Skin rejuvenation treatments
-- Consultation booking information
-- Before & after care guidance
+### Navigation Overload
 
-Each page was written to rank for local search terms like *"laser hair removal Dagenham"* and *"skin treatments East London"*.
+The menu had two separate dropdowns — **Services** and **Other Services** — each with 10–15 items. Visitors landing on mobile had no idea where to go. Services like *Hopi Ear Candling*, *Intimate V-Whitening*, and *Mesopeels* were all at the same navigation level as the core treatments.
 
-### Online Booking Integration
+### Pricing Page Was Hard to Read
 
-Clients can now book consultations directly from the website — no phone tag, no missed calls. The booking system works 24/7, even when the clinic is closed.
+The pricing page listed treatments with sale prices inline (e.g., *"1 Session £140 £80"*) — no visual hierarchy, no clear callout for the sale price, no structure. On mobile it was nearly unreadable.
 
-### Local SEO Setup
+### Slow WordPress Build
 
-We optimised every page for East London and Essex searches:
+WordPress with multiple plugins, a shared hosting setup, and no caching meant slow page loads — and slow pages both frustrate users and hurt Google rankings.
 
-- Location-specific title tags and meta descriptions
-- Google Maps integration with the clinic's address
-- Schema markup for local business and services
-- Fast page load speeds to help rankings
+### No Clear Trust Signals
 
-### Mobile-First Design
-
-Over 70% of beauty and laser clinic searches happen on mobile. The site was designed phone-first:
-
-- Tap-to-call buttons on every page
-- Fast-loading images
-- Clean navigation that works on small screens
-- Easy-to-read treatment descriptions
+The clinic is NHS-approved and has dozens of real client reviews (Mili Begum, Saima Ali, Aisha Oma, and more). But this credibility was buried. New visitors had no reason to trust them before scrolling far down the page.
 
 ---
 
-## The Results
+## After: What We Built
 
-| Before | After |
-|--------|-------|
-| No website | Professional 6-page site |
-| No online booking | 24/7 booking system |
-| Invisible on Google | Ranking for local searches |
-| Mobile visitors bounced | Mobile-optimised experience |
-| Enquiries by chance only | Steady online lead flow |
+| Area | Before | After |
+|------|--------|-------|
+| Technology | WordPress + plugins | React (fast, modern) |
+| Navigation | 2 overcrowded dropdowns | Clean single menu, grouped treatments |
+| Shortcodes | [custom_breadcrumb] showing on pages | Fully removed, proper breadcrumbs |
+| Pricing | Plain text, confusing layout | Structured cards with clear sale prices |
+| Trust signals | Buried at the bottom | Prominent in hero and above the fold |
+| Page speed | Slow (shared WordPress hosting) | Fast (Cloudflare CDN) |
+| Mobile | Poor experience | Designed mobile-first |
+| Booking | Basic form | Streamlined appointment booking |
+
+---
+
+## Key Improvements
+
+### 1. Simplified Navigation
+
+We grouped treatments into logical categories — **Laser Treatments**, **Skin Treatments**, **Wellness** — so visitors find what they need in one click instead of scrolling through 20+ menu items.
+
+### 2. NHS-Approved Trust Badge in Hero
+
+The clinic's biggest selling point — being East London's only 5-Star NHS-approved clinic — is now in the hero section, immediately visible without scrolling.
+
+### 3. Clean Pricing Cards
+
+Treatment prices are shown in clear cards with the original price struck through and the sale price highlighted. Clients can compare sessions at a glance.
+
+### 4. Real Reviews Front and Centre
+
+The clinic has genuine 5-star reviews from real clients. We brought these above the fold with names and full review text, rather than hiding them in a separate testimonials page.
+
+### 5. Proper Local SEO
+
+Every service page targets specific local search terms — *"laser hair removal Dagenham"*, *"hydra facial Essex"*, *"skin clinic Barking"* — so the clinic appears in Google when nearby clients are searching.
 
 ---
 
@@ -2617,36 +2617,31 @@ Over 70% of beauty and laser clinic searches happen on mobile. The site was desi
 
 | Day | Activity |
 |-----|----------|
-| Day 1 | Discovery call, brief agreed, 50% deposit |
-| Day 2 | Design mockup shared for review |
-| Day 3 | Feedback incorporated, build begins |
-| Days 4–6 | Full site built, booking system connected |
-| Day 7 | Final review, domain connected, go live |
+| Day 1 | Site audit, discovery call, brief agreed |
+| Day 2 | Design mockup — new colour palette, hero, navigation structure |
+| Day 3 | Feedback incorporated, full build begins |
+| Days 4–6 | All service pages, pricing, booking, reviews sections built |
+| Day 7 | Testing, SEO, final review, ready for go-live |
 
 ---
 
-## What We Learned
+## What This Teaches Us
 
-Beauty and aesthetics clients are highly visual — the design needed to feel clean, premium, and trustworthy. We used:
+A broken or cluttered website can actually damage a business's reputation — even if the service itself is excellent. Laser Light Skin Clinic has real NHS approval, real five-star reviews, and a wide range of treatments. The old site was hiding all of that.
 
-- A minimal white and soft-tone colour palette
-- High-quality treatment imagery
-- Clear pricing presented honestly
-- Trust signals (qualifications, safety notes)
-
-Local SEO for clinics needs to be hyper-local. We targeted specific postcodes and neighbourhoods rather than generic "London" terms, which helps smaller clinics compete against big chains.
+The redesign didn't add things the clinic didn't have. It surfaced what was already there and made it easy for clients to find, trust, and book.
 
 ---
 
-## Want a Similar Website?
+## Do You Have a Site That's Holding You Back?
 
-If you run a salon, clinic, or beauty business in East London or Essex and need a professional website, we can have you live in as little as 3–7 days.
+If your existing website has broken elements, confusing navigation, or isn't converting visitors into enquiries — a rebuild could be more affordable than you think.
 
 [View our website packages from £200 →](/web-package)
 
 [Book a free consultation →](/contact)
 
-[WhatsApp us directly](https://wa.me/447356260648) — send us your current site (or tell us you don't have one) and we'll give you an honest quote.
+[WhatsApp us your current site](https://wa.me/447356260648) — we'll give you an honest audit and tell you exactly what needs fixing.
       `,
     },
   };

@@ -2,15 +2,26 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Construction, X, MessageCircle } from "lucide-react";
 
+const STORAGE_KEY = "maintenance-banner-dismissed";
+
 const MaintenanceBanner = () => {
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(
+    () => sessionStorage.getItem(STORAGE_KEY) === "true"
+  );
   const location = useLocation();
+
+  const handleDismiss = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    sessionStorage.setItem(STORAGE_KEY, "true");
+    setDismissed(true);
+  };
 
   // Hide on contact page since users are already there
   if (dismissed || location.pathname === "/contact") return null;
 
   return (
-    <div className="fixed bottom-24 right-4 z-40 flex items-start gap-2 animate-bounce-subtle">
+    <div className="fixed bottom-24 right-4 z-50 flex items-start gap-2 animate-bounce-subtle">
       <Link
         to="/contact"
         className="group flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 text-amber-950 text-sm font-semibold py-3 px-5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
@@ -24,8 +35,9 @@ const MaintenanceBanner = () => {
         <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
       </Link>
       <button
-        onClick={() => setDismissed(true)}
-        className="bg-amber-400/80 hover:bg-amber-300 text-amber-950 p-1.5 rounded-full shadow-lg transition-colors"
+        type="button"
+        onClick={handleDismiss}
+        className="relative z-50 bg-amber-400/80 hover:bg-amber-300 text-amber-950 p-1.5 rounded-full shadow-lg transition-colors"
         aria-label="Dismiss banner"
       >
         <X className="h-3.5 w-3.5" />

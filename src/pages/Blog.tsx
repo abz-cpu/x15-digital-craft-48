@@ -238,12 +238,12 @@ const Blog = () => {
     {
       id: 16,
       slug: "laser-light-skin-clinic-case-study",
-      title: "Case Study: Laser Light Skin Clinic — New Website in 7 Days",
+      title: "Case Study: Laser Light Skin Clinic — From WordPress to a Modern Website",
       category: "case-studies" as Category,
       categoryLabel: "Case Studies",
       excerpt:
-        "How we built a professional website for a Dagenham laser hair removal and skin treatment clinic in 7 days — with online booking, local SEO, and a mobile-first design.",
-      readTime: 5,
+        "Before and after breakdown of our redesign for East London's only 5-Star NHS-approved laser clinic — broken shortcodes, confusing navigation, and slow load times, all fixed.",
+      readTime: 6,
       date: "2026-04-07",
       author: "Abdul M Taher",
       image: blogEastLondonTips,

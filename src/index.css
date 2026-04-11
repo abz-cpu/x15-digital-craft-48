@@ -321,18 +321,15 @@
   }
 }
 
-/* Infinite scrolling logo marquee — two-track technique */
+/* Infinite scrolling logo marquee — single-div both-sets technique */
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+  to   { transform: translateX(-50%); }
 }
-.animate-marquee {
-  animation: marquee-scroll 35s linear infinite;
+.marquee-strip {
   will-change: transform;
-  flex-shrink: 0;
-  min-width: 100%;
 }
-.marquee-wrapper:hover .animate-marquee {
+.marquee-wrapper:hover .marquee-strip {
   animation-play-state: paused;
 }
 

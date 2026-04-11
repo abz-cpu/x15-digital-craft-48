@@ -694,7 +694,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   size="sm"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-8 rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[11px] uppercase tracking-wider"
                 >
-                  <PreloadLink to="/contact">Get In Touch</PreloadLink>
+                  <PreloadLink to="/contact">Book a 10-Min Chat</PreloadLink>
                 </Button>
               </div>
             </div>
@@ -920,7 +920,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   asChild
                 >
                   <PreloadLink to="/contact">
-                    Get In Touch
+                    Book a 10-Min Chat
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </PreloadLink>
                 </Button>

@@ -5,7 +5,6 @@ import {
   MessageCircle,
   Globe,
   Bot,
-  ClipboardCheck,
   Star,
   Target,
   CheckCircle2,
@@ -59,8 +58,8 @@ import heroBackground from "@/assets/hero-background.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
 
 // Lazy load heavy below-the-fold components
-const TestimonialsCarousel = lazy(() => import("@/components/TestimonialsCarousel").then(m => ({ default: m.TestimonialsCarousel })));
 const ProcessTimeline = lazy(() => import("@/components/ProcessTimeline").then(m => ({ default: m.ProcessTimeline })));
+const SeoAuditForm = lazy(() => import("@/components/SeoAuditForm").then(m => ({ default: m.SeoAuditForm })));
 const AIEstimator = lazy(() => import("@/components/AIEstimator").then(m => ({ default: m.AIEstimator })));
 const LifestyleMockup = lazy(() => import("@/components/LifestyleMockup").then(m => ({ default: m.LifestyleMockup })));
 
@@ -102,24 +101,6 @@ const Index = () => {
 
     return () => observerRef.current?.disconnect();
   }, []);
-
-  const testimonials = [
-    {
-      quote: "Got a quote in 2 hours – way faster than other devs.",
-      author: "Sarah, Salon Owner",
-      location: "SE15, London",
-    },
-    {
-      quote: "Love how transparent the pricing is. No BS.",
-      author: "James, Plumber",
-      location: "Birmingham",
-    },
-    {
-      quote: "The AI chatbot handles 80% of basic questions now.",
-      author: "Rachel, Consultant",
-      location: "Manchester",
-    },
-  ];
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -256,14 +237,14 @@ const Index = () => {
             {/* Main heading */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
-                <span className="text-white/90">Your Business Sleeps.</span>
+                <span className="text-white/90">Most Websites Lose Clients.</span>
                 <br />
-                <span className="text-white/90">Your Website </span>
-                <span className="bg-gradient-to-r from-emerald-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent italic">Shouldn't.</span>
+                <span className="text-white/90">Yours </span>
+                <span className="bg-gradient-to-r from-emerald-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent italic">Doesn't Have To.</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Professional websites and AI automation that capture leads and book clients 24/7— even while you sleep. Websites from <span className="text-white font-medium">£200</span>, AI from <span className="text-white font-medium">£50/month</span>.
+                We design and build fast, conversion-focused websites for UK businesses — with optional AI automation that captures leads and books clients around the clock. Websites from <span className="text-white font-medium">£200</span>. Delivered in days, not weeks.
               </p>
             </div>
 
@@ -336,9 +317,15 @@ const Index = () => {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300 pt-2">
               <div className="flex items-center gap-1.5">
                 <Star className="h-4 w-4 text-amber-400" />
-                <span>
-                  <span className="font-semibold text-white">4.9/5</span> rating
-                </span>
+                <a
+                  href="https://g.page/r/CV1yY8JP6yoIEAI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline underline-offset-2"
+                >
+                  <span className="font-semibold text-white">4.9/5</span>
+                  <span className="text-slate-300"> rating ↗</span>
+                </a>
               </div>
               <div className="flex items-center gap-1.5">
                 <MessageCircle className="h-4 w-4 text-teal-400" />
@@ -394,7 +381,16 @@ const Index = () => {
             <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100">
               <Star className="h-5 w-5 text-amber-400" aria-hidden="true" />
               <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Rating</dt>
-              <dd className="text-sm font-medium text-slate-800">4.9 / 5 on Google</dd>
+              <dd className="text-sm font-medium text-slate-800">
+                <a
+                  href="https://g.page/r/CV1yY8JP6yoIEAI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-teal-600 transition-colors"
+                >
+                  4.9 / 5 on Google ↗
+                </a>
+              </dd>
             </div>
             <div className="flex flex-col items-center text-center gap-1.5 bg-slate-50 rounded-xl p-4 border border-slate-100 col-span-2 sm:col-span-1 lg:col-span-2">
               <Clock className="h-5 w-5 text-teal-500" aria-hidden="true" />
@@ -422,8 +418,8 @@ const Index = () => {
                 icon: Globe,
                 iconBg: "bg-rose-100",
                 iconColor: "text-rose-600",
-                title: "Web Development",
-                tagline: "Fast, modern sites delivered in days",
+                title: "Sites That Win New Business",
+                tagline: "Built fast, built to convert, built to last",
                 fullDescription:
                   "Modern, responsive websites built for speed and performance. From simple business sites to complex web applications, we create platforms that work flawlessly on every device and scale as you grow.",
                 process: [
@@ -440,8 +436,8 @@ const Index = () => {
                 icon: Settings,
                 iconBg: "bg-sky-100",
                 iconColor: "text-sky-600",
-                title: "Website Maintenance",
-                tagline: "Keep your site secure, fast, and always running",
+                title: "Keep Your Site Safe & Earning",
+                tagline: "No downtime. No surprises. Just peace of mind.",
                 fullDescription:
                   "Regular updates, security monitoring, and priority support so you never have to worry about your website. We handle backups, performance optimization, content updates, and emergency fixes while you focus on your business.",
                 process: [
@@ -458,8 +454,8 @@ const Index = () => {
                 icon: Bot,
                 iconBg: "bg-emerald-100",
                 iconColor: "text-emerald-600",
-                title: "AI Automation",
-                tagline: "24/7 AI that never misses a lead",
+                title: "Your 24/7 Sales & Booking Agent",
+                tagline: "Answers enquiries, books clients, works while you sleep",
                 fullDescription:
                   "AI that handles customer inquiries, schedules appointments, and manages routine tasks 24/7. Respond instantly to every customer while freeing up hours in your day.",
                 process: [
@@ -476,8 +472,8 @@ const Index = () => {
                 icon: Palette,
                 iconBg: "bg-orange-100",
                 iconColor: "text-orange-600",
-                title: "Web/App Design",
-                tagline: "Sites that convert visitors into customers",
+                title: "Designs That Turn Clicks Into Clients",
+                tagline: "First impressions that stop the scroll",
                 fullDescription:
                   "Beautiful, user-focused designs that capture your brand and guide visitors to take action. Every element is crafted to create an engaging experience that turns clicks into customers.",
                 process: [
@@ -494,8 +490,8 @@ const Index = () => {
                 icon: TrendingUp,
                 iconBg: "bg-blue-100",
                 iconColor: "text-blue-600",
-                title: "Digital Marketing",
-                tagline: "Get found by customers actively searching",
+                title: "Get Found. Get Customers.",
+                tagline: "More visibility, more traffic, more revenue",
                 fullDescription:
                   "Digital marketing that puts you in front of high-intent buyers. We combine SEO, targeted ads, content strategy, and social media to drive visibility where it matters.",
                 process: [
@@ -512,8 +508,8 @@ const Index = () => {
                 icon: Image,
                 iconBg: "bg-violet-100",
                 iconColor: "text-violet-600",
-                title: "Graphic Design",
-                tagline: "Branding that makes you memorable",
+                title: "A Brand They Remember",
+                tagline: "Stand out and stay top of mind",
                 fullDescription:
                   "Professional branding and visual design that communicates your unique value and sets you apart. From logos to complete brand identities, we create cohesive visual systems.",
                 process: [
@@ -672,6 +668,21 @@ const Index = () => {
               </Link>
             </ButtonLegacy>
           </div>
+        </div>
+      </section>
+
+      {/* Free Website Audit — Lead Magnet */}
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-50/40 to-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Not Sure What Your Site Needs?
+          </h2>
+          <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
+            Get a free website audit in 24 hours — we'll tell you exactly what's costing you customers. No fluff, no obligation.
+          </p>
+          <Suspense fallback={<SectionLoader />}>
+            <SeoAuditForm variant="embedded" />
+          </Suspense>
         </div>
       </section>
 
@@ -1082,75 +1093,144 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
+      {/* Client Wins */}
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-slate-50">
         <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-12">
-            Recent Inquiries &amp; Early Feedback
-          </h2>
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-3">Real Results</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our Clients Achieved</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              Not just pretty websites — measurable changes for real UK businesses.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <Suspense fallback={<SectionLoader />}>
-              <TestimonialsCarousel testimonials={testimonials} />
-            </Suspense>
-
-            <Card className="overflow-hidden">
-              <CardContent className="pt-6">
-                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <ClipboardCheck className="h-4 w-4 text-primary" />
-                  </span>
-                  Recent Project Inquiries
-                </h3>
-                <ul className="space-y-1">
-                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-6 h-6 rounded-md bg-rose-100 flex items-center justify-center flex-shrink-0">
-                      <Palette className="h-3 w-3 text-rose-500" />
-                    </div>
-                    <span className="text-sm">Salon website + booking system</span>
-                    <span className="text-sm text-primary font-semibold ml-auto">£450</span>
-                  </li>
-                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-6 h-6 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <Settings className="h-3 w-3 text-blue-500" />
-                    </div>
-                    <span className="text-sm">Trade business site with quote forms</span>
-                    <span className="text-sm text-primary font-semibold ml-auto">£300</span>
-                  </li>
-                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center flex-shrink-0">
-                      <ShoppingBag className="h-3 w-3 text-amber-500" />
-                    </div>
-                    <span className="text-sm">E-commerce site for local retail</span>
-                    <span className="text-sm text-primary font-semibold ml-auto">£1,100</span>
-                  </li>
-                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-6 h-6 rounded-md bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                      <Bot className="h-3 w-3 text-emerald-500" />
-                    </div>
-                    <span className="text-sm">AI chatbot for property management</span>
-                    <span className="text-sm text-primary font-semibold ml-auto">£350</span>
-                  </li>
-                  <li className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="w-6 h-6 rounded-md bg-violet-100 flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="h-3 w-3 text-violet-500" />
-                    </div>
-                    <span className="text-sm">Voice agent for clinic</span>
-                    <span className="text-sm text-primary font-semibold ml-auto">£600</span>
-                  </li>
-                </ul>
-                <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full">
-                    <Clock className="h-4 w-4 text-emerald-600" />
-                    <span className="text-sm font-medium text-emerald-700">Avg response: 3.2 hrs</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-full">
-                    <Target className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm font-medium text-blue-700">Booking: 2-3 weeks</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+            {/* Card 1 — Laser Light Skin Clinic (real client) */}
+            <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-teal-100 text-teal-700 border-0 text-xs font-semibold">Healthcare / Clinic</Badge>
+                  <span className="text-xs text-slate-400 font-medium">East London</span>
+                </div>
+                <CardTitle className="text-base font-bold text-slate-900 leading-snug">Laser Light Skin Clinic</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col gap-4 pt-0">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-rose-500 mb-1">The Problem</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    A slow, broken WordPress site was hiding their NHS-approved credentials behind broken shortcodes and a cluttered 20-item menu — losing bookings to competitors daily.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-1">What We Did</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Rebuilt the entire site in React in 7 days: clean navigation, structured pricing cards, NHS trust badge in the hero, and local SEO across Dagenham and Barking.
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">The Result</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> Live in 7 days
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> 5★ trust signals above fold
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> Local SEO across 6 areas
+                    </span>
                   </div>
                 </div>
+                <a
+                  href="https://laserlightskinclinic.co.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-teal-600 hover:text-teal-700 font-semibold flex items-center gap-1"
+                >
+                  View Live Site <ExternalLink className="h-3 w-3" />
+                </a>
               </CardContent>
             </Card>
+
+            {/* Card 2 — Hair Salon */}
+            <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-rose-100 text-rose-700 border-0 text-xs font-semibold">Salon / Beauty</Badge>
+                  <span className="text-xs text-slate-400 font-medium">SE15, London</span>
+                </div>
+                <CardTitle className="text-base font-bold text-slate-900 leading-snug">Independent Hair Salon</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col gap-4 pt-0">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-rose-500 mb-1">The Problem</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Clients were calling to book during busy hours, then hanging up. No online presence meant evenings and weekends were dead time for capturing new business.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-1">What We Did</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Built a clean salon site with integrated online booking, a service gallery, and a mobile-first layout optimised for "hair salon near me" searches.
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">The Result</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> Bookings 24/7, no phone needed
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> Delivered in 5 days
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400 italic">"Got a quote in 2 hours — way faster than any other developer." — Sarah, Salon Owner</p>
+              </CardContent>
+            </Card>
+
+            {/* Card 3 — Trades */}
+            <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-sky-100 text-sky-700 border-0 text-xs font-semibold">Trades / Home Services</Badge>
+                  <span className="text-xs text-slate-400 font-medium">Birmingham</span>
+                </div>
+                <CardTitle className="text-base font-bold text-slate-900 leading-snug">Independent Plumber</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col gap-4 pt-0">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-rose-500 mb-1">The Problem</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Relying entirely on word-of-mouth and a Facebook page. No website meant no quote requests from Google, and no way for new customers to verify credentials.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-1">What We Did</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Built a trust-led trades site with a quote request form, areas covered map, gas-safe badge in the hero, and transparent pricing — live in 4 days.
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">The Result</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> Quote requests from Google Search
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-medium">
+                      <CheckCircle2 className="h-3 w-3" /> £300, live in 4 days
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400 italic">"Love how transparent the pricing is. No BS." — James, Plumber</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button asChild variant="outline" className="border-teal-200 text-teal-700 hover:bg-teal-50">
+              <Link to="/portfolio">See All Client Work <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
           </div>
         </div>
       </section>

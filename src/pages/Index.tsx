@@ -357,8 +357,8 @@ const Index = () => {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to left, white 0%, white 10%, transparent 100%)' }} />
 
           {/* Single animated row — both logo sets inside so translateX(-50%) loops */}
-          <div className="marquee-strip flex items-center"
-               style={{ width: 'max-content', animation: 'marquee-scroll 40s linear infinite' }}>
+          <div className="marquee-strip"
+               style={{ display: 'flex', alignItems: 'center', width: 'max-content', flexShrink: 0, gap: 0, animation: 'marquee-scroll 40s linear infinite' }}>
             {/* ---- Logo set A ---- */}
             {/* --- Logo set (duplicated below for seamless loop) --- */}
             {[

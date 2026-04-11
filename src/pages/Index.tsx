@@ -352,13 +352,13 @@ const Index = () => {
           Platforms &amp; Tools We Work With
         </p>
         {/* overflow:hidden on this div clips the animation; no flex here so width:max-content works */}
-        <div className="marquee-wrapper" style={{ overflow: 'hidden', position: 'relative' }}>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="marquee-wrapper group" style={{ overflow: 'hidden', position: 'relative' }}>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to right, white 0%, white 10%, transparent 100%)' }} />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to left, white 0%, white 10%, transparent 100%)' }} />
 
           {/* Single animated row — both logo sets inside so translateX(-50%) loops */}
-          <div style={{ display: 'flex', alignItems: 'center', width: 'max-content', animation: 'marquee-scroll 40s linear infinite' }}
-               className="marquee-strip">
+          <div className="marquee-strip flex items-center"
+               style={{ width: 'max-content', animation: 'marquee-scroll 40s linear infinite' }}>
             {/* ---- Logo set A ---- */}
             {/* --- Logo set (duplicated below for seamless loop) --- */}
             {[

@@ -358,7 +358,7 @@ const Index = () => {
 
           {/* Single animated row — both logo sets inside so translateX(-50%) loops */}
           <div className="marquee-strip"
-               style={{ display: 'flex', alignItems: 'center', width: 'max-content', flexShrink: 0, gap: 0, animation: 'marquee-scroll 40s linear infinite' }}>
+               style={{ display: 'flex', alignItems: 'center', width: 'max-content', flexShrink: 0, gap: 0, animation: 'marquee-scroll 20s linear infinite' }}>
             {/* ---- Logo set A ---- */}
             {/* --- Logo set (duplicated below for seamless loop) --- */}
             {[

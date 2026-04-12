@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   DollarSign,
@@ -68,6 +69,28 @@ const SectionLoader = () => (
   </div>
 );
 
+// ── Framer Motion variants ─────────────────────────────────────────────────
+const heroContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.15 } },
+};
+const heroItem = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+const staggerGrid = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09 } },
+};
+const cardItem = {
+  hidden: { opacity: 0, y: 24, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const parallaxOffset = useParallax({
@@ -121,7 +144,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Web Development London | Restaurant & Ecommerce Websites | L&D Digital"
+        title="L&D Digital — Web Design, AI Automation & SEO for UK Businesses"
         description="Professional website design for restaurants, ecommerce, and brands. Built in 1-14 days from £200. UK-based team. SEO-optimized, mobile-responsive websites."
         keywords="web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, web developer near me, custom website design UK, affordable website design London"
       />
@@ -192,157 +215,164 @@ const Index = () => {
       <Navigation darkHero={true} />
 
       {/* Hero */}
-      <section
-        className="relative overflow-hidden min-h-screen pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 xl:pt-40 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
-      >
-        {/* Cinematic Background Video with Ken Burns + Parallax */}
-        <div 
-          className="absolute inset-0 scale-110"
-          style={{
-            transform: `translateY(${parallaxOffset * 0.5}px) scale(1.1)`,
-            transition: "transform 0.1s ease-out",
-          }}
+      <section className="relative overflow-hidden min-h-[100svh] flex items-center pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16">
+
+        {/* ── Background video ── */}
+        <div
+          className="absolute inset-0"
+          style={{ transform: `translateY(${parallaxOffset * 0.4}px) scale(1.08)`, transition: "transform 0.1s ease-out" }}
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroBackground}
-            className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
-            aria-hidden="true"
-          >
+          <video autoPlay muted loop playsInline poster={heroBackground}
+            className="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
-        
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            {/* Badge - Glass morphism */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-sm font-medium text-white shadow-lg">
-              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
-              </span>
-              <span>
-                Accepting 3 new projects for <span className="font-semibold text-emerald-400">{currentMonth}</span>
-              </span>
-            </div>
+        {/* ── Grid mesh overlay ── */}
+        <div className="absolute inset-0 hero-grid pointer-events-none" />
 
-            {/* Main heading */}
-            <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
-                <span className="text-white/90">Most Websites Lose Clients.</span>
-                <br />
-                <span className="text-white/90">Yours </span>
-                <span className="bg-gradient-to-r from-emerald-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent italic">Doesn't Have To.</span>
-              </h1>
+        {/* ── Gradient overlay ── */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/65 to-slate-950/88" />
 
-              <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                We design and build fast, conversion-focused websites for UK businesses — with optional AI automation that captures leads and books clients around the clock. Websites from <span className="text-white font-medium">£200</span>. Delivered in days, not weeks.
-              </p>
-            </div>
+        {/* ── Animated glow orbs ── */}
+        <motion.div
+          className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.22) 0%, transparent 68%)" }}
+          animate={{ x: [0, 45, 0], y: [0, -28, 0] }}
+          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-20 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 68%)" }}
+          animate={{ x: [0, -30, 0], y: [0, 38, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-[320px] h-[320px] rounded-full pointer-events-none hidden md:block"
+          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 68%)" }}
+          animate={{ scale: [1, 1.25, 1], opacity: [0.5, 0.85, 0.5] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        />
 
-            {/* Trust line */}
-            <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-              Built for UK businesses. Delivered in <span className="font-semibold text-white">1–14 days</span>.
-              Client-Hosted & Managed. Optional <span className="font-semibold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">support</span> from{" "}
-              <span className="font-semibold text-white">£25/month</span>.
-            </p>
+        {/* ── Hero content ── */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            variants={heroContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Live availability badge */}
+            <motion.div variants={heroItem} className="mb-5 sm:mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs sm:text-sm font-medium text-white shadow-lg">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
+                Accepting 3 new projects for{" "}
+                <span className="font-semibold text-emerald-400">{currentMonth}</span>
+              </span>
+            </motion.div>
 
-            {/* Guarantee badges */}
-            <div className="flex flex-wrap gap-3 justify-center text-sm text-slate-300">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                14-Day Money-Back Guarantee
+            {/* Main heading — fluid type scale */}
+            <motion.h1
+              variants={heroItem}
+              className="font-bold tracking-tight leading-[1.08] mb-5 sm:mb-6"
+              style={{ fontSize: "clamp(1.9rem, 7.5vw, 4.5rem)" }}
+            >
+              <span className="text-white/95">Most Websites Lose Clients.</span>
+              <br />
+              <span className="text-white/95">Yours </span>
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent italic">
+                Doesn't Have To.
               </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                No Lock-in Contracts
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                UK-Based Team
-              </span>
-            </div>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p variants={heroItem} className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-5">
+              We design and build fast, conversion-focused websites for UK businesses — with optional AI
+              automation that captures leads and books clients around the clock. Websites from{" "}
+              <span className="text-white font-semibold">£200</span>. Delivered in days, not weeks.
+            </motion.p>
+
+            {/* Trust micro-line */}
+            <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-400 mb-5 sm:mb-6">
+              Built for UK businesses · Delivered in{" "}
+              <span className="font-semibold text-white">1–14 days</span> · Support from{" "}
+              <span className="font-semibold text-white">£25/mo</span>
+            </motion.p>
+
+            {/* Guarantee chips */}
+            <motion.div variants={heroItem} className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-6 sm:mb-7">
+              {["14-Day Money-Back Guarantee", "No Lock-in Contracts", "UK-Based Team"].map((t) => (
+                <span key={t} className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                  {t}
+                </span>
+              ))}
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/30 px-8"
-              >
+            <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-7 sm:mb-8">
+              <Button asChild size="lg"
+                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/30 px-8 font-semibold">
                 <Link to="/contact">
                   Book a Free Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
-              >
+              <Button asChild size="lg" variant="outline"
+                className="w-full sm:w-auto border-white/25 bg-white/10 backdrop-blur-md text-white hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8">
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
-            </div>
+            </motion.div>
 
-            {/* Service pills - Glass morphism */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Web Development
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                AI Automation
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Digital Marketing
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Branding
-              </span>
-            </div>
+            {/* Service pills */}
+            <motion.div variants={heroItem} className="flex flex-wrap justify-center gap-2 mb-6">
+              {["Web Development", "AI Automation", "Digital Marketing", "SEO", "Branding"].map((s) => (
+                <span key={s} className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 backdrop-blur-md px-3 sm:px-3.5 py-1.5 text-xs font-medium text-slate-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+                  {s}
+                </span>
+              ))}
+            </motion.div>
 
             {/* Quick stats */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300 pt-2">
+            <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-400">
               <div className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-amber-400" />
-                <a
-                  href="https://g.page/r/CV1yY8JP6yoIEAI/review"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline underline-offset-2"
-                >
-                  <span className="font-semibold text-white">4.9/5</span>
-                  <span className="text-slate-300"> rating ↗</span>
+                <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-400 shrink-0" />
+                <a href="https://g.page/r/CV1yY8JP6yoIEAI/review" target="_blank" rel="noopener noreferrer"
+                  className="hover:underline underline-offset-2">
+                  <span className="font-semibold text-white">4.9/5</span> rating ↗
                 </a>
               </div>
               <div className="flex items-center gap-1.5">
-                <MessageCircle className="h-4 w-4 text-teal-400" />
-                <span>Quote in 1–3 hours</span>
+                <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-teal-400 shrink-0" />
+                Quote in 1–3 hours
               </div>
               <div className="flex items-center gap-1.5">
-                <Globe className="h-4 w-4 text-slate-400" />
-                <span>UK-based team</span>
+                <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-500 shrink-0" />
+                UK-based team
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Bouncing scroll indicator */}
-          <div className="flex justify-center pt-12 lg:pt-16">
-            <div className="animate-bounce flex flex-col items-center text-white/60">
-              <ChevronDown className="h-6 w-6" />
-              <ChevronDown className="h-6 w-6 -mt-3" />
-            </div>
-          </div>
+          {/* Scroll chevron */}
+          <motion.div
+            className="flex justify-center pt-8 sm:pt-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.2 }}
+          >
+            <motion.div
+              animate={{ y: [0, 7, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              className="flex flex-col items-center text-white/35"
+            >
+              <ChevronDown className="h-5 w-5" />
+              <ChevronDown className="h-5 w-5 -mt-2.5" />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -479,15 +509,28 @@ const Index = () => {
 
       {/* What We Offer */}
       <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
-        <div className="max-w-7xl mx-auto fade-in-section">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-4">
-            Everything You Need to Grow Online
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Digital services built to attract customers, increase revenue, and scale your business.
-          </p>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-3">
+              Everything You Need to Grow Online
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
+              Digital services built to attract customers, increase revenue, and scale your business.
+            </p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          <motion.div
+            variants={staggerGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 lg:mb-16">
             {[
               {
                 id: "web-dev",
@@ -602,8 +645,8 @@ const Index = () => {
               const isExpanded = expandedService === service.id;
 
               return (
+                <motion.div key={service.id} variants={cardItem}>
                 <Card
-                  key={service.id}
                   className="group cursor-pointer bg-card border border-border/50 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   role="button"
@@ -733,9 +776,10 @@ const Index = () => {
                     </div>
                   </CardContent>
                 </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           <div className="text-center">
             <ButtonLegacy asChild size="lg">

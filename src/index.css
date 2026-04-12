@@ -321,6 +321,14 @@
   }
 }
 
+/* Hero grid mesh overlay */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
 /* Infinite scrolling logo marquee — single-div both-sets technique */
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }

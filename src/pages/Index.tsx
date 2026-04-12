@@ -6,6 +6,7 @@ import {
   MessageCircle,
   Globe,
   Bot,
+  Star,
   CheckCircle2,
   ArrowRight,
   ChevronDown,
@@ -343,17 +344,17 @@ const Index = () => {
             </motion.div>
 
             {/* Trust line under CTAs — honest signals only */}
-            <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-300 mb-7 sm:mb-8">
+            <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-200 mb-7 sm:mb-8">
               <a
                 href="https://g.page/r/CV1yY8JP6yoIEAI/review"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline-offset-2 hover:underline"
+                className="underline-offset-2 hover:underline inline-flex items-center gap-1"
               >
-                Google-verified business
+                <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
+                <span className="font-semibold text-white">4.9/5</span> on Google ↗
               </a>{" "}
-              · Based in Stratford, East London ·{" "}
-              <span className="font-semibold text-white">4.9/5</span> on Google
+              · Google-verified business · Stratford, East London
             </motion.p>
 
             {/* Service pills */}
@@ -367,14 +368,14 @@ const Index = () => {
             </motion.div>
 
             {/* Quick stats — complements trust line above (no duplicate rating) */}
-            <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-400">
+            <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-200">
               <div className="flex items-center gap-1.5">
                 <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-teal-400 shrink-0" />
-                Quote in 1–3 hours
+                <span>Quote in 1–3 hours</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-500 shrink-0" />
-                UK-based team
+                <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-teal-400 shrink-0" />
+                <span>UK-based team</span>
               </div>
             </motion.div>
           </motion.div>

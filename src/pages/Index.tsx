@@ -8,7 +8,7 @@ import {
   Star,
   CheckCircle2,
   ArrowRight,
-  ChevronDown,
+  
   Smartphone,
   Palette,
   TrendingUp,

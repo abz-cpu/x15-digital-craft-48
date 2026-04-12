@@ -337,7 +337,7 @@
   flex-shrink: 0;
   gap: 0;
   will-change: transform;
-  animation: marquee-scroll 40s linear infinite !important;
+  animation: marquee-scroll 20s linear infinite !important;
 }
 .marquee-wrapper:hover .marquee-strip {
   animation-play-state: paused !important;

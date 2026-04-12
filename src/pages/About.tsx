@@ -47,9 +47,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us - Fast, Transparent Web Development & AI | L&D Digital"
-        description="Learn about L&D Digital's mission: affordable, transparent web development & AI automation for UK businesses. No hidden fees, fast turnaround, direct communication."
-        keywords="about L&D Digital, web development agency UK, AI automation company London, transparent pricing"
+        title="About L&D Digital | Stratford, East London Web & AI Studio"
+        description="L&D Digital is a Stratford, East London web design and AI automation studio founded by a cybersecurity-focused Computer Science student. Transparent pricing, fast turnaround, UK-wide."
+        keywords="about L&D Digital, web development agency East London, AI automation company Stratford, cybersecurity web developer UK, transparent web design pricing"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/about"
       />
       <ScrollProgressBar />
       <Navigation />

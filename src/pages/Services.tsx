@@ -67,8 +67,9 @@ const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="Our Services | Web Development & AI Automation UK | L&D Digital"
-        description="Professional websites, AI chatbots, digital marketing, and ongoing support for UK businesses. Clear pricing, fast delivery, no jargon."
+        title="Services | Web, SEO & AI Automation | L&D Digital London"
+        description="Websites from £299, local SEO, AI chatbots, and digital marketing for UK businesses. Built from Stratford, East London with transparent pricing and fast delivery."
+        keywords="web development services London, AI automation UK, local SEO Stratford, digital marketing East London, L&D Digital services"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services"
       />
 
@@ -99,7 +100,7 @@ const Services = () => {
               </p>
 
               <p className="text-xs md:text-sm text-emerald-200/90 mb-8">
-                Currently booking new projects <span className="font-semibold">2–3 weeks in advance</span>.
+                We take on a limited number of projects each month to maintain quality.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

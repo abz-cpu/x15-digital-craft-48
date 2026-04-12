@@ -35,8 +35,8 @@ const MobileFloatingCTA = forwardRef<HTMLDivElement>(function MobileFloatingCTA(
           Ready to start your project?
         </span>
         <Button asChild size="sm" className="bg-primary hover:bg-primary/90 flex-shrink-0 min-h-[44px] px-4">
-          <Link to="/quick-start">
-            Get Quote <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+          <Link to="/contact">
+            Get a Free Quote <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
           </Link>
         </Button>
       </div>

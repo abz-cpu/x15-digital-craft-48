@@ -165,9 +165,10 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Pricing — Websites, AI & IT Support | L&D Digital"
-        description="Clear, honest pricing for web design, AI chatbots, IT support, and SEO. Websites from £200 one-off. AI from £50/month. No hidden fees. 14-day money-back guarantee."
-        keywords="web design pricing UK, website cost London, AI chatbot price, IT support small business cost, affordable web design East London"
+        title="Pricing | Websites, AI & SEO | L&D Digital"
+        description="Transparent pricing from L&D Digital (Stratford, East London): websites from £200, AI chatbots from £50/month, local SEO from £300/month. No hidden fees."
+        keywords="web design pricing UK, website cost London, AI chatbot price, SEO cost Stratford, affordable web design East London"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/pricing"
       />
       <ScrollProgressBar />
       <Navigation />

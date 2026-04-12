@@ -96,9 +96,10 @@ export default function HowItWorks() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="How It Works — Our Web Design Process | L&D Digital"
-        description="See how we build websites for East London businesses in 4 simple steps: Discovery, Design, Build, Launch. Delivered in 3–14 days with a 14-day money-back guarantee."
-        keywords="how website design works, web design process UK, website build steps, fast website delivery London"
+        title="How It Works | Our Web Design Process | L&D Digital"
+        description="Our 4-step web design process for Stratford & East London businesses: Discovery, Design, Build, Launch. Delivered in 3–14 days with a 14-day money-back guarantee."
+        keywords="how website design works, web design process UK, website build steps Stratford, fast website delivery East London"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/how-it-works"
       />
       <ScrollProgressBar />
       <Navigation />

@@ -37,10 +37,10 @@ const WebDesignAgencyLondon = () => {
   return (
     <>
       <SEO
-        title="Web Design Agency London | Professional Website Design from £200"
-        description="Award-winning web design agency in London. Custom websites, ecommerce stores & brand sites from £200. Fast 1-14 day delivery. UK-based team."
-        canonicalUrl="/web-design-agency-london"
-        keywords="web design agency London, web design London, website design London, best web design agency London, web design agency UK"
+        title="Web Design Agency London | Websites from £200 | L&D Digital"
+        description="L&D Digital is a Stratford, East London web design agency building fast, conversion-focused websites and ecommerce stores from £200. 1–14 day delivery, UK-based team."
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/web-design-agency-london"
+        keywords="web design agency London, web design East London, web design Stratford, website design London, best web design agency London, web design agency UK"
       />
       <FAQSchema faqs={faqs} pageId="web-design-agency-london" />
       

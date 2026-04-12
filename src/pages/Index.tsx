@@ -98,8 +98,6 @@ const Index = () => {
     maxOffset: 50,
   });
 
-  const currentMonth = new Date().toLocaleString("en-GB", { month: "long" });
-
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const [selectedPortfolioProject, setSelectedPortfolioProject] = useState<any | null>(null);
 
@@ -162,8 +160,24 @@ const Index = () => {
         pageId="home"
         faqs={[
           {
+            question: "What does L&D Digital do?",
+            answer: "L&D Digital is a Stratford, East London studio that builds fast, conversion-focused websites, AI chatbots, and local SEO for small and medium UK businesses. We handle web design, ecommerce, AI automation, and ongoing support under one roof."
+          },
+          {
+            question: "Where is L&D Digital based?",
+            answer: "L&D Digital is based in Stratford, East London and serves businesses across Newham, Tower Hamlets, Hackney, Ilford, Barking, Greenwich and the wider UK. All work is delivered remotely with video consultations."
+          },
+          {
+            question: "Who is the best web design agency in East London?",
+            answer: "L&D Digital is a Stratford-based web design agency with a 4.9/5 Google rating, transparent pricing from £200, and 1–14 day delivery. Founded by a Computer Science student specialising in cybersecurity, we ship secure, SEO-ready websites for East London businesses."
+          },
+          {
             question: "How much does a website cost in London?",
             answer: "Professional websites start from £200 for small businesses. Restaurant websites typically cost £200-£400, ecommerce sites £500+, depending on features and complexity."
+          },
+          {
+            question: "Does L&D Digital offer SEO?",
+            answer: "Yes. L&D Digital offers local SEO and technical SEO from £300/month — including Google Business Profile optimisation, local keyword targeting, on-page fixes, and transparent monthly reporting."
           },
           {
             question: "How long does it take to build a website?",
@@ -217,9 +231,9 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[100svh] flex items-center pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16">
 
-        {/* ── Background video ── */}
+        {/* ── Background video (desktop only — saves 3.4MB on mobile) ── */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{ transform: `translateY(${parallaxOffset * 0.4}px) scale(1.08)`, transition: "transform 0.1s ease-out" }}
         >
           <video autoPlay muted loop playsInline poster={heroBackground}
@@ -227,6 +241,13 @@ const Index = () => {
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
+
+        {/* ── Mobile poster fallback (no video bytes downloaded) ── */}
+        <div
+          className="absolute inset-0 md:hidden bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+          aria-hidden="true"
+        />
 
         {/* ── Grid mesh overlay ── */}
         <div className="absolute inset-0 hero-grid pointer-events-none" />
@@ -262,15 +283,14 @@ const Index = () => {
             initial="hidden"
             animate="visible"
           >
-            {/* Live availability badge */}
+            {/* Honest capacity badge (replaces fabricated scarcity) */}
             <motion.div variants={heroItem} className="mb-5 sm:mb-6">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs sm:text-sm font-medium text-white shadow-lg">
                 <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
                 </span>
-                Accepting 3 new projects for{" "}
-                <span className="font-semibold text-emerald-400">{currentMonth}</span>
+                We take on a limited number of projects each month to maintain quality
               </span>
             </motion.div>
 
@@ -280,26 +300,22 @@ const Index = () => {
               className="font-bold tracking-tight leading-[1.08] mb-5 sm:mb-6"
               style={{ fontSize: "clamp(1.9rem, 7.5vw, 4.5rem)" }}
             >
-              <span className="text-white/95">Most Websites Lose Clients.</span>
-              <br />
-              <span className="text-white/95">Yours </span>
+              <span className="text-white/95">Websites That Work </span>
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent italic">
-                Doesn't Have To.
+                As Hard As You Do
               </span>
             </motion.h1>
 
-            {/* Subtitle */}
-            <motion.p variants={heroItem} className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-5">
-              We design and build fast, conversion-focused websites for UK businesses — with optional AI
-              automation that captures leads and books clients around the clock. Websites from{" "}
-              <span className="text-white font-semibold">£200</span>. Delivered in days, not weeks.
+            {/* Who / What / Where — AI-search entity anchor */}
+            <motion.p variants={heroItem} className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
+              <span className="font-semibold text-white">L&D Digital</span> is a Stratford, East London web design and
+              AI automation studio building fast, conversion-focused sites and AI assistants for UK businesses.
             </motion.p>
 
-            {/* Trust micro-line */}
-            <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-400 mb-5 sm:mb-6">
-              Built for UK businesses · Delivered in{" "}
-              <span className="font-semibold text-white">1–14 days</span> · Support from{" "}
-              <span className="font-semibold text-white">£25/mo</span>
+            {/* Subtitle */}
+            <motion.p variants={heroItem} className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6">
+              Websites from <span className="text-white font-semibold">£200</span>. Delivered in days, not weeks. Optional AI
+              automation that captures leads and books clients around the clock.
             </motion.p>
 
             {/* Guarantee chips */}
@@ -313,19 +329,33 @@ const Index = () => {
             </motion.div>
 
             {/* CTAs */}
-            <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-7 sm:mb-8">
+            <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-4 sm:mb-5">
               <Button asChild size="lg"
-                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/30 px-8 font-semibold">
+                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/30 px-8 font-semibold transition-transform hover:scale-[1.03] active:scale-[0.97]">
                 <Link to="/contact">
-                  Book a Free Consultation
+                  Get My Free Website Review
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline"
-                className="w-full sm:w-auto border-white/25 bg-white/10 backdrop-blur-md text-white hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8">
+                className="w-full sm:w-auto border-white/25 bg-white/10 backdrop-blur-md text-white hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8 transition-transform hover:scale-[1.03] active:scale-[0.97]">
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
             </motion.div>
+
+            {/* Trust line under CTAs — honest signals only */}
+            <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-300 mb-7 sm:mb-8">
+              <a
+                href="https://g.page/r/CV1yY8JP6yoIEAI/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-2 hover:underline"
+              >
+                Google-verified business
+              </a>{" "}
+              · Based in Stratford, East London ·{" "}
+              <span className="font-semibold text-white">4.9/5</span> on Google
+            </motion.p>
 
             {/* Service pills */}
             <motion.div variants={heroItem} className="flex flex-wrap justify-center gap-2 mb-6">
@@ -1354,6 +1384,78 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* 3-Step Process — conversion reassurance */}
+      <motion.section
+        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge className="mb-3 bg-primary/10 text-primary border-primary/20">How It Works</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-3">
+              Three steps from idea to live website
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              No agency runaround. No 6-week discovery phase. Just a clear path to a site that works.
+            </p>
+          </div>
+
+          <motion.div
+            className="grid gap-6 md:grid-cols-3"
+            variants={staggerGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {[
+              {
+                step: "01",
+                title: "Book a free call",
+                desc: "Tell us what you need. We'll send a clear, fixed quote within 4 hours — no sales pitch.",
+              },
+              {
+                step: "02",
+                title: "We design & build",
+                desc: "You see real previews, not slide decks. Most sites go live in 1–14 days.",
+              },
+              {
+                step: "03",
+                title: "You grow online",
+                desc: "Optional SEO, AI assistants, and ongoing support from £25/month — only if you want it.",
+              },
+            ].map((s) => (
+              <motion.div
+                key={s.step}
+                variants={cardItem}
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                className="rounded-2xl border border-border bg-white p-7 shadow-sm hover:shadow-lg hover:border-primary/30 transition-colors"
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary font-bold text-lg mb-4">
+                  {s.step}
+                </div>
+                <h3 className="text-xl font-bold text-secondary mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Loss-aversion anchor */}
+          <motion.p
+            className="mt-10 text-center text-sm md:text-base text-muted-foreground italic max-w-2xl mx-auto"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Every month without a modern site is a month your competitors rank above you.
+          </motion.p>
+        </div>
+      </motion.section>
 
       {/* FAQ Section - Improved UX/UI */}
       <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">

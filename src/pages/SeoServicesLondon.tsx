@@ -37,10 +37,10 @@ const SeoServicesLondon = () => {
   return (
     <>
       <SEO
-        title="SEO Services London | Professional SEO Agency from £300/month"
-        description="Results-driven SEO agency in London. Technical SEO, local SEO, link building & content strategy from £300/month. UK-based team. Real results."
-        canonicalUrl="/seo-services-london"
-        keywords="SEO services London, SEO agency London, professional SEO London, best SEO agency London, local SEO London"
+        title="SEO Services London | From £300/month | L&D Digital"
+        description="Local and technical SEO from £300/month. L&D Digital is a Stratford, East London SEO agency helping UK businesses rank on Google and win local searches."
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/seo-services-london"
+        keywords="SEO services London, SEO agency East London, local SEO Stratford, SEO agency UK, Google Maps ranking London"
       />
       <FAQSchema faqs={faqs} pageId="seo-services-london" />
       

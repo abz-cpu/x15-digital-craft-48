@@ -661,7 +661,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   <PreloadLink
                     key={link.path}
                     to={link.path}
-                    className={`text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 hover:bg-primary/10 ${getNavTextClass()} ${
+                    className={`nav-link-underline text-[12px] font-semibold uppercase tracking-[0.15em] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg whitespace-nowrap focus:ring-primary py-2 px-3 hover:bg-primary/10 ${getNavTextClass()} ${
                       location.pathname === link.path ? "text-primary" : ""
                     }`}
                   >
@@ -692,7 +692,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                 <Button
                   asChild
                   size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-8 rounded-md shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[11px] uppercase tracking-wider"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 h-8 rounded-md shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.04] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 font-semibold text-[11px] uppercase tracking-wider"
                 >
                   <PreloadLink to="/contact">Book a 10-Min Chat</PreloadLink>
                 </Button>

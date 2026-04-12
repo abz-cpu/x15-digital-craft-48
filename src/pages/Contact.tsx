@@ -356,9 +356,10 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <ConfettiEffect trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
       <SEO
-        title="Contact Us - Get Your Free Quote | L&D Digital"
-        description="Contact L&D Digital for a free quote on web development or AI automation. Fast response times, WhatsApp support, based in London UK. Email, phone, or form contact."
-        keywords="contact web developer UK, get free quote website, AI automation consultation, web development London"
+        title="Contact L&D Digital | Free Quote · Stratford, East London"
+        description="Get a free quote on web design, SEO, or AI automation from L&D Digital — a Stratford, East London studio serving UK businesses. Reply within 4 hours."
+        keywords="contact web developer London, free website quote UK, AI automation consultation, web design Stratford East London"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/contact"
       />
       <ScrollProgressBar />
       <Navigation />

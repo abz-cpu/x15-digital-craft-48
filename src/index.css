@@ -375,6 +375,28 @@
     box-shadow 200ms ease-out;
 }
 
+/* ===== NAV LINK UNDERLINE HOVER ===== */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 2px;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 240ms ease-out;
+  border-radius: 2px;
+}
+.nav-link-underline:hover::after,
+.nav-link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
 /* ===== HERO MICRO-INTERACTIONS ===== */
 
 /* Badge container */

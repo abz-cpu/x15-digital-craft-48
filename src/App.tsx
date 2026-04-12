@@ -14,6 +14,7 @@ import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { WebSiteSchema } from "@/components/WebSiteSchema";
 import { ProfessionalServiceSchema } from "@/components/ProfessionalServiceSchema";
+import { ServiceAreaSchema } from "@/components/ServiceAreaSchema";
 import ScrollToTop from "@/components/ScrollToTop";
 
 // Lazy load route components
@@ -156,6 +157,7 @@ const App = () => (
           <OrganizationSchema />
           <WebSiteSchema />
           <ProfessionalServiceSchema />
+          <ServiceAreaSchema />
           <CookieConsent />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>

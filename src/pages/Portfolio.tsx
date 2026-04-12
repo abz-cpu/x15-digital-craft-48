@@ -274,9 +274,10 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Portfolio - Our Recent Work | L&D Digital"
-        description="View our portfolio of web development projects, e-commerce sites, web apps, and AI automation implementations. Real examples of websites and AI solutions for UK businesses."
-        keywords="web development portfolio, AI automation examples, website showcase, web design examples UK"
+        title="Portfolio | Real Web, Ecommerce & AI Projects | L&D Digital"
+        description="See real L&D Digital projects: ecommerce stores, service websites, AI chatbots, and local SEO wins for UK businesses. Built from Stratford, East London."
+        keywords="web development portfolio UK, web design examples London, ecommerce case studies, AI chatbot portfolio, L&D Digital work"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/portfolio"
       />
       <ScrollProgressBar />
       <Navigation />

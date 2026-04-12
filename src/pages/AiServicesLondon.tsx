@@ -37,10 +37,10 @@ const AiServicesLondon = () => {
   return (
     <>
       <SEO
-        title="AI Services London | Chatbots & Automation from £200"
-        description="Professional AI services in London. AI chatbots, voice assistants, workflow automation from £200. UK-based team. Fast deployment."
-        canonicalUrl="/ai-services-london"
-        keywords="AI services London, AI chatbot London, AI automation UK, best AI services London, AI chatbot development UK"
+        title="AI Services London | Chatbots & Automation | L&D Digital"
+        description="AI chatbots, voice assistants, and workflow automation from £200. L&D Digital is a Stratford, East London AI studio shipping fast, production-ready assistants for UK businesses."
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-services-london"
+        keywords="AI services London, AI chatbot East London, AI automation UK, AI assistant Stratford, AI chatbot development UK"
       />
       <FAQSchema faqs={faqs} pageId="ai-services-london" />
       

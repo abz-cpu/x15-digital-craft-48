@@ -352,7 +352,7 @@ const Index = () => {
           Platforms &amp; Tools We Work With
         </p>
         {/* overflow:hidden on this div clips the animation; no flex here so width:max-content works */}
-        <div className="marquee-wrapper group" style={{ overflow: 'hidden', position: 'relative' }}>
+        <div className="marquee-wrapper group">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to right, white 0%, white 10%, transparent 100%)' }} />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to left, white 0%, white 10%, transparent 100%)' }} />
 

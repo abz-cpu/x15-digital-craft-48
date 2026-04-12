@@ -193,7 +193,7 @@ const Index = () => {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden min-h-screen pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 xl:pt-40 xl:pb-28 px-4 sm:px-6 lg:px-8 xl:px-10"
+        className="relative overflow-hidden min-h-screen flex items-center px-4 sm:px-6 lg:px-8 xl:px-10"
       >
         {/* Cinematic Background Video with Ken Burns + Parallax */}
         <div 
@@ -217,64 +217,40 @@ const Index = () => {
         </div>
         
         {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/75 to-slate-900/95" />
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            {/* Badge - Glass morphism */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-sm font-medium text-white shadow-lg">
-              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-sm font-medium text-white/90 shadow-lg">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               </span>
-              <span>
-                Accepting 3 new projects for <span className="font-semibold text-emerald-400">{currentMonth}</span>
-              </span>
+              Accepting 3 new projects for <span className="font-semibold text-emerald-400">{currentMonth}</span>
             </div>
 
-            {/* Main heading */}
-            <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
-                <span className="text-white/90">Most Websites Lose Clients.</span>
-                <br />
-                <span className="text-white/90">Yours </span>
-                <span className="bg-gradient-to-r from-emerald-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent italic">Doesn't Have To.</span>
-              </h1>
+            {/* Main heading — large, clear, breathing room */}
+            <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+              <span className="block text-white">Most Websites</span>
+              <span className="block text-white">Lose Clients.</span>
+              <span className="block mt-2 md:mt-3">
+                <span className="text-white">Yours </span>
+                <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent italic">Doesn't Have To.</span>
+              </span>
+            </h1>
 
-              <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                We design and build fast, conversion-focused websites for UK businesses — with optional AI automation that captures leads and books clients around the clock. Websites from <span className="text-white font-medium">£200</span>. Delivered in days, not weeks.
-              </p>
-            </div>
-
-            {/* Trust line */}
-            <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-              Built for UK businesses. Delivered in <span className="font-semibold text-white">1–14 days</span>.
-              Client-Hosted & Managed. Optional <span className="font-semibold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">support</span> from{" "}
-              <span className="font-semibold text-white">£25/month</span>.
+            {/* Subtitle — tighter, scannable */}
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-xl mx-auto leading-relaxed">
+              Fast, conversion-focused websites for UK businesses — with optional AI automation that captures leads around the clock. From <span className="text-white font-semibold">£200</span>. Delivered in days.
             </p>
 
-            {/* Guarantee badges */}
-            <div className="flex flex-wrap gap-3 justify-center text-sm text-slate-300">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                14-Day Money-Back Guarantee
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                No Lock-in Contracts
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                UK-Based Team
-              </span>
-            </div>
-
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/30 px-8"
+                className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white shadow-lg shadow-teal-500/25 px-8 text-base"
               >
                 <Link to="/contact">
                   Book a Free Consultation
@@ -285,62 +261,42 @@ const Index = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-amber-500 hover:text-white hover:border-amber-500 px-8"
+                className="w-full sm:w-auto border-white/25 bg-white/5 backdrop-blur-md text-white hover:bg-white/15 px-8 text-base"
               >
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
             </div>
 
-            {/* Service pills - Glass morphism */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Web Development
+            {/* Trust signals — compact row */}
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-400 pt-2">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400/80 shrink-0" />
+                14-Day Money-Back
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                AI Automation
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400/80 shrink-0" />
+                No Lock-in Contracts
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Digital Marketing
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400/80 shrink-0" />
+                UK-Based Team
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-sm text-slate-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                Branding
-              </span>
-            </div>
-
-            {/* Quick stats */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300 pt-2">
-              <div className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-amber-400" />
-                <a
-                  href="https://g.page/r/CV1yY8JP6yoIEAI/review"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline underline-offset-2"
-                >
-                  <span className="font-semibold text-white">4.9/5</span>
-                  <span className="text-slate-300"> rating ↗</span>
+              <span className="flex items-center gap-1.5">
+                <Star className="h-3.5 w-3.5 text-amber-400/80 shrink-0" />
+                <a href="https://g.page/r/CV1yY8JP6yoIEAI/review" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  4.9/5 rating ↗
                 </a>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <MessageCircle className="h-4 w-4 text-teal-400" />
-                <span>Quote in 1–3 hours</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Globe className="h-4 w-4 text-slate-400" />
-                <span>UK-based team</span>
-              </div>
+              </span>
             </div>
-          </div>
 
-          {/* Bouncing scroll indicator */}
-          <div className="flex justify-center pt-12 lg:pt-16">
-            <div className="animate-bounce flex flex-col items-center text-white/60">
-              <ChevronDown className="h-6 w-6" />
-              <ChevronDown className="h-6 w-6 -mt-3" />
+            {/* Service pills — understated */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+              {["Web Development", "AI Automation", "Digital Marketing", "Branding"].map((service) => (
+                <span key={service} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-slate-300 tracking-wide">
+                  <span className="h-1 w-1 rounded-full bg-teal-400" />
+                  {service}
+                </span>
+              ))}
             </div>
           </div>
         </div>

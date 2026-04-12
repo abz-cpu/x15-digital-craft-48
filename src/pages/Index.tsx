@@ -6,7 +6,6 @@ import {
   MessageCircle,
   Globe,
   Bot,
-  Star,
   CheckCircle2,
   ArrowRight,
   ChevronDown,
@@ -284,24 +283,24 @@ const Index = () => {
             animate="visible"
           >
             {/* Honest capacity badge (replaces fabricated scarcity) */}
-            <motion.div variants={heroItem} className="mb-5 sm:mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs sm:text-sm font-medium text-white shadow-lg">
-                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+            <motion.div variants={heroItem} className="mb-5 sm:mb-6 flex justify-center px-2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-[11px] sm:text-xs md:text-sm font-medium text-white shadow-lg max-w-full text-center leading-snug">
+                <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0" aria-hidden="true">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-400" />
                 </span>
-                We take on a limited number of projects each month to maintain quality
+                <span>Limited projects each month — to maintain quality</span>
               </span>
             </motion.div>
 
             {/* Main heading — fluid type scale */}
             <motion.h1
               variants={heroItem}
-              className="font-bold tracking-tight leading-[1.08] mb-5 sm:mb-6"
-              style={{ fontSize: "clamp(1.9rem, 7.5vw, 4.5rem)" }}
+              className="font-bold tracking-tight leading-[1.1] mb-5 sm:mb-6 px-2"
+              style={{ fontSize: "clamp(1.75rem, 6.8vw, 4.25rem)" }}
             >
-              <span className="text-white/95">Websites That Work </span>
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent italic">
+              <span className="block text-white/95">Websites That Work</span>
+              <span className="inline-block bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent italic pr-3 pb-1">
                 As Hard As You Do
               </span>
             </motion.h1>
@@ -367,15 +366,8 @@ const Index = () => {
               ))}
             </motion.div>
 
-            {/* Quick stats */}
+            {/* Quick stats — complements trust line above (no duplicate rating) */}
             <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-400">
-              <div className="flex items-center gap-1.5">
-                <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-400 shrink-0" />
-                <a href="https://g.page/r/CV1yY8JP6yoIEAI/review" target="_blank" rel="noopener noreferrer"
-                  className="hover:underline underline-offset-2">
-                  <span className="font-semibold text-white">4.9/5</span> rating ↗
-                </a>
-              </div>
               <div className="flex items-center gap-1.5">
                 <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-teal-400 shrink-0" />
                 Quote in 1–3 hours

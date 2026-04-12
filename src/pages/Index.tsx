@@ -347,18 +347,17 @@ const Index = () => {
       </section>
 
       {/* Platform & Tools Marquee — inline styles bypass Tailwind flex conflicts */}
-      <section aria-label="Platforms and tools we work with" className="bg-white border-y border-slate-100 py-5">
+      <section aria-label="Platforms and tools we work with" className="bg-white border-y border-slate-100 py-5 relative z-20">
         <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest text-center mb-4">
           Platforms &amp; Tools We Work With
         </p>
         {/* overflow:hidden on this div clips the animation; no flex here so width:max-content works */}
-        <div className="marquee-wrapper group" style={{ overflow: 'hidden', position: 'relative' }}>
+        <div className="marquee-wrapper group">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to right, white 0%, white 10%, transparent 100%)' }} />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to left, white 0%, white 10%, transparent 100%)' }} />
 
           {/* Single animated row — both logo sets inside so translateX(-50%) loops */}
-          <div className="marquee-strip"
-               style={{ display: 'flex', alignItems: 'center', width: 'max-content', flexShrink: 0, gap: 0, animation: 'marquee-scroll 20s linear infinite' }}>
+          <div className="marquee-strip">
             {/* ---- Logo set A ---- */}
             {/* --- Logo set (duplicated below for seamless loop) --- */}
             {[

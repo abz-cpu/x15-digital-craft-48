@@ -347,7 +347,7 @@ const Index = () => {
       </section>
 
       {/* Platform & Tools Marquee — inline styles bypass Tailwind flex conflicts */}
-      <section aria-label="Platforms and tools we work with" className="bg-white border-y border-slate-100 py-5">
+      <section aria-label="Platforms and tools we work with" className="bg-white border-y border-slate-100 py-5 relative z-20">
         <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest text-center mb-4">
           Platforms &amp; Tools We Work With
         </p>

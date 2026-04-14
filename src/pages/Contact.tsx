@@ -108,6 +108,59 @@ const Contact = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  // LocalBusiness schema for Contact page (AI/local SEO visibility)
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://digital.luminousanddeliver.co.uk/contact#localbusiness",
+      name: "L&D Digital",
+      legalName: "Luminous & Deliver Ltd",
+      image: "https://digital.luminousanddeliver.co.uk/og-image.jpg",
+      url: "https://digital.luminousanddeliver.co.uk",
+      telephone: "+447356260648",
+      email: "contact@luminousanddeliver.co.uk",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "7 Corsican Square",
+        addressLocality: "Stratford",
+        addressRegion: "London",
+        postalCode: "E15 1NN",
+        addressCountry: "GB",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 51.521838,
+        longitude: -0.018013,
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+      areaServed: [
+        { "@type": "City", name: "London" },
+        { "@type": "AdministrativeArea", name: "East London" },
+        { "@type": "Country", name: "United Kingdom" },
+      ],
+      priceRange: "££",
+    };
+
+    const id = "contact-localbusiness-schema";
+    const existing = document.getElementById(id);
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = id;
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    };
+  }, []);
+
   // Close modals with Escape key
   useEffect(() => {
     if (!isInquiryOpen && !isCalendlyOpen && !isQuizOpen) return;
@@ -356,9 +409,9 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <ConfettiEffect trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
       <SEO
-        title="Contact L&D Digital | Free Quote · Stratford, East London"
-        description="Get a free quote on web design, SEO, or AI automation from L&D Digital — a Stratford, East London studio serving UK businesses. Reply within 4 hours."
-        keywords="contact web developer London, free website quote UK, AI automation consultation, web design Stratford East London"
+        title="Contact L&D Digital | Free Website Review · Stratford, East London"
+        description="Get a free website review and quote from L&D Digital, a Stratford-based web, SEO and AI studio serving London and the UK. We reply within 3 hours during UK business hours."
+        keywords="contact web developer London, free website quote UK, AI automation consultation, web design Stratford East London, SEO audit London"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/contact"
       />
       <ScrollProgressBar />
@@ -371,15 +424,31 @@ const Contact = () => {
       <section className="pt-36 pb-12 md:pt-44 md:pb-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-5 leading-tight">
-            Let's Talk About Your Project
+            Contact L&amp;D Digital — Stratford, East London
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-3 leading-relaxed">
-            Tell us what you need and we'll send you a clear quote — no sales pitch.
+            Tell us what you need and we'll send you a clear quote — no sales pitch, no commitment.
           </p>
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-4 w-4 text-primary" />
-            We reply within 4 hours (usually faster)
+            We reply within 3 hours during UK business hours (Mon–Fri, 9am–6pm)
           </p>
+
+          {/* NAP (Name · Address · Phone) block — structured for local SEO + AI extraction */}
+          <div className="mt-6 inline-block text-left text-sm text-muted-foreground bg-muted/40 border border-border rounded-lg px-5 py-4">
+            <p className="font-semibold text-secondary mb-1">L&amp;D Digital — a division of Luminous &amp; Deliver Ltd</p>
+            <p>7 Corsican Square, Stratford, London E15 1NN, United Kingdom</p>
+            <p>
+              Phone:{" "}
+              <a href="tel:+447356260648" className="text-primary hover:underline">
+                +44 7356 260648
+              </a>{" "}
+              · Email:{" "}
+              <a href="mailto:contact@luminousanddeliver.co.uk" className="text-primary hover:underline">
+                contact@luminousanddeliver.co.uk
+              </a>
+            </p>
+          </div>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Button

@@ -306,7 +306,7 @@ const Shopify = () => {
                 ))}
               </div>
               <p className="text-center text-muted-foreground mt-6">
-                Not sure which is right for you? <Link to="/contact" className="text-green-600 hover:underline">Book a free consultation</Link> and we'll advise based on your specific needs.
+                Not sure which is right for you? <Link to="/contact" className="text-green-600 hover:underline">Get a free website review</Link> and we'll advise based on your specific needs.
               </p>
             </div>
           </Container>

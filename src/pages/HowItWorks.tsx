@@ -201,12 +201,12 @@ export default function HowItWorks() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
           <p className="text-lg opacity-90 mb-8">
-            Book a free consultation today. We'll have your site live within the week.
+            Get a free website review today. We'll have your site live within the week.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary">
               <Link to="/contact">
-                Book a Free Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                Get My Free Website Review <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10">

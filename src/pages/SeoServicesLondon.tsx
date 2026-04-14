@@ -11,25 +11,25 @@ import { ArrowRight, Search, TrendingUp, BarChart3, MapPin, BookOpen, Layers, Gl
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { 
-    question: "How much should SEO cost in the UK?", 
-    answer: "SEO costs in the UK typically range from £300-£2,000+ per month. At L&D Digital, our SEO services start from £300/month with transparent reporting. Learn more on our dedicated SEO page." 
+  {
+    question: "How much does SEO cost in London in 2026?",
+    answer: "London SEO typically costs £300–£2,000 per month in 2026, depending on scope and competitiveness. L&D Digital offers local SEO from £300 per month covering Google Business Profile optimisation, citations, on-page fixes, and transparent monthly reporting. All plans are no lock-in."
   },
-  { 
-    question: "What is the 80/20 rule for SEO?", 
-    answer: "The 80/20 rule means 80% of your results come from 20% of your efforts. Focus on high-intent keywords, fixing technical issues, and building quality backlinks. We apply this principle to deliver maximum value for London businesses." 
+  {
+    question: "How long does SEO take to show results in London?",
+    answer: "Most London small businesses see first-page results for long-tail and local keywords within 3–6 months. Competitive London keywords take 6–12 months. L&D Digital reports progress monthly so you can see ranking improvements transparently as they happen."
   },
-  { 
-    question: "Is it worth paying someone for SEO?", 
-    answer: "Yes, professional SEO typically delivers 5-10x ROI through increased organic traffic and higher-quality leads. The key is choosing an agency with transparent reporting and a proven track record in your industry." 
+  {
+    question: "What is the difference between SEO and paid ads?",
+    answer: "SEO earns free, compounding organic traffic by ranking on Google. Paid ads buy instant traffic that stops when you pause the budget. For most London SMEs, SEO delivers better long-term ROI after month 3 — paid ads suit short-term launches and seasonal campaigns."
   },
-  { 
-    question: "How much does it cost to hire someone to do SEO?", 
-    answer: "Hiring an SEO professional costs £300-£5,000+ per month depending on experience and scope. We offer affordable packages from £300/month, ideal for small businesses and startups in London." 
+  {
+    question: "How do I get my business on the first page of Google in London?",
+    answer: "Rank in London by optimising your Google Business Profile, publishing location-specific content, building a fast mobile-first website with local keywords, earning citations from UK directories, and collecting genuine Google reviews. L&D Digital handles all of this from £300 per month."
   },
-  { 
-    question: "How long does SEO take to show results?", 
-    answer: "SEO typically takes 3-6 months to show significant results, though some improvements can be seen within weeks. Local SEO for areas like Stratford, Ilford, and East London often delivers faster results." 
+  {
+    question: "Is it worth hiring an SEO agency for a small business?",
+    answer: "Yes, when the agency is transparent and fairly priced. A good SEO agency pays for itself through qualified organic leads you would otherwise buy with ads. L&D Digital is aimed at small London businesses — no lock-in, no minimum term, and monthly reports you actually understand."
   }
 ];
 
@@ -37,8 +37,8 @@ const SeoServicesLondon = () => {
   return (
     <>
       <SEO
-        title="SEO Services London | From £300/month | L&D Digital"
-        description="Local and technical SEO from £300/month. L&D Digital is a Stratford, East London SEO agency helping UK businesses rank on Google and win local searches."
+        title="SEO Services London 2026 | Local SEO from £300/month | L&D Digital"
+        description="Stratford-based SEO agency offering local and technical SEO for London small businesses from £300 per month. Transparent monthly reporting, no lock-in, free SEO audit."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/seo-services-london"
         keywords="SEO services London, SEO agency East London, local SEO Stratford, SEO agency UK, Google Maps ranking London"
       />
@@ -52,11 +52,11 @@ const SeoServicesLondon = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
           <Container className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Professional SEO Services London</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">SEO Services London: Get Found on Google</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're L&D Digital, a London-based SEO agency helping businesses rank higher and convert visitors into customers.</p>
+              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Stratford, East London · Local SEO from £300/mo</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">SEO Services in London — Rank Higher on Google</h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based SEO agency helping London small businesses rank in local search and win more qualified enquiries — from £300/month with transparent reporting.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg"><Link to="/contact">Get Free SEO Audit <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
+                <Button asChild size="lg"><Link to="/contact">Get My Free SEO Audit <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/services/seo">Our SEO Services</Link></Button>
               </div>
             </div>
@@ -67,13 +67,13 @@ const SeoServicesLondon = () => {
           <Container>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { stat: "75%", label: "Of users never scroll past page 1" },
-                { stat: "5-10x", label: "Average ROI from SEO" },
-                { stat: "53%", label: "Of traffic comes from organic search" },
-                { stat: "3-6", label: "Months to see significant results" }
+                { title: "Local SEO", label: "Google Business Profile + map pack optimisation" },
+                { title: "Technical SEO", label: "Site speed, crawlability, structured data, Core Web Vitals" },
+                { title: "On-Page SEO", label: "Titles, meta, headings, content, internal linking" },
+                { title: "Monthly Reporting", label: "Transparent rank tracking, no lock-in, cancel any time" }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{item.stat}</p>
+                  <p className="text-xl md:text-2xl font-bold text-primary mb-2">{item.title}</p>
                   <p className="text-sm text-muted-foreground">{item.label}</p>
                 </div>
               ))}

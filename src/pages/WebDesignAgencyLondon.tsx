@@ -11,25 +11,25 @@ import { ArrowRight, CheckCircle, Globe, Clock, PoundSterling, Award, BookOpen, 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { 
-    question: "How much does a website design cost in London?", 
-    answer: "Website design costs in London typically range from £200 to £15,000+ depending on complexity. At L&D Digital, we offer professional websites from £200 with transparent pricing. View our complete pricing on our web packages page." 
+  {
+    question: "How much does web design cost in London in 2026?",
+    answer: "Web design in London typically costs £500–£5,000 in 2026. L&D Digital offers custom-coded websites starting from £200 for a 3-page brochure site, £800 for a 6-page business site, and £1,800 for ecommerce — all with fixed upfront pricing and no hidden fees."
   },
-  { 
-    question: "What is the best web design agency in London?", 
-    answer: "The best web design agency depends on your needs, budget, and project requirements. L&D Digital specialises in fast-turnaround, affordable websites for small businesses across London and East London areas including Stratford, Ilford, and Hackney." 
+  {
+    question: "Who is the best web design agency in East London?",
+    answer: "L&D Digital is a Stratford-based web design agency serving Newham, Tower Hamlets, Hackney, Ilford, Barking and the wider East London area. Founded by a Computer Science graduate specialising in cybersecurity, we build secure, mobile-first, SEO-ready websites from £200 with 1–14 day delivery."
   },
-  { 
-    question: "How long does it take to build a website in London?", 
-    answer: "Template-based sites can be ready in 1-3 days, custom websites typically take 7-14 days. We specialise in rapid delivery, completing most projects within 1-14 days." 
+  {
+    question: "How long does it take to build a website in London?",
+    answer: "A simple 3–5 page business website takes 3–7 working days. A custom ecommerce build takes 10–14 days. L&D Digital delivers most London projects within 1–14 days from brief sign-off — significantly faster than the typical agency timeline of 4–8 weeks."
   },
-  { 
-    question: "Do I need a London-based web designer?", 
-    answer: "While not essential, working with a London-based designer offers advantages: face-to-face meetings, understanding of the local market, and same timezone communication. We're based in East London and serve the entire capital." 
+  {
+    question: "Do I need a London-based web designer for my business?",
+    answer: "Not strictly, but a London-based designer offers local market knowledge, same timezone communication and easier face-to-face meetings. L&D Digital is based in Stratford and works with clients across all 32 London boroughs, plus remote clients UK-wide."
   },
-  { 
-    question: "What should I look for in a web design agency UK?", 
-    answer: "Key factors include: a strong portfolio, transparent pricing, clear communication, mobile-responsive designs, SEO knowledge, post-launch support, and positive testimonials. Read our comprehensive FAQ for more guidance." 
+  {
+    question: "What should I look for in a London web design agency?",
+    answer: "Prioritise a strong portfolio, transparent fixed pricing, a UK-based team, mobile-first responsive builds, SEO optimisation, post-launch support, and a clear written brief. L&D Digital publishes pricing openly and offers a 14-day money-back guarantee on all web builds."
   }
 ];
 
@@ -37,8 +37,8 @@ const WebDesignAgencyLondon = () => {
   return (
     <>
       <SEO
-        title="Web Design Agency London | Websites from £200 | L&D Digital"
-        description="L&D Digital is a Stratford, East London web design agency building fast, conversion-focused websites and ecommerce stores from £200. 1–14 day delivery, UK-based team."
+        title="Web Design Agency London 2026 | Custom Sites from £200 | L&D Digital"
+        description="Stratford-based web design agency building custom, mobile-first websites and ecommerce stores for London businesses. Fixed pricing from £200, 1–14 day delivery, free website review."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/web-design-agency-london"
         keywords="web design agency London, web design East London, web design Stratford, website design London, best web design agency London, web design agency UK"
       />
@@ -53,11 +53,11 @@ const WebDesignAgencyLondon = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
           <Container className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">London's Trusted Web Design Agency</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Web Design Agency London: Professional Websites from £200</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're L&D Digital, a London-based web design agency creating stunning, high-converting websites for businesses across the UK.</p>
+              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Stratford, East London · Google-verified</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Web Design Agency in London — Custom Websites from £200</h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based web design studio building fast, mobile-first websites for small businesses across London. Fixed pricing, 1–14 day delivery.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg"><Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
+                <Button asChild size="lg"><Link to="/contact">Get My Free Website Review <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/portfolio">View Our Work</Link></Button>
               </div>
             </div>

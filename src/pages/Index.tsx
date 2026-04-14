@@ -41,6 +41,7 @@ import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
 import { FAQSchema } from "@/components/FAQSchema";
+import { HomepageFAQSchema, homepageFaqs } from "@/components/schemas/HomepageFAQSchema";
 import { VideoSchema } from "@/components/VideoSchema";
 import { SiteNavigationSchema } from "@/components/SiteNavigationSchema";
 import TrustBadgesBar from "@/components/TrustBadgesBar";
@@ -142,9 +143,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Web Design East London | AI & SEO | L&D Digital"
-        description="Stratford-based web design, AI automation & SEO for London SMEs. Sites from £200, delivered in 1–14 days. 4.9★ Google-verified. Free review."
+        title="Web Design East London | SEO & AI Automation | L&D Digital"
+        description="Stratford-based web design, AI automation & SEO for London SMEs. Custom sites from £200, delivered in 1–14 days. Google-verified. Free website review."
         keywords="web design East London, web designer Stratford London, SEO agency East London, AI automation London, affordable web design London, L and D Digital, Luminous and Deliver"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="3" />
       <VideoSchema
@@ -156,75 +158,7 @@ const Index = () => {
         duration="PT30S"
       />
       <SiteNavigationSchema />
-      <FAQSchema
-        pageId="home"
-        faqs={[
-          {
-            question: "What does L&D Digital do?",
-            answer: "L&D Digital is a Stratford, East London studio that builds fast, conversion-focused websites, AI chatbots, and local SEO for small and medium UK businesses. We handle web design, ecommerce, AI automation, and ongoing support under one roof."
-          },
-          {
-            question: "Where is L&D Digital based?",
-            answer: "L&D Digital is based in Stratford, East London and serves businesses across Newham, Tower Hamlets, Hackney, Ilford, Barking, Greenwich and the wider UK. All work is delivered remotely with video consultations."
-          },
-          {
-            question: "Who is the best web design agency in East London?",
-            answer: "L&D Digital is a Stratford-based web design agency with a 4.9/5 Google rating, transparent pricing from £200, and 1–14 day delivery. Founded by a Computer Science student specialising in cybersecurity, we ship secure, SEO-ready websites for East London businesses."
-          },
-          {
-            question: "How much does a website cost in London?",
-            answer: "Professional websites start from £200 for small businesses. Restaurant websites typically cost £200-£400, ecommerce sites £500+, depending on features and complexity."
-          },
-          {
-            question: "Does L&D Digital offer SEO?",
-            answer: "Yes. L&D Digital offers local SEO and technical SEO from £300/month — including Google Business Profile optimisation, local keyword targeting, on-page fixes, and transparent monthly reporting."
-          },
-          {
-            question: "How long does it take to build a website?",
-            answer: "Most websites are completed in 1-14 days. Simple 5-page sites take 3-7 days, while ecommerce stores typically take 10-14 days."
-          },
-          {
-            question: "Do you design restaurant websites?",
-            answer: "Yes, we specialize in restaurant websites with online menus, table booking systems, delivery integration, and mobile optimization for customers searching 'restaurants near me'."
-          },
-          {
-            question: "Can you build ecommerce websites?",
-            answer: "Yes, we build full-featured online stores with product catalogs, payment processing (Stripe, PayPal), shopping carts, inventory management, and secure checkout."
-          },
-          {
-            question: "Are your websites mobile-friendly?",
-            answer: "Yes, all websites are fully mobile-responsive and optimized for phones, tablets, and desktops. We test on all major devices."
-          },
-          {
-            question: "Do you provide website hosting?",
-            answer: "Yes, we provide and manage hosting for your website. This includes security updates, backups, and technical maintenance. Your domain name and content remain yours—we handle the technical side so you can focus on your business."
-          },
-          {
-            question: "Will my website be SEO-optimized?",
-            answer: "Yes, all websites are built with SEO best practices including proper meta tags, fast loading speeds, mobile optimization, clean URLs, and semantic HTML."
-          },
-          {
-            question: "Can I update my website myself?",
-            answer: "Yes, we build websites with user-friendly content management systems (CMS) so you can easily update content, add blog posts, and make changes without coding."
-          },
-          {
-            question: "Do you work with businesses outside London?",
-            answer: "Yes, we serve clients across the UK and internationally. All work is done remotely with video consultations."
-          },
-          {
-            question: "What if I already have a website?",
-            answer: "We can redesign existing websites, migrate content, improve SEO, or add new features like booking systems or ecommerce functionality."
-          },
-          {
-            question: "Do you offer ongoing website maintenance?",
-            answer: "Yes, we offer optional monthly maintenance packages including updates, security monitoring, backups, and content updates from £25/month."
-          },
-          {
-            question: "What technologies do you use?",
-            answer: "We use modern web technologies including React, TypeScript, Tailwind CSS for fast, secure, and scalable websites."
-          }
-        ]}
-      />
+      <HomepageFAQSchema />
       <ScrollProgressBar />
       <Navigation darkHero={true} />
 
@@ -294,28 +228,28 @@ const Index = () => {
               </span>
             </motion.div>
 
-            {/* Main heading — fluid type scale */}
+            {/* Main heading — fluid type scale, keyword-led H1 */}
             <motion.h1
               variants={heroItem}
               className="font-bold tracking-tight leading-[1.1] mb-5 sm:mb-6 px-2"
               style={{ fontSize: "clamp(1.75rem, 6.8vw, 4.25rem)" }}
             >
-              <span className="block text-white/95">Websites That Work</span>
+              <span className="block text-white/95">Web Design, AI &amp; SEO</span>
               <span className="inline-block bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent italic pr-3 pb-1">
-                As Hard As You Do
+                for East London Businesses
               </span>
             </motion.h1>
 
             {/* Who / What / Where — AI-search entity anchor */}
             <motion.p variants={heroItem} className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
-              <span className="font-semibold text-white">L&D Digital</span> is a Stratford, East London web design and
-              AI automation studio building fast, conversion-focused sites and AI assistants for UK businesses.
+              <span className="font-semibold text-white">L&amp;D Digital</span> is a Stratford, East London web design,
+              SEO and AI automation studio building fast, conversion-focused sites for UK businesses.
             </motion.p>
 
             {/* Subtitle */}
             <motion.p variants={heroItem} className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6">
-              Websites from <span className="text-white font-semibold">£200</span>. Delivered in days, not weeks. Optional AI
-              automation that captures leads and books clients around the clock.
+              We build fast, mobile-first websites, AI automations and local SEO campaigns for small businesses across
+              East London — from <span className="text-white font-semibold">£200</span>, delivered in 1–14 days.
             </motion.p>
 
             {/* Guarantee chips */}
@@ -879,7 +813,7 @@ const Index = () => {
                   {/* Bottom section - pushed to bottom */}
                   <div className="mt-auto pt-6 text-center w-full">
                     <p className="text-xl font-semibold text-[#0F766E] mb-2">Starting at £200</p>
-                    <p className="text-sm text-[#6B7280] mb-6">Currently booking 2–3 weeks ahead</p>
+                    <p className="text-sm text-[#6B7280] mb-6">We limit our monthly project intake to maintain delivery quality.</p>
 
                     <Button asChild className="w-full bg-[#0F766E] hover:bg-[#F59E0B] text-white py-6 text-base">
                       <Link to="/web-package">
@@ -1466,145 +1400,25 @@ const Index = () => {
             </p>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ Accordion — synced with FAQPage schema */}
           <Accordion type="single" collapsible className="w-full space-y-3">
-            <AccordionItem
-              value="item-1"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5 group">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <Clock className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>How long does a typical project take?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                <strong className="text-[#1F2937]">Entry/Starter websites:</strong> 5–10 days
-                <br />
-                <strong className="text-[#1F2937]">Business packages:</strong> 14–21 days
-                <br />
-                <strong className="text-[#1F2937]">AI automation setup:</strong> 3–10 days
-                <br />
-                <br />
-                Most projects delivered in under 3 weeks.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-2"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <DollarSign className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>Why is your pricing lower than typical agencies?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                We use modern tools and run lean—no expensive offices or account managers. You get agency-quality work
-                without the overhead.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-3"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <ShieldCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>What do I actually own?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                You own your domain, hosting account, and all content. The codebase remains with L&D Digital to ensure
-                quality, security, and maintainability.
-                <br />
-                <br />
-                If you host the site yourself, it stays online as long as your hosting is active. If you're on our
-                hosting or maintenance plan, the site remains live while your plan is active.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-4"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <Settings className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>What if I need changes after launch?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                Unlimited revisions until you're satisfied. After launch, minor tweaks are free for 30 days. We also
-                offer maintenance plans if you prefer we handle ongoing updates.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-5"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <Globe className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>Can you work with my existing website?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                In most cases, yes. We can either improve your current site or build a new one and migrate content. AI
-                automation works with almost any existing platform.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-6"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <Image className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>Can I see examples of your work?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                Absolutely. Check the Portfolio page for recent projects and capability examples. We're building our
-                first 10 client projects and documenting everything transparently.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-7"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <Receipt className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>Do you offer payment plans?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                Yes. Typically 50% upfront and 50% on delivery for projects over £500. AI automation is billed monthly,
-                so there's no large upfront investment.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="item-8"
-              className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
-            >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
-                  <BadgeCheck className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
-                  <span>What happens if I'm not happy with the result?</span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
-                We offer unlimited revisions until you're satisfied. If we genuinely can't deliver what you need, we
-                provide a full refund. Your success is our reputation.
-              </AccordionContent>
-            </AccordionItem>
+            {homepageFaqs.map((faq, idx) => (
+              <AccordionItem
+                key={faq.question}
+                value={`faq-${idx}`}
+                className="border border-[#E5E7EB] rounded-xl px-5 py-1 bg-white shadow-sm hover:shadow-md hover:border-[#0F766E]/30 transition-all duration-200"
+              >
+                <AccordionTrigger className="text-left hover:no-underline py-5">
+                  <span className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-[#1F2937] pr-4">
+                    <MessageSquare className="h-5 w-5 text-[#0F766E] mt-0.5 flex-shrink-0" />
+                    <span>{faq.question}</span>
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="text-[14px] md:text-[15px] text-[#6B7280] pb-5 pl-8 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
 
           {/* CTA Card - Compact */}

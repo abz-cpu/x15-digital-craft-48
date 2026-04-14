@@ -114,7 +114,7 @@ const WebPackage = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full bg-emerald-500/90 backdrop-blur-sm border border-emerald-400/50 shadow-lg shadow-emerald-500/25">
                 <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span className="text-xs font-bold tracking-wide uppercase text-white">
-                  Currently booking 2–3 weeks out
+                  Limited monthly intake — quality over volume
                 </span>
               </div>
 

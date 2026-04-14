@@ -267,9 +267,10 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Blog - Web Development & AI Automation Insights | L&D Digital"
-        description="Read expert insights on web development, offshore risks, cheap website pitfalls, and AI automation. Practical guides and case studies for UK small businesses."
+        title="Blog | Web Design, SEO & AI Guides for London SMEs | L&D Digital"
+        description="Honest guides on web design costs, SEO, and AI automation for London small businesses. Written by L&D Digital's Stratford-based team. No jargon."
         keywords="web development blog UK, offshore development risks, cheap websites, AI automation guides, website tips, UK small business"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/blog"
       />
       <ScrollProgressBar />
       <Navigation />

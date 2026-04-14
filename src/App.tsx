@@ -64,6 +64,15 @@ const WebDesignAgencyLondon = lazy(() => import("./pages/WebDesignAgencyLondon")
 const SeoServicesLondon = lazy(() => import("./pages/SeoServicesLondon"));
 const AiServicesLondon = lazy(() => import("./pages/AiServicesLondon"));
 
+// Author page
+const AuthorAbdul = lazy(() => import("./pages/AuthorAbdul"));
+
+// Voice FAQ page
+const VoiceFaq = lazy(() => import("./pages/VoiceFaq"));
+
+// Company page
+const Company = lazy(() => import("./pages/Company"));
+
 // Area pages
 const AreasIndex = lazy(() => import("./pages/areas/index"));
 const Stratford = lazy(() => import("./pages/areas/Stratford"));
@@ -209,6 +218,12 @@ const App = () => (
               <Route path="/web-design-agency-london" element={<WebDesignAgencyLondon />} />
               <Route path="/seo-services-london" element={<SeoServicesLondon />} />
               <Route path="/ai-services-london" element={<AiServicesLondon />} />
+              {/* Author page */}
+              <Route path="/author/abdul-m-taher" element={<AuthorAbdul />} />
+              {/* Voice FAQ page */}
+              <Route path="/voice-faq" element={<VoiceFaq />} />
+              {/* Company page */}
+              <Route path="/company" element={<Company />} />
               {/* Area pages */}
               <Route path="/areas" element={<AreasIndex />} />
               <Route path="/areas/stratford" element={<Stratford />} />

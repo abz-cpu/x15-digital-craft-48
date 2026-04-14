@@ -47,9 +47,9 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About L&D Digital | Stratford, East London Web & AI Studio"
-        description="L&D Digital is a Stratford, East London web design and AI automation studio founded by a cybersecurity-focused Computer Science student. Transparent pricing, fast turnaround, UK-wide."
-        keywords="about L&D Digital, web development agency East London, AI automation company Stratford, cybersecurity web developer UK, transparent web design pricing"
+        title="About L&D Digital | Founder-Led Web, SEO & AI Studio in Stratford"
+        description="L&D Digital is a Stratford-based web design, SEO and AI automation studio founded by Abdul M Taher, a Computer Science graduate specialising in cybersecurity. Part of Luminous & Deliver Ltd. Transparent pricing, 1–14 day delivery, UK-wide."
+        keywords="about L&D Digital, web development agency East London, AI automation company Stratford, cybersecurity web developer UK, Abdul M Taher founder, Luminous and Deliver Ltd"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/about"
       />
       <ScrollProgressBar />
@@ -186,6 +186,67 @@ const About = () => {
         </div>
       </section>
 
+
+      {/* Founder Credentials & Company Info */}
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background border-y border-border">
+        <div className="max-w-5xl mx-auto fade-in-section">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-4">Founder Credentials</h2>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>
+                    <strong className="text-secondary">Abdul M Taher</strong> — Founder &amp; Lead Developer
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>BSc Computer Science graduate, specialising in cybersecurity</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Level 3 Domestic Energy Assessor qualified (L&amp;D Assured division)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Based in Stratford, East London — serving UK clients remotely</span>
+                </li>
+              </ul>
+              <Button asChild variant="outline" className="mt-6">
+                <a href="/author/abdul-m-taher">
+                  Read founder bio <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-4">Company Information</h2>
+              <ul className="space-y-3 text-muted-foreground">
+                <li>
+                  <strong className="text-secondary">Trading name:</strong> L&amp;D Digital
+                </li>
+                <li>
+                  <strong className="text-secondary">Legal entity:</strong> Luminous &amp; Deliver Ltd
+                </li>
+                <li>
+                  <strong className="text-secondary">Companies House number:</strong>{" "}
+                  <span className="text-amber-600">[PLACEHOLDER — owner to add]</span>
+                </li>
+                <li>
+                  <strong className="text-secondary">Registered office:</strong>{" "}
+                  <span className="text-amber-600">[PLACEHOLDER — owner to add]</span>
+                </li>
+                <li>
+                  <strong className="text-secondary">Trading address:</strong> Stratford, East London, UK
+                </li>
+                <li>
+                  <strong className="text-secondary">Divisions:</strong> L&amp;D Digital · L&amp;D Builds · L&amp;D Assured
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Our Story Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">

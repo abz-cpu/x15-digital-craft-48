@@ -321,7 +321,7 @@ const AiPackage = () => {
 
               {/* Urgency micro-copy */}
               <p className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-sm text-amber-200 font-semibold">
-                ⏱️ Currently booking AI setups 1–2 weeks in advance
+                ⏱️ Limited monthly intake — quality over volume
               </p>
 
               {/* Hero CTAs */}

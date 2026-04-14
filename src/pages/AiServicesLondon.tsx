@@ -11,25 +11,25 @@ import { ArrowRight, CheckCircle, Bot, MessageSquare, Phone, Workflow, BookOpen,
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { 
-    question: "What are AI services for business?", 
-    answer: "AI services include chatbots for customer support, automated lead qualification, voice assistants, and workflow automation. At L&D Digital, we specialise in practical AI implementations for UK businesses across London and East London." 
+  {
+    question: "What is AI automation for small businesses in 2026?",
+    answer: "AI automation uses chatbots, email responders, voice assistants and booking agents to handle repetitive tasks 24/7. For a London SME this typically means replying to enquiries overnight, qualifying leads automatically, and booking appointments without human input. L&D Digital builds AI automation from £50 per month."
   },
-  { 
-    question: "How much does an AI chatbot cost in the UK?", 
-    answer: "AI chatbot costs range from £200 for simple FAQ bots to £5,000+ for custom solutions. Our AI packages start from £200, with monthly maintenance from £50/month. View our AI packages for detailed pricing." 
+  {
+    question: "How much does an AI chatbot cost in the UK?",
+    answer: "UK AI chatbot costs range from £200 for a simple FAQ bot to £5,000+ for custom enterprise integrations. L&D Digital offers AI chatbots from £200 one-off build plus £50/month for hosting, model usage and maintenance. No lock-in contracts."
   },
-  { 
-    question: "Can AI really help small businesses?", 
-    answer: "Absolutely. AI helps small businesses compete by automating repetitive tasks, providing 24/7 customer support, and qualifying leads automatically. It's particularly effective for B2B and B2C companies looking to scale." 
+  {
+    question: "How long does it take to build an AI chatbot?",
+    answer: "A simple FAQ chatbot takes 3–5 working days. A more complex assistant with CRM integration, booking, or WhatsApp hand-off typically takes 1–2 weeks. L&D Digital ships most AI automations within 14 days from brief sign-off."
   },
-  { 
-    question: "What is L&D Digital?", 
-    answer: "L&D Digital is a London-based digital agency specialising in web development, AI automation, and digital marketing. We're based in Stratford, East London, and serve businesses across the UK. Learn more about us." 
+  {
+    question: "Can AI really help a small business in London?",
+    answer: "Yes — especially for small teams that lose leads outside working hours. A well-trained assistant answers common questions instantly, qualifies leads, and passes hot enquiries to a human. It lets small London businesses compete with much larger teams without hiring."
   },
-  { 
-    question: "How long does it take to build an AI chatbot?", 
-    answer: "Simple AI chatbots can be built in 3-5 days. More complex chatbots with custom integrations typically take 1-2 weeks. Contact us to discuss your requirements." 
+  {
+    question: "What AI platforms and models do you use?",
+    answer: "L&D Digital builds on industry-standard LLM APIs (including OpenAI and Anthropic), with integrations into WhatsApp, web chat, email, CRMs and booking systems. We choose the right model per project based on accuracy, latency, privacy and cost."
   }
 ];
 
@@ -37,8 +37,8 @@ const AiServicesLondon = () => {
   return (
     <>
       <SEO
-        title="AI Services London | Chatbots & Automation | L&D Digital"
-        description="AI chatbots, voice assistants, and workflow automation from £200. L&D Digital is a Stratford, East London AI studio shipping fast, production-ready assistants for UK businesses."
+        title="AI Automation London 2026 | Chatbots & Assistants from £200 | L&D Digital"
+        description="Stratford-based AI automation studio building chatbots, voice assistants, WhatsApp bots and workflow automation for London small businesses. From £200 build, £50/month, 1–14 day delivery."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-services-london"
         keywords="AI services London, AI chatbot East London, AI automation UK, AI assistant Stratford, AI chatbot development UK"
       />
@@ -52,11 +52,11 @@ const AiServicesLondon = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-primary/10" />
           <Container className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">AI-Powered Business Solutions</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">AI Services London: Chatbots & Automation from £200</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">We're L&D Digital, a London-based AI agency helping businesses automate customer service and qualify leads.</p>
+              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Stratford, East London · AI from £200</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">AI Automation in London — Chatbots &amp; Assistants from £200</h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based AI automation studio building chatbots, voice assistants and workflow automation that answer, qualify and book — 24/7 — for London small businesses.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg"><Link to="/contact">Get Free AI Consultation <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
+                <Button asChild size="lg"><Link to="/contact">Get My Free AI Consultation <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/ai-package">View AI Packages</Link></Button>
               </div>
             </div>
@@ -89,13 +89,13 @@ const AiServicesLondon = () => {
           <Container>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Your Business Needs AI in 2026</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Why London Businesses Are Adopting AI in 2026</h2>
                 <ul className="space-y-4">
                   {[
-                    "Never miss a lead - AI responds instantly, 24/7",
-                    "Reduce customer service costs by up to 60%",
-                    "Qualify leads automatically before they reach your sales team",
-                    "Free up staff time for high-value work"
+                    "Never miss an enquiry — AI responds instantly, 24/7",
+                    "Handle repetitive questions automatically so staff focus on high-value work",
+                    "Qualify leads before they reach your sales inbox",
+                    "Integrate with WhatsApp, web chat, email and booking systems"
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />

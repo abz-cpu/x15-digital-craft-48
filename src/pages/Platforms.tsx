@@ -199,7 +199,7 @@ const Platforms = () => (
               Not Sure Which Platform Is Right for You?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Book a free consultation and we'll recommend the best technology for your goals and budget.
+              Get a free website review and we'll recommend the best technology for your goals and budget.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-background text-primary hover:bg-muted">

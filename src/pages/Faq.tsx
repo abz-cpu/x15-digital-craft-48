@@ -412,11 +412,20 @@ const faqCategories: FAQCategory[] = [
   },
 ];
 
-// Flatten all FAQs for schema (convert ReactNode to string for schema)
-const allFaqsForSchema = faqCategories.flatMap((category) => 
-  category.faqs.map(faq => ({
+const extractText = (node: React.ReactNode): string => {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (typeof node === "object" && "props" in (node as { props?: unknown })) {
+    return extractText((node as { props: { children?: React.ReactNode } }).props.children);
+  }
+  return "";
+};
+
+const allFaqsForSchema = faqCategories.flatMap((category) =>
+  category.faqs.map((faq) => ({
     question: faq.question,
-    answer: typeof faq.answer === 'string' ? faq.answer : faq.question // Fallback for schema
+    answer: extractText(faq.answer).replace(/\s+/g, " ").trim(),
   }))
 );
 

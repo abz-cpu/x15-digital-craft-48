@@ -18,6 +18,7 @@ import FloatingActionMenu from "@/components/FloatingActionMenu";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { SEO } from "@/components/SEO";
 import { ArticleSchema } from "@/components/ArticleSchema";
+import { AuthorBio } from "@/components/AuthorBio";
 
 import { HowToSchema } from "@/components/HowToSchema";
 
@@ -2720,15 +2721,17 @@ If your existing website has broken elements, confusing navigation, or isn't con
         keywords={currentPost.seoKeywords}
         ogType="article"
         ogImage={currentPost.ogImage}
+        canonicalUrl={`https://digital.luminousanddeliver.co.uk/blog/${slug}`}
+        author={currentPost.author}
       />
       <ArticleSchema
         title={currentPost.title}
         description={currentPost.seoDescription}
-        url={`https://luminousanddeliver.co.uk/blog/${slug}`}
+        url={`https://digital.luminousanddeliver.co.uk/blog/${slug}`}
         image={
-          typeof currentPost.ogImage === "string"
+          typeof currentPost.ogImage === "string" && currentPost.ogImage.startsWith("http")
             ? currentPost.ogImage
-            : `https://luminousanddeliver.co.uk${currentPost.ogImage}`
+            : `https://digital.luminousanddeliver.co.uk${currentPost.ogImage}`
         }
         datePublished={currentPost.date}
         author={currentPost.author}
@@ -2769,9 +2772,24 @@ If your existing website has broken elements, confusing navigation, or isn't con
           <Badge className={`mb-4 ${getCategoryBadgeClass(currentPost.category)}`}>{currentPost.category}</Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{currentPost.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8 pb-8 border-b border-border">
-            <span>By {currentPost.author}</span>
+            <span>
+              By{" "}
+              <Link to="/author/abdul-m-taher" className="font-semibold text-secondary hover:text-primary hover:underline">
+                {currentPost.author}
+              </Link>
+            </span>
             <span>•</span>
             <span>
+              Published{" "}
+              {new Date(currentPost.date).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </span>
+            <span>•</span>
+            <span>
+              Updated{" "}
               {new Date(currentPost.date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "long",
@@ -2786,6 +2804,11 @@ If your existing website has broken elements, confusing navigation, or isn't con
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(currentPost.content) }}
           />
+
+          {/* Author bio — E-E-A-T signal at end of article */}
+          <div className="mt-12 pt-8 border-t border-border">
+            <AuthorBio variant="full" />
+          </div>
         </div>
       </article>
 

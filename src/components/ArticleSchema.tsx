@@ -38,10 +38,10 @@ export const ArticleSchema = ({
       author: {
         "@type": "Person",
         name: author,
-        url: "https://luminousanddeliver.co.uk/about",
+        url: "https://digital.luminousanddeliver.co.uk/author/abdul-m-taher",
       },
       publisher: {
-        "@id": "https://luminousanddeliver.co.uk/#organization",
+        "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       },
       mainEntityOfPage: {
         "@type": "WebPage",
@@ -50,7 +50,7 @@ export const ArticleSchema = ({
       ...(category && { articleSection: category }),
       inLanguage: "en-GB",
       copyrightHolder: {
-        "@id": "https://luminousanddeliver.co.uk/#organization",
+        "@id": "https://digital.luminousanddeliver.co.uk/#organization",
       },
       copyrightYear: new Date(datePublished).getFullYear(),
     };

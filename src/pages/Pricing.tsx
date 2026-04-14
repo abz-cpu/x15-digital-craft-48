@@ -351,7 +351,7 @@ export default function Pricing() {
           </p>
           <Button asChild size="lg" variant="secondary">
             <Link to="/contact">
-              Book a Free Consultation <ArrowRight className="ml-2 h-4 w-4" />
+              Get My Free Website Review <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

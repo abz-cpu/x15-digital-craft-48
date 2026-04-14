@@ -142,9 +142,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="L&D Digital — Web Design, AI Automation & SEO for UK Businesses"
-        description="Professional website design for restaurants, ecommerce, and brands. Built in 1-14 days from £200. UK-based team. SEO-optimized, mobile-responsive websites."
-        keywords="web development London, restaurant website design UK, ecommerce website developer London, professional website builder UK, small business website London, web developer near me, custom website design UK, affordable website design London"
+        title="Web Design East London | AI & SEO | L&D Digital"
+        description="Stratford-based web design, AI automation & SEO for London SMEs. Sites from £200, delivered in 1–14 days. 4.9★ Google-verified. Free review."
+        keywords="web design East London, web designer Stratford London, SEO agency East London, AI automation London, affordable web design London, L and D Digital, Luminous and Deliver"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="3" />
       <VideoSchema

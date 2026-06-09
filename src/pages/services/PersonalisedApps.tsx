@@ -167,7 +167,7 @@ const PersonalisedApps = () => {
         <BreadcrumbNav />
 
         {/* Who This Is For */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -207,7 +207,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Real-World Examples */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-5xl mx-auto">
@@ -256,7 +256,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* What You Get */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -285,7 +285,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* How It Works */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -314,7 +314,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-10">
@@ -380,7 +380,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-3xl mx-auto">
@@ -419,7 +419,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Related Services */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6 text-center">
@@ -448,7 +448,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

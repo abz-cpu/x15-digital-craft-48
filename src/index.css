@@ -329,6 +329,40 @@
   background-size: 64px 64px;
 }
 
+/* ===== PROSE OPTIMIZATION FOR MOBILE ===== */
+.prose {
+  --tw-prose-invert-body: hsl(var(--foreground));
+  --tw-prose-invert-headings: hsl(var(--secondary));
+  --tw-prose-invert-links: hsl(var(--primary));
+}
+
+.prose p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Optimize em-dash and hyphenation */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 0.875rem;
+  }
+
+  .prose p {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3 {
+    word-break: break-word;
+  }
+}
+
 /* Infinite scrolling logo marquee — single-div both-sets technique */
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }

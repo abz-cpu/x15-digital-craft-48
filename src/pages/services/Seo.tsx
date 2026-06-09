@@ -616,7 +616,7 @@ const Seo = () => {
         </section>
 
         {/* FREE SEO AUDIT SECTION */}
-        <section id="free-audit" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
+        <section id="free-audit" className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -722,7 +722,7 @@ const Seo = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Want More Enquiries From Google?</h2>

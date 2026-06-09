@@ -114,12 +114,12 @@ const BlogPost = () => {
       </div>
 
       {/* Hero Image */}
-      <div className="w-full h-64 md:h-96 bg-muted overflow-hidden">
+      <div className="w-full h-48 sm:h-64 md:h-96 bg-muted overflow-hidden">
         <img src={currentPost.ogImage} alt={currentPost.heroAlt} className="w-full h-full object-cover" />
       </div>
 
       {/* Post Content */}
-      <article className="py-16 px-4 sm:px-6 lg:px-8">
+      <article className="py-10 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto fade-in-section">
           <Badge className={`mb-4 ${getCategoryBadgeClass(currentPost.category)}`}>{currentPost.category}</Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{currentPost.title}</h1>
@@ -165,7 +165,7 @@ const BlogPost = () => {
       </article>
 
       {/* Share Section */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section className="py-6 md:py-8 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Share2 className="h-5 w-5 text-primary" />
@@ -204,7 +204,7 @@ const BlogPost = () => {
       </section>
 
       {/* Available in These Areas */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
+      <section className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-xl font-bold text-secondary mb-6 text-center">Available in These Areas</h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -240,7 +240,7 @@ const BlogPost = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-10 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
         <div className="max-w-4xl mx-auto text-center fade-in-section">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Ready to start your project?</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -259,10 +259,10 @@ const BlogPost = () => {
       </section>
 
       {/* Related Posts */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-2xl font-bold text-secondary mb-8 text-center">Related Posts</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h3 className="text-2xl font-bold text-secondary mb-6 md:mb-8 text-center">Related Posts</h3>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-8">
             {[
               ...Object.entries(blogPosts).filter(([key, post]) => key !== slug && post.category === currentPost.category),
               ...Object.entries(blogPosts).filter(([key, post]) => key !== slug && post.category !== currentPost.category),

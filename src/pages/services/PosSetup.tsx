@@ -233,7 +233,7 @@ const PosSetup = () => {
       <BreadcrumbNav />
 
       {/* Who This Serves */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -260,7 +260,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Complete System Installation */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -305,7 +305,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Industry-Specific Configuration */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -343,7 +343,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Hardware Supply & Installation */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -427,7 +427,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Monthly Support Plans */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -481,7 +481,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Optional Add-Ons */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -516,7 +516,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Transparent Pricing */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -561,7 +561,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Why L&D Digital */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -589,7 +589,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Square vs Legacy EPOS Comparison */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-destructive/10 text-destructive border-destructive/30">
@@ -693,7 +693,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Next Steps */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-12">
@@ -727,7 +727,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* FAQ Section */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -750,7 +750,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">

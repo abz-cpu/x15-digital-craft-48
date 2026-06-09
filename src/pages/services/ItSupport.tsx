@@ -104,7 +104,7 @@ const ItSupport = () => {
         <BreadcrumbNav />
 
         {/* WHO THIS IS FOR */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -133,7 +133,7 @@ const ItSupport = () => {
         </section>
 
         {/* WHAT YOU GET */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
@@ -177,7 +177,7 @@ const ItSupport = () => {
         </section>
 
         {/* WHAT'S COVERED */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -341,7 +341,7 @@ const ItSupport = () => {
         </section>
 
         {/* PRICING */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-2xl mx-auto text-center">
@@ -357,7 +357,7 @@ const ItSupport = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
@@ -380,7 +380,7 @@ const ItSupport = () => {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-3xl mx-auto text-center">

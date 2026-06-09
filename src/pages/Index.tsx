@@ -463,7 +463,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
+      <section className="legacy-section py-8 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeUp}
@@ -747,7 +747,7 @@ const Index = () => {
       </section>
 
       {/* Free Website Audit — Lead Magnet */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-50/40 to-white">
+      <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-50/40 to-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Not Sure What Your Site Needs?
@@ -1030,7 +1030,7 @@ const Index = () => {
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"
-        className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-10 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -1169,7 +1169,7 @@ const Index = () => {
       </section>
 
       {/* Client Wins */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-slate-50">
+      <section className="py-8 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-slate-50">
         <div className="max-w-7xl mx-auto fade-in-section">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-3">Real Results</p>
@@ -1312,7 +1312,7 @@ const Index = () => {
 
       {/* 3-Step Process — conversion reassurance */}
       <motion.section
-        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -1383,7 +1383,7 @@ const Index = () => {
       </motion.section>
 
       {/* FAQ Section - Improved UX/UI */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">
+      <section className="py-10 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">

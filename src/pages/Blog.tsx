@@ -319,8 +319,8 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto">
           <div key={activeCategory} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
-              <div key={post.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <Card className="hover-lift h-full">
+              <Link key={post.id} to={`/blog/${post.slug}`} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+                <Card className="hover-lift h-full cursor-pointer">
                   <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
@@ -343,14 +343,12 @@ const Blog = () => {
                         })}
                       </p>
                     </div>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link to={`/blog/${post.slug}`}>
-                        Read More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div className="text-primary font-medium flex items-center gap-2">
+                      Read More <ArrowRight className="h-4 w-4" />
+                    </div>
                   </CardContent>
                 </Card>
-              </div>
+              </Link>
             ))}
           </div>
 

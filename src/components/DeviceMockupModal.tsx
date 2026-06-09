@@ -4,21 +4,12 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Globe, Clock, Code, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LaptopMockup, PhoneMockup } from "@/components/LaptopMockup";
+import type { PortfolioProject } from "@/types/portfolio";
 
 interface DeviceMockupModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: {
-    title: string;
-    category: string;
-    type: string;
-    features: string[];
-    timeline: string;
-    tech: string;
-    image: string;
-    isLive?: boolean;
-    liveUrl?: string;
-  };
+  project: PortfolioProject;
   imageSrc: string;
 }
 

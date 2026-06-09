@@ -39,9 +39,7 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-// ============================================================================
-// Types for quiz functionality (preserved for future backend integration)
-// ============================================================================
+// Types for the service recommendation quiz
 type Goal = "website" | "automation" | "both" | "";
 type Budget = "low" | "mid" | "high" | "";
 type Urgency = "asap" | "soon" | "exploring" | "";
@@ -61,10 +59,7 @@ const Contact = () => {
   // ✅ FAQ state (requested)
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
-  // ============================================================================
-  // State preserved for future backend integration
-  // ============================================================================
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  // Modal + quiz state
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [goal, setGoal] = useState<Goal>("");
@@ -163,11 +158,10 @@ const Contact = () => {
 
   // Close modals with Escape key
   useEffect(() => {
-    if (!isInquiryOpen && !isCalendlyOpen && !isQuizOpen) return;
+    if (!isCalendlyOpen && !isQuizOpen) return;
 
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setIsInquiryOpen(false);
         setIsCalendlyOpen(false);
         setIsQuizOpen(false);
       }
@@ -175,11 +169,8 @@ const Contact = () => {
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isInquiryOpen, isCalendlyOpen, isQuizOpen]);
+  }, [isCalendlyOpen, isQuizOpen]);
 
-  // ============================================================================
-  // Handlers preserved for future backend integration
-  // ============================================================================
   const resetQuiz = () => {
     setGoal("");
     setBudget("");
@@ -399,7 +390,6 @@ const Contact = () => {
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
-      setIsInquiryOpen(false);
       setIsCalendlyOpen(false);
       setIsQuizOpen(false);
     }
@@ -1410,30 +1400,6 @@ const Contact = () => {
         </div>
       )}
 
-      {/* Inquiry Modal - preserved but currently replaced by inline form */}
-      {isInquiryOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Project inquiry form"
-          onClick={handleOverlayClick}
-        >
-          <div className="relative w-full max-w-xl rounded-2xl bg-background shadow-2xl border border-border/60 p-6">
-            <button
-              type="button"
-              onClick={() => setIsInquiryOpen(false)}
-              className="absolute top-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground"
-              aria-label="Close"
-            >
-              <X className="h-4 w-4" />
-            </button>
-            <p className="text-center text-muted-foreground">
-              Form submitted successfully. Modal preserved for backend integration.
-            </p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

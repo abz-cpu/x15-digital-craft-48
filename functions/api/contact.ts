@@ -356,7 +356,7 @@ function getInternalEmailHtml(
 
   let isUrgent = false;
   let daysUntilDeadline: number | null = null;
-  let deadlineDisplay = data.deadline?.trim() || "";
+  const deadlineDisplay = data.deadline?.trim() || "";
 
   if (deadlineDisplay) {
     try {

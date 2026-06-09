@@ -10,6 +10,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import { FAQSchema } from "@/components/FAQSchema";
+import serviceOgImage from "@/assets/blog-personalised-apps.png";
 import {
   Accordion,
   AccordionContent,
@@ -48,6 +49,7 @@ const AppDevelopment = () => {
         description="Native & hybrid mobile apps built for performance and real users. Custom iOS and Android applications for UK businesses. From concept to app store launch."
         keywords="mobile app development UK, iOS app developer, Android app developer, cross-platform app development, React Native developer, app development agency London"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/app-development"
+        ogImage={serviceOgImage}
       />
       <FAQSchema faqs={appDevFaqs} pageId="app-development" />
       <ServiceSchema

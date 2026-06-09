@@ -13,6 +13,7 @@ import restaurantImage from "@/assets/portfolio-restaurant.png";
 import salesImage from "@/assets/portfolio-sales.png";
 import { Button } from "@/components/ui/button";
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
+import type { PortfolioProject } from "@/types/portfolio";
 import { X15CaseStudyModal } from "@/components/X15CaseStudyModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +32,7 @@ type FilterType = "all" | "web" | "ecommerce" | "webapp" | "ai";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const [showX15CaseStudy, setShowX15CaseStudy] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -254,7 +255,7 @@ const Portfolio = () => {
       ],
       timeline: "7 days",
       tech: "React, Tailwind CSS, Resend",
-      image: null,
+      image: "",
       isLive: true,
       liveUrl: "https://laserlightskinclinic.co.uk/",
     },

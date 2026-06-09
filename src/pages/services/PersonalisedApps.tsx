@@ -11,6 +11,7 @@ import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import { FAQSchema } from "@/components/FAQSchema";
 import { AreasFooter } from "@/components/AreasFooter";
+import serviceOgImage from "@/assets/blog-personalised-apps.png";
 import {
   Accordion,
   AccordionContent,
@@ -112,6 +113,7 @@ const PersonalisedApps = () => {
         description="Bespoke business apps for UK SMEs. Order tracking, invoice management, financial dashboards, and CRM tools built to your workflow. From £500."
         keywords="personalised business apps UK, order tracker app small business, invoice tracker freelancer, custom CRM UK, financial dashboard small business, bespoke software development London"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/personalised-apps"
+        ogImage={serviceOgImage}
       />
       <ServiceSchema
         name="Personalised Apps & Custom Business Tools"

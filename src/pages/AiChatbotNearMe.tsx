@@ -7,6 +7,7 @@ import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, CheckCircle, ArrowRight, Bot, MessageSquare, Mic, Zap } from "lucide-react";
+import serviceOgImage from "@/assets/portfolio-chatbot.png";
 
 const faqs = [
   {
@@ -39,6 +40,7 @@ const AiChatbotNearMe = () => {
         description="Looking for AI chatbots or AI receptionist services in London? L&D Digital offers AI automation from £50/month. 24/7 customer support, lead qualification, appointment booking."
         keywords="AI chatbot for business UK, AI receptionist london, AI automation near me, chatbot development london, AI customer service UK, conversational AI"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-chatbot-near-me"
+        ogImage={serviceOgImage}
       />
       <FAQSchema faqs={faqs} pageId="ai-chatbot-near-me" />
 

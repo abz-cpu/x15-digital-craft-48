@@ -20,6 +20,7 @@ import blogOffshoreRisks from "@/assets/blog-offshore-risks.png";
 import portfolioPlumbing from "@/assets/portfolio-plumbing.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
 import x15pcbuilders from "@/assets/x15pcbuilders-screenshot-new.png";
+import serviceOgImage from "@/assets/blog-web-dev.png";
 const portfolioItems = [
   {
     id: "ld-builds",
@@ -70,6 +71,7 @@ const WebPackage = () => {
         description="Choose from Foundation, Growth, or Scale website packages. One-time build fee, you keep your domain and content. Optional hosting and maintenance."
         keywords="cheap website package for startups UK, best website builder for small business, how to get a professional website on a budget, affordable web design packages, small business website cost UK"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/web-package"
+        ogImage={serviceOgImage}
       />
       <ProductSchema
         name="L&D Digital Web Development Packages"

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -21,9 +21,9 @@ export const TestimonialsCarousel = ({
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<number>();
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -50,7 +50,7 @@ export const TestimonialsCarousel = ({
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, autoPlayInterval, testimonials.length]);
+  }, [isPaused, autoPlayInterval, nextSlide]);
 
   return (
     <div

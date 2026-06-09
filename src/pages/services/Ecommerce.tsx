@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import serviceOgImage from "@/assets/portfolio-fashion.png";
 
 const Ecommerce = () => {
   return (
@@ -18,6 +19,7 @@ const Ecommerce = () => {
         description="Build a powerful online store that converts. Custom e-commerce solutions with secure payments, inventory management. Shopify, WooCommerce & custom builds."
         keywords="ecommerce website development UK, online store design, how to start an online shop UK, Shopify developer London, WooCommerce expert, custom ecommerce solutions"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/ecommerce"
+        ogImage={serviceOgImage}
       />
       <ServiceSchema
         name="E-Commerce Website Development"

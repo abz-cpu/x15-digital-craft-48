@@ -11,6 +11,7 @@ import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import { FAQSchema } from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import serviceOgImage from "@/assets/blog-east-london-website-tips.png";
 
 const digitalMarketingFaqs = [
   {
@@ -47,6 +48,7 @@ const DigitalMarketing = () => {
         description="Top-rated digital marketing agency near Stratford, London. SEO, PPC, social media marketing for small businesses UK. Data-driven results. Free consultation."
         keywords="digital marketing agency UK, digital marketing agency London, best digital marketing agency London, top digital marketing companies UK, top 10 digital marketing companies UK, digital agency near me, digital agency near Stratford London, marketing agency London, biggest marketing agencies UK, small business digital marketing UK"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/digital-marketing"
+        ogImage={serviceOgImage}
       />
       <ServiceSchema
         name="Digital Marketing Agency London"

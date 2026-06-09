@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import serviceOgImage from "@/assets/blog-web-dev.png";
 
 const LandingPages = () => {
   return (
@@ -18,6 +19,7 @@ const LandingPages = () => {
         description="High-converting landing pages for campaigns and offers. Designed to turn visitors into customers. Fast delivery and optimised for conversions."
         keywords="landing page design UK, high converting landing pages, campaign landing page, lead generation page, sales page design"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/landing-pages"
+        ogImage={serviceOgImage}
       />
       <ServiceSchema
         name="Landing Page Creation"

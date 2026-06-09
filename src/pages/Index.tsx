@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState, lazy, Suspense } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  DollarSign,
   MessageCircle,
   Globe,
   Bot,
@@ -20,7 +19,6 @@ import {
   Clock,
   Receipt,
   ShieldCheck,
-  BadgeCheck,
   X,
   ExternalLink,
   Tag,
@@ -40,7 +38,6 @@ import CtaCard from "@/components/CtaCard";
 import { useParallax } from "@/hooks/useParallax";
 import { SEO } from "@/components/SEO";
 import { ReviewSchema } from "@/components/ReviewSchema";
-import { FAQSchema } from "@/components/FAQSchema";
 import { HomepageFAQSchema, homepageFaqs } from "@/components/schemas/HomepageFAQSchema";
 import { VideoSchema } from "@/components/VideoSchema";
 import { SiteNavigationSchema } from "@/components/SiteNavigationSchema";
@@ -50,6 +47,7 @@ import { ServiceMockup } from "@/components/ServiceMockup";
 import { DeviceMockup } from "@/components/DeviceMockup";
 
 import { DeviceMockupModal } from "@/components/DeviceMockupModal";
+import type { PortfolioProject } from "@/types/portfolio";
 import whyChooseUsIllustration from "@/assets/why-choose-us-illustration.png";
 import x15Screenshot from "@/assets/x15pcbuilders-screenshot.png";
 import portfolioSalon from "@/assets/portfolio-salon.png";
@@ -71,23 +69,23 @@ const SectionLoader = () => (
 );
 
 // ── Framer Motion variants ─────────────────────────────────────────────────
-const heroContainer = {
+const heroContainer: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.11, delayChildren: 0.15 } },
 };
-const heroItem = {
+const heroItem: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 };
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const staggerGrid = {
+const staggerGrid: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.09 } },
 };
-const cardItem = {
+const cardItem: Variants = {
   hidden: { opacity: 0, y: 24, scale: 0.97 },
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
 };
@@ -100,7 +98,7 @@ const Index = () => {
   });
 
   const [expandedService, setExpandedService] = useState<string | null>(null);
-  const [selectedPortfolioProject, setSelectedPortfolioProject] = useState<any | null>(null);
+  const [selectedPortfolioProject, setSelectedPortfolioProject] = useState<PortfolioProject | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -146,7 +144,7 @@ const Index = () => {
         title="Web Design East London | SEO & AI Automation | L&D Digital"
         description="Stratford-based web design, AI automation & SEO for London SMEs. Custom sites from £200, delivered in 1–14 days. Google-verified. Free website review."
         keywords="web design East London, web designer Stratford London, SEO agency East London, AI automation London, affordable web design London, L and D Digital, Luminous and Deliver"
-        canonicalUrl="https://digital.luminousanddeliver.co.uk"
+        canonicalUrl="https://digital.luminousanddeliver.co.uk/"
       />
       <ReviewSchema ratingValue="4.9" reviewCount="3" />
       <VideoSchema

@@ -6,9 +6,9 @@ interface PreloadLinkProps extends LinkProps {
 }
 
 // Route preloading map - will be populated by lazy imports
-const preloadFunctions: Record<string, () => Promise<any>> = {};
+const preloadFunctions: Record<string, () => Promise<unknown>> = {};
 
-export const registerPreload = (path: string, preloadFn: () => Promise<any>) => {
+export const registerPreload = (path: string, preloadFn: () => Promise<unknown>) => {
   preloadFunctions[path] = preloadFn;
 };
 

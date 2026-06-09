@@ -25,6 +25,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import serviceOgImage from "@/assets/portfolio-restaurant.png";
 import {
   CreditCard,
   Store,
@@ -180,6 +181,7 @@ const PosSetup = () => {
         title="Square POS Setup & Installation | Payment Systems London | L&D Digital"
         description="Professional Square POS installation in 2-3 days. Serving restaurants, retail, salons across London & UK. Local support, no call centres. Setup from £499."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/pos-setup"
+        ogImage={serviceOgImage}
         keywords="square pos setup, pos installation london, payment system setup, restaurant pos system, retail pos uk, salon booking system"
       />
       <ServiceSchema

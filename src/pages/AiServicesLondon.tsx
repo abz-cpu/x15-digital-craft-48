@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Bot, MessageSquare, Phone, Workflow, BookOpen, Layers, Globe } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import serviceOgImage from "@/assets/blog-ai-automation.png";
 
 const faqs = [
   {
@@ -40,6 +41,7 @@ const AiServicesLondon = () => {
         title="AI Automation London 2026 | Chatbots & Assistants from £200 | L&D Digital"
         description="Stratford-based AI automation studio building chatbots, voice assistants, WhatsApp bots and workflow automation for London small businesses. From £200 build, £50/month, 1–14 day delivery."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-services-london"
+        ogImage={serviceOgImage}
         keywords="AI services London, AI chatbot East London, AI automation UK, AI assistant Stratford, AI chatbot development UK"
       />
       <FAQSchema faqs={faqs} pageId="ai-services-london" />

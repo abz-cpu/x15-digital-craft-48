@@ -30,6 +30,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import { HowToSchema } from "@/components/HowToSchema";
+import serviceOgImage from "@/assets/blog-hackney-shoreditch-seo.png";
 
 const Seo = () => {
   const faqs = [
@@ -90,6 +91,7 @@ const Seo = () => {
         description="Local SEO for UK service businesses. Rank in Google Maps + local search, increase enquiries, and convert more website visitors into calls and bookings."
         keywords="local SEO London, SEO services UK, Google Maps ranking, Google Business Profile optimisation, small business SEO, SEO agency London, local service SEO"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/services/seo"
+        ogImage={serviceOgImage}
       />
 
       <ServiceSchema

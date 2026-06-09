@@ -76,7 +76,31 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/install</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/pricing</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/how-it-works</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/support-sla</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
   <!-- Package Pages (High Priority) -->
   <url>
     <loc>https://digital.luminousanddeliver.co.uk/web-package</loc>
@@ -125,14 +149,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://digital.luminousanddeliver.co.uk/seo-near-me</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://digital.luminousanddeliver.co.uk/seo-agency-near-me</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://digital.luminousanddeliver.co.uk/digital-marketing-near-me</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://digital.luminousanddeliver.co.uk/digital-marketing-agency-near-me</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -252,7 +276,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/services/pos-setup</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Platform Pages -->
   <url>
     <loc>https://digital.luminousanddeliver.co.uk/platforms</loc>
@@ -316,7 +346,37 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/sectors/restaurant-pos</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/sectors/pos-systems</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/sectors/retail-pos</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/sectors/salon-pos</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/sectors/trades-pos</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Area Pages -->
   <url>
     <loc>https://digital.luminousanddeliver.co.uk/areas</loc>
@@ -447,12 +507,66 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://digital.luminousanddeliver.co.uk/blog/personalised-apps-customer-experience</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/personalised-apps-struggling-business-owners</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/restaurant-website-design-east-london</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/ai-chatbots-east-london-trades</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/google-maps-local-seo-east-london</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/shopify-vs-woocommerce-2026</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/website-costing-you-customers</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/whatsapp-vs-ai-chatbot</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/web-design-barbers-salons-east-london</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/mobile-friendly-website-cost</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digital.luminousanddeliver.co.uk/blog/laser-light-skin-clinic-case-study</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://digital.luminousanddeliver.co.uk/privacy</loc>

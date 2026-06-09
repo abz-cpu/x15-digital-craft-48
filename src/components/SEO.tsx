@@ -25,7 +25,17 @@ export const SEO = ({
   author = "L&D Digital",
 }: SEOProps) => {
   const location = useLocation();
-  const fullUrl = canonicalUrl || `https://digital.luminousanddeliver.co.uk${location.pathname}`;
+  const SITE_ORIGIN = "https://digital.luminousanddeliver.co.uk";
+  // Always resolve to an absolute canonical URL, even if a relative path is passed
+  const fullUrl = canonicalUrl
+    ? canonicalUrl.startsWith("http")
+      ? canonicalUrl
+      : `${SITE_ORIGIN}${canonicalUrl.startsWith("/") ? "" : "/"}${canonicalUrl}`
+    : `${SITE_ORIGIN}${location.pathname}`;
+  // Social crawlers require absolute og:image URLs; bundled assets resolve to relative paths
+  const fullOgImage = ogImage.startsWith("http")
+    ? ogImage
+    : `${SITE_ORIGIN}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
 
   useEffect(() => {
     // Update title
@@ -61,7 +71,7 @@ export const SEO = ({
     updateMetaTag("og:description", description, true);
     updateMetaTag("og:url", fullUrl, true);
     updateMetaTag("og:type", ogType, true);
-    updateMetaTag("og:image", ogImage, true);
+    updateMetaTag("og:image", fullOgImage, true);
     updateMetaTag("og:site_name", "L&D Digital", true);
     updateMetaTag("og:locale", "en_GB", true);
 
@@ -69,7 +79,7 @@ export const SEO = ({
     updateMetaTag("twitter:card", twitterCard);
     updateMetaTag("twitter:title", title);
     updateMetaTag("twitter:description", description);
-    updateMetaTag("twitter:image", ogImage);
+    updateMetaTag("twitter:image", fullOgImage);
     updateMetaTag("twitter:site", "@lddigital");
     updateMetaTag("twitter:url", fullUrl);
 
@@ -81,7 +91,7 @@ export const SEO = ({
       document.head.appendChild(canonical);
     }
     canonical.href = fullUrl;
-  }, [title, description, keywords, ogImage, ogType, twitterCard, fullUrl, robots, author]);
+  }, [title, description, keywords, fullOgImage, ogType, twitterCard, fullUrl, robots, author]);
 
   return null;
 };

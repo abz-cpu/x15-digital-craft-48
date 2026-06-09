@@ -8,6 +8,21 @@ interface PerformanceMetrics {
   fcp?: number;
 }
 
+// Web Vitals entry types not yet included in the standard TS DOM lib
+interface LargestContentfulPaintEntry extends PerformanceEntry {
+  renderTime: number;
+  loadTime: number;
+}
+
+interface FirstInputEntry extends PerformanceEntry {
+  processingStart: number;
+}
+
+interface LayoutShiftEntry extends PerformanceEntry {
+  hadRecentInput: boolean;
+  value: number;
+}
+
 class PerformanceMonitor {
   private metrics: PerformanceMetrics = {};
 
@@ -38,7 +53,7 @@ class PerformanceMonitor {
     try {
       const observer = new PerformanceObserver((list) => {
         const entries = list.getEntries();
-        const lastEntry = entries[entries.length - 1] as any;
+        const lastEntry = entries[entries.length - 1] as LargestContentfulPaintEntry;
         this.metrics.lcp = lastEntry.renderTime || lastEntry.loadTime;
         this.sendMetric('LCP', this.metrics.lcp ?? 0);
       });
@@ -51,8 +66,8 @@ class PerformanceMonitor {
   private observeFID() {
     try {
       const observer = new PerformanceObserver((list) => {
-        const entries = list.getEntries();
-        entries.forEach((entry: any) => {
+        const entries = list.getEntries() as FirstInputEntry[];
+        entries.forEach((entry) => {
           this.metrics.fid = entry.processingStart - entry.startTime;
           this.sendMetric('FID', this.metrics.fid);
         });
@@ -67,9 +82,9 @@ class PerformanceMonitor {
     try {
       let clsValue = 0;
       const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (!(entry as any).hadRecentInput) {
-            clsValue += (entry as any).value;
+        for (const entry of list.getEntries() as LayoutShiftEntry[]) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
             this.metrics.cls = clsValue;
           }
         }
@@ -112,8 +127,8 @@ class PerformanceMonitor {
 
   private sendMetric(name: string, value: number) {
     // Send to Google Analytics if available
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', name, {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', name, {
         event_category: 'Web Vitals',
         value: Math.round(value),
         metric_id: `${name}-${Date.now()}`,
@@ -128,17 +143,17 @@ class PerformanceMonitor {
   }
 
   public trackPageView(path: string) {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'page_view', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'page_view', {
         page_path: path,
         page_title: document.title,
       });
     }
   }
 
-  public trackEvent(eventName: string, params?: Record<string, any>) {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', eventName, params);
+  public trackEvent(eventName: string, params?: Record<string, unknown>) {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, params);
     }
 
     if (import.meta.env.DEV) {

@@ -27,6 +27,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
+import serviceOgImage from "@/assets/blog-ai-automation.png";
 import {
   Tooltip,
   TooltipContent,
@@ -266,6 +267,7 @@ const AiPackage = () => {
         description="AI automation from £50/month. 24/7 chatbots, inbox assistants, and AI receptionists. Works with any website."
         keywords="AI chatbot for small business UK, AI automation for customer service, how to automate business with AI, affordable AI assistant UK, virtual receptionist AI, AI lead generation"
         canonicalUrl="https://digital.luminousanddeliver.co.uk/ai-package"
+        ogImage={serviceOgImage}
       />
       <ProductSchema
         name="L&D Digital AI Automation Solutions"

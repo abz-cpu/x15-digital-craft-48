@@ -111,7 +111,7 @@ export function SeoAuditForm({ className = "", variant = "default" }: SeoAuditFo
     }
     
     // Basic URL validation
-    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/i;
+    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i;
     if (!urlPattern.test(websiteUrl)) {
       toast({
         title: "Invalid URL",

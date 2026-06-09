@@ -10,12 +10,6 @@ type CookiePreferences = {
   marketing: boolean;
 };
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 export const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
@@ -89,9 +83,9 @@ export const CookieConsent = () => {
 
   // Expose method to reopen settings from footer
   useEffect(() => {
-    (window as any).openCookieSettings = handleOpenSettings;
+    window.openCookieSettings = handleOpenSettings;
     return () => {
-      delete (window as any).openCookieSettings;
+      delete window.openCookieSettings;
     };
   }, []);
 

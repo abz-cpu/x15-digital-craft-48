@@ -137,7 +137,7 @@ const Footer = forwardRef<HTMLElement>(function Footer(_props, ref) {
           </div>
 
           {/* Right Side - 3 Column Grid for Links */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-6 md:gap-8">
             {/* Services */}
             <nav aria-label="Services navigation">
               <h4 className="text-sm font-semibold mb-3 text-white/90">Services</h4>

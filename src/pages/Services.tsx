@@ -133,6 +133,33 @@ const Services = () => {
 
         <BreadcrumbNav />
 
+        {/* Quick jump nav: horizontally scrollable on mobile so each service
+            subsection is one tap away instead of a long scroll */}
+        <nav
+          aria-label="Service categories"
+          className="sticky top-16 z-30 bg-background/95 backdrop-blur-md border-b border-border"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex gap-2 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center">
+              {[
+                { label: "Websites & Apps", href: "#websites" },
+                { label: "AI Automation", href: "#ai" },
+                { label: "Branding", href: "#branding" },
+                { label: "Marketing & SEO", href: "#marketing" },
+                { label: "Support", href: "#support" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="shrink-0 rounded-full border border-border bg-muted/60 px-4 py-2 text-xs sm:text-sm font-medium text-secondary hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </nav>
+
         {/* ================================================================
             SECTION 1: WEBSITES & APPS
         ================================================================ */}

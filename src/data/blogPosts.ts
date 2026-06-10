@@ -2530,6 +2530,98 @@ If your existing website has broken elements, confusing navigation, or isn't con
 [WhatsApp us your current site](https://wa.me/447356260648), we'll give you an honest audit and tell you exactly what needs fixing.
       `,
     },
+    "website-cost-london-2026": {
+      title: "How Much Does a Website Cost in London? 2026 Price Guide",
+      category: "Business Growth",
+      date: "2026-06-10",
+      readTime: 8,
+      author: "Abdul M Taher",
+      seoTitle: "Website Cost London 2026: Real Prices Explained | L&D Digital",
+      seoDescription:
+        "How much does a website cost in London in 2026? Real price ranges for small business sites, ecommerce stores and web apps, plus the hidden fees agencies don't mention.",
+      seoKeywords:
+        "website cost London, how much does a website cost UK, web design prices London 2026, small business website cost, ecommerce website cost UK, web design quote London",
+      ogImage: blogWebDev,
+      heroAlt: "Calculator and laptop showing website pricing breakdown for London businesses",
+      content: `
+## The Short Answer
+
+In London in 2026, a professional small business website costs between **£200 and £5,000** depending on what you need. Here's the honest breakdown:
+
+| Website Type | Typical London Price | Delivery Time |
+|---|---|---|
+| Landing page | £200 - £500 | 1-3 days |
+| Small business site (5-8 pages) | £500 - £1,500 | 5-10 days |
+| Ecommerce store | £1,000 - £5,000 | 10-21 days |
+| Custom web app | £2,000 - £10,000+ | 3-12 weeks |
+
+Most London agencies will quote 2-4x these figures. We'll explain why, and how to avoid overpaying.
+
+## Why London Agency Quotes Vary So Wildly
+
+Three businesses can ask for "a website" and get quotes of £500, £3,000 and £15,000. The difference usually comes down to:
+
+### 1. Who's Actually Building It
+
+- **Freelancers** (£300-£1,500): cheapest, but quality and reliability vary hugely
+- **Small studios like ours** (£200-£5,000): direct contact with the people building your site, lower overheads
+- **Large agencies** (£5,000-£50,000): account managers, project managers and office space you're paying for
+
+### 2. Template vs Custom Design
+
+A customised template gets most London businesses 90% of the result at 30% of the price. Fully bespoke design makes sense for brands competing at a national level, not for a Stratford cafe or an Ilford accountant.
+
+### 3. What "Done" Includes
+
+The biggest source of bill shock. Always ask whether the quote includes:
+
+- Domain and hosting for year one
+- SSL certificate and security setup
+- Mobile optimisation (non-negotiable in 2026)
+- Basic SEO: titles, descriptions, Google Business Profile link-up
+- Training so you can edit content yourself
+
+## The Hidden Costs Nobody Mentions
+
+### Ongoing Fees
+
+- **Hosting**: £5-£30/month (beware agencies charging £50+/month for basic hosting)
+- **Maintenance**: £30-£100/month if you want updates handled for you
+- **Platform fees**: Wix and Squarespace charge £12-£30/month forever; WordPress and custom builds don't
+
+### The Cheap Website Trap
+
+A £50 DIY site usually costs more long-term: your hours building it, lost customers from a poor mobile experience, and a rebuild within 18 months. We covered this in detail in our [cheap websites guide](/blog/cheap-websites).
+
+## What East London Businesses Actually Pay Us
+
+Real examples from recent projects:
+
+- **Plumber in Plaistow**: 5-page site with quote form and Google Maps, £350, live in 4 days
+- **Salon in Walthamstow**: booking system, gallery, reviews integration, £750, live in 8 days
+- **Fashion boutique in Hackney**: full Shopify store with 50+ products, £1,800, live in 2 weeks
+
+## How to Get an Accurate Quote
+
+Send any web designer these five things and you'll get a real number instead of a vague range:
+
+1. Your current website address (if you have one)
+2. Two or three competitor or inspiration sites you like
+3. How many pages or products you need
+4. Whether you need bookings, payments, or member areas
+5. Your deadline
+
+## Get a Fixed Quote in Hours, Not Weeks
+
+We're a Stratford-based studio building websites for London businesses from £200, delivered in 1-14 days with no hidden fees.
+
+[See our website packages →](/web-package)
+
+[Get a free quote →](/contact)
+
+[WhatsApp us](https://wa.me/447356260648) with the five things above and we'll reply with a fixed price, usually within 1-3 hours.
+      `,
+    },
 };
 
 // HowTo steps for the local SEO blog post

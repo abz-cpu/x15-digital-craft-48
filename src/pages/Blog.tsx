@@ -248,6 +248,19 @@ const Blog = () => {
       author: "Abdul M Taher",
       image: blogEastLondonTips,
     },
+    {
+      id: 17,
+      slug: "website-cost-london-2026",
+      title: "How Much Does a Website Cost in London? 2026 Price Guide",
+      category: "business" as Category,
+      categoryLabel: "Business Growth",
+      excerpt:
+        "Real 2026 price ranges for London business websites, from £200 landing pages to £5,000 ecommerce stores, plus the hidden fees most agencies won't mention upfront.",
+      readTime: 8,
+      date: "2026-06-10",
+      author: "Abdul M Taher",
+      image: blogWebDev,
+    },
   ];
 
   // sort by date (newest first)

@@ -62,7 +62,7 @@ export const SEO = ({
     updateMetaTag("author", author);
     
     // Geographic targeting
-    updateMetaTag("geo.region", "GB");
+    updateMetaTag("geo.region", "GB-LND");
     updateMetaTag("geo.placename", "London, United Kingdom");
     updateMetaTag("language", "English");
 

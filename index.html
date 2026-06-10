@@ -293,6 +293,76 @@
   </head>
 
   <body>
+    <!-- Instant splash: pure CSS, visible before JS loads, removed the moment React mounts -->
+    <style>
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        background: #ffffff;
+        transition: opacity 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0.45s;
+      }
+      #splash.splash--done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .splash-mark {
+        width: 52px;
+        height: 52px;
+        position: relative;
+      }
+      .splash-mark::before,
+      .splash-mark::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid transparent;
+      }
+      .splash-mark::before {
+        border-top-color: #0f766e;
+        border-right-color: #0f766e;
+        animation: splash-spin 0.9s linear infinite;
+      }
+      .splash-mark::after {
+        inset: 7px;
+        border: 1px solid rgba(15, 118, 110, 0.25);
+        animation: splash-breathe 1.8s ease-in-out infinite;
+      }
+      .splash-word {
+        font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+        color: #0f172a;
+        animation: splash-word-in 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      }
+      .splash-word span { color: #0f766e; }
+      @keyframes splash-spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes splash-breathe {
+        0%, 100% { transform: scale(1); opacity: 0.6; }
+        50% { transform: scale(1.12); opacity: 1; }
+      }
+      @keyframes splash-word-in {
+        from { opacity: 0; letter-spacing: 0.5em; transform: translateY(6px); }
+        to { opacity: 1; letter-spacing: 0.32em; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .splash-mark::before, .splash-mark::after, .splash-word { animation: none; }
+      }
+    </style>
+    <div id="splash" aria-hidden="true">
+      <div class="splash-mark"></div>
+      <div class="splash-word">L&amp;D&nbsp;<span>DIGITAL</span></div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -153,7 +153,7 @@ const CustomDevelopment = () => {
                 When Custom Development Makes Sense
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Custom development isn't always the answer—but when you need it, nothing else will do.
+                Custom development isn't always the answer, but when you need it, nothing else will do.
               </p>
             </AnimatedSection>
             
@@ -333,7 +333,7 @@ const CustomDevelopment = () => {
                 ))}
               </div>
               <p className="text-center text-muted-foreground mt-6">
-                Not sure which approach is right? <Link to="/contact" className="text-orange-600 hover:underline">Get a free website review</Link>—we'll give honest advice.
+                Not sure which approach is right? <Link to="/contact" className="text-orange-600 hover:underline">Get a free website review</Link>, we'll give honest advice.
               </p>
             </div>
           </Container>
@@ -377,7 +377,7 @@ const CustomDevelopment = () => {
                   Have a Complex Project in Mind?
                 </h2>
                 <p className="text-xl mb-8 opacity-90">
-                  Let's discuss your requirements. We'll help you understand if custom development is the right approach—and if not, we'll recommend alternatives.
+                  Let's discuss your requirements. We'll help you understand if custom development is the right approach, and if not, we'll recommend alternatives.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild className="text-lg">

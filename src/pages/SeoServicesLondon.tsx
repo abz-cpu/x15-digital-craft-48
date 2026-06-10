@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "What is the difference between SEO and paid ads?",
-    answer: "SEO earns free, compounding organic traffic by ranking on Google. Paid ads buy instant traffic that stops when you pause the budget. For most London SMEs, SEO delivers better long-term ROI after month 3 — paid ads suit short-term launches and seasonal campaigns."
+    answer: "SEO earns free, compounding organic traffic by ranking on Google. Paid ads buy instant traffic that stops when you pause the budget. For most London SMEs, SEO delivers better long-term ROI after month 3, paid ads suit short-term launches and seasonal campaigns."
   },
   {
     question: "How do I get my business on the first page of Google in London?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Is it worth hiring an SEO agency for a small business?",
-    answer: "Yes, when the agency is transparent and fairly priced. A good SEO agency pays for itself through qualified organic leads you would otherwise buy with ads. L&D Digital is aimed at small London businesses — no lock-in, no minimum term, and monthly reports you actually understand."
+    answer: "Yes, when the agency is transparent and fairly priced. A good SEO agency pays for itself through qualified organic leads you would otherwise buy with ads. L&D Digital is aimed at small London businesses, no lock-in, no minimum term, and monthly reports you actually understand."
   }
 ];
 
@@ -53,8 +53,8 @@ const SeoServicesLondon = () => {
           <Container className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Stratford, East London · Local SEO from £300/mo</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">SEO Services in London — Rank Higher on Google</h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based SEO agency helping London small businesses rank in local search and win more qualified enquiries — from £300/month with transparent reporting.</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">SEO Services in London: Rank Higher on Google</h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based SEO agency helping London small businesses rank in local search and win more qualified enquiries, from £300/month with transparent reporting.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg"><Link to="/contact">Get My Free SEO Audit <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>
                 <Button asChild variant="outline" size="lg"><Link to="/services/seo">Our SEO Services</Link></Button>

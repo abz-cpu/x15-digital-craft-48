@@ -1110,7 +1110,7 @@ Here are 5 custom apps that struggling business owners are using to take back co
 
 ## 1. Order Tracker
 
-**The problem:** You're selling products—whether you're a food business, trades supplier, or small retailer—and you're tracking orders on paper or in messy spreadsheets. Customers ask "Where's my order?" and you have to dig through your phone to find out.
+**The problem:** You're selling products, whether you're a food business, trades supplier, or small retailer, and you're tracking orders on paper or in messy spreadsheets. Customers ask "Where's my order?" and you have to dig through your phone to find out.
 
 **The solution:** A simple order tracking app with:
 
@@ -1327,7 +1327,7 @@ Or [WhatsApp us on 07356 260648](https://wa.me/447356260648) to discuss your nee
 
 Before anyone walks through your restaurant door in 2026, they've already checked you out online.
 
-**83% of diners look up a restaurant online before visiting.** If they can't find you — or what they find looks unprofessional — they go elsewhere.
+**83% of diners look up a restaurant online before visiting.** If they can't find you, or what they find looks unprofessional, they go elsewhere.
 
 Here's what East London restaurant owners are missing without a proper website.
 
@@ -1388,7 +1388,7 @@ Think of your website as the home base. Social media drives people there.
 
 Do a quick search for your cuisine type in your area. Most of the restaurants showing up have professional websites.
 
-If you don't, you look like the amateur option — even if your food is better.
+If you don't, you look like the amateur option, even if your food is better.
 
 First impressions matter. A professional website signals quality before they've tasted a single dish.
 
@@ -1462,10 +1462,10 @@ This is exactly the problem AI chatbots solve for trades businesses.
 
 An AI chatbot is an automated assistant on your website that:
 
-- **Answers enquiries instantly** — any time of day or night
-- **Collects customer details** — name, address, problem description
-- **Qualifies leads** — filters tyre-kickers from genuine jobs
-- **Books appointments** — or requests a call-back slot
+- **Answers enquiries instantly**, any time of day or night
+- **Collects customer details**, name, address, problem description
+- **Qualifies leads**, filters tyre-kickers from genuine jobs
+- **Books appointments**, or requests a call-back slot
 
 It works while you're on-site, driving between jobs, or sleeping.
 
@@ -1496,7 +1496,7 @@ Guides customers through: type of job, property size, preferred dates. You recei
 67% of home emergency searches happen outside 9-5. Your chatbot handles all of them.
 
 ### 4. FAQ Handling
-"Do you cover Ilford?" "Do you work weekends?" "Are you Gas Safe registered?" — answered automatically without you typing a word.
+"Do you cover Ilford?" "Do you work weekends?" "Are you Gas Safe registered?", answered automatically without you typing a word.
 
 ---
 
@@ -1532,12 +1532,12 @@ You don't need to be technical at all.
 
 Based on our East London clients:
 
-- **Plumbers** — emergency calls, heating, bathroom quotes
-- **Electricians** — fault finding, rewires, consumer units
-- **Builders** — extension quotes, renovation enquiries
-- **Roofers** — leak reports, new roofs, guttering
-- **Locksmiths** — emergency lockouts (high urgency, 24/7 critical)
-- **Handymen** — varied jobs, booking diary management
+- **Plumbers**, emergency calls, heating, bathroom quotes
+- **Electricians**, fault finding, rewires, consumer units
+- **Builders**, extension quotes, renovation enquiries
+- **Roofers**, leak reports, new roofs, guttering
+- **Locksmiths**, emergency lockouts (high urgency, 24/7 critical)
+- **Handymen**, varied jobs, booking diary management
 
 ---
 
@@ -1585,7 +1585,7 @@ Go to [business.google.com](https://business.google.com) and either claim your e
 - Phone number
 - Website URL
 - Opening hours (including special hours for bank holidays)
-- Business category (be specific — "Indian Restaurant" not just "Restaurant")
+- Business category (be specific"Indian Restaurant" not just "Restaurant")
 - Description (250 words, use local keywords)
 - At least 10 photos
 
@@ -1634,7 +1634,7 @@ Reviews are one of the biggest ranking factors on Google Maps.
 - Ask every happy customer directly: "Would you mind leaving us a Google review?"
 - Send a follow-up WhatsApp or email with a direct link to your review page
 - Put a QR code on your counter or invoice that links to reviews
-- Respond to every review — positive and negative
+- Respond to every review, positive and negative
 
 **What not to do:**
 - Don't buy fake reviews (Google detects and penalises this)
@@ -1750,7 +1750,7 @@ Shopify is a fully hosted ecommerce platform. You pay a monthly subscription and
 
 ## What Is WooCommerce?
 
-WooCommerce is a free plugin for WordPress. You own everything — you pay for hosting separately, install it yourself (or have someone install it), and manage updates.
+WooCommerce is a free plugin for WordPress. You own everything, you pay for hosting separately, install it yourself (or have someone install it), and manage updates.
 
 **Monthly costs:**
 - Hosting: £5-30/month
@@ -1764,9 +1764,9 @@ WooCommerce is a free plugin for WordPress. You own everything — you pay for h
 
 **Winner: Shopify**
 
-Shopify is built for people who are not developers. The admin panel is clean and intuitive. Adding products, running sales, processing refunds — all straightforward.
+Shopify is built for people who are not developers. The admin panel is clean and intuitive. Adding products, running sales, processing refunds, all straightforward.
 
-WooCommerce has a steeper learning curve. WordPress itself takes getting used to. Managing plugins, dealing with conflicts, handling updates — it's more work.
+WooCommerce has a steeper learning curve. WordPress itself takes getting used to. Managing plugins, dealing with conflicts, handling updates, it's more work.
 
 **Verdict:** If you want simplicity and are not technical, Shopify wins here.
 
@@ -1822,7 +1822,7 @@ WooCommerce can scale, but it requires proper hosting, database optimisation, an
 
 **Winner: WooCommerce**
 
-WooCommerce is built on WordPress, which has the largest plugin ecosystem in the world. Whatever you need — subscription billing, local delivery zones, age verification, B2B pricing — there's a plugin for it.
+WooCommerce is built on WordPress, which has the largest plugin ecosystem in the world. Whatever you need, subscription billing, local delivery zones, age verification, B2B pricing, there's a plugin for it.
 
 Shopify has an excellent app store too, but apps are often more expensive, and some customisations require Shopify's own development language (Liquid) which limits your options.
 
@@ -1847,7 +1847,7 @@ Shopify has an excellent app store too, but apps are often more expensive, and s
 
 ## What Does L&D Digital Use?
 
-We build on both platforms — but for most East London small businesses, we recommend **WooCommerce** for:
+We build on both platforms, but for most East London small businesses, we recommend **WooCommerce** for:
 - Better SEO out of the box
 - Lower ongoing costs
 - More flexibility for UK-specific requirements
@@ -1876,7 +1876,7 @@ And we recommend **Shopify** for:
       readTime: 5,
       author: "Abdul M Taher",
       seoTitle: "5 Signs Your Website Is Costing You Customers Right Now | L&D Digital",
-      seoDescription: "Is your website silently losing you business? These 5 warning signs affect most small business websites in the UK — and each one is costing you real customers and revenue.",
+      seoDescription: "Is your website silently losing you business? These 5 warning signs affect most small business websites in the UK, and each one is costing you real customers and revenue.",
       seoKeywords: "website losing customers UK, bad website small business, improve business website, website redesign London, website conversion problems UK, outdated website problems",
       ogImage: blogWebDev,
       heroAlt: "Business owner looking frustrated at a slow-loading website on their laptop",
@@ -1887,7 +1887,7 @@ Most small business owners assume that having a website is enough. But a bad web
 
 If visitors land on your site and leave immediately, Google notices. It pushes you further down search results. You get fewer visitors. You get fewer customers. It compounds.
 
-Here are the 5 most common warning signs we see — and what to do about each one.
+Here are the 5 most common warning signs we see, and what to do about each one.
 
 ---
 
@@ -1898,7 +1898,7 @@ Here are the 5 most common warning signs we see — and what to do about each on
 **How to check:** Open [PageSpeed Insights](https://pagespeed.web.dev) and enter your URL. A score below 70 on mobile is a problem.
 
 **Common causes:**
-- Unoptimised images (the biggest culprit — we've seen 8MB homepage images)
+- Unoptimised images (the biggest culprit, we've seen 8MB homepage images)
 - Cheap hosting that can't handle traffic
 - Too many plugins (WordPress sites especially)
 - No caching set up
@@ -1996,7 +1996,7 @@ The good news: all of these problems are fixable. And fixing them usually costs 
 
 [View website packages from £200 →](/web-packages)
 
-[WhatsApp us for a quick assessment](https://wa.me/447356260648) — we'll tell you honestly what needs fixing.
+[WhatsApp us for a quick assessment](https://wa.me/447356260648), we'll tell you honestly what needs fixing.
       `,
     },
 
@@ -2040,7 +2040,7 @@ Here's the honest comparison.
 
 **The hard truth:** WhatsApp Business still requires you to be there. Every message still lands in your phone. You still have to respond.
 
-If you're on a job, sleeping, or at capacity — messages pile up.
+If you're on a job, sleeping, or at capacity, messages pile up.
 
 ---
 
@@ -2049,9 +2049,9 @@ If you're on a job, sleeping, or at capacity — messages pile up.
 An AI chatbot lives on your website (and can integrate with WhatsApp via WhatsApp Business API).
 
 **What it does without you:**
-- Answers FAQs instantly — pricing, location, services, opening hours
-- Collects lead details — name, contact, what they need
-- Qualifies enquiries — separates serious buyers from window shoppers
+- Answers FAQs instantly, pricing, location, services, opening hours
+- Collects lead details, name, contact, what they need
+- Qualifies enquiries, separates serious buyers from window shoppers
 - Books appointments directly into your calendar
 - Handles emergency out-of-hours enquiries
 - Responds in seconds, 24 hours a day, 7 days a week
@@ -2099,7 +2099,7 @@ You need an AI chatbot if:
 
 ## Can You Use Both?
 
-Yes — and many of our clients do.
+Yes, and many of our clients do.
 
 The ideal setup:
 1. **AI chatbot on website** handles first contact, qualifies the enquiry
@@ -2129,7 +2129,7 @@ For most businesses, the chatbot pays for itself within the first month of opera
 
 [Book a free 30-minute demo →](/contact)
 
-[WhatsApp us to discuss options](https://wa.me/447356260648) — yes, we do see the irony.
+[WhatsApp us to discuss options](https://wa.me/447356260648), yes, we do see the irony.
       `,
     },
 
@@ -2179,7 +2179,7 @@ Instagram is great, but a gallery embedded on your website also helps your Googl
 
 Be upfront about what you charge. Clients who don't know your prices will go to a competitor who's transparent.
 
-Clear pricing also reduces no-shows — clients who were expecting a £15 cut and saw a £35 price list are less likely to show up angry.
+Clear pricing also reduces no-shows, clients who were expecting a £15 cut and saw a £35 price list are less likely to show up angry.
 
 **4. Reviews Displayed Prominently**
 
@@ -2230,16 +2230,16 @@ Both options include:
 
 Once your website is live, focus on these:
 
-1. **Google Business Profile** — fill in everything, add 20+ photos
-2. **Reviews** — ask every happy client directly for a Google review
-3. **Location keywords** — make sure your area and postcode appear on your pages
-4. **Blog posts** (optional but powerful) — "Best laser clinic in Dagenham" type content
+1. **Google Business Profile**, fill in everything, add 20+ photos
+2. **Reviews**, ask every happy client directly for a Google review
+3. **Location keywords**, make sure your area and postcode appear on your pages
+4. **Blog posts** (optional but powerful)"Best laser clinic in Dagenham" type content
 
 ---
 
 ## Book a Free Consultation
 
-We build websites for salons, clinics, barbers, beauticians, and nail studios across East London and beyond — Stratford, Hackney, Walthamstow, Ilford, Dagenham and more.
+We build websites for salons, clinics, barbers, beauticians, and nail studios across East London and beyond: Stratford, Hackney, Walthamstow, Ilford, Dagenham and more.
 
 [View website packages →](/web-packages)
 
@@ -2265,7 +2265,7 @@ We build websites for salons, clinics, barbers, beauticians, and nail studios ac
 
 In 2026, **64% of all web searches happen on mobile phones**.
 
-For local business searches — "plumber near me", "coffee shop Stratford", "dentist Hackney" — that figure is even higher. Over 70% are on mobile.
+For local business searches"plumber near me", "coffee shop Stratford", "dentist Hackney", that figure is even higher. Over 70% are on mobile.
 
 If your website was built before 2018 and hasn't been updated, there's a high chance it's not properly mobile-friendly. And that means you're losing customers every single day.
 
@@ -2277,7 +2277,7 @@ Let's talk about what that actually costs.
 
 When a non-mobile website opens on a phone:
 
-- Text is tiny — users have to pinch and zoom to read
+- Text is tiny, users have to pinch and zoom to read
 - Buttons are too small to tap accurately
 - Images overflow off the screen
 - The navigation menu is unusable
@@ -2335,10 +2335,10 @@ That's a conservative estimate. For businesses with higher traffic or higher ave
 
 ## The Signs Your Site Has a Mobile Problem
 
-1. **Google Search Console warnings** — check your Search Console account for mobile usability errors
-2. **Bounce rate over 70% on mobile** — visible in Google Analytics
-3. **Poor PageSpeed mobile score** — test at pagespeed.web.dev
-4. **Old website (pre-2018)** — most sites built before responsive design was standard
+1. **Google Search Console warnings**, check your Search Console account for mobile usability errors
+2. **Bounce rate over 70% on mobile**, visible in Google Analytics
+3. **Poor PageSpeed mobile score**, test at pagespeed.web.dev
+4. **Old website (pre-2018)**, most sites built before responsive design was standard
 5. **Customers saying they "couldn't find" something on your site**
 
 ---
@@ -2386,23 +2386,23 @@ Every month with a broken mobile site is another month of lost customers and low
 
 [View packages from £200 →](/web-packages)
 
-[WhatsApp us a link to your current website](https://wa.me/447356260648) — we'll tell you honestly if it needs fixing and what it would cost.
+[WhatsApp us a link to your current website](https://wa.me/447356260648), we'll tell you honestly if it needs fixing and what it would cost.
       `,
     },
 
     "laser-light-skin-clinic-case-study": {
-      title: "Case Study: Laser Light Skin Clinic — From WordPress to a Modern Website",
+      title: "Case Study: Laser Light Skin Clinic: From WordPress to a Modern Website",
       category: "Business Growth",
       date: "2026-04-07",
       readTime: 6,
       author: "Abdul M Taher",
       seoTitle: "Case Study: Laser Light Skin Clinic Website Redesign | L&D Digital",
       seoDescription:
-        "How we redesigned the Laser Light Skin Clinic website from a clunky WordPress build to a fast, modern site — before and after breakdown with real improvements.",
+        "How we redesigned the Laser Light Skin Clinic website from a clunky WordPress build to a fast, modern site, before and after breakdown with real improvements.",
       seoKeywords:
         "laser clinic website redesign, skin clinic website Dagenham, beauty salon web design East London, WordPress to React migration UK",
       ogImage: blogEastLondonTips,
-      heroAlt: "Laser Light Skin Clinic — before and after website redesign by L&D Digital",
+      heroAlt: "Laser Light Skin Clinic, before and after website redesign by L&D Digital",
       content: `
 ## The Client
 
@@ -2416,31 +2416,31 @@ They serve clients from Dagenham, Barking, Ilford, Romford, and across East Lond
 
 ## Before: What Was Wrong With the Old Site
 
-The clinic had an existing WordPress website — but it was holding them back rather than helping them grow.
+The clinic had an existing WordPress website, but it was holding them back rather than helping them grow.
 
 <img src="/images/case-studies/laser-light-old-homepage.png" alt="Laser Light Skin Clinic old WordPress homepage showing cluttered navigation with two dropdown menus" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Broken Shortcodes Showing as Raw Text
 
-Pages displayed **[custom_breadcrumb]** as visible raw text to real visitors — a WordPress plugin had failed and nobody noticed. This looks unprofessional and confuses potential clients immediately.
+Pages displayed **[custom_breadcrumb]** as visible raw text to real visitors, a WordPress plugin had failed and nobody noticed. This looks unprofessional and confuses potential clients immediately.
 
 <img src="/images/case-studies/laser-light-old-testimonials.png" alt="Laser Light Skin Clinic old testimonials page showing broken WordPress shortcode custom_breadcrumb as raw text" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Navigation Overload
 
-The menu had two separate dropdowns — **Services** and **Other Services** — each with 10–15 items. Visitors landing on mobile had no idea where to go. Services like *Hopi Ear Candling*, *Intimate V-Whitening*, and *Mesopeels* were all at the same navigation level as the core treatments.
+The menu had two separate dropdowns: **Services** and **Other Services**, each with 10–15 items. Visitors landing on mobile had no idea where to go. Services like *Hopi Ear Candling*, *Intimate V-Whitening*, and *Mesopeels* were all at the same navigation level as the core treatments.
 
 <img src="/images/case-studies/laser-light-old-services.png" alt="Laser Light Skin Clinic old site showing overcrowded service dropdown menu with 20+ items" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Pricing Page Was Hard to Read
 
-The pricing page listed treatments with sale prices inline (e.g., *"1 Session £140 £80"*) — no visual hierarchy, no clear callout for the sale price, no structure. On mobile it was nearly unreadable.
+The pricing page listed treatments with sale prices inline (e.g., *"1 Session £140 £80"*), no visual hierarchy, no clear callout for the sale price, no structure. On mobile it was nearly unreadable.
 
 <img src="/images/case-studies/laser-light-old-pricing.png" alt="Laser Light Skin Clinic old pricing page with confusing inline prices and no visual hierarchy" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
 ### Slow WordPress Build
 
-WordPress with multiple plugins, a shared hosting setup, and no caching meant slow page loads — and slow pages both frustrate users and hurt Google rankings.
+WordPress with multiple plugins, a shared hosting setup, and no caching meant slow page loads, and slow pages both frustrate users and hurt Google rankings.
 
 ### No Clear Trust Signals
 
@@ -2448,7 +2448,7 @@ The clinic is NHS-approved and has dozens of real client reviews (Mili Begum, Sa
 
 ### Booking Form Was Basic
 
-The old booking form was functional but lacked polish — no treatment categories, no visual structure, and the service dropdown listed every treatment in a flat list.
+The old booking form was functional but lacked polish, no treatment categories, no visual structure, and the service dropdown listed every treatment in a flat list.
 
 <img src="/images/case-studies/laser-light-old-booking.png" alt="Laser Light Skin Clinic old WordPress booking form with flat treatment dropdown and basic layout" class="rounded-lg border border-border shadow-md my-6 w-full" loading="lazy" />
 
@@ -2479,11 +2479,11 @@ The blog section existed but had minimal content and was visually disconnected f
 
 ### 1. Simplified Navigation
 
-We grouped treatments into logical categories — **Laser Treatments**, **Skin Treatments**, **Wellness** — so visitors find what they need in one click instead of scrolling through 20+ menu items.
+We grouped treatments into logical categories: **Laser Treatments**, **Skin Treatments**, **Wellness**, so visitors find what they need in one click instead of scrolling through 20+ menu items.
 
 ### 2. NHS-Approved Trust Badge in Hero
 
-The clinic's biggest selling point — being East London's only 5-Star NHS-approved clinic — is now in the hero section, immediately visible without scrolling.
+The clinic's biggest selling point, being East London's only 5-Star NHS-approved clinic, is now in the hero section, immediately visible without scrolling.
 
 ### 3. Clean Pricing Cards
 
@@ -2495,7 +2495,7 @@ The clinic has genuine 5-star reviews from real clients. We brought these above 
 
 ### 5. Proper Local SEO
 
-Every service page targets specific local search terms — *"laser hair removal Dagenham"*, *"hydra facial Essex"*, *"skin clinic Barking"* — so the clinic appears in Google when nearby clients are searching.
+Every service page targets specific local search terms: *"laser hair removal Dagenham"*, *"hydra facial Essex"*, *"skin clinic Barking"*, so the clinic appears in Google when nearby clients are searching.
 
 ---
 
@@ -2504,7 +2504,7 @@ Every service page targets specific local search terms — *"laser hair removal 
 | Day | Activity |
 |-----|----------|
 | Day 1 | Site audit, discovery call, brief agreed |
-| Day 2 | Design mockup — new colour palette, hero, navigation structure |
+| Day 2 | Design mockup, new colour palette, hero, navigation structure |
 | Day 3 | Feedback incorporated, full build begins |
 | Days 4–6 | All service pages, pricing, booking, reviews sections built |
 | Day 7 | Testing, SEO, final review, ready for go-live |
@@ -2513,7 +2513,7 @@ Every service page targets specific local search terms — *"laser hair removal 
 
 ## What This Teaches Us
 
-A broken or cluttered website can actually damage a business's reputation — even if the service itself is excellent. Laser Light Skin Clinic has real NHS approval, real five-star reviews, and a wide range of treatments. The old site was hiding all of that.
+A broken or cluttered website can actually damage a business's reputation, even if the service itself is excellent. Laser Light Skin Clinic has real NHS approval, real five-star reviews, and a wide range of treatments. The old site was hiding all of that.
 
 The redesign didn't add things the clinic didn't have. It surfaced what was already there and made it easy for clients to find, trust, and book.
 
@@ -2521,13 +2521,105 @@ The redesign didn't add things the clinic didn't have. It surfaced what was alre
 
 ## Do You Have a Site That's Holding You Back?
 
-If your existing website has broken elements, confusing navigation, or isn't converting visitors into enquiries — a rebuild could be more affordable than you think.
+If your existing website has broken elements, confusing navigation, or isn't converting visitors into enquiries, a rebuild could be more affordable than you think.
 
 [View our website packages from £200 →](/web-package)
 
 [Book a free consultation →](/contact)
 
-[WhatsApp us your current site](https://wa.me/447356260648) — we'll give you an honest audit and tell you exactly what needs fixing.
+[WhatsApp us your current site](https://wa.me/447356260648), we'll give you an honest audit and tell you exactly what needs fixing.
+      `,
+    },
+    "website-cost-london-2026": {
+      title: "How Much Does a Website Cost in London? 2026 Price Guide",
+      category: "Business Growth",
+      date: "2026-06-10",
+      readTime: 8,
+      author: "Abdul M Taher",
+      seoTitle: "Website Cost London 2026: Real Prices Explained | L&D Digital",
+      seoDescription:
+        "How much does a website cost in London in 2026? Real price ranges for small business sites, ecommerce stores and web apps, plus the hidden fees agencies don't mention.",
+      seoKeywords:
+        "website cost London, how much does a website cost UK, web design prices London 2026, small business website cost, ecommerce website cost UK, web design quote London",
+      ogImage: blogWebDev,
+      heroAlt: "Calculator and laptop showing website pricing breakdown for London businesses",
+      content: `
+## The Short Answer
+
+In London in 2026, a professional small business website costs between **£200 and £5,000** depending on what you need. Here's the honest breakdown:
+
+| Website Type | Typical London Price | Delivery Time |
+|---|---|---|
+| Landing page | £200 - £500 | 1-3 days |
+| Small business site (5-8 pages) | £500 - £1,500 | 5-10 days |
+| Ecommerce store | £1,000 - £5,000 | 10-21 days |
+| Custom web app | £2,000 - £10,000+ | 3-12 weeks |
+
+Most London agencies will quote 2-4x these figures. We'll explain why, and how to avoid overpaying.
+
+## Why London Agency Quotes Vary So Wildly
+
+Three businesses can ask for "a website" and get quotes of £500, £3,000 and £15,000. The difference usually comes down to:
+
+### 1. Who's Actually Building It
+
+- **Freelancers** (£300-£1,500): cheapest, but quality and reliability vary hugely
+- **Small studios like ours** (£200-£5,000): direct contact with the people building your site, lower overheads
+- **Large agencies** (£5,000-£50,000): account managers, project managers and office space you're paying for
+
+### 2. Template vs Custom Design
+
+A customised template gets most London businesses 90% of the result at 30% of the price. Fully bespoke design makes sense for brands competing at a national level, not for a Stratford cafe or an Ilford accountant.
+
+### 3. What "Done" Includes
+
+The biggest source of bill shock. Always ask whether the quote includes:
+
+- Domain and hosting for year one
+- SSL certificate and security setup
+- Mobile optimisation (non-negotiable in 2026)
+- Basic SEO: titles, descriptions, Google Business Profile link-up
+- Training so you can edit content yourself
+
+## The Hidden Costs Nobody Mentions
+
+### Ongoing Fees
+
+- **Hosting**: £5-£30/month (beware agencies charging £50+/month for basic hosting)
+- **Maintenance**: £30-£100/month if you want updates handled for you
+- **Platform fees**: Wix and Squarespace charge £12-£30/month forever; WordPress and custom builds don't
+
+### The Cheap Website Trap
+
+A £50 DIY site usually costs more long-term: your hours building it, lost customers from a poor mobile experience, and a rebuild within 18 months. We covered this in detail in our [cheap websites guide](/blog/cheap-websites).
+
+## What East London Businesses Actually Pay Us
+
+Real examples from recent projects:
+
+- **Plumber in Plaistow**: 5-page site with quote form and Google Maps, £350, live in 4 days
+- **Salon in Walthamstow**: booking system, gallery, reviews integration, £750, live in 8 days
+- **Fashion boutique in Hackney**: full Shopify store with 50+ products, £1,800, live in 2 weeks
+
+## How to Get an Accurate Quote
+
+Send any web designer these five things and you'll get a real number instead of a vague range:
+
+1. Your current website address (if you have one)
+2. Two or three competitor or inspiration sites you like
+3. How many pages or products you need
+4. Whether you need bookings, payments, or member areas
+5. Your deadline
+
+## Get a Fixed Quote in Hours, Not Weeks
+
+We're a Stratford-based studio building websites for London businesses from £200, delivered in 1-14 days with no hidden fees.
+
+[See our website packages →](/web-package)
+
+[Get a free quote →](/contact)
+
+[WhatsApp us](https://wa.me/447356260648) with the five things above and we'll reply with a fixed price, usually within 1-3 hours.
       `,
     },
 };

@@ -110,7 +110,8 @@ const Index = () => {
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0,
+        rootMargin: "0px 0px -5% 0px",
       },
     );
 
@@ -163,7 +164,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[100svh] flex items-center pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16">
 
-        {/* ── Background video (desktop only — saves 3.4MB on mobile) ── */}
+        {/* ── Background video (desktop only, saves 3.4MB on mobile) ── */}
         <div
           className="absolute inset-0 hidden md:block"
           style={{ transform: `translateY(${parallaxOffset * 0.4}px) scale(1.08)`, transition: "transform 0.1s ease-out" }}
@@ -222,11 +223,11 @@ const Index = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-400" />
                 </span>
-                <span>Limited projects each month — to maintain quality</span>
+                <span>Limited projects each month, to maintain quality</span>
               </span>
             </motion.div>
 
-            {/* Main heading — fluid type scale, keyword-led H1 */}
+            {/* Main heading, fluid type scale, keyword-led H1 */}
             <motion.h1
               variants={heroItem}
               className="font-bold tracking-tight leading-[1.1] mb-5 sm:mb-6 px-2"
@@ -238,7 +239,7 @@ const Index = () => {
               </span>
             </motion.h1>
 
-            {/* Who / What / Where — AI-search entity anchor */}
+            {/* Who / What / Where: AI-search entity anchor */}
             <motion.p variants={heroItem} className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
               <span className="font-semibold text-white">L&amp;D Digital</span> is a Stratford, East London web design,
               SEO and AI automation studio building fast, conversion-focused sites for UK businesses.
@@ -247,7 +248,7 @@ const Index = () => {
             {/* Subtitle */}
             <motion.p variants={heroItem} className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6">
               We build fast, mobile-first websites, AI automations and local SEO campaigns for small businesses across
-              East London — from <span className="text-white font-semibold">£200</span>, delivered in 1–14 days.
+              East London, from <span className="text-white font-semibold">£200</span>, delivered in 1–14 days.
             </motion.p>
 
             {/* Guarantee chips */}
@@ -275,7 +276,7 @@ const Index = () => {
               </Button>
             </motion.div>
 
-            {/* Trust line under CTAs — honest signals only */}
+            {/* Trust line under CTAs, honest signals only */}
             <motion.p variants={heroItem} className="text-xs sm:text-sm text-slate-200 mb-7 sm:mb-8">
               <a
                 href="https://g.page/r/CV1yY8JP6yoIEAI/review"
@@ -299,7 +300,7 @@ const Index = () => {
               ))}
             </motion.div>
 
-            {/* Quick stats — complements trust line above (no duplicate rating) */}
+            {/* Quick stats, complements trust line above (no duplicate rating) */}
             <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-200">
               <div className="flex items-center gap-1.5">
                 <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-teal-400 shrink-0" />
@@ -331,7 +332,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Platform & Tools Marquee — inline styles bypass Tailwind flex conflicts */}
+      {/* Platform & Tools Marquee, inline styles bypass Tailwind flex conflicts */}
       <section aria-label="Platforms and tools we work with" className="bg-white border-y border-slate-100 py-5 relative z-20">
         <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest text-center mb-4">
           Platforms &amp; Tools We Work With
@@ -341,7 +342,7 @@ const Index = () => {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to right, white 0%, white 10%, transparent 100%)' }} />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-48 z-10" style={{ background: 'linear-gradient(to left, white 0%, white 10%, transparent 100%)' }} />
 
-          {/* Single animated row — both logo sets inside so translateX(-50%) loops */}
+          {/* Single animated row, both logo sets inside so translateX(-50%) loops */}
           <div className="marquee-strip">
             {/* ---- Logo set A ---- */}
             {/* --- Logo set (duplicated below for seamless loop) --- */}
@@ -463,7 +464,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      <section className="legacy-section py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
+      <section className="legacy-section py-8 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-background">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeUp}
@@ -746,14 +747,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Free Website Audit — Lead Magnet */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-50/40 to-white">
+      {/* Free Website Audit: Lead Magnet */}
+      <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-teal-50/40 to-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Not Sure What Your Site Needs?
           </h2>
           <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
-            Get a free website audit in 24 hours — we'll tell you exactly what's costing you customers. No fluff, no obligation.
+            Get a free website audit in 24 hours, we'll tell you exactly what's costing you customers. No fluff, no obligation.
           </p>
           <Suspense fallback={<SectionLoader />}>
             <SeoAuditForm variant="embedded" />
@@ -1010,7 +1011,7 @@ const Index = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-slate-900">Need a Custom Business Tool?</h3>
-                <p className="text-sm text-slate-600">Invoice trackers, finance managers, booking systems — built just for you.</p>
+                <p className="text-sm text-slate-600">Invoice trackers, finance managers, booking systems, built just for you.</p>
               </div>
             </div>
             <Button asChild variant="outline" className="shrink-0 border-teal-200 text-teal-700 hover:bg-teal-50 hover:text-teal-800">
@@ -1030,7 +1031,7 @@ const Index = () => {
       {/* Portfolio Preview */}
       <section
         id="portfolio-preview"
-        className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-10 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -1169,18 +1170,18 @@ const Index = () => {
       </section>
 
       {/* Client Wins */}
-      <section className="py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-slate-50">
+      <section className="py-8 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 bg-slate-50">
         <div className="max-w-7xl mx-auto fade-in-section">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-3">Real Results</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our Clients Achieved</h2>
             <p className="text-slate-500 max-w-2xl mx-auto">
-              Not just pretty websites — measurable changes for real UK businesses.
+              Not just pretty websites, measurable changes for real UK businesses.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
-            {/* Card 1 — Laser Light Skin Clinic (real client) */}
+            {/* Card 1: Laser Light Skin Clinic (real client) */}
             <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-3">
@@ -1193,7 +1194,7 @@ const Index = () => {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-rose-500 mb-1">The Problem</p>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    A slow, broken WordPress site was hiding their NHS-approved credentials behind broken shortcodes and a cluttered 20-item menu — losing bookings to competitors daily.
+                    A slow, broken WordPress site was hiding their NHS-approved credentials behind broken shortcodes and a cluttered 20-item menu, losing bookings to competitors daily.
                   </p>
                 </div>
                 <div>
@@ -1227,7 +1228,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Card 2 — Hair Salon */}
+            {/* Card 2: Hair Salon */}
             <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-3">
@@ -1260,11 +1261,11 @@ const Index = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-slate-400 italic">"Got a quote in 2 hours — way faster than any other developer." — Sarah, Salon Owner</p>
+                <p className="text-xs text-slate-400 italic">"Got a quote in 2 hours, way faster than any other developer.": Sarah, Salon Owner</p>
               </CardContent>
             </Card>
 
-            {/* Card 3 — Trades */}
+            {/* Card 3: Trades */}
             <Card className="bg-white border border-border/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-3">
@@ -1283,7 +1284,7 @@ const Index = () => {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-1">What We Did</p>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Built a trust-led trades site with a quote request form, areas covered map, gas-safe badge in the hero, and transparent pricing — live in 4 days.
+                    Built a trust-led trades site with a quote request form, areas covered map, gas-safe badge in the hero, and transparent pricing, live in 4 days.
                   </p>
                 </div>
                 <div className="mt-auto pt-4 border-t border-slate-100">
@@ -1297,7 +1298,7 @@ const Index = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-slate-400 italic">"Love how transparent the pricing is. No BS." — James, Plumber</p>
+                <p className="text-xs text-slate-400 italic">"Love how transparent the pricing is. No BS.": James, Plumber</p>
               </CardContent>
             </Card>
           </div>
@@ -1310,9 +1311,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 3-Step Process — conversion reassurance */}
+      {/* 3-Step Process, conversion reassurance */}
       <motion.section
-        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -1340,7 +1341,7 @@ const Index = () => {
               {
                 step: "01",
                 title: "Book a free call",
-                desc: "Tell us what you need. We'll send a clear, fixed quote within 4 hours — no sales pitch.",
+                desc: "Tell us what you need. We'll send a clear, fixed quote within 4 hours, no sales pitch.",
               },
               {
                 step: "02",
@@ -1350,7 +1351,7 @@ const Index = () => {
               {
                 step: "03",
                 title: "You grow online",
-                desc: "Optional SEO, AI assistants, and ongoing support from £25/month — only if you want it.",
+                desc: "Optional SEO, AI assistants, and ongoing support from £25/month, only if you want it.",
               },
             ].map((s) => (
               <motion.div
@@ -1383,7 +1384,7 @@ const Index = () => {
       </motion.section>
 
       {/* FAQ Section - Improved UX/UI */}
-      <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">
+      <section className="py-10 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9FAFB] to-white">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -1398,7 +1399,7 @@ const Index = () => {
             </p>
           </div>
 
-          {/* FAQ Accordion — synced with FAQPage schema */}
+          {/* FAQ Accordion, synced with FAQPage schema */}
           <Accordion type="single" collapsible className="w-full space-y-3">
             {homepageFaqs.map((faq, idx) => (
               <AccordionItem

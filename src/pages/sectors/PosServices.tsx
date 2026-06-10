@@ -146,7 +146,7 @@ const PosServices = () => {
 
   const comparisonData = [
     { feature: "Hardware ownership", square: "Buy once, own it", legacy: "Lease forever" },
-    { feature: "Contracts", square: "None — cancel anytime", legacy: "3-5 year lock-in" },
+    { feature: "Contracts", square: "None, cancel anytime", legacy: "3-5 year lock-in" },
     { feature: "Monthly software fees", square: "Free (basic) or £49/month", legacy: "£80-150/month" },
     { feature: "Exit fees", square: "£0", legacy: "£500-2,000+" },
     { feature: "Hardware cost (typical)", square: "£500-1,500", legacy: "£0 upfront, £4,000+ over term" },
@@ -318,7 +318,7 @@ const PosServices = () => {
                 Hardware We Install
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                All Square hardware is purchased outright—no leasing, no rental fees. You own it from day one.
+                All Square hardware is purchased outright, no leasing, no rental fees. You own it from day one.
               </p>
             </AnimatedSection>
             

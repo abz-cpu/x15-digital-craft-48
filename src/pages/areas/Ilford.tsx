@@ -6,7 +6,7 @@ const Ilford = () => {
     slug: "ilford",
     postcodes: ["IG1", "IG2", "IG3", "IG4", "IG5", "IG6"],
     description: "Professional web development and digital marketing for Ilford businesses. From independent shops on Cranbrook Road to healthcare providers near King George Hospital, we help Ilford businesses stand out online with affordable, high-quality websites.",
-    heroSubheadline: "We understand the diverse Ilford market—from Gants Hill to Seven Kings, Barkingside to Goodmayes. Our websites are designed to connect you with local customers and showcase what makes your business special.",
+    heroSubheadline: "We understand the diverse Ilford market, from Gants Hill to Seven Kings, Barkingside to Goodmayes. Our websites are designed to connect you with local customers and showcase what makes your business special.",
     localLandmarks: [
       "Exchange Ilford",
       "Valentines Park",

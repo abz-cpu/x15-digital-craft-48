@@ -21,7 +21,7 @@ const CompanyPageSchema = () => {
       logo: "https://digital.luminousanddeliver.co.uk/favicon-96x96.png",
       description:
         "Luminous & Deliver Ltd is a UK holding company operating three divisions: L&D Digital (web design, SEO and AI automation), L&D Builds (custom gaming PCs), and L&D Assured (Level 3 Domestic Energy Assessments).",
-      foundingDate: "[PLACEHOLDER — owner to add Companies House incorporation date]",
+      foundingDate: "[PLACEHOLDER, owner to add Companies House incorporation date]",
       founder: {
         "@type": "Person",
         name: "Abdul M Taher",
@@ -40,7 +40,7 @@ const CompanyPageSchema = () => {
       identifier: {
         "@type": "PropertyValue",
         propertyID: "Companies House",
-        value: "[PLACEHOLDER — owner to add company number]",
+        value: "[PLACEHOLDER, owner to add company number]",
       },
       subOrganization: [
         {
@@ -96,7 +96,7 @@ const Company = () => {
       </div>
 
       <main>
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-20">
           <Container>
             <div className="max-w-4xl mx-auto">
               {/* Header */}
@@ -119,12 +119,12 @@ const Company = () => {
                         { label: "Company type", value: "Private limited company (UK)" },
                         {
                           label: "Companies House number",
-                          value: "[PLACEHOLDER — owner to add]",
+                          value: "[PLACEHOLDER, owner to add]",
                           placeholder: true,
                         },
                         {
                           label: "Incorporation date",
-                          value: "[PLACEHOLDER — owner to add]",
+                          value: "[PLACEHOLDER, owner to add]",
                           placeholder: true,
                         },
                         { label: "Founder", value: "Abdul M Taher" },
@@ -216,8 +216,7 @@ const Company = () => {
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         Abdul M Taher is the founder and sole director of Luminous &amp; Deliver Ltd, and
                         the founder and lead developer of L&amp;D Digital. He is a BSc Computer Science graduate
-                        specialising in cybersecurity, and a Level 3 qualified Domestic Energy Assessor —
-                        credentials that underpin both the web security posture of L&amp;D Digital builds and the
+                        specialising in cybersecurity, and a Level 3 qualified Domestic Energy Assessor, credentials that underpin both the web security posture of L&amp;D Digital builds and the
                         compliance work of L&amp;D Assured.
                       </p>
                       <Button asChild variant="outline">

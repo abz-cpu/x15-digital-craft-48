@@ -99,7 +99,7 @@ const aiPackages = [
     price: "from £100",
     priceNote: "per month",
     badge: "Best Value" as string | null,
-    description: "Full front-of-house automation — chat, bookings, and follow-ups.",
+    description: "Full front-of-house automation, chat, bookings, and follow-ups.",
     features: [
       "Everything in AI Chatbot",
       "Automated follow-up messages",
@@ -116,7 +116,7 @@ const otherPackages = [
     name: "IT Support",
     price: "from £25",
     priceNote: "per month",
-    description: "Remote IT help for small businesses — computers, networks, security.",
+    description: "Remote IT help for small businesses, computers, networks, security.",
     features: ["Remote troubleshooting", "Security monitoring", "Software setup", "Monthly check-ins"],
     cta: "/services/it-support",
   },
@@ -145,7 +145,7 @@ const faqs = [
   },
   {
     q: "What does the 14-day money-back guarantee cover?",
-    a: "If you're not happy with your website within 14 days of delivery, we'll refund you in full — no questions asked. This applies to one-off website builds.",
+    a: "If you're not happy with your website within 14 days of delivery, we'll refund you in full, no questions asked. This applies to one-off website builds.",
   },
   {
     q: "Are there any hidden fees?",
@@ -205,7 +205,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-2">Website Packages</h2>
-            <p className="text-muted-foreground">One-off builds — you own it outright.</p>
+            <p className="text-muted-foreground">One-off builds, you own it outright.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {websitePackages.map((pkg) => (
@@ -249,7 +249,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-2">AI Automation</h2>
-            <p className="text-muted-foreground">Monthly plans — cancel any time.</p>
+            <p className="text-muted-foreground">Monthly plans, cancel any time.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {aiPackages.map((pkg) => (
@@ -347,7 +347,7 @@ export default function Pricing() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Not sure which package?</h2>
           <p className="text-lg opacity-90 mb-8">
-            Book a free 15-minute consultation. We'll recommend the right fit — no hard sell.
+            Book a free 15-minute consultation. We'll recommend the right fit, no hard sell.
           </p>
           <Button asChild size="lg" variant="secondary">
             <Link to="/contact">

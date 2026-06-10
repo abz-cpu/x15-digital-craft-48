@@ -106,7 +106,7 @@ const RestaurantPos = () => {
               Restaurant POS Systems That Don't Crash During the Rush
             </h1>
             <p className="text-lg md:text-xl text-amber-100/90 mb-8">
-              Your payment system failing at 8pm on a Saturday costs thousands in lost revenue and damages your reputation. We install reliable Square systems for restaurants, cafés, and bars—with local support when you need it.
+              Your payment system failing at 8pm on a Saturday costs thousands in lost revenue and damages your reputation. We install reliable Square systems for restaurants, cafés, and bars, with local support when you need it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-amber-950 font-semibold">
@@ -230,7 +230,7 @@ const RestaurantPos = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-medium">Contract</TableCell>
-                    <TableCell><span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> None — cancel anytime</span></TableCell>
+                    <TableCell><span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> None, cancel anytime</span></TableCell>
                     <TableCell><span className="flex items-center gap-2"><Lock className="h-4 w-4 text-destructive" /> 12-36 months lock-in</span></TableCell>
                   </TableRow>
                   <TableRow>
@@ -281,7 +281,7 @@ const RestaurantPos = () => {
             </div>
 
             <p className="text-center text-sm text-muted-foreground mt-8">
-              We recommend Square because it's genuinely cheaper long-term for most UK hospitality businesses—not because we're locked into reselling one brand.
+              We recommend Square because it's genuinely cheaper long-term for most UK hospitality businesses, not because we're locked into reselling one brand.
             </p>
           </div>
         </Container>
@@ -294,7 +294,7 @@ const RestaurantPos = () => {
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Your Restaurant</h2>
               <p className="text-muted-foreground text-lg">
-                Own your equipment outright—no leasing, no rental fees.
+                Own your equipment outright, no leasing, no rental fees.
               </p>
             </div>
           </AnimatedSection>

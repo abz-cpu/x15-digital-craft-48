@@ -86,7 +86,7 @@ const PosSetup = () => {
     },
     {
       question: "What happens if the system goes down?",
-      answer: "With our support plans, you call us directly—not a call centre, not a ticket system. Basic support includes same-day response during business hours. Premium support includes 24/7 emergency response. We're based in East London and can often resolve issues remotely within minutes, or attend on-site when needed.",
+      answer: "With our support plans, you call us directly, not a call centre, not a ticket system. Basic support includes same-day response during business hours. Premium support includes 24/7 emergency response. We're based in East London and can often resolve issues remotely within minutes, or attend on-site when needed.",
     },
     {
       question: "How quickly can you install?",
@@ -233,7 +233,7 @@ const PosSetup = () => {
       <BreadcrumbNav />
 
       {/* Who This Serves */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -260,7 +260,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Complete System Installation */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -305,7 +305,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Industry-Specific Configuration */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -343,14 +343,14 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Hardware Supply & Installation */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Hardware We Install
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              All Square hardware is purchased outright—no leasing, no rental fees. You own it from day one.
+              All Square hardware is purchased outright, no leasing, no rental fees. You own it from day one.
             </p>
           </div>
           
@@ -427,14 +427,14 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Monthly Support Plans */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Monthly Support Plans
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-              A payment system without reliable support is a liability. When something goes wrong during your busiest hours, you need someone who answers the phone—not a ticket queue.
+              A payment system without reliable support is a liability. When something goes wrong during your busiest hours, you need someone who answers the phone, not a ticket queue.
             </p>
             <Card className="inline-block p-4 bg-amber-500/10 border-amber-500/30">
               <p className="text-sm font-medium text-amber-700 dark:text-amber-400">
@@ -481,7 +481,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Optional Add-Ons */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -508,7 +508,7 @@ const PosSetup = () => {
           <div className="text-center mt-8">
             <Card className="inline-block p-4 bg-muted/50">
               <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Website + POS Integration:</strong> £799 — Connect your online presence directly to your payment system
+                <strong className="text-foreground">Website + POS Integration:</strong> £799: Connect your online presence directly to your payment system
               </p>
             </Card>
           </div>
@@ -516,7 +516,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Transparent Pricing */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -561,7 +561,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Why L&D Digital */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -589,7 +589,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Square vs Legacy EPOS Comparison */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-destructive/10 text-destructive border-destructive/30">
@@ -599,7 +599,7 @@ const PosSetup = () => {
               Why Square Beats Legacy EPOS Systems
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Many businesses are locked into overpriced, restrictive EPOS systems with hidden fees and long contracts. Here's how Square compares—and why we recommend it.
+              Many businesses are locked into overpriced, restrictive EPOS systems with hidden fees and long contracts. Here's how Square compares, and why we recommend it.
             </p>
           </div>
 
@@ -622,7 +622,7 @@ const PosSetup = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-medium">Contract</TableCell>
-                    <TableCell className="text-primary">None — cancel anytime</TableCell>
+                    <TableCell className="text-primary">None, cancel anytime</TableCell>
                     <TableCell className="text-muted-foreground">12-36 months lock-in</TableCell>
                   </TableRow>
                   <TableRow>
@@ -687,13 +687,13 @@ const PosSetup = () => {
           </div>
 
           <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto">
-            We recommend Square because it's genuinely cheaper long-term for most UK businesses—not because we're locked into reselling one brand.
+            We recommend Square because it's genuinely cheaper long-term for most UK businesses, not because we're locked into reselling one brand.
           </p>
         </Container>
       </AnimatedSection>
 
       {/* Next Steps */}
-      <AnimatedSection className="py-16 md:py-20 bg-muted/30">
+      <AnimatedSection className="py-10 md:py-20 bg-muted/30">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-12">
@@ -727,7 +727,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* FAQ Section */}
-      <AnimatedSection className="py-16 md:py-20">
+      <AnimatedSection className="py-10 md:py-20">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -750,7 +750,7 @@ const PosSetup = () => {
       </AnimatedSection>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">

@@ -80,7 +80,7 @@ const Seo = () => {
     },
     {
       q: "What does 'Authority Building' mean and do I need it?",
-      a: "Authority building is earning quality links and local mentions that improve trust and rankings. You don't always need it early on — we prioritise GBP + on-page + technical first, then add authority work if competition demands it.",
+      a: "Authority building is earning quality links and local mentions that improve trust and rankings. You don't always need it early on, we prioritise GBP + on-page + technical first, then add authority work if competition demands it.",
     },
   ];
 
@@ -131,7 +131,7 @@ const Seo = () => {
 
       <main className="flex-1">
         {/* HERO */}
-        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="relative text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/90 text-sm mb-6">
@@ -185,7 +185,7 @@ const Seo = () => {
         <BreadcrumbNav />
 
         {/* WHO THIS IS FOR */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -228,7 +228,7 @@ const Seo = () => {
         </section>
 
         {/* NEW: SEO + UX/UI (CONVERSION) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -295,7 +295,7 @@ const Seo = () => {
         </section>
 
         {/* WHAT YOU GET */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-16 bg-background">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-6xl mx-auto">
@@ -356,7 +356,7 @@ const Seo = () => {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -422,7 +422,7 @@ const Seo = () => {
         </section>
 
         {/* PRICING - IMPROVED LAYOUT */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-20 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -589,7 +589,7 @@ const Seo = () => {
                             "1 service page OR blog content (monthly)",
                             "Internal linking improvements",
                             "Conversion-focused updates (CRO)",
-                            "AI Search Optimisation (AEO) — content optimised for AI Overviews, ChatGPT & Perplexity",
+                            "AI Search Optimisation (AEO), content optimised for AI Overviews, ChatGPT & Perplexity",
                             "Priority support",
                           ].map((li, i) => (
                             <li key={i} className="flex items-start gap-3">
@@ -616,7 +616,7 @@ const Seo = () => {
         </section>
 
         {/* FREE SEO AUDIT SECTION */}
-        <section id="free-audit" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
+        <section id="free-audit" className="py-10 md:py-20 bg-muted/30 border-y border-border">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-6xl mx-auto">
@@ -678,7 +678,7 @@ const Seo = () => {
         </section>
 
         {/* FAQ (FULL, INCLUDES "MISSING" QUESTIONS) */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-5xl mx-auto">
@@ -722,7 +722,7 @@ const Seo = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Want More Enquiries From Google?</h2>

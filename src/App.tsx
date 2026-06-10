@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { LoadingFallback } from "@/components/LoadingFallback";
+import { PremiumLoading } from "@/components/PremiumLoading";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { performanceMonitor } from "@/utils/performance";
 import { registerPreload } from "@/components/PreloadLink";
@@ -168,7 +168,7 @@ const App = () => (
           <ProfessionalServiceSchema />
           <ServiceAreaSchema />
           <CookieConsent />
-          <Suspense fallback={<LoadingFallback />}>
+          <Suspense fallback={<PremiumLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />

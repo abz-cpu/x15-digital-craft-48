@@ -192,7 +192,7 @@ const PosMigrationGuide = () => {
 
   const comparisonData = [
     { feature: "Hardware ownership", square: "Buy once, own it", legacy: "Lease forever" },
-    { feature: "Contracts", square: "None — cancel anytime", legacy: "3-5 year lock-in" },
+    { feature: "Contracts", square: "None, cancel anytime", legacy: "3-5 year lock-in" },
     { feature: "Monthly software fees", square: "Free (basic) or £49/month", legacy: "£80-150/month" },
     { feature: "Exit fees", square: "£0", legacy: "£500-2,000+" },
     { feature: "Hardware cost (typical)", square: "£500-1,500", legacy: "£0 upfront, £4,000+ over term" },
@@ -288,7 +288,7 @@ const PosMigrationGuide = () => {
                   Switch from Legacy EPOS to Square Without the Headaches
                 </h1>
                 <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-                  Escape expensive contracts, outdated hardware, and poor support. We handle the entire migration—data transfer, hardware setup, and staff training—in 2-3 days.
+                  Escape expensive contracts, outdated hardware, and poor support. We handle the entire migration, data transfer, hardware setup, and staff training, in 2-3 days.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" asChild className="text-lg bg-primary text-primary-foreground hover:bg-primary/90">
@@ -697,7 +697,7 @@ const PosMigrationGuide = () => {
                   Ready to Escape Your EPOS Contract?
                 </h2>
                 <p className="text-xl text-primary-foreground/90 mb-8">
-                  Get a free assessment of your current system. We'll identify exit options, data migration requirements, and provide a detailed quote—no obligation.
+                  Get a free assessment of your current system. We'll identify exit options, data migration requirements, and provide a detailed quote, no obligation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" asChild className="text-lg bg-background text-primary hover:bg-muted">

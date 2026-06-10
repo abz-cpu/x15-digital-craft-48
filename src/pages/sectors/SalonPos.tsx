@@ -66,7 +66,7 @@ const salonFeatures = [
   {
     icon: User,
     title: "Client Profiles",
-    description: "Colour formulas, preferences, allergies—everything stored for each client."
+    description: "Colour formulas, preferences, allergies, everything stored for each client."
   },
   {
     icon: Clock,
@@ -292,7 +292,7 @@ export default function SalonPos() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Your Salon</h2>
             <p className="text-muted-foreground text-lg">
-              Own your equipment outright—no leasing, no rental fees.
+              Own your equipment outright, no leasing, no rental fees.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

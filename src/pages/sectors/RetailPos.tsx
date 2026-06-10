@@ -50,7 +50,7 @@ const faqItems = [
   },
   {
     question: "Do you integrate with e-commerce platforms?",
-    answer: "Square syncs with Shopify, WooCommerce, and BigCommerce. Your online and in-store inventory stays unified—sell something online and your shop floor stock updates automatically. We can set up these integrations as part of your installation."
+    answer: "Square syncs with Shopify, WooCommerce, and BigCommerce. Your online and in-store inventory stays unified, sell something online and your shop floor stock updates automatically. We can set up these integrations as part of your installation."
   },
   {
     question: "How long does retail POS installation take?",
@@ -293,7 +293,7 @@ export default function RetailPos() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Your Shop</h2>
             <p className="text-muted-foreground text-lg">
-              Own your equipment outright—no leasing, no rental fees.
+              Own your equipment outright, no leasing, no rental fees.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">

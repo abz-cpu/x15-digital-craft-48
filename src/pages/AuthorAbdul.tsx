@@ -40,7 +40,7 @@ const PersonSchema = () => {
       },
       alumniOf: {
         "@type": "EducationalOrganization",
-        name: "[PLACEHOLDER — university name]",
+        name: "[PLACEHOLDER, university name]",
       },
       hasCredential: [
         {
@@ -100,7 +100,7 @@ const AuthorAbdul = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Abdul M Taher — Founder, L&D Digital | Web, SEO & AI in London"
+        title="Abdul M Taher: Founder, L&D Digital | Web, SEO & AI in London"
         description="Abdul M Taher is the founder of L&D Digital, a Stratford-based web design, SEO and AI automation studio. BSc Computer Science graduate specialising in cybersecurity, Level 3 DEA qualified."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/author/abdul-m-taher"
         keywords="Abdul M Taher, L&D Digital founder, web developer East London, cybersecurity developer UK, Stratford web designer"
@@ -112,7 +112,7 @@ const AuthorAbdul = () => {
       </div>
 
       <main>
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-20">
           <Container>
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-start gap-8 mb-12">
@@ -191,7 +191,7 @@ const AuthorAbdul = () => {
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <Shield className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span>BSc Computer Science — specialism in cybersecurity</span>
+                    <span>BSc Computer Science, specialism in cybersecurity</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Shield className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
@@ -211,11 +211,11 @@ const AuthorAbdul = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <Code2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span>Local SEO for East London businesses — Google Business Profile, citations, technical fixes</span>
+                    <span>Local SEO for East London businesses: Google Business Profile, citations, technical fixes</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Code2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span>AI automation — chatbots, voice assistants, WhatsApp bots and workflow automation</span>
+                    <span>AI automation, chatbots, voice assistants, WhatsApp bots and workflow automation</span>
                   </li>
                 </ul>
               </div>

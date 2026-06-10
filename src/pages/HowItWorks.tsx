@@ -17,7 +17,7 @@ const steps = [
     title: "Discovery",
     duration: "Day 1",
     description:
-      "We start with a free 15-minute consultation — by phone, WhatsApp, or email. We ask about your business, your goals, and what you need. No jargon, no pressure.",
+      "We start with a free 15-minute consultation, by phone, WhatsApp, or email. We ask about your business, your goals, and what you need. No jargon, no pressure.",
     deliverables: [
       "Clear project brief",
       "Agreed scope and price",
@@ -45,7 +45,7 @@ const steps = [
     title: "Build",
     duration: "Days 3–12",
     description:
-      "We build your site with clean, fast code. You get a staging link to review the real working site throughout the build — no surprises at the end.",
+      "We build your site with clean, fast code. You get a staging link to review the real working site throughout the build, no surprises at the end.",
     deliverables: [
       "Working staging site",
       "Mobile & desktop tested",
@@ -59,7 +59,7 @@ const steps = [
     title: "Launch",
     duration: "Final day",
     description:
-      "Once you approve, we go live. Domain connected, SSL secured, SEO configured. We hand over everything you need — logins, training, and a 14-day guarantee.",
+      "Once you approve, we go live. Domain connected, SSL secured, SEO configured. We hand over everything you need, logins, training, and a 14-day guarantee.",
     deliverables: [
       "Live on your domain",
       "SSL & security configured",
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: "Can I make changes after launch?",
-    a: "Yes. We offer optional ongoing maintenance plans from £25/month. Alternatively, we can train you to make simple edits yourself — it's your site, you own it.",
+    a: "Yes. We offer optional ongoing maintenance plans from £25/month. Alternatively, we can train you to make simple edits yourself, it's your site, you own it.",
   },
   {
     q: "What if I'm not happy with the result?",
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     q: "Do you work with businesses outside East London?",
-    a: "Yes. While we specialise in East London businesses, we work with clients across the UK. Everything is handled remotely — calls, screen shares, and a staging link for review.",
+    a: "Yes. While we specialise in East London businesses, we work with clients across the UK. Everything is handled remotely, calls, screen shares, and a staging link for review.",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function HowItWorks() {
             From idea to live site in days, not months.
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            A simple 4-step process designed to get your business online fast — with no stress, no surprises,
+            A simple 4-step process designed to get your business online fast, with no stress, no surprises,
             and a money-back guarantee.
           </p>
           <Button asChild size="lg">

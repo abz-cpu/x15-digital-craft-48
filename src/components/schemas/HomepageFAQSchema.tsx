@@ -4,7 +4,7 @@ export const homepageFaqs = [
   {
     question: "How much does a website cost in London in 2026?",
     answer:
-      "Websites in London typically cost £500–£5,000 depending on complexity. At L&D Digital in Stratford, custom-coded sites start at £200 for a 3-page brochure site, £800 for a 6-page business site, and £1,800 for ecommerce. Pricing is fixed upfront — no hidden fees.",
+      "Websites in London typically cost £500–£5,000 depending on complexity. At L&D Digital in Stratford, custom-coded sites start at £200 for a 3-page brochure site, £800 for a 6-page business site, and £1,800 for ecommerce. Pricing is fixed upfront, no hidden fees.",
   },
   {
     question: "Who is the best web designer in East London?",
@@ -14,7 +14,7 @@ export const homepageFaqs = [
   {
     question: "How long does it take to build a website?",
     answer:
-      "A simple 3–5 page business website takes 3–7 working days. A custom ecommerce build takes 10–14 days. L&D Digital delivers most projects within 1–14 days from brief sign-off — faster than the typical agency timeline of 4–8 weeks.",
+      "A simple 3–5 page business website takes 3–7 working days. A custom ecommerce build takes 10–14 days. L&D Digital delivers most projects within 1–14 days from brief sign-off, faster than the typical agency timeline of 4–8 weeks.",
   },
   {
     question: "What is the difference between SEO and paid ads?",
@@ -49,7 +49,7 @@ export const homepageFaqs = [
   {
     question: "Is a freelance web designer cheaper than an agency?",
     answer:
-      "Freelancers in London typically charge £400–£2,000 per site, while agencies charge £2,000–£10,000. L&D Digital operates as a hybrid — agency-quality output at freelancer pricing (£200–£1,800) because the founder is the developer, with no agency overhead.",
+      "Freelancers in London typically charge £400–£2,000 per site, while agencies charge £2,000–£10,000. L&D Digital operates as a hybrid, agency-quality output at freelancer pricing (£200–£1,800) because the founder is the developer, with no agency overhead.",
   },
 ];
 

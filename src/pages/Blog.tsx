@@ -151,7 +151,7 @@ const Blog = () => {
       category: "ai-automation" as Category,
       categoryLabel: "AI Automation",
       excerpt:
-        "You can't answer calls when you're under a sink. AI chatbots capture leads 24/7, qualify enquiries, and book jobs automatically — starting from £50/month.",
+        "You can't answer calls when you're under a sink. AI chatbots capture leads 24/7, qualify enquiries, and book jobs automatically, starting from £50/month.",
       readTime: 7,
       date: "2026-02-18",
       author: "Abdul M Taher",
@@ -190,7 +190,7 @@ const Blog = () => {
       category: "business" as Category,
       categoryLabel: "Business Growth",
       excerpt:
-        "A slow load, broken mobile layout, or missing call-to-action could be silently losing you thousands of pounds a month. Here's how to spot — and fix — the 5 biggest problems.",
+        "A slow load, broken mobile layout, or missing call-to-action could be silently losing you thousands of pounds a month. Here's how to spot, and fix, the 5 biggest problems.",
       readTime: 5,
       date: "2026-03-18",
       author: "Abdul M Taher",
@@ -238,15 +238,28 @@ const Blog = () => {
     {
       id: 16,
       slug: "laser-light-skin-clinic-case-study",
-      title: "Case Study: Laser Light Skin Clinic — From WordPress to a Modern Website",
+      title: "Case Study: Laser Light Skin Clinic: From WordPress to a Modern Website",
       category: "case-studies" as Category,
       categoryLabel: "Case Studies",
       excerpt:
-        "Before and after breakdown of our redesign for East London's only 5-Star NHS-approved laser clinic — broken shortcodes, confusing navigation, and slow load times, all fixed.",
+        "Before and after breakdown of our redesign for East London's only 5-Star NHS-approved laser clinic, broken shortcodes, confusing navigation, and slow load times, all fixed.",
       readTime: 6,
       date: "2026-04-07",
       author: "Abdul M Taher",
       image: blogEastLondonTips,
+    },
+    {
+      id: 17,
+      slug: "website-cost-london-2026",
+      title: "How Much Does a Website Cost in London? 2026 Price Guide",
+      category: "business" as Category,
+      categoryLabel: "Business Growth",
+      excerpt:
+        "Real 2026 price ranges for London business websites, from £200 landing pages to £5,000 ecommerce stores, plus the hidden fees most agencies won't mention upfront.",
+      readTime: 8,
+      date: "2026-06-10",
+      author: "Abdul M Taher",
+      image: blogWebDev,
     },
   ];
 
@@ -319,8 +332,8 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto">
           <div key={activeCategory} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
-              <div key={post.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <Card className="hover-lift h-full">
+              <Link key={post.id} to={`/blog/${post.slug}`} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+                <Card className="hover-lift h-full cursor-pointer">
                   <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
@@ -343,14 +356,12 @@ const Blog = () => {
                         })}
                       </p>
                     </div>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link to={`/blog/${post.slug}`}>
-                        Read More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div className="text-primary font-medium flex items-center gap-2">
+                      Read More <ArrowRight className="h-4 w-4" />
+                    </div>
                   </CardContent>
                 </Card>
-              </div>
+              </Link>
             ))}
           </div>
 

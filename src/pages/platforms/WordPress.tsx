@@ -33,7 +33,7 @@ const WordPress = () => {
   const faqs = [
     {
       question: "How much does a WordPress website cost in London in 2026?",
-      answer: "For London in 2026, WordPress websites typically cost: £400-800 for a starter theme-based site, £800-2,500 for a custom-designed business website, and £2,500-5,000+ for complex sites with advanced functionality. However, if you want a truly bespoke website without template limitations, our custom-coded websites start from just £200—often more cost-effective long-term with better performance and no plugin bloat."
+      answer: "For London in 2026, WordPress websites typically cost: £400-800 for a starter theme-based site, £800-2,500 for a custom-designed business website, and £2,500-5,000+ for complex sites with advanced functionality. However, if you want a truly bespoke website without template limitations, our custom-coded websites start from just £200, often more cost-effective long-term with better performance and no plugin bloat."
     },
     {
       question: "Is WordPress good for SEO?",
@@ -125,7 +125,7 @@ const WordPress = () => {
                   <span className="text-primary block mt-2">Custom Websites That Convert</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
-                  Professional WordPress development for London businesses. From starter sites to enterprise solutions—we build fast, secure, SEO-optimised WordPress websites that grow with your business.
+                  Professional WordPress development for London businesses. From starter sites to enterprise solutions, we build fast, secure, SEO-optimised WordPress websites that grow with your business.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" asChild className="text-lg">
@@ -186,7 +186,7 @@ const WordPress = () => {
                 What We Build on WordPress
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                From simple brochure sites to complex web applications—WordPress can do it all with the right expertise.
+                From simple brochure sites to complex web applications, WordPress can do it all with the right expertise.
               </p>
             </AnimatedSection>
             
@@ -213,7 +213,7 @@ const WordPress = () => {
             <div className="mt-12 bg-primary/5 rounded-xl p-6 border border-primary/20 max-w-3xl mx-auto">
               <h3 className="font-semibold text-lg mb-2 text-center">💡 Consider Custom-Coded Websites</h3>
               <p className="text-muted-foreground text-center mb-4">
-                For many businesses, our <Link to="/platforms/custom-development" className="text-primary hover:underline font-medium">custom-coded websites from £200</Link> offer better value than WordPress—faster loading, no plugin maintenance, and a truly unique design. <Link to="/web-package" className="text-primary hover:underline">View our packages →</Link>
+                For many businesses, our <Link to="/platforms/custom-development" className="text-primary hover:underline font-medium">custom-coded websites from £200</Link> offer better value than WordPress, faster loading, no plugin maintenance, and a truly unique design. <Link to="/web-package" className="text-primary hover:underline">View our packages →</Link>
               </p>
             </div>
           </Container>

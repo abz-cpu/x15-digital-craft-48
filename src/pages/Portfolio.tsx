@@ -45,7 +45,7 @@ const Portfolio = () => {
           }
         });
       },
-      { threshold: 0.05, rootMargin: "50px" },
+      { threshold: 0, rootMargin: "50px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -321,7 +321,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-8 sm:py-12 md:py-16 bg-background">
+      <section className="py-8 sm:py-8 md:py-16 bg-background">
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item) => (

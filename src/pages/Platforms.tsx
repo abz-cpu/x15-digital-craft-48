@@ -93,7 +93,7 @@ const Platforms = () => (
             Platforms We Work With
           </h1>
           <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Choosing the right platform is crucial for your project's success. We're experts in WordPress, Shopify, WooCommerce, and custom React development — and we'll help you pick the perfect fit.
+            Choosing the right platform is crucial for your project's success. We're experts in WordPress, Shopify, WooCommerce, and custom React development, and we'll help you pick the perfect fit.
           </p>
         </Container>
       </section>

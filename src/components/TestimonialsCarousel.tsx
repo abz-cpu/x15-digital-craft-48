@@ -79,8 +79,7 @@ export const TestimonialsCarousel = ({
                       <MessageCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <p className="text-muted-foreground">{testimonial.quote}</p>
                     </div>
-                    <p className="text-sm text-muted-foreground ml-7">
-                      — {testimonial.author}, {testimonial.location}
+                    <p className="text-sm text-muted-foreground ml-7">, {testimonial.author}, {testimonial.location}
                     </p>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const faqs = [
   {
     question: "How much does web design cost in London in 2026?",
-    answer: "Web design in London typically costs £500–£5,000 in 2026. L&D Digital offers custom-coded websites starting from £200 for a 3-page brochure site, £800 for a 6-page business site, and £1,800 for ecommerce — all with fixed upfront pricing and no hidden fees."
+    answer: "Web design in London typically costs £500–£5,000 in 2026. L&D Digital offers custom-coded websites starting from £200 for a 3-page brochure site, £800 for a 6-page business site, and £1,800 for ecommerce, all with fixed upfront pricing and no hidden fees."
   },
   {
     question: "Who is the best web design agency in East London?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "How long does it take to build a website in London?",
-    answer: "A simple 3–5 page business website takes 3–7 working days. A custom ecommerce build takes 10–14 days. L&D Digital delivers most London projects within 1–14 days from brief sign-off — significantly faster than the typical agency timeline of 4–8 weeks."
+    answer: "A simple 3–5 page business website takes 3–7 working days. A custom ecommerce build takes 10–14 days. L&D Digital delivers most London projects within 1–14 days from brief sign-off, significantly faster than the typical agency timeline of 4–8 weeks."
   },
   {
     question: "Do I need a London-based web designer for my business?",
@@ -54,7 +54,7 @@ const WebDesignAgencyLondon = () => {
           <Container className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">Stratford, East London · Google-verified</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Web Design Agency in London — Custom Websites from £200</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Web Design Agency in London: Custom Websites from £200</h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">L&amp;D Digital is a Stratford-based web design studio building fast, mobile-first websites for small businesses across London. Fixed pricing, 1–14 day delivery.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg"><Link to="/contact">Get My Free Website Review <ArrowRight className="ml-2 h-5 w-5" /></Link></Button>

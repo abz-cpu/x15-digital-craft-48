@@ -34,7 +34,7 @@ const WooCommerce = () => {
   const faqs = [
     {
       question: "How much does a WooCommerce store cost in London in 2026?",
-      answer: "For London in 2026, WooCommerce stores typically cost: £1,000-2,000 for a standard setup with theme customisation, £2,000-4,000 for custom design with advanced functionality, and £4,000-10,000+ for enterprise solutions. Unlike Shopify, there's no monthly platform fee—you own everything. For simpler stores, our custom-coded ecommerce from £200 can be even more cost-effective."
+      answer: "For London in 2026, WooCommerce stores typically cost: £1,000-2,000 for a standard setup with theme customisation, £2,000-4,000 for custom design with advanced functionality, and £4,000-10,000+ for enterprise solutions. Unlike Shopify, there's no monthly platform fee, you own everything. For simpler stores, our custom-coded ecommerce from £200 can be even more cost-effective."
     },
     {
       question: "Is WooCommerce better than Shopify?",
@@ -46,7 +46,7 @@ const WooCommerce = () => {
     },
     {
       question: "Can WooCommerce handle high-volume sales?",
-      answer: "Yes! WooCommerce powers millions of stores including high-volume merchants. With proper hosting, caching, and optimisation, WooCommerce handles thousands of products and orders. It's infinitely scalable—you're not limited by the platform."
+      answer: "Yes! WooCommerce powers millions of stores including high-volume merchants. With proper hosting, caching, and optimisation, WooCommerce handles thousands of products and orders. It's infinitely scalable, you're not limited by the platform."
     },
     {
       question: "Do you provide WooCommerce maintenance?",
@@ -164,7 +164,7 @@ const WooCommerce = () => {
               {[
                 { icon: Code, title: "Customisation Seekers", desc: "Businesses needing unique functionality beyond templates" },
                 { icon: Package, title: "WordPress Users", desc: "Already on WordPress? Add ecommerce seamlessly" },
-                { icon: TrendingUp, title: "Cost-Conscious Brands", desc: "Avoid monthly platform fees—own everything" },
+                { icon: TrendingUp, title: "Cost-Conscious Brands", desc: "Avoid monthly platform fees, own everything" },
                 { icon: Settings, title: "Complex Requirements", desc: "B2B, subscriptions, bookings, custom products" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
@@ -187,13 +187,13 @@ const WooCommerce = () => {
                 What We Build with WooCommerce
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                From simple shops to complex ecommerce ecosystems—WooCommerce's flexibility makes it all possible.
+                From simple shops to complex ecommerce ecosystems, WooCommerce's flexibility makes it all possible.
               </p>
             </AnimatedSection>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Standard Online Shops", desc: "Product catalogues, cart, checkout—everything you need to sell", price: "From £1,000" },
+                { title: "Standard Online Shops", desc: "Product catalogues, cart, checkout, everything you need to sell", price: "From £1,000" },
                 { title: "Variable Products", desc: "Size, colour, material variations with stock management", price: "From £1,300" },
                 { title: "B2B Wholesale Stores", desc: "Tiered pricing, minimum orders, customer-specific catalogues", price: "From £3,000" },
                 { title: "Subscription Products", desc: "Recurring payments for memberships, boxes, services", price: "From £2,000" },

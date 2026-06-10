@@ -58,65 +58,65 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
   },
   {
     feature: "Copywriting",
-    foundation: "—",
+    foundation: "",
     growth: "Key pages",
     scale: "All pages",
     enterprise: "All pages + strategy",
   },
   {
     feature: "Google Maps",
-    foundation: "—",
+    foundation: "",
     growth: true,
     scale: true,
     enterprise: true,
   },
   {
     feature: "Payment integration",
-    foundation: "—",
-    growth: "—",
+    foundation: "",
+    growth: "",
     scale: true,
     enterprise: "✓ (multi-gateway)",
   },
   {
     feature: "Booking system",
-    foundation: "—",
+    foundation: "",
     growth: "Simple",
     scale: "Advanced",
     enterprise: "Advanced + automation",
   },
   {
     feature: "E-commerce",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
+    foundation: "",
+    growth: "",
+    scale: "",
     enterprise: "✓ (full shop)",
   },
   {
     feature: "Customer accounts",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
+    foundation: "",
+    growth: "",
+    scale: "",
     enterprise: true,
   },
   {
     feature: "CRM integration",
-    foundation: "—",
-    growth: "—",
+    foundation: "",
+    growth: "",
     scale: "Basic",
     enterprise: "Advanced",
   },
   {
     feature: "Multi-user dashboard",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
+    foundation: "",
+    growth: "",
+    scale: "",
     enterprise: true,
   },
   {
     feature: "Priority support",
-    foundation: "—",
-    growth: "—",
-    scale: "—",
+    foundation: "",
+    growth: "",
+    scale: "",
     enterprise: true,
   },
   {
@@ -128,7 +128,7 @@ const rows: { feature: string; foundation: Cell; growth: Cell; scale: Cell; ente
   },
   {
     feature: "Rush delivery option",
-    foundation: "—",
+    foundation: "",
     growth: "5–7 days (+£150)",
     scale: "10–14 days (+£300)",
     enterprise: "Custom quote (from £500)",
@@ -154,12 +154,12 @@ const renderCell = (value: Cell, _isPopular: boolean) => {
     return value ? (
       <CheckCircle2 className="h-5 w-5 mx-auto text-success" aria-hidden="true" />
     ) : (
-      <span className="text-muted-foreground">—</span>
+      <span className="text-muted-foreground"></span>
     );
   }
 
-  if (value === "—") {
-    return <span className="text-muted-foreground">—</span>;
+  if (value === "") {
+    return <span className="text-muted-foreground"></span>;
   }
 
   return <span className="text-sm text-foreground font-medium">{value}</span>;

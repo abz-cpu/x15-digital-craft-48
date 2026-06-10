@@ -20,7 +20,7 @@ import {
 const uxUiFaqs = [
   {
     question: "What's the difference between UX and UI design?",
-    answer: "UX (User Experience) focuses on how the product works and feels — the user journey, ease of use, and problem-solving. UI (User Interface) focuses on how it looks — visual design, colors, typography, and layout. We do both."
+    answer: "UX (User Experience) focuses on how the product works and feels, the user journey, ease of use, and problem-solving. UI (User Interface) focuses on how it looks, visual design, colors, typography, and layout. We do both."
   },
   {
     question: "How much does UX/UI design cost?",
@@ -61,7 +61,7 @@ const UxUiDesign = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
@@ -80,7 +80,7 @@ const UxUiDesign = () => {
         <BreadcrumbNav />
 
         {/* What You Get */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
@@ -111,7 +111,7 @@ const UxUiDesign = () => {
         </section>
 
         {/* Why UX Matters */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -137,7 +137,7 @@ const UxUiDesign = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
@@ -154,7 +154,7 @@ const UxUiDesign = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
@@ -177,7 +177,7 @@ const UxUiDesign = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">

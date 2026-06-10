@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Share2, Linkedin, Twitter, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,26 +18,7 @@ import { renderMarkdown, getCategoryBadgeClass } from "@/lib/blogMarkdown";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const observerRef = useRef<IntersectionObserver | null>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    const sections = document.querySelectorAll(".fade-in-section");
-    sections.forEach((section) => observerRef.current?.observe(section));
-
-    return () => observerRef.current?.disconnect();
-  }, []);
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -120,7 +100,7 @@ const BlogPost = () => {
 
       {/* Post Content */}
       <article className="py-10 md:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto fade-in-section">
+        <div className="max-w-4xl mx-auto">
           <Badge className={`mb-4 ${getCategoryBadgeClass(currentPost.category)}`}>{currentPost.category}</Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{currentPost.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8 pb-8 border-b border-border">
@@ -157,7 +137,7 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: renderMarkdown(currentPost.content) }}
           />
 
-          {/* Author bio — E-E-A-T signal at end of article */}
+          {/* Author bio: E-E-A-T signal at end of article */}
           <div className="mt-12 pt-8 border-t border-border">
             <AuthorBio variant="full" />
           </div>
@@ -241,7 +221,7 @@ const BlogPost = () => {
 
       {/* CTA Section */}
       <section className="py-10 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-4xl mx-auto text-center fade-in-section">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Ready to start your project?</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">

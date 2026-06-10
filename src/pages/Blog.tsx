@@ -151,7 +151,7 @@ const Blog = () => {
       category: "ai-automation" as Category,
       categoryLabel: "AI Automation",
       excerpt:
-        "You can't answer calls when you're under a sink. AI chatbots capture leads 24/7, qualify enquiries, and book jobs automatically — starting from £50/month.",
+        "You can't answer calls when you're under a sink. AI chatbots capture leads 24/7, qualify enquiries, and book jobs automatically, starting from £50/month.",
       readTime: 7,
       date: "2026-02-18",
       author: "Abdul M Taher",
@@ -190,7 +190,7 @@ const Blog = () => {
       category: "business" as Category,
       categoryLabel: "Business Growth",
       excerpt:
-        "A slow load, broken mobile layout, or missing call-to-action could be silently losing you thousands of pounds a month. Here's how to spot — and fix — the 5 biggest problems.",
+        "A slow load, broken mobile layout, or missing call-to-action could be silently losing you thousands of pounds a month. Here's how to spot, and fix, the 5 biggest problems.",
       readTime: 5,
       date: "2026-03-18",
       author: "Abdul M Taher",
@@ -238,11 +238,11 @@ const Blog = () => {
     {
       id: 16,
       slug: "laser-light-skin-clinic-case-study",
-      title: "Case Study: Laser Light Skin Clinic — From WordPress to a Modern Website",
+      title: "Case Study: Laser Light Skin Clinic: From WordPress to a Modern Website",
       category: "case-studies" as Category,
       categoryLabel: "Case Studies",
       excerpt:
-        "Before and after breakdown of our redesign for East London's only 5-Star NHS-approved laser clinic — broken shortcodes, confusing navigation, and slow load times, all fixed.",
+        "Before and after breakdown of our redesign for East London's only 5-Star NHS-approved laser clinic, broken shortcodes, confusing navigation, and slow load times, all fixed.",
       readTime: 6,
       date: "2026-04-07",
       author: "Abdul M Taher",

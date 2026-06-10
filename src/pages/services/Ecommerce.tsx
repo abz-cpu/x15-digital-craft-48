@@ -32,7 +32,7 @@ const Ecommerce = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
             <div className="relative text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
@@ -51,7 +51,7 @@ const Ecommerce = () => {
         <BreadcrumbNav />
 
         {/* Who This Is For */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -80,7 +80,7 @@ const Ecommerce = () => {
         </section>
 
         {/* What You Get */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
@@ -111,7 +111,7 @@ const Ecommerce = () => {
         </section>
 
         {/* How It Works */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -140,7 +140,7 @@ const Ecommerce = () => {
         </section>
 
         {/* Platform Options */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -148,7 +148,7 @@ const Ecommerce = () => {
                   Choose Your Platform
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-                  We build on the platform that's right for your business—or create something bespoke.
+                  We build on the platform that's right for your business, or create something bespoke.
                 </p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <Link to="/platforms/shopify" className="p-6 bg-background rounded-xl hover:shadow-lg transition-all text-center group">
@@ -174,7 +174,7 @@ const Ecommerce = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
@@ -194,7 +194,7 @@ const Ecommerce = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">

@@ -90,7 +90,7 @@ const WebPackage = () => {
 
       <main className="flex-1">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden pt-40 pb-12 md:pt-44 md:pb-16 lg:pt-48 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+        <section className="relative overflow-hidden pt-40 pb-12 md:pt-44 md:pb-16 lg:pt-48 lg:pb-20 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
@@ -116,7 +116,7 @@ const WebPackage = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full bg-emerald-500/90 backdrop-blur-sm border border-emerald-400/50 shadow-lg shadow-emerald-500/25">
                 <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span className="text-xs font-bold tracking-wide uppercase text-white">
-                  Limited monthly intake — quality over volume
+                  Limited monthly intake, quality over volume
                 </span>
               </div>
 
@@ -165,7 +165,7 @@ const WebPackage = () => {
         <BreadcrumbNav />
 
         {/* 2. MAIN PACKAGES + COMPARISON */}
-        <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-12 md:py-16 lg:py-20 bg-background">
           <Container>
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center mb-12">
@@ -415,7 +415,7 @@ const WebPackage = () => {
         </section>
 
         {/* 3. ADVANCED SOLUTIONS */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background lg:py-[5px]">
+        <section className="py-16 md:py-20 bg-background lg:py-[5px]">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl md:3xl font-bold text-center mb-3">Need Something More Advanced?</h3>
@@ -514,7 +514,7 @@ const WebPackage = () => {
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Your site can feel up to 3× faster and more secure by running through the same global network that
-                  powers brands like Netflix, Discord, and Shopify — without you touching a single setting.
+                  powers brands like Netflix, Discord, and Shopify, without you touching a single setting.
                 </p>
               </div>
 
@@ -897,7 +897,7 @@ const WebPackage = () => {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">Trusted by Growing UK Businesses</h2>
                 <p className="text-slate-600 max-w-xl">
-                  From local trades to tech startups—websites that attract customers and drive growth.
+                  From local trades to tech startups, websites that attract customers and drive growth.
                 </p>
               </div>
               <Button
@@ -1119,7 +1119,7 @@ const WebPackage = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">AI Phone Receptionist</h3>
                   <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                    Never miss a call again — bookings and enquiries handled for you.
+                    Never miss a call again, bookings and enquiries handled for you.
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">From £100/month</p>
                   <Button asChild variant="outline" className="w-full mt-auto"></Button>
@@ -1134,7 +1134,7 @@ const WebPackage = () => {
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Custom AI Solution</h3>
                   <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                    Built around your workflows — from inbox to operations.
+                    Built around your workflows, from inbox to operations.
                   </p>
                   <p className="text-xl font-bold text-[#0F766E] mb-4">Custom pricing</p>
                   <Button asChild variant="outline" className="w-full mt-auto"></Button>
@@ -1161,9 +1161,9 @@ const WebPackage = () => {
             <div className="max-w-4xl mx-auto">
               {/* Header */}
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Website Packages — Frequently Asked Questions</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Website Packages: Frequently Asked Questions</h2>
                 <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
-                  Clear, simple answers — no hidden fees, no complicated terms.
+                  Clear, simple answers, no hidden fees, no complicated terms.
                 </p>
               </div>
 
@@ -1178,7 +1178,7 @@ const WebPackage = () => {
                     Can I modify my website later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes — your website is fully editable and expandable. For ongoing help, fixes, and small updates, the
+                    Yes, your website is fully editable and expandable. For ongoing help, fixes, and small updates, the
                     Support & Maintenance plan (from £25/month) is available.
                   </p>
                 </div>
@@ -1192,11 +1192,11 @@ const WebPackage = () => {
                     Do you provide hosting?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes — you can use your own hosting, or I can fully manage everything for you:
-                    <br />• <strong>£34.99/month</strong> — Hosting + Support (fully managed, replaces your hosting
+                    Yes, you can use your own hosting, or I can fully manage everything for you:
+                    <br />• <strong>£34.99/month</strong>: Hosting + Support (fully managed, replaces your hosting
                     bill)
-                    <br />• <strong>£19.99/month</strong> — Support only (if you already have hosting)
-                    <br />• <strong>£0</strong> — Use your own hosting with no extra monthly cost from me
+                    <br />• <strong>£19.99/month</strong>: Support only (if you already have hosting)
+                    <br />• <strong>£0</strong>: Use your own hosting with no extra monthly cost from me
                     <br />
                     <br />
                     If you&apos;re on my Hosting + Support plan and stop paying, hosting and maintenance stop and the
@@ -1262,7 +1262,7 @@ const WebPackage = () => {
                     Can you add features later?
                   </h3>
                   <p className="text-muted-foreground pl-8 leading-relaxed">
-                    Yes — your website is fully expandable. I can add booking systems, payments, dashboards,
+                    Yes, your website is fully expandable. I can add booking systems, payments, dashboards,
                     integrations and more. Most add-ons range from <strong>£200–800</strong> depending on complexity.
                   </p>
                 </div>

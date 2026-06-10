@@ -45,7 +45,7 @@ const Portfolio = () => {
           }
         });
       },
-      { threshold: 0.05, rootMargin: "50px" },
+      { threshold: 0, rootMargin: "50px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");

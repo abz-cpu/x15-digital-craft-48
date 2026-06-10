@@ -46,7 +46,7 @@ const serviceAreas = [
 const faqItems = [
   {
     question: "How do I find reliable POS installation near me?",
-    answer: "Look for a local provider who offers on-site installation, staff training, and ongoing support—not just hardware sales. At L&D Digital, we're based in Stratford and cover all of London. We install the system ourselves, train your team, and provide direct phone support when something goes wrong. No remote-only setup, no overseas call centres."
+    answer: "Look for a local provider who offers on-site installation, staff training, and ongoing support, not just hardware sales. At L&D Digital, we're based in Stratford and cover all of London. We install the system ourselves, train your team, and provide direct phone support when something goes wrong. No remote-only setup, no overseas call centres."
   },
   {
     question: "How quickly can you install a POS system?",
@@ -58,7 +58,7 @@ const faqItems = [
   },
   {
     question: "What's the advantage of choosing a local POS provider?",
-    answer: "Local providers offer faster installation, on-site training, emergency callouts, and direct phone support. When your system crashes during Saturday service, you need someone who can get there—not a ticket number. Being based in East London means we understand local business needs and can respond quickly."
+    answer: "Local providers offer faster installation, on-site training, emergency callouts, and direct phone support. When your system crashes during Saturday service, you need someone who can get there, not a ticket number. Being based in East London means we understand local business needs and can respond quickly."
   },
   {
     question: "Do you cover areas outside East London?",
@@ -96,7 +96,7 @@ const PosSetupNearMe = () => {
               POS Installation Near You
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-8">
-              When your payment system goes down, you need someone local who can actually get there. We install Square POS systems across London with on-site training and direct phone support—no call centres, no tickets.
+              When your payment system goes down, you need someone local who can actually get there. We install Square POS systems across London with on-site training and direct phone support, no call centres, no tickets.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 font-semibold">

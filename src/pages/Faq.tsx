@@ -231,7 +231,7 @@ const faqCategories: FAQCategory[] = [
         question: "How do voice agents work?",
         answer: (
           <>
-            Voice agents handle phone calls automatically—answering FAQs, booking appointments, and qualifying leads. They work 24/7 and can transfer to human agents when needed. Ideal for businesses receiving many enquiry calls. <Link to="/ai-package" className="text-primary hover:underline">Learn more →</Link>
+            Voice agents handle phone calls automatically, answering FAQs, booking appointments, and qualifying leads. They work 24/7 and can transfer to human agents when needed. Ideal for businesses receiving many enquiry calls. <Link to="/ai-package" className="text-primary hover:underline">Learn more →</Link>
           </>
         )
       },
@@ -388,7 +388,7 @@ const faqCategories: FAQCategory[] = [
         question: "What happens if something breaks?",
         answer: (
           <>
-            <Link to="/services/maintenance-support" className="text-primary hover:underline">Maintenance clients</Link> get priority support—usually same-day response. For others, we offer ad-hoc support at competitive rates. We also include a warranty period after launch (typically 30 days).
+            <Link to="/services/maintenance-support" className="text-primary hover:underline">Maintenance clients</Link> get priority support, usually same-day response. For others, we offer ad-hoc support at competitive rates. We also include a warranty period after launch (typically 30 days).
           </>
         )
       },

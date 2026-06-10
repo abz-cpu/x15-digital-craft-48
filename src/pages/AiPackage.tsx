@@ -51,7 +51,7 @@ const highlightedServices: HighlightedService[] = [
   {
     name: "AI Sales Assistant",
     description:
-      "Stop chasing cold leads. AI finds qualified prospects, books calls with decision-makers, and follows up automatically — so you only speak to people ready to buy.",
+      "Stop chasing cold leads. AI finds qualified prospects, books calls with decision-makers, and follows up automatically, so you only speak to people ready to buy.",
     setup: "£800–2,000 setup",
     monthly: "£200–800/month",
     icon: TrendingUp,
@@ -66,7 +66,7 @@ const highlightedServices: HighlightedService[] = [
   {
     name: "AI Email Outreach",
     description:
-      "Generate 20+ qualified leads per month while you sleep. AI sends personalised outreach, warms up prospects, and books meetings automatically — no spam, no manual work.",
+      "Generate 20+ qualified leads per month while you sleep. AI sends personalised outreach, warms up prospects, and books meetings automatically, no spam, no manual work.",
     setup: "£400–1,000 setup",
     monthly: "£100–400/month",
     icon: Mail,
@@ -81,7 +81,7 @@ const highlightedServices: HighlightedService[] = [
   {
     name: "AI Social Media Manager",
     description:
-      "Stay visible without the daily grind. AI creates, schedules, and posts engaging content across platforms — plus responds to comments — so your brand grows on autopilot.",
+      "Stay visible without the daily grind. AI creates, schedules, and posts engaging content across platforms, plus responds to comments, so your brand grows on autopilot.",
     setup: "£200–600 setup",
     monthly: "£50–150/month",
     icon: Share2,
@@ -96,7 +96,7 @@ const highlightedServices: HighlightedService[] = [
   {
     name: "AI Admin Assistant",
     description:
-      "Reclaim 20+ hours per week. AI handles invoicing, data entry, order processing, and routine admin automatically — so you can focus on growing the business, not paperwork.",
+      "Reclaim 20+ hours per week. AI handles invoicing, data entry, order processing, and routine admin automatically, so you can focus on growing the business, not paperwork.",
     setup: "£500–1,500 setup",
     monthly: "£150–600/month",
     icon: Briefcase,
@@ -285,7 +285,7 @@ const AiPackage = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+        <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           {/* Subtle gradient overlay */}
           <div
             aria-hidden="true"
@@ -319,11 +319,11 @@ const AiPackage = () => {
                 Save 20+ hours every week with AI that answers, books, and follows up 24/7.
               </p>
 
-              <p className="text-lg text-slate-200">Works with any website — yours or ours. No IT team required.</p>
+              <p className="text-lg text-slate-200">Works with any website, yours or ours. No IT team required.</p>
 
               {/* Urgency micro-copy */}
               <p className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-sm text-amber-200 font-semibold">
-                ⏱️ Limited monthly intake — quality over volume
+                ⏱️ Limited monthly intake, quality over volume
               </p>
 
               {/* Hero CTAs */}
@@ -359,7 +359,7 @@ const AiPackage = () => {
         <BreadcrumbNav />
 
         {/* Scenario Section */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-12 md:py-16 bg-background">
           <Container>
             <div className="bg-card rounded-2xl p-8 md:p-10 mb-8 text-center max-w-3xl mx-auto shadow-lg border border-border">
               {/* Pain points with icons */}
@@ -389,7 +389,7 @@ const AiPackage = () => {
               <p className="text-muted-foreground">
                 Already have a website? Add AI automation.
                 <br />
-                Works with ANY website — yours or ours.
+                Works with ANY website, yours or ours.
               </p>
             </div>
 
@@ -407,7 +407,7 @@ const AiPackage = () => {
         </section>
 
         {/* MAIN AI SOLUTIONS (3 PRIMARY CARDS) */}
-        <section id="ai-solutions" className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+        <section id="ai-solutions" className="py-12 md:py-16 lg:py-20 bg-muted">
           <Container>
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-10">
@@ -415,13 +415,13 @@ const AiPackage = () => {
                 Automate Your Admin. Capture More Leads.
               </h2>
               <p className="text-sm md:text-base text-muted-foreground">
-                AI systems that answer customers, capture leads, and handle admin — while you focus on what you do best.
+                AI systems that answer customers, capture leads, and handle admin, while you focus on what you do best.
               </p>
             </div>
 
             {/* 3 FEATURED SERVICES */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
-              {/* AI WEBSITE CHATBOT — MOST POPULAR */}
+              {/* AI WEBSITE CHATBOT: MOST POPULAR */}
               <AnimatedSection staggerIndex={0} animation="fade">
                 <Card className="hover-lift h-full border border-primary/30 relative">
                   <CardContent className="p-6 flex flex-col h-full">
@@ -441,7 +441,7 @@ const AiPackage = () => {
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       Capture leads while you sleep. AI converts visitors into qualified enquiries by answering
-                      questions, booking calls, and collecting details automatically — 24/7.
+                      questions, booking calls, and collecting details automatically: 24/7.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
@@ -500,8 +500,8 @@ const AiPackage = () => {
                     <h3 className="text-2xl font-bold mb-2">AI Inbox Assistant</h3>
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Reclaim 15+ hours per week. AI manages your inbox — replying, sorting, removing spam, and routing
-                      urgent enquiries — so you only see what actually matters.
+                      Reclaim 15+ hours per week. AI manages your inbox, replying, sorting, removing spam, and routing
+                      urgent enquiries, so you only see what actually matters.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
@@ -565,7 +565,7 @@ const AiPackage = () => {
 
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       Never miss a call again. AI receptionist answers 24/7 with a natural voice that books
-                      appointments, handles messages, and transfers urgent calls — customers won't know it's not human.
+                      appointments, handles messages, and transfers urgent calls, customers won't know it's not human.
                     </p>
 
                     <div className="mb-5 pb-4 border-b border-border">
@@ -616,7 +616,7 @@ const AiPackage = () => {
               <div className="text-center mb-8">
                 <h3 className="text-xl md:text-2xl font-semibold">Additional AI Services</h3>
                 <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-                  Powerful add-ons for sales, marketing, and operations — built on the same AI engine.
+                  Powerful add-ons for sales, marketing, and operations, built on the same AI engine.
                 </p>
               </div>
 
@@ -681,7 +681,7 @@ const AiPackage = () => {
               <div className="text-center mb-6">
                 <h3 className="text-lg md:text-xl font-semibold">7+ AI Services Available</h3>
                 <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-                  Advanced automations for specific business needs. Pick what fits you best — or combine them for a full
+                  Advanced automations for specific business needs. Pick what fits you best, or combine them for a full
                   custom stack.
                 </p>
               </div>
@@ -744,7 +744,7 @@ const AiPackage = () => {
         </section>
 
         {/* CUSTOM AI SOLUTION - LIGHT SECTION */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40">
+        <section className="py-16 md:py-20 bg-muted/40">
           <Container>
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -827,7 +827,7 @@ const AiPackage = () => {
                     What if customers don&apos;t like talking to AI?
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
-                    Our AI is trained to sound natural and helpful. Most customers can&apos;t tell the difference — and
+                    Our AI is trained to sound natural and helpful. Most customers can&apos;t tell the difference, and
                     if they prefer a human, the AI can transfer to you or take a message. You stay in control the whole
                     time.
                   </p>
@@ -886,7 +886,7 @@ const AiPackage = () => {
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground pl-8 leading-relaxed">
                     No surprise bills. Each plan includes a set number of interactions (usually 500–1,000+ per month).
-                    If you&apos;re consistently above that, we&apos;ll recommend a higher tier — but most businesses
+                    If you&apos;re consistently above that, we&apos;ll recommend a higher tier, but most businesses
                     stay well within limits.
                   </p>
                 </div>
@@ -945,7 +945,7 @@ const AiPackage = () => {
 
               {/* Subhead */}
               <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto leading-relaxed">
-                Book a 15-minute call. We'll show you exactly what AI can automate in YOUR business — with pricing in
+                Book a 15-minute call. We'll show you exactly what AI can automate in YOUR business, with pricing in
                 the same conversation.
               </p>
             </div>

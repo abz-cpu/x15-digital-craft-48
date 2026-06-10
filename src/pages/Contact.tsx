@@ -94,7 +94,7 @@ const Contact = () => {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -354,7 +354,7 @@ const Contact = () => {
       let description = "We'll reply within 24–48 hours with a detailed quote and next steps.";
       
       if (isPrivacyEmail) {
-        description += " If you used a school/university or Hide My Email address, confirmations can be delayed — but we've received your enquiry.";
+        description += " If you used a school/university or Hide My Email address, confirmations can be delayed, but we've received your enquiry.";
       }
       
       if (confirmationStatus === 'failed') {
@@ -414,19 +414,19 @@ const Contact = () => {
       <section className="pt-36 pb-12 md:pt-44 md:pb-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-3xl mx-auto text-center fade-in-section">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-5 leading-tight">
-            Contact L&amp;D Digital — Stratford, East London
+            Contact L&amp;D Digital: Stratford, East London
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-3 leading-relaxed">
-            Tell us what you need and we'll send you a clear quote — no sales pitch, no commitment.
+            Tell us what you need and we'll send you a clear quote, no sales pitch, no commitment.
           </p>
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
             <Clock className="h-4 w-4 text-primary" />
             We reply within 3 hours during UK business hours (Mon–Fri, 9am–6pm)
           </p>
 
-          {/* NAP (Name · Address · Phone) block — structured for local SEO + AI extraction */}
+          {/* NAP (Name · Address · Phone) block, structured for local SEO + AI extraction */}
           <div className="mt-6 inline-block text-left text-sm text-muted-foreground bg-muted/40 border border-border rounded-lg px-5 py-4">
-            <p className="font-semibold text-secondary mb-1">L&amp;D Digital — a division of Luminous &amp; Deliver Ltd</p>
+            <p className="font-semibold text-secondary mb-1">L&amp;D Digital, a division of Luminous &amp; Deliver Ltd</p>
             <p>7 Corsican Square, Stratford, London E15 1NN, United Kingdom</p>
             <p>
               Phone:{" "}
@@ -533,7 +533,7 @@ const Contact = () => {
                         <option value="not-sure">Not sure yet</option>
                       </select>
                       <p className="text-xs text-muted-foreground">
-                        Not sure? Use the quiz below — it recommends the right path.
+                        Not sure? Use the quiz below, it recommends the right path.
                       </p>
                     </div>
                   </div>
@@ -648,7 +648,7 @@ const Contact = () => {
                   
                   {/* Privacy email note */}
                   <p className="text-[11px] text-muted-foreground/70 text-center mt-3 leading-relaxed">
-                    Using a school, university, or privacy email (e.g. Hide My Email)? Our confirmation may not arrive — but we've still received your message and will respond within 24–48 hours.
+                    Using a school, university, or privacy email (e.g. Hide My Email)? Our confirmation may not arrive, but we've still received your message and will respond within 24–48 hours.
                   </p>
                 </form>
               </CardContent>
@@ -691,7 +691,7 @@ const Contact = () => {
                   <div className="mt-5 rounded-xl border border-border/70 bg-muted/30 p-4">
                     <p className="text-sm font-semibold text-secondary">Tip</p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      If you’re unsure, send what you have — we’ll ask only what’s missing.
+                      If you’re unsure, send what you have, we’ll ask only what’s missing.
                     </p>
                   </div>
                 </CardContent>
@@ -1005,10 +1005,10 @@ const Contact = () => {
                 {/* Details */}
                 <div className="lg:col-span-5">
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Near Abbey Road DLR — serving businesses nationwide and English-speaking clients worldwide.
+                    Near Abbey Road DLR, serving businesses nationwide and English-speaking clients worldwide.
                   </p>
                   <p className="text-sm text-muted-foreground mt-3 italic">
-                    Remote-first business — all meetings via video call unless otherwise arranged.
+                    Remote-first business, all meetings via video call unless otherwise arranged.
                   </p>
 
                   <div className="mt-5 space-y-3">
@@ -1065,7 +1065,7 @@ const Contact = () => {
               },
               {
                 title: "Conversion-focused structure",
-                desc: "We prioritise clarity, trust, and user flow — not random visuals.",
+                desc: "We prioritise clarity, trust, and user flow, not random visuals.",
               },
               {
                 title: "Simple handover + next steps",
@@ -1092,7 +1092,7 @@ const Contact = () => {
             <div className="rounded-xl border border-border/70 bg-muted/30 p-5 text-center">
               <p className="text-sm font-semibold text-secondary">Want a recommendation?</p>
               <p className="text-sm text-muted-foreground mt-1">
-                If you’re unsure whether you need a website, AI automation, or both — take the quiz.
+                If you’re unsure whether you need a website, AI automation, or both, take the quiz.
               </p>
               <Button variant="outline" className="mt-4" onClick={openQuiz}>
                 Take the 30-second quiz <ArrowRight className="ml-2 h-4 w-4" />
@@ -1109,7 +1109,7 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto fade-in-section">
           <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2 text-center">Common Questions</h2>
           <p className="text-sm md:text-base text-muted-foreground text-center mb-8">
-            Quick answers before you message — keeps things fast and clear.
+            Quick answers before you message, keeps things fast and clear.
           </p>
 
           <div className="space-y-2">
@@ -1134,7 +1134,7 @@ const Contact = () => {
               {
                 id: "pricing",
                 question: "How do pricing and quotes work?",
-                answer: "You'll receive a clear quote with scope + timeline. No pressure — decide when you're ready.",
+                answer: "You'll receive a clear quote with scope + timeline. No pressure, decide when you're ready.",
               },
               {
                 id: "location",
@@ -1222,7 +1222,7 @@ const Contact = () => {
               <div>
                 <h2 className="text-lg md:text-xl font-semibold text-secondary">Book a Free 30-Minute Call</h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We'll review your goals and advise the best approach — no pressure.
+                  We'll review your goals and advise the best approach, no pressure.
                 </p>
               </div>
 

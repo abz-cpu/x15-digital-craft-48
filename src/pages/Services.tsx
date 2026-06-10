@@ -80,7 +80,7 @@ const Services = () => {
         {/* ================================================================
             HERO SECTION
         ================================================================ */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(45,212,191,0.18),transparent_55%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(59,130,246,0.16),transparent_55%)]" />
 
@@ -95,7 +95,7 @@ const Services = () => {
               </h1>
 
               <p className="text-base md:text-lg text-slate-200/90 mb-6">
-                From your first website to AI-powered automation and full digital marketing — we handle everything so
+                From your first website to AI-powered automation and full digital marketing, we handle everything so
                 you can focus on your business.
               </p>
 
@@ -136,7 +136,7 @@ const Services = () => {
         {/* ================================================================
             SECTION 1: WEBSITES & APPS
         ================================================================ */}
-        <section id="websites" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section id="websites" className="py-16 md:py-20 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-primary/10 text-primary border-primary/20">Websites & Apps</Badge>
@@ -397,7 +397,7 @@ const Services = () => {
         {/* ================================================================
             SECTION 2: AI & AUTOMATION
         ================================================================ */}
-        <section id="ai" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
+        <section id="ai" className="py-16 md:py-20 bg-muted/40 border-t border-border/60">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-violet-500/10 text-violet-700 border-violet-500/20">AI & Automation</Badge>
@@ -516,13 +516,13 @@ const Services = () => {
         {/* ================================================================
             SECTION 3: BRANDING & DESIGN
         ================================================================ */}
-        <section id="branding" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section id="branding" className="py-16 md:py-20 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-amber-500/10 text-amber-700 border-amber-500/20">Branding & Design</Badge>
               <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">Look Professional, Be Memorable</h2>
               <p className="text-muted-foreground">
-                From logos to complete brand identities — visual design that makes your business stand out.
+                From logos to complete brand identities, visual design that makes your business stand out.
               </p>
             </div>
 
@@ -598,7 +598,7 @@ const Services = () => {
         {/* ================================================================
             SECTION 4: DIGITAL MARKETING
         ================================================================ */}
-        <section id="marketing" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
+        <section id="marketing" className="py-16 md:py-20 bg-muted/40 border-t border-border/60">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-green-500/10 text-green-700 border-green-500/20">Digital Marketing</Badge>
@@ -702,7 +702,7 @@ const Services = () => {
         {/* ================================================================
             SECTION 5: SUPPORT & HOSTING
         ================================================================ */}
-        <section id="support" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section id="support" className="py-16 md:py-20 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-slate-500/10 text-slate-700 border-slate-500/20">Support & Hosting</Badge>
@@ -769,7 +769,7 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">From £50/hour</p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-muted-foreground">
-                    <p>General tech support for small businesses — email setup, domain management, troubleshooting.</p>
+                    <p>General tech support for small businesses, email setup, domain management, troubleshooting.</p>
                     <Button asChild size="sm" variant="outline" className="w-full mt-2">
                       <Link to="/services/it-support">
                         Learn More <ArrowRight className="ml-2 h-3 w-3" />
@@ -785,7 +785,7 @@ const Services = () => {
         {/* ================================================================
             SISTER BRAND: L&D BUILDS
         ================================================================ */}
-        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/40 border-t border-border/60">
+        <section className="py-16 md:py-20 bg-muted/40 border-t border-border/60">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-12 fade-in-section">
               <Badge className="mb-3 bg-secondary/10 text-secondary border-secondary/20">Sister Brand</Badge>
@@ -963,7 +963,7 @@ const Services = () => {
               </h2>
 
               <p className="text-base md:text-lg text-ink-light max-w-2xl mx-auto">
-                Tell me where your business is now, and I&apos;ll recommend a simple path — website, AI, or both — with
+                Tell me where your business is now, and I&apos;ll recommend a simple path, website, AI, or both, with
                 a clear price and timeline.
               </p>
             </div>
@@ -997,7 +997,7 @@ const Services = () => {
             </div>
 
             <p className="text-xs text-ink/80 text-center">
-              No pressure, no hard sell — just a clear plan for your website, app, or AI system.
+              No pressure, no hard sell, just a clear plan for your website, app, or AI system.
             </p>
           </Container>
         </section>

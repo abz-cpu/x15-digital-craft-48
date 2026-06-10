@@ -34,7 +34,7 @@ const QuickStart = () => {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");

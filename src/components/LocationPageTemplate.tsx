@@ -84,7 +84,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
   const schemaFaqs = [
     {
       question: `How much does a website cost in ${location.name}?`,
-      answer: `Our websites for ${location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. Ecommerce stores and advanced features may have additional costs. You'll always get an upfront quote—no hidden fees.`,
+      answer: `Our websites for ${location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. Ecommerce stores and advanced features may have additional costs. You'll always get an upfront quote, no hidden fees.`,
     },
     {
       question: `Do I own the website after you build it?`,
@@ -130,7 +130,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
       question: `How much does a website cost in ${location.name}?`,
       answer: (
         <>
-          Our <Link to="/web-package" className="text-primary hover:underline">websites</Link> for {location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. <Link to="/services/ecommerce" className="text-primary hover:underline">Ecommerce stores</Link> and advanced features may have additional costs. You'll always get an upfront quote—no hidden fees.
+          Our <Link to="/web-package" className="text-primary hover:underline">websites</Link> for {location.name} businesses start from just £200. This includes responsive design, SEO optimization, and we handle hosting for you. <Link to="/services/ecommerce" className="text-primary hover:underline">Ecommerce stores</Link> and advanced features may have additional costs. You'll always get an upfront quote, no hidden fees.
         </>
       ),
     },
@@ -170,7 +170,7 @@ export const LocationPageTemplate = ({ location }: LocationPageTemplateProps) =>
       question: `Why choose L&D Digital for my ${location.name} business?`,
       answer: (
         <>
-          We're a London-based agency with deep knowledge of East London markets. We understand {location.name} businesses, offer competitive pricing, fast delivery, and ongoing support. Check out our <Link to="/about" className="text-primary hover:underline">About page</Link> or <Link to="/contact" className="text-primary hover:underline">get in touch</Link>—we're just a WhatsApp message away!
+          We're a London-based agency with deep knowledge of East London markets. We understand {location.name} businesses, offer competitive pricing, fast delivery, and ongoing support. Check out our <Link to="/about" className="text-primary hover:underline">About page</Link> or <Link to="/contact" className="text-primary hover:underline">get in touch</Link>, we're just a WhatsApp message away!
         </>
       ),
     },

@@ -229,6 +229,8 @@
   .fade-in-section {
     opacity: 0;
     transform: translateY(12px) scale(0.99);
+    /* Safety net: always reveal content even if the IntersectionObserver never fires */
+    animation: fade-in-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.9s forwards;
   }
 
   .animate-fade-in {

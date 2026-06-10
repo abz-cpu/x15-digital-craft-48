@@ -367,8 +367,7 @@ const Navigation = ({ darkHero = false }: NavigationProps) => {
                   className={`font-medium tracking-[0.12em] mt-0.5 uppercase transition-all duration-300 ${getMutedTextClass()} ${isScrolled ? "text-[7px] opacity-70" : "text-[9px]"}`}
                   style={{ textShadow: !isScrolled && darkHero ? '0 1px 2px rgba(0,0,0,0.25)' : 'none' }}
                 >
-                  Luminous &amp; Deliver —
-                </span>
+                  Luminous &amp; Deliver</span>
               </div>
             </PreloadLink>
 

@@ -24,7 +24,7 @@ const buttonVariants = cva(
           // 🟢 TEAL GRADIENT
           "bg-[linear-gradient(135deg,_hsl(170,83%,45%)_0%,_hsl(170,83%,35%)_40%,_hsl(170,83%,25%)_100%)]",
           "text-primary-foreground",
-          // 🟢 TEAL SHADOW — rgba(15,118,110) = TEAL (#0F766E)
+          // 🟢 TEAL SHADOW, rgba(15,118,110) = TEAL (#0F766E)
           "shadow-[0_18px_40px_rgba(15,118,110,0.35)]",
           // 🟢 TEAL HOVER SHADOW
           "hover:shadow-[0_22px_55px_rgba(15,118,110,0.5)]",

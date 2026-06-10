@@ -101,7 +101,7 @@ const Sectors = () => (
             Industry-Specific Website Expertise
           </h1>
           <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            We don't just build websites — we build websites that work for your specific industry. Our sector expertise means faster launches, higher conversions, and better ROI.
+            We don't just build websites, we build websites that work for your specific industry. Our sector expertise means faster launches, higher conversions, and better ROI.
           </p>
         </Container>
       </section>

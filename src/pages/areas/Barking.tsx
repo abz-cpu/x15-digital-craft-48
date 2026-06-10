@@ -5,7 +5,7 @@ const Barking = () => {
     name: "Barking",
     slug: "barking",
     postcodes: ["IG11", "RM8", "RM9", "RM10"],
-    description: "Expert web development for Barking and Dagenham businesses. We create affordable, high-quality websites that help local businesses attract more customers—with fast delivery and no hidden fees.",
+    description: "Expert web development for Barking and Dagenham businesses. We create affordable, high-quality websites that help local businesses attract more customers, with fast delivery and no hidden fees.",
     heroSubheadline: "Barking is experiencing major regeneration, with new developments transforming the town centre. We help local businesses capture this growth with professional websites designed for results.",
     localLandmarks: [
       "Barking Town Centre",

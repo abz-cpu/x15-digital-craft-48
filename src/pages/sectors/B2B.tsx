@@ -213,7 +213,7 @@ const B2B = () => {
                 { icon: Users, title: "Team Profiles", desc: "Build trust by showcasing your experts, qualifications, and experience" },
                 { icon: Target, title: "Service Pages", desc: "Clear, benefit-focused service descriptions that address client pain points" },
                 { icon: TrendingUp, title: "Lead Capture", desc: "Strategic CTAs, forms, and downloadable resources that convert" },
-                { icon: BarChart3, title: "CRM Integration", desc: "HubSpot, Salesforce, Pipedrive—leads flow directly to your sales team" },
+                { icon: BarChart3, title: "CRM Integration", desc: "HubSpot, Salesforce, Pipedrive, leads flow directly to your sales team" },
                 { icon: Briefcase, title: "Thought Leadership", desc: "Blog, resources, and insights that position you as industry experts" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>

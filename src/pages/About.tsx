@@ -35,7 +35,7 @@ const About = () => {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" },
     );
 
     const sections = document.querySelectorAll(".fade-in-section");
@@ -197,7 +197,7 @@ const About = () => {
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-secondary">Abdul M Taher</strong> — Founder &amp; Lead Developer
+                    <strong className="text-secondary">Abdul M Taher</strong>: Founder &amp; Lead Developer
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -210,7 +210,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Based in Stratford, East London — serving UK clients remotely</span>
+                  <span>Based in Stratford, East London, serving UK clients remotely</span>
                 </li>
               </ul>
               <Button asChild variant="outline" className="mt-6">
@@ -230,11 +230,11 @@ const About = () => {
                 </li>
                 <li>
                   <strong className="text-secondary">Companies House number:</strong>{" "}
-                  <span className="text-amber-600">[PLACEHOLDER — owner to add]</span>
+                  <span className="text-amber-600">[PLACEHOLDER, owner to add]</span>
                 </li>
                 <li>
                   <strong className="text-secondary">Registered office:</strong>{" "}
-                  <span className="text-amber-600">[PLACEHOLDER — owner to add]</span>
+                  <span className="text-amber-600">[PLACEHOLDER, owner to add]</span>
                 </li>
                 <li>
                   <strong className="text-secondary">Trading address:</strong> Stratford, East London, UK

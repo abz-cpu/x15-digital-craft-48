@@ -135,7 +135,7 @@ const SupportSla = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-40 pb-12 md:pt-44 md:pb-16 lg:pt-48 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+        <section className="relative overflow-hidden pt-40 pb-12 md:pt-44 md:pb-16 lg:pt-48 lg:pb-20 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
           <div
             aria-hidden="true"
             className="absolute inset-0 opacity-30 pointer-events-none"

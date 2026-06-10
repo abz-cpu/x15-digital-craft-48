@@ -127,7 +127,7 @@ const PersonalisedApps = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-40 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-primary/90 to-secondary">
+        <section className="relative overflow-hidden pt-40 pb-20 md:pt-44 md:pb-24 lg:pt-48 lg:pb-28 bg-gradient-to-br from-primary via-primary/90 to-secondary">
           {/* Decorative elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
@@ -142,7 +142,7 @@ const PersonalisedApps = () => {
                 Stop Drowning in Spreadsheets
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-4">
-                Order trackers, invoice managers, financial dashboards — built exactly how you work.
+                Order trackers, invoice managers, financial dashboards, built exactly how you work.
               </p>
               <p className="text-lg text-white/70 mb-8">
                 Personalised apps that replace your messy spreadsheets with clean, simple tools.
@@ -167,7 +167,7 @@ const PersonalisedApps = () => {
         <BreadcrumbNav />
 
         {/* Who This Is For */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-10 md:py-20 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -198,7 +198,7 @@ const PersonalisedApps = () => {
                 </div>
                 <div className="text-center mt-8">
                   <p className="text-muted-foreground">
-                    <strong className="text-secondary">You're not alone.</strong> Most small business owners start this way — but they don't have to stay there.
+                    <strong className="text-secondary">You're not alone.</strong> Most small business owners start this way, but they don't have to stay there.
                   </p>
                 </div>
               </div>
@@ -207,7 +207,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Real-World Examples */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="py-10 md:py-20 bg-muted/30">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-5xl mx-auto">
@@ -256,7 +256,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* What You Get */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -285,7 +285,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* How It Works */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -314,7 +314,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-10 md:py-20 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-10">
@@ -380,7 +380,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="py-10 md:py-20 bg-muted/30">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-3xl mx-auto">
@@ -419,7 +419,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* Related Services */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6 text-center">
@@ -448,7 +448,7 @@ const PersonalisedApps = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

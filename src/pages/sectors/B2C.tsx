@@ -33,7 +33,7 @@ const B2C = () => {
   const faqs = [
     {
       question: "What makes a B2C website different from B2B?",
-      answer: "B2C websites focus on driving immediate action—purchases, bookings, or signups. They prioritise emotional appeal, fast load times, mobile experience, easy checkout, and trust signals like reviews. The buying decision is quicker, so the website must convert on first visit."
+      answer: "B2C websites focus on driving immediate action, purchases, bookings, or signups. They prioritise emotional appeal, fast load times, mobile experience, easy checkout, and trust signals like reviews. The buying decision is quicker, so the website must convert on first visit."
     },
     {
       question: "How much does a B2C website cost in London?",
@@ -49,7 +49,7 @@ const B2C = () => {
     },
     {
       question: "How do you ensure fast website speed?",
-      answer: "We optimise images, use modern coding practices, implement caching, and choose quality hosting. For B2C sites where speed directly impacts sales, we often recommend our custom-coded approach—no bloated themes or plugins slowing things down."
+      answer: "We optimise images, use modern coding practices, implement caching, and choose quality hosting. For B2C sites where speed directly impacts sales, we often recommend our custom-coded approach, no bloated themes or plugins slowing things down."
     }
   ];
 
@@ -72,7 +72,7 @@ const B2C = () => {
     },
     {
       name: "Speed & Performance",
-      text: "Optimise for speed. Every second of load time costs conversions—we ensure your site is lightning fast."
+      text: "Optimise for speed. Every second of load time costs conversions, we ensure your site is lightning fast."
     },
     {
       name: "Launch & Analytics",
@@ -210,7 +210,7 @@ const B2C = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: Smartphone, title: "Mobile-First Design", desc: "Designed for the 60%+ of your visitors on mobile devices" },
-                { icon: Zap, title: "Lightning Fast", desc: "Optimised for speed—under 3 seconds load time target" },
+                { icon: Zap, title: "Lightning Fast", desc: "Optimised for speed, under 3 seconds load time target" },
                 { icon: CreditCard, title: "Easy Checkout", desc: "Streamlined purchase flow with multiple payment options" },
                 { icon: Star, title: "Reviews & Social Proof", desc: "Customer reviews, testimonials, and trust badges that convert" },
                 { icon: TrendingUp, title: "Conversion Optimised", desc: "Strategic CTAs, urgency elements, and persuasive design" },
@@ -306,7 +306,7 @@ const B2C = () => {
                 Which Platform for Your Store?
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                We build on multiple platforms—here's how to choose.
+                We build on multiple platforms, here's how to choose.
               </p>
             </AnimatedSection>
             

@@ -65,7 +65,7 @@ const ItSupport = () => {
 
       <main className="flex-1">
         {/* HERO */}
-        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="relative overflow-hidden pt-40 pb-16 md:pt-44 md:pb-20 lg:pt-48 lg:pb-24 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <AnimatedSection animation="fade">
               <div className="relative text-center max-w-3xl mx-auto">
@@ -79,7 +79,7 @@ const ItSupport = () => {
                   Reliable technical support for your day-to-day operations.
                 </p>
                 <p className="text-base md:text-lg text-white/80">
-                  Expert help when you need it — without the cost of a full-time hire.
+                  Expert help when you need it, without the cost of a full-time hire.
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -104,7 +104,7 @@ const ItSupport = () => {
         <BreadcrumbNav />
 
         {/* WHO THIS IS FOR */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -133,7 +133,7 @@ const ItSupport = () => {
         </section>
 
         {/* WHAT YOU GET */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-4xl mx-auto">
@@ -144,7 +144,7 @@ const ItSupport = () => {
                     {
                       icon: Monitor,
                       title: "Remote Support",
-                      desc: "Quick fixes via remote access — no need to wait for someone to come on-site.",
+                      desc: "Quick fixes via remote access, no need to wait for someone to come on-site.",
                     },
                     {
                       icon: Wifi,
@@ -177,7 +177,7 @@ const ItSupport = () => {
         </section>
 
         {/* WHAT'S COVERED */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-4xl mx-auto">
@@ -206,7 +206,7 @@ const ItSupport = () => {
         </section>
 
         {/* L&D BUILDS – SISTER BRAND */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+        <section className="py-16 md:py-24 bg-muted">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-7xl mx-auto">
@@ -341,7 +341,7 @@ const ItSupport = () => {
         </section>
 
         {/* PRICING */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <section className="py-8 md:py-16 bg-primary/5">
           <Container>
             <AnimatedSection animation="fade">
               <div className="max-w-2xl mx-auto text-center">
@@ -357,7 +357,7 @@ const ItSupport = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <section className="py-8 md:py-16 bg-background">
           <Container>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center">
@@ -380,7 +380,7 @@ const ItSupport = () => {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
+        <section className="py-10 md:py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-gray-900">
           <Container>
             <AnimatedSection animation="scale">
               <div className="max-w-3xl mx-auto text-center">

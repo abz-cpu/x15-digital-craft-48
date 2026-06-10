@@ -122,7 +122,7 @@ const Shopify = () => {
                   <span className="text-green-600 block mt-2">Sell More Online</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
-                  Launch your Shopify store with confidence. We design and build conversion-optimised ecommerce stores for London businesses—from product setup to payment integration, we handle everything.
+                  Launch your Shopify store with confidence. We design and build conversion-optimised ecommerce stores for London businesses, from product setup to payment integration, we handle everything.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" asChild className="text-lg bg-green-600 hover:bg-green-700">
@@ -189,7 +189,7 @@ const Shopify = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Starter Store Setup", desc: "Theme customisation, product upload, payment setup—ready to sell", price: "From £1,000" },
+                { title: "Starter Store Setup", desc: "Theme customisation, product upload, payment setup, ready to sell", price: "From £1,000" },
                 { title: "Custom Theme Design", desc: "Unique branded design that stands out from competitors", price: "From £2,000" },
                 { title: "App Integrations", desc: "Email marketing, reviews, inventory, accounting integrations", price: "From £400" },
                 { title: "Migration Service", desc: "Move from WooCommerce, Magento, or other platforms seamlessly", price: "From £600" },
@@ -210,7 +210,7 @@ const Shopify = () => {
             <div className="mt-12 bg-green-500/5 rounded-xl p-6 border border-green-500/20 max-w-3xl mx-auto">
               <h3 className="font-semibold text-lg mb-2 text-center">💡 Avoid Monthly Platform Fees?</h3>
               <p className="text-muted-foreground text-center mb-4">
-                Shopify's monthly fees (£25-300) add up over time. For some businesses, our <Link to="/platforms/custom-development" className="text-green-600 hover:underline font-medium">custom-coded ecommerce solutions</Link> can be more cost-effective—no monthly platform fees, full ownership, and unlimited customisation. <Link to="/web-package" className="text-green-600 hover:underline">Compare our packages →</Link>
+                Shopify's monthly fees (£25-300) add up over time. For some businesses, our <Link to="/platforms/custom-development" className="text-green-600 hover:underline font-medium">custom-coded ecommerce solutions</Link> can be more cost-effective, no monthly platform fees, full ownership, and unlimited customisation. <Link to="/web-package" className="text-green-600 hover:underline">Compare our packages →</Link>
               </p>
             </div>
           </Container>
@@ -232,10 +232,10 @@ const Shopify = () => {
               {[
                 { icon: Zap, title: "Fast Setup", desc: "Launch your store in days, not months. No server management or technical setup required" },
                 { icon: Shield, title: "Secure & Reliable", desc: "PCI-compliant hosting, SSL included, 99.99% uptime. Shopify handles security" },
-                { icon: CreditCard, title: "Easy Payments", desc: "Shopify Payments, PayPal, Apple Pay, Google Pay—accept all major payment methods" },
+                { icon: CreditCard, title: "Easy Payments", desc: "Shopify Payments, PayPal, Apple Pay, Google Pay, accept all major payment methods" },
                 { icon: BarChart3, title: "Built-in Analytics", desc: "Track sales, visitors, and customer behaviour with Shopify's powerful reporting" },
                 { icon: Globe, title: "Multi-Channel Selling", desc: "Sell on Instagram, Facebook, Amazon, and eBay from one dashboard" },
-                { icon: TrendingUp, title: "Scalable", desc: "From 10 orders to 10,000—Shopify scales with your business automatically" },
+                { icon: TrendingUp, title: "Scalable", desc: "From 10 orders to 10,000, Shopify scales with your business automatically" },
               ].map((item, index) => (
                 <AnimatedSection key={index} animation="fade" staggerIndex={index}>
                   <div className="flex gap-4">

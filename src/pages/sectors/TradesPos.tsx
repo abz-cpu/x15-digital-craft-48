@@ -50,7 +50,7 @@ const faqItems = [
   },
   {
     question: "Is it suitable for mobile work?",
-    answer: "Very much so. The Square Reader connects to your phone via Bluetooth for on-site card payments. Invoicing works anywhere with mobile signal. The app runs on iOS and Android—no special hardware needed for basic mobile payments."
+    answer: "Very much so. The Square Reader connects to your phone via Bluetooth for on-site card payments. Invoicing works anywhere with mobile signal. The app runs on iOS and Android, no special hardware needed for basic mobile payments."
   },
   {
     question: "How long does trade POS installation take?",
@@ -105,7 +105,7 @@ const tradesTypes = [
   {
     icon: Truck,
     title: "Mobile Services",
-    description: "Plumbers, electricians, locksmiths—get paid on-site without hassle."
+    description: "Plumbers, electricians, locksmiths, get paid on-site without hassle."
   }
 ];
 
@@ -293,7 +293,7 @@ export default function TradesPos() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Hardware for Mobile Work</h2>
             <p className="text-muted-foreground text-lg">
-              Own your equipment outright—no leasing, no rental fees.
+              Own your equipment outright, no leasing, no rental fees.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

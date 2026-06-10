@@ -104,7 +104,7 @@ const VoiceFaq = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Voice Search FAQ | L&D Digital — Web, SEO & AI in East London"
+        title="Voice Search FAQ | L&D Digital: Web, SEO & AI in East London"
         description="Voice-search optimised answers to the most common questions about web design, SEO, AI automation and small business websites in London in 2026."
         canonicalUrl="https://digital.luminousanddeliver.co.uk/voice-faq"
         keywords="voice search FAQ, web design London voice search, SEO voice search, AI automation voice assistant"
@@ -116,7 +116,7 @@ const VoiceFaq = () => {
       </div>
 
       <main>
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-20">
           <Container>
             <div className="max-w-3xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -155,8 +155,7 @@ const VoiceFaq = () => {
                   Didn't find your question?
                 </h3>
                 <p className="text-muted-foreground mb-5">
-                  Get a free website review and we'll answer any specific question about your project
-                  — usually within three hours.
+                  Get a free website review and we'll answer any specific question about your project, usually within three hours.
                 </p>
                 <Button asChild size="lg">
                   <Link to="/contact">

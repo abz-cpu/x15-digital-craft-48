@@ -2,7 +2,7 @@
 
 A cross-platform (web + iOS + Android), offline-first 2D/3D floor-plan drawing and property-data SaaS for UK estate agents, EPC (RdSAP) assessors, and interior designers — a modern, touch-first competitor to PlanUp and zPlan.
 
-**Status:** Approved architecture & roadmap. No application code yet — the product starts life in a new dedicated repository; this document (and the design drafts in `design/`) are the specification for it.
+**Status:** Approved architecture & roadmap — implementation underway. The application lives in [`/studio`](../../studio/) in this repository (the GitHub integration could not create the planned dedicated repo; `studio/` is fully self-contained and extractable later). Phase 0 (monorepo scaffold, design tokens, CI), Phase 1 (properties dashboard with guest-mode local-first storage), and the Phase 2 editor slice (walls, rooms, snapping, undo/redo, GIA) are built and verified — see `studio/README.md`.
 
 **Founding constraints:** solo founder building with AI tooling · all platforms launch together from one codebase · 3D is a post-MVP fast-follow · Guest Mode (no-account local use) is mandatory for App Store approval.
 

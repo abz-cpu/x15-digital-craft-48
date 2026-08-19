@@ -109,13 +109,15 @@ async function verifyWebhookSignature(payload: string, headers: Headers, secret:
     // Svix signed payload: "{id}.{timestamp}.{payload}"
     const signedPayload = `${svixId}.${svixTimestamp}.${payload}`;
 
-    // IMPORTANT:
-    // Resend/Svix secrets often look like "whsec_...". Treat the part after "whsec_" as a normal UTF-8 secret.
-    const normalizedSecret = secret.startsWith("whsec_") ? secret.slice(6) : secret;
+    // Resend/Svix secrets use "whsec_<base64>". Decode that payload to the
+    // original key bytes before calculating the HMAC.
+    const secretBytes = secret.startsWith("whsec_")
+      ? Uint8Array.from(atob(secret.slice(6)), (char) => char.charCodeAt(0))
+      : new TextEncoder().encode(secret);
 
     const key = await crypto.subtle.importKey(
       "raw",
-      new TextEncoder().encode(normalizedSecret),
+      secretBytes,
       { name: "HMAC", hash: "SHA-256" },
       false,
       ["sign"],
@@ -255,17 +257,20 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {
     const payload = await request.text();
 
-    // Verify signature if configured
-    if (env.RESEND_WEBHOOK_SECRET) {
-      const isValid = await verifyWebhookSignature(payload, request.headers, env.RESEND_WEBHOOK_SECRET);
-      if (!isValid) {
-        return new Response(JSON.stringify({ ok: false, error: "invalid_signature" }), {
-          status: 401,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        });
-      }
-    } else {
-      console.warn("RESEND_WEBHOOK_SECRET not configured - webhook verification skipped");
+    if (!env.RESEND_WEBHOOK_SECRET) {
+      console.error("RESEND_WEBHOOK_SECRET not configured - rejecting webhook");
+      return new Response(JSON.stringify({ ok: false, error: "not_configured" }), {
+        status: 503,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    const isValid = await verifyWebhookSignature(payload, request.headers, env.RESEND_WEBHOOK_SECRET);
+    if (!isValid) {
+      return new Response(JSON.stringify({ ok: false, error: "invalid_signature" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
     }
 
     const event: ResendWebhookEvent = JSON.parse(payload);

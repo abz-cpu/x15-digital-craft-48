@@ -56,23 +56,15 @@ const corsHeaders = {
 // ---------- Svix signature verification helpers ----------
 
 function parseSvixSignatures(headerValue: string): string[] {
-  // Seen formats:
-  // 1) "v1=abc, v1=def"
-  // 2) "v1,abc v1,def"
-  // 3) "v1=abc"
-  const tokens = headerValue
-    .split(/[,\s]+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  const signatures: string[] = [];
+  const pattern = /v1[=,]([A-Za-z0-9+/=_-]+)/g;
+  let match: RegExpExecArray | null;
 
-  const out: string[] = [];
-  for (const t of tokens) {
-    if (t.startsWith("v1=")) out.push(t.slice(3));
-    else if (t.includes("=")) out.push(t.split("=")[1] || "");
-    else if (t.includes(",")) out.push(t.split(",")[1] || "");
-    else out.push(t);
+  while ((match = pattern.exec(headerValue)) !== null) {
+    signatures.push(match[1]);
   }
-  return out.filter(Boolean);
+
+  return signatures;
 }
 
 function arrayBufferToBase64(buffer: ArrayBuffer): string {
